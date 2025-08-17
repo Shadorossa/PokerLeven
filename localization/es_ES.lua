@@ -1097,6 +1097,15 @@ return {
                 } }
             },
 
+            j_ina_Holly_Cricket = {
+                name = "Holly Cricket",
+                text = { {
+                    "{C:wind}Salpicadura{}",
+                    "Todas las cartas jugadas puntúan",
+                } }
+            },
+
+
             j_ina_Nelly = {
                 name = "Nelly",
                 text = { { "Por cada ronda se otorga entre {C:money}#1#${} a {C:money}#2#${},",

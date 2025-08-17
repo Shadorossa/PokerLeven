@@ -405,8 +405,27 @@ local Rex_George = J({
     }
 })
 
+-- Holly Cricket
+local Holly_Cricket = J({
+    name = "Holly_Cricket",
+    pos = { x = 12, y = 0 },
+    config = { extra = { activated = false } },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+    end
+})
 
 return {
     name = "Scout",
-    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
+    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Holly_Cricket, Mach, Dulce, Ryoma },
 }
