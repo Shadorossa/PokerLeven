@@ -9,7 +9,7 @@ local DarkFeldt = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.GK,
     techtype = C.UPGRADES.Plus,
@@ -30,7 +30,7 @@ local NightDark = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
@@ -52,7 +52,7 @@ local SamDark = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
@@ -66,20 +66,31 @@ local SamDark = {
 local JimDark = J({
     name = "JimDark",
     pos = { x = 0, y = 13 },
-    config = { extra = {} },
+    config = { extra = { Xchip_mod = 0.1, current_Xchips = 1 } },
     loc_vars = function(self, info_queue, center)
-        return {}
+        return { vars = { center.ability.extra.Xchip_mod, center.ability.extra.current_Xchips } }
     end,
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
     pteam = "Emperadores Oscuros",
     blueprint_compat = true,
     calculate = function(self, card, context)
+        if context.joker_main and context.scoring_hand then
+            local current = card.ability.extra.current_Xchips
+            if not context.blueprint then
+                card.ability.extra.current_Xchips = card.ability.extra.current_Xchips + card.ability.extra.Xchip_mod
+            end
+            return {
+                message = localize{type='variable',key='a_xchips',vars={current}},
+                Xchip_mod = current,
+                colour = G.C.CHIPS
+            }
+        end
     end
 })
 
@@ -95,7 +106,7 @@ local TodDark = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
@@ -139,7 +150,7 @@ local TimmyDark = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
@@ -161,7 +172,7 @@ local MaxDark = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
@@ -183,7 +194,7 @@ local ShadowDark = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
@@ -227,7 +238,7 @@ local KevinDark = {
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,

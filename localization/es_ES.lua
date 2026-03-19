@@ -1243,7 +1243,7 @@ return {
                     "de {X:mountain,C:white}Montaña{} y {X:wind,C:white}Viento{}."
                 }
             },
-                        j_ina_SamfordR = {
+            j_ina_SamfordR = {
                 name = "David Samford",
                 text = {
                     "Pierdes todos tus {C:red}descartes{} al elegir ciega",
@@ -1258,6 +1258,16 @@ return {
                     "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
                     "A {C:attention}King{} y {C:attention}Samford{} los {C:green}mejora{} un {C:attention}#3#%{}.",
                     "{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive}){}"
+                }
+            },
+
+            -- Emperadores Oscuros
+            j_ina_JimDark = {
+                name = "Jim Wraith",
+                text = {
+                    "Gana {X:chips,C:white}X#1#{} Fichas",
+                    "cada vez que anota puntos",
+                    "{C:inactive}(Actual: {X:chips,C:white}X#2#{C:inactive}){}"
                 }
             },
 
