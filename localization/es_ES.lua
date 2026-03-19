@@ -1214,7 +1214,18 @@ return {
                 } }
             },
 
+            
+
             -- Royal Redux
+            j_ina_KingR = {
+                name = "Joseph King",
+                text = {
+                    "Crea {C:attention}#1#{} {X:mountain,C:white}Barreras{} al inicio de ciega.",
+                    "Da {C:chips}+#2#{} fichas por {C:attention}Mano máxima{}.",
+                    "{C:red}Pierdes #3# mano máxima{} tras vencer Jefe.",
+                    "{C:inactive}(Actual: {C:chips}+#4#{C:inactive}){}"
+                }
+            },
             j_ina_Jamm = {
                 name = "Jamm",
                 text = {
@@ -1222,6 +1233,23 @@ return {
                     "de {X:fire,C:white}Fuego{} y {X:forest,C:white}Bosque{}.",
                     "{C:red}Desactiva{} a los comodines",
                     "de {X:mountain,C:white}Montaña{} y {X:wind,C:white}Viento{}."
+                }
+            },
+                        j_ina_SamfordR = {
+                name = "David Samford",
+                text = {
+                    "Pierdes todos tus {C:red}descartes{} al elegir ciega",
+                    "Otorga {X:mult,C:white}X#1#{} de Multiplicador por descarte",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive}){}"
+                }
+            },
+            j_ina_CalebR = {
+                name = "Caleb Stonewall",
+                text = {
+                    "Al elegir ciega {C:attention}destruye{} a los reservas",
+                    "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
+                    "A {C:attention}King{} y {C:attention}Samford{} los {C:green}mejora{} un {C:attention}#3#%{}.",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive}){}"
                 }
             },
 
