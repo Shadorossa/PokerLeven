@@ -6,7 +6,7 @@ local DarkFeldt = {
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 3, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -27,7 +27,7 @@ local NightDark = {
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 3, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -235,7 +235,7 @@ local KevinDark = {
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 2, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
