@@ -9,7 +9,7 @@ local CalebR = J({
   rarity = 3, -- Rare
   pools = { ["Royal Redux"] = true },
   cost = 8,
-  atlas = "Jokers01",
+  atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.MF,
   pteam = "Royal Redux",
