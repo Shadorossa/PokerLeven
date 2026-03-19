@@ -1214,6 +1214,16 @@ return {
                 } }
             },
 
+            -- Emperadores Oscuros
+            j_ina_JimDark = {
+                name = "Jim",
+                text = {
+                    "Gana {X:chips,C:white}X#1#{} Fichas",
+                    "cada vez que anota puntos",
+                    "{C:inactive}(Actual: {X:chips,C:white}X#2#{C:inactive}){}"
+                }
+            },
+
             -- GANADORES DE TORNEO
             j_ina_Turi = {
                 name = "Turiño",
