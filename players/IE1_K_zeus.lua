@@ -227,6 +227,39 @@ local Hermes = {
   }
 }
 
+-- Athena
+local Athena = {
+  name = "Athena",
+  pos = { x = 12, y = 12 },
+  config = { extra = { chips_mod = 15 } },
+  loc_vars = function(self, info_queue, center)
+    local strat_used = G.GAME.strat_cards_used or 0
+    return { vars = { center.ability.extra.chips_mod, strat_used * center.ability.extra.chips_mod } }
+  end,
+  rarity = 1, -- Common
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pteam = "Zeus",
+  techtype = C.UPGRADES.Number,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.cardarea == G.jokers and context.joker_main then
+      local strat_used = G.GAME.strat_cards_used or 0
+      local total_chips = strat_used * card.ability.extra.chips_mod
+      if total_chips > 0 then
+        return {
+          message = localize{type='variable',key='a_chips',vars={total_chips}},
+          colour = G.C.CHIPS,
+          chip_mod = total_chips
+        }
+      end
+    end
+  end
+}
+
 -- Demeter
 local Demeter = {
   name = "Demeter",
@@ -365,5 +398,5 @@ local Aphrodite = J({
 
 return {
   name = "Zeus",
-  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Demeter, Aphrodite },
+  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Athena, Demeter, Aphrodite },
 }
