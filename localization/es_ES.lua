@@ -1214,6 +1214,17 @@ return {
                 } }
             },
 
+
+            -- Épsilon
+            j_ina_Dvalin = {
+                name = "Dvalin",
+                text = {
+                    "{X:gk,C:white}GK{} (Izq): {C:chips}+#1#{} y +{C:attention}#2#{} {X:mountain,C:white}Barrera{}.",
+                    "{X:fw,C:white}FW{} (Der): -{C:attention}#4#{} {X:mountain,C:white}Barrera{} = {X:mult,C:white}X#3#{}x{X:mountain,C:white}Barrera{}",
+                    "{C:inactive}(Actual: {X:mountain,C:white}#6#{C:inactive} - {X:mult,C:white}X#5#{C:inactive}){}"
+                }
+            },
+
             -- GANADORES DE TORNEO
             j_ina_Turi = {
                 name = "Turiño",
