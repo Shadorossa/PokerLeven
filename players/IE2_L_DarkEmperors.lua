@@ -239,6 +239,5 @@ local KevinDark = {
 
 return {
     name = "Emperadores Oscuros",
-    list = {}
-    -- list = { NathanDark },
+    list = { JimDark }
 }
