@@ -1214,6 +1214,17 @@ return {
                 } }
             },
 
+            -- Royal Redux
+            j_ina_Jamm = {
+                name = "Jamm",
+                text = {
+                    "Otorga {X:mult,C:white}X#1#{} Mult a los {C:attention}Jokers{}",
+                    "de {X:fire,C:white}Fuego{} y {X:forest,C:white}Bosque{}.",
+                    "{C:red}Desactiva{} a los comodines",
+                    "de {X:mountain,C:white}Montaña{} y {X:wind,C:white}Viento{}."
+                }
+            },
+
             -- GANADORES DE TORNEO
             j_ina_Turi = {
                 name = "Turiño",
