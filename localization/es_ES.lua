@@ -1214,6 +1214,16 @@ return {
                 } }
             },
 
+            j_ina_SamfordR = {
+                name = "David Samford",
+                text = {
+                    "Pierdes todos tus {C:red}descartes{} al elegir",
+                    "ciega. Otorga {X:mult,C:white}X#1#{} de Multiplicador",
+                    "por cada descarte consumido.",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive}){}"
+                }
+            },
+
             -- GANADORES DE TORNEO
             j_ina_Turi = {
                 name = "Turiño",
