@@ -343,6 +343,7 @@ local Color = {
   end
 }
 
+
 return {
     name = "Royal Redux",
     list = { KingR }
