@@ -1265,6 +1265,7 @@ return {
             j_ina_JimDark = {
                 name = "Jim Wraith",
                 text = {
+                    "{C:wind}Giro bobina{}",
                     "Gana {X:chips,C:white}X#1#{} Fichas",
                     "cada vez que anota puntos",
                     "{C:inactive}(Actual: {X:chips,C:white}X#2#{C:inactive}){}"
