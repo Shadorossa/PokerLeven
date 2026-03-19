@@ -1084,6 +1084,15 @@ return {
                     "la convierte en {C:gold}cartas de oro{}" }
             },
 
+            j_ina_Athena = {
+                name = "Athena",
+                text = {
+                    "Otorga {C:chips}+#1#{} fichas por cada",
+                    "carta {C:pink}Strat{} usada esta partida",
+                    "{C:inactive}(Actual: {C:chips}+#2#{C:inactive} fichas){}"
+                }
+            },
+
             j_ina_Demeter = {
                 name = "Demeter",
                 text = {
@@ -1212,6 +1221,106 @@ return {
                     "Convierte los {C:attention}#1#{}",
                     "puntuados en {C:attention}#2#s{}",
                 } }
+            },
+
+            -- Servicio Secreto (SP Fixers)
+            j_ina_Tori = {
+                name = "Tori",
+                text = {
+                    "{C:wind}Torre Inexpugnable{}",
+                    "Gana {X:mult,C:white}X#1#{} de Multiplicador",
+                    "por cada carta de {C:attention}Piedra{}",
+                    "en tu baraja completa",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive}){}"
+                }
+            },
+
+            -- Épsilon
+            j_ina_Dvalin = {
+                name = "Dvalin",
+                text = {
+                    "{X:gk,C:white}GK{} (Izq): {C:chips}+#1#{} y +{C:attention}#2#{} {X:mountain,C:white}Barrera{}.",
+                    "{X:fw,C:white}FW{} (Der): -{C:attention}#4#{} {X:mountain,C:white}Barrera{} = {X:mult,C:white}X#3#{}x{X:mountain,C:white}Barrera{}",
+                    "{C:inactive}(Actual: {X:mountain,C:white}#6#{C:inactive} - {X:mult,C:white}X#5#{C:inactive}){}"
+                }
+            },
+            j_ina_Zell = {
+                name = "Zell",
+                text = {
+                    "{C:attention}Destruye{} la carta central jugada.",
+                    "Como {X:gk,C:white}GK{} (Izq): da 1/2 en {C:money}Dinero{}.",
+                    "Como {X:fw,C:white}FW{} (Der): gana 1/2 en {C:mult}Mult{}.",
+                    "{C:inactive}(Actual: {X:attention,C:white}#2#{C:inactive} - {C:mult}+#1#{C:inactive}){}"
+                }
+            },
+            j_ina_Sworm = {
+                name = "Sworm",
+                text = {
+                    "{C:green}#1# en #2#{} de devolver al mazo cartas",
+                    "jugadas con {C:attention}Mejora{}, {C:attention}Sello{} o {C:attention}Edición{}",
+                    "y ganar {C:chips}+#3#{} fichas.",
+                    "{C:inactive}(Actual: {C:chips}+#4#{C:inactive}){}"
+                }
+            },
+            j_ina_Kayson = {
+                name = "Kayson",
+                text = {
+                    "La {C:attention}primera vez{} que se destruye",
+                    "una carta, da {C:chips}+#1#{} fichas esa ronda.",
+                    "{C:inactive}(Actual: {C:chips}+#2#{C:inactive}){}"
+                }
+            },
+            j_ina_Tytan = {
+                name = "Tytan",
+                text = {
+                    "Cuando una de tus cartas es {C:attention}destruida{},",
+                    "gana {C:chips}+#1#{} fichas permanentes.",
+                    "{C:inactive}(Actual: {C:chips}+#2#{C:inactive}){}"
+                }
+            },
+            j_ina_Metron = {
+                name = "Metron",
+                text = {
+                    "Si juegas tu primera mano de la ronda",
+                    "{C:attention}sin usar descartes{}, todas las cartas",
+                    "se {C:attention}reactivan{} #1# vez."
+                }
+            },
+            j_ina_Krypto = {
+                name = "Krypto",
+                text = {
+                    "Permite que las {C:attention}Escaleras{}",
+                    "se puedan formar con",
+                    "{C:attention}saltos{} de 1 rango"
+                }
+            },
+
+            -- Royal Academy Redux
+            j_ina_KingR = {
+                name = "Joseph King",
+                text = {
+                    "Crea {C:attention}#1#{} {X:mountain,C:white}Barreras{} al inicio de ciega.",
+                    "Da {C:chips}+#2#{} fichas por {C:attention}Mano máxima{}.",
+                    "{C:red}Pierdes #3# mano máxima{} tras vencer Jefe.",
+                    "{C:inactive}(Actual: {C:chips}+#4#{C:inactive}){}"
+                }
+            },
+            j_ina_SamfordR = {
+                name = "David Samford",
+                text = {
+                    "Pierdes todos tus {C:red}descartes{} al elegir ciega",
+                    "Otorga {X:mult,C:white}X#1#{} de Multiplicador por descarte",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive}){}"
+                }
+            },
+            j_ina_CalebR = {
+                name = "Caleb Stonewall",
+                text = {
+                    "Al elegir ciega {C:attention}destruye{} a los reservas",
+                    "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
+                    "A {C:attention}King{} y {C:attention}Samford{} los {C:green}mejora{} un {C:attention}#3#%{}.",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive}){}"
+                }
             },
 
             -- GANADORES DE TORNEO
