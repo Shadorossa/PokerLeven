@@ -73,7 +73,7 @@ local JimDark = J({
     rarity = 1, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
@@ -83,7 +83,7 @@ local JimDark = J({
         if context.joker_main and context.scoring_hand then
             local current = card.ability.extra.current_Xchips
             if not context.blueprint then
-                card.ability.extra.current_Xchips = card.ability.extra.current_Xchips + card.ability.extra.Xchip_mod
+                card.ability.extra.current_Xchips = card.ability.extra.current_Xchips + (card.ability.extra.current_Xchips * card.ability.extra.Xchip_mod)
             end
             return {
                 message = localize{type='variable',key='a_xchips',vars={current}},
