@@ -1214,6 +1214,16 @@ return {
                 } }
             },
 
+            -- Emperadores Oscuros
+            j_ina_ShadowDark = {
+                name = "Shadow",
+                text = {
+                    "Al elegir {C:attention}ciega{}, se vuelve",
+                    "{C:dark_edition}Negativo{} hasta el final de ronda.",
+                    "{C:red}Deshabilita{} al {C:attention}Joker{} de su derecha."
+                }
+            },
+
             -- GANADORES DE TORNEO
             j_ina_Turi = {
                 name = "Turiño",
