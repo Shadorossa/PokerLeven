@@ -1214,6 +1214,17 @@ return {
                 } }
             },
 
+            -- Royal Redux
+            j_ina_CalebR = {
+                name = "Caleb Stonewall",
+                text = {
+                    "Al elegir ciega {C:attention}destruye{} a los reservas",
+                    "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
+                    "A {C:attention}King{} y {C:attention}Samford{} los {C:green}mejora{} un {C:attention}#3#%{}.",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive}){}"
+                }
+            },
+
             -- GANADORES DE TORNEO
             j_ina_Turi = {
                 name = "Turiño",
