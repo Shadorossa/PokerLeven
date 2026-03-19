@@ -9,7 +9,7 @@ local SamfordR = J({
   rarity = 3, -- Rare
   pools = { ["Royal Redux"] = true },
   cost = 8,
-  atlas = "Jokers01",
+  atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
   pteam = "Royal Redux",
