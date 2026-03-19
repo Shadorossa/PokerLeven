@@ -176,3 +176,4 @@ end
 Pokerleven.after_scoring_phase = function(context)
     return context.after and context.cardarea == G.jokers
 end
+

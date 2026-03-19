@@ -182,19 +182,41 @@ local mirror = {
 local tori = {
   name = "Tori",
   pos = { x = 8, y = 1 },
-  config = { extra = {} },
+  config = { extra = { xmult_mod = 0.1 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    local stone_count = 0
+    if G.playing_cards then
+        for k, v in ipairs(G.playing_cards) do
+            if SMODS.has_enhancement(v, 'm_stone') then stone_count = stone_count + 1 end
+        end
+    end
+    return { vars = { center.ability.extra.xmult_mod, 1 + (stone_count * center.ability.extra.xmult_mod) } }
   end,
-  rarity = 1, -- Common
+  rarity = 3, -- Common
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
   pteam = "Servicio Secreto",
+  techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
+    if context.joker_main and context.scoring_hand then
+        local stone_count = 0
+        if G.playing_cards then
+            for k, v in ipairs(G.playing_cards) do
+                if SMODS.has_enhancement(v, 'm_stone') then stone_count = stone_count + 1 end
+            end
+        end
+        local mult = 1 + (stone_count * card.ability.extra.xmult_mod)
+        if mult > 1 then
+            return {
+                message = localize{type='variable',key='a_xmult',vars={mult}},
+                Xmult_mod = mult
+            }
+        end
+    end
   end
 }
 
@@ -280,6 +302,6 @@ local toppin = {
 
 return {
   name = "SPFixers",
-  list = {}
-  -- list = { ironwall, western, stevens, smith, firepool, fielding, firsthand, mirror, tori, kennedy, sights },
+  list = { tori }
+  -- list = { ironwall, western, stevens, smith, firepool, fielding, firsthand, mirror, kennedy, sights },
 }

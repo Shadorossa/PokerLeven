@@ -497,3 +497,111 @@ Pokerleven.get_jokers_to_the_right = function(card)
     end
     return 0
 end
+
+---@param card Card
+---@return boolean
+Pokerleven.is_in_left_half = function(card)
+    for i, c in ipairs(G.jokers.cards) do
+        if c == card then
+            return i <= math.ceil(#G.jokers.cards / 2)
+        end
+    end
+    return true
+end
+
+--- Returns a card from its current area (like G.play or G.discard) to the deck
+---@param card Card The card to return
+---@param from_area table The area the card is currently in (e.g. G.play or G.discard)
+---@param percent number|nil The percentage for animation delay (optional)
+Pokerleven.return_card_to_deck = function(card, from_area, percent)
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            if card and card.area == from_area then
+                draw_card(from_area, G.deck, percent or 100, 'up', false, card)
+            end
+            return true
+        end
+    }))
+end
+
+--- Iterates through a list of cards and executes an action if conditions are met.
+---@param context table The context from the calculate function.
+---@param config table Configuration for the execution.
+---@return boolean, table Returns true and a list of affected cards if any action was successful.
+Pokerleven.iterate_and_execute_on_cards = function(context, config)
+    config = config or {}
+    local joker_card = config.joker_card
+    local cards_to_check = config.cards_to_check or context.full_hand
+    local hand_condition = config.hand_condition
+    local card_condition = config.card_condition
+    local on_success = config.on_success
+    local probability = config.probability
+    local seed = config.seed or 'iterate_execute'
+    local num_to_affect = config.num_to_affect or 'all' -- 'all' or a number
+    local selection_method = config.selection_method or 'sequential' -- 'sequential' or 'random'
+
+    if not joker_card or not on_success then
+        return false
+    end
+
+    -- 1. Check hand-level condition first
+    if hand_condition and not hand_condition(context) then
+        return false
+    end
+
+    -- 2. Find all cards that pass the card_condition
+    local candidate_cards = {}
+    for _, card in ipairs(cards_to_check) do
+        if not card_condition or card_condition(card) then
+            table.insert(candidate_cards, card)
+        end
+    end
+
+    if #candidate_cards == 0 then return false end
+
+    -- 3. Select which cards to affect
+    local cards_to_affect = {}
+    if num_to_affect == 'all' then
+        cards_to_affect = candidate_cards
+    else
+        if selection_method == 'random' then
+            local temp_candidates = Pokerleven.clone_table(candidate_cards)
+            for i = 1, num_to_affect do
+                if #temp_candidates == 0 then break end
+                local rand_idx = math.random(#temp_candidates)
+                table.insert(cards_to_affect, temp_candidates[rand_idx])
+                table.remove(temp_candidates, rand_idx)
+            end
+        else -- sequential
+            for i = 1, num_to_affect do
+                if candidate_cards[i] then
+                    table.insert(cards_to_affect, candidate_cards[i])
+                end
+            end
+        end
+    end
+    
+    if #cards_to_affect == 0 then return false end
+
+    -- 4. Iterate through the selected cards and apply probability + success function
+    local successful_cards = {}
+    for i, card in ipairs(cards_to_affect) do
+        local probability_passed = true
+        if probability then
+            if not (pseudorandom(seed..i) < (G.GAME.probabilities.normal or 1) / probability) then
+                probability_passed = false
+            end
+        end
+
+        if probability_passed then
+            on_success(joker_card, card, i, #cards_to_affect)
+            table.insert(successful_cards, card)
+        end
+    end
+
+    if #successful_cards > 0 then
+        return true, successful_cards
+    end
+
+    return false
+end
