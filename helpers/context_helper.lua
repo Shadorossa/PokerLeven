@@ -33,6 +33,26 @@ Card.is_rightmost_joker = function(self)
     return G.jokers.cards[#G.jokers.cards] == self
 end
 
+---Returns the joker to the left of this one
+---@return Card|nil
+Card.get_left_joker = function(self)
+    if G.jokers and G.jokers.cards then
+        for i, v in ipairs(G.jokers.cards) do
+            if v == self then return G.jokers.cards[i - 1] end
+        end
+    end
+end
+
+---Returns the joker to the right of this one
+---@return Card|nil
+Card.get_right_joker = function(self)
+    if G.jokers and G.jokers.cards then
+        for i, v in ipairs(G.jokers.cards) do
+            if v == self then return G.jokers.cards[i + 1] end
+        end
+    end
+end
+
 ---Emplaces joker and adds it to deck
 ---@param card Card
 Pokerleven.add_card_to_jokers = function(card)

@@ -1,5 +1,5 @@
 -- Convert cards
-conversion_event_helper = function(func, delay, immediate)
+Pokerleven.conversion_event_helper = function(func, delay, immediate)
     if immediate then
         func()
     else
@@ -14,12 +14,12 @@ conversion_event_helper = function(func, delay, immediate)
     end
 end
 
-convert_cards_to = function(cards, t, noflip, immediate)
+Pokerleven.convert_cards_to = function(cards, t, noflip, immediate)
     if not cards then return end
     if cards and cards.is and cards:is(Card) then cards = { cards } end
     if not t.seal and not noflip then
         for i = 1, #cards do
-            conversion_event_helper(function()
+            Pokerleven.conversion_event_helper(function()
                 cards[i]:flip(); cards[i]:juice_up(0.3, 0.3)
             end)
         end
@@ -27,40 +27,40 @@ convert_cards_to = function(cards, t, noflip, immediate)
     end
     for i = 1, #cards do
         if t.mod_conv then
-            conversion_event_helper(function() cards[i]:set_ability(G.P_CENTERS[t.mod_conv]) end, nil, immediate)
+            Pokerleven.conversion_event_helper(function() cards[i]:set_ability(G.P_CENTERS[t.mod_conv]) end, nil, immediate)
         end
         if t.edition then
-            conversion_event_helper(function() cards[i]:set_edition(t.edition, true) end, nil, immediate)
+            Pokerleven.conversion_event_helper(function() cards[i]:set_edition(t.edition, true) end, nil, immediate)
         end
         if t.suit_conv then
-            conversion_event_helper(function() cards[i]:change_suit(t.suit_conv) end, nil, immediate)
+            Pokerleven.conversion_event_helper(function() cards[i]:change_suit(t.suit_conv) end, nil, immediate)
         end
         if t.seal then
-            conversion_event_helper(function() cards[i]:set_seal(t.seal, nil, true) end, nil, immediate)
+            Pokerleven.conversion_event_helper(function() cards[i]:set_seal(t.seal, nil, true) end, nil, immediate)
         end
         if t.random then
-            vary_rank(cards[i], nil, nil, immediate)
+            Pokerleven.vary_rank(cards[i], nil, nil, immediate)
         end
         if t.set_rank then
-            conversion_event_helper(function()
+            Pokerleven.conversion_event_helper(function()
                 local new_card = SMODS.change_base(cards[i], nil, t.set_rank)
                 if new_card then cards[i] = new_card end
             end, nil, immediate)
         end
         if t.up or t.down then
-            vary_rank(cards[i], not t.up, nil, immediate)
+            Pokerleven.vary_rank(cards[i], not t.up, nil, immediate)
         end
         if t.bonus_chips then
             local bonus_add = function()
                 cards[i].ability.perma_bonus = cards[i].ability.perma_bonus or 0
                 cards[i].ability.perma_bonus = cards[i].ability.perma_bonus + t.bonus_chips
             end
-            conversion_event_helper(bonus_add, nil, immediate)
+            Pokerleven.conversion_event_helper(bonus_add, nil, immediate)
         end
     end
     if not t.seal and not noflip then
         for i = 1, #cards do
-            conversion_event_helper(function()
+            Pokerleven.conversion_event_helper(function()
                 cards[i]:flip(); cards[i]:juice_up(0.3, 0.3)
             end, 0.2)
         end
@@ -68,15 +68,15 @@ convert_cards_to = function(cards, t, noflip, immediate)
     if not noflip then delay(0.3) end
     if noflip then
         for i = 1, #cards do
-            conversion_event_helper(function() cards[i]:juice_up(0.3, 0.3) end, 0.2)
+            Pokerleven.conversion_event_helper(function() cards[i]:juice_up(0.3, 0.3) end, 0.2)
         end
     end
     if cards == G.hand.highlighted then
-        conversion_event_helper(function() G.hand:unhighlight_all() end)
+        Pokerleven.conversion_event_helper(function() G.hand:unhighlight_all() end)
     end
 end
 
-vary_rank = function(card, decrease, seed, immediate)
+Pokerleven.vary_rank = function(card, decrease, seed, immediate)
     -- if it doesn't have a rank/suit within SMODS, don't do anything
     if not card.base or not card.base.value or not card.base.suit or not SMODS.Ranks[card.base.value] then return end
 
@@ -271,4 +271,12 @@ Pokerleven.get_random_type_pos_held = function()
     local combinations = Pokerleven.get_all_type_pos_combinations()
     local selected_combination = pseudorandom_element(combinations, pseudoseed('training'))
     return selected_combination;
+end
+
+local original_card_get_id = Card.get_id
+function Card:get_id()
+    if self.config and self.config.center and self.config.center.key == 'm_ina_chaotic' then
+        return 15
+    end
+    return original_card_get_id(self)
 end

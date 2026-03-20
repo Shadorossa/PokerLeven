@@ -21,7 +21,7 @@ local Kevin = J({
   calculate = function(self, card, context)
     if card.ability.extra.current_cooldown == 0 and
         context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= self then
-      if context.other_card == get_right_joker(card) and is_position(context.other_card, "FW") then
+      if context.other_card == card:get_right_joker() and is_position(context.other_card, "FW") then
         return {
           message = localize("k_again_ex"),
           repetitions = card.ability.extra.retriggers,
@@ -240,7 +240,7 @@ local Willy = {
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) and pseudorandom('glasis') < G.GAME.probabilities.normal / card.ability.extra.odds then
-      convert_cards_to(context.scoring_hand, { mod_conv = "m_glass", edition = "e_polychrome", seal = "Red" })
+      Pokerleven.convert_cards_to(context.scoring_hand, { mod_conv = "m_glass", edition = "e_polychrome", seal = "Red" })
       return {
         message = localize("ina_gafas"),
         colour = G.C.XMULT
@@ -346,15 +346,8 @@ local Jude_Raimon = J({
   pteam = "Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    local index
-    for k, v in ipairs(G.jokers.cards) do
-      if v == card then
-        index = k
-        break
-      end
-    end
     if context.post_trigger and context.other_card ~= card
-        and context.other_card == G.jokers.cards[index - 1] then
+        and context.other_card == card:get_left_joker() then
       card.ability.extra.current_xmult = (card.ability.extra.current_xmult or 0) + card.ability.extra.xmult_mod
 
       G.E_MANAGER:add_event(Event({

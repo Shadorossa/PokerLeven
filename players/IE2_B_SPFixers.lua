@@ -1,22 +1,32 @@
 -- ironwall
-local ironwall = {
+local ironwall = J({
   name = "ironwall",
   pos = { x = 12, y = 0 },
-  config = { extra = {} },
+  config = { extra = { chip_mod = 30 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.chip_mod } }
   end,
   rarity = 1, -- Common
-  pools = { ["SpFixers"] = true },
+  pools = { ["SPFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.GK,
   pteam = "Servicio Secreto",
+  techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
+    if context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
+      if G.GAME.current_round.barriers and G.GAME.current_round.barriers > 0 then
+        return {
+          message = localize{type='variable',key='a_chips',vars={card.ability.extra.chip_mod}},
+          chip_mod = card.ability.extra.chip_mod,
+          colour = G.C.CHIPS
+        }
+      end
+    end
   end
-}
+})
 
 -- Western
 local western = {
@@ -119,24 +129,47 @@ local firepool = {
 }
 
 -- Fielding
-local fielding = {
-  name = "Fielding",
+local fielding = J({
+  name = "fielding",
   pos = { x = 5, y = 1 },
-  config = { extra = {} },
+  config = { extra = { scry_mod = 1, money = 2 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.scry_mod, center.ability.extra.money } }
   end,
   rarity = 1, -- Common
-  pools = { ["SpFixers"] = true },
-  cost = 7,
+  pools = { ["SPFixers"] = true },
+  cost = 5,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
   pteam = "Servicio Secreto",
+  techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
+    if context.joker_main and context.scoring_hand then
+      local has_ace = false
+      for _, c in ipairs(context.scoring_hand) do
+        if c:get_id() == 14 then
+          has_ace = true
+          break
+        end
+      end
+      if has_ace then
+        ease_dollars(card.ability.extra.money)
+        return {
+          message = localize('$') .. card.ability.extra.money,
+          colour = G.C.MONEY
+        }
+      end
+    end
+  end,
+  add_to_deck = function(self, card, from_debuff)
+    G.GAME.scry_amount = (G.GAME.scry_amount or 0) + card.ability.extra.scry_mod
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    G.GAME.scry_amount = (G.GAME.scry_amount or 0) - card.ability.extra.scry_mod
   end
-}
+})
 
 -- Firsthand
 local firsthand = {
@@ -186,7 +219,7 @@ local tori = {
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 3, -- Rare
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
@@ -280,6 +313,5 @@ local toppin = {
 
 return {
   name = "SPFixers",
-  list = {}
-  -- list = { ironwall, western, stevens, smith, firepool, fielding, firsthand, mirror, tori, kennedy, sights },
+  list = { ironwall, fielding }
 }

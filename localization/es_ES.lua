@@ -1214,13 +1214,43 @@ return {
                 } }
             },
 
+            -- Servicio Secreto
+            j_ina_ironwall = {
+                name = "Ironwall",
+                text = {
+                    "{C:mountain}Muralla de Escudos{}",
+                    "Otorga {C:chips}+#1#{} fichas si tienes",
+                    "al menos {C:attention}1{} {X:mountain,C:white}Barrera{}"
+                }
+            },
+
+            j_ina_fielding = {
+                name = "Marge Fielding",
+                text = {
+                    "{C:wind}Escáner de Ataque{}",
+                    "Aumenta el {C:attention}Scry{} en {C:tarot}+#1#{}.",
+                    "Gana {C:money}#2# ${} si la mano",
+                    "jugada contiene un {C:attention}As{}."
+                }
+            },
+
             -- Épsilon
             j_ina_Dvalin = {
                 name = "Dvalin",
                 text = {
+                    "{C:fire}Destrozataladros{}",
                     "{X:gk,C:white}GK{} (Izq): {C:chips}+#1#{} y +{C:attention}#2#{} {X:mountain,C:white}Barrera{}.",
                     "{X:fw,C:white}FW{} (Der): -{C:attention}#4#{} {X:mountain,C:white}Barrera{} = {X:mult,C:white}X#3#{}x{X:mountain,C:white}Barrera{}",
                     "{C:inactive}(Actual: {X:mountain,C:white}#6#{C:inactive} - {X:mult,C:white}X#5#{C:inactive}){}"
+                }
+            },
+            j_ina_Sworm = {
+                name = "Sworm",
+                text = {
+                    "{C:forest}Agujero de Gusano{}",
+                    "Cada carta jugada tiene {C:green}#1# en #2#{}",
+                    "probabilidades de regresar a la",
+                    "{C:attention}baraja{} en lugar de ir al descarte"
                 }
             },
 
@@ -1228,15 +1258,17 @@ return {
             j_ina_KingR = {
                 name = "Joseph King",
                 text = {
+                    "{C:fire}Colmillo de Pantera{}",
                     "Crea {C:attention}#1#{} {X:mountain,C:white}Barreras{} al inicio de ciega.",
                     "Da {C:chips}+#2#{} fichas por {C:attention}Mano máxima{}.",
-                    "{C:red}Pierdes #3# mano máxima{} tras vencer Jefe.",
-                    "{C:inactive}(Actual: {C:chips}+#4#{C:inactive}){}"
+                    "{C:red}Pierdes #3# mano máxima{} cada {C:attention}#5#{} ciegas superadas.",
+                    "{C:inactive}(Actual: {C:chips}+#4#{C:inactive}, {C:attention}#6#{C:inactive}/#5#){}"
                 }
             },
             j_ina_Jamm = {
                 name = "Jamm",
                 text = {
+                    "{C:forest}Coz{}",
                     "Otorga {X:mult,C:white}X#1#{} Mult a los {C:attention}Jokers{}",
                     "de {X:fire,C:white}Fuego{} y {X:forest,C:white}Bosque{}.",
                     "{C:red}Desactiva{} a los comodines",
@@ -1246,6 +1278,7 @@ return {
             j_ina_SamfordR = {
                 name = "David Samford",
                 text = {
+                    "{C:forest}Pingüino Emperador N.º 1{}",
                     "Pierdes todos tus {C:red}descartes{} al elegir ciega",
                     "Otorga {X:mult,C:white}X#1#{} de Multiplicador por descarte",
                     "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive}){}"
@@ -1256,8 +1289,9 @@ return {
                 text = {
                     "Al elegir ciega {C:attention}destruye{} a los reservas",
                     "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
-                    "A {C:attention}King{} y {C:attention}Samford{} los {C:green}mejora{} un {C:attention}#3#%{}.",
-                    "{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive}){}"
+                    "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{}",
+                    "si son titulares con él durante {C:attention}#3#{} rondas",
+                    "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Rondas: {C:attention}#4#{C:inactive}){}"
                 }
             },
 
@@ -1269,6 +1303,88 @@ return {
                     "Gana {X:chips,C:white}X#1#{} Fichas",
                     "cada vez que anota puntos",
                     "{C:inactive}(Actual: {X:chips,C:white}X#2#{C:inactive}){}"
+                }
+            },
+            j_ina_SamDark = {
+                name = "Sam Kincaid",
+                text = {
+                    "{C:fire}Escudo Rencoroso{}",
+                    "Desde el {C:bench}Banquillo{}, hace {C:attention}Eternos{} e",
+                    "{C:attention}Inmunes{} a tus Jokers titulares,",
+                    "excepto a los {C:dark_edition}Negativos{}.",
+                    "A cambio, {C:red}-#1#{} de tamaño de mano"
+                }
+            },
+            j_ina_NathanDark = {
+                name = "Nathan Swift",
+                text = {
+                    "{C:Forest}Fénix Oscuro{}",
+                    "Absorbe {C:dark_edition}Policromía{} de cartas puntuadas.",
+                    "Gana {X:mult,C:white}X1.5{} Mult por carga ({C:attention}#1#/#2#{})",
+                    "y las despliega sobre las cartas",
+                    "que necesite el {C:attention}Joker derecho",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#3#{C:inactive} Mult)"
+                }
+            },
+            j_ina_KevinDark = {
+                name = "Kevin Dragonfly",
+                text = {
+                    "{C:forest}Tornado Dragón Oscuro{}",
+                    "Reactiva las habilidades del",
+                    "{C:attention}Joker derecho{} {C:attention}#1#{} veces.",
+                    "Al vencer a un {C:attention}Jefe{}, le {C:red}arranca{}",
+                    "su {C:dark_edition}edición{} o {C:attention}nivel de técnica{}.",
+                    "{C:inactive}(Si no tiene, lo destruye){}"
+                }
+            },
+
+            -- Diamond Dust
+            j_ina_Gazelle = {
+                name = "Gazelle",
+                text = {
+                    "{C:wind}Impacto Glacial{}",
+                    "Gana {X:mult,C:white}X#2#{} por {C:attention}Cristal{} {C:red}roto{}.",
+                    "({X:mult,C:white}+X#3#{} al romper {C:attention}5{} a la vez).",
+                    "Despliega {C:attention}Cristal{} al jugar {C:attention}Póker{}.",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive} | Cargas: {C:attention}#4#{C:inactive}){}"
+                }
+            },
+            j_ina_Clear = {
+                name = "Clear",
+                text = {
+                    "{C:wind}Bloque de hielo{}",
+                    "Cuando una carta de {C:attention}Cristal{} se {C:red}rompe{},",
+                    "hay {C:green}#1# en #2#{} probabilidades de que regrese",
+                    "a tu baraja como carta base"
+                }
+            },
+            j_ina_Beluga = {
+                name = "Beluga",
+                text = {
+                    "{C:wind}Bloque de Hielo{}",
+                    "Las cartas de {C:attention}Cristal{}",
+                    "se rompen {C:green}#1# de #2#{} veces"
+                }
+            },
+            j_ina_Icer = {
+                name = "Icer",
+                text = {
+                    "{C:fire}Robo de Hielo{}",
+                    "Gana {C:money}#1# ${} por cada aliado del",
+                    "{C:attention}Polvo de Diamantes{} cuando",
+                    "una carta de {C:attention}Cristal{} se {C:red}rompe{}.",
+                    "{C:inactive}(Actual: {C:money}#2# ${C:inactive}){}"
+                }
+            },
+            j_ina_Frost = {
+                name = "Frost",
+                text = {
+                    "{C:mountain}Pisada de Hielo{}",
+                    "Gana {C:chips}+#1#{} Fichas cuando",
+                    "una {C:attention}Carta Caótica{} anota.",
+                    "Las {C:attention}Cartas Caóticas{} otorgan",
+                    "las fichas de este comodín al anotar",
+                    "{C:inactive}(Actual: {C:chips}+#2#{C:inactive} Fichas)"
                 }
             },
 
@@ -1407,6 +1523,11 @@ return {
                 name = "Diestro",
                 text = { "Se activa si es el",
                     "joker de más a la {C:attention}Derecha{}" }
+            },
+            RolChange = {
+                name = "Cambio de Rol",
+                text = { "#1 más a la izquierda",
+                    "#2 más a la derecha" }
             },
             p_ina_growing_pack = {
                 name = "Pack Creciente",
@@ -1762,6 +1883,8 @@ return {
             ina_seed = "Siembra!",
             ina_special_technique = "Super Técnicas",
             ina_technique_upgrade = "Técnica mejorada",
+            ina_absorb = "¡Absorbido!",
+            ina_deploy = "¡Desplegado!",
             ina_special_manager = "Gerentes",
             ina_manager_info = "Gerente",
             ina_Fire = "Fuego",

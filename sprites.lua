@@ -174,6 +174,13 @@ SMODS.Atlas({
     py = 95
 }):register()
 
+SMODS.Atlas({
+    key = "enhancements01",
+    path = "enhancements01.png",
+    px = 71,
+    py = 95
+}):register()
+
 SMODS.Sound({
     key = "music_titlescreen",
     path = "titlescreen.ogg",

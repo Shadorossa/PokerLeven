@@ -185,15 +185,8 @@ local Jude = {
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    local index
-    for k, v in ipairs(G.jokers.cards) do
-      if v == card then
-        index = k
-        break
-      end
-    end
     if context.post_trigger and context.other_card ~= card
-        and context.other_card == G.jokers.cards[index - 1] then
+        and context.other_card == card:get_left_joker() then
       card.ability.extra.current_xmult = (card.ability.extra.current_xmult or 0) + card.ability.extra.xmult_mod
 
       G.E_MANAGER:add_event(Event({
@@ -326,14 +319,7 @@ local Master = {
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.joker_main then
-      local index
-      for k, v in ipairs(G.jokers.cards) do
-        if v == card then
-          index = k
-          break
-        end
-      end
-      if not G.jokers.cards[index - 1] then
+      if not card:get_left_joker() then
         local count = #find_player_team("Royal Academy")
         return {
           message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * count } },

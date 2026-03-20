@@ -241,7 +241,7 @@ local builder = J({
 
       context.full_hand[destroy_index].to_be_removed_by = card
 
-      convert_cards_to(steelCard, { mod_conv = "m_steel", true, true })
+      Pokerleven.convert_cards_to(steelCard, { mod_conv = "m_steel", true, true })
       card_eval_status_text(steelCard, 'extra', nil, nil, nil,
         { message = localize("ina_convert"), colour = G.C.MULT })
     end

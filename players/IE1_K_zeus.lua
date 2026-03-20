@@ -73,7 +73,7 @@ local Hephestus = J({
 
           local steelCard = pseudorandom_element(candidates, pseudoseed("steel_card_" .. i))
           if steelCard then
-            convert_cards_to(steelCard, { mod_conv = "m_steel", true, true })
+            Pokerleven.convert_cards_to(steelCard, { mod_conv = "m_steel", true, true })
             card_eval_status_text(steelCard, 'extra', nil, nil, nil,
               { message = localize("ina_convert"), colour = G.C.MULT })
 
@@ -212,7 +212,7 @@ local Hermes = {
     if context.individual and context.other_card and G.GAME.current_round.hands_played == 0
         and context.cardarea == G.play and context.scoring_hand
         and next(context.poker_hands["Pair"]) and #context.scoring_hand == 2 then
-      convert_cards_to(context.other_card, {
+      Pokerleven.convert_cards_to(context.other_card, {
         mod_conv = "m_gold"
       }, false, false)
       return {

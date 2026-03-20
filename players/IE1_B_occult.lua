@@ -18,14 +18,7 @@ local Talisman = {
   calculate = function(self, card, context)
     if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= self then
       card.ability.extra.triggered = true;
-      local index
-      for k, v in ipairs(G.jokers.cards) do
-        if v == card then
-          index = k
-          break
-        end
-      end
-      if context.other_card == G.jokers.cards[index + 1] and is_team(context.other_card, "Occult") then
+      if context.other_card == card:get_right_joker() and is_team(context.other_card, "Occult") then
         return {
           repetitions = card.ability.extra.evolving_retriggers,
         }
@@ -175,16 +168,8 @@ local Mask = {
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.setting_blind and not card.getting_sliced and not context.blueprint then
-      local my_pos = nil
-      for i = 1, #G.jokers.cards do
-        if G.jokers.cards[i] == card then
-          my_pos = i; break
-        end
-      end
-      if my_pos and G.jokers.cards[my_pos + 1]
-          and not card.getting_sliced and not G.jokers.cards[my_pos + 1].ability.eternal
-          and not G.jokers.cards[my_pos + 1].getting_sliced then
-        local sliced_card = G.jokers.cards[my_pos + 1]
+      local sliced_card = card:get_right_joker()
+      if sliced_card and not card.getting_sliced and not sliced_card.ability.eternal and not sliced_card.getting_sliced then
         sliced_card.getting_sliced = true
         card.ability.extra_value = card.ability.extra_value + card.ability.extra.sell_value
         card:set_cost()

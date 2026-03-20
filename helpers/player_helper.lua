@@ -363,19 +363,6 @@ Pokerleven.calculate_total_sell_cost = function(cards)
     return sumSellCost
 end
 
---- Returns the joker to the right of the given joker in the active jokers row.
----@param main_card SMODS.Joker The reference joker.
----@return SMODS.Joker|nil Right_Joker Joker immediately to the right, or nil if not found or at the end.
-function get_right_joker(main_card)
-    sendDebugMessage("Looking for main_card in G.jokers.cards")
-    for k, v in ipairs(G.jokers.cards) do
-        if v == main_card then
-            return G.jokers.cards[k + 1]
-        end
-    end
-    return nil
-end
-
 --- Returns the joker with the key provided, in the area provided or jokers if nil
 ---@param key string The reference joker key
 ---@param areaCards table | nil The area to search
