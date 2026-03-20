@@ -54,11 +54,13 @@ local Clear = J({
     pteam = "Polvo de Diamantes",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
-        if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers then local rec = false
-            for _, v in ipairs(ctx.removed) do if v.shattered and card:odds_triggered('clear') then
-                rec = true; G.E_MANAGER:add_event(Event({func = function() create_playing_card({front = v.config.card}, G.deck, nil, nil, {G.C.SECONDARY_SET.Enhanced}); return true end}))
-            end end
-            if rec then card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_safe_ex'), colour = G.C.GREEN}) end
+        if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers then
+            local tc = {}
+            for _, v in ipairs(ctx.removed) do if v.shattered and card:odds_triggered('clear') then tc[#tc+1] = v.config.card end end
+            if #tc > 0 then
+                G.E_MANAGER:add_event(Event({func = function() for i, f in ipairs(tc) do create_playing_card({front = f}, G.deck, nil, i ~= 1, {G.C.SECONDARY_SET.Enhanced}) end; return true end}))
+                card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_safe_ex'), colour = G.C.GREEN})
+            end
         end
     end
 })

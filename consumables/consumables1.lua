@@ -199,6 +199,38 @@ local alius_stone = {
   end
 }
 
+local get_national_evo = function(c)
+  if not (c and c.config and c.config.center_key) then return end
+  local base = string.gsub(c.config.center_key, "^j_ina_", "")
+  for _, f in ipairs(family) do
+    local valid = (f[1] == base)
+    if f[1] == "Jude" then valid = (base == "Jude_Raimon") end
+    if valid then
+      for i = 2, #f do
+        if string.find(f[i], "_IJ") then return "j_ina_" .. f[i] end
+      end
+    end
+  end
+end
+
+local national_call = {
+  name = "National Call",
+  key = "national_call",
+  set = "Strat",
+  pos = { x = 3, y = 0 },
+  atlas = "Consumables",
+  cost = 10,
+  unlocked = true,
+  discovered = false,
+  can_use = function(self, card)
+    return get_national_evo((G.jokers.highlighted and G.jokers.highlighted[1]) or (Pokerleven.ina_bench_area and Pokerleven.ina_bench_area.highlighted and Pokerleven.ina_bench_area.highlighted[1])) ~= nil
+  end,
+  use = function(self, card, area, copier)
+    local c = (G.jokers.highlighted and G.jokers.highlighted[1]) or (Pokerleven.ina_bench_area and Pokerleven.ina_bench_area.highlighted and Pokerleven.ina_bench_area.highlighted[1])
+    local evo = get_national_evo(c); if evo then ina_evolve(c, evo) end
+  end
+}
+
 
 local upgrade_technique_Wind_FW = {
   name = "upgrade_technique_Wind_FW",
@@ -764,7 +796,7 @@ local upgrade_technique_Mountain_GK = {
 
 return {
   name = "Trainings",
-  list = { tech_book, tactic_pos, divine_water, black_room, centella, wait, alius_stone,
+  list = { tech_book, tactic_pos, divine_water, black_room, centella, wait, alius_stone, national_call,
     upgrade_technique_Forest_GK, upgrade_technique_Forest_DF, upgrade_technique_Forest_MF, upgrade_technique_Forest_FW,
     upgrade_technique_Fire_GK, upgrade_technique_Fire_DF, upgrade_technique_Fire_MF, upgrade_technique_Fire_FW,
     upgrade_technique_Wind_GK, upgrade_technique_Wind_DF, upgrade_technique_Wind_MF, upgrade_technique_Wind_FW,

@@ -203,14 +203,14 @@ local Sworm = J({
   blueprint_compat = true,
   calculate = function(self, card, ctx)
     if ctx.after and ctx.cardarea == G.jokers and not card.debuff and card.area == G.jokers and not ctx.blueprint then
-        local ret = false
-        for _, v in ipairs(ctx.full_hand) do
-            if not v.shattered and not v.destroyed and card:odds_triggered('sworm') then
-                v.destroyed, ret = true, true
-                G.E_MANAGER:add_event(Event({func = function() v.destroyed = nil; if v.area == G.play then draw_card(G.play, G.deck, 100, 'up', false, v) end; return true end}))
-            end
+        local s = {}
+        for _, v in ipairs(ctx.full_hand) do if not v.shattered and not v.destroyed and card:odds_triggered('sworm') then
+            v.destroyed, v.shattered = true, true; s[#s+1] = v
+        end end
+        if #s > 0 then
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function() for i, v in ipairs(s) do v.destroyed, v.shattered = nil, nil; if v.area == G.play then draw_card(G.play, G.deck, i*100/#s, 'up', false, v) end end; return true end}))
+            return {message = localize('k_safe_ex'), colour = G.C.DARK_EDITION}
         end
-        if ret then return {message = localize('k_safe_ex'), colour = G.C.DARK_EDITION} end
     end
   end
 })

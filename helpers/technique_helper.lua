@@ -36,7 +36,14 @@ technique_values = {
     evolving_retriggers = 1,
     card_count1 = 1,
     odds4 = -0.1499,
-    odds2 = -0.1
+    odds2 = -0.1,
+    mult_gain = 0.2667,
+    xmult_gain = .2,
+    chip_mod_normal = .2,
+    chip_mod_chaos = .2,
+    levels_per_card = .2,
+    retriggers = 1,
+    stone_bonus = .01
 }
 
 local roundable_fields = {
@@ -47,6 +54,11 @@ local roundable_fields = {
     copies_number = true,
     cooldown_base = true,
     current_cooldown = true,
+    mult_gain = true,
+    chip_mod_normal = true,
+    chip_mod_chaos = true,
+    levels_per_card = true,
+    retriggers = true
 }
 
 

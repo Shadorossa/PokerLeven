@@ -186,7 +186,7 @@ local Jamm = J({
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   update = function(self, card, dt)
-    if card.area == G.jokers then for _, v in ipairs(G.jokers.cards) do if v ~= card then
+    if G.jokers and card.area == G.jokers then for _, v in ipairs(G.jokers.cards) do if v ~= card then
         if not card.debuff and (is_type(v, C.Mountain) or is_type(v, C.Wind)) then v.jamm_debuffed = true; if not v.debuff then v:set_debuff(true) end
         elseif v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end
     end end end
@@ -221,15 +221,21 @@ local CalebR = J({
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
         local des, ba = false, Pokerleven.ina_bench_area
+        local des, ba, delay_amt = false, Pokerleven.ina_bench_area, 0
         for i = ba and ba.cards and #ba.cards or 0, 1, -1 do local b = ba.cards[i]
             if is_team(b, "Royal Academy") or is_team(b, "Royal Redux") then
                 ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true; b:start_dissolve({G.C.RED}, nil, 1.6)
+                ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true
+                G.E_MANAGER:add_event(Event({ trigger = 'after', delay = delay_amt, func = function() b:start_dissolve({G.C.RED}, nil, 1.6); return true end }))
+                delay_amt = delay_amt + 0.15
             end
         end
         if des then card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}}) end
     elseif Pokerleven.is_joker_end_of_round(ctx) and not ctx.blueprint then
         local k, s
-        for _, v in ipairs(G.jokers.cards) do if v.config.center_key == 'j_ina_King' then k = v elseif v.config.center_key == 'j_ina_Samford' then s = v end end
+        if G.jokers and G.jokers.cards then
+            for _, v in ipairs(G.jokers.cards) do if v.config.center_key == 'j_ina_King' then k = v elseif v.config.center_key == 'j_ina_Samford' then s = v end end
+        end
         if k or s then
             ex.redux_turns = (ex.redux_turns or 0) + 1
             if ex.redux_turns >= ex.turns_needed then ex.redux_turns = 0; if k then ina_evolve(k, 'j_ina_KingR') end; if s then ina_evolve(s, 'j_ina_SamfordR') end

@@ -297,6 +297,12 @@ return {
                 name = "Posición Táctica",
                 text = { "Aplica una {C:pink}Posición{} aleatoria",
                     "al Joker más a la izquierda{}" }
+            },
+            c_ina_national_call = {
+                name = "Llamamiento a la selección",
+                text = { "Transforma a un {C:attention}Jugador{}",
+                    "compatible en su versión",
+                    "{C:attention}Internacional{}" }
             }
         },
         Training = {
@@ -1267,6 +1273,56 @@ return {
                 }
             },
 
+            j_ina_Firsthand = {
+                name = "Firsthand",
+                text = {
+                    "{C:mountain}Información Clasificada{}",
+                    "Aumenta un {C:attention}#1#%{} el efecto de",
+                    "las estadísticas base de los demás comodines.",
+                    "{C:red}Te quedas con una única mano{}"
+                }
+            },
+            j_ina_Western = {
+                name = "Western",
+                text = {
+                    {
+                        "{C:wind}Protocolo de Seguridad{}",
+                        "Al {C:red}descartar{}, la siguiente mano",
+                        "obtiene las fichas y el multi de",
+                        "{C:attention}#1# niveles{} por carta descartada."
+                    },
+                    {
+                        "{C:inactive}(Acumulado: {C:attention}#2# {C:inactive}cartas){}"
+                    }
+                }
+            },
+            j_ina_Firepool = {
+                name = "Firepool",
+                text = {
+                    "{C:wind}Fuego de Cobertura{}",
+                    "La {C:attention}primera{} carta puntuada",
+                    "se {C:attention}reactiva{} {C:attention}#1#{} vez/veces por cada",
+                    "carta de {X:wind,C:white}Viento{} jugada que {C:red}no puntúe{}."
+                }
+            },
+            j_ina_Tori = {
+                name = "Victoria Vanguard",
+                text = {
+                    {
+                        "{C:wind}La Torre{}",
+                        "Gana un {C:attention}#1#%{} de acumulación por cada",
+                        "carta de {C:attention}Piedra{} nueva en tu baraja."
+                    },
+                    {
+                        "Al {C:attention}salir de la tienda{}, transfiere su",
+                        "acumulación al {C:attention}Joker derecho{} mejorando",
+                        "sus estadísticas de forma {C:attention}permanente{}."
+                    },
+                    {
+                        "{C:inactive}(Acumulado: {C:attention}#2#%{C:inactive} | Piedras: {C:attention}#3#{C:inactive}){}"
+                    }
+                }
+            },
             -- Diamond Dust
             j_ina_Gazelle = {
                 name = "Gazelle",
@@ -1337,6 +1393,85 @@ return {
                 }
             },
 
+            --Inazuma Japón
+            j_ina_Nathan_IJ = {
+                name = "Nathan Swift",
+                text = {
+                    "{C:wind}Entrada Huracán{}",
+                    "Cada {C:attention}Joker{} del {X:raimon,C:white}Raimon{} / {X:inazuma,C:white}Inazuma Japón{}", "otorga {X:mult,C:white}X#2#{}"
+                }
+            },
+            j_ina_Jack_IJ = {
+                name = "Jack Wallside",
+                text = { "{C:mountain}El Muro{}",
+                    "{C:attention}Las Piedras{} ganan {C:chips}+#1#{} fichas",
+                    "permanentemente por cada {C:attention}Joker{} {X:df,C:white}DF{}"
+                }
+            },
+            j_ina_Tod_IJ = {
+                name = "Tod Ironside",
+                text = {
+                    "{C:wind}Equilibrismo{}",
+                    "Gana {C:chips}+#1#{} fichas por",
+                    "cada {C:enhanced}Acero{}",
+                    "en {C:attention}mano{} o {C:attention}jugada{}"
+                }
+            },
+            j_ina_Caleb_IJ = {
+                name = "Caleb Stonewall",
+                text = {
+                    "Al elegir ciega {C:attention}destruye{} a los reservas",
+                    "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
+                    "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{}",
+                    "si son titulares con él durante {C:attention}#3#{} rondas",
+                    "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Rondas: {C:attention}#4#{C:inactive}){}"
+                }
+            },
+            j_ina_Samford_IJ = {
+                name = "David Samford",
+                text = { "{C:forest}Pingüino Emperador N.º 2{}", "{X:mult,C:white}X#1#{} multi si hay",
+                    "{C:attention}1{} {X:mf,C:white}MF{} y {C:attention}2{} {X:fw,C:white}FW{}" }
+            },
+            j_ina_Kevin_IJ = {
+                name = "Kevin Dragonfly",
+                text = { "{C:forest}Tornado Dragón{}",
+                    "Reactiva el {C:attention}Joker{} {X:fw,C:white}FW{}",
+                    "derecho cada {C:attention}#1# manos",
+                    "{C:inactive}#2# restantes" }
+            },
+            j_ina_Kevin_inf_IJ = {
+                name = "Kevin Dragonfly",
+                text = { "{C:forest}Tornado Dragón{}", "Vuelve a activar el comodín {X:fw,C:white}FW{}",
+                    "que está a su derecha{}" }
+            },
+            j_ina_Jude_IJ = {
+                name = "Jude",
+                text = { "{C:wind}Espejismo de Balón{}",
+                    "Gana {X:mult,C:white}X#2#{} cada vez que el {C:attention}Joker",
+                    "a su {C:attention}izquierda{} se activa",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive}){}"
+                }
+            },
+            j_ina_Axel_IJ = {
+                name = "Axel",
+                text = {
+                    {
+                        "{C:fire}Fuego Total{}",
+                        "Si juegas exactamente un {C:attention}Trío{},",
+                        "la primera carta se {C:attention}clona #1# veces{}",
+                        "en la jugada y todas se",
+                        "vuelven de tipo {X:fire,C:white}Fuego{}."
+                    },
+                    {
+                        "Otorga {X:mult,C:white}X#2#{} de multi si todas",
+                        "las cartas puntuadas son de",
+                        "{C:hearts}Corazones{} o {X:fire,C:white}Fuego{}"
+                    }
+                }
+            },
+
+            
+
             -- Ares - Zeus
             j_ina_Perseus = {
                 name = "Perseus",
@@ -1351,6 +1486,15 @@ return {
                         "{C:attention}#2#{} manos sin activarse.",
                         "{C:inactive}(Multi: {C:mult}+#4#{C:inactive} | Inactivo: {C:attention}#5#/#2#{C:inactive})"
                     }
+                }
+            },
+            j_ina_Hades = {
+                name = "Hades",
+                text = {
+                    "{C:wind}Pisotón de Justicia{}",
+                    "Al jugar una {C:attention}Pareja{} exacta junto a",
+                    "cartas {C:attention}mayores{}, las {C:attention}aplasta{}",
+                    "y las convierte a su categoría."
                 }
             },
 
@@ -1964,6 +2108,27 @@ return {
                     "Consigue espacio para {C:attention}3{} {C:pink}Managers{}"
                 }
             },
+            v_ina_growing_player = {
+                name = "Jugador Creciente",
+                text = {
+                    "Permite que los jugadores de la",
+                    "selección {C:attention}Internacional{}",
+                    "aparezcan en la tienda y sobres"
+                },
+            },
+            v_ina_modified_player = {
+                name = "Jugador Modificado",
+                text = {
+                    "Permite que las versiones de la",
+                    "{C:dark_edition}Academia Alius{} (como los",
+                    "Emperadores Oscuros) aparezcan",
+                    "en la tienda y sobres"
+                },
+                unlock = {
+                    "Compra el vale",
+                    "{C:attention}Jugador Creciente{}"
+                }
+            },
         }
     },
     misc = {
@@ -2028,6 +2193,9 @@ return {
             ina_technique_card = "¡Técnica!",
             ina_gol = "¡Gol!",
             ina_mano = "¡Mano mejorada",
+            ina_fuego_total = "¡Fuego Total!",
+            ina_crush = "¡Aplastado!",
+            ina_protocol = "¡Protocolo!",
 
             -- Rarities
             k_ina_top = "Destacado",

@@ -144,7 +144,29 @@ local managers_2 = V({
     end
 })
 
+local growing_player = V({
+    name = "Growing Player",
+    key = "growing_player",
+    pos = { x = 0, y = 0 }, -- Ajustar coordenadas según el atlas
+    atlas = "vouchers01",
+    cost = 10,
+    unlocked = true,
+    discovered = false,
+    requires = {}
+})
+
+local modified_player = V({
+    name = "Modified Player",
+    key = "modified_player",
+    pos = { x = 1, y = 0 }, -- Ajustar coordenadas según el atlas
+    atlas = "vouchers01",
+    cost = 10,
+    unlocked = true,
+    discovered = false,
+    requires = { "v_ina_growing_player" }
+})
+
 return {
     name = "Vouchers01",
-    list = { ex_law, ex_law_2, training, training_2, managers_1, managers_2 }
+    list = { ex_law, ex_law_2, training, training_2, managers_1, managers_2, growing_player, modified_player }
 }

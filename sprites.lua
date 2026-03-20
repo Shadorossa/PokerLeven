@@ -14,14 +14,21 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "Jokers01",
-    path = "Jokers01.png",
+    path = "jokers01.png",
     px = 71,
     py = 95
 }):register()
 
 SMODS.Atlas({
     key = "Jokers02",
-    path = "Jokers02.png",
+    path = "jokers02.png",
+    px = 71,
+    py = 95
+}):register()
+
+SMODS.Atlas({
+    key = "Jokers03",
+    path = "jokers03.png",
     px = 71,
     py = 95
 }):register()

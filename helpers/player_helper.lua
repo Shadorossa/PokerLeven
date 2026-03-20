@@ -154,6 +154,16 @@ player_in_pool = function(self)
         return false
     end
 
+    -- Bloquear versiones internacionales si no se tiene el vale de Nivel 1 "Growing Player"
+    if self.pteam == "Inazuma Japón" and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_growing_player"]) then
+        return false
+    end
+
+    -- Bloquear versiones corrompidas por la Alius si no se tiene el vale de Nivel 2 "Modified Player"
+    if (self.pteam == "Royal Redux" or self.pteam == "Emperadores Oscuros") and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_modified_player"]) then
+        return false
+    end
+
     if next(find_joker("Custom")) and self.ptype == "Wind" then
         return true
     end

@@ -1702,6 +1702,15 @@ return {
                     "Consigue espacio para {C:attention}3{} {C:pink}Managers{}"
                 }
             },
+            v_ina_world_stage = {
+                name = "Escenario Mundial",
+                text = {
+                    "Permite que las versiones",
+                    "{C:attention}Especiales{} e {C:attention}Internacionales{}",
+                    "de los jugadores aparezcan",
+                    "en la tienda y sobres"
+                },
+            },
         }
     },
     misc = {

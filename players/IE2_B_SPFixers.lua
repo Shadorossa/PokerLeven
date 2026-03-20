@@ -29,24 +29,48 @@ local ironwall = J({
 })
 
 -- Western
-local western = {
+local Western = J({
   name = "Western",
   pos = { x = 0, y = 1 },
-  config = { extra = {} },
+  config = { extra = { levels_per_card = 2, pending_cards = 0 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    local ex = center.ability.extra
+    return { vars = { ex.levels_per_card, ex.pending_cards } }
   end,
-  rarity = 1, -- Common
+  rarity = 2, -- Uncommon
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
   pteam = "Servicio Secreto",
+  techtype = C.UPGRADES.Number,
   blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    local ex = card.ability.extra
+    
+    if ctx.discard and not ctx.blueprint then
+      ex.pending_cards = ex.pending_cards + 1
+    elseif Pokerleven.is_joker_turn(ctx) and ex.pending_cards > 0 then
+      local hand_type = ctx.scoring_name
+      if G.GAME.hands[hand_type] then
+        local lvls = ex.pending_cards * ex.levels_per_card
+        
+        local ret = {
+          message = localize('ina_protocol'),
+          mult_mod = lvls * G.GAME.hands[hand_type].l_mult,
+          chip_mod = lvls * G.GAME.hands[hand_type].l_chips,
+          colour = G.C.RED
+        }
+        
+        if not ctx.blueprint then ex.pending_cards = 0 end
+        return ret
+      end
+    elseif ctx.end_of_round and not ctx.blueprint then
+      ex.pending_cards = 0
+    end
   end
-}
+})
 
 -- Hammond
 local hammond = {
@@ -109,24 +133,43 @@ local smith = {
 }
 
 -- Firepool
-local firepool = {
+local Firepool = J({
   name = "Firepool",
   pos = { x = 4, y = 1 },
-  config = { extra = {} },
+  config = { extra = { retriggers = 1 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.retriggers } }
   end,
   rarity = 1, -- Common
   pools = { ["SpFixers"] = true },
-  cost = 7,
+  cost = 5,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
   pteam = "Servicio Secreto",
+  techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    local ex = card.ability.extra
+    
+    if ctx.repetition and ctx.cardarea == G.play then
+      if ctx.scoring_hand and ctx.scoring_hand[1] == ctx.other_card then
+        local wind_cover = 0
+        for _, c in ipairs(ctx.full_hand) do
+          local scored = false
+          for _, sc in ipairs(ctx.scoring_hand) do
+            if c == sc then scored = true; break end
+          end
+          if not scored and c.ability.wind_sticker then wind_cover = wind_cover + 1 end
+        end
+        
+        if wind_cover > 0 then
+          return { message = localize('k_again_ex'), repetitions = wind_cover * ex.retriggers, card = ctx.other_card }
+        end
+      end
+    end
   end
-}
+})
 
 -- Fielding
 local fielding = J({
@@ -171,25 +214,66 @@ local fielding = J({
   end
 })
 
+local function restore_firsthand_hands(ex)
+  if ex.hands_lost and ex.hands_lost > 0 then
+    if G.GAME and G.GAME.round_resets then
+      G.GAME.round_resets.hands = G.GAME.round_resets.hands + ex.hands_lost
+      if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then ease_hands_played(ex.hands_lost) end
+    end
+    ex.hands_lost = 0
+  end
+end
+
 -- Firsthand
-local firsthand = {
+local firsthand = J({
   name = "Firsthand",
   pos = { x = 6, y = 1 },
-  config = { extra = {} },
+  config = { extra = { stat_mult = 2.5, hands_lost = 0 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { (center.ability.extra.stat_mult - 1) * 100 } }
   end,
-  rarity = 1, -- Common
-  pools = { ["SpFixers"] = true },
+  rarity = 2, -- Uncommon
+  pools = { ["SPFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
   pteam = "Servicio Secreto",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  blueprint_compat = false,
+  update = function(self, card, dt)
+    if card.area == G.jokers then
+      local ex = card.ability.extra
+      if not card.debuff then
+        if G.GAME and G.GAME.round_resets and math.floor(G.GAME.round_resets.hands) > 1 then
+          local diff = math.floor(G.GAME.round_resets.hands) - 1
+          ex.hands_lost = (ex.hands_lost or 0) + diff
+          G.GAME.round_resets.hands = 1
+          if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then ease_hands_played(-diff) end
+        end
+      else
+        restore_firsthand_hands(ex)
+      end
+      for _, v in ipairs(G.jokers.cards) do
+        if v ~= card then
+          if not card.debuff then
+            Pokerleven.apply_stat_multiplier(v, 'firsthand', ex.stat_mult)
+          else
+            Pokerleven.remove_stat_multiplier(v, 'firsthand')
+          end
+        end
+      end
+    end
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    restore_firsthand_hands(card.ability.extra)
+
+    if G.jokers and G.jokers.cards then
+      for _, v in ipairs(G.jokers.cards) do
+        Pokerleven.remove_stat_multiplier(v, 'firsthand')
+      end
+    end
   end
-}
+})
 
 -- Mirror
 local mirror = {
@@ -212,24 +296,64 @@ local mirror = {
 }
 
 -- Tori
-local tori = {
+local Tori = J({
   name = "Tori",
   pos = { x = 8, y = 1 },
-  config = { extra = {} },
+  config = { extra = { stone_bonus = 0.05, accumulation = 0, counted_stones = 0 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    local ex = center.ability.extra
+    return { vars = { ex.stone_bonus * 100, math.floor((ex.accumulation or 0) * 100 + 0.5), ex.counted_stones } }
   end,
   rarity = 3, -- Rare
   pools = { ["SpFixers"] = true },
-  cost = 7,
+  cost = 8,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
   pteam = "Servicio Secreto",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  techtype = C.UPGRADES.Plus,
+  blueprint_compat = false,
+  calculate = function(self, card, ctx)
+    local ex = card.ability.extra
+    
+    if (Pokerleven.is_joker_end_of_round(ctx) or ctx.ending_shop) and not ctx.blueprint then
+      local current_stones = 0
+      if G.playing_cards then
+        for _, v in ipairs(G.playing_cards) do
+          if SMODS.has_enhancement(v, 'm_stone') then current_stones = current_stones + 1 end
+        end
+      end
+      
+      if current_stones > (ex.counted_stones or 0) then
+        local new_stones = current_stones - (ex.counted_stones or 0)
+        ex.accumulation = (ex.accumulation or 0) + (new_stones * ex.stone_bonus)
+        ex.counted_stones = current_stones
+      end
+    end
+    
+    if ctx.ending_shop and not ctx.blueprint then
+      local r_joker = card:get_right_joker()
+      if r_joker and (ex.accumulation or 0) > 0 and type(r_joker.ability.extra) == 'table' and not r_joker.debuff then
+        local upgraded = false
+        for k, _ in pairs(technique_values) do
+          if type(r_joker.ability.extra[k]) == 'number' then
+            local val = r_joker.ability.extra[k] * (1 + ex.accumulation)
+            local r, f = round_value(val, k)
+            r_joker.ability.extra[k] = r
+            if f then set_frac(r_joker, f, k) end
+            upgraded = true
+          end
+        end
+        
+        if upgraded then
+          ex.accumulation = 0
+          G.E_MANAGER:add_event(Event({ func = function() r_joker:juice_up(0.5, 0.5); return true end }))
+          return { message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION }
+        end
+      end
+    end
   end
-}
+})
 
 -- Kennedy
 local kennedy = {
@@ -313,5 +437,5 @@ local toppin = {
 
 return {
   name = "SPFixers",
-  list = { ironwall, fielding }
+  list = { ironwall, fielding, firsthand, Western, Firepool, Tori }
 }

@@ -288,7 +288,6 @@ local Fauxshore = {
     end
 }
 
-
 local MaryTimes = {
     object_type = "Blind",
     name = "ina-MaryTimes",

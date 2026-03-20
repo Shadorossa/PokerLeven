@@ -113,3 +113,45 @@ Pokerleven.corrupt_joker = function(target)
     end
     return true
 end
+
+--- Aplica un multiplicador a todas las estadísticas mejorables de un Joker
+---@param card Card
+---@param id string Identificador único del buff
+---@param multiplier number Multiplicador (ej: 2.2 para +120%)
+Pokerleven.apply_stat_multiplier = function(card, id, multiplier)
+    if not card or not card.ability or type(card.ability.extra) ~= "table" then return end
+    card.ability.ina_stat_mults = card.ability.ina_stat_mults or {}
+    if card.ability.ina_stat_mults[id] == multiplier then return end
+    
+    if card.ability.ina_stat_mults[id] then
+        Pokerleven.remove_stat_multiplier(card, id)
+    end
+    
+    card.ability.ina_stat_mults[id] = multiplier
+    for k, _ in pairs(technique_values) do
+        if card.ability.extra[k] ~= nil and type(card.ability.extra[k]) == "number" then
+            card.ability.extra[k] = card.ability.extra[k] * multiplier
+        end
+    end
+end
+
+--- Revierte un multiplicador de estadísticas de un Joker
+---@param card Card
+---@param id string Identificador único del buff
+Pokerleven.remove_stat_multiplier = function(card, id)
+    if not card or not card.ability or type(card.ability.extra) ~= "table" then return end
+    if not card.ability.ina_stat_mults or not card.ability.ina_stat_mults[id] then return end
+    
+    local multiplier = card.ability.ina_stat_mults[id]
+    card.ability.ina_stat_mults[id] = nil
+    
+    for k, _ in pairs(technique_values) do
+        if card.ability.extra[k] ~= nil and type(card.ability.extra[k]) == "number" then
+            local val = card.ability.extra[k] / multiplier
+            if math.abs(val - math.floor(val + 0.5)) < 0.001 then
+                val = math.floor(val + 0.5)
+            end
+            card.ability.extra[k] = val
+        end
+    end
+end

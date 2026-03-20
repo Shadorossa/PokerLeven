@@ -1,19 +1,22 @@
 family = {
-    { "Jude", "Jude_Raimon" },
+    { "Jude", "Jude_Raimon", "Jude_IJ" },
     { "Feldt", "DarkFeldt" },
     { "Night", "NightDark" },
     { "Sam", "SamDark" },
     { "Jim", "JimDark" },
-    { "Tod", "TodDark" },
+    { "Tod", "TodDark", "Tod_IJ" },
     { "Steve", "SteveDark" },
     { "Timmy", "TimmyDark" },
     { "Max", "MaxDark" },
     { "Shadow", "ShadowDark" },
-    { "Nathan", "NathanDark" },
-    { "Kevin", "KevinDark" },
+    { "Nathan", "NathanDark", "Nathan_IJ" },
+    { "Kevin", "KevinDark", "Kevin_IJ" },
     { "King", "KingR" },
-    { "Samford", "SamfordR" },
-    { "Dvalin", "Dvalin_Plus" }
+    { "Samford", "SamfordR", "Samford_IJ" },
+    { "Dvalin", "Dvalin_Plus" },
+    { "Axel", "Axel_IJ"},
+    { "Jack", "Jack_IJ" },
+    { "CalebR", "Caleb_IJ" }
 }
 
 copy_scaled_values = function(card)
