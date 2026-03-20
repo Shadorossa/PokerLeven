@@ -225,11 +225,13 @@ local Gazelle = J({
 })
 
 -- Frost
-local Frost = J({
+local Frost = {
     name = "Frost",
     pos = { x = 3, y = 15 },
-    config = { extra = { chips = 0, chip_gain = 10 } },
-    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.chip_gain, ex.chips}} end,
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
     rarity = 1, --
     pools = { ["DiamondDust"] = true },
     cost = 7,
@@ -239,21 +241,11 @@ local Frost = J({
     techtype = C.UPGRADES.Plus,
     pteam = "Polvo de Diamantes",
     blueprint_compat = true,
-    calculate = function(self, card, ctx)
-        local ex = card.ability.extra
-        if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint then
-            if ctx.other_card.config.center.key == 'm_ina_chaotic' then
-                ex.chips = ex.chips + ex.chip_gain; return {message = localize('k_upgrade_ex'), colour = G.C.CHIPS, card = card}
-            end
-        end
-    end,
-    chaotic_effect = function(joker, card, ctx, ret)
-        local ex = joker.ability.extra
-        if ctx.main_scoring and ex.chips > 0 then ret.chips = (ret.chips or 0) + ex.chips end
+    calculate = function(self, card, context)
     end
-})
+}
 
 return {
     name = "Diamond Dust",
-    list = { Beluga, Clear, Icer, Gazelle, Frost }
+    list = { Beluga, Clear, Icer, Gazelle }
 }

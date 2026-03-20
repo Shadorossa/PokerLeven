@@ -1380,11 +1380,9 @@ return {
                 name = "Frost",
                 text = {
                     "{C:mountain}Pisada de Hielo{}",
-                    "Gana {C:chips}+#1#{} Fichas cuando",
-                    "una {C:attention}Carta Caótica{} anota.",
-                    "Las {C:attention}Cartas Caóticas{} otorgan",
-                    "las fichas de este comodín al anotar",
-                    "{C:inactive}(Actual: {C:chips}+#2#{C:inactive} Fichas)"
+                    "Las {C:attention}Cartas Caóticas{} ganan {C:chips}+#3#{} fichas",
+                    "permanentes al puntuar, pero tienen",
+                    "{C:green}#1# en #2#{} probabilidades de {C:red}romperse{}"
                 }
             },
 

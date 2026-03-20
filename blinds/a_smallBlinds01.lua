@@ -44,7 +44,7 @@ local strange = B({
             local selected_rank = pseudorandom_element(rank, pseudoseed('rank'))
             local suit = { "Hearts", "Clubs", "Spades", "Diamonds" }
             local selected_suit = pseudorandom_element(suit, pseudoseed('suit'))
-            Pokerleven.convert_cards_to(context.other_card, { set_rank = selected_rank, suit_conv = selected_suit })
+            convert_cards_to(context.other_card, { set_rank = selected_rank, suit_conv = selected_suit })
             return {
                 message = localize("ina_convert"),
                 colour = G.C.XMULT,

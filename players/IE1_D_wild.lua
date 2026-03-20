@@ -130,7 +130,7 @@ local Chamaleon = J({
             if outlier_suit then
                 for _, c in ipairs(context.full_hand) do
                     if c:is_suit(outlier_suit) and not SMODS.has_enhancement(c, 'm_wild') then
-                        Pokerleven.convert_cards_to(c, { mod_conv = "m_wild", true, true })
+                        convert_cards_to(c, { mod_conv = "m_wild", true, true })
                         return {
                             message = localize("ina_convert"),
                             colour = G.C.DARK_EDITION,

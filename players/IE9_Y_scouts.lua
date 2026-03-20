@@ -375,7 +375,7 @@ local Rex_George = J({
             local card_value = context.other_card:get_id()
             for _, target_rank in ipairs(card.ability.extra.needed_rank) do
                 if card_value == target_rank then
-                Pokerleven.convert_cards_to(context.other_card, {
+                    convert_cards_to(context.other_card, {
                         set_rank = tostring(card.ability.extra.converted_rank)
                     })
                     return {

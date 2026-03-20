@@ -52,7 +52,7 @@ local Hero = {
         if context.cardarea == G.play and context.individual and context.other_card then
             if context.other_card:get_id() == 11 or context.other_card:get_id() == 12 or context.other_card:get_id() == 13 then
                 card.ability.extra.triggered = true
-                Pokerleven.convert_cards_to(context.other_card, { set_rank = "4" }, false, false)
+                convert_cards_to(context.other_card, { set_rank = "4" }, false, false)
                 return {
                     message = localize("ina_convert"),
                     colour = G.C.XMULT,
@@ -189,7 +189,7 @@ local Artist = {
             end
 
             if (hasQueen and hasKing) then
-                Pokerleven.convert_cards_to(context.scoring_hand, { mod_conv = "m_lucky" })
+                convert_cards_to(context.scoring_hand, { mod_conv = "m_lucky" })
                 card.ability.extra.triggered = true
                 return {
                     message = localize("ina_convert"),
