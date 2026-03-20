@@ -2,7 +2,7 @@ local chaotic_card = SMODS.Enhancement({
     key = "chaotic",
         loc_txt = {
         name = "Carta caótica",
-        text = { "Sin efectos",}
+        text = { "Cartas con efectos atribuidos por jokers",}
     },
     atlas = "enhancements01",
     pos = { x = 0, y = 0 },

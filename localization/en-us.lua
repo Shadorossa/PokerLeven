@@ -401,6 +401,27 @@ return {
                     "Gain {C:chips}+#1#{} chips",
                 }
             },
+            -- Epsilon
+            j_ina_Dvalin = {
+                name = "Dvalin",
+                text = {
+                    "{C:fire}Drill Smasher / Gungnir{}",
+                    "If {X:gk,C:white}GK{}: Gives {C:chips}+#1#{} Chips and",
+                    "creates {C:attention}#2#{} {X:mountain,C:white}Barrier{} when scoring.",
+                    "If {X:fw,C:white}FW{}: Gives {X:mult,C:white}X#3#{} per",
+                    "{X:mountain,C:white}Barrier{} in play (Spends {C:attention}#4#{}).",
+                    "{C:inactive}(Current Pos: {C:attention}#6#{C:inactive} - {X:mult,C:white}X#5#{C:inactive}){}"
+                }
+            },
+            j_ina_Sworm = {
+                name = "Sworm",
+                text = {
+                    "{C:forest}Wormhole{}",
+                    "Every played card has a {C:green}#1# in #2#{}",
+                    "chance to return to your",
+                    "{C:attention}deck{} instead of being discarded"
+                }
+            },
             -- Occult
             j_ina_Talisman = {
                 name = "Talisman",
@@ -1130,6 +1151,39 @@ return {
                     "Converts played {C:attention}#1#{}s into {C:attention}#2#s{}",
                 } }
             },
+
+            j_ina_Heart = {
+            name = "Heart",
+            text = {
+                "{C:fire}Fire Mark{}",
+                "Converts scored {C:hearts}Hearts{}",
+                "into {X:fire,C:white}Fire{} cards"
+            }
+        },
+        j_ina_Clover = {
+            name = "Clover",
+            text = {
+                "{C:forest}Forest Mark{}",
+                "Converts scored {C:clubs}Clubs{}",
+                "into {X:forest,C:white}Forest{} cards"
+            }
+        },
+        j_ina_Diamond = {
+            name = "Diamond",
+            text = {
+                "{C:mountain}Mountain Mark{}",
+                "Converts scored {C:diamonds}Diamonds{}",
+                "into {X:mountain,C:white}Mountain{} cards"
+            }
+        },
+        j_ina_Spade = {
+            name = "Spade",
+            text = {
+                "{C:wind}Wind Mark{}",
+                "Converts scored {C:spades}Spades{}",
+                "into {X:wind,C:white}Wind{} cards"
+            }
+        },
 
             -- TOURNAMENT WINNERS
             j_ina_Turi = {

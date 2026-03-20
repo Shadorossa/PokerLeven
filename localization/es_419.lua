@@ -1214,6 +1214,39 @@ return {
                 } }
             },
 
+        j_ina_Heart = {
+            name = "Corazón",
+            text = {
+                "{C:fire}Marca de Fuego{}",
+                "Convierte los {C:hearts}Corazones{} puntuados",
+                "en cartas de {X:fire,C:white}Fuego{}"
+            }
+        },
+        j_ina_Clover = {
+            name = "Trébol",
+            text = {
+                "{C:forest}Marca de Bosque{}",
+                "Convierte los {C:clubs}Tréboles{} puntuados",
+                "en cartas de {X:forest,C:white}Bosque{}"
+            }
+        },
+        j_ina_Diamond = {
+            name = "Diamante",
+            text = {
+                "{C:mountain}Marca de Montaña{}",
+                "Convierte los {C:diamonds}Diamantes{} puntuados",
+                "en cartas de {X:mountain,C:white}Montaña{}"
+            }
+        },
+        j_ina_Spade = {
+            name = "Pica",
+            text = {
+                "{C:wind}Marca de Viento{}",
+                "Convierte las {C:spades}Picas{} puntuadas",
+                "en cartas de {X:wind,C:white}Viento{}"
+            }
+        },
+
             -- GANADORES DE TORNEO
             j_ina_Turi = {
                 name = "Turiño",
@@ -1348,6 +1381,11 @@ return {
                 name = "Diestro",
                 text = { "Se activa si es el",
                     "joker de más a la {C:attention}Derecha{}" }
+            },
+            RolChange = {
+                name = "Cambio de Rol",
+                text = { "{C:attention}#1#{} más a la izquierda",
+                    "{C:attention}#2#{} más a la derecha" }
             },
             p_ina_growing_pack = {
                 name = "Pack Creciente",

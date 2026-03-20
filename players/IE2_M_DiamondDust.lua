@@ -194,10 +194,13 @@ local Blown = {
 -- Gazelle
 local Gazelle = J({
     name = "Gazelle",
-    pos = { x = 7, y = 0 },
-    soul_pos = { x = 7, y = 1 },
-    config = { extra = { xmult = 1, xmult_gain = 0.2, combo_bonus = 0.5, charges = 0 } },
-    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.xmult, ex.xmult_gain, ex.combo_bonus, ex.charges}} end,
+    pos = { x = 6, y = 0 },
+    soul_pos = { x = 6, y = 1 },
+    config = { extra = { xmult = 1, xmult_gain = 0.2, combo_bonus = 0.5, charges = 0, max_charges = 7 } },
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'Fire_Blizzard', vars = {'Torch'}}
+        local ex = center.ability.extra; return {vars = {ex.xmult, ex.xmult_gain, ex.combo_bonus, ex.charges, ex.max_charges}}
+    end,
     rarity = "ina_top", -- Destacado
     pools = { ["DiamondDust"] = true },
     cost = 15,
@@ -212,11 +215,12 @@ local Gazelle = J({
         if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers and not ctx.blueprint then
             local s_c = 0
             for _, v in ipairs(ctx.removed) do if v.shattered then s_c = s_c + 1 end end
-            if s_c > 0 then ex.charges, ex.xmult = ex.charges + s_c, ex.xmult + s_c * ex.xmult_gain + (s_c >= 5 and ex.combo_bonus or 0); card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ina_absorb'), colour = G.C.DARK_EDITION}) end
+            if s_c > 0 then ex.charges, ex.xmult = math.min(ex.max_charges, ex.charges + s_c), ex.xmult + s_c * ex.xmult_gain + (s_c >= 5 and ex.combo_bonus or 0); card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ina_absorb'), colour = G.C.DARK_EDITION}) end
         elseif Pokerleven.is_joker_turn(ctx) and next(ctx.poker_hands['Four of a Kind']) and ex.charges > 0 then
             local xm, c = ex.xmult, 0
+            local enhancement = (get_joker_with_key('j_ina_Torch') ~= nil) and 'm_ina_chaotic' or 'm_glass'
             if not ctx.blueprint then
-                for _, v in ipairs(ctx.scoring_hand) do if c < ex.charges and v.config.center.key ~= 'm_glass' then Pokerleven.apply_card_property(v, 'enhancement', 'm_glass'); v:juice_up(); c = c + 1 end end
+                for _, v in ipairs(ctx.scoring_hand) do if c < ex.charges and v.config.center.key ~= enhancement then Pokerleven.apply_card_property(v, 'enhancement', enhancement); v:juice_up(); c = c + 1 end end
                 ex.charges, ex.xmult = ex.charges - c, ex.charges == c and 1 or math.max(1, ex.xmult - c * ex.xmult_gain)
             end
             return {message = localize{type='variable',key='a_xmult',vars={xm}}, Xmult_mod = xm}
@@ -225,12 +229,13 @@ local Gazelle = J({
 })
 
 -- Frost
-local Frost = {
+local Frost = J({
     name = "Frost",
     pos = { x = 3, y = 15 },
-    config = { extra = {} },
+    config = { extra = { chip_mod_normal = 3, chip_mod_chaos = 10 } },
     loc_vars = function(self, info_queue, center)
-        return {}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic', vars = {"Prominence"}}
+        return {vars = {center.ability.extra.chip_mod_normal, center.ability.extra.chip_mod_chaos, #find_player_team("Prominence") > 0 and "Caos" or "Normal"}}
     end,
     rarity = 1, --
     pools = { ["DiamondDust"] = true },
@@ -241,11 +246,30 @@ local Frost = {
     techtype = C.UPGRADES.Plus,
     pteam = "Polvo de Diamantes",
     blueprint_compat = true,
-    calculate = function(self, card, context)
+    calculate = function(self, card, ctx)
+        local oc, ex = ctx.other_card, card.ability.extra
+        if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint and oc then
+            local prom, is_c = #find_player_team("Prominence") > 0, oc.config.center.key == 'm_ina_chaotic'
+            if (prom and is_c) or (not prom and oc.config.center.key == 'c_base') then
+                local mod = prom and ex.chip_mod_chaos or ex.chip_mod_normal
+                oc.ability.perma_bonus = (oc.ability.perma_bonus or 0) + mod
+                oc.ability.frost_bonus = (oc.ability.frost_bonus or 0) + mod
+                return {message = localize('k_upgrade_ex'), colour = G.C.CHIPS, card = oc}
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            for _, v in ipairs(G.playing_cards or {}) do
+                if v.ability and v.ability.frost_bonus and v.ability.frost_bonus > 0 then
+                    v.ability.perma_bonus = math.max(0, (v.ability.perma_bonus or 0) - v.ability.frost_bonus); v.ability.frost_bonus = 0
+                end
+            end
+        end
     end
-}
+})
 
 return {
     name = "Diamond Dust",
-    list = { Beluga, Clear, Icer, Gazelle }
+    list = { Beluga, Clear, Icer, Gazelle, Frost }
 }

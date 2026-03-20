@@ -1,5 +1,5 @@
 local debuff_position = function(pposition)
-    if G.GAME.blind.prepped then
+    if G.GAME.blind.prepped and not G.GAME.blind.disabled then
         for _, y in pairs(G.jokers.cards) do
             y:set_debuff(false)
         end
@@ -14,7 +14,7 @@ local debuff_position = function(pposition)
 end
 
 local debuff_type = function(ptype)
-    if G.GAME.blind.prepped then
+    if G.GAME.blind.prepped and not G.GAME.blind.disabled then
         for _, y in pairs(G.jokers.cards) do
             y:set_debuff(false)
         end
@@ -628,18 +628,47 @@ local YoungInazuma = {
     name = "ina-YoungInazuma",
     key = "YoungInazuma",
     pos = { x = 0, y = 23 },
-    config = { extra = {} },
-    boss = {
-        min = 9,
-    },
+    config = { extra = { penalty = 0.25, threshold = 0.25 } },
+    boss = { min = 17 },
     discovered = false,
-    mult = 0,
+    mult = 2,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
-    dollars = 4,
-    big = { min = 3 },
-    calculate = function(self, blind, context)
+    dollars = 5,
+    set_blind = function(self)
+        if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do
+            local ex = v.ability and v.ability.extra
+            if ex and type(ex) == 'table' and ex.tech_level and ex.tech_level > 0 then
+                    v.ability.yi_saved_tech, ex.tech_level = ex.tech_level, 0
+                    for k, tv in pairs(technique_values) do if ex[k] ~= nil and v.config.center.config.extra[k] ~= nil then
+                        local r, f = round_value(ex[k] + (v.ability[k .. "_frac"] or 0) - v.config.center.config.extra[k] * tv * v.ability.yi_saved_tech, k)
+                        ex[k], v.ability[k .. "_frac"] = r, f or nil
+                    end end; clear_stickers(v); v:juice_up()
+            end
+        end end
+    end,
+    disable = function(self)
+        if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do
+            local ex = v.ability and v.ability.extra
+            if ex and type(ex) == 'table' and v.ability.yi_saved_tech then
+                    for k, tv in pairs(technique_values) do if ex[k] ~= nil and v.config.center.config.extra[k] ~= nil then
+                        local r, f = round_value(ex[k] + (v.ability[k .. "_frac"] or 0) + v.config.center.config.extra[k] * tv * v.ability.yi_saved_tech, k)
+                        ex[k], v.ability[k .. "_frac"] = r, f or nil
+                    end end; ex.tech_level, v.ability.yi_saved_tech = v.ability.yi_saved_tech + (ex.tech_level or 0), nil; set_sticker(v); v:juice_up()
+            end
+        end end
+    end,
+    defeat = function(self) self:disable() end,
+    press_play = function(self) self.config.extra.chips_before = G.GAME.chips end,
+    drawn_to_hand = function(self)
+            local ex, req = self.config.extra, G.GAME.blind.chips
+        if ex.chips_before then
+            if (G.GAME.chips - ex.chips_before) < req * ex.threshold then
+                    G.GAME.blind.chips = req + math.floor(req * ex.penalty); G.GAME.blind.chip_text = number_format(G.GAME.blind.chips); G.GAME.blind:wiggle(); play_sound('gong', 0.8, 1.1)
+            end
+            ex.chips_before = nil
+        end
     end
 }
 
@@ -669,7 +698,7 @@ return {
         fire, mountain, wind, forest,
         raimon, royal_blind, wild,
         brain, otaku, shuriken, farm,
-        kirkwood }
+        kirkwood, YoungInazuma }
 }
 
 -- return {

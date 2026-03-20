@@ -1,12 +1,10 @@
 -- DarkFeldt
-local DarkFeldt = {
+local DarkFeldt = J({
     name = "DarkFeldt",
     pos = { x = 10, y = 12 },
-    config = { extra = {} },
-    loc_vars = function(self, info_queue, center)
-        return {}
-    end,
-    rarity = 3, -- Common
+    config = { extra = { cost_tech = 3, cost_type_pos = 5, cost_any = 8 } },
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.cost_tech, ex.cost_type_pos, ex.cost_any}} end,
+    rarity = 3, -- Rare
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -14,10 +12,18 @@ local DarkFeldt = {
     pposition = C.GK,
     techtype = C.UPGRADES.Plus,
     pteam = "Emperadores Oscuros",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
+    blueprint_compat = false,
+    calculate = function(self, card, ctx)
+        if ctx.setting_blind and not ctx.blueprint and G.GAME.blind:get_type() == 'Boss' and not G.GAME.blind.disabled then
+            local ex, n = card.ability.extra, G.GAME.blind.name
+            local tp = n == 'ina-goalkeeper' or n == 'ina-forward' or n == 'ina-defense' or n == 'ina-midfielder' or n == 'ina-fire' or n == 'ina-forest' or n == 'ina-mountain' or n == 'ina-wind'
+            local cost = n == 'ina-YoungInazuma' and ex.cost_tech or tp and ex.cost_type_pos or ex.cost_any
+            if (G.GAME.current_round.barriers or 0) >= cost then
+                Pokerleven.ease_barriers(-cost); G.GAME.blind:disable(); card:juice_up(); return {message = localize('ph_boss_disabled'), colour = G.C.RED}
+            end
+        end
     end
-}
+})
 
 -- NightDark
 local NightDark = {
@@ -198,8 +204,8 @@ local ShadowDark = {
 -- Nathan
 local NathanDark = J({
     name = "NathanDark",
-    pos = { x = 8, y = 0 },
-    soul_pos = { x = 8, y = 1 },
+    pos = { x = 7, y = 0 },
+    soul_pos = { x = 7, y = 1 },
     config = { extra = { absorbed_polychromes = 0, max_absorb = 10, poly_xmult = 1.5 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -261,5 +267,5 @@ local KevinDark = J({
 
 return {
     name = "Emperadores Oscuros",
-    list = { SamDark, JimDark, NathanDark, KevinDark }
+    list = { DarkFeldt, SamDark, JimDark, NathanDark, KevinDark }
 }

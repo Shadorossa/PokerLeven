@@ -484,3 +484,19 @@ Pokerleven.get_jokers_to_the_right = function(card)
     end
     return 0
 end
+
+Pokerleven.is_in_left_half = function(card)
+    if G.jokers and G.jokers.cards then for i, c in ipairs(G.jokers.cards) do
+        if c == card then return i <= (#G.jokers.cards + 1) / 2 end
+    end end
+    return false
+end
+
+Pokerleven.suit_element_aura = function(card, suit, element, remove)
+    if G.playing_cards then local act, a_k, s_k = not remove and card.area == G.jokers and not card.debuff, 'aura_'..string.lower(element), string.lower(element)..'_sticker'
+        for _, v in ipairs(G.playing_cards) do
+            if act and v:is_suit(suit) then if not v.ability[s_k] then v.ability[a_k], v.ability[s_k] = true, true end
+            elseif v.ability[a_k] then v.ability[a_k], v.ability[s_k] = nil, false end
+        end
+    end
+end

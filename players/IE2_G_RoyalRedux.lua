@@ -186,22 +186,18 @@ local Jamm = J({
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   update = function(self, card, dt)
-    for _, v in ipairs((card.area == G.jokers and G.jokers and G.jokers.cards) or {}) do
-        if v ~= card then
-            if not card.debuff and (is_type(v, C.Mountain) or is_type(v, C.Wind)) then
-                v.jamm_debuffed = true; if not v.debuff then v:set_debuff(true) end
-            elseif v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end
-        end
-    end
+    if card.area == G.jokers then for _, v in ipairs(G.jokers.cards) do if v ~= card then
+        if not card.debuff and (is_type(v, C.Mountain) or is_type(v, C.Wind)) then v.jamm_debuffed = true; if not v.debuff then v:set_debuff(true) end
+        elseif v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end
+    end end end
   end,
   remove_from_deck = function(self, card, from_debuff)
-    for _, v in ipairs((G.jokers and G.jokers.cards) or {}) do if v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end end
+    if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do if v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end end end
   end,
   calculate = function(self, card, ctx)
-    local oj = ctx.other_joker
+    local oj, ex = ctx.other_joker, card.ability.extra
     if oj and oj ~= card and not card.debuff and not oj.debuff and (is_type(oj, C.Fire) or is_type(oj, C.Forest)) then
-        G.E_MANAGER:add_event(Event({func = function() oj:juice_up(0.5, 0.5); return true end}))
-        return {message = localize{type='variable',key='a_xmult',vars={card.ability.extra.xmult}}, Xmult_mod = card.ability.extra.xmult}
+        G.E_MANAGER:add_event(Event({func = function() oj:juice_up(0.5, 0.5); return true end})); return {message = localize{type='variable',key='a_xmult',vars={ex.xmult}}, Xmult_mod = ex.xmult}
     end
   end
 })

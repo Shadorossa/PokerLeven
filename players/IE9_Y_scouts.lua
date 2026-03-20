@@ -476,16 +476,96 @@ local Autumn = {
     end
 }
 
+-- Heart
+local Heart = J({
+    name = "Heart",
+    pos = { x = 7, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 2,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Fire,
+    pposition = C.GK,
+    pteam = "Scout",
+        blueprint_compat = false,
+        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Hearts', 'Fire') end,
+        remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Hearts', 'Fire', true) end end
+})
+
+-- Clover
+local Clover = J({
+    name = "Clover",
+    pos = { x = 8, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 2,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "Scout",
+        blueprint_compat = false,
+        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Clubs', 'Forest') end,
+        remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Clubs', 'Forest', true) end end
+})
+
+-- Diamond
+local Diamond = J({
+    name = "Diamond",
+    pos = { x = 9, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 2,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Mountain,
+    pposition = C.MF,
+    pteam = "Scout",
+        blueprint_compat = false,
+        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Diamonds', 'Mountain') end,
+        remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Diamonds', 'Mountain', true) end end
+})
+
+-- Spade
+local Spade = J({
+    name = "Spade",
+    pos = { x = 10, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 2,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "Scout",
+        blueprint_compat = false,
+        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Spades', 'Wind') end,
+        remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Spades', 'Wind', true) end end
+})
+
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == true then
     return {
         name = "Scout",
-        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
+        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma, Heart, Clover, Diamond, Spade },
     }
 end
 
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == false then
     return {
         name = "Scout",
-        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach }
+        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Heart, Clover, Diamond, Spade }
     }
 end

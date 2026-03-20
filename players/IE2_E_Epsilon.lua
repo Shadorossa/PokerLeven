@@ -1,22 +1,13 @@
 -- Dvalin
-local Dvalin = {
+local Dvalin = J({
   name = "Dvalin",
-  pos = { x = 4, y = 0 },
-  soul_pos = { x = 4, y = 1 },
-  config = { extra = { pposition = "GK", chip_mod = 150, barriers_added = 1, xmult_mod = 0.5, barriers_consumed = 1 } },
+  pos = { x = 3, y = 0 },
+  soul_pos = { x = 3, y = 1 },
+  config = { extra = { pposition = "GK", pos_left = "GK", pos_right = "FW", chip_mod = 150, barriers_added = 1 } },
   loc_vars = function(self, info_queue, center)
-      table.insert(info_queue, { set = "Other", key = "RolChange" })
-      local is_gk = center.ability.extra.pposition == "GK"
-      local barriers = G.GAME.current_round and G.GAME.current_round.barriers or 0
-      local current_xmult = 1 + (barriers * center.ability.extra.xmult_mod)
-      return { vars = { 
-          center.ability.extra.chip_mod, 
-          center.ability.extra.barriers_added, 
-          center.ability.extra.xmult_mod, 
-          center.ability.extra.barriers_consumed,
-          current_xmult,
-          is_gk and "GK" or "FW"
-      } }
+      local ex = center.ability.extra
+      info_queue[#info_queue+1] = { set = "Other", key = "RolChange", vars = {ex.pos_left, ex.pos_right} }
+      return { vars = { ex.chip_mod, ex.barriers_added } }
   end,
   rarity = "ina_top", -- Destacado
   pools = { ["Epsilon"] = true },
@@ -27,39 +18,53 @@ local Dvalin = {
   pteam = "Epsilon",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
-  calculate = function(self, card, context)
-    if context.joker_main and context.scoring_hand then
-        if card.ability.extra.pposition == "GK" then
-            Pokerleven.ease_barriers(card.ability.extra.barriers_added)
-            return {
-                message = localize{type='variable',key='a_chips',vars={card.ability.extra.chip_mod}},
-                chip_mod = card.ability.extra.chip_mod,
-                colour = G.C.CHIPS
-            }
-        elseif card.ability.extra.pposition == "FW" then
-            local barriers = G.GAME.current_round.barriers or 0
-            local cost = card.ability.extra.barriers_consumed
-            if barriers >= cost then
-                Pokerleven.ease_barriers(-cost)
-                local xmult = 1 + (barriers * card.ability.extra.xmult_mod)
-                return {
-                    message = localize{type='variable',key='a_xmult',vars={xmult}},
-                    Xmult_mod = xmult,
-                    colour = G.C.MULT
-                }
-            end
-        end
-    end
+  calculate = function(self, card, ctx)
+      local ex = card.ability.extra
+      if Pokerleven.is_joker_turn(ctx) then
+          Pokerleven.ease_barriers(ex.barriers_added); return {message = localize{type='variable',key='a_chips',vars={ex.chip_mod}}, chip_mod = ex.chip_mod, colour = G.C.CHIPS}
+      end
   end,
   update = function(self, card, dt)
-      if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
-          local target_pos = Pokerleven.is_in_left_half(card) and "GK" or "FW"
-          if card.ability.extra.pposition ~= target_pos then
-             apply_property_sticker(card, target_pos, "position")
+      if G.STAGE == G.STAGES.RUN and card.area == G.jokers and not Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin_Plus') end
+  end
+})
+
+local Dvalin_Plus = J({
+  name = "Dvalin_Plus",
+  pos = { x = 4, y = 0 },
+  soul_pos = { x = 4, y = 1 },
+  config = { extra = { pposition = "FW", pos_left = "GK", pos_right = "FW", xmult_mod = 0.5, barriers_consumed = 1 } },
+  loc_vars = function(self, info_queue, center)
+      local ex = center.ability.extra
+      info_queue[#info_queue+1] = { set = "Other", key = "RolChange", vars = {ex.pos_left, ex.pos_right} }
+      return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * ex.xmult_mod), ex.barriers_consumed, ex.xmult_mod } }
+  end,
+  rarity = "ina_top",
+  pools = { ["Epsilon"] = false }, -- Not in the normal pool, only obtainable through Dvalin
+  cost = 7,
+  atlas = "top",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pteam = "Epsilon",
+  techtype = C.UPGRADES.Number,
+  blueprint_compat = true,
+  calculate = function(self, card, ctx)
+      local ex = card.ability.extra
+      if Pokerleven.is_joker_turn(ctx) then
+          local b = G.GAME.current_round.barriers or 0
+          if b >= ex.barriers_consumed then
+              Pokerleven.ease_barriers(-ex.barriers_consumed)
+              local v = 1 + b * ex.xmult_mod
+              return {message = localize{type='variable',key='a_xmult',vars={v}}, Xmult_mod = v, colour = G.C.MULT}
           end
       end
-  end
-}
+  end,
+  update = function(self, card, dt)
+      if G.STAGE == G.STAGES.RUN and card.area == G.jokers and Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin') end
+  end,
+  custom_pool_func = true,
+  in_pool = function() return false end
+})
 
 -- Kenville
 local Kenville = {
@@ -272,5 +277,5 @@ local Zell = {
 
 return {
   name = "Epsilon",
-  list = { Dvalin, Sworm }
+  list = { Dvalin, Dvalin_Plus, Sworm }
 }
