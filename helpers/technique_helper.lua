@@ -43,7 +43,7 @@ technique_values = {
     chip_mod_chaos = .2,
     levels_per_card = .2,
     retriggers = 1,
-    stone_bonus = .01
+    stone_bonus = .05
 }
 
 local roundable_fields = {

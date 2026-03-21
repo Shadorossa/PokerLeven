@@ -1167,6 +1167,55 @@ return {
                     "{C:attention}baraja{} en lugar de ir al descarte"
                 }
             },
+            j_ina_Mercury = {
+                name = "Mercury",
+                text = {
+                    "{C:wind}Lluvia de Meteoros{}",
+                    "Al {C:red}descartar{} exactamente una {C:attention}Pareja{},",
+                    "las transforma en cartas de {C:attention}Piedra{}.",
+                    "Las cartas de {C:attention}Piedra{} pueden formar {C:attention}Parejas{}.",
+                    "Si puntúan al menos {C:attention}#1#{} cartas de Piedra,",
+                    "crea una carta {C:planet}Mercurio{}."
+                }
+            },
+            j_ina_Kenville = {
+                name = "Kenville",
+                text = {
+                    "{C:fire}Taladradora{}",
+                    "Tus {C:attention}2{}, {C:attention}3{} y {C:attention}4{} ganan todas",
+                    "las bonificaciones individuales",
+                    "de {C:chips}fichas{} de los demás comodines"
+                }
+            },
+            j_ina_Metron = {
+                name = "Metron",
+                text = {
+                    "{C:wind}Remate de Gaia{}",
+                    "Las {C:chips}fichas{} aumentan {C:dark_edition}^#1#{} cada vez",
+                    "que juegues una {C:attention}carta consecutiva{}.",
+                    "Si fallas, el efecto se {C:red}reinicia{}.",
+                    "{C:inactive}(Actual: {C:dark_edition}^#2#{C:inactive} Fichas | Requiere: {C:attention}#3#{C:inactive})"
+                }
+            },
+            j_ina_Fedora = {
+                name = "Fedora",
+                text = {
+                    "{C:fire}Agujero Negro{}",
+                    "Los {C:red}descartes{} van al {C:attention}vacío{} por {C:attention}1{} ciega.",
+                    "Las {C:attention}Cartas Caóticas{} dan {C:mult}+#1#{} Mult",
+                    "por carta enviada al vacío esta ciega.",
+                    "{C:inactive}(Actual: {C:mult}+#2#{C:inactive} Mult){}"
+                }
+            },
+            j_ina_Zell = {
+                name = "Zell",
+                text = {
+                    "{C:wind}Rayo de Ganímedes{}",
+                    "Al jugar {C:attention}Carta alta{} teniendo al menos",
+                    "{C:attention}#1#{} jugador más del {C:attention}Épsilon{},",
+                    "una carta {C:planet}Plutón{}."
+                }
+            },
 
             -- Royal Redux
             j_ina_KingR = {
@@ -1206,6 +1255,24 @@ return {
                     "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{}",
                     "si son titulares con él durante {C:attention}#3#{} rondas",
                     "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Rondas: {C:attention}#4#{C:inactive}){}"
+                }
+            },
+            j_ina_Messer = {
+                name = "Messer",
+                text = {
+                    "{C:forest}Técnica Prohibida{}",
+                    "Aumenta tu {C:attention}Scry{} en {C:tarot}+#1#{}.",
+                    "{C:red}-#2#{} al tamaño máximo",
+                    "de cartas jugables"
+                }
+            },
+            j_ina_Sparrow = {
+                name = "Sparrow",
+                text = {
+                    "{C:wind}Lealtad Tóxica{}",
+                    "{C:red}Debilita{} a los comodines adyacentes.",
+                    "Al finalizar la ronda, otorga {C:money}#1# ${} por",
+                    "cada comodín debilitado de esta forma"
                 }
             },
 
@@ -1287,9 +1354,9 @@ return {
                 text = {
                     {
                         "{C:wind}Protocolo de Seguridad{}",
-                        "Al {C:red}descartar{}, la siguiente mano",
-                        "obtiene las fichas y el multi de",
-                        "{C:attention}#1# niveles{} por carta descartada."
+                        "Al {C:red}descartar{} cartas de {X:wind,C:white}Viento{},",
+                        "la siguiente {C:attention}Pareja{} obtiene",
+                        "fichas y multi de {C:attention}#1# niveles{} por carta."
                     },
                     {
                         "{C:inactive}(Acumulado: {C:attention}#2# {C:inactive}cartas){}"
@@ -1329,14 +1396,15 @@ return {
                 text = {
                     {
                         "{C:wind}Balón Iceberg{}",
-                        "Gana {X:mult,C:white}X#2#{} por {C:attention}Cristal{} {C:red}roto{}.",
-                        "({X:mult,C:white}+X#3#{} si rompes {C:attention}5{} a la vez).",
-                        "Despliega {C:attention}Cristal{} al jugar {C:attention}Póker{}."
+                        "{C:attention}Absorbe{} cargas de los {C:attention}Cristales{}",
+                        "{C:red}rotos{} para ganar {X:mult,C:white}X#2#{} Mult por carga.",
+                        "{C:attention}Despliega{} cargas en forma de",
+                        "{C:attention}Cristal{} al jugar {C:attention}Póker{}."
                     },
                     {
                         "{C:attention}Ventisca de Fuego{}",
                         "Despliega {C:attention}Cartas Caóticas{} en su lugar.",
-                        "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Cargas: {C:attention}#4#/#5#{C:inactive}){}"
+                        "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Cargas: {C:attention}#3#/#4#{C:inactive}){}"
                     }
                 }
             },
@@ -1388,8 +1456,37 @@ return {
                 text = {
                     "{C:mountain}Pisada de Hielo{}",
                     "Las {C:attention}cartas{} jugadas ganan {C:chips}+#1#{} fichas al anotar.",
-                    "Si cumple {C:attention}Combinación incompatible{} afecta a las {C:attention}Cartas Caóticas{} ({C:chips}+#2#{}).",
+                    "{C:attention}Combinación incompatible{} afecta a las {C:attention}Cartas Caóticas{} ({C:chips}+#2#{}).",
                     "{C:inactive}(Modo: {C:attention}#3#{C:inactive} | Se pierde al vender){}"
+                }
+            },
+            j_ina_Maddox = {
+                name = "Maddox",
+                text = {
+                    "{C:forest}Ataque de Cóndor{}",
+                    "Las cartas de {X:forest,C:white}Bosque{}",
+                    "{C:attention}no se pueden debilitar{}"
+                }
+            },
+            j_ina_Scotty = {
+                name = "Scotty Banyan",
+                text = {
+                    "{C:forest}Campo Torbellino{}",
+                    "Otorga {C:chips}+#1#{} Fichas.",
+                    "Al seleccionar una {C:attention}ciega{}, hay",
+                    "{C:green}#2# en #3#{} probabilidades de que",
+                    "se {C:red}enfade{}."
+                }
+            },
+            j_ina_Scotty_Angry = {
+                name = "Scotty Banyan",
+                text = {
+                    "{C:forest}Campo Torbellino{}",
+                    "Otorga {X:mult,C:white}X#1#{} Mult.",
+                    "Otorga {C:chips}+#1#{} Fichas.",
+                    "{C:red}Destruye{} la carta jugada de",
+                    "menor rango al puntuar. Vuelve a",
+                    "la normalidad al final de la ronda."
                 }
             },
 
@@ -1776,6 +1873,14 @@ return {
                 name = "Cambio de Rol",
                 text = { "{C:attention}#1#{} más a la izquierda",
                     "{C:attention}#2#{} más a la derecha" }
+            },
+            ConsecutiveCards = {
+                name = "Cartas consecutivas",
+                text = {
+                    "Se activa al jugar una carta",
+                    "{C:attention}#1#{} a la carta",
+                    "de referencia de la mano anterior"
+                }
             },
             Chaotic = {
                 name = "Combinación incompatible",
@@ -2250,16 +2355,26 @@ return {
                 "3 parejas distintas",
             },
             ["ina_FullMansion"] = {
-                "2 Tríos distintos",
+                "4 cartas del mismo rango",
+                "y 2 de otro",
             },
             ["ina_GodHand"] = {
                 "6 cartas del mismo rango"
+            },
+            ["ina_MagicHand"] = {
+                "6 cartas del mismo rango y",
+                "elemento"
             }
         },
         poker_hands = {
             ["ina_TriplePair"] = "Triple pareja",
             ["ina_FullMansion"] = "Full Mansion",
             ["ina_GodHand"] = "Mano Celestial",
+            ["ina_MagicHand"] = "Mágico Gigante",
+            ["ina_magic_fire"] = "Tormenta de Fuego",
+            ["ina_magic_forest"] = "Mano Mágica",
+            ["ina_magic_mountain"] = "Mano Mágica",
+            ["ina_magic_wind"] = "Ola Mágica",
         },
         quips = {},
         ranks = {},

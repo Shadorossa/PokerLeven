@@ -385,6 +385,36 @@ end
 '''
 match_indent = true
 
+# Mercury Stone Pair
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "if next(parts._5) and next(parts._flush) then"
+position = "before"
+match_indent = true
+payload = '''
+  local stones = {}
+  for i=1, #hand do
+      if SMODS.has_enhancement(hand[i], 'm_stone') then
+          table.insert(stones, hand[i])
+      end
+  end
+  if #stones >= 2 and G.jokers and G.jokers.cards then
+      local ast = {}
+      for _, j in ipairs(G.jokers.cards) do
+          if j.ability and type(j.ability.extra) == 'table' and j.ability.extra.stone_hands then
+              for k, v in pairs(j.ability.extra.stone_hands) do if v then ast[k] = true end end
+          end
+      end
+      if #stones >= 5 and ast["Five of a Kind"] then table.insert(parts._5, {stones[1], stones[2], stones[3], stones[4], stones[5]}) end
+      if #stones >= 4 and ast["Four of a Kind"] then table.insert(parts._4, {stones[1], stones[2], stones[3], stones[4]}) end
+      if #stones >= 5 and ast["Full House"] then table.insert(parts._3, {stones[1], stones[2], stones[3]}); table.insert(parts._2, {stones[4], stones[5]})
+      elseif #stones >= 3 and ast["Three of a Kind"] then table.insert(parts._3, {stones[1], stones[2], stones[3]}) end
+      if #stones >= 4 and ast["Two Pair"] then table.insert(parts._2, {stones[1], stones[2]}); table.insert(parts._2, {stones[3], stones[4]})
+      elseif #stones >= 2 and ast["Pair"] then table.insert(parts._2, {stones[1], stones[2]}) end
+  end
+'''
+
 
 # Disable decks
 [[patches]]

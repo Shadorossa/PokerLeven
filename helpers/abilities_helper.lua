@@ -155,3 +155,16 @@ Pokerleven.remove_stat_multiplier = function(card, id)
         end
     end
 end
+
+--- Modifica las cargas de una carta respetando sus límites (ex.charges, ex.max_charges)
+---@param card Card
+---@param amount number
+---@return number difference La cantidad real de cargas que se añadieron o eliminaron
+Pokerleven.modify_charges = function(card, amount)
+    if not card or not card.ability or type(card.ability.extra) ~= "table" then return 0 end
+    local ex = card.ability.extra
+    if not ex.charges or not ex.max_charges then return 0 end
+    local old_charges = ex.charges
+    ex.charges = math.max(0, math.min(ex.max_charges, ex.charges + amount))
+    return ex.charges - old_charges
+end

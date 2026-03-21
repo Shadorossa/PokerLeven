@@ -26,6 +26,16 @@ function Game:start_run(args)
     )
     Pokerleven.ina_bench_area = G.ina_bench_area
 
+    self.fedora_void = CardArea(
+        -100, -100, 1, 1,
+        {
+            card_limit = 500,
+            type = 'deck',
+            highlight_limit = 0,
+        }
+    )
+    G.fedora_void = self.fedora_void
+
     game_start_run_ref(self, args)
 
     Pokerleven.set_base_rarities(0.69, 0.25, 0.05)

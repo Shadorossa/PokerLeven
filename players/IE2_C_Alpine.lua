@@ -118,25 +118,64 @@ local bootgaiter = {
   end
 }
 
+-- Sobrescribimos el debilitamiento del motor para perdonar a los de Bosque
+local card_set_debuff_ref = Card.set_debuff
+function Card:set_debuff(should_debuff)
+    local prevent = false
+    local saved_perma = nil
+    if self.ability and self.ability.forest_sticker then
+        local maddox = G.jokers and G.jokers.cards and get_joker_with_key("j_ina_Maddox")
+        prevent = maddox and not maddox.debuff
+    end
+    
+    if prevent then should_debuff = false; saved_perma = self.ability.perma_debuff; self.ability.perma_debuff = false end
+    
+    card_set_debuff_ref(self, should_debuff)
+    
+    if prevent and saved_perma ~= nil then self.ability.perma_debuff = saved_perma end
+end
+
+
 -- maddox
-local maddox = {
+local Maddox = J({
   name = "Maddox",
   pos = { x = 9, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 2, -- Uncommon
   pools = { ["Alpine"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
   pteam = "Alpino",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  techtype = C.UPGRADES.Number,
+  blueprint_compat = false,
+  calculate = function(self, card, ctx)
+  end,
+  add_to_deck = function(self, card, from_debuff)
+    if G.playing_cards then
+      for _, c in ipairs(G.playing_cards) do
+        if c.ability and c.ability.forest_sticker then
+          c.debuff = false
+          if G.GAME and G.GAME.blind then G.GAME.blind:debuff_card(c) end
+        end
+      end
+    end
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    if G.playing_cards then
+      for _, c in ipairs(G.playing_cards) do
+        if c.ability and c.ability.forest_sticker then
+          c.debuff = false
+          if G.GAME and G.GAME.blind then G.GAME.blind:debuff_card(c) end
+        end
+      end
+    end
   end
-}
+})
 
 -- skipolson
 local skipolson = {
@@ -320,6 +359,5 @@ local onlign = {
 
 return {
   name = "Alpine",
-  list = {}
-  -- list = { ropes, downtown, bindings, gleeson, snowfield, bootgaiter, maddox, skipolson, shawn, climbstein, rackner, peggs, ursus, bogg, strata, onlign },
+  list = { Maddox }
 }

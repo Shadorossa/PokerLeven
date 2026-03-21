@@ -198,10 +198,10 @@ local Gazelle = J({
     name = "Gazelle",
     pos = { x = 6, y = 0 },
     soul_pos = { x = 6, y = 1 },
-    config = { extra = { xmult = 1, xmult_gain = 0.2, combo_bonus = 0.5, charges = 0, max_charges = 7 } },
+    config = { extra = { xmult_gain = 0.2, charges = 0, max_charges = 10 } },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'Fire_Blizzard', vars = {'Torch'}}
-        local ex = center.ability.extra; return {vars = {ex.xmult, ex.xmult_gain, ex.combo_bonus, ex.charges, ex.max_charges}}
+        local ex = center.ability.extra; return {vars = {1 + (ex.charges * ex.xmult_gain), ex.xmult_gain, ex.charges, ex.max_charges}}
     end,
     rarity = "ina_top", -- Destacado
     pools = { ["DiamondDust"] = true },
@@ -217,14 +217,24 @@ local Gazelle = J({
         if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers and not ctx.blueprint then
             local s_c = 0
             for _, v in ipairs(ctx.removed) do if v.shattered then s_c = s_c + 1 end end
-            if s_c > 0 then ex.charges, ex.xmult = math.min(ex.max_charges, ex.charges + s_c), ex.xmult + s_c * ex.xmult_gain + (s_c >= 5 and ex.combo_bonus or 0); card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ina_absorb'), colour = G.C.DARK_EDITION}) end
-        elseif Pokerleven.is_joker_turn(ctx) and next(ctx.poker_hands['Four of a Kind']) and ex.charges > 0 then
-            local xm, c = ex.xmult, 0
-            local enhancement = (get_joker_with_key('j_ina_Torch') ~= nil) and 'm_ina_chaotic' or 'm_glass'
-            if not ctx.blueprint then
-                for _, v in ipairs(ctx.scoring_hand) do if c < ex.charges and v.config.center.key ~= enhancement then Pokerleven.apply_card_property(v, 'enhancement', enhancement); v:juice_up(); c = c + 1 end end
-                ex.charges, ex.xmult = ex.charges - c, ex.charges == c and 1 or math.max(1, ex.xmult - c * ex.xmult_gain)
+            if s_c > 0 then
+                local added = Pokerleven.modify_charges(card, s_c)
+                if added > 0 then card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ina_absorb'), colour = G.C.DARK_EDITION}) end
             end
+        elseif ctx.before and next(ctx.poker_hands['Four of a Kind']) and ex.charges > 0 and not ctx.blueprint then
+            local c = 0
+            local enhancement = (get_joker_with_key('j_ina_Torch') ~= nil) and 'm_ina_chaotic' or 'm_glass'
+            for _, v in ipairs(ctx.scoring_hand) do 
+                if c < ex.charges and v.config.center.key ~= enhancement then 
+                    Pokerleven.apply_card_property(v, 'enhancement', enhancement); v:juice_up(); c = c + 1 
+                end 
+            end
+            if c > 0 then 
+                Pokerleven.modify_charges(card, -c)
+                return {message = localize('ina_deploy'), colour = G.C.DARK_EDITION}
+            end
+        elseif Pokerleven.is_joker_turn(ctx) and ex.charges > 0 then
+            local xm = 1 + (ex.charges * ex.xmult_gain)
             return {message = localize{type='variable',key='a_xmult',vars={xm}}, Xmult_mod = xm}
         end
     end

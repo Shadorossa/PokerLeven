@@ -559,13 +559,13 @@ local Spade = J({
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == true then
     return {
         name = "Scout",
-        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma, Heart, Clover, Diamond, Spade },
+        list = { Dulce, Ryoma, Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade },
     }
 end
 
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == false then
     return {
         name = "Scout",
-        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Heart, Clover, Diamond, Spade }
+        list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade }
     }
 end

@@ -16,7 +16,8 @@ family = {
     { "Dvalin", "Dvalin_Plus" },
     { "Axel", "Axel_IJ"},
     { "Jack", "Jack_IJ" },
-    { "CalebR", "Caleb_IJ" }
+    { "CalebR", "Caleb_IJ" },
+    { "Scotty", "Scotty_Angry" }
 }
 
 copy_scaled_values = function(card)

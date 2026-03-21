@@ -114,9 +114,9 @@ local Bamboo = J({
 local Messer = J({
   name = "Messer",
   pos = { x = 1, y = 7 },
-  config = { extra = {} },
+  config = { extra = { scry_mod = 2, play_limit_loss = 1 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.scry_mod, center.ability.extra.play_limit_loss } }
   end,
   rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
@@ -125,8 +125,22 @@ local Messer = J({
   ptype = C.Forest,
   pposition = C.MF,
   pteam = "Royal Redux",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  techtype = C.UPGRADES.Number,
+  blueprint_compat = false,
+  add_to_deck = function(self, card, from_debuff)
+    local ex = card.ability.extra
+    G.GAME.scry_amount = (G.GAME.scry_amount or 0) + ex.scry_mod
+    if G.hand and G.hand.config then
+      G.hand.config.highlighted_limit = math.max(1, G.hand.config.highlighted_limit - ex.play_limit_loss)
+      if G.hand.highlighted and #G.hand.highlighted > G.hand.config.highlighted_limit then G.hand:unhighlight_all() end
+    end
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    local ex = card.ability.extra
+    G.GAME.scry_amount = (G.GAME.scry_amount or 0) - ex.scry_mod
+    if G.hand and G.hand.config then
+      G.hand.config.highlighted_limit = G.hand.config.highlighted_limit + ex.play_limit_loss
+    end
   end
 })
 
@@ -154,9 +168,9 @@ local Spark = J({
 local Sparrow = J({
   name = "Sparrow",
   pos = { x = 3, y = 7 },
-  config = { extra = {} },
+  config = { extra = { money = 4 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.money } }
   end,
   rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
@@ -165,8 +179,31 @@ local Sparrow = J({
   ptype = C.Wind,
   pposition = C.MF,
   pteam = "Royal Redux",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  techtype = C.UPGRADES.Number,
+  blueprint_compat = false,
+  update = function(self, card, dt)
+    if G.jokers and card.area == G.jokers then
+        local l = card:get_left_joker()
+        local r = card:get_right_joker()
+        for _, v in ipairs(G.jokers.cards) do
+            if v ~= card then
+                if not card.debuff and (v == l or v == r) then
+                    v.sparrow_debuffed = true; if not v.debuff then v:set_debuff(true) end
+                elseif v.sparrow_debuffed then
+                    v.sparrow_debuffed = nil; v:set_debuff(false)
+                end
+            end
+        end
+    end
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do if v.sparrow_debuffed then v.sparrow_debuffed = nil; v:set_debuff(false) end end end
+  end,
+  calc_dollar_bonus = function(self, card)
+    if card.debuff then return 0 end
+    local count = 0
+    if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do if v.sparrow_debuffed then count = count + 1 end end end
+    if count > 0 then return count * card.ability.extra.money end
   end
 })
 
@@ -372,6 +409,5 @@ local Color = J({
 
 return {
     name = "Royal Redux",
-    list = { KingR, Jamm, CalebR, SamfordR }
-    -- list = { Beltzer, Blade, Argie, Bamboo, Messer, Spark, Sparrow, Cellar, Zenn, Little, Cosimo, Color },
+    list = { KingR, Messer, Sparrow, Jamm, CalebR, SamfordR }
 }

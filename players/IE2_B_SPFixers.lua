@@ -49,9 +49,9 @@ local Western = J({
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     
-    if ctx.discard and not ctx.blueprint then
+    if ctx.discard and not ctx.blueprint and ctx.other_card and ctx.other_card.ability.wind_sticker then
       ex.pending_cards = ex.pending_cards + 1
-    elseif Pokerleven.is_joker_turn(ctx) and ex.pending_cards > 0 then
+    elseif Pokerleven.is_joker_turn(ctx) and ex.pending_cards > 0 and ctx.scoring_name == "Pair" then
       local hand_type = ctx.scoring_name
       if G.GAME.hands[hand_type] then
         local lvls = ex.pending_cards * ex.levels_per_card
@@ -437,5 +437,5 @@ local toppin = {
 
 return {
   name = "SPFixers",
-  list = { ironwall, fielding, firsthand, Western, Firepool, Tori }
+  list = { ironwall, Western, Firepool, fielding, firsthand, Tori }
 }
