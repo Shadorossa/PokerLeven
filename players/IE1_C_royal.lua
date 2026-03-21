@@ -7,12 +7,12 @@ local King = {
     return {}
   end,
   rarity = 2,
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Fire",
   pposition = "GK",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -81,12 +81,12 @@ local Bloom = J({
     return { vars = { center.ability.extra.Xmult_mod, grand_total } }
   end,
   rarity = 1,
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Fire",
   pposition = "MF",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -117,12 +117,12 @@ local Drent = {
     return { vars = { G.GAME.probabilities.normal, odds } }
   end,
   rarity = 2,
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Mountain",
   pposition = "DF",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -175,13 +175,13 @@ local Jude = {
     return { vars = { center.ability.extra.current_xmult, center.ability.extra.xmult_mod } }
   end,
   rarity = "ina_top",
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 8,
   atlas = "top",
   ptype = "Wind",
   stage = "base",
   pposition = "MF",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -225,12 +225,12 @@ local Martin = J({
     }
   end,
   rarity = 2,
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "DF",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -309,18 +309,18 @@ local Master = {
     return { vars = { center.ability.extra.mult_mod } }
   end,
   rarity = 1,
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Wind",
   pposition = "MF",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.joker_main then
       if not card:get_left_joker() then
-        local count = #find_player_team("Royal Academy")
+        local count = #find_player_team("ina_team_RoyalAcademy")
         return {
           message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * count } },
           colour = G.C.MULT,
@@ -340,12 +340,12 @@ local Samford = {
     return { vars = { center.ability.extra.xmult_mod } }
   end,
   rarity = 2,
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "FW",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -371,17 +371,17 @@ local Swing = {
     return { vars = { center.ability.extra.chips_mod } }
   end,
   rarity = 1,
-  pools = { ["Royal Academy"] = true },
+  pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Wind",
   pposition = "MF",
-  pteam = "Royal Academy",
+  pteam = "ina_team_RoyalAcademy",
   blueprint_compat = true,
   techtype = C.UPGRADES.Number,
   calculate = function(self, card, context)
     if context.scoring_hand and context.joker_main and next(context.poker_hands['Three of a Kind']) then
-      local count = #find_player_team("Royal Academy")
+      local count = #find_player_team("ina_team_RoyalAcademy")
       card.ability.extra.triggered = true
       return {
         message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips_mod * count } },
@@ -394,5 +394,5 @@ local Swing = {
 
 return {
   name = "Royal Academy",
-  list = { King, Drent, Martin, Master, Bloom, Swing, Jude, Samford },
+  list = { King, Drent, Martin, Master, Bloom, Swing, Jude, Samford }
 }

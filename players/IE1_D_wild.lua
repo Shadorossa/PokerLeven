@@ -7,12 +7,12 @@ local Chicken = {
         return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.money } }
     end,
     rarity = 3, -- Rare
-    pools = { ["Wild"] = true },
+  pools = { ["ina_team_Wild"] = true },
     cost = 8,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "MF", -- Midfielder
-    pteam = "Wild",
+  pteam = "ina_team_Wild",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.individual and not context.end_of_round and context.cardarea == G.play and context.scoring_hand then
@@ -38,12 +38,12 @@ local Boar = {
         return {}
     end,
     rarity = 1, -- Common
-    pools = { ["Wild"] = true },
+  pools = { ["ina_team_Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "GK", -- Goalkeeper
-    pteam = "Wild",
+  pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -82,12 +82,12 @@ local Chamaleon = J({
         return {}
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Wild"] = true },
+  pools = { ["ina_team_Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF", -- Midfielder
-    pteam = "Wild",
+  pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -157,12 +157,12 @@ local Eagle = {
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
     end,
     rarity = 1, -- Common
-    pools = { ["Wild"] = true },
+  pools = { ["ina_team_Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF", -- Midfielder
-    pteam = "Wild",
+  pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -202,16 +202,16 @@ local Monkey = {
     pos = { x = 4, y = 4 },
     config = { extra = { wild_count = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
-        local wild_players = #find_player_team('Wild')
+    local wild_players = #find_player_team('ina_team_Wild')
         return { vars = { 1 + ((wild_players * center.ability.extra.wild_count) / 10) } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Wild"] = true },
+  pools = { ["ina_team_Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF", -- Midfielder
-    pteam = "Wild",
+  pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -226,7 +226,7 @@ local Monkey = {
 
         if context.cardarea == G.jokers and context.scoring_hand then
             if context.joker_main then
-                local wild_players = #find_player_team('Wild')
+        local wild_players = #find_player_team('ina_team_Wild')
                 card.ability.extra.triggered = true
                 return {
                     message = localize { type = 'variable', key = 'a_xmult', vars = { 1 + ((wild_players * card.ability.extra.wild_count) / 10) } },
@@ -252,12 +252,12 @@ local Gorilla = {
         return {}
     end,
     rarity = 1, -- Common
-    pools = { ["Wild"] = true },
+  pools = { ["ina_team_Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Mountain",
     pposition = "FW", -- Forward
-    pteam = "Wild",
+  pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -285,13 +285,13 @@ local Cheetah = {
         return { vars = { center.ability.extra.current_element } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Wild"] = true },
+  pools = { ["ina_team_Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = C.Wind,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus, -- Forward
-    pteam = "Wild",
+  pteam = "ina_team_Wild",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval then
@@ -331,5 +331,5 @@ local Cheetah = {
 
 return {
     name = "Wild",
-    list = { Boar, Chicken, Chamaleon, Eagle, Monkey, Gorilla, Cheetah },
+    list = { Boar, Chicken, Chamaleon, Eagle, Monkey, Gorilla, Cheetah }
 }

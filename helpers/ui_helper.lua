@@ -4,7 +4,9 @@ ina_set_badges = function(self, card, badges)
     local text_colour = G.C.WHITE
     if pteam then
         local lower_pteam = string.lower(pteam)
-        badges[#badges + 1] = create_badge(pteam, G.ARGS.LOC_COLOURS[lower_pteam], text_colour, 1.2)
+        local loc_team = localize(pteam, 'teams')
+        if loc_team == 'ERROR' then loc_team = pteam end
+        badges[#badges + 1] = create_badge(loc_team, G.ARGS.LOC_COLOURS[lower_pteam], text_colour, 1.2)
     end
 end
 

@@ -12,12 +12,12 @@ local Feldt = J({
         }
     end,
     rarity = 3, -- Rare
-    pools = { ["Brain"] = true },
+  pools = { ["ina_team_Brain"] = true },
     cost = 8,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "GK", -- Goalkeeper
-    pteam = "Brain",
+  pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Number,
     numberTechType = C.UPGRADES.NumberType.Z,
     blueprint_compat = true,
@@ -54,12 +54,12 @@ local Marvel = {
         return { vars = { center.ability.extra.mult_mod } }
     end,
     rarity = 1, -- Common
-    pools = { ["Brain"] = true },
+  pools = { ["ina_team_Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Mountain",
     pposition = "DF", -- Defense
-    pteam = "Brain",
+  pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -96,12 +96,12 @@ local Tell = {
         return {}
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Brain"] = true },
+  pools = { ["ina_team_Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "MF", -- Midfielder
-    pteam = "Brain",
+  pteam = "ina_team_Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.joker_main and G.hand and G.hand.cards then
@@ -133,12 +133,12 @@ local Seller = {
         return { vars = { center.ability.extra.sell_potential, center.ability.extra.sell_mod } }
     end,
     rarity = 1, -- Common
-    pools = { ["Brain"] = true },
+  pools = { ["ina_team_Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "FW", -- Forward
-    pteam = "Brain",
+  pteam = "ina_team_Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.end_of_round and not context.game_over and context.main_eval then
@@ -182,12 +182,12 @@ local Kind = {
         return {}
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Brain"] = true },
+  pools = { ["ina_team_Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "MF", -- Midfielder
-    pteam = "Brain",
+  pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -234,19 +234,19 @@ local Turner = {
         return {}
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Brain"] = true },
+  pools = { ["ina_team_Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "FW", -- Forward
-    pteam = "Brain",
+  pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main
             and next(context.poker_hands['Four of a Kind']) then
             card.ability.extra.triggered = true
-            for i = 1, #find_player_team("Brain") do
+      for i = 1, #find_player_team("ina_team_Brain") do
                 G.E_MANAGER:add_event(Event({
                     delay = 2,
                     func = function()
@@ -282,12 +282,12 @@ local Under = {
         return { vars = { center.ability.extra.chips_mod, realCount } }
     end,
     rarity = 1, -- Common
-    pools = { ["Brain"] = true },
+  pools = { ["ina_team_Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "GK", -- Goalkeeper
-    pteam = "Brain",
+  pteam = "ina_team_Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main then

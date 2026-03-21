@@ -60,7 +60,7 @@ local Celia = J({
         end
         if context.setting_blind then
             if Pokerleven.has_enough_bench_space() then
-                local selected_joker = create_random_ina_joker('Celia', nil, G.ina_bench_area, 'Scout', false)
+                local selected_joker = create_random_ina_joker('Celia', nil, G.ina_bench_area, 'ina_team_Scout', false)
                 Pokerleven.add_to_bench(selected_joker)
                 Pokerleven.open_bench(true, true)
                 G.E_MANAGER:add_event(Event({

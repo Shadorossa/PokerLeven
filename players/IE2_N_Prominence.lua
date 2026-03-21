@@ -204,7 +204,7 @@ local Torch = J({
     ptype = C.Fire,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
@@ -239,7 +239,7 @@ local Neppten = {
     ptype = C.Forest,
     pposition = C.FW,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end

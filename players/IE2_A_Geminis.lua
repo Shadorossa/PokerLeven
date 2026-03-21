@@ -12,7 +12,7 @@ local Galileo = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.GK,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -32,7 +32,7 @@ local Coral = {
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -52,7 +52,7 @@ local Gigs = {
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -72,7 +72,7 @@ local Ganymede = {
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.DF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -92,7 +92,7 @@ local Charon = {
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -112,7 +112,7 @@ local Pandora = {
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -132,7 +132,7 @@ local Grengo = {
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -152,7 +152,7 @@ local Io = {
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.MF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -172,7 +172,7 @@ local Rihm = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -192,7 +192,7 @@ local Janus = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -212,7 +212,7 @@ local Diam = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
-  pteam = "Tormenta de Géminis",
+  pteam = "ina_team_TormentadeGéminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end

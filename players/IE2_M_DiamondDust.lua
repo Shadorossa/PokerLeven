@@ -11,7 +11,7 @@ local Beluga = J({
     ptype = C.Wind,
     pposition = C.GK,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     add_to_deck = function(self, card, from_debuff) G.GAME.probabilities.new_glass_denom = card.ability.extra.new_glass_denom end,
     remove_from_deck = function(self, card, from_debuff) G.GAME.probabilities.new_glass_denom = nil end
@@ -32,7 +32,7 @@ local Arkew = {
     ptype = C.Wind,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -51,7 +51,7 @@ local Clear = J({
     ptype = C.Wind,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers then
@@ -80,7 +80,7 @@ local Gocker = {
     ptype = C.Mountain,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -91,7 +91,7 @@ local Icer = J({
     name = "Icer",
     pos = { x = 10, y = 14 },
     config = { extra = { money = 2 } },
-    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.money, #find_player_team("Polvo de Diamantes") * ex.money}} end,
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.money, #find_player_team("ina_team_PolvodeDiamantes") * ex.money}} end,
     rarity = 1, --
     pools = { ["DiamondDust"] = true },
     cost = 7,
@@ -99,12 +99,12 @@ local Icer = J({
     ptype = C.Fire,
     pposition = C.MF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers then local s_c = 0
             for _, v in ipairs(ctx.removed) do if v.shattered then s_c = s_c + 1 end end
-            if s_c > 0 then local m = s_c * card.ability.extra.money * #find_player_team("Polvo de Diamantes"); ease_dollars(m); card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('$')..m, colour = G.C.MONEY}) end
+            if s_c > 0 then local m = s_c * card.ability.extra.money * #find_player_team("ina_team_PolvodeDiamantes"); ease_dollars(m); card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('$')..m, colour = G.C.MONEY}) end
         end
     end
 })
@@ -124,7 +124,7 @@ local Balen = {
     ptype = C.Wind,
     pposition = C.MF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -145,7 +145,7 @@ local Droll = {
     ptype = C.Mountain,
     pposition = C.MF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -166,7 +166,7 @@ local Rhine = {
     ptype = C.Wind,
     pposition = C.MF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -187,7 +187,7 @@ local Blown = {
     ptype = C.Wind,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -210,7 +210,7 @@ local Gazelle = J({
     ptype = C.Wind,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
@@ -246,8 +246,8 @@ local Frost = J({
     pos = { x = 3, y = 15 },
     config = { extra = { chip_mod_normal = 3, chip_mod_chaos = 10 } },
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic', vars = {"Prominence"}}
-        return {vars = {center.ability.extra.chip_mod_normal, center.ability.extra.chip_mod_chaos, #find_player_team("Prominence") > 0 and "Caos" or "Normal"}}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic', vars = {localize("ina_team_Prominence", "teams") or "Prominence"}}
+        return {vars = {center.ability.extra.chip_mod_normal, center.ability.extra.chip_mod_chaos, #find_player_team("ina_team_Prominence") > 0 and localize("ina_caos") or localize("ina_normal")}}
     end,
     rarity = 1, --
     pools = { ["DiamondDust"] = true },
@@ -256,12 +256,12 @@ local Frost = J({
     ptype = C.Mountain,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
-    pteam = "Polvo de Diamantes",
+    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local oc, ex = ctx.other_card, card.ability.extra
         if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint and oc then
-            local prom, is_c = #find_player_team("Prominence") > 0, oc.config.center.key == 'm_ina_chaotic'
+            local prom, is_c = #find_player_team("ina_team_Prominence") > 0, oc.config.center.key == 'm_ina_chaotic'
             if (prom and is_c) or (not prom and oc.config.center.key == 'c_base') then
                 local mod = prom and ex.chip_mod_chaos or ex.chip_mod_normal
                 oc.ability.perma_bonus = (oc.ability.perma_bonus or 0) + mod

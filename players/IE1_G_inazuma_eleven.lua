@@ -11,12 +11,12 @@ local hillman = J({
     }
   end,
   rarity = 3, -- Rare
-  pools = { ["Inazuma Eleven"] = true },
+  pools = { ["ina_team_InazumaEleven"] = true },
   cost = 8,
   atlas = "Jokers01",
   ptype = "Mountain",
   pposition = "GK",
-  pteam = "Inazuma Eleven",
+  pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.joker_main then
@@ -48,12 +48,12 @@ local island = J({
     }
   end,
   rarity = 1, -- Common
-  pools = { ["Inazuma Eleven"] = true },
+  pools = { ["ina_team_InazumaEleven"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "DF",
-  pteam = "Inazuma Eleven",
+  pteam = "ina_team_InazumaEleven",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -95,12 +95,12 @@ local sweet = J({
     }
   },
   rarity = 1, -- Common
-  pools = { ["Inazuma Eleven"] = true },
+  pools = { ["ina_team_InazumaEleven"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Mountain",
   pposition = "DF",
-  pteam = "Inazuma Eleven",
+  pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.setting_blind and not context.blueprint then
@@ -110,8 +110,8 @@ local sweet = J({
           ["Uncommon"] = 0.2
         },
         {
-          ["Raimon"] = 0.5,
-          ["Inazuma Eleven"] = 0.5,
+          ["ina_team_Raimon"] = 0.5,
+          ["ina_team_InazumaEleven"] = 0.5,
         }
       )
       spawn_effect.func()
@@ -141,12 +141,12 @@ local butler = J({
     }
   end,
   rarity = 1, -- Common
-  pools = { ["Inazuma Eleven"] = true },
+  pools = { ["ina_team_InazumaEleven"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "MF",
-  pteam = "Inazuma Eleven",
+  pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.scoring_hand and context.cardarea == G.play
@@ -182,12 +182,12 @@ local barista = J({
     return { vars = { center.ability.extra.Xchips_mod } }
   end,
   rarity = 2, -- Uncommon
-  pools = { ["Inazuma Eleven"] = true },
+  pools = { ["ina_team_InazumaEleven"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Wind",
   pposition = "FW",
-  pteam = "Inazuma Eleven",
+  pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.scoring_hand and context.cardarea == G.play
@@ -211,12 +211,12 @@ local builder = J({
     return {}
   end,
   rarity = 2, -- Uncommon
-  pools = { ["Inazuma Eleven"] = true },
+  pools = { ["ina_team_InazumaEleven"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Fire",
   pposition = "FW",
-  pteam = "Inazuma Eleven",
+  pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.final_scoring_step

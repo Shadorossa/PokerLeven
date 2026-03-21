@@ -14,13 +14,13 @@ local Poseidon = {
     return { vars = { barriers, min_face, chips_mod, actual_chips_mod } }
   end,
   rarity = 3, -- Rare
-  pools = { ["Zeus"] = true },
+  pools = { ["ina_team_Zeus"] = true },
   cost = 8,
   atlas = "Jokers01",
   ptype = "Mountain",
   pposition = "GK",
   techtype = C.UPGRADES.Number,
-  pteam = "Zeus",
+  pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context)
@@ -51,13 +51,13 @@ local Hephestus = J({
   loc_vars = function(self, info_queue, center)
   end,
   rarity = 2,
-  pools = { ["Zeus"] = true },
+  pools = { ["ina_team_Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Fire",
   pposition = "DF",
   techtype = C.UPGRADES.Number,
-  pteam = "Zeus",
+  pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.blind_defeated and not context.blueprint then
@@ -99,13 +99,13 @@ local Apollo = {
     return { vars = { center.ability.extra.chips_mod, center.ability.extra.alt_chips_mod, center.ability.extra.current_chips, center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
   end,
   rarity = 1,
-  pools = { ["Zeus"] = true },
+  pools = { ["ina_team_Zeus"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "DF",
   techtype = C.UPGRADES.Plus,
-  pteam = "Zeus",
+  pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) and card.ability.extra.current_chips > 0 then
@@ -150,13 +150,13 @@ local Artemis = J({
     return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
   end,
   rarity = 2, -- Uncommon
-  pools = { ["Zeus"] = true },
+  pools = { ["ina_team_Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = C.Wind,
   pposition = C.MF, -- Midfielder
   techtype = C.UPGRADES.Plus,
-  pteam = "Zeus",
+  pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.discard and context.other_card.ability["ina_harvest_sticker"] == true then
@@ -201,12 +201,12 @@ local Hermes = {
     return {}
   end,
   rarity = 2, -- Uncommon
-  pools = { ["Zeus"] = true },
+  pools = { ["ina_team_Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "MF", -- Midfielder
-  pteam = "Zeus",
+  pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.other_card and G.GAME.current_round.hands_played == 0
@@ -244,13 +244,13 @@ local Demeter = {
     }
   end,
   rarity = 1,
-  pools = { ["Zeus"] = true },
+  pools = { ["ina_team_Zeus"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = C.Fire,
   pposition = C.FW,
   techtype = C.UPGRADES.Number,
-  pteam = "Zeus",
+  pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.joker_main then
@@ -295,7 +295,7 @@ local get_byron_xmult = function(card, selected_position)
   }
 
   local position_count = #find_player_position(selected_position)
-  local zeus_count = #find_player_team("Zeus")
+  local zeus_count = #find_player_team("ina_team_Zeus")
 
   local mult_key = MULT_KEYS[selected_position] or MULT_KEYS.MF
   local selected_mult = card.ability.extra[mult_key]
@@ -340,7 +340,7 @@ local Aphrodite = J({
   ptype = "Forest",
   pposition = "MF", -- Midfielder
   techtype = C.UPGRADES.Plus,
-  pteam = "Zeus",
+  pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_end_of_round(context) then

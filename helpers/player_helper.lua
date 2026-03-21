@@ -155,12 +155,12 @@ player_in_pool = function(self)
     end
 
     -- Bloquear versiones internacionales si no se tiene el vale de Nivel 1 "Growing Player"
-    if self.pteam == "Inazuma Japón" and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_growing_player"]) then
+    if self.pteam == "ina_team_InazumaJapón" and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_growing_player"]) then
         return false
     end
 
     -- Bloquear versiones corrompidas por la Alius si no se tiene el vale de Nivel 2 "Modified Player"
-    if (self.pteam == "Royal Redux" or self.pteam == "Emperadores Oscuros") and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_modified_player"]) then
+    if (self.pteam == "ina_team_RoyalRedux" or self.pteam == "ina_team_EmperadoresOscuros") and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_modified_player"]) then
         return false
     end
 
@@ -174,7 +174,7 @@ player_in_pool = function(self)
     else
         name = self.name or "Mark"
     end
-    if next(find_joker(name)) or player_in_bench(name) or self.pteam == 'Scout' then
+    if next(find_joker(name)) or player_in_bench(name) or self.pteam == 'ina_team_Scout' then
         return false
     elseif self.rarity == "winner" then
         return false
@@ -230,7 +230,7 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
             and not (inateam and v.pteam and inateam ~= v.pteam)
             and (
                 (special and v.special == special) -- cuando hay special, valida solo esto
-                or (not special and (player_in_pool(v) or (inateam == 'Scout' and v.pteam == 'Scout')))
+                or (not special and (player_in_pool(v) or (inateam == 'ina_team_Scout' and v.pteam == 'ina_team_Scout')))
             )
             and not v.aux_ina
             and not exclude_keys[v.key]
@@ -445,7 +445,7 @@ Pokerleven.get_random_team_from_actuals = function()
     if G.jokers and G.jokers.cards then
         for _, v in pairs(G.jokers.cards) do
             if v.ability and type(v.ability.extra) == "table" and v.ability.extra.pteam
-                and v.ability.extra.pteam ~= "Scout" then
+                and v.ability.extra.pteam ~= "ina_team_Scout" then
                 possible_teams[v.ability.extra.pteam] = true
             end
         end
@@ -461,7 +461,7 @@ Pokerleven.get_random_team_from_actuals = function()
         selected_team = pseudorandom_element(team_list, pseudoseed("teamselect"))
     end
     if not selected_team then
-        selected_team = "Raimon"
+        selected_team = "ina_team_Raimon"
     end
 
     return selected_team

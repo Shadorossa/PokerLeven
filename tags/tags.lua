@@ -34,7 +34,7 @@ local wild_tag = {
                 selected_team = pseudorandom_element(team_list, pseudoseed("teamselect"))
             end
             if not selected_team then
-                selected_team = "Raimon"
+                selected_team = "ina_team_Raimon"
             end
 
             card = create_random_ina_joker("wildtag", "Uncommon", context.area, selected_team)

@@ -7,18 +7,18 @@ local Talisman = {
     return { vars = { center.ability.extra.evolving_retriggers } }
   end,
   rarity = 3,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 8,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "FW",
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= self then
       card.ability.extra.triggered = true;
-      if context.other_card == card:get_right_joker() and is_team(context.other_card, "Occult") then
+      if context.other_card == card:get_right_joker() and is_team(context.other_card, "ina_team_Occult") then
         return {
           repetitions = card.ability.extra.evolving_retriggers,
         }
@@ -38,13 +38,13 @@ local Wolfy = {
     return { vars = { 1 + center.ability.extra.xmult_mod * (G.GAME.used_moon_cards or 0), center.ability.extra.xmult_mod } }
   end,
   rarity = 2,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Fire",
   pposition = "FW",
   techtype = C.UPGRADES.Number,
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.joker_main and context.scoring_hand
@@ -70,12 +70,12 @@ local Blood = {
     return { vars = { center.ability.extra.drain, center.ability.extra.chips_mod, center.sell_cost * center.ability.extra.chips_mod } }
   end,
   rarity = 2,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Mountain",
   pposition = "MF",
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -107,12 +107,12 @@ local Grave = {
     return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds } }
   end,
   rarity = 1,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Fire",
   pposition = "MF",
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -158,12 +158,12 @@ local Mask = {
     return { vars = { center.ability.extra.sell_value } }
   end,
   rarity = 2,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = "Wind",
   pposition = "GK",
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -209,12 +209,12 @@ local Styx = {
     return { vars = { current_chips, center.ability.extra.chips_mod } }
   end,
   rarity = 1,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "DF",
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -242,13 +242,13 @@ local Franky = {
     return { vars = { center.ability.extra.mult_mod } }
   end,
   rarity = 1,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Mountain",
   pposition = "DF",
   techtype = C.UPGRADES.Number,
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.scoring_hand then
@@ -276,12 +276,12 @@ local Mummy = {
     }
   end,
   rarity = 1,
-  pools = { ["Occult"] = true },
+  pools = { ["ina_team_Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "MF",
-  pteam = "Occult",
+  pteam = "ina_team_Occult",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)

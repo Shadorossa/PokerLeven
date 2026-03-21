@@ -12,7 +12,7 @@ local ropes = {
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.GK,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -32,7 +32,7 @@ local downtown = {
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -52,7 +52,7 @@ local bindings = {
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -72,7 +72,7 @@ local gleeson = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -92,7 +92,7 @@ local snowfield = {
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -112,7 +112,7 @@ local bootgaiter = {
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -150,7 +150,7 @@ local Maddox = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   techtype = C.UPGRADES.Number,
   blueprint_compat = false,
   calculate = function(self, card, ctx)
@@ -191,7 +191,7 @@ local skipolson = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -211,7 +211,7 @@ local shawn = {
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.FW,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -231,7 +231,7 @@ local climbstein = {
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.FW,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -251,7 +251,7 @@ local rackner = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -271,7 +271,7 @@ local peggs = {
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.GK,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -291,7 +291,7 @@ local ursus = {
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -311,7 +311,7 @@ local bogg = {
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -331,7 +331,7 @@ local strata = {
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
@@ -351,7 +351,7 @@ local onlign = {
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
-  pteam = "Alpino",
+  pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end

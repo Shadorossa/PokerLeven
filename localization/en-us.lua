@@ -427,7 +427,7 @@ return {
             j_ina_Nathan = {
                 name = "Nathan",
                 text = { "{C:wind}Entrada Huracán{}",
-                    "Cada {C:attention}Joker{} del {X:raimon,C:white}Raimon{}",
+                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{}",
                     "otorga {X:mult,C:white}X#2#{}" }
             },
             j_ina_Jack = {
@@ -501,7 +501,7 @@ return {
             j_ina_Steve = {
                 name = "Steve",
                 text = { "{C:wind}Disparo Rodante{}",
-                    "Cada {C:attention}Joker{} del {X:raimon,C:white}Raimon{} otorga {C:chips}+#1#{} y {C:mult}+#2#{}",
+                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} otorga {C:chips}+#1#{} y {C:mult}+#2#{}",
                     "Obtiene {C:money}+#3#${} al terminar la ronda",
                     "{C:inactive}(Actual: {C:chips}+#4#{} {C:inactive}y{} {C:mult}+#5#{}{C:inactive}){}",
                 }
@@ -525,7 +525,7 @@ return {
             j_ina_Talisman = {
                 name = "Talisman",
                 text = { "{C:forest}Rapto Divino{}",
-                    "Reactiva el {C:attention}Joker{} {X:occult,C:white}Occult{}",
+                    "Reactiva el {C:attention}Joker{} {X:ina_team_occult,C:white}Occult{}",
                     "a su derecha {C:attention}#1# veces{}",
                 }
             },
@@ -611,7 +611,7 @@ return {
                 name = "Master",
                 text = { "{C:wind}Coz{}",
                     "Si es el primer {C:attention}Joker{} a la izquierda,",
-                    "gana {C:mult}+#1#{} de multi por cada {X:royal academy,C:white}Acad. Royal{}", }
+                    "gana {C:mult}+#1#{} de multi por cada {X:ina_team_royalacademy,C:white}Acad. Royal{}", }
             },
             j_ina_Samford = {
                 name = "Samford",
@@ -622,7 +622,7 @@ return {
                 name = "Swing",
                 text = { "{C:wind}Regate Multiple{}",
                     "Al jugar {C:attention}Trío{} gana {C:chips}+#1#{} fichas",
-                    "por cada {C:attention}Joker{} de la {X:royal academy,C:white}Acad. Royal{}", }
+                    "por cada {C:attention}Joker{} de la {X:ina_team_royalacademy,C:white}Acad. Royal{}", }
             },
             j_ina_Chicken = {
                 name = "Chicken",
@@ -651,7 +651,7 @@ return {
                 name = "Monkey",
                 text = { "{C:wind}Giro del Mono{}",
                     "Obtén {X:mult,C:white}XMult{} por {C:enhanced}cartas versátiles{}",
-                    "en el mazo, multiplicado por {X:wild,C:white}Wild{} / 10",
+                    "en el mazo, multiplicado por {X:ina_team_wild,C:white}Wild{} / 10",
                     "{C:inactive}(Actual: {X:mult,C:white}X#1#{}{C:inactive}){}" }
             },
             j_ina_Gorilla = {
@@ -729,7 +729,7 @@ return {
                 name = "Turner",
                 text = { "{C:fire}Tornado de fuego{}",
                     "Si la mano contiene un {C:attention}póker{}, se crea una copia",
-                    "de la primera carta puntuada por cada {X:brain,C:white}Brain{}" }
+                    "de la primera carta puntuada por cada {X:ina_team_brain,C:white}Brain{}" }
 
             },
 
@@ -771,7 +771,7 @@ return {
                 text = { "{C:fire}Bateo Total{}",
                     "Ganas {C:chips}fichas{} por tus {C:attention}FPS / 2{}",
                     "Pasa a ser {C:attention}FPS{} con 2 Jokers del ",
-                    "{X:otaku,C:white}Otaku{} y valor máximo de {C:attention}144 FPS{}",
+                    "{X:ina_team_otaku,C:white}Otaku{} y valor máximo de {C:attention}144 FPS{}",
                     "{C:inactive}(Actual:{} {C:chips}+#1#{}{C:inactive}){}" }
             },
 
@@ -821,7 +821,7 @@ return {
                 name = "Sweet",
                 text = { "{C:mountain}Reclutamiento{}",
                     "Al seleccionar la ciega crea un {C:attention}Joker{}",
-                    "{C:chips}Común{} o {C:green}Inusual{} del {X:raimon,C:white}Raimon{} o {X:inazuma_eleven,C:white}I.Eleven{}",
+                    "{C:chips}Común{} o {C:green}Inusual{} del {X:ina_team_raimon,C:white}Raimon{} o {X:ina_team_inazumaeleven,C:white}I.Eleven{}",
                     "{C:inactive}Debe haber espacio{}" }
             },
 
@@ -872,7 +872,7 @@ return {
                 name = "Code",
                 text = { "{C:mountain}Telaraña{}",
                     "Reactiva las cartas {C:attention}doradas{} al final de",
-                    "la ronda por cada {C:attention}Joker{} del {X:shuriken,C:white}Shuriken{}", }
+                    "la ronda por cada {C:attention}Joker{} del {X:ina_team_shuriken,C:white}Shuriken{}", }
             },
 
             j_ina_Star = {
@@ -944,7 +944,7 @@ return {
                 name = "Sherman",
                 text = { "{C:fire}Trama Trama{}",
                     "Gana {C:chips}+#1#{} fichas", "cuando se activa un",
-                    "{C:attention}Joker{} del {X:farm,C:white}Farm{}",
+                    "{C:attention}Joker{} del {X:ina_team_farm,C:white}Farm{}",
                     "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}" }
             },
 
@@ -992,7 +992,7 @@ return {
                 name = "Night",
                 text = { "{C:fire}Corte Giratorio{}",
                     "Al elegir una ciega, genera un",
-                    "{C:attention}Joker{} del {X:kirkwood,C:white}Kirkwood{}: {C:chips}Común{} o {C:green}Inusual{}",
+                    "{C:attention}Joker{} del {X:ina_team_kirkwood,C:white}Kirkwood{}: {C:chips}Común{} o {C:green}Inusual{}",
                     "{C:attention}Puede generar repetidos{}",
                     "{C:inactive}Requiere espacio{}" }
             },
@@ -1111,9 +1111,9 @@ return {
                     "cambia entre {X:fw,C:white}FW{} y {X:mf,C:white}MF{}",
                     "según venga mejor" },
                     { "Si es {X:fw,C:white}FW{} {X:mult,C:white}X#1#{} por cada",
-                        "{X:fw,C:white}FW{}, {X:zeus,C:white}Zeus{} y multiplicado por {C:mult}descartes",
+                        "{X:fw,C:white}FW{}, {X:ina_team_zeus,C:white}Zeus{} y multiplicado por {C:mult}descartes",
                         "Si es {X:mf,C:white}MF{} {X:mult,C:white}X#2#{} por cada",
-                        "{X:mf,C:white}MF{}, {X:zeus,C:white}Zeus{} y multiplicado por {C:chips}manos",
+                        "{X:mf,C:white}MF{}, {X:ina_team_zeus,C:white}Zeus{} y multiplicado por {C:chips}manos",
                         "{C:inactive}Actualmente{} {X:mult,C:white}X#3#{}" } },
                 unlock = {
                     "Llega al ante {C:attention}9",
@@ -1251,7 +1251,7 @@ return {
                 name = "Caleb Stonewall",
                 text = {
                     "Al elegir ciega {C:attention}destruye{} a los reservas",
-                    "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
+                    "de la {X:ina_team_royalacademy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
                     "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{}",
                     "si son titulares con él durante {C:attention}#3#{} rondas",
                     "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Rondas: {C:attention}#4#{C:inactive}){}"
@@ -1472,21 +1472,19 @@ return {
                 name = "Scotty Banyan",
                 text = {
                     "{C:forest}Campo Torbellino{}",
-                    "Otorga {C:chips}+#1#{} Fichas.",
-                    "Al seleccionar una {C:attention}ciega{}, hay",
-                    "{C:green}#2# en #3#{} probabilidades de que",
-                    "se {C:red}enfade{}."
+                    "{C:chips}+#1#{} Fichas.",
+                    "{C:green}#2# en #3#{} de {C:red}enfadarse{}",
+                    "al elegir {C:attention}ciega{}."
                 }
             },
             j_ina_Scotty_Angry = {
                 name = "Scotty Banyan",
                 text = {
                     "{C:forest}Campo Torbellino{}",
-                    "Otorga {X:mult,C:white}X#1#{} Mult.",
-                    "Otorga {C:chips}+#1#{} Fichas.",
-                    "{C:red}Destruye{} la carta jugada de",
-                    "menor rango al puntuar. Vuelve a",
-                    "la normalidad al final de la ronda."
+                    "{C:chips}+#1#{} Fichas.",
+                    "{C:red}Destruye{} la carta puntuada",
+                    "más baja. Se calma al",
+                    "terminar la ronda."
                 }
             },
 
@@ -1495,7 +1493,7 @@ return {
                 name = "Nathan Swift",
                 text = {
                     "{C:wind}Entrada Huracán{}",
-                    "Cada {C:attention}Joker{} del {X:raimon,C:white}Raimon{} / {X:inazuma,C:white}Inazuma Japón{}", "otorga {X:mult,C:white}X#2#{}"
+                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} / {X:ina_team_inazumajapón,C:white}Inazuma Japón{}", "otorga {X:mult,C:white}X#2#{}"
                 }
             },
             j_ina_Jack_IJ = {
@@ -1518,7 +1516,7 @@ return {
                 name = "Caleb Stonewall",
                 text = {
                     "Al elegir ciega {C:attention}destruye{} a los reservas",
-                    "de la {X:royal academy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
+                    "de la {X:ina_team_royalacademy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
                     "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{}",
                     "si son titulares con él durante {C:attention}#3#{} rondas",
                     "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Rondas: {C:attention}#4#{C:inactive}){}"
@@ -1757,7 +1755,7 @@ return {
                 name = "Celia",
                 text = { {
                     "Si tienes un {C:attention}Jude{},",
-                    "lo transforma a su forma del {X:raimon,C:white}Raimon{}",
+                    "lo transforma a su forma del {X:ina_team_raimon,C:white}Raimon{}",
                     "al comienzo de la próxima tienda"
                 },
                     { "Genera un {C:attention}Scout{} en el {C:bench}Banquillo{}",
@@ -2301,6 +2299,8 @@ return {
             ina_fuego_total = "¡Fuego Total!",
             ina_crush = "¡Aplastado!",
             ina_protocol = "¡Protocolo!",
+            ina_caos="Caos",
+            ina_normal="Normal",
 
             -- Rarities
             k_ina_top = "Destacado",
@@ -2375,6 +2375,35 @@ return {
             ["ina_magic_forest"] = "Mano Mágica",
             ["ina_magic_mountain"] = "Mano Mágica",
             ["ina_magic_wind"] = "Ola Mágica",
+        },
+        teams = {
+            ["ina_team_Raimon"] = "Raimon",
+            ["ina_team_Occult"] = "Occult",
+            ["ina_team_RoyalAcademy"] = "Royal Academy",
+            ["ina_team_Wild"] = "Wild",
+            ["ina_team_Brain"] = "Brain",
+            ["ina_team_Otaku"] = "Otaku",
+            ["ina_team_Farm"] = "Farm",
+            ["ina_team_InazumaEleven"] = "Inazuma Eleven",
+            ["ina_team_Kirkwood"] = "Kirkwood",
+            ["ina_team_Shuriken"] = "Shuriken",
+            ["ina_team_Zeus"] = "Zeus",
+            ["ina_team_Torneo"] = "Torneo",
+            ["ina_team_TormentadeGéminis"] = "Tormenta de Géminis",
+            ["ina_team_ServicioSecreto"] = "Servicio Secreto",
+            ["ina_team_Alpino"] = "Alpino",
+            ["ina_team_Epsilon"] = "Épsilon",
+            ["ina_team_RoyalRedux"] = "Royal Academy Redux",
+            ["ina_team_EmperadoresOscuros"] = "Emperadores Oscuros",
+            ["ina_team_PolvodeDiamantes"] = "Polvo de Diamantes",
+            ["ina_team_Prominence"] = "Prominence",
+            ["ina_team_Zeus_Ares"] = "Zeus",
+            ["ina_team_ClaustroSagrado"] = "Claustro Sagrado",
+            ["ina_team_OsakaCCC"] = "Osaka CCC",
+            ["ina_team_Fauxshore"] = "Fauxshore",
+            ["ina_team_MaryTimes"] = "Mary Times",
+            ["ina_team_Genesis"] = "Génesis",
+            ["ina_team_Scout"] = "Ojeadores",
         },
         quips = {},
         ranks = {},

@@ -13,11 +13,11 @@ local hood = J({
         return { vars = { center.ability.extra.xmult_mod, count * (center.ability.extra.xmult_mod or 0) + 1 } }
     end,
     rarity = 2,
-    pools = { ["Shuriken"] = true },
+  pools = { ["ina_team_Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Forest",
-    pteam = "Shuriken",
+  pteam = "ina_team_Shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.scoring_hand and context.joker_main then
@@ -41,12 +41,12 @@ local hillfort = J({
         return { vars = { center.ability.extra.chips_mod, center.ability.extra.dollars_needed, center.ability.extra.current_chips } }
     end,
     rarity = 1, -- Common
-    pools = { ["Shuriken"] = true },
+  pools = { ["ina_team_Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "DF",
-    pteam = "Shuriken",
+  pteam = "ina_team_Shuriken",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -75,19 +75,19 @@ local code = J({
     pos = { x = 1, y = 9 },
     config = { extra = { { triggered = false } } },
     rarity = 2, -- Uncommon
-    pools = { ["Shuriken"] = true },
+  pools = { ["ina_team_Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Mountain",
     pposition = "MF",
-    pteam = "Shuriken",
+  pteam = "ina_team_Shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.hand
             and context.other_card
             and SMODS.has_enhancement(context.other_card, 'm_gold') then
             card.ability.extra.triggered = true
-            local count = #find_player_team("Shuriken")
+      local count = #find_player_team("ina_team_Shuriken")
             return {
                 message = localize('k_again_ex'),
                 repetitions = count,
@@ -105,12 +105,12 @@ local star = J({
         return { vars = { center.ability.extra.money, center.ability.extra.mult_mod_low } }
     end,
     rarity = 1, -- Common
-    pools = { ["Shuriken"] = true },
+  pools = { ["ina_team_Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF",
-    pteam = "Shuriken",
+  pteam = "ina_team_Shuriken",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -137,12 +137,12 @@ local cleats = J({
         return {}
     end,
     rarity = 1, -- Common
-    pools = { ["Shuriken"] = true },
+  pools = { ["ina_team_Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF",
-    pteam = "Shuriken",
+  pteam = "ina_team_Shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.setting_blind then
@@ -169,12 +169,12 @@ local hattori = J({
         return { vars = { center.ability.extra.copies_number } }
     end,
     rarity = 2,
-    pools = { ["Shuriken"] = true },
+  pools = { ["ina_team_Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "MF",
-    pteam = "Shuriken",
+  pteam = "ina_team_Shuriken",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -244,8 +244,8 @@ local cloack = J({
     cost = 8,
     ptype = "Fire",
     pposition = "FW",
-    pteam = "Shuriken",
-    pools = { ["Shuriken"] = true },
+    pteam = "ina_team_Shuriken",
+    pools = { ["ina_team_Shuriken"] = true },
     blueprint_compat = true,
     config = {
         extra = {

@@ -13,12 +13,12 @@ local Greeny = J({
         }
     end,
     rarity = 1, -- Common
-    pools = { ["Farm"] = true },
+  pools = { ["ina_team_Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "GK",
-    pteam = "Farm",
+  pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -65,12 +65,12 @@ local Hayseed = J({
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult or 0 } }
     end,
     rarity = 1,
-    pools = { ["Farm"] = true },
+  pools = { ["ina_team_Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Mountain",
     pposition = "DF",
-    pteam = "Farm",
+  pteam = "ina_team_Farm",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.scoring_hand and context.joker_main
@@ -101,18 +101,18 @@ local Sherman = J({
         return { vars = { center.ability.extra.chip_mod, center.ability.extra.current_chips } }
     end,
     rarity = 1, -- Common
-    pools = { ["Farm"] = true },
+  pools = { ["ina_team_Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "DF",
-    pteam = "Farm",
+  pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.post_trigger and context.other_card ~= card
             and context.other_card.ability and context.other_card.ability.extra.pteam
-            and context.other_card.ability.extra.pteam == "Farm" then
+      and context.other_card.ability.extra.pteam == "ina_team_Farm" then
             card.ability.extra.current_chips =
                 card.ability.extra.current_chips + card.ability.extra.chip_mod
 
@@ -149,12 +149,12 @@ local Spray = J({
         return { vars = { center.ability.extra.max_money, center.ability.extra.Xmult_mod, center.ability.extra.current_Xmult } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Farm"] = true },
+  pools = { ["ina_team_Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "MF",
-    pteam = "Farm",
+  pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -188,12 +188,12 @@ local Dawson = J({
         return { vars = { center.ability.extra.max_money } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Farm"] = true },
+  pools = { ["ina_team_Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF",
-    pteam = "Farm",
+  pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -236,12 +236,12 @@ local Muffs = J({
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Farm"] = true },
+  pools = { ["ina_team_Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "FW",
-    pteam = "Farm",
+  pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -294,12 +294,12 @@ local Hillvalley = J({
         return { vars = { center.ability.extra.current_chips } }
     end,
     rarity = 1, -- Common
-    pools = { ["Farm"] = true },
+  pools = { ["ina_team_Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Mountain",
     pposition = "DF",
-    pteam = "Farm",
+  pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)

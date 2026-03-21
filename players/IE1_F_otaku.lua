@@ -7,12 +7,12 @@ local Idol = {
         return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds2 } }
     end,
     rarity = 1, -- Common
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Mountain",
     pposition = "GK",
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -41,12 +41,12 @@ local Hero = {
         return {}
     end,
     rarity = 1, -- Common
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "DF",
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual and context.other_card then
@@ -75,12 +75,12 @@ local Custom = {
         return {}
     end,
     rarity = 2, -- Common
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "FW",
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -95,12 +95,12 @@ local Robot = {
         return {}
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF",
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and next(context.poker_hands['Straight']) then
@@ -126,7 +126,7 @@ local Gamer = {
     pos = { x = 11, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
-        local otaku_count = #find_player_team("Otaku")
+    local otaku_count = #find_player_team("ina_team_Otaku")
         local fps = love.timer.getFPS()
         if fps > 144 then
             fps = 144
@@ -134,18 +134,18 @@ local Gamer = {
         return { vars = { otaku_count > 1 and fps or fps / 2 } }
     end,
     rarity = 1, -- Uncommon
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "FW",
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.scoring_hand and context.joker_main then
             local fps = love.timer.getFPS()
-            local otaku_count = #find_player_team("Otaku")
+      local otaku_count = #find_player_team("ina_team_Otaku")
             card.ability.extra.triggered = true
 
             if fps > 144 then
@@ -168,12 +168,12 @@ local Artist = {
         return {}
     end,
     rarity = 3, -- Rare
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 8,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "FW",
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main then
@@ -211,12 +211,12 @@ local Arcade = {
         return { vars = { G.GAME.probabilities.new_lucky or center.ability.extra.new_lucky, center.ability.extra.minus_dollars } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "FW",
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -250,12 +250,12 @@ local Vox = J({
         return { vars = { center.ability.extra.chip_mod } }
     end,
     rarity = 1, -- Common
-    pools = { ["Otaku"] = true },
+  pools = { ["ina_team_Otaku"] = true },
     cost = 4,
     atlas = "Jokers01",
     ptype = C.Wind,
     pposition = C.DF,
-    pteam = "Otaku",
+  pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if Pokerleven.is_joker_turn(context) and context.joker_main and context.scoring_hand and card:is_rightmost_joker() then

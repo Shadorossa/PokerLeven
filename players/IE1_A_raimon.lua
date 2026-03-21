@@ -16,7 +16,7 @@ local Kevin = J({
   atlas = "Jokers01",
   ptype = "Forest",
   pposition = "FW",
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   techtype = C.UPGRADES.Plus,
   calculate = function(self, card, context)
     if card.ability.extra.current_cooldown == 0 and
@@ -57,7 +57,7 @@ local Mark = J({
   ptype = "Mountain",
   pposition = "GK",
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   discovered = true,
   blueprint_compat = true,
   add_to_deck = function(self, card, from_debuff)
@@ -84,20 +84,20 @@ local Nathan = J({
   pos = { x = 1, y = 0 },
   config = { extra = { xmult = 1.25, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    local count = #find_player_team("Raimon");
+    local count = #find_player_team("ina_team_Raimon");
     return { vars = { count, center.ability.extra.xmult } }
   end,
   rarity = 2,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = C.Wind,
   pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if not context.debuff and context.other_joker and is_team(context.other_joker, "Raimon") then
+    if not context.debuff and context.other_joker and is_team(context.other_joker, "ina_team_Raimon") then
       card.ability.extra.triggered = true;
       G.E_MANAGER:add_event(Event({
         func = function()
@@ -123,13 +123,13 @@ local Jack = {
     return { vars = { center.ability.extra.chips_mod } }
   end,
   rarity = 2,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = C.Mountain,
   pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play
@@ -160,13 +160,13 @@ local Axel = J({
     return { vars = { center.ability.extra.xmult } }
   end,
   rarity = "ina_top",
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 8,
   atlas = "top",
   ptype = C.Fire,
   pposition = C.FW,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.joker_main and context.scoring_hand
@@ -194,13 +194,13 @@ local Shadow = {
     }
   end,
   rarity = 1,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 2,
   atlas = "Jokers01",
   ptype = C.Forest,
   pposition = C.FW,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.setting_blind
@@ -230,13 +230,13 @@ local Willy = {
     return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
   end,
   rarity = 2,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = C.Forest,
   pposition = C.FW,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) and pseudorandom('glasis') < G.GAME.probabilities.normal / card.ability.extra.odds then
@@ -259,13 +259,13 @@ local Max = {
     return { vars = { center.ability.extra.chip_mod, count * center.ability.extra.chip_mod } }
   end,
   rarity = 1,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = C.Wind,
   pposition = C.FW,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.scoring_hand then
@@ -291,13 +291,13 @@ local Peabody = {
     return { vars = { center.ability.extra.current_mult, center.ability.extra.mult_mod_low } }
   end,
   rarity = 1,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 5,
   atlas = "Jokers01",
   ptype = C.Wind,
   pposition = C.GK,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if G.GAME.current_round.hands_left == 0 then
@@ -343,7 +343,7 @@ local Jude_Raimon = J({
   ptype = C.Wind,
   pposition = C.MF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.post_trigger and context.other_card ~= card
@@ -387,12 +387,12 @@ local Bobby = J({
     return { vars = { center.ability.extra.chips_mod } }
   end,
   rarity = 2,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 7,
   atlas = "JokersBobby",
   ptype = C.Forest,
   pposition = C.DF,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.other_joker then
@@ -469,21 +469,21 @@ local Steve = J({
   pos = { x = 5, y = 0 },
   config = { extra = { chip_mod = 6, mult_mod_low = 3, money = 1 } },
   loc_vars = function(self, info_queue, center)
-    local count = #find_player_team("Raimon")
+    local count = #find_player_team("ina_team_Raimon")
     return { vars = { center.ability.extra.chip_mod, center.ability.extra.mult_mod_low, center.ability.extra.money, count * center.ability.extra.chip_mod, count * center.ability.extra.mult_mod_low } }
   end,
   rarity = 1,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 3,
   atlas = "Jokers01",
   ptype = C.Wind,
   pposition = C.MF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) then
-      local count = #find_player_team("Raimon");
+      local count = #find_player_team("ina_team_Raimon");
       return {
         message = localize("ina_gol"),
         colour = G.C.CHIPS,
@@ -508,13 +508,13 @@ local Erik = J({
     return {}
   end,
   rarity = 2,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = C.Forest,
   pposition = C.MF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   add_to_deck = function(self, card, from_debuff)
     function Card:use_consumeable(area, copier)
@@ -561,13 +561,13 @@ local Jim = J({
     return { vars = { center.ability.extra.chips_mod } }
   end,
   rarity = 1,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 3,
   atlas = "Jokers01",
   ptype = C.Forest,
   pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) then
@@ -587,13 +587,13 @@ local Tod = J({
     return { vars = { center.ability.extra.chip_mod } }
   end,
   rarity = 1,
-  pools = { ["Raimon"] = true },
+  pools = { ["ina_team_Raimon"] = true },
   cost = 3,
   atlas = "Jokers01",
   ptype = C.Fire,
   pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Raimon",
+  pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) and context.cardarea == G.jokers and context.joker_main and context.scoring_hand then

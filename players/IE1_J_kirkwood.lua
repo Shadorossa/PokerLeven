@@ -6,12 +6,12 @@ local Neville = J({
         return { vars = { G.GAME.probabilities.normal, G.GAME.probabilities.new_glass_denom or center.ability.extra.new_glass_denom } }
     end,
     rarity = 1, -- Common
-    pools = { ["Kirkwood"] = true },
+  pools = { ["ina_team_Kirkwood"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "GK",
-    pteam = "Kirkwood",
+  pteam = "ina_team_Kirkwood",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     add_to_deck = function(self, card, from_debuff)
@@ -30,12 +30,12 @@ local Night = J({
         return {}
     end,
     rarity = 3, -- Rare
-    pools = { ["Kirkwood"] = true },
+  pools = { ["ina_team_Kirkwood"] = true },
     cost = 8,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "DF",
-    pteam = "Kirkwood",
+  pteam = "ina_team_Kirkwood",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -46,7 +46,7 @@ local Night = J({
                     ["Uncommon"] = 0.4
                 },
                 {
-                    ["Kirkwood"] = 1,
+          ["ina_team_Kirkwood"] = 1,
                 }
             )
             spawn_effect.func()
@@ -64,12 +64,12 @@ local Marvin = J({
         return { vars = { mult_mod } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Kirkwood"] = true },
+  pools = { ["ina_team_Kirkwood"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Fire",
     pposition = "FW",
-    pteam = "Kirkwood",
+  pteam = "ina_team_Kirkwood",
     blueprint_compat = true,
     calculate = function(self, card, context)
         local scoring_card = Pokerleven.card_scoring(context)
@@ -97,12 +97,12 @@ local Thomas = J({
         return { vars = { chips_mod } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Kirkwood"] = true },
+  pools = { ["ina_team_Kirkwood"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "FW",
-    pteam = "Kirkwood",
+  pteam = "ina_team_Kirkwood",
     blueprint_compat = true,
     calculate = function(self, card, context)
         local scoring_card = Pokerleven.card_scoring(context)
@@ -135,12 +135,12 @@ local Tyler = J({
         return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
     end,
     rarity = 2, -- Uncommon
-    pools = { ["Kirkwood"] = true },
+  pools = { ["ina_team_Kirkwood"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = "Mountain",
     pposition = "FW",
-    pteam = "Kirkwood",
+  pteam = "ina_team_Kirkwood",
     blueprint_compat = true,
     calculate = function(self, card, context)
         local scoring_card = Pokerleven.card_scoring(context)
@@ -164,12 +164,12 @@ local Damian = J({
         return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
     end,
     rarity = 1, -- Common
-    pools = { ["Kirkwood"] = true },
+  pools = { ["ina_team_Kirkwood"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Wind",
     pposition = "MF",
-    pteam = "Kirkwood",
+  pteam = "ina_team_Kirkwood",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.ending_shop then
@@ -206,12 +206,12 @@ local Nashmith = J({
         return { vars = { center.ability.extra.chip_mod } }
     end,
     rarity = 1,
-    pools = { ["Kirkwood"] = true },
+  pools = { ["ina_team_Kirkwood"] = true },
     cost = 5,
     atlas = "Jokers01",
     ptype = "Forest",
     pposition = "MF",
-    pteam = "Kirkwood",
+  pteam = "ina_team_Kirkwood",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
