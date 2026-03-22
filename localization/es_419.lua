@@ -2134,6 +2134,26 @@ return {
             tag_ina_technique_tag = {
                 name = "Etiqueta Técnica",
                 text = { "Otorga gratis un {C:training}Mega Training Pack{}" }
+            },
+            tag_ina_coin_blue_tag = {
+                name = "Moneda Azul",
+                text = { "Otorga una {C:attention}Moneda Azul{}", "para usar en el {C:green}Gacha{}", "{C:inactive}(Comunes: 80% | Top: 0.1%)" }
+            },
+            tag_ina_coin_red_tag = {
+                name = "Moneda Roja",
+                text = { "Otorga una {C:attention}Moneda Roja{}", "para usar en el {C:green}Gacha{}", "{C:inactive}(Comunes: 60% | Top: 1.9%)" }
+            },
+            tag_ina_coin_silver_tag = {
+                name = "Moneda Plateada",
+                text = { "Otorga una {C:attention}Moneda Plateada{}", "para usar en el {C:green}Gacha{}", "{C:inactive}(Comunes: 30% | Top: 4%)" }
+            },
+            tag_ina_coin_purple_tag = {
+                name = "Moneda Morada",
+                text = { "Otorga una {C:attention}Moneda Morada{}", "para usar en el {C:green}Gacha{}", "{C:inactive}Desbloquea formas de Mundial{}" }
+            },
+            tag_ina_coin_gold_tag = {
+                name = "Moneda Dorada",
+                text = { "Otorga una {C:attention}Moneda Dorada{}", "para usar en el {C:green}Gacha{}", "{C:inactive}Desbloquea Mundial y Alius{}" }
             }
         },
         Tarot = {},

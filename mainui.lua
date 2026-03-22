@@ -141,9 +141,11 @@ end
 
 local function create_upgrade_tab_for_joker(key)
   Pokerleven.upgrades_area = {}
-  if G.P_CENTERS[key].special ~= 'Manager' then
+  local center = G.P_CENTERS[key]
+  if center.special ~= 'Manager' and (not center.config or type(center.config.extra) ~= 'table' or center.config.extra.special ~= 'Manager') then
+    local is_spirit = center.special == 'Spirit' or (center.config and type(center.config.extra) == 'table' and center.config.extra.special == 'Spirit')
     return {
-      label = localize("ina_training_upgrades"),
+      label = is_spirit and "Evolución de EG" or localize("ina_training_upgrades"),
       chosen = true,
       tab_definition_function = function(t)
         local card_area = Pokerleven.ui.create_card_area_to_area_table(6, t.area_table)
@@ -199,6 +201,8 @@ end
 
 local function create_team_tab_for_joker(key)
   local card_center = G.P_CENTERS[key]
+  local is_spirit = card_center.special == 'Spirit' or (card_center.config and type(card_center.config.extra) == 'table' and card_center.config.extra.special == 'Spirit')
+  if not card_center.pteam or is_spirit then return nil end
   local team_cards_keys = get_card_keys_from_team(card_center.pteam)
 
   return {
@@ -330,9 +334,9 @@ Pokerleven.ui.create_overlay_for_joker_properties = function(key, previous_menu)
   local forms_tab = create_forms_tab_for_joker(key)
   local team_tab = create_team_tab_for_joker(key)
 
-  table.insert(tabs, upgrade_tab)
-  table.insert(tabs, forms_tab)
-  table.insert(tabs, team_tab)
+  if upgrade_tab then table.insert(tabs, upgrade_tab) end
+  if forms_tab then table.insert(tabs, forms_tab) end
+  if team_tab then table.insert(tabs, team_tab) end
 
   if #tabs > 0 then
     Pokerleven.ui.create_tabs_menu(tabs, previous_menu)
@@ -347,11 +351,17 @@ G.FUNCS.inadex_back = function()
   page.config.ref_table.current_option_val = page.config.ref_table.options[ina_joker_page]
 end
 
-local initialize_previous_menu = function()
+local initialize_previous_menu = function(center)
   local menu = G.SETTINGS.paused and 'inadex_back' or nil
-  if menu and G.OVERLAY_MENU:get_UIE_by_ID('cycle_shoulders') then
-    ina_joker_page = G.OVERLAY_MENU:get_UIE_by_ID(
-      'cycle_shoulders').children[1].children[1].config.ref_table.current_option
+  if menu then
+    if center and (center.special == 'Spirit' or (center.config and type(center.config.extra) == 'table' and center.config.extra.special == 'Spirit')) then
+      menu = 'your_collection_spirits'
+    elseif center and (center.special == 'Manager' or (center.config and type(center.config.extra) == 'table' and center.config.extra.special == 'Manager')) then
+      menu = 'your_collection_managers'
+    elseif G.OVERLAY_MENU:get_UIE_by_ID('cycle_shoulders') then
+      ina_joker_page = G.OVERLAY_MENU:get_UIE_by_ID(
+        'cycle_shoulders').children[1].children[1].config.ref_table.current_option
+    end
   end
   return menu
 end
@@ -362,7 +372,7 @@ function Controller:queue_R_cursor_press(x, y)
   local clicked = self.hovering.target or self.focused.target
   if clicked and type(clicked) == 'table' and clicked.config and type(clicked.config) == 'table' and clicked.config.center and clicked.facing ~= 'back'
       and clicked.config.center.ptype then
-    local menu = initialize_previous_menu()
+    local menu = initialize_previous_menu(clicked.config.center)
     LeakScope.snap("close_bench")
 
     Pokerleven.ui.create_overlay_for_joker_properties(clicked.config.center_key, menu)
@@ -376,11 +386,7 @@ function Controller:capture_focused_input(button, input_type, dt)
     if input_type == 'press' and button == 'rightstick' then
       if clicked and type(clicked) == 'table' and clicked.config and type(clicked.config) == 'table' and clicked.config.center and clicked.facing ~= 'back' then
         if clicked.config.center.stage then
-          local menu = G.SETTINGS.paused and 'inadex_back' or nil
-          if menu and G.OVERLAY_MENU:get_UIE_by_ID('cycle_shoulders') then
-            ina_joker_page = G.OVERLAY_MENU:get_UIE_by_ID(
-              'cycle_shoulders').children[1].children[1].config.ref_table.current_option
-          end
+          local menu = initialize_previous_menu(clicked.config.center)
           G.SETTINGS.paused = true
           Pokerleven.ui.create_overlay_for_joker_properties(clicked.config.center_key, menu)
           self:update_focus()
@@ -549,6 +555,153 @@ SMODS.current_mod.extra_tabs = function()
   return {
     label = localize("ina_credits"),
     tab_definition_function = create_credits_tab
+  }
+end
+
+Pokerleven.ui.create_UIBox_gacha = function()
+  Pokerleven.gacha_selected_teams = Pokerleven.gacha_selected_teams or {}
+  Pokerleven.gacha_selected_count = 0
+  for k, v in pairs(Pokerleven.gacha_selected_teams) do
+      if v then Pokerleven.gacha_selected_count = Pokerleven.gacha_selected_count + 1 end
+  end
+
+  G.GAME.ina_gacha_coins = G.GAME.ina_gacha_coins or {blue = 0, red = 0, silver = 0, purple = 0, gold = 0}
+
+  local coin_types = {
+      { id = 'blue', name = 'Moneda Azul', pos = {x = 1, y = 1}, rates = { Common = 80, Uncommon = 18, Rare = 1.89, Top = 0.1, Legendary = 0.01 } },
+      { id = 'red', name = 'Moneda Roja', pos = {x = 2, y = 1}, rates = { Common = 60, Uncommon = 30, Rare = 8, Top = 1.9, Legendary = 0.1 } },
+      { id = 'silver', name = 'Moneda Plateada', pos = {x = 3, y = 1}, rates = { Common = 30, Uncommon = 45, Rare = 20, Top = 4, Legendary = 1 } },
+      { id = 'purple', name = 'Moneda Morada', pos = {x = 4, y = 1}, rates = { Common = 10, Uncommon = 40, Rare = 35, Top = 12, Legendary = 3 } },
+      { id = 'gold', name = 'Moneda Dorada', pos = {x = 5, y = 1}, rates = { Common = 1, Uncommon = 19, Rare = 45, Top = 25, Legendary = 10 } }
+  }
+
+  local coin_nodes = {}
+  for _, coin in ipairs(coin_types) do
+      local count = G.GAME.ina_gacha_coins[coin.id] or 0
+      local coin_sprite = Sprite(0, 0, 0.5, 0.5, G.ASSET_ATLAS['ina_Tags01'], coin.pos)
+      coin_sprite:define_draw_steps({{shader = 'dissolve', shadow_height = 0.05}, {shader = 'dissolve'}})
+      
+      local tooltip_text = {
+        "Común: " .. coin.rates.Common .. "%", "Inusual: " .. coin.rates.Uncommon .. "%", "Raro: " .. coin.rates.Rare .. "%", "Destacado: " .. coin.rates.Top .. "%", "Legendario: " .. coin.rates.Legendary .. "%"
+      }
+      
+      local is_selected = Pokerleven.gacha_selected_coin == coin.id
+
+      table.insert(coin_nodes, {
+          n = G.UIT.C, config = { id = 'gacha_coin_' .. coin.id, align = "cm", padding = 0.05, r = 0.1, minw = 0.8, hover = true, button = 'ina_gacha_toggle_coin', ref_table = {coin_id = coin.id}, colour = is_selected and adjust_alpha(G.C.GREEN, 0.4) or G.C.CLEAR, on_demand_tooltip = {title = coin.name, text = tooltip_text} }, nodes = {
+              { n = G.UIT.R, config = { align = "cm" }, nodes = {
+                  { n = G.UIT.O, config = { object = coin_sprite } }
+              }},
+              { n = G.UIT.R, config = { align = "cm" }, nodes = {
+                  { n = G.UIT.T, config = { text = "x" .. count, scale = 0.35, colour = count > 0 and G.C.WHITE or G.C.UI.TEXT_INACTIVE, shadow = true } }
+              }}
+          }
+      })
+  end
+
+  Pokerleven.gacha_area = CardArea(
+    0, 0,
+    0.9 * G.CARD_W,
+    0.9 * G.CARD_H, 
+    {card_limit = 1, type = 'title', highlight_limit = 0}
+  )
+
+  local left_box = {
+    n = G.UIT.C,
+    config = { align = "cm", minw = 5, minh = 5, colour = G.C.BLACK, r = 0.1, padding = 0.1, emboss = 0.05 },
+    nodes = {
+      { n = G.UIT.R, config = { align = "cm", padding = 0.1 }, nodes = {
+        { n = G.UIT.T, config = { text = "Equipos Seleccionados", scale = 0.3, colour = G.C.UI.TEXT_LIGHT, shadow = true } }
+      }},
+      { n = G.UIT.R, config = { align = "cm", padding = 0.05 }, nodes = {
+        { n = G.UIT.O, config = { object = DynaText({string = {{ref_table = Pokerleven, ref_value = 'gacha_selected_count', suffix = " / 5"}}, colours = {G.C.GREEN}, scale = 0.5, shadow = true, silent = true}) } }
+      }},
+      { n = G.UIT.R, config = { align = "cm", padding = 0.1 }, nodes = {
+        { n = G.UIT.T, config = { text = "(Mínimo 2)", scale = 0.25, colour = G.C.UI.TEXT_INACTIVE, shadow = true } }
+      }},
+      { n = G.UIT.R, config = { align = "cm", padding = 0.05 }, nodes = coin_nodes },
+      { n = G.UIT.R, config = { align = "cm", padding = 0.05 }, nodes = {
+          UIBox_button({ id = 'gacha_roll_button', button = 'ina_gacha_roll', func = 'can_ina_gacha_roll', label = { "Tirar" }, colour = G.C.GREEN, scale = 0.4, minw = 1.5, minh = 0.6 })
+      }},
+      { n = G.UIT.R, config = { align = "cm", padding = 0.1, minh = 1.1 }, nodes = {
+        { n = G.UIT.O, config = { object = Pokerleven.gacha_area } }
+      }}
+    }
+  }
+
+  local team_blind_keys = {
+    "bl_ina_raimon", "bl_ina_occult", "bl_ina_royal_blind", "bl_ina_wild",
+    "bl_ina_brain", "bl_ina_otaku", "bl_ina_farm", "bl_ina_inazuma_eleven",
+    "bl_ina_kirkwood", "bl_ina_shuriken", "bl_ina_zeus", "bl_ina_gemini",
+    "bl_ina_spfixers", "bl_ina_alpine", "bl_ina_epsilon", "bl_ina_RRedux",
+    "bl_ina_epsilonplus", "bl_ina_Prominence", "bl_ina_Diamond", "bl_ina_cloister",
+    "bl_ina_osakaccc", "bl_ina_fauxshore", "bl_ina_marytimes", "bl_ina_Genesis"
+  }
+
+  local teams_nodes = {}
+  for _, key in ipairs(team_blind_keys) do
+    local blind_def = G.P_BLINDS[key]
+    if blind_def then
+      local is_discovered = blind_def.discovered
+      local blind_pos = is_discovered and blind_def.pos or G.b_undiscovered.pos
+      local blind_atlas = blind_def.atlas or 'blind_chips'
+      local blind_sprite = AnimatedSprite(0,0, 0.75, 0.75, G.ANIMATION_ATLAS[blind_atlas] or G.ANIMATION_ATLAS['blind_chips'], blind_pos)
+      blind_sprite:define_draw_steps({{shader = 'dissolve', shadow_height = 0.05}, {shader = 'dissolve'}})
+      
+      if is_discovered then
+          local is_selected = Pokerleven.gacha_selected_teams[key]
+          table.insert(teams_nodes, {
+            n = G.UIT.C,
+            config = { 
+                align = "cm", padding = 0.05, r = 0.1, minw = 0.85, minh = 0.85,
+                colour = is_selected and adjust_alpha(G.C.GREEN, 0.4) or G.C.CLEAR,
+                button = 'ina_gacha_toggle_team',
+                ref_table = {key = key},
+                hover = true,
+            },
+            nodes = {
+              { n = G.UIT.O, config = { object = blind_sprite } }
+            }
+          })
+      else
+          table.insert(teams_nodes, {
+            n = G.UIT.C,
+            config = { 
+                align = "cm", padding = 0.05, r = 0.1, minw = 0.85, minh = 0.85,
+                colour = G.C.CLEAR,
+            },
+            nodes = {
+              { n = G.UIT.O, config = { object = blind_sprite } }
+            }
+          })
+      end
+    end
+  end
+
+  local teams_grid = {}
+  local current_row = {}
+  for i, node in ipairs(teams_nodes) do
+      table.insert(current_row, node)
+      if #current_row == 4 or i == #teams_nodes then
+          table.insert(teams_grid, {n = G.UIT.R, config = {align = "cm", padding = 0.03}, nodes = current_row})
+          current_row = {}
+      end
+  end
+
+  local right_box = {
+    n = G.UIT.C,
+    config = { align = "cm", minw = 5.5, minh = 5, colour = G.C.BLACK, r = 0.1, padding = 0.1, emboss = 0.05 },
+    nodes = teams_grid
+  }
+
+  return create_UIBox_generic_options({ back_func = 'exit_overlay_menu', contents = { { n = G.UIT.R, config = { align = "cm", padding = 0.2 }, nodes = { left_box, { n = G.UIT.C, config = { minw = 0.2 }, nodes = {} }, right_box } } } })
+end
+
+G.FUNCS.ina_gacha_btn = function(e)
+  play_sound('button', 1, 0.3)
+  G.SETTINGS.paused = true
+  G.FUNCS.overlay_menu{
+    definition = Pokerleven.ui.create_UIBox_gacha(),
   }
 end
 

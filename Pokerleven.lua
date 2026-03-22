@@ -365,6 +365,8 @@ local function load_joker_folder(folder_name, item_constructor)
         if item.pposition then item.config.extra.pposition = item.pposition end
         if item.pteam then item.config.extra.pteam = item.pteam end
         if item.special then item.config.extra.special = item.special end
+        -- Aseguramos que la etiqueta especial también se propague a nivel de raíz para que SMODS y Lovely no la pierdan nunca
+        if item.special then item.special_type = item.special end
         if item.techtype then item.config.extra.techtype = item.techtype end
         if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
 
@@ -417,3 +419,4 @@ end
 
 load_joker_folder("players", SMODS.Joker)
 load_joker_folder("managers", SMODS.Joker)
+load_joker_folder("Spirit", SMODS.Joker)

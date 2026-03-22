@@ -13,7 +13,7 @@ local Hades = J({
     ptype = C.Wind,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
-    pteam = "Zeus",
+    pteam = "ina_team_Zeus_Ares",
     blueprint_compat = false,
     calculate = function(self, card, ctx)
         if ctx.before and ctx.cardarea == G.jokers and not ctx.blueprint then

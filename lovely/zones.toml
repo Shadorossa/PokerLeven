@@ -14,6 +14,9 @@ payload = '''
 if Pokerleven and Pokerleven.ina_manager_area and type(Pokerleven.ina_manager_area.cards) == "table" then
     table.insert(t, Pokerleven.ina_manager_area)
 end
+if Pokerleven and Pokerleven.ina_spirits_area and type(Pokerleven.ina_spirits_area.cards) == "table" then
+    table.insert(t, Pokerleven.ina_spirits_area)
+end
 '''
 
 # Add joker to managers when buying from the shop
@@ -26,9 +29,25 @@ match_indent = true
 payload = '''
 if Pokerleven and Pokerleven.is_manager(c1) then
     Pokerleven.add_to_managers(c1)
+elseif Pokerleven and Pokerleven.is_spirit(c1) then
+    Pokerleven.add_to_spirits(c1)
 else
     G.jokers:emplace(c1)
 end
+'''
+
+# Add joker to managers/spirits when using add_joker (Collection spawn or tags)
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "if _area and card.ability.set == 'Joker' then _area:emplace(card)"
+position = 'at'
+match_indent = true
+payload = '''
+if _area and card.ability.set == 'Joker' then
+    if Pokerleven and Pokerleven.is_manager(card) then Pokerleven.add_to_managers(card)
+    elseif Pokerleven and Pokerleven.is_spirit(card) then Pokerleven.add_to_spirits(card)
+    else _area:emplace(card) end
 '''
 
 # Add joker to managers when selecting from a pack
@@ -45,6 +64,12 @@ elseif card.ability.set == 'Joker' and Pokerleven and Pokerleven.is_manager(card
     play_sound('generic1')
     dont_dissolve = true
     delay_fac = 0.2
+elseif card.ability.set == 'Joker' and Pokerleven and Pokerleven.is_spirit(card) then
+    Pokerleven.add_to_spirits(card)
+    play_sound('card1', 0.8, 0.6)
+    play_sound('generic1')
+    dont_dissolve = true
+    delay_fac = 0.2
 '''
 
 # Change other_joker key
@@ -56,6 +81,7 @@ position = 'before'
 match_indent = true
 payload = '''
 if Pokerleven and Pokerleven.is_manager(_card) then other_key = 'other_manager' end
+if Pokerleven and Pokerleven.is_spirit(_card) then other_key = 'other_spirit' end
 '''
 
 [[patches]]
@@ -70,17 +96,6 @@ local skip_print = k == "shop_jokers" or k == "shop_vouchers" or k == "shop_boos
         print("ERROR LOADING GAME: Card area '" .. k .. "' not instantiated before load")
     end
 end
-'''
-
-# Set counter on the left for bench area
-[[patches]]
-[patches.pattern]
-target = "cardarea.lua"
-pattern = '''local card_count = self ~= G.shop_vouchers and {n=G.UIT.R, config={align = self == G.jokers and 'cl' or self == G.hand and 'cm' or 'cr', padding = 0.03, no_fill = true}, nodes={'''
-position = 'at'
-match_indent = true
-payload = '''
-local card_count = self ~= G.shop_vouchers and {n=G.UIT.R, config={align = (self == G.jokers or self == G.ina_bench_area) and 'cl' or self == G.hand and 'cm' or 'cr', padding = 0.03, no_fill = true}, nodes={
 '''
 
 # Change background color

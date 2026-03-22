@@ -30,10 +30,11 @@ C.INA_UPGRADE_TECHNIQUE_KEY = "c_ina_upgrade_technique_"
 C.MAX_HIGHLIGHTED_MAGICIAN = 2
 
 -- Upgrades
-C.UPGRADES = { "plus", "number", "grade" }
+C.UPGRADES = { "plus", "number", "grade", "spirit" }
 C.UPGRADES.Plus = C.UPGRADES[1]
 C.UPGRADES.Number = C.UPGRADES[2]
 C.UPGRADES.Grade = C.UPGRADES[3]
+C.UPGRADES.Spirit = C.UPGRADES[4]
 C.UPGRADES.NumberType = {}
 C.UPGRADES.NumberType.A = "ina_tech_numbera_sticker"
 C.UPGRADES.NumberType.S = "ina_tech_numbers_sticker"

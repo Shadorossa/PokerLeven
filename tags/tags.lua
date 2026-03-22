@@ -141,7 +141,93 @@ local technique_tag = {
     }
 }
 
+local function apply_coin(self, tag, context)
+    if context.type == 'immediate' then
+        G.GAME.ina_gacha_coins = G.GAME.ina_gacha_coins or {blue = 0, red = 0, silver = 0, purple = 0, gold = 0}
+        local color = self.config.coin_color
+        if color then G.GAME.ina_gacha_coins[color] = (G.GAME.ina_gacha_coins[color] or 0) + 1 end
+        tag:yep('+', G.C.GOLD, function() return true end)
+        tag.triggered = true
+        return true
+    end
+end
+
+local coin_blue_tag = {
+    object_type = "Tag",
+    atlas = "Tags01",
+    name = "coin_blue_tag",
+    order = 28,
+    pos = { x = 1, y = 1 },
+    config = { type = "immediate", coin_color = "blue" },
+    key = "coin_blue_tag",
+    min_ante = 1,
+    weight = 8.0,
+    discovered = false,
+    loc_vars = function(self, info_queue) return { vars = {} } end,
+    apply = apply_coin,
+}
+
+local coin_red_tag = {
+    object_type = "Tag",
+    atlas = "Tags01",
+    name = "coin_red_tag",
+    order = 29,
+    pos = { x = 2, y = 1 },
+    config = { type = "immediate", coin_color = "red" },
+    key = "coin_red_tag",
+    min_ante = 1,
+    weight = 4.0,
+    discovered = false,
+    loc_vars = function(self, info_queue) return { vars = {} } end,
+    apply = apply_coin,
+}
+
+local coin_silver_tag = {
+    object_type = "Tag",
+    atlas = "Tags01",
+    name = "coin_silver_tag",
+    order = 30,
+    pos = { x = 3, y = 1 },
+    config = { type = "immediate", coin_color = "silver" },
+    key = "coin_silver_tag",
+    min_ante = 1,
+    weight = 1.5,
+    discovered = false,
+    loc_vars = function(self, info_queue) return { vars = {} } end,
+    apply = apply_coin,
+}
+
+local coin_purple_tag = {
+    object_type = "Tag",
+    atlas = "Tags01",
+    name = "coin_purple_tag",
+    order = 31,
+    pos = { x = 4, y = 1 },
+    config = { type = "immediate", coin_color = "purple" },
+    key = "coin_purple_tag",
+    min_ante = 1,
+    weight = 0.4,
+    discovered = false,
+    loc_vars = function(self, info_queue) return { vars = {} } end,
+    apply = apply_coin,
+}
+
+local coin_gold_tag = {
+    object_type = "Tag",
+    atlas = "Tags01",
+    name = "coin_gold_tag",
+    order = 32,
+    pos = { x = 5, y = 1 },
+    config = { type = "immediate", coin_color = "gold" },
+    key = "coin_gold_tag",
+    min_ante = 1,
+    weight = 0.1,
+    discovered = false,
+    loc_vars = function(self, info_queue) return { vars = {} } end,
+    apply = apply_coin,
+}
+
 return {
     name = "Tags",
-    list = { wild_tag, chain_tag, bench_tag, technique_tag }
+    list = { wild_tag, chain_tag, bench_tag, technique_tag, coin_blue_tag, coin_red_tag, coin_silver_tag, coin_purple_tag, coin_gold_tag }
 }

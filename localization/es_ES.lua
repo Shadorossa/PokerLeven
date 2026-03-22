@@ -1593,6 +1593,17 @@ return {
                 }
             },
 
+            j_ina_Majin_Pegasus = {
+                name = "Pegaso Mágico",
+                text = {
+                    "{C:wind}Pegaso Mágico{}",
+                    "Mejora un {C:attention}#3#%{} las estadísticas",
+                    "de los comodines de {X:wind,C:white}Viento{}",
+                    "{C:inactive}(Cargas: {C:attention}#1#/#2#{C:inactive}){}",
+                    "{C:inactive}(Evolución: {C:attention}#4#/#5#{C:inactive} cargas gastadas){}"
+                }
+            },
+
             --Scouts
             j_ina_1er = {
                 name = "Ace Server",
@@ -2087,6 +2098,41 @@ return {
                     "estadísticas aumentadas"
                 },
             },
+            ina_tech_spirit1_sticker = {
+                name = "Evolución Nvl. II",
+                text = {
+                    "Este Espíritu tiene las",
+                    "estadísticas aumentadas"
+                },
+            },
+            ina_tech_spirit2_sticker = {
+                name = "Evolución Nvl. III",
+                text = {
+                    "Este Espíritu tiene las",
+                    "estadísticas aumentadas"
+                },
+            },
+            ina_tech_spirit3_sticker = {
+                name = "Evolución Nvl. IV",
+                text = {
+                    "Este Espíritu tiene las",
+                    "estadísticas aumentadas"
+                },
+            },
+            ina_tech_spirit4_sticker = {
+                name = "Evolución Nvl. V",
+                text = {
+                    "Este Espíritu tiene las",
+                    "estadísticas aumentadas"
+                },
+            },
+            ina_tech_spirit5_sticker = {
+                name = "Evolución Nvl. Omega",
+                text = {
+                    "Este Espíritu tiene las",
+                    "estadísticas aumentadas"
+                },
+            },
         },
         Planet = {
             c_ina_make = {
@@ -2153,6 +2199,26 @@ return {
             tag_ina_technique_tag = {
                 name = "Etiqueta Técnica",
                 text = { "Otorga gratis un {C:training}Mega Training Pack{}" }
+            },
+            tag_ina_coin_blue_tag = {
+                name = "Moneda Azul",
+                text = { "Otorga una {C:attention}Moneda Azul{}", "para usar en el {C:green}Gacha{}" }
+            },
+            tag_ina_coin_red_tag = {
+                name = "Moneda Roja",
+                text = { "Otorga una {C:attention}Moneda Roja{}", "para usar en el {C:green}Gacha{}" }
+            },
+            tag_ina_coin_silver_tag = {
+                name = "Moneda Plateada",
+                text = { "Otorga una {C:attention}Moneda Plateada{}", "para usar en el {C:green}Gacha{}" }
+            },
+            tag_ina_coin_purple_tag = {
+                name = "Moneda Morada",
+                text = { "Otorga una {C:attention}Moneda Morada{}", "para usar en el {C:green}Gacha{}" }
+            },
+            tag_ina_coin_gold_tag = {
+                name = "Moneda Dorada",
+                text = { "Otorga una {C:attention}Moneda Dorada{}", "para usar en el {C:green}Gacha{}" }
             }
         },
         Tarot = {},
@@ -2273,6 +2339,8 @@ return {
             ina_technique_upgrade = "Técnica mejorada",
             ina_absorb = "¡Absorbido!",
             ina_deploy = "¡Desplegado!",
+            ina_special_spirit = "Espíritus",
+            ina_spirit_info = "Espíritu Guerrero",
             ina_special_manager = "Gerentes",
             ina_manager_info = "Gerente",
             ina_Fire = "Fuego",
@@ -2346,6 +2414,11 @@ return {
             ina_tech_k_sticker = "Técnica mejorada",
             ina_tech_a_sticker = "Técnica mejorada",
             ina_tech_joker_sticker = "Técnica mejorada",
+            ina_tech_spirit1_sticker = "Evolución Nvl. II",
+            ina_tech_spirit2_sticker = "Evolución Nvl. III",
+            ina_tech_spirit3_sticker = "Evolución Nvl. IV",
+            ina_tech_spirit4_sticker = "Evolución Nvl. V",
+            ina_tech_spirit5_sticker = "Evolución Nvl. Omega",
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",

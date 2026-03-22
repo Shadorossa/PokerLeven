@@ -3,18 +3,6 @@ version = "1.0.0"
 dump_lua = true
 priority = 3
 
-# New tab for Special Techniques on colection
-[[patches]]
-[patches.pattern]
-target = 'functions/UI_definitions.lua'
-pattern = "UIBox_button({button = 'your_collection_jokers', label = {localize('b_jokers')}, count = G.DISCOVER_TALLIES.jokers,  minw = 5, minh = 1.7, scale = 0.6, id = 'your_collection_jokers'}),"
-position = 'after'
-match_indent = true
-payload = '''
---UIBox_button({button = 'your_collection_techniques', label = {localize('ina_special_technique')}, count = G.DISCOVER_TALLIES.techniques, minw = 5, id = 'your_collection_techniques'}),
-UIBox_button({button = 'your_collection_managers', label = {localize('ina_special_manager')}, count = G.DISCOVER_TALLIES.managers, minw = 5, id = 'your_collection_managers'}),
-'''
-
 [[patches]]
 [patches.pattern]
 target = 'functions/misc_functions.lua'
@@ -34,10 +22,11 @@ position = 'at'
 match_indent = true
 overwrite = true
 payload = '''
+local sp = v.special or (v.config and type(v.config.extra) == 'table' and v.config.extra.special)
 if v.set and (
     (v.set == 'Joker' and v.ptype and v.mod and v.mod.id == 'Pokerleven') or
     v.consumeable or
-    (v.special and (v.special == "Technique" or v.special == "Manager")) or
+    (sp and (sp == "Technique" or sp == "Manager")) or
     (v.set == 'Edition') or
     (v.set == 'Voucher') or
     (v.set == 'Back') or
@@ -48,32 +37,18 @@ if v.set and (
 [patches.pattern]
 target = 'functions/misc_functions.lua'
 pattern = "if v.set and v.set == 'Joker' then"
-position = 'before'
-match_indent = true
-payload = '''
-if v.special and v.special == "Technique" then
-    G.DISCOVER_TALLIES.techniques.of = G.DISCOVER_TALLIES.techniques.of+1
-    if v.discovered then 
-        G.DISCOVER_TALLIES.techniques.tally = G.DISCOVER_TALLIES.techniques.tally+1
-    end
-end
-if v.special and v.special == "Manager" then
-    G.DISCOVER_TALLIES.managers.of = G.DISCOVER_TALLIES.managers.of+1
-    if v.discovered then 
-        G.DISCOVER_TALLIES.managers.tally = G.DISCOVER_TALLIES.managers.tally+1
-    end
-end
-'''
-
-[[patches]]
-[patches.pattern]
-target = 'functions/misc_functions.lua'
-pattern = "if v.set and v.set == 'Joker' then"
 position = 'at'
 overwrite = true
 match_indent = true
 payload = '''
-if v.set and v.set == 'Joker' and v.special == nil and v.ptype and v.mod and v.mod.id == 'Pokerleven' then
+local sp = v.special or v.special_type or (v.config and type(v.config.extra) == 'table' and v.config.extra.special)
+if sp == "Technique" then
+    G.DISCOVER_TALLIES.techniques.of = G.DISCOVER_TALLIES.techniques.of+1
+    if v.discovered then G.DISCOVER_TALLIES.techniques.tally = G.DISCOVER_TALLIES.techniques.tally+1 end
+elseif sp == "Manager" then
+    G.DISCOVER_TALLIES.managers.of = G.DISCOVER_TALLIES.managers.of+1
+    if v.discovered then G.DISCOVER_TALLIES.managers.tally = G.DISCOVER_TALLIES.managers.tally+1 end
+elseif v.set and v.set == 'Joker' and sp == nil and v.ptype and v.mod and v.mod.id == 'Pokerleven' then
 '''
 
 [[patches]]
@@ -94,9 +69,10 @@ pattern = "if v.set == 'Joker' then alert_joker = true end"
 position = 'at'
 match_indent = true
 payload = '''
-if v.set == 'Joker' and not v.special and v.mod and v.mod.id == 'Pokerleven' then alert_joker = true end
-if v.set == 'Joker' and v.special and v.special == "Technique" then alert_technique = true end
-if v.set == 'Joker' and v.special and v.special == "Manager" then alert_manager = true end
+local sp = v.special or (v.config and type(v.config.extra) == 'table' and v.config.extra.special)
+if v.set == 'Joker' and not sp and v.mod and v.mod.id == 'Pokerleven' then alert_joker = true end
+if v.set == 'Joker' and sp and sp == "Technique" then alert_technique = true end
+if v.set == 'Joker' and sp and sp == "Manager" then alert_manager = true end
 '''
 
 [[patches]]

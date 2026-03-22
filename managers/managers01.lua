@@ -49,28 +49,18 @@ local Celia = J({
     pools = { ["Manager"] = true },
     cost = 7,
     atlas = "Managers01",
-    calculate = function(self, card, context)
-        if context.starting_shop then
-            jude = get_joker_with_key("j_ina_Jude")
-            if jude then
-                return {
-                    message = ina_evolve(jude, "j_ina_Jude_Raimon")
-                }
-            end
-        end
-        if context.setting_blind then
+    calculate = function(self, card, ctx)
+        local ex = card.ability.extra
+        if ctx.starting_shop then
+            local jude = get_joker_with_key("j_ina_Jude")
+            if jude then return {message = ina_evolve(jude, "j_ina_Jude_Raimon")} end
+        elseif ctx.setting_blind and not ctx.blueprint and not ex.celia_active then
+            ex.celia_active = true
+            G.E_MANAGER:add_event(Event({func = function() ex.celia_active = false; return true end}))
             if Pokerleven.has_enough_bench_space() then
-                local selected_joker = create_random_ina_joker('Celia', nil, G.ina_bench_area, 'ina_team_Scout', false)
-                Pokerleven.add_to_bench(selected_joker)
-                Pokerleven.open_bench(true, true)
-                G.E_MANAGER:add_event(Event({
-                    trigger = 'after',
-                    delay = 2.0,
-                    func = (function()
-                        Pokerleven.open_bench(true, false)
-                        return true
-                    end)
-                }))
+                local s_joker = create_random_ina_joker('Celia', nil, G.ina_bench_area, 'ina_team_Scout', false)
+                Pokerleven.add_to_bench(s_joker); Pokerleven.open_bench(true, true)
+                G.E_MANAGER:add_event(Event({trigger='after', delay=2.0, func=function() Pokerleven.open_bench(true, false); return true end}))
             end
         end
     end,

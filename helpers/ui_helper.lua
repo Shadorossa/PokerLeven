@@ -222,7 +222,8 @@ end
 create_UIBox_your_collection_addition = function(requirement)
     local filtered_jokers = {}
     for _, joker in ipairs(G.P_CENTER_POOLS.Joker) do
-        if joker.special and joker.special == requirement then
+        local sp = joker.special or (joker.config and type(joker.config.extra) == 'table' and joker.config.extra.special)
+        if sp and sp == requirement then
             table.insert(filtered_jokers, joker)
         end
     end
@@ -253,7 +254,8 @@ modsCollectionTally = function(pool, ...)
     if pool == G.P_CENTER_POOLS.Joker then
         local filtered_pool = {}
         for _, card in ipairs(pool) do
-            if not (card.ability or card.special) then
+            local sp = card.special or (card.config and type(card.config.extra) == 'table' and card.config.extra.special)
+            if not (card.ability or sp) then
                 table.insert(filtered_pool, card)
             end
         end
@@ -269,18 +271,23 @@ local original_buildAdditionsTab = buildAdditionsTab
 function buildAdditionsTab(mod)
     local tab = original_buildAdditionsTab(mod)
     if not tab then return nil end
+    
+    if mod.id ~= "Pokerleven" then return tab end
 
     local insert_index = 2
     for _, addition in ipairs(Pokerleven.Extra_Additions) do
         local pool = {}
         for _, joker in ipairs(G.P_CENTER_POOLS.Joker) do
-            if joker.special and joker.special == addition then
+            local sp = joker.special or (joker.config and type(joker.config.extra) == 'table' and joker.config.extra.special)
+            if sp and sp == addition then
                 table.insert(pool, joker)
             end
         end
 
         if #pool > 0 then
-            local tally = modsCollectionTally(pool)
+            local tally_key = string.lower(addition) .. "s"
+            local tally = G.DISCOVER_TALLIES[tally_key] or {tally = 0, of = 0}
+
             if tally.of > 0 then
                 local button_id = "your_collection_" .. string.lower(addition) .. "s"
                 local label_key = "ina_special_" .. string.lower(addition)
@@ -323,6 +330,15 @@ G.FUNCS.can_select_card = function(e)
             e.config.colour = G.C.UI.BACKGROUND_INACTIVE
             e.config.button = nil
         end
+    elseif Pokerleven.is_spirit(card) then
+        if (card.edition and card.edition.negative) or
+            #Pokerleven.ina_spirits_area.cards < Pokerleven.ina_spirits_area.config.card_limit then
+            e.config.colour = G.C.GREEN
+            e.config.button = 'use_card'
+        else
+            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+            e.config.button = nil
+        end
     else
         can_select_card_ref(e)
     end
@@ -338,6 +354,9 @@ Pokerleven.create_custom_buttons = function(card, args)
     local use = nil
     local bench = nil
 
+    local is_small = Pokerleven.is_manager(card) or Pokerleven.is_spirit(card)
+    local s_fac = is_small and 0.55 or 1
+
     if args.sell then
         sell = {
             n = G.UIT.C,
@@ -345,26 +364,26 @@ Pokerleven.create_custom_buttons = function(card, args)
             nodes = {
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", padding = 0.1, r = 0.08, minw = 1.25, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'sell_card', func = 'can_sell_card', handy_insta_action = "sell" },
+                    config = { ref_table = card, align = "cr", padding = 0.1 * s_fac, r = 0.08, minw = 1.25 * s_fac, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'sell_card', func = 'can_sell_card', handy_insta_action = "sell" },
                     nodes = {
-                        { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
+                        { n = G.UIT.B, config = { w = 0.1, h = 0.6 * s_fac } },
                         {
                             n = G.UIT.C,
                             config = { align = "tm" },
                             nodes = {
                                 {
                                     n = G.UIT.R,
-                                    config = { align = "cm", maxw = 1.25 },
+                                    config = { align = "cm", maxw = 1.25 * s_fac },
                                     nodes = {
-                                        { n = G.UIT.T, config = { text = localize('b_sell'), colour = G.C.UI.TEXT_LIGHT, scale = 0.4, shadow = true } }
+                                        { n = G.UIT.T, config = { text = localize('b_sell'), colour = G.C.UI.TEXT_LIGHT, scale = 0.4 * s_fac, shadow = true } }
                                     }
                                 },
                                 {
                                     n = G.UIT.R,
                                     config = { align = "cm" },
                                     nodes = {
-                                        { n = G.UIT.T, config = { text = localize('$'), colour = G.C.WHITE, scale = 0.4, shadow = true } },
-                                        { n = G.UIT.T, config = { ref_table = card, ref_value = 'sell_cost_label', colour = G.C.WHITE, scale = 0.55, shadow = true } }
+                                        { n = G.UIT.T, config = { text = localize('$'), colour = G.C.WHITE, scale = 0.4 * s_fac, shadow = true } },
+                                        { n = G.UIT.T, config = { ref_table = card, ref_value = 'sell_cost_label', colour = G.C.WHITE, scale = 0.55 * s_fac, shadow = true } }
                                     }
                                 }
                             }
@@ -384,9 +403,9 @@ Pokerleven.create_custom_buttons = function(card, args)
                     config = {
                         ref_table = card,
                         align = "cr",
-                        padding = 0.1,
+                        padding = 0.1 * s_fac,
                         r = 0.08,
-                        minw = 1.25,
+                        minw = 1.25 * s_fac,
                         hover = true,
                         shadow = true,
                         colour = G.C.UI.BACKGROUND_INACTIVE,
@@ -396,16 +415,16 @@ Pokerleven.create_custom_buttons = function(card, args)
                         handy_insta_action = "use"
                     },
                     nodes = {
-                        { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
+                        { n = G.UIT.B, config = { w = 0.1, h = 0.6 * s_fac } },
                         {
                             n = G.UIT.C,
                             config = { align = "cr" },
                             nodes = {
                                 {
                                     n = G.UIT.R,
-                                    config = { align = "cm", maxw = 1.25 },
+                                    config = { align = "cm", maxw = 1.25 * s_fac },
                                     nodes = {
-                                        { n = G.UIT.T, config = { text = args.bench and localize('ina_bench') or localize('ina_unbench'), colour = G.C.UI.TEXT_LIGHT, scale = 0.4, shadow = true } }
+                                        { n = G.UIT.T, config = { text = args.bench and localize('ina_bench') or localize('ina_unbench'), colour = G.C.UI.TEXT_LIGHT, scale = 0.4 * s_fac, shadow = true } }
                                     }
                                 }
                             }
@@ -465,6 +484,29 @@ Pokerleven.get_type_ui = function(card)
                         y_offset = 0,
                         spacing = math.max(0, 0.32 * (17 - #localize("ina_manager_info"))),
                         scale = (0.4 - 0.004 * #localize("ina_manager_info"))
+                    })
+                }
+            }
+        }
+    end
+
+    if Pokerleven.is_spirit(card) then
+        return {
+            {
+                n = G.UIT.O,
+                config = {
+                    object = DynaText({
+                        string = { localize("ina_spirit_info") },
+                        colours = { G.C.PURPLE },
+                        bump = true,
+                        silent = true,
+                        pop_in = 0,
+                        pop_in_rate = 4,
+                        maxw = 5,
+                        shadow = true,
+                        y_offset = 0,
+                        spacing = math.max(0, 0.32 * (17 - #localize("ina_spirit_info"))),
+                        scale = (0.4 - 0.004 * #localize("ina_spirit_info"))
                     })
                 }
             }

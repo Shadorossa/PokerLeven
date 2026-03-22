@@ -3,25 +3,41 @@ function Game:start_run(args)
     self.ina_manager_area = CardArea(
         0,
         0,
-        self.CARD_W * 1.9,
-        self.CARD_H * 0.95,
+        self.CARD_W * 0.91,
+        self.CARD_H * 0.45,
         {
             card_limit = 1,
             type = 'joker',
             highlight_limit = 1,
+            card_w = self.CARD_W * 0.45
         }
     )
     Pokerleven.ina_manager_area = G.ina_manager_area
 
+    self.ina_spirits_area = CardArea(
+        0,
+        0,
+        self.CARD_W * 2.3,
+        self.CARD_H * 0.45,
+        {
+            card_limit = 5,
+            type = 'joker',
+            highlight_limit = 1,
+            card_w = self.CARD_W * 0.45
+        }
+    )
+    G.ina_spirits_area = self.ina_spirits_area
+    Pokerleven.ina_spirits_area = G.ina_spirits_area
+
     self.ina_bench_area = CardArea(
         0,
         0,
-        self.CARD_W * 4.95,
+        self.CARD_W * 3.6,
         self.CARD_H * 0.95,
         {
             card_limit = 3,
             type = 'joker',
-            highlight_limit = 1,
+            highlight_limit = 1
         }
     )
     Pokerleven.ina_bench_area = G.ina_bench_area
@@ -40,24 +56,31 @@ function Game:start_run(args)
 
     Pokerleven.set_base_rarities(0.69, 0.25, 0.05)
 
+    Pokerleven.ina_spirits_uibox = UIBox {
+        definition = Pokerleven.create_UIBox_spirits_area(),
+        config = {
+            align = 'bm',
+            offset = { x = 1.25, y = 0.1 },
+            major = self.jokers,
+            bond = 'Weak'
+        } }
+
     self.ina_extra_buttons = UIBox {
         definition = {
             n = G.UIT.ROOT,
             config = {
                 align = "cm",
-                minw = 1,
-                minh = 0.3,
-                padding = 0.15,
-                r = 0.1,
+                    padding = 0.05,
                 colour = G.C.CLEAR
             },
             nodes = {
                 {
                     n = G.UIT.C,
                     config = {
-                        align = "tm",
-                        minw = 2,
-                        padding = 0.1,
+                            align = "cm",
+                            minw = 0.6,
+                            minh = 0.6,
+                            padding = 0.05,
                         r = 0.1,
                         hover = true,
                         colour = G.ARGS.LOC_COLOURS and G.ARGS.LOC_COLOURS["bench"] or HEX("4ca0a5"),
@@ -68,27 +91,21 @@ function Game:start_run(args)
                     },
                     nodes = {
                         {
-                            n = G.UIT.R,
-                            config = { align = "bcm", padding = 0 },
-                            nodes = {
-                                {
-                                    n = G.UIT.T,
-                                    config = {
-                                        text = localize("ina_bench"),
-                                        scale = 0.35,
-                                        colour = G.C.UI.TEXT_LIGHT
-                                    }
+                                n = G.UIT.T,
+                                config = {
+                                    text = "B",
+                                    scale = 0.45,
+                                    colour = G.C.UI.TEXT_LIGHT
                                 }
-                            }
                         },
                     }
                 },
             }
         },
         config = {
-            align = "bm",
-            offset = { x = 4, y = -3.33 },
-            major = G.jokers,
+            align = "cr",
+            offset = { x = 0.15, y = 0 },
+            major = self.jokers,
             bond = 'Weak'
         }
     }
@@ -97,16 +114,16 @@ function Game:start_run(args)
     Pokerleven.ina_manager_uibox = UIBox {
         definition = Pokerleven.create_UIBox_manager_area(),
         config = {
-            align = 'cmi',
-            offset = { x = 2, y = 3.5 },
-            major = self.consumeables,
+            align = 'cl',
+            offset = { x = -0.2, y = 0 },
+            major = self.ina_spirits_area,
             bond = 'Weak'
         } }
 
     self.ina_bench = UIBox {
         definition = Pokerleven.create_UIBox_bench_area(),
         config = {
-            align = 'cmi',
+            align = 'tli',
             offset = { x = 0, y = -5 },
             major = self.jokers,
             bond = 'Weak',
@@ -125,7 +142,7 @@ end
 Pokerleven.create_UIBox_bench_area = function()
     local t = {
         n = G.UIT.ROOT,
-        config = { align = 'cm', r = 0.1, colour = G.C.CLEAR, padding = 0.02 },
+        config = { align = 'cm', r = 0.1, colour = G.C.CLEAR, padding = 0 },
         nodes = {
             {
                 n = G.UIT.O,
@@ -147,6 +164,22 @@ Pokerleven.create_UIBox_manager_area = function()
                 n = G.UIT.O,
                 config = {
                     object = Pokerleven.ina_manager_area,
+                    draw_layer = 1
+                }
+            },
+        }
+    }
+end
+
+Pokerleven.create_UIBox_spirits_area = function()
+    return {
+        n = G.UIT.ROOT,
+        config = { align = 'cm', r = 0.1, colour = G.C.CLEAR, padding = 0.1 },
+        nodes = {
+            {
+                n = G.UIT.O,
+                config = {
+                    object = Pokerleven.ina_spirits_area,
                     draw_layer = 1
                 }
             },
@@ -246,6 +279,22 @@ function Card:remove_from_area()
     card_remove_from_area_ref(self)
 end
 
+local cardarea_align_cards_ref = CardArea.align_cards
+function CardArea:align_cards()
+    cardarea_align_cards_ref(self)
+    if self == Pokerleven.ina_manager_area or self == Pokerleven.ina_spirits_area then
+        for _, card in ipairs(self.cards) do
+            local diff_w = card.T.w - G.CARD_W * 0.45
+            card.T.w = G.CARD_W * 0.45
+            card.T.h = G.CARD_H * 0.45
+            card.T.x = card.T.x + 0.5 * diff_w
+            card.T.y = self.T.y + 0.5*self.T.h - 0.5*card.T.h
+        end
+    elseif self == Pokerleven.ina_bench_area then
+        self.T.w = G.jokers.T.w
+    end
+end
+
 ---Returns true if card is a manager
 ---@param card Card joker to deliberate if it's a manager
 Pokerleven.is_manager = function(card)
@@ -263,7 +312,33 @@ Pokerleven.add_to_managers = function(card)
             card.edition.card_limit
     end
 
+    card.T.w = G.CARD_W * 0.45
+    card.T.h = G.CARD_H * 0.45
+
     Pokerleven.ina_manager_area:emplace(card)
+    card:add_to_deck()
+end
+
+---Returns true if card is a spirit
+---@param card Card joker to deliberate if it's a spirit
+Pokerleven.is_spirit = function(card)
+    return card.ability and
+        type(card.ability.extra) == "table" and
+        card.ability.extra.special == "Spirit"
+end
+
+---Adds card to spirits area
+---@param card table|Card|true card to add to the spirits area
+Pokerleven.add_to_spirits = function(card)
+    if card.edition and card.edition.card_limit then
+        Pokerleven.ina_spirits_area.config.card_limit = Pokerleven.ina_spirits_area.config.card_limit +
+            card.edition.card_limit
+    end
+
+    card.T.w = G.CARD_W * 0.45
+    card.T.h = G.CARD_H * 0.45
+
+    Pokerleven.ina_spirits_area:emplace(card)
     card:add_to_deck()
 end
 
@@ -286,7 +361,8 @@ function Card:highlight(is_highlighted)
         and self.area ~= G.consumeables
         and (self.area == G.jokers
             or self.area == Pokerleven.ina_bench_area
-            or self.area == Pokerleven.ina_manager_area) then
+            or self.area == Pokerleven.ina_manager_area
+            or self.area == Pokerleven.ina_spirits_area) then
         self.highlighted = is_highlighted
 
         if self.highlighted then
@@ -299,6 +375,8 @@ function Card:highlight(is_highlighted)
             local params = {}
             if Pokerleven.is_manager(self) then
                 params.sell = true
+            elseif Pokerleven.is_spirit(self) then
+                params.sell = true
             elseif self.area ~= G.ina_bench_area then
                 params.sell = true
                 params.bench = true
@@ -307,11 +385,13 @@ function Card:highlight(is_highlighted)
                 params.unbench = true
             end
 
+            local x_off = (Pokerleven.is_manager(self) or Pokerleven.is_spirit(self)) and -0.45 or -0.4
+
             self.children.use_button = UIBox {
                 definition = Pokerleven.create_custom_buttons(self, params),
                 config = {
                     align = "cr",
-                    offset = { x = -0.4, y = 0 },
+                    offset = { x = x_off, y = 0 },
                     parent = self,
                 }
             }

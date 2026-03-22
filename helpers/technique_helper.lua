@@ -43,7 +43,9 @@ technique_values = {
     chip_mod_chaos = .2,
     levels_per_card = .2,
     retriggers = 1,
-    stone_bonus = .05
+    stone_bonus = .05,
+    stat_mult = 0.1,
+    max_charges = 0.2
 }
 
 local roundable_fields = {
@@ -58,7 +60,9 @@ local roundable_fields = {
     chip_mod_normal = true,
     chip_mod_chaos = true,
     levels_per_card = true,
-    retriggers = true
+    retriggers = true,
+    max_charges = true
+
 }
 
 
@@ -75,6 +79,8 @@ grade_stickers = { "ina_tech_grade2_sticker", "ina_tech_grade3_sticker", "ina_te
 new_stickers = { "ina_tech_j_sticker", "ina_tech_q_sticker", "ina_tech_k_sticker", "ina_tech_a_sticker",
     "ina_tech_joker_sticker" }
 
+spirit_stickers = { "ina_tech_spirit1_sticker", "ina_tech_spirit2_sticker", "ina_tech_spirit3_sticker", "ina_tech_spirit4_sticker", "ina_tech_spirit5_sticker" }
+
 
 local function get_technique_sticker_list(card)
     if not card or not card.ability or type(card.ability) ~= "table" or not card.ability.extra then
@@ -88,7 +94,8 @@ local function get_technique_sticker_list(card)
     local sticker_map = {
         plus = plus_stickers,
         number = this_card_number_stickers,
-        grade = grade_stickers
+        grade = grade_stickers,
+        spirit = spirit_stickers
     }
 
     return sticker_map[card.ability.extra.techtype] or new_stickers

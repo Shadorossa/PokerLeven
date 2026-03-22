@@ -310,6 +310,56 @@ local tech_joker_sticker = {
   hide_badge = false
 }
 
+local tech_spirit1_sticker = {
+  object_type = "Sticker",
+  key = "tech_spirit1_sticker",
+  badge_colour = HEX("5A00FF"),
+  rate = 0.0,
+  atlas = "stickers",
+  pos = { x = 1, y = 4 },
+  hide_badge = false
+}
+
+local tech_spirit2_sticker = {
+  object_type = "Sticker",
+  key = "tech_spirit2_sticker",
+  badge_colour = HEX("5A00FF"),
+  rate = 0.0,
+  atlas = "stickers",
+  pos = { x = 2, y = 4 },
+  hide_badge = false
+}
+
+local tech_spirit3_sticker = {
+  object_type = "Sticker",
+  key = "tech_spirit3_sticker",
+  badge_colour = HEX("5A00FF"),
+  rate = 0.0,
+  atlas = "stickers",
+  pos = { x = 3, y = 4 },
+  hide_badge = false
+}
+
+local tech_spirit4_sticker = {
+  object_type = "Sticker",
+  key = "tech_spirit4_sticker",
+  badge_colour = HEX("5A00FF"),
+  rate = 0.0,
+  atlas = "stickers",
+  pos = { x = 4, y = 4 },
+  hide_badge = false
+}
+
+local tech_spirit5_sticker = {
+  object_type = "Sticker",
+  key = "tech_spirit5_sticker",
+  badge_colour = HEX("5A00FF"),
+  rate = 0.0,
+  atlas = "stickers",
+  pos = { x = 5, y = 4 },
+  hide_badge = false
+}
+
 return
 {
   name = "Stickers",
@@ -320,5 +370,6 @@ return
     tech_numbera_sticker, tech_numbers_sticker, tech_numberz_sticker, tech_numberinf_sticker, tech_grade2_sticker,
     tech_grade3_sticker,
     tech_grade4_sticker, tech_grade5_sticker, tech_grade0_sticker, tech_j_sticker, tech_q_sticker, tech_k_sticker,
-    tech_a_sticker, tech_joker_sticker }
+    tech_a_sticker, tech_joker_sticker, tech_spirit1_sticker, tech_spirit2_sticker, tech_spirit3_sticker,
+    tech_spirit4_sticker, tech_spirit5_sticker }
 }

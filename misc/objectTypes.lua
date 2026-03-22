@@ -82,13 +82,6 @@ local Training = {
 	cards = {},
 }
 
-local Manager = {
-	object_type = "ObjectType",
-	key = "Manager",
-	default = "v_blank",
-	cards = {},
-}
-
 local InazumaJapan = {
 	object_type = "ObjectType",
 	key = "Inazuma Japón",
@@ -210,5 +203,5 @@ local Genesis = {
 
 return {
 	name = "Types",
-	list = { Raimon, Occult, Royal, Wild, Brain, Otaku, Farm, InazumaEleven, Kirkwood, Shuriken, Zeus, Training, Manager, InazumaJapan, Scout, Torneo, TormentaGeminis, ServicioSecreto, Alpino, Epsilon, RoyalRedux, EmperadoresOscuros, PolvoDiamantes, Prominence, ZeusAres, ClaustroSagrado, OsakaCCC, Fauxshore, MaryTimes, Genesis }
+	list = { Raimon, Occult, Royal, Wild, Brain, Otaku, Farm, InazumaEleven, Kirkwood, Shuriken, Zeus, Training, InazumaJapan, Scout, Torneo, TormentaGeminis, ServicioSecreto, Alpino, Epsilon, RoyalRedux, EmperadoresOscuros, PolvoDiamantes, Prominence, ZeusAres, ClaustroSagrado, OsakaCCC, Fauxshore, MaryTimes, Genesis }
 }
