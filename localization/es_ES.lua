@@ -286,13 +286,21 @@ return {
                 name = "Ultra Zeus",
                 text = { "Cada mano robada aumenta", "las fichas necesarias en un #1#%" }
             },
+            bl_ina_ogre = {
+                name = "Academia Ogro",
+                text = { "Jokers inactivos durante 2", "manos se {C:red}destruyen{}.", "Cada descarte sube la ciega {C:attention}25%{}." }
+            },
             bl_ina_ogre_8 = {
                 name = "Academia Ogro",
                 text = { "Jokers inactivos durante 2", "manos se {C:red}destruyen{}.", "Cada descarte sube la ciega {C:attention}25%{}." }
             },
             bl_ina_ogre_24 = {
-                name = "Academia Ogro",
+                name = "Ogro Redux",
                 text = { "Desactiva jokers {C:blue}Comunes{}, {C:green}Inusuales{}", "y sin nivel de {C:training}Técnica{}.", "Vende el Joker izquierdo cada 2 manos." }
+            },
+            bl_ina_destructores = {
+                name = "Destructores",
+                text = { "Degrada todos los jokers al Nvl. 1", "Tamaño de mano {C:red}-3{}", "Cada jugada consume {C:attention}4{} {X:mountain,C:white}Barreras{}.", "Crece un {C:attention}25%{} si no alcanzas", "el {C:attention}90%{} de los puntos necesarios." }
             }
         },
         Strat = {
@@ -2392,6 +2400,7 @@ return {
             ina_protocol = "¡Protocolo!",
             ina_caos="Caos",
             ina_normal="Normal",
+            ina_destructores_protect = "¡Protección!",
 
             -- Rarities
             k_ina_top = "Destacado",

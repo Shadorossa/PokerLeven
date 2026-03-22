@@ -278,7 +278,7 @@ SMODS.Sound({
     },
     pitch = 1,
     select_music_track = function()
-        if G.GAME and G.GAME.blind and (G.GAME.blind.name == "ina-ogre_8" or G.GAME.blind.name == "ina-ogre_24") then
+        if G.GAME and G.GAME.blind and G.GAME.blind.name == "ina-ogre" then
             return true
         end
     end,

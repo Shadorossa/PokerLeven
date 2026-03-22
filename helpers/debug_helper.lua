@@ -6,7 +6,7 @@ function Game:start_run(args)
 
     -- Forzar jefe ogro en la ante 8
     G.GAME.perscribed_bosses = G.GAME.perscribed_bosses or {}
-    G.GAME.perscribed_bosses[8] = 'bl_ina_ogre_8'
+    G.GAME.perscribed_bosses[8] = 'bl_ina_ogre'
 
     G.E_MANAGER:add_event(Event({
         trigger = 'after', delay = 1.0,

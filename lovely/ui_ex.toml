@@ -425,3 +425,30 @@ pattern = "UIBox_button({button = 'your_collection_jokers', label = {localize('b
 position = 'after'
 match_indent = true
 payload = "UIBox_button({button = 'your_collection_spirits', label = {localize('ina_special_spirit')}, count = G.DISCOVER_TALLIES.spirits, minw = 5, id = 'your_collection_spirits'}),"
+
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = '''              text_table[1] and {n=G.UIT.R, config={align = "cm", minh = 0.7, padding = 0.05, minw = 2.9}, nodes={
+                text_table[1] and {n=G.UIT.R, config={align = "cm", maxw = 2.8}, nodes={
+                  {n=G.UIT.T, config={id = blind_choice.config.key, ref_table = {val = ''}, ref_value = 'val', scale = 0.32, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.WHITE, shadow = not disabled, func = 'HUD_blind_debuff_prefix'}},
+                  {n=G.UIT.T, config={text = text_table[1] or '-', scale = 0.32, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.WHITE, shadow = not disabled}}
+                }} or nil,
+                text_table[2] and {n=G.UIT.R, config={align = "cm", maxw = 2.8}, nodes={
+                  {n=G.UIT.T, config={text = text_table[2] or '-', scale = 0.32, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.WHITE, shadow = not disabled}}
+                }} or nil,
+              }} or nil,'''
+position = 'at'
+match_indent = true
+payload = '''              (text_table and text_table[1]) and {n=G.UIT.R, config={align = "cm", minh = 0.7, padding = 0.05, minw = 2.9}, nodes={
+                (text_table and #text_table >= 3) and {n=G.UIT.R, config={align = "cm", r=0.1, padding=0.05, colour=disabled and G.C.UI.BACKGROUND_INACTIVE or G.C.ORANGE, hover = true, can_collide = true, on_demand_tooltip = {title = loc_name, text = text_table}}, nodes={
+                  {n=G.UIT.T, config={text = "Ver Efectos", scale = 0.32, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.WHITE, shadow = not disabled}}
+                }} or nil,
+                (text_table and #text_table < 3 and text_table[1]) and {n=G.UIT.R, config={align = "cm", maxw = 2.8}, nodes={
+                  {n=G.UIT.T, config={id = blind_choice.config.key, ref_table = {val = ''}, ref_value = 'val', scale = 0.32, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.WHITE, shadow = not disabled, func = 'HUD_blind_debuff_prefix'}},
+                  {n=G.UIT.T, config={text = text_table[1] or '-', scale = 0.32, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.WHITE, shadow = not disabled}}
+                }} or nil,
+                (text_table and #text_table < 3 and text_table[2]) and {n=G.UIT.R, config={align = "cm", maxw = 2.8}, nodes={
+                  {n=G.UIT.T, config={text = text_table[2] or '-', scale = 0.32, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.WHITE, shadow = not disabled}}
+                }} or nil,
+              }} or nil,'''
