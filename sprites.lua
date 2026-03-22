@@ -164,6 +164,15 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
+    key = "finalBossBlindsChr",
+    atlas_table = "ANIMATION_ATLAS",
+    path = "finalBossBlindsChr.png",
+    px = 34,
+    py = 34,
+    frames = 34,
+}):register()
+
+SMODS.Atlas({
     key = "smallBlinds01",
     atlas_table = "ANIMATION_ATLAS",
     path = "smallBlinds01.png",
@@ -205,7 +214,7 @@ SMODS.Atlas({
 SMODS.Sound({
     key = "music_titlescreen",
     path = "titlescreen.ogg",
-    volume = 0.2,
+    volume = 0.25,
     sync = {
         ina_music_mainline = true
     },
@@ -218,7 +227,7 @@ SMODS.Sound({
 SMODS.Sound({
     key = "music_zeus",
     path = "ie1_k_zeusblind.ogg",
-    volume = 0.15,
+    volume = 0.25,
     sync = {
         ina_music_mainline = true
     },
@@ -233,7 +242,7 @@ SMODS.Sound({
 SMODS.Sound({
     key = "music_royal",
     path = "ie1_k_royalccademy.ogg",
-    volume = 0.15,
+    volume = 0.25,
     sync = {
         ina_music_mainline = true
     },
@@ -248,13 +257,28 @@ SMODS.Sound({
 SMODS.Sound({
     key = "music_ultrazeus",
     path = "ie1_k_ultrazeusblind.ogg",
-    volume = 0.15,
+    volume = 0.25,
     sync = {
         ina_music_mainline = true
     },
     pitch = 1,
     select_music_track = function()
         if G.GAME and G.GAME.blind and G.GAME.blind.name == "ina-zeus_caido" then
+            return true
+        end
+    end,
+})
+
+SMODS.Sound({
+    key = "music_ogre",
+    path = "ie3_k_ogroblind.ogg",
+    volume = 0.25,
+    sync = {
+        ina_music_mainline = true
+    },
+    pitch = 1,
+    select_music_track = function()
+        if G.GAME and G.GAME.blind and (G.GAME.blind.name == "ina-ogre_8" or G.GAME.blind.name == "ina-ogre_24") then
             return true
         end
     end,
@@ -314,7 +338,7 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["ina_team_kirkwood"] = HEX("7A5E3C")
     G.ARGS.LOC_COLOURS["ina_team_zeus"] = HEX("D4AF37")
     G.ARGS.LOC_COLOURS["pink"] = HEX("FF7ABF")
-    G.ARGS.LOC_COLOURS["ina_team_inazumajapón"] = HEX("fb8c00")
+    G.ARGS.LOC_COLOURS["ina_team_inazumajapon"] = HEX("fb8c00")
     G.ARGS.LOC_COLOURS["bench"] = HEX("4ca0a5")
     G.ARGS.LOC_COLOURS["training"] = HEX("5A00FF")
     G.ARGS.LOC_COLOURS["strat"] = HEX("9AA4B7")

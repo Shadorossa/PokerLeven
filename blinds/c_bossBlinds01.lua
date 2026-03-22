@@ -37,6 +37,26 @@ local debuff_type = function(ptype)
     end
 end
 
+local apply_weakness = function(weakness_type)
+    if G.jokers and G.jokers.cards then
+        for _, v in ipairs(G.jokers.cards) do
+            if is_type(v, weakness_type) or (v.ability and v.ability[string.lower(weakness_type) .. "_sticker"]) then
+                local mults = v.ability.ina_stat_mults
+                if not mults or mults['blind_weakness'] ~= 1.2 then
+                    Pokerleven.apply_stat_multiplier(v, 'blind_weakness', 1.2)
+                    v:juice_up(0.5, 0.5)
+                end
+            end
+        end
+    end
+end
+
+local remove_weakness = function()
+    if G.jokers and G.jokers.cards then
+        for _, v in ipairs(G.jokers.cards) do Pokerleven.remove_stat_multiplier(v, 'blind_weakness') end
+    end
+end
+
 -- Inazuma Eleven 1
 
 local goalkeeper = {
@@ -164,15 +184,23 @@ local fire = {
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("d32f2f"),
+    set_blind = function(self)
+        apply_weakness("Mountain")
+    end,
     press_play = function(self)
         G.GAME.blind.triggered = true
         G.GAME.blind.prepped = true
     end,
     drawn_to_hand = function(self)
         debuff_type("Fire")
+        apply_weakness("Mountain")
     end,
     disable = function(self)
         self.config.disabled = true
+        remove_weakness()
+    end,
+    defeat = function(self)
+        remove_weakness()
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -192,15 +220,23 @@ local mountain = {
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("f57c00"),
+    set_blind = function(self)
+        apply_weakness("Wind")
+    end,
     press_play = function(self)
         G.GAME.blind.triggered = true
         G.GAME.blind.prepped = true
     end,
     drawn_to_hand = function(self)
         debuff_type("Mountain")
+        apply_weakness("Wind")
     end,
     disable = function(self)
         self.config.disabled = true
+        remove_weakness()
+    end,
+    defeat = function(self)
+        remove_weakness()
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -220,15 +256,23 @@ local wind = {
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("81d4fa"),
+    set_blind = function(self)
+        apply_weakness("Forest")
+    end,
     press_play = function(self)
         G.GAME.blind.triggered = true
         G.GAME.blind.prepped = true
     end,
     drawn_to_hand = function(self)
         debuff_type("Wind")
+        apply_weakness("Forest")
     end,
     disable = function(self)
         self.config.disabled = true
+        remove_weakness()
+    end,
+    defeat = function(self)
+        remove_weakness()
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -248,15 +292,23 @@ local forest = {
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("2e7d32"),
+    set_blind = function(self)
+        apply_weakness("Fire")
+    end,
     press_play = function(self)
         G.GAME.blind.triggered = true
         G.GAME.blind.prepped = true
     end,
     drawn_to_hand = function(self)
         debuff_type("Forest")
+        apply_weakness("Fire")
     end,
     disable = function(self)
         self.config.disabled = true
+        remove_weakness()
+    end,
+    defeat = function(self)
+        remove_weakness()
     end,
     ina_credits = {
         art = { "Shadorossa" }

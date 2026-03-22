@@ -24,8 +24,7 @@ local Growing_Pack = {
 	discovered = false,
 	create_card = function(self, card, i)
 		local selected_team = tostring(Pokerleven.get_random_team_from_actuals())
-
-		return create_card(selected_team, G.pack_cards, nil, nil, true, true, nil, nil)
+		return create_random_ina_joker('growing_pack', nil, G.pack_cards, selected_team, false)
 	end,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.choose, card.ability.extra } }
@@ -48,8 +47,7 @@ local Advanced_Pack = {
 	discovered = false,
 	create_card = function(self, card, i)
 		local selected_team = Pokerleven.get_random_team_from_actuals()
-
-		return create_card(selected_team, G.pack_cards, nil, nil, true, true, nil, nil)
+		return create_random_ina_joker('advanced_pack', nil, G.pack_cards, selected_team, false)
 	end,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.choose, card.ability.extra } }

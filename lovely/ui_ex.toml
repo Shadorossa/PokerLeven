@@ -51,6 +51,15 @@ payload = '''              {n=G.UIT.C, config={align = "cm", padding = 0.05, min
                   {n=G.UIT.O, config={object = DynaText({string = {{ref_table = G.GAME, ref_value = 'round'}}, colours = {G.C.IMPORTANT},shadow = true, scale = 2*scale}),id = 'round_UI_count'}},
                 }},
               }},
+              {n=G.UIT.C, config={minw = spacing},nodes={}},
+              {n=G.UIT.C, config={align = "cm", padding = 0.05, minw = 1.45, minh = 1, colour = temp_col, emboss = 0.05, r = 0.1, func = 'ina_show_barriers', tooltip = { title = localize("ina_resource_barriers") }}, nodes={
+                {n=G.UIT.R, config={align = "cm", minh = 0.33, maxw = 1.35}, nodes={
+                  {n=G.UIT.O, config={object = Sprite(0, 0, 0.45, 0.45, G.ASSET_ATLAS["ina_resources"], { x = 0, y = 0 })}}
+                }},
+                {n=G.UIT.R, config={align = "cm", r = 0.1, minw = 1.2, colour = temp_col2}, nodes={
+                  {n=G.UIT.O, config={id = 'barrier_text_UI', object = DynaText({string = {{ref_table = G.GAME.current_round, ref_value = 'barriers'}}, colours = {G.C.WHITE},shadow = true, scale = 2*scale})}},
+                }},
+              }},
             }},
             {n=G.UIT.R, config={minh = spacing},nodes={}},
             {n=G.UIT.R, config={align = "cm", id = 'button_area', padding = 0}, nodes={
@@ -290,6 +299,10 @@ payload = '''              (function()
                   contents.round[1].nodes[1].config.minh = 0.8
                   contents.round[1].nodes[3].config.minw = 0.8
                   contents.round[1].nodes[3].config.minh = 0.8
+                  if contents.round[5].nodes[5] then
+                    contents.round[5].nodes[5].config.minw = 0.8
+                    contents.round[5].nodes[5].config.minh = 0.8
+                  end
                   contents.round[1].config.scale = 0.65
                 end
                 if contents.round[3] and contents.round[3].nodes then
@@ -403,3 +416,12 @@ payload = '''            if from == G.discard and to == G.deck and card then
                 card.states.visible = true
                 card:start_materialize(nil, true, 0.5)
     end'''
+
+# Añadir el botón de Espíritus a la colección base del jugador
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "UIBox_button({button = 'your_collection_jokers', label = {localize('b_jokers')}, count = G.DISCOVER_TALLIES.jokers,  minw = 5, minh = 1.7, scale = 0.6, id = 'your_collection_jokers'}),"
+position = 'after'
+match_indent = true
+payload = "UIBox_button({button = 'your_collection_spirits', label = {localize('ina_special_spirit')}, count = G.DISCOVER_TALLIES.spirits, minw = 5, id = 'your_collection_spirits'}),"

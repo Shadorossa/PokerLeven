@@ -166,6 +166,7 @@ local Maddox = J({
     end
   end,
   remove_from_deck = function(self, card, from_debuff)
+    if G.jokers and not G.jokers.cards then return end
     if G.playing_cards then
       for _, c in ipairs(G.playing_cards) do
         if c.ability and c.ability.forest_sticker then

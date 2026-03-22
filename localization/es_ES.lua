@@ -178,19 +178,19 @@ return {
             },
             bl_ina_fire = {
                 name = "Jefe de Fuego",
-                text = { "Los jugadores de {X:fire,C:white}Fuego{}", "están debilitados", "tras cada mano jugada" }
+                text = { "Debilita cartas de {X:fire,C:white}Fuego{}", "tras cada mano jugada.", "{X:mountain,C:white}Montaña{} obtiene {C:attention}+20%{} de stats." }
             },
             bl_ina_forest = {
                 name = "Jefe de Bosque",
-                text = { "Los jugadores de tipo {X:forest,C:white}Bosque{}", "están debilitados", "tras cada mano jugada" }
+                text = { "Debilita cartas de {X:forest,C:white}Bosque{}", "tras cada mano jugada.", "{X:fire,C:white}Fuego{} obtiene {C:attention}+20%{} de stats." }
             },
             bl_ina_mountain = {
                 name = "Jefe de Montaña",
-                text = { "Los jugadores de tipo {X:Mountain,C:white}Montaña{}", "están debilitados", "tras cada mano jugada" }
+                text = { "Debilita cartas de {X:mountain,C:white}Montaña{}", "tras cada mano jugada.", "{X:wind,C:white}Viento{} obtiene {C:attention}+20%{} de stats." }
             },
             bl_ina_wind = {
                 name = "Jefe de Viento",
-                text = { "Los jugadores de tipo {X:Wind,C:white}Viento{}", "están debilitados", "tras cada mano jugada" }
+                text = { "Debilita cartas de {X:wind,C:white}Viento{}", "tras cada mano jugada.", "{X:forest,C:white}Bosque{} obtiene {C:attention}+20%{} de stats." }
             },
             bl_ina_raimon = {
                 name = "Raimon",
@@ -285,6 +285,14 @@ return {
             bl_ina_zeus_caido = {
                 name = "Ultra Zeus",
                 text = { "Cada mano robada aumenta", "las fichas necesarias en un #1#%" }
+            },
+            bl_ina_ogre_8 = {
+                name = "Academia Ogro",
+                text = { "Jokers inactivos durante 2", "manos se {C:red}destruyen{}.", "Cada descarte sube la ciega {C:attention}25%{}." }
+            },
+            bl_ina_ogre_24 = {
+                name = "Academia Ogro",
+                text = { "Desactiva jokers {C:blue}Comunes{}, {C:green}Inusuales{}", "y sin nivel de {C:training}Técnica{}.", "Vende el Joker izquierdo cada 2 manos." }
             }
         },
         Strat = {
@@ -1493,7 +1501,7 @@ return {
                 name = "Nathan Swift",
                 text = {
                     "{C:wind}Entrada Huracán{}",
-                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} / {X:ina_team_inazumajapón,C:white}Inazuma Japón{}", "otorga {X:mult,C:white}X#2#{}"
+                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} / {X:ina_team_inazumajapon,C:white}Inazuma Japón{}", "otorga {X:mult,C:white}X#2#{}"
                 }
             },
             j_ina_Jack_IJ = {
@@ -1597,10 +1605,8 @@ return {
                 name = "Pegaso Mágico",
                 text = {
                     "{C:wind}Pegaso Mágico{}",
-                    "Mejora un {C:attention}#3#%{} las estadísticas",
-                    "de los comodines de {X:wind,C:white}Viento{}",
-                    "{C:inactive}(Cargas: {C:attention}#1#/#2#{C:inactive}){}",
-                    "{C:inactive}(Evolución: {C:attention}#4#/#5#{C:inactive} cargas gastadas){}"
+                    "Mejora un {C:attention}#1#%{} las estadísticas",
+                    "de los comodines de {X:wind,C:white}Viento{}"
                 }
             },
 
@@ -1900,6 +1906,20 @@ return {
                 name = "Ventisca de Fuego",
                 text = { "Junta este jugador",
                     "con {C:attention}#1#{}" }
+            },
+            ina_spirit_charges = {
+                name = "Poder de Espíritu",
+                text = {
+                    "{C:inactive}Cargas: {C:attention}#1#/#2#{}",
+                    "{C:inactive}Evolución: {C:attention}#3#/#4# {C:inactive}usos{}",
+                }
+            },
+            ina_spirit_charges_max = {
+                name = "Poder de Espíritu",
+                text = {
+                    "{C:inactive}Cargas: {C:attention}#1#/#2#{}",
+                    "{C:inactive}Evolución: {C:attention}Máx.{}"
+                }
             },
             p_ina_growing_pack = {
                 name = "Pack Creciente",
@@ -2361,6 +2381,9 @@ return {
             ina_onmountain = "Unshakable as stone!",
             ina_gafas = "GAFITAAAS",
             ina_saved = "Fuiste salvado",
+            ina_ogre_discard = "¡Presión Militar!",
+            ina_ogre_destroy = "¡Fuego Aliado!",
+            ina_ogre_sell = "¡Alineación Rota!",
             ina_technique_card = "¡Técnica!",
             ina_gol = "¡Gol!",
             ina_mano = "¡Mano mejorada",
@@ -2477,6 +2500,7 @@ return {
             ["ina_team_MaryTimes"] = "Mary Times",
             ["ina_team_Genesis"] = "Génesis",
             ["ina_team_Scout"] = "Ojeadores",
+                ["ina_team_InazumaJapon"] = "Inazuma Japón",
         },
         quips = {},
         ranks = {},

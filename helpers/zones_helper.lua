@@ -289,6 +289,13 @@ function CardArea:align_cards()
             card.T.h = G.CARD_H * 0.45
             card.T.x = card.T.x + 0.5 * diff_w
             card.T.y = self.T.y + 0.5*self.T.h - 0.5*card.T.h
+            
+            if card.children.center then card.children.center.T.w, card.children.center.T.h = card.T.w, card.T.h end
+            if card.children.front then card.children.front.T.w, card.children.front.T.h = card.T.w, card.T.h end
+            if card.children.back then card.children.back.T.w, card.children.back.T.h = card.T.w, card.T.h end
+            if card.ability and card.ability.extra and type(card.ability.extra) == 'table' and (card.ability.extra.tech_level or 0) > 0 then
+                if set_sticker then set_sticker(card) end
+            end
         end
     elseif self == Pokerleven.ina_bench_area then
         self.T.w = G.jokers.T.w
@@ -317,6 +324,10 @@ Pokerleven.add_to_managers = function(card)
 
     Pokerleven.ina_manager_area:emplace(card)
     card:add_to_deck()
+
+    if card.children.center then card.children.center.T.w, card.children.center.T.h = card.T.w, card.T.h end
+    if card.children.front then card.children.front.T.w, card.children.front.T.h = card.T.w, card.T.h end
+    if card.children.back then card.children.back.T.w, card.children.back.T.h = card.T.w, card.T.h end
 end
 
 ---Returns true if card is a spirit
@@ -340,6 +351,10 @@ Pokerleven.add_to_spirits = function(card)
 
     Pokerleven.ina_spirits_area:emplace(card)
     card:add_to_deck()
+
+    if card.children.center then card.children.center.T.w, card.children.center.T.h = card.T.w, card.T.h end
+    if card.children.front then card.children.front.T.w, card.children.front.T.h = card.T.w, card.T.h end
+    if card.children.back then card.children.back.T.w, card.children.back.T.h = card.T.w, card.T.h end
 end
 
 ---Adds card to bench area

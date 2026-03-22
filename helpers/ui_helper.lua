@@ -8,6 +8,12 @@ ina_set_badges = function(self, card, badges)
         if loc_team == 'ERROR' then loc_team = pteam end
         badges[#badges + 1] = create_badge(loc_team, G.ARGS.LOC_COLOURS[lower_pteam], text_colour, 1.2)
     end
+    if card.ability and card.ability.ina_small_sticker then
+        local sticker_key = card.ability.ina_small_sticker
+        local center = G.P_CENTERS[sticker_key] or (SMODS.Stickers and SMODS.Stickers[sticker_key])
+        local color = center and center.badge_colour or G.C.PURPLE
+        badges[#badges + 1] = create_badge(localize(sticker_key, "labels"), color, text_colour, 1.2)
+    end
 end
 
 type_tooltip = function(self, info_queue, center)
@@ -248,6 +254,13 @@ G.FUNCS.your_collection_managers = function(e)
     }
 end
 
+G.FUNCS.your_collection_spirits = function(e)
+    G.SETTINGS.paused = true
+    G.FUNCS.overlay_menu {
+        definition = create_UIBox_your_collection_addition("Spirit"),
+    }
+end
+
 local old_modsCollectionTally = modsCollectionTally
 modsCollectionTally = function(pool, ...)
     -- Si el pool es el de Jokers, filtramos antes
@@ -255,7 +268,7 @@ modsCollectionTally = function(pool, ...)
         local filtered_pool = {}
         for _, card in ipairs(pool) do
             local sp = card.special or (card.config and type(card.config.extra) == 'table' and card.config.extra.special)
-            if not (card.ability or sp) then
+            if not sp then
                 table.insert(filtered_pool, card)
             end
         end
@@ -266,52 +279,120 @@ modsCollectionTally = function(pool, ...)
     return old_modsCollectionTally(pool, ...)
 end
 
-Pokerleven.Extra_Additions = { "Manager" }
-local original_buildAdditionsTab = buildAdditionsTab
-function buildAdditionsTab(mod)
-    local tab = original_buildAdditionsTab(mod)
-    if not tab then return nil end
-    
-    if mod.id ~= "Pokerleven" then return tab end
+Pokerleven.Extra_Additions = { "Manager", "Spirit" }
+if buildAdditionsTab then
+    local original_buildAdditionsTab = buildAdditionsTab
+    function buildAdditionsTab(mod)
+        local tab = original_buildAdditionsTab(mod)
+        if not tab then return nil end
+        
+        if mod.id ~= "Pokerleven" then return tab end
 
-    local insert_index = 2
-    for _, addition in ipairs(Pokerleven.Extra_Additions) do
-        local pool = {}
-        for _, joker in ipairs(G.P_CENTER_POOLS.Joker) do
-            local sp = joker.special or (joker.config and type(joker.config.extra) == 'table' and joker.config.extra.special)
-            if sp and sp == addition then
-                table.insert(pool, joker)
+        local old_def = tab.tab_definition_function
+        tab.tab_definition_function = function(...)
+            local ui = old_def(...)
+            local insert_index = 2
+            for _, addition in ipairs(Pokerleven.Extra_Additions) do
+                local tally_key = string.lower(addition) .. "s"
+                local tally = G.DISCOVER_TALLIES[tally_key] or {tally = 0, of = 0}
+
+                if tally.of > 0 then
+                    local button_id = "your_collection_" .. tally_key
+                    local label_key = "ina_special_" .. string.lower(addition)
+                    local addition_node = UIBox_button({
+                        button = button_id,
+                        label = { localize(label_key) },
+                        count = tally,
+                        minw = 5,
+                        minh = 1.2,
+                        scale = 0.6,
+                        id = button_id
+                    })
+                    local tab_nodes = ui.nodes
+                    if tab_nodes and tab_nodes[1] and tab_nodes[1].nodes and tab_nodes[1].nodes[1] and tab_nodes[1].nodes[1].nodes then
+                        table.insert(tab_nodes[1].nodes[1].nodes, insert_index, addition_node)
+                        insert_index = insert_index + 1
+                    end
+                end
+            end
+            return ui
+        end
+        return tab
+    end
+end
+
+local original_set_discover_tallies = set_discover_tallies
+function set_discover_tallies()
+    original_set_discover_tallies()
+    G.DISCOVER_TALLIES = G.DISCOVER_TALLIES or {}
+    G.DISCOVER_TALLIES.managers = {tally = 0, of = 0}
+    G.DISCOVER_TALLIES.spirits = {tally = 0, of = 0}
+    G.DISCOVER_TALLIES.techniques = {tally = 0, of = 0}
+    for _, v in pairs(G.P_CENTERS) do
+        if not v.omit then
+            local sp = v.special or (v.config and type(v.config.extra) == 'table' and v.config.extra.special)
+            if sp == "Manager" then
+                G.DISCOVER_TALLIES.managers.of = G.DISCOVER_TALLIES.managers.of + 1
+                if v.discovered then G.DISCOVER_TALLIES.managers.tally = G.DISCOVER_TALLIES.managers.tally + 1 end
+                G.DISCOVER_TALLIES.jokers.of = G.DISCOVER_TALLIES.jokers.of - 1
+                if v.discovered then G.DISCOVER_TALLIES.jokers.tally = G.DISCOVER_TALLIES.jokers.tally - 1 end
+            elseif sp == "Spirit" then
+                G.DISCOVER_TALLIES.spirits.of = G.DISCOVER_TALLIES.spirits.of + 1
+                if v.discovered then G.DISCOVER_TALLIES.spirits.tally = G.DISCOVER_TALLIES.spirits.tally + 1 end
+                G.DISCOVER_TALLIES.jokers.of = G.DISCOVER_TALLIES.jokers.of - 1
+                if v.discovered then G.DISCOVER_TALLIES.jokers.tally = G.DISCOVER_TALLIES.jokers.tally - 1 end
+            elseif sp == "Technique" then
+                G.DISCOVER_TALLIES.techniques.of = G.DISCOVER_TALLIES.techniques.of + 1
+                if v.discovered then G.DISCOVER_TALLIES.techniques.tally = G.DISCOVER_TALLIES.techniques.tally + 1 end
+                G.DISCOVER_TALLIES.jokers.of = G.DISCOVER_TALLIES.jokers.of - 1
+                if v.discovered then G.DISCOVER_TALLIES.jokers.tally = G.DISCOVER_TALLIES.jokers.tally - 1 end
             end
         end
+    end
+end
 
-        if #pool > 0 then
-            local tally_key = string.lower(addition) .. "s"
-            local tally = G.DISCOVER_TALLIES[tally_key] or {tally = 0, of = 0}
-
-            if tally.of > 0 then
-                local button_id = "your_collection_" .. string.lower(addition) .. "s"
-                local label_key = "ina_special_" .. string.lower(addition)
-
-                local addition_node = UIBox_button({
-                    button = button_id,
-                    label = { localize(label_key) },
-                    count = tally,
-                    minw = 5,
-                    minh = 1.2,
-                    scale = 0.6,
-                    id = button_id
-                })
-
-                local tab_nodes = tab.tab_definition_function().nodes
-                if tab_nodes and tab_nodes[1] and tab_nodes[1].nodes and tab_nodes[1].nodes[1] and tab_nodes[1].nodes[1].nodes then
-                    table.insert(tab_nodes[1].nodes[1].nodes, insert_index, addition_node)
-                    insert_index = insert_index + 1
+local original_set_alerts = set_alerts
+function set_alerts()
+    original_set_alerts()
+    if G.ARGS.set_alerts_alertables then
+        local alert_manager, alert_spirit, alert_tech = false, false, false
+        for _, v in pairs(G.P_CENTERS) do
+            if v.discovered and not v.alerted then
+                local sp = v.special or (v.config and type(v.config.extra) == 'table' and v.config.extra.special)
+                if sp == "Manager" then alert_manager = true end
+                if sp == "Spirit" then alert_spirit = true end
+                if sp == "Technique" then alert_tech = true end
+            end
+        end
+        local found_man, found_spi, found_tech = false, false, false
+        for _, v in ipairs(G.ARGS.set_alerts_alertables) do
+            if v.id == 'your_collection_managers' then found_man = true; v.should_alert = alert_manager end
+            if v.id == 'your_collection_spirits' then found_spi = true; v.should_alert = alert_spirit end
+            if v.id == 'your_collection_techniques' then found_tech = true; v.should_alert = alert_tech end
+        end
+        if not found_man then table.insert(G.ARGS.set_alerts_alertables, {id = 'your_collection_managers', alert_uibox_name = 'your_collection_managers_alert', should_alert = alert_manager}) end
+        if not found_spi then table.insert(G.ARGS.set_alerts_alertables, {id = 'your_collection_spirits', alert_uibox_name = 'your_collection_spirits_alert', should_alert = alert_spirit}) end
+        if not found_tech then table.insert(G.ARGS.set_alerts_alertables, {id = 'your_collection_techniques', alert_uibox_name = 'your_collection_techniques_alert', should_alert = alert_tech}) end
+        for _, v in ipairs(G.ARGS.set_alerts_alertables) do
+            if v.id == 'your_collection_managers' or v.id == 'your_collection_spirits' or v.id == 'your_collection_techniques' then
+                if G.OVERLAY_MENU and G.OVERLAY_MENU:get_UIE_by_ID(v.id) then
+                    if v.should_alert then
+                        if not G[v.alert_uibox_name] then 
+                            G[v.alert_uibox_name] = UIBox{
+                                definition = create_UIBox_card_alert({red_bad = true}),
+                                config = {align="tri", offset = {x = 0.05, y = -0.05}, major = G.OVERLAY_MENU:get_UIE_by_ID(v.id), instance_type = 'ALERT'}
+                            }
+                            G[v.alert_uibox_name].states.collide.can = false
+                        end
+                    elseif G[v.alert_uibox_name] then 
+                        G[v.alert_uibox_name]:remove(); G[v.alert_uibox_name] = nil
+                    end
+                elseif G[v.alert_uibox_name] then
+                    G[v.alert_uibox_name]:remove(); G[v.alert_uibox_name] = nil
                 end
             end
         end
     end
-
-    return tab
 end
 
 --#endregion
@@ -607,6 +688,29 @@ end
 ---@param specific_vars table
 ---@param full_UI_table table
 Pokerleven.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+    if card and card.ability and card.ability.ina_small_sticker then
+        info_queue[#info_queue + 1] = {key = card.ability.ina_small_sticker, set = 'Other'}
+    end
+
+    local is_spirit = false
+    local ex = nil
+    if card and card.ability and type(card.ability.extra) == 'table' and card.ability.extra.special == 'Spirit' then
+        is_spirit, ex = true, card.ability.extra
+    elseif self and self.config and type(self.config.extra) == 'table' and self.config.extra.special == 'Spirit' then
+        is_spirit, ex = true, self.config.extra
+    end
+
+    if is_spirit and ex and ex.max_charges then
+        local charges, max_charges, spent, tech = ex.charges or ex.max_charges, ex.max_charges, ex.charges_spent or 0, ex.tech_level or 0
+        local req = math.max(1, math.ceil(max_charges * 0.25 * math.max(1, tech)))
+        
+        if tech >= 5 then
+            info_queue[#info_queue + 1] = {key = 'ina_spirit_charges_max', set = 'Other', vars = {charges, max_charges}}
+        else
+            info_queue[#info_queue + 1] = {key = 'ina_spirit_charges', set = 'Other', vars = {charges, max_charges, spent, req}}
+        end
+    end
+
     SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
     if desc_nodes == full_UI_table.main then

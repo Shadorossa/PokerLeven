@@ -240,6 +240,7 @@ local Fedora = J({
       end
   end,
   remove_from_deck = function(self, card, from_debuff)
+      if G.jokers and not G.jokers.cards then return end
       if not from_debuff then
           local h = false
           if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do if v ~= card and v.config.center_key == 'j_ina_Fedora' then h = true; break end end end

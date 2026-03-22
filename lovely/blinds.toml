@@ -221,3 +221,12 @@ pattern = '''if v.boss.showdown then '''
 position = "at"
 payload = '''if v.boss and v.boss.showdown then '''
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "function card_eval_status_text(card, eval_type, amt, percent, dir, extra)"
+position = "after"
+payload = '''
+    if card and card.area == G.jokers then card.ogre_active = true end'''
+match_indent = true

@@ -8,7 +8,7 @@ local Beluga = J({
     pools = { ["DiamondDust"] = true },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Wind,
+    ptype = C.Mountain,
     pposition = C.GK,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_PolvodeDiamantes",
@@ -271,6 +271,7 @@ local Frost = J({
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
+        if G.jokers and not G.jokers.cards then return end
         if not from_debuff then
             for _, v in ipairs(G.playing_cards or {}) do
                 if v.ability and v.ability.frost_bonus and v.ability.frost_bonus > 0 then

@@ -241,7 +241,7 @@ local firsthand = J({
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = false,
   update = function(self, card, dt)
-    if card.area == G.jokers then
+    if G.jokers and G.jokers.cards and card.area == G.jokers then
       local ex = card.ability.extra
       if not card.debuff then
         if G.GAME and G.GAME.round_resets and math.floor(G.GAME.round_resets.hands) > 1 then
@@ -265,6 +265,7 @@ local firsthand = J({
     end
   end,
   remove_from_deck = function(self, card, from_debuff)
+    if G.jokers and not G.jokers.cards then return end
     restore_firsthand_hands(card.ability.extra)
 
     if G.jokers and G.jokers.cards then

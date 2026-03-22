@@ -4,7 +4,7 @@ local Nathan_IJ = J({
   pos = { x = 1, y = 0 },
   config = { extra = { xmult = 1.3, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    local count = #find_player_team("ina_team_Raimon") + #find_player_team("ina_team_InazumaJapón")
+    local count = #find_player_team("ina_team_Raimon") + #find_player_team("ina_team_InazumaJapon")
     return { vars = { count, center.ability.extra.xmult } }
   end,
   rarity = 2,
@@ -14,11 +14,11 @@ local Nathan_IJ = J({
   ptype = C.Wind,
   pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if not context.debuff and context.other_joker then
-      if is_team(context.other_joker, "ina_team_Raimon") or is_team(context.other_joker, "ina_team_InazumaJapón") then
+      if is_team(context.other_joker, "ina_team_Raimon") or is_team(context.other_joker, "ina_team_InazumaJapon") then
         card.ability.extra.triggered = true
         G.E_MANAGER:add_event(Event({
           func = function()
@@ -51,7 +51,7 @@ local Jack_IJ = J({
   ptype = C.Mountain,
   pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play
@@ -87,7 +87,7 @@ local Tod_IJ = J({
   ptype = C.Fire,
   pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) and context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
@@ -132,7 +132,7 @@ local Caleb_IJ = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.MF,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, ctx)
@@ -193,7 +193,7 @@ local Jude_IJ = J({
   ptype = C.Wind,
   pposition = C.MF,
   techtype = C.UPGRADES.Plus,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.post_trigger and context.other_card ~= card
@@ -240,7 +240,7 @@ local Axel_IJ = J({
   ptype = C.Fire,
   pposition = C.FW,
   techtype = C.UPGRADES.Number,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   blueprint_compat = false,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
@@ -297,7 +297,7 @@ local Samford_IJ = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.FW,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -331,7 +331,7 @@ local Kevin_IJ = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.FW,
-  pteam = "ina_team_InazumaJapón",
+  pteam = "ina_team_InazumaJapon",
   techtype = C.UPGRADES.Plus,
   calculate = function(self, card, context)
     if card.ability.extra.current_cooldown == 0 and context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= self then

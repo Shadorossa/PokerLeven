@@ -503,6 +503,7 @@ Pokerleven.is_in_left_half = function(card)
 end
 
 Pokerleven.suit_element_aura = function(card, suit, element, remove)
+    if G.jokers and not G.jokers.cards then return end
     if G.playing_cards then local act, a_k, s_k = not remove and card.area == G.jokers and not card.debuff, 'aura_'..string.lower(element), string.lower(element)..'_sticker'
         for _, v in ipairs(G.playing_cards) do
             if act and v:is_suit(suit) then if not v.ability[s_k] then v.ability[a_k], v.ability[s_k] = true, true end

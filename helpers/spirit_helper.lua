@@ -1,8 +1,41 @@
+--- Comprueba si el espíritu está activo (en las 3 primeras posiciones o en juego)
+---@param card Card
+---@return boolean
+Pokerleven.is_spirit_active = function(card)
+    if card.area and card.area == Pokerleven.ina_spirits_area then
+        for i, c in ipairs(card.area.cards) do
+            if c == card then return i <= 3 end
+        end
+    elseif card.area == G.jokers then
+        return true
+    end
+    return false
+end
+
+--- Actualiza el estado visual (sombreado) del espíritu
+---@param card Card
+Pokerleven.update_spirit_visuals = function(card)
+    if card.area == Pokerleven.ina_spirits_area then
+        card.greyed = not Pokerleven.is_spirit_active(card) or (card.ability.extra.charges <= 0)
+    else
+        card.greyed = false
+    end
+end
+
+local orig_card_update = Card.update
+function Card:update(dt)
+    if orig_card_update then orig_card_update(self, dt) end
+    if Pokerleven and Pokerleven.is_spirit(self) then
+        Pokerleven.update_spirit_visuals(self)
+    end
+end
+
 --- Gestiona el consumo, la evolución y la regeneración de cargas para los Espíritus
 ---@param card Card
 ---@param ctx table
 ---@return table|nil
 Pokerleven.manage_spirit_charges = function(card, ctx)
+    if not Pokerleven.is_spirit_active(card) then return end
     local ex = card.ability.extra
     
     if ctx.end_of_round and ctx.main_eval and not ctx.blueprint then
@@ -29,7 +62,7 @@ end
 ---@param card Card
 ---@param target_type string El elemento o tipo que recibe el aura (ej: C.Wind)
 Pokerleven.update_spirit_aura = function(card, target_type)
-    local ex, act = card.ability.extra, not card.debuff and (card.ability.extra.charges > 0)
+    local ex, act = card.ability.extra, not card.debuff and (card.ability.extra.charges > 0) and Pokerleven.is_spirit_active(card)
     if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do
         if act and (is_type(v, target_type) or (v.ability and v.ability[string.lower(target_type).."_sticker"])) then Pokerleven.apply_stat_multiplier(v, card.config.center_key..'_'..card.sort_id, ex.stat_mult)
         else Pokerleven.remove_stat_multiplier(v, card.config.center_key..'_'..card.sort_id) end

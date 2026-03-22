@@ -177,7 +177,7 @@ end
 ---@return table Loc the message to print on the joker calling this method
 function Pokerleven.ease_barriers(mod, instant)
     local function _mod(mod)
-        local barrier_UI = G.ina_resources_info:get_UIE_by_ID('barrier_text_UI')
+        local barrier_UI = G.HUD and G.HUD:get_UIE_by_ID('barrier_text_UI')
         mod = mod or 0
         local text = '+'
         local col = G.ARGS.LOC_COLOURS['mountain']

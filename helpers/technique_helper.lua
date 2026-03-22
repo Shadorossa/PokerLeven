@@ -111,10 +111,16 @@ function set_sticker(card)
             card.ability[old_sticker_key] = false
         end
     end
+    
+    local is_small = Pokerleven and (Pokerleven.is_spirit(card) or Pokerleven.is_manager(card))
     if tech_level >= 1 then
         local new_sticker_key = sticker_list[tech_level]
         if new_sticker_key and card.ability then
-            card.ability[new_sticker_key] = true
+            if is_small then
+                card.ability.ina_small_sticker = new_sticker_key
+            else
+                card.ability[new_sticker_key] = true
+            end
         end
     end
 end
@@ -141,6 +147,7 @@ function clear_stickers(card)
             card.ability[sticker_key] = false
         end
     end
+        if card.ability then card.ability.ina_small_sticker = nil end
 end
 
 -- Increments technique level of a joker and applies stat changes based on technique values
