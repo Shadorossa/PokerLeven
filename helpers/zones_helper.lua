@@ -400,7 +400,7 @@ function Card:highlight(is_highlighted)
                 params.unbench = true
             end
 
-            local x_off = (Pokerleven.is_manager(self) or Pokerleven.is_spirit(self)) and -0.45 or -0.4
+            local x_off = (Pokerleven.is_manager(self) or Pokerleven.is_spirit(self)) and -0.15 or -0.4
 
             self.children.use_button = UIBox {
                 definition = Pokerleven.create_custom_buttons(self, params),

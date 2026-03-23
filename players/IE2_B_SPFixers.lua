@@ -243,6 +243,7 @@ local firsthand = J({
   update = function(self, card, dt)
     if G.jokers and G.jokers.cards and card.area == G.jokers then
       local ex = card.ability.extra
+      if not Pokerleven.is_state_changed(card, {Pokerleven.get_jokers_hash(), G.GAME and G.GAME.round_resets and G.GAME.round_resets.hands}) then return end
       if not card.debuff then
         if G.GAME and G.GAME.round_resets and math.floor(G.GAME.round_resets.hands) > 1 then
           local diff = math.floor(G.GAME.round_resets.hands) - 1

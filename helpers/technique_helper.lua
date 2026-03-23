@@ -178,19 +178,18 @@ end
 modify_values = function(card)
     for name, _ in pairs(technique_values) do
         local data = card.ability.extra[name]
-        if type(data) == "number" then
+        local base_val = card.config.center.config.extra[name]
+        if type(data) == "number" and type(base_val) == "number" then
             local addition = technique_values[name]
 
-            card.ability.extra[name] = data + (card.config.center.config.extra[name] * addition)
+            card.ability.extra[name] = data + (base_val * addition)
 
-            updated_mod = card.ability.extra[name]
-            rounded, frac = round_value(card.ability.extra[name], name)
+            local rounded, frac = round_value(card.ability.extra[name], name)
             card.ability.extra[name] = rounded
 
             if frac then
                 set_frac(card, frac, name)
             end
-            frac = nil
         end
     end
 end

@@ -1617,6 +1617,15 @@ return {
                     "de los comodines de {X:wind,C:white}Viento{}"
                 }
             },
+            j_ina_Surtur = {
+                name = "Surtur",
+                text = {
+                    "{C:fire}Tormenta de Fuego{}",
+                    "Jugar esta mano suma {C:attention}+#2#%{} a las",
+                    "estadísticas de {X:fire,C:white}Fuego{} y sube su {C:attention}nivel{}",
+                    "{C:inactive}(Actual: {C:attention}+#3#%{C:inactive} | Nvl: {C:attention}+#1#{C:inactive})"
+                }
+            },
 
             --Scouts
             j_ina_1er = {

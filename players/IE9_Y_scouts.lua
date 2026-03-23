@@ -448,7 +448,7 @@ local Heart = J({
     pposition = C.GK,
     pteam = "ina_team_Scout",
         blueprint_compat = false,
-        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Hearts', 'Fire') end,
+        update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Hearts', 'Fire') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Hearts', 'Fire', true) end end
 })
 
@@ -468,7 +468,7 @@ local Clover = J({
     pposition = C.DF,
     pteam = "ina_team_Scout",
         blueprint_compat = false,
-        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Clubs', 'Forest') end,
+        update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Clubs', 'Forest') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Clubs', 'Forest', true) end end
 })
 
@@ -488,7 +488,7 @@ local Diamond = J({
     pposition = C.MF,
     pteam = "ina_team_Scout",
         blueprint_compat = false,
-        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Diamonds', 'Mountain') end,
+        update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Diamonds', 'Mountain') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Diamonds', 'Mountain', true) end end
 })
 
@@ -508,7 +508,7 @@ local Spade = J({
     pposition = C.FW,
     pteam = "ina_team_Scout",
         blueprint_compat = false,
-        update = function(self, card, dt) Pokerleven.suit_element_aura(card, 'Spades', 'Wind') end,
+        update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Spades', 'Wind') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Spades', 'Wind', true) end end
 })
 

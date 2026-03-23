@@ -25,7 +25,10 @@ local Dvalin = J({
       end
   end,
   update = function(self, card, dt)
-      if G.STAGE == G.STAGES.RUN and card.area == G.jokers and not Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin_Plus') end
+      if G.STAGE == G.STAGES.RUN and card.area == G.jokers then 
+          if not Pokerleven.is_state_changed(card, {G.jokers}) then return end
+          if not Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin_Plus') end 
+      end
   end
 })
 
@@ -60,7 +63,10 @@ local Dvalin_Plus = J({
       end
   end,
   update = function(self, card, dt)
-      if G.STAGE == G.STAGES.RUN and card.area == G.jokers and Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin') end
+      if G.STAGE == G.STAGES.RUN and card.area == G.jokers then 
+          if not Pokerleven.is_state_changed(card, {G.jokers}) then return end
+          if Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin') end 
+      end
   end,
   custom_pool_func = true,
   in_pool = function() return false end
@@ -202,7 +208,8 @@ local Fedora = J({
     end
   end,
   update = function(self, card, dt)
-      if G.discard and G.discard.cards then
+      if card.area == G.jokers and G.discard and G.discard.cards then
+          if not Pokerleven.is_state_changed(card, {G.discard, G.fedora_void}) then return end
           for i = #G.discard.cards, 1, -1 do
               local c = G.discard.cards[i]
               if c.fedora_void_timer then c.area:remove_card(c); if G.fedora_void then G.fedora_void:emplace(c) end; c:juice_up() end

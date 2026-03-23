@@ -182,7 +182,8 @@ local Sparrow = J({
   techtype = C.UPGRADES.Number,
   blueprint_compat = false,
   update = function(self, card, dt)
-    if G.jokers and card.area == G.jokers then
+    if G.jokers and G.jokers.cards and card.area == G.jokers then
+        if not Pokerleven.is_state_changed(card, {G.jokers}) then return end
         local l = card:get_left_joker()
         local r = card:get_right_joker()
         for _, v in ipairs(G.jokers.cards) do
@@ -223,10 +224,13 @@ local Jamm = J({
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   update = function(self, card, dt)
-    if G.jokers and card.area == G.jokers then for _, v in ipairs(G.jokers.cards) do if v ~= card then
-        if not card.debuff and (is_type(v, C.Mountain) or is_type(v, C.Wind)) then v.jamm_debuffed = true; if not v.debuff then v:set_debuff(true) end
-        elseif v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end
-    end end end
+    if G.jokers and G.jokers.cards and card.area == G.jokers then 
+        if not Pokerleven.is_state_changed(card, {Pokerleven.get_jokers_hash()}) then return end
+        for _, v in ipairs(G.jokers.cards) do if v ~= card then
+            if not card.debuff and (is_type(v, C.Mountain) or is_type(v, C.Wind)) then v.jamm_debuffed = true; if not v.debuff then v:set_debuff(true) end
+            elseif v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end
+        end end 
+    end
   end,
   remove_from_deck = function(self, card, from_debuff)
     if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do if v.jamm_debuffed then v.jamm_debuffed = nil; v:set_debuff(false) end end end

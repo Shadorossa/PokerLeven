@@ -257,7 +257,7 @@ local Axel_IJ = J({
                 c:juice_up()
             end
         end
-        
+
         return {
             message = localize("ina_fuego_total"),
             colour = G.C.RED

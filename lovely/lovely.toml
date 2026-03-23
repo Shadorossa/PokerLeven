@@ -513,6 +513,39 @@ position = "at"
 match_indent = true
 payload = "if G.hand and G.hand.cards then table.insert(t, G.hand) end"
 
+# SMODS safe CardArea evaluation on delete_run (alt syntax for newer SMODS)
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "if G.jokers then t[#t+1] = G.jokers end"
+position = "at"
+match_indent = true
+payload = "if G.jokers and G.jokers.cards then t[#t+1] = G.jokers end"
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "if G.consumeables then t[#t+1] = G.consumeables end"
+position = "at"
+match_indent = true
+payload = "if G.consumeables and G.consumeables.cards then t[#t+1] = G.consumeables end"
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "if G.play then t[#t+1] = G.play end"
+position = "at"
+match_indent = true
+payload = "if G.play and G.play.cards then t[#t+1] = G.play end"
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "if G.hand then t[#t+1] = G.hand end"
+position = "at"
+match_indent = true
+payload = "if G.hand and G.hand.cards then t[#t+1] = G.hand end"
+
 # Disable decks
 [[patches]]
 [patches.pattern]

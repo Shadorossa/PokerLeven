@@ -526,7 +526,7 @@ Pokerleven.create_custom_buttons = function(card, args)
         nodes = {
             {
                 n = G.UIT.C,
-                config = { padding = 0.15, align = 'cl' },
+                config = { padding = 0.05, align = 'cl' },
                 nodes = {
                     sell and {
                         n = G.UIT.R,

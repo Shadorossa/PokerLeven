@@ -104,29 +104,6 @@ vary_rank = function(card, decrease, seed, immediate)
                     end
                 end
             end
-
---- Clona una carta de juego físicamente en la zona indicada
----@param card_to_copy Card
----@param target_area table (G.deck, G.hand, G.play)
----@param count number Cantidad de copias (por defecto 1)
----@return table Lista de las cartas clonadas creadas
-Pokerleven.clone_playing_card = function(card_to_copy, target_area, count)
-    count = count or 1
-    target_area = target_area or G.deck
-    local cloned_cards = {}
-    for i = 1, count do
-        G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-        local copy = copy_card(card_to_copy, nil, nil, G.playing_card)
-        copy:add_to_deck()
-        G.deck.config.card_limit = G.deck.config.card_limit + 1
-        table.insert(G.playing_cards, copy)
-        target_area:emplace(copy)
-        copy:start_materialize()
-        table.insert(cloned_cards, copy)
-    end
-    playing_card_joker_effects({true})
-    return cloned_cards
-end
         end
         if #poss_ranks > 0 then
             next_rank = pseudorandom_element(poss_ranks, pseudoseed(seed or 'decrease_rank'))
@@ -294,4 +271,68 @@ Pokerleven.get_random_type_pos_held = function()
     local combinations = Pokerleven.get_all_type_pos_combinations()
     local selected_combination = pseudorandom_element(combinations, pseudoseed('training'))
     return selected_combination;
+end
+
+--- Clona una carta de juego físicamente en la zona indicada
+---@param card_to_copy Card
+---@param target_area table (G.deck, G.hand, G.play)
+---@param count number Cantidad de copias (por defecto 1)
+---@return table Lista de las cartas clonadas creadas
+Pokerleven.clone_playing_card = function(card_to_copy, target_area, count)
+    count = count or 1
+    target_area = target_area or G.deck
+    local cloned_cards = {}
+    for i = 1, count do
+        G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+        local copy = copy_card(card_to_copy, nil, nil, G.playing_card)
+        copy:add_to_deck()
+        G.deck.config.card_limit = G.deck.config.card_limit + 1
+        table.insert(G.playing_cards, copy)
+        target_area:emplace(copy)
+        copy:start_materialize()
+        table.insert(cloned_cards, copy)
+    end
+    playing_card_joker_effects({true})
+    return cloned_cards
+end
+
+--- Comprueba si las dependencias (áreas de cartas o valores) han cambiado desde el último fotograma
+---@param card Card
+---@param dependencies table Lista de áreas de cartas (G.jokers, G.discard) o valores primitivos (números, strings)
+---@return boolean
+Pokerleven.is_state_changed = function(card, dependencies)
+    local current_hash = ""
+    for _, dep in ipairs(dependencies) do
+        if type(dep) == 'table' and (dep.cards or (dep[1] and type(dep[1]) == 'table' and dep[1].is)) then
+            local list = dep.cards or dep; for _, v in ipairs(list) do current_hash = current_hash .. tostring(v.unique_val) .. (v.debuff and "1" or "0") end
+            current_hash = current_hash .. ";"
+        else current_hash = current_hash .. tostring(dep) .. ";" end
+    end
+    current_hash = current_hash .. tostring(card.debuff)
+    
+    if card.ability.ina_last_state_hash ~= current_hash then
+        card.ability.ina_last_state_hash = current_hash; print("[Pokerleven] " .. tostring(card.config.center_key) .. " actualizado por cambio de estado/movimiento.")
+        return true
+    end
+    return false
+end
+
+--- Genera un hash de los jokers ignorando su orden de posición (útil para auras globales que no dependen de adyacencias)
+---@param target_type string|nil Opcional. Si se provee, solo evalúa jokers de este tipo.
+---@return string
+Pokerleven.get_jokers_hash = function(target_type)
+    local hash = ""
+    if G.jokers and G.jokers.cards then
+        local rel = {}
+        for _, v in ipairs(G.jokers.cards) do 
+            local t = (v.ability.extra and type(v.ability.extra) == 'table' and v.ability.extra.ptype) or ""
+            local s_f, s_w, s_fo, s_m = v.ability.fire_sticker, v.ability.wind_sticker, v.ability.forest_sticker, v.ability.mountain_sticker
+            if not target_type or (t == target_type) or (target_type == 'Fire' and s_f) or (target_type == 'Wind' and s_w) or (target_type == 'Forest' and s_fo) or (target_type == 'Mountain' and s_m) then
+                local s = (s_f and "1" or "0") .. (s_w and "1" or "0") .. (s_fo and "1" or "0") .. (s_m and "1" or "0")
+                rel[#rel+1] = tostring(v.unique_val)..(v.debuff and "1" or "0")..t..s
+            end
+        end
+        table.sort(rel); hash = table.concat(rel, ";")
+    end
+    return hash
 end
