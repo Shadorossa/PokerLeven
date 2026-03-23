@@ -147,10 +147,8 @@ local Tyler = J({
         if context.individual and scoring_card
             and scoring_card:is_uneven()
             and card:odds_triggered('Tyler') then
-            if Pokerleven.has_enough_consumables_space() then
-                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-
-                return card:create_consumable_as_joker('Tarot')
+            if Pokerleven.spawn_consumable('Tarot') then
+                return {message = localize('k_plus_tarot'), colour = G.C.PURPLE, card = card}
             end
         end
     end

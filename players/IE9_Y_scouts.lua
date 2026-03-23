@@ -109,21 +109,10 @@ local Blazer = J({
     blueprint_compat = true,
     allow_element_application = true,
     calculate = function(self, card, context)
-        for _, player in pairs(G.jokers.cards) do
-            if C.ELEMENTALS_KEYS[player.config.center_key] then
-                leftmost = player
-                break
-            end
-        end
-
-        if leftmost == card then
-            apply_element("Fire", "ina_onfire", G.ARGS.LOC_COLOURS['fire'])
-        end
+        if Pokerleven.is_active_elemental(card) then apply_element("Fire", "ina_onfire", G.ARGS.LOC_COLOURS['fire']) end
     end,
     remove_from_deck = function(self, card, from_debuff)
-        if leftmost == card then
-            restore_types_for_area()
-        end
+        restore_types_for_area()
     end
 })
 
@@ -145,21 +134,10 @@ local Weathervane = J({
     blueprint_compat = true,
     allow_element_application = true,
     calculate = function(self, card, context)
-        for _, player in pairs(G.jokers.cards) do
-            if C.ELEMENTALS_KEYS[player.config.center_key] then
-                leftmost = player
-                break
-            end
-        end
-
-        if leftmost == card then
-            apply_element("Wind", "ina_onwind", G.ARGS.LOC_COLOURS['wind'])
-        end
+        if Pokerleven.is_active_elemental(card) then apply_element("Wind", "ina_onwind", G.ARGS.LOC_COLOURS['wind']) end
     end,
     remove_from_deck = function(self, card, from_debuff)
-        if leftmost == card then
-            restore_types_for_area()
-        end
+        restore_types_for_area()
     end
 })
 
@@ -181,21 +159,10 @@ local Noggin = J({
     blueprint_compat = true,
     allow_element_application = true,
     calculate = function(self, card, context)
-        for _, player in pairs(G.jokers.cards) do
-            if C.ELEMENTALS_KEYS[player.config.center_key] then
-                leftmost = player
-                break
-            end
-        end
-
-        if leftmost == card then
-            apply_element("Forest", "ina_onforest", G.ARGS.LOC_COLOURS['forest'])
-        end
+        if Pokerleven.is_active_elemental(card) then apply_element("Forest", "ina_onforest", G.ARGS.LOC_COLOURS['forest']) end
     end,
     remove_from_deck = function(self, card, from_debuff)
-        if leftmost == card then
-            restore_types_for_area()
-        end
+        restore_types_for_area()
     end
 })
 
@@ -217,21 +184,10 @@ local Montayne = J({
     blueprint_compat = true,
     allow_element_application = true,
     calculate = function(self, card, context)
-        for _, player in pairs(G.jokers.cards) do
-            if C.ELEMENTALS_KEYS[player.config.center_key] then
-                leftmost = player
-                break
-            end
-        end
-
-        if leftmost == card then
-            apply_element("Mountain", "ina_onmountain", G.ARGS.LOC_COLOURS['mountain'])
-        end
+        if Pokerleven.is_active_elemental(card) then apply_element("Mountain", "ina_onmountain", G.ARGS.LOC_COLOURS['mountain']) end
     end,
     remove_from_deck = function(self, card, from_debuff)
-        if leftmost == card then
-            restore_types_for_area()
-        end
+        restore_types_for_area()
     end
 })
 

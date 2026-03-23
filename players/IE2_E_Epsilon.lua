@@ -89,39 +89,9 @@ local Kenville = J({
         if not oc then return end
         local id = oc:get_id()
         if id == 2 or id == 3 or id == 4 then
-            local b_c, b_xc, s_ctx = 0, 1, {cardarea=G.play, full_hand=ctx.full_hand, scoring_hand=ctx.scoring_hand, scoring_name=ctx.scoring_name, poker_hands=ctx.poker_hands, individual=true, other_card=oc}
-            local q_l = G.E_MANAGER.queues.base and #G.E_MANAGER.queues.base or 0
-            local o_ab = copy_table(oc.ability)
-            local o_id, o_s, o_f, o_nom = oc.get_id, oc.is_suit, oc.is_face, oc.get_nominal
-            local o_b_id, o_b_val = oc.base.id, oc.base.value
-            
-            for _, j in ipairs(G.jokers.cards) do
-                if j ~= card and not j.debuff then
-                    local j_ab = copy_table(j.ability)
-                    local r_eval = j:calculate_joker(s_ctx); j.ability = copy_table(j_ab)
-                    
-                    oc.get_id = function() return 14 end; oc.is_suit = function() return true end; oc.is_face = function() return true end; oc.get_nominal = function() return 11 end
-                    oc.base.id = 14; oc.base.value = 'Ace'
-                    local f_eval1 = j:calculate_joker(s_ctx); j.ability = copy_table(j_ab)
-                    
-                    oc.get_id = function() return 13 end; oc.base.id = 13; oc.base.value = 'King'
-                    local f_eval2 = j:calculate_joker(s_ctx); j.ability = copy_table(j_ab)
-                    
-                    oc.get_id = o_id; oc.is_suit = o_s; oc.is_face = o_f; oc.get_nominal = o_nom; oc.base.id = o_b_id; oc.base.value = o_b_val
-                    
-                    local max_c, max_xc = 0, 1
-                    for _, e in ipairs({f_eval1, f_eval2}) do if type(e) == 'table' then
-                        local c, xc = (e.chips or 0) + (e.chip_mod or 0), (e.xchips or 1) * (e.x_chips or 1) * (e.Xchip_mod or 1) * (e.Xchips_mod or 1)
-                        if c > max_c then max_c = c end; if xc > max_xc then max_xc = xc end
-                    end end
-                    
-                    local rc, rxc = 0, 1
-                    if type(r_eval) == 'table' then rc = (r_eval.chips or 0) + (r_eval.chip_mod or 0); rxc = (r_eval.xchips or 1) * (r_eval.x_chips or 1) * (r_eval.Xchip_mod or 1) * (r_eval.Xchips_mod or 1) end
-                    b_c, b_xc = b_c + math.max(0, max_c - rc), b_xc * math.max(1, max_xc / rxc)
-                end
-            end
-            oc.ability = o_ab; while G.E_MANAGER.queues.base and #G.E_MANAGER.queues.base > q_l do table.remove(G.E_MANAGER.queues.base) end
-            if b_c > 0 or b_xc > 1 then local ret = {card = card}; if b_c > 0 then ret.chips = b_c end; if b_xc > 1 then ret.xchips = b_xc; ret.x_chips = b_xc end; return ret end
+            local target_ranks = {{id=14, val='Ace', nom=11}, {id=13, val='King', nom=10}}
+            local diff = Pokerleven.simulate_rank_difference(card, ctx, target_ranks)
+            if diff then diff.card = card; return diff end
         end
     end
   end
@@ -327,14 +297,12 @@ local Mercury = J({
         local stone_count = 0
         for _, v in ipairs(ctx.scoring_hand) do if SMODS.has_enhancement(v, 'm_stone') then stone_count = stone_count + 1 end end
         if stone_count >= card.ability.extra.required_stones then
-            if Pokerleven.has_enough_consumables_space() then
-                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                G.E_MANAGER:add_event(Event({func = function() local _c = create_card('Planet', G.consumeables, nil, nil, nil, nil, 'c_mercury'); Pokerleven.add_card_to_consumables(_c); G.GAME.consumeable_buffer = 0; return true end}))
+            if Pokerleven.spawn_consumable('Planet', 'c_mercury') then
                 return { message = localize("k_plus_planet"), colour = G.C.SECONDARY_SET.Planet }
             end
-        end
     end
   end
+end
 })
 
 -- Metron
@@ -403,14 +371,12 @@ local Zell = J({
   calculate = function(self, card, ctx)
     if Pokerleven.is_joker_turn(ctx) and ctx.scoring_name == "High Card" then
         if #find_player_team("ina_team_Epsilon") >= card.ability.extra.req_players then
-            if Pokerleven.has_enough_consumables_space() then
-                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                G.E_MANAGER:add_event(Event({func = function() local _c = create_card('Planet', G.consumeables, nil, nil, nil, nil, 'c_pluto'); Pokerleven.add_card_to_consumables(_c); G.GAME.consumeable_buffer = 0; return true end}))
+            if Pokerleven.spawn_consumable('Planet', 'c_pluto') then
                 return { message = localize("k_plus_planet"), colour = G.C.SECONDARY_SET.Planet }
             end
-        end
     end
   end
+end
 })
 
 return {

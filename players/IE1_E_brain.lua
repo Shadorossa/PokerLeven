@@ -246,21 +246,7 @@ local Turner = {
         if context.cardarea == G.jokers and context.joker_main
             and next(context.poker_hands['Four of a Kind']) then
             card.ability.extra.triggered = true
-      for i = 1, #find_player_team("ina_team_Brain") do
-                G.E_MANAGER:add_event(Event({
-                    delay = 2,
-                    func = function()
-                        local copied_card = copy_card(context.scoring_hand[1], nil, nil, G.playing_card or 1)
-                        copied_card:add_to_deck()
-                        G.deck.config.card_limit = G.deck.config.card_limit + 1
-                        G.hand:emplace(copied_card)
-                        table.insert(G.playing_cards, copied_card)
-                        playing_card_joker_effects({ true })
-
-                        return true
-                    end
-                }))
-            end
+            G.E_MANAGER:add_event(Event({ delay = 2, func = function() Pokerleven.clone_playing_card(context.scoring_hand[1], G.hand, #find_player_team("ina_team_Brain")); return true end }))
             return {
                 message = localize('k_copied_ex'),
                 colour = G.C.CHIPS,

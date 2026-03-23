@@ -23,22 +23,16 @@ local Greeny = J({
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.setting_blind
+            and not context.blueprint
             and card:has_enough_barriers()
-            and card:is_rightmost_joker() and
-            Pokerleven.has_enough_consumables_space() then
-            combinations = Pokerleven.get_all_type_pos_combinations()
+            and card:is_rightmost_joker() then
+            local combinations = Pokerleven.get_all_type_pos_combinations()
             local selected_combination = pseudorandom_element(combinations, pseudoseed('training'))
 
-            local new_card = create_card(C.TRAINING, G.consumeables, nil, nil, true, true,
-                selected_combination, nil)
-
-            Pokerleven.ease_barriers(-card.ability.extra.barriers)
-            Pokerleven.add_card_to_consumables(new_card)
-
-            return {
-                message = localize("ina_technique_card"),
-                colour = G.C.MULT
-            }
+            if Pokerleven.spawn_consumable(C.TRAINING, selected_combination) then
+                Pokerleven.ease_barriers(-card.ability.extra.barriers)
+                return { message = localize("ina_technique_card"), colour = G.C.MULT }
+            end
         end
 
         if context.setting_blind then
@@ -199,25 +193,7 @@ local Dawson = J({
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main and G.GAME.dollars < card.ability.extra.max_money
             and #context.full_hand == 1 then
-            G.E_MANAGER:add_event(Event({
-                delay = 0.5,
-                func = function()
-                    local copy = copy_card(context.scoring_hand[1], nil, nil, G.playing_card)
-                    copy:add_to_deck()
-                    G.deck.config.card_limit = G.deck.config.card_limit + 1
-                    table.insert(G.playing_cards, copy)
-                    G.deck:emplace(copy)
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            copy:start_materialize()
-                            return true
-                        end
-                    }))
-
-                    return true
-                end
-            }))
-
+            G.E_MANAGER:add_event(Event({ delay = 0.5, func = function() Pokerleven.clone_playing_card(context.scoring_hand[1], G.deck, 1); return true end }))
             card.ability.extra.triggered = true
             return {
                 message = "DAWSON!",
@@ -255,7 +231,7 @@ local Muffs = J({
                 card = context.other_card
             }
         end
-        if context.after and context.cardarea == G.jokers then
+        if context.after and context.cardarea == G.jokers and G.hand and #G.hand.cards > 0 then
             local random_index = math.random(1, #G.hand.cards)
             local selected_card = G.hand.cards[random_index]
 

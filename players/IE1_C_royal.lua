@@ -36,27 +36,7 @@ local King = {
 
         if rightmost_king then
           card.ability.extra.triggered = true
-          G.E_MANAGER:add_event(Event({
-            delay = 0.5,
-            func = function()
-              local copied_card = copy_card(rightmost_king, nil, nil, G.playing_card or 1)
-              copied_card:add_to_deck()
-              G.deck.config.card_limit = G.deck.config.card_limit + 1
-              G.deck:emplace(copied_card)
-              table.insert(G.playing_cards, copied_card)
-              playing_card_joker_effects({ true })
-
-              G.E_MANAGER:add_event(Event({
-                func = function()
-                  copied_card:start_materialize()
-                  return true
-                end
-              }))
-
-              return true
-            end
-          }))
-
+          G.E_MANAGER:add_event(Event({ delay = 0.5, func = function() Pokerleven.clone_playing_card(rightmost_king, G.deck, 1); return true end }))
           return {
             message = "KING!",
             colour = G.C.XMULT
@@ -132,31 +112,11 @@ local Drent = {
       if odds < 0 then
         odds = 1
       end
-      if pseudorandom('group_0_05214300') < G.GAME.probabilities.normal / odds then
-        SMODS.calculate_effect({
-          func = function()
-            local created_tarot = false
-            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-              created_tarot = true
-              G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-              G.E_MANAGER:add_event(Event({
-                func = function()
-                  local tarot_card = create_card('Tarot', G.consumeables, nil, nil, nil, nil, 'c_tower')
-                  tarot_card:add_to_deck()
-                  G.consumeables:emplace(tarot_card)
-                  G.GAME.consumeable_buffer = 0
-                  return true
-                end
-              }))
+      if not context.blueprint and pseudorandom('group_0_05214300') < G.GAME.probabilities.normal / odds then
+          if Pokerleven.spawn_consumable('Tarot', 'c_tower') then
               card.ability.extra.triggered = true
-            end
-            if created_tarot then
-              card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil,
-                { message = "Quake!", colour = G.C.PURPLE })
-            end
-            return true
+              return { message = "Quake!", colour = G.C.PURPLE }
           end
-        }, card)
       end
     end
   end

@@ -168,3 +168,45 @@ Pokerleven.modify_charges = function(card, amount)
     ex.charges = math.max(0, math.min(ex.max_charges, ex.charges + amount))
     return ex.charges - old_charges
 end
+
+--- Simula cómo puntuaría un Joker si la carta evaluada fuera cambiada temporalmente
+---@param card Card Joker actual
+---@param context table Contexto de la evaluación
+---@param target_ranks table Lista de rangos a simular { {id=14, val='Ace', nom=11}, {id=13, val='King', nom=10} }
+---@return table|nil
+Pokerleven.simulate_rank_difference = function(card, context, target_ranks)
+    local b_c, b_xc = 0, 1
+    local sim_ctx = {cardarea=G.play, full_hand=context.full_hand, scoring_hand=context.scoring_hand, scoring_name=context.scoring_name, poker_hands=context.poker_hands, individual=true, other_card=context.other_card}
+    local q_len = G.E_MANAGER.queues.base and #G.E_MANAGER.queues.base or 0
+    local oc = context.other_card
+    local o_ab = copy_table(oc.ability)
+    local o_id, o_s, o_f, o_nom = oc.get_id, oc.is_suit, oc.is_face, oc.get_nominal
+    local o_b_id, o_b_val = oc.base.id, oc.base.value
+    for _, j in ipairs(G.jokers.cards) do
+        if j ~= card and not j.debuff then
+            local j_ab = copy_table(j.ability)
+            local r_eval = j:calculate_joker(sim_ctx); j.ability = copy_table(j_ab)
+            local max_c, max_xc = 0, 1
+            for _, target in ipairs(target_ranks) do
+                oc.get_id = function() return target.id end
+                if target.id >= 11 and target.id <= 13 then oc.is_face = function() return true end else oc.is_face = function() return false end end
+                if target.nom then oc.get_nominal = function() return target.nom end end
+                oc.base.id = target.id; oc.base.value = target.val
+                local sim_eval = j:calculate_joker(sim_ctx); j.ability = copy_table(j_ab)
+                if type(sim_eval) == 'table' then
+                    local c = (sim_eval.chips or 0) + (sim_eval.chip_mod or 0)
+                    local xc = (sim_eval.xchips or 1) * (sim_eval.x_chips or 1) * (sim_eval.Xchip_mod or 1) * (sim_eval.Xchips_mod or 1)
+                    if c > max_c then max_c = c end; if xc > max_xc then max_xc = xc end
+                end
+            end
+            oc.get_id = o_id; oc.is_suit = o_s; oc.is_face = o_f; oc.get_nominal = o_nom; oc.base.id = o_b_id; oc.base.value = o_b_val
+            local rc, rxc = 0, 1
+            if type(r_eval) == 'table' then rc = (r_eval.chips or 0) + (r_eval.chip_mod or 0); rxc = (r_eval.xchips or 1) * (r_eval.x_chips or 1) * (r_eval.Xchip_mod or 1) * (r_eval.Xchips_mod or 1) end
+            b_c, b_xc = b_c + math.max(0, max_c - rc), b_xc * math.max(1, max_xc / rxc)
+        end
+    end
+    oc.ability = o_ab; while G.E_MANAGER.queues.base and #G.E_MANAGER.queues.base > q_len do table.remove(G.E_MANAGER.queues.base) end
+    local ret = {}
+    if b_c > 0 then ret.chips = b_c end; if b_xc > 1 then ret.xchips = b_xc; ret.x_chips = b_xc end
+    return next(ret) and ret or nil
+end

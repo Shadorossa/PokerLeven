@@ -90,6 +90,40 @@ Pokerleven.most_played_team = function()
     return most_played
 end
 
+--- Crea una carta consumible de forma segura y maneja el buffer global
+---@param card_type string 'Tarot', 'Planet', 'Spectral', etc.
+---@param specific_key string|nil Clave del consumible específico
+---@return boolean true si se creó la carta, false si no había espacio
+Pokerleven.spawn_consumable = function(card_type, specific_key)
+    if not Pokerleven.has_enough_consumables_space() then return false end
+    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            local _c = create_card(card_type, G.consumeables, nil, nil, nil, nil, specific_key)
+            Pokerleven.add_card_to_consumables(_c)
+            G.GAME.consumeable_buffer = 0
+            return true 
+        end
+    }))
+    return true
+end
+
+--- Comprueba si una carta es el ojeador elemental más a la izquierda
+---@param card Card
+---@return boolean
+Pokerleven.is_active_elemental = function(card)
+    local leftmost = nil
+    if G.jokers and G.jokers.cards then
+        for _, player in ipairs(G.jokers.cards) do
+            if C.ELEMENTALS_KEYS[player.config.center_key] then
+                leftmost = player
+                break
+            end
+        end
+    end
+    return leftmost == card
+end
+
 find_player_team = function(target_type)
     local found = {}
     if G.jokers and G.jokers.cards then

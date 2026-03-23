@@ -248,18 +248,8 @@ local Axel_IJ = J({
       if ctx.scoring_name == 'Three of a Kind' and #ctx.full_hand == 3 then
         local first_card = ctx.scoring_hand[1]
         
-        for i = 1, ex.copies_number do
-          G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-          local copy = copy_card(first_card, nil, nil, G.playing_card)
-          copy:add_to_deck()
-          G.deck.config.card_limit = G.deck.config.card_limit + 1
-          
-          table.insert(G.playing_cards, copy)
-          G.play:emplace(copy)
-          copy:start_materialize()
-          
-          table.insert(ctx.scoring_hand, copy)
-        end
+        local clones = Pokerleven.clone_playing_card(first_card, G.play, ex.copies_number)
+        for _, copy in ipairs(clones) do table.insert(ctx.scoring_hand, copy) end
         
         for _, c in ipairs(ctx.scoring_hand) do
             if not c.ability.fire_sticker then

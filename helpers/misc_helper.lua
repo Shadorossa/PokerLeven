@@ -104,6 +104,29 @@ vary_rank = function(card, decrease, seed, immediate)
                     end
                 end
             end
+
+--- Clona una carta de juego físicamente en la zona indicada
+---@param card_to_copy Card
+---@param target_area table (G.deck, G.hand, G.play)
+---@param count number Cantidad de copias (por defecto 1)
+---@return table Lista de las cartas clonadas creadas
+Pokerleven.clone_playing_card = function(card_to_copy, target_area, count)
+    count = count or 1
+    target_area = target_area or G.deck
+    local cloned_cards = {}
+    for i = 1, count do
+        G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+        local copy = copy_card(card_to_copy, nil, nil, G.playing_card)
+        copy:add_to_deck()
+        G.deck.config.card_limit = G.deck.config.card_limit + 1
+        table.insert(G.playing_cards, copy)
+        target_area:emplace(copy)
+        copy:start_materialize()
+        table.insert(cloned_cards, copy)
+    end
+    playing_card_joker_effects({true})
+    return cloned_cards
+end
         end
         if #poss_ranks > 0 then
             next_rank = pseudorandom_element(poss_ranks, pseudoseed(seed or 'decrease_rank'))

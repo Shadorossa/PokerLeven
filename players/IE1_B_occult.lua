@@ -117,34 +117,12 @@ local Grave = {
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
-      if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-        if context.scoring_hand and context.other_card:get_id() == 6 and
-            pseudorandom('Grave') < G.GAME.probabilities.normal / card.ability.extra.odds then
-          G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-          card.ability.extra.triggered = true
-          return {
-            extra = {
-              focus = card,
-              message = localize('k_plus_tarot'),
-              colour = G.C.PURPLE,
-              func = function()
-                G.E_MANAGER:add_event(Event({
-                  trigger = 'before',
-                  delay = 0.0,
-                  func = function()
-                    local card_type = 'Tarot'
-                    local _card = create_card(card_type, G.consumeables, nil, nil, nil, nil, 'c_death')
-                    _card:add_to_deck()
-                    G.consumeables:emplace(_card)
-                    G.GAME.consumeable_buffer = 0
-                    return true
-                  end
-                }))
-              end
-            }
-          }
+        if context.scoring_hand and context.other_card:get_id() == 6 and card:odds_triggered('Grave') then
+            if Pokerleven.spawn_consumable('Tarot', 'c_death') then
+                card.ability.extra.triggered = true
+                return {message = localize('k_plus_tarot'), colour = G.C.PURPLE, card = card}
+            end
         end
-      end
     end
   end
 }
