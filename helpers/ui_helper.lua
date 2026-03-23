@@ -334,18 +334,12 @@ function set_discover_tallies()
             if sp == "Manager" then
                 G.DISCOVER_TALLIES.managers.of = G.DISCOVER_TALLIES.managers.of + 1
                 if v.discovered then G.DISCOVER_TALLIES.managers.tally = G.DISCOVER_TALLIES.managers.tally + 1 end
-                G.DISCOVER_TALLIES.jokers.of = G.DISCOVER_TALLIES.jokers.of - 1
-                if v.discovered then G.DISCOVER_TALLIES.jokers.tally = G.DISCOVER_TALLIES.jokers.tally - 1 end
             elseif sp == "Spirit" then
                 G.DISCOVER_TALLIES.spirits.of = G.DISCOVER_TALLIES.spirits.of + 1
                 if v.discovered then G.DISCOVER_TALLIES.spirits.tally = G.DISCOVER_TALLIES.spirits.tally + 1 end
-                G.DISCOVER_TALLIES.jokers.of = G.DISCOVER_TALLIES.jokers.of - 1
-                if v.discovered then G.DISCOVER_TALLIES.jokers.tally = G.DISCOVER_TALLIES.jokers.tally - 1 end
             elseif sp == "Technique" then
                 G.DISCOVER_TALLIES.techniques.of = G.DISCOVER_TALLIES.techniques.of + 1
                 if v.discovered then G.DISCOVER_TALLIES.techniques.tally = G.DISCOVER_TALLIES.techniques.tally + 1 end
-                G.DISCOVER_TALLIES.jokers.of = G.DISCOVER_TALLIES.jokers.of - 1
-                if v.discovered then G.DISCOVER_TALLIES.jokers.tally = G.DISCOVER_TALLIES.jokers.tally - 1 end
             end
         end
     end

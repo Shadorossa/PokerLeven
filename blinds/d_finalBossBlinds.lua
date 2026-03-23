@@ -88,7 +88,11 @@ local ogre = B({
     order = 3,
     boss_colour = HEX("384654"),
     in_pool = function(self)
-        if G.GAME.round_resets.ante == 8 then return pseudorandom('ogre_spawn') < 0.001
+        if G.GAME.round_resets.ante == 8 then
+            local chance = Pokerleven.Universe and Pokerleven.Universe.get_blind_chance(self.key) or 0
+            if chance == 0 then chance = 0.001 end -- Probabilidad natural por defecto (0.1%)
+            if chance >= 1 then return true end
+            return pseudorandom('ogre_spawn') < chance
         elseif G.GAME.round_resets.ante == 24 then return true end
         return false
     end,

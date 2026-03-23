@@ -45,7 +45,11 @@ technique_values = {
     retriggers = 1,
     stone_bonus = .05,
     stat_mult = 0.1,
-    max_charges = 0.2
+    max_charges = 0.2,
+    stat_gain = 1,
+    levels_to_add = 0.5,
+    reduction_gain = 1,
+    max_devoured = 0.2
 }
 
 local roundable_fields = {
@@ -61,7 +65,9 @@ local roundable_fields = {
     chip_mod_chaos = true,
     levels_per_card = true,
     retriggers = true,
-    max_charges = true
+    max_charges = true,
+    levels_to_add = true,
+    max_devoured = true
 
 }
 

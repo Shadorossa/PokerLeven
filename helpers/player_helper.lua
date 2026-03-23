@@ -195,6 +195,10 @@ player_in_pool = function(self)
 
     -- Bloquear versiones corrompidas por la Alius si no se tiene el vale de Nivel 2 "Modified Player"
     if (self.pteam == "ina_team_RoyalRedux" or self.pteam == "ina_team_EmperadoresOscuros") and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_modified_player"]) then
+        if not (Pokerleven.Universe and Pokerleven.Universe.eris_active) then return false end
+    end
+
+    if Pokerleven.Universe and not Pokerleven.Universe.is_joker_allowed(self) then
         return false
     end
 

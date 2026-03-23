@@ -26,7 +26,7 @@ local sp = v.special or (v.config and type(v.config.extra) == 'table' and v.conf
 if v.set and (
     (v.set == 'Joker' and v.ptype and v.mod and v.mod.id == 'Pokerleven') or
     v.consumeable or
-    (sp and (sp == "Technique" or sp == "Manager")) or
+    (sp and (sp == "Technique" or sp == "Manager" or sp == "Spirit")) or
     (v.set == 'Edition') or
     (v.set == 'Voucher') or
     (v.set == 'Back') or

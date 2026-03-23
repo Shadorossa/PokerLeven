@@ -311,7 +311,7 @@ Pokerleven.is_state_changed = function(card, dependencies)
     current_hash = current_hash .. tostring(card.debuff)
     
     if card.ability.ina_last_state_hash ~= current_hash then
-        card.ability.ina_last_state_hash = current_hash; print("[Pokerleven] " .. tostring(card.config.center_key) .. " actualizado por cambio de estado/movimiento.")
+        card.ability.ina_last_state_hash = current_hash
         return true
     end
     return false
