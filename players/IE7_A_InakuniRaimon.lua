@@ -1,9 +1,17 @@
+local old_add_tag = add_tag
+function add_tag(_tag)
+    old_add_tag(_tag)
+    if not _tag.ina_cesar_duped and G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do j:calculate_joker({ina_tag_added = true, tag = _tag}) end
+    end
+end
+
 -- Sandra Fischer (Norika Umihara)
 local Sandra_Fischer = J({
     name = "Sandra_Fischer",
     pos = { x = 0, y = 1 },
-    config = { extra = { threshold = 0.75 } },
-    loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.threshold * 100}} end,
+    config = { extra = { threshold = 0.8, cards_rescued = 1 } },
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {math.floor(ex.threshold * 100), ex.cards_rescued}} end,
     rarity = 1, -- Common
     pools = { ["Inakuni Raimon"] = true },
     cost = 5,
@@ -17,16 +25,59 @@ local Sandra_Fischer = J({
         if ctx.after and not ctx.blueprint then
             local scored = (G.GAME.current_round.current_hand.chips or 0) * (G.GAME.current_round.current_hand.mult or 1)
             if scored >= (G.GAME.blind.chips * card.ability.extra.threshold) then
-                local s = {}
-                for _, v in ipairs(ctx.full_hand) do
-                    if not v.shattered and not v.destroyed and v.ability and v.ability.wind_sticker then
-                        v.destroyed, v.shattered = true, true; s[#s+1] = v
-                    end
-                end
-                if #s > 0 then
-                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function() for i, v in ipairs(s) do v.destroyed, v.shattered = nil, nil; if v.area == G.play then draw_card(G.play, G.deck, i*100/#s, 'up', false, v) end end; return true end}))
-                    return {message = localize('k_safe_ex'), colour = G.C.GREEN}
-                end
+                local s = {}; for _, v in ipairs(ctx.full_hand) do if v.ability and v.ability.wind_sticker then s[#s+1] = v end end
+                local rescued = {}
+                for i=1, math.min(#s, card.ability.extra.cards_rescued) do rescued[#rescued+1] = s[i] end
+                if Pokerleven.rescue_cards(rescued) then return {message = localize('k_safe_ex'), colour = G.C.GREEN} end
+            end
+        end
+    end
+})
+
+-- Cesar Montalban
+local Cesar = J({
+    name = "Cesar",
+    pos = { x = 3, y = 1 },
+    config = { extra = { odds = 3 } },
+    loc_vars = function(self, info_queue, center) return {vars = {G.GAME.probabilities.normal or 1, center.ability.extra.odds}} end,
+    rarity = 2, -- Uncommon
+    pools = { ["Inakuni Raimon"] = true },
+    cost = 6,
+    atlas = "Jokers07",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pteam = "ina_team_InakuniRaimon",
+    techtype = C.UPGRADES.Plus,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        if ctx.ina_tag_added then
+            if pseudorandom('cesar') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                local dup = Tag(ctx.tag.key); dup.ina_cesar_duped = true; add_tag(dup)
+                return {message = localize('k_copied_ex'), colour = G.C.GREEN}
+            end
+        end
+    end
+})
+
+-- Valentin Eisner
+local Valentin = J({
+    name = "Valentin",
+    pos = { x = 6, y = 1 },
+    config = { extra = { mult_mod_low = 1, chip_mod = 10 } },
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.mult_mod_low, ex.chip_mod}} end,
+    rarity = 2, -- Uncommon
+    pools = { ["Inakuni Raimon"] = true },
+    cost = 6,
+    atlas = "Jokers07",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_InakuniRaimon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = false,
+    calculate = function(self, card, ctx)
+        if ctx.after and not ctx.blueprint and #ctx.full_hand == 3 then
+            if Pokerleven.buff_joker_stats(card:get_right_joker(), card.ability.extra.mult_mod_low, card.ability.extra.chip_mod) then
+                return {message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION}
             end
         end
     end
@@ -36,8 +87,8 @@ local Sandra_Fischer = J({
 local Adriano_Donati = J({
     name = "Adriano_Donati",
     pos = { x = 8, y = 1 },
-    config = { extra = { chips_gain = 25, mult_gain = 4, current_chips = 0, current_mult = 0 } },
-    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.chips_gain, ex.mult_gain, ex.current_chips, ex.current_mult}} end,
+    config = { extra = { chips_mod = 25, mult_mod_low = 4, current_chips = 0, current_mult = 0 } },
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.chips_mod, ex.mult_mod_low, ex.current_chips, ex.current_mult}} end,
     rarity = 2, -- Uncommon
     pools = { ["Inakuni Raimon"] = true },
     cost = 6,
@@ -60,10 +111,10 @@ local Adriano_Donati = J({
         elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition and not ctx.game_over then
             local blind_type = G.GAME.blind:get_type()
             if blind_type == 'Small' or blind_type == 'Big' then
-                ex.current_chips = ex.current_chips + ex.chips_gain
+                ex.current_chips = ex.current_chips + ex.chips_mod
                 return {message = localize('k_upgrade_ex'), colour = G.C.CHIPS}
             elseif blind_type == 'Boss' then
-                ex.current_mult = ex.current_mult + ex.mult_gain
+                ex.current_mult = ex.current_mult + ex.mult_mod_low
                 return {message = localize('k_upgrade_ex'), colour = G.C.MULT}
             end
         end
@@ -102,8 +153,8 @@ local Sonny_Wright = J({
 local Basile = J({
     name = "Basile",
     pos = { x = 10, y = 1 },
-    config = { extra = { mult_bonus = 1 } },
-    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.mult_bonus}} end,
+    config = { extra = { mult_mod_low = 1 } },
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.mult_mod_low}} end,
     rarity = 2, -- Uncommon
     pools = { ["Inakuni Raimon"] = true },
     cost = 6,
@@ -124,7 +175,7 @@ local Basile = J({
                         c:juice_up()
                         transformed = true
                     end
-                    c.ability.mult = (c.ability.mult or 0) + ex.mult_bonus
+                    c.ability.mult = (c.ability.mult or 0) + ex.mult_mod_low
                 end
                 if transformed then
                     return {message = localize("ina_convert"), colour = G.C.RED}
@@ -138,5 +189,5 @@ local Basile = J({
 
 return {
     name = "Inakuni Raimon",
-    list = { Sandra_Fischer, Adriano_Donati, Sonny_Wright, Basile }
+    list = { Sandra_Fischer, Cesar, Valentin, Adriano_Donati, Sonny_Wright, Basile }
 }

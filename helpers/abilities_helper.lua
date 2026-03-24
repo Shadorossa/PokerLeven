@@ -71,6 +71,54 @@ Pokerleven.remove_card_property = function(card, p_type)
     return val
 end
 
+--- Salva cartas de ser descartadas o destruidas tras jugarse y las devuelve al mazo
+---@param cards_to_rescue table Lista de cartas a rescatar
+---@return boolean true si se rescató alguna carta
+Pokerleven.rescue_cards = function(cards_to_rescue)
+    local s = {}
+    for _, v in ipairs(cards_to_rescue) do
+        if not v.shattered and not v.destroyed then v.destroyed, v.shattered = true, true; s[#s+1] = v end
+    end
+    if #s > 0 then
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function() 
+            for i, v in ipairs(s) do 
+                v.destroyed, v.shattered = nil, nil
+                if v.area == G.play then draw_card(G.play, G.deck, i*100/#s, 'up', false, v) end 
+            end 
+            return true 
+        end}))
+        return true
+    end
+    return false
+end
+
+--- Modifica el valor de venta de una lista de comodines
+---@param amount number Cantidad a sumar (puede ser negativa)
+---@param jokers_list table|nil Si no se pasa, afecta a todos en G.jokers.cards
+---@param ignore_card Card|nil Carta que no debe ser afectada
+---@return boolean true si se modificó alguno
+Pokerleven.modify_jokers_sell_value = function(amount, jokers_list, ignore_card)
+    local did, list = false, jokers_list or (G.jokers and G.jokers.cards) or {}
+    for _, v in ipairs(list) do if v ~= ignore_card then
+        v.ability.extra_value = (v.ability.extra_value or 0) + amount; v:set_cost(); did = true
+    end end
+    return did
+end
+
+--- Busca las variables de multiplicador o fichas de un Joker y las incrementa dinámicamente
+---@param joker Card El joker a mejorar
+---@param mult_gain number|nil
+---@param chip_gain number|nil
+---@return boolean true si encontró alguna estadística compatible y la mejoró
+Pokerleven.buff_joker_stats = function(joker, mult_gain, chip_gain)
+    if not joker or type(joker.ability.extra) ~= 'table' or joker.debuff then return false end
+    local ex, buffed, m_keys, c_keys = joker.ability.extra, false, {'mult_mod', 'mult_mod_low', 'current_mult', 'mult'}, {'chip_mod', 'chips_mod', 'current_chips', 'chips'}
+    if mult_gain and mult_gain > 0 then for _, k in ipairs(m_keys) do if type(ex[k]) == 'number' then ex[k] = ex[k] + mult_gain; buffed = true; break end end end
+    if not buffed and chip_gain and chip_gain > 0 then for _, k in ipairs(c_keys) do if type(ex[k]) == 'number' then ex[k] = ex[k] + chip_gain; buffed = true; break end end end
+    if buffed then joker:juice_up(0.5, 0.5) end
+    return buffed
+end
+
 --- Aplica una propiedad a una carta
 ---@param card Card
 ---@param prop_type string 'edition', 'seal', o 'enhancement'

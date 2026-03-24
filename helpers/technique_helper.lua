@@ -49,7 +49,9 @@ technique_values = {
     stat_gain = 1,
     levels_to_add = 0.5,
     reduction_gain = 1,
-    max_devoured = 0.2
+    max_devoured = 0.2,
+    threshold = -0.0625,
+    cards_rescued = 1
 }
 
 local roundable_fields = {
@@ -67,7 +69,8 @@ local roundable_fields = {
     retriggers = true,
     max_charges = true,
     levels_to_add = true,
-    max_devoured = true
+    max_devoured = true,
+    cards_rescued = true
 
 }
 

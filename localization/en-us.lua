@@ -1793,6 +1793,23 @@ return {
                     "añade {C:mult}+#1#{} Mult permanente."
                 }
             },
+            j_ina_Valentin = {
+                name = "Valentín Eisner",
+                text = {
+                    "{C:wind}Flecha de Hielo{}",
+                    "Si juegas exactamente {C:attention}3{} cartas, da",
+                    "{C:mult}+#1#{} Mult o {C:chips}+#2#{} Fichas al comodín",
+                    "derecho (según la stat que use)."
+                }
+            },
+            j_ina_Cesar = {
+                name = "César Montalbán",
+                text = {
+                    "{C:forest}Técnica Ninja{}",
+                    "{C:green}#1# en #2#{} probabilidades de",
+                    "duplicar cada {C:attention}Etiqueta{} ganada."
+                }
+            },
 
             --Scouts
             j_ina_1er = {

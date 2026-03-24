@@ -51,9 +51,7 @@ local Hunter_Ares = J({
             local adj, has_x = get_adjacent_jokers(card), false
             for _, v in ipairs(adj) do if v.config.center_key == 'j_ina_Xavier_Ares' then has_x = true; break end end
             if has_x then
-                local did = false
-                if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do v.ability.extra_value = (v.ability.extra_value or 0) + ex.val_up; v:set_cost(); did = true end end
-                if did then return {message = localize('k_val_up'), colour = G.C.MONEY} end
+                if Pokerleven.modify_jokers_sell_value(ex.val_up) then return {message = localize('k_val_up'), colour = G.C.MONEY} end
             end
         end
     end
