@@ -1418,6 +1418,26 @@ return {
                     }
                 }
             },
+            j_ina_Kennedy = {
+                name = "Kennedy",
+                text = {
+                    "{C:forest}Tiro Limpio{}",
+                    "Otorga {X:mult,C:white} X#1# {} Mult si juegas",
+                    "{C:attention}exactamente 1{} carta.",
+                    "Si la carta es un {C:attention}As{},",
+                    "otorga {X:mult,C:white} X#2# {} Mult en su lugar."
+                }
+            },
+            j_ina_Beray = {
+                name = "Beray",
+                text = {
+                    "{C:wind}Plan de Evacuación{}",
+                    "Al {C:red}vender{} esta carta durante una",
+                    "ciega, restaura tus {C:blue}Manos{} y",
+                    "{C:red}Descartes{} a su máximo y recupera",
+                    "cartas en el {C:attention}vacío{}."
+                }
+            },
             -- Diamond Dust
             j_ina_Gazelle = {
                 name = "Gazelle",
@@ -1701,6 +1721,76 @@ return {
                     "En tu {C:attention}última mano{}, si vas perdiendo,",
                     "otorga {X:mult,C:white} X#1# {} Mult por cada",
                     "Joker {X:gk,C:white}GK{}. {C:inactive}(Consume 2 Cargas){}"
+                }
+            },
+
+            -- Eisei Gakuen (Ares)
+            j_ina_Quagmire_Ares = {
+                name = "Dave Quagmire (Ares)",
+                text = {
+                    "{C:fire}Espíritu Inquebrantable{}",
+                    "Gana {C:chips}+#1#{} Fichas si juegas una",
+                    "mano que anota menos del {C:attention}#2#%{}",
+                    "de las fichas requeridas.",
+                    "{C:inactive}(Actual: {C:chips}+#3#{C:inactive} Fichas){}"
+                }
+            },
+            j_ina_Hunter_Ares = {
+                name = "Hunter Foster (Ares)",
+                text = {
+                    "{C:fire}Cañón de Meteoritos{}",
+                    "Da {C:mult}+#1#{} Mult y {C:chips}+#2#{} Fichas.",
+                    "Si {C:attention}Xavier{} está a su lado, suma a todos",
+                    "{C:money}#3#${} de valor a fin de ronda."
+                }
+            },
+            j_ina_Xavier_Ares = {
+                name = "Xavier Schiller (Ares)",
+                text = {
+                    "{C:forest}La Explosión{}",
+                    "Al jugar, drena {C:money}#1#${} al resto de jokers",
+                    "y gana {X:mult,C:white} X#2# {} Mult por cada {C:money}1${}.",
+                    "Los {C:red}destruye{} si valen {C:money}0${}.",
+                    "{C:inactive}(Actual: {X:mult,C:white} X#3# {C:inactive} Mult){}"
+                }
+            },
+
+            -- Inakuni Raimon
+            j_ina_Sandra_Fischer = {
+                name = "Sandra Fischer",
+                text = {
+                    "{C:wind}Mano Oceánica{}",
+                    "Si anotas al menos el {C:attention}#1#%{} de las",
+                    "fichas, las cartas de {X:wind,C:white}Viento{}",
+                    "jugadas {C:green}vuelven al mazo{}."
+                }
+            },
+            j_ina_Adriano_Donati = {
+                name = "Adriano Donati",
+                text = {
+                    "{C:fire}Limonada de Fuego{}",
+                    "Da {C:chips}+#1#{} Fichas al superar ciegas",
+                    "{C:blue}Pequeñas/Grandes{}, o {C:mult}+#2#{} Mult",
+                    "al superar {C:red}Ciegas de Jefe{}.",
+                    "{C:inactive}(Actual: {C:chips}+#3# {C:inactive}y {C:mult}+#4#{C:inactive}){}"
+                }
+            },
+            j_ina_Sonny_Wright = {
+                name = "Sonny Wright",
+                text = {
+                    "{C:fire}Pájaro Luminoso{}",
+                    "Gana {X:mult,C:white} X#1# {} Mult al superar",
+                    "una ciega en tu {C:attention}última mano{}.",
+                    "{C:inactive}(Actual: {X:mult,C:white} X#2# {C:inactive} Mult){}"
+                }
+            },
+            j_ina_Basile = {
+                name = "Basile Hardy",
+                text = {
+                    "{C:fire}Macarrones con Espaguetis{}",
+                    "Si juegas {C:attention}Doble Pareja{}, convierte",
+                    "las cartas puntuadas a {X:fire,C:white}Fuego{} y les",
+                    "añade {C:mult}+#1#{} Mult permanente."
                 }
             },
 
@@ -1998,6 +2088,11 @@ return {
             },
             Fire_Blizzard = {
                 name = "Ventisca de Fuego",
+                text = { "Junta este jugador",
+                    "con {C:attention}#1#{}" }
+            },
+            Combo_Cosmico = {
+                name = "Combo Cósmico",
                 text = { "Junta este jugador",
                     "con {C:attention}#1#{}" }
             },
@@ -2596,6 +2691,8 @@ return {
             ["ina_team_Fauxshore"] = "Fauxshore",
             ["ina_team_MaryTimes"] = "Mary Times",
             ["ina_team_Genesis"] = "Génesis",
+            ["ina_team_EiseiGakuen"] = "Eisei Gakuen",
+            ["ina_team_InakuniRaimon"] = "Inakuni Raimon",
             ["ina_team_Scout"] = "Ojeadores",
                 ["ina_team_InazumaJapon"] = "Inazuma Japón",
         },

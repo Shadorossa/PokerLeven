@@ -358,24 +358,27 @@ local Tori = J({
 })
 
 -- Kennedy
-local kennedy = {
+local kennedy = J({
   name = "Kennedy",
   pos = { x = 10, y = 1 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
+  config = { extra = { xmult = 2, xmult_ace = 3.5 } },
+  loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.xmult, ex.xmult_ace}} end,
   rarity = 1, -- Common
-  pools = { ["SpFixers"] = true },
-  cost = 7,
+  pools = { ["SPFixers"] = true },
+  cost = 5,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
   pteam = "ina_team_ServicioSecreto",
+  techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    if Pokerleven.is_joker_turn(ctx) and #ctx.full_hand == 1 then
+        local xm = ctx.full_hand[1]:get_id() == 14 and card.ability.extra.xmult_ace or card.ability.extra.xmult
+        return {message = localize{type='variable', key='a_xmult', vars={xm}}, Xmult_mod = xm, colour = G.C.MULT}
+    end
   end
-}
+})
 
 -- Sights
 local sights = {
@@ -398,24 +401,34 @@ local sights = {
 }
 
 -- beray
-local beray = {
+local beray = J({
   name = "Beray",
   pos = { x = 12, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["SpFixers"] = true },
-  cost = 7,
+  loc_vars = function(self, info_queue, center) return {} end,
+  rarity = 2, -- Uncommon
+  pools = { ["SPFixers"] = true },
+  cost = 6,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
   pteam = "ina_team_ServicioSecreto",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  blueprint_compat = false,
+  calculate = function(self, card, ctx)
+    if ctx.selling_self and not ctx.blueprint and G.STATE == G.STATES.SELECTING_HAND then
+        local h_diff = math.max(1, G.GAME.round_resets.hands + (G.GAME.round_bonus.next_hands or 0)) - G.GAME.current_round.hands_left
+        local d_diff = math.max(0, G.GAME.round_resets.discards + (G.GAME.round_bonus.discards or 0)) - G.GAME.current_round.discards_left
+        if h_diff > 0 then ease_hands_played(h_diff) end
+        if d_diff > 0 then ease_discard(d_diff) end
+        if G.fedora_void and G.fedora_void.cards then
+            for i = #G.fedora_void.cards, 1, -1 do
+                local c = G.fedora_void.cards[i]
+                c.fedora_void_timer = nil; c.area:remove_card(c); G.deck:emplace(c)
+            end
+        end
+    end
   end
-}
+})
 
 -- toppin
 local toppin = {
@@ -439,5 +452,5 @@ local toppin = {
 
 return {
   name = "SPFixers",
-  list = { ironwall, Western, Firepool, fielding, firsthand, Tori }
+  list = { ironwall, Western, Firepool, fielding, firsthand, Tori, kennedy, beray }
 }
