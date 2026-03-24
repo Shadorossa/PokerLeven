@@ -48,6 +48,15 @@ return {
                     "y {C:mult}policromático{}"
                 },
             },
+            b_ina_david_evans = {
+                name = "Araya (David Evans)",
+                text = {
+                    "{C:pink}#1# Mánager{} | Entrenamientos {C:attention}x#2#{}",
+                    "Empiezas con {C:blue}-2{} Manos y {C:red}-2{} Descartes.",
+                    "En la {C:attention}Ante 6{}, los recuperas y ganas {C:attention}+3{}.",
+                    "Desbloquea {C:dark_edition}Cap+{} y {C:dark_edition}Cap+ Max{}."
+                }
+            },
         },
         Blind = {
             -- Blinds pequeños
@@ -2037,6 +2046,20 @@ return {
                     "{C:inactive}(Debe haber espacio){}",
                 },
             },
+            ina_tech_cap_plus_sticker = {
+                name = "Superación (Cap+)",
+                text = {
+                    "Este comodín ha",
+                    "roto sus límites"
+                },
+            },
+            ina_tech_cap_plus_max_sticker = {
+                name = "Superación Total (Cap+ Max)",
+                text = {
+                    "Este comodín ha alcanzado",
+                    "el poder absoluto"
+                },
+            },
             card_emult = {
                 text = {
                     "{C:dark_edition}^#1#{} Mult"
@@ -2665,6 +2688,8 @@ return {
             ina_tech_spirit3_sticker = "Evolución Nvl. IV",
             ina_tech_spirit4_sticker = "Evolución Nvl. V",
             ina_tech_spirit5_sticker = "Evolución Nvl. Omega",
+            ina_tech_cap_plus_sticker = "Superación (Cap+)",
+            ina_tech_cap_plus_max_sticker = "Superación Total (Cap+ Max)",
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",

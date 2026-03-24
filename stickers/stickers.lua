@@ -316,7 +316,7 @@ local tech_spirit1_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 1, y = 4 },
+  pos = { x = 0, y = 4 },
   hide_badge = false
 }
 
@@ -326,7 +326,7 @@ local tech_spirit2_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 2, y = 4 },
+  pos = { x = 1, y = 4 },
   hide_badge = false
 }
 
@@ -336,7 +336,7 @@ local tech_spirit3_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 3, y = 4 },
+  pos = { x = 2, y = 4 },
   hide_badge = false
 }
 
@@ -346,7 +346,7 @@ local tech_spirit4_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 4, y = 4 },
+  pos = { x = 3, y = 4 },
   hide_badge = false
 }
 
@@ -356,7 +356,27 @@ local tech_spirit5_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 5, y = 4 },
+  pos = { x = 4, y = 4 },
+  hide_badge = false
+}
+
+local tech_cap_plus_sticker = {
+  object_type = "Sticker",
+  key = "tech_cap_plus_sticker",
+  badge_colour = HEX("289830"),
+  rate = 0.0,
+  atlas = "stickers",
+  pos = { x = 6, y = 4 },
+  hide_badge = false
+}
+
+local tech_cap_plus_max_sticker = {
+  object_type = "Sticker",
+  key = "tech_cap_plus_max_sticker",
+  badge_colour = HEX("289830"),
+  rate = 0.0,
+  atlas = "stickers",
+  pos = { x = 7, y = 4 },
   hide_badge = false
 }
 
@@ -371,5 +391,5 @@ return
     tech_grade3_sticker,
     tech_grade4_sticker, tech_grade5_sticker, tech_grade0_sticker, tech_j_sticker, tech_q_sticker, tech_k_sticker,
     tech_a_sticker, tech_joker_sticker, tech_spirit1_sticker, tech_spirit2_sticker, tech_spirit3_sticker,
-    tech_spirit4_sticker, tech_spirit5_sticker }
+    tech_spirit4_sticker, tech_spirit5_sticker, tech_cap_plus_sticker, tech_cap_plus_max_sticker }
 }

@@ -116,7 +116,41 @@ local wintersea = Ba({
     end
 })
 
+local david_evans = Ba({
+    name = "David Evans",
+    key = "david_evans",
+    order = 5,
+    unlocked = true,
+    discovered = true,
+    config = { managers = 1, training_rate = 2, hands = -2, discards = -2 },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { self.config.managers, self.config.training_rate } }
+    end,
+    pos = { x = 6, y = 2 },
+    atlas = "decks",
+    apply = function(self, back)
+        Pokerleven.ina_manager_area.config.card_limit = self.config.managers
+        G.GAME.modifiers.can_cap_plus = true
+        G.GAME.training_rate = (G.GAME.training_rate or 1) * self.config.training_rate
+    end,
+    calculate = function(self, back, context)
+        if context.setting_blind and G.GAME.round_resets.ante >= 6 and not G.GAME.modifiers.david_pesos_removed then
+            G.GAME.modifiers.david_pesos_removed = true
+            G.GAME.round_resets.hands = G.GAME.round_resets.hands + 5
+            ease_hands_played(5)
+            G.GAME.round_resets.discards = G.GAME.round_resets.discards + 5
+            ease_discard(5)
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    play_sound('timpani')
+                    return true
+                end
+            }))
+        end
+    end
+})
+
 return {
     name = "Decks",
-    list = { hillman, ray_dark, newton_thomas, wintersea }
+    list = { wintersea, hillman, ray_dark, newton_thomas, david_evans }
 }

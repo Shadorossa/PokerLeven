@@ -4,7 +4,7 @@ ina_joker_page = 1
 
 local get_upgrade_cards = function(key, card_area)
   local upgrade_cards = {}
-  for i = 1, 6 do
+  for i = 1, 8 do
     local added_card = SMODS.create_card({
       key = key,
       no_edition = true,
@@ -15,6 +15,26 @@ local get_upgrade_cards = function(key, card_area)
         increment_technique(added_card)
       end
     end
+    
+    local ex = added_card.ability.extra
+    if ex and type(ex) == 'table' then
+      if i == 7 then
+        ex.cap_plus = true
+        for k, _ in pairs(technique_values) do
+            if type(ex[k]) == 'number' and type(added_card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 2 end
+        end
+        if set_sticker then set_sticker(added_card) end
+      elseif i == 8 then
+        ex.cap_plus = true
+        ex.cap_plus_max = true
+        for k, _ in pairs(technique_values) do
+            if type(ex[k]) == 'number' and type(added_card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 4 end
+        end
+        added_card:set_edition({negative = true}, true, true)
+        if set_sticker then set_sticker(added_card) end
+      end
+    end
+    
     table.insert(upgrade_cards, added_card)
   end
   return upgrade_cards
@@ -148,7 +168,7 @@ local function create_upgrade_tab_for_joker(key)
       label = is_spirit and "Evolución de EG" or localize("ina_training_upgrades"),
       chosen = true,
       tab_definition_function = function(t)
-        local card_area = Pokerleven.ui.create_card_area_to_area_table(6, t.area_table)
+        local card_area = Pokerleven.ui.create_card_area_to_area_table(8, t.area_table)
         local card_upgrade_list = get_upgrade_cards(key, card_area)
         Pokerleven.ui.emplace_collection_in_area(card_upgrade_list, card_area)
         return Pokerleven.ui.create_tab_from_card_area(card_area)

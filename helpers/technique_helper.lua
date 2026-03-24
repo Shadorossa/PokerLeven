@@ -114,23 +114,31 @@ end
 function set_sticker(card)
     local tech_level = card.ability.extra and card.ability.extra.tech_level or 0
     local sticker_list = get_technique_sticker_list(card)
+    local clamped_level = math.max(1, math.min(tech_level, #sticker_list))
 
-    if tech_level > 1 then
-        local old_sticker_key = sticker_list[tech_level - 1]
-        if old_sticker_key and card.ability then
-            card.ability[old_sticker_key] = false
-        end
+    for _, sticker_key in ipairs(sticker_list) do
+        if card.ability[sticker_key] then card.ability[sticker_key] = false end
     end
+    if card.ability.ina_tech_cap_plus_sticker then card.ability.ina_tech_cap_plus_sticker = false end
+    if card.ability.ina_tech_cap_plus_max_sticker then card.ability.ina_tech_cap_plus_max_sticker = false end
     
     local is_small = Pokerleven and (Pokerleven.is_spirit(card) or Pokerleven.is_manager(card))
-    if tech_level >= 1 then
-        local new_sticker_key = sticker_list[tech_level]
-        if new_sticker_key and card.ability then
-            if is_small then
-                card.ability.ina_small_sticker = new_sticker_key
-            else
-                card.ability[new_sticker_key] = true
-            end
+    local ex = card.ability.extra
+
+    local final_sticker = nil
+    if ex and ex.cap_plus_max then
+        final_sticker = "ina_tech_cap_plus_max_sticker"
+    elseif ex and ex.cap_plus then
+        final_sticker = "ina_tech_cap_plus_sticker"
+    elseif tech_level >= 1 then
+        final_sticker = sticker_list[clamped_level]
+    end
+
+    if final_sticker and card.ability then
+        if is_small then
+            card.ability.ina_small_sticker = final_sticker
+        else
+            card.ability[final_sticker] = true
         end
     end
 end
@@ -158,6 +166,8 @@ function clear_stickers(card)
         end
     end
         if card.ability then card.ability.ina_small_sticker = nil end
+        if card.ability.ina_tech_cap_plus_sticker then card.ability.ina_tech_cap_plus_sticker = false end
+        if card.ability.ina_tech_cap_plus_max_sticker then card.ability.ina_tech_cap_plus_max_sticker = false end
 end
 
 -- Increments technique level of a joker and applies stat changes based on technique values
@@ -169,6 +179,29 @@ increment_technique = function(card)
             card.ability.extra.tech_level = 1
         end
     end
+
+    local ex = card.ability.extra
+    if ex and ex.tech_level and G.GAME.modifiers.can_cap_plus then
+        if ex.tech_level == G.GAME.max_tech_level + 1 and not ex.cap_plus then
+            ex.cap_plus = true
+            ex.cap_max_req = math.random(3, 7)
+            for k, _ in pairs(technique_values) do
+                if type(ex[k]) == 'number' and type(card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 2 end
+            end
+            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "CAP+", colour = G.C.DARK_EDITION})
+            play_sound('tarot1')
+        end
+        if ex.cap_plus and not ex.cap_plus_max and ex.tech_level == G.GAME.max_tech_level + 1 + (ex.cap_max_req or 4) then
+            ex.cap_plus_max = true
+            for k, _ in pairs(technique_values) do
+                if type(ex[k]) == 'number' and type(card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 2 end
+            end
+            card:set_edition({negative = true}, true, true)
+            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "CAP+ MAX", colour = G.C.DARK_EDITION})
+            play_sound('foil1')
+        end
+    end
+
     modify_values(card)
     set_sticker(card)
 
@@ -186,13 +219,17 @@ end
 
 -- Applies value updates to a joker based on its center config and technique multipliers
 modify_values = function(card)
+    local mult = 1
+    if card.ability.extra and card.ability.extra.cap_plus_max then mult = 4
+    elseif card.ability.extra and card.ability.extra.cap_plus then mult = 2 end
+
     for name, _ in pairs(technique_values) do
         local data = card.ability.extra[name]
         local base_val = card.config.center.config.extra[name]
         if type(data) == "number" and type(base_val) == "number" then
             local addition = technique_values[name]
 
-            card.ability.extra[name] = data + (base_val * addition)
+            card.ability.extra[name] = data + (base_val * addition * mult)
 
             local rounded, frac = round_value(card.ability.extra[name], name)
             card.ability.extra[name] = rounded
@@ -238,10 +275,13 @@ end
 
 -- Returns true if the card matches the type and position and its technique level is below the max
 can_upgrade_tech_level = function(card, type, position)
+    local max_lvl = G.GAME.max_tech_level
+    if G.GAME.modifiers.can_cap_plus then max_lvl = 9999 end
+
     if type and position then
         return is_type(card, type) and is_position(card, position) and
-            (card.ability.extra.tech_level or 0) < G.GAME.max_tech_level
+            (card.ability.extra.tech_level or 0) < max_lvl
     else
-        return (card.ability.extra.tech_level or 0) < G.GAME.max_tech_level
+        return (card.ability.extra.tech_level or 0) < max_lvl
     end
 end

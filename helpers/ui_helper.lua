@@ -391,6 +391,48 @@ end
 
 --#endregion
 
+-- Agrupar las badges (tags) en la descripción del Joker en una cuadrícula de 2 columnas de manera segura
+local orig_card_h_popup = G.UIDEF.card_h_popup
+function G.UIDEF.card_h_popup(card)
+    local ui = orig_card_h_popup(card)
+    
+    local function find_and_reformat_badges(node)
+        if type(node) ~= 'table' then return false end
+        
+        if node.n == G.UIT.R and node.nodes and #node.nodes > 1 then
+            local is_badges = true
+            for _, child in ipairs(node.nodes) do
+                if type(child) ~= 'table' or child.n ~= G.UIT.R or not child.nodes or #child.nodes ~= 1 then
+                    is_badges = false; break
+                end
+                local inner = child.nodes[1]
+                if type(inner) ~= 'table' or inner.n ~= G.UIT.R or not inner.config or not inner.config.colour then
+                    is_badges = false; break
+                end
+            end
+            
+            if is_badges then
+                local old_badges = node.nodes
+                local grouped_badges, current_row = {}, {}
+                for i, badge in ipairs(old_badges) do
+                    table.insert(current_row, {n=G.UIT.C, config={align="cm", padding=0.015}, nodes={badge}})
+                    if #current_row >= 2 or i == #old_badges then
+                        table.insert(grouped_badges, {n=G.UIT.R, config={align="cm", padding=0}, nodes=current_row})
+                        current_row = {}
+                    end
+                end
+                node.nodes = {{n=G.UIT.C, config={align="cm", padding=0}, nodes=grouped_badges}}; return true
+            end
+        end
+        
+        if node.nodes then for _, child in ipairs(node.nodes) do if find_and_reformat_badges(child) then return true end end end
+        return false
+    end
+    
+    if ui then find_and_reformat_badges(ui) end
+    return ui
+end
+
 local can_select_card_ref = G.FUNCS.can_select_card
 G.FUNCS.can_select_card = function(e)
     local card = e.config.ref_table
