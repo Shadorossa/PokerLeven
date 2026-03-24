@@ -512,16 +512,13 @@ local Spade = J({
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Spades', 'Wind', true) end end
 })
 
-if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == true then
-    return {
-        name = "Scout",
-        list = { Dulce, Ryoma, Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade },
-    }
+local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade }
+if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers then
+    table.insert(list, 1, Dulce)
+    table.insert(list, 2, Ryoma)
 end
 
-if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == false then
-    return {
-        name = "Scout",
-        list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade }
-    }
-end
+return {
+    name = "Scout",
+    list = list
+}

@@ -201,6 +201,28 @@ local empress = {
     end,
 }
 
+local old_kirkwood = {
+    object_type = "Blind",
+    name = "ina-old_kirkwood",
+    key = "old_kirkwood",
+    pos = { x = 0, y = 0 },
+    discovered = false,
+    mult = 2,
+    atlas = "bossBlinds20",
+    order = 1,
+    boss_colour = HEX("7A5E3C"),
+    dollars = 6,
+    big = { min = 9 },
+    set_blind = function(self)
+        ease_hands_played(1)
+        ease_discard(1)
+        G.GAME.modifiers.discard_cost = (G.GAME.modifiers.discard_cost or 0) + 4
+    end,
+    disable = function(self) G.GAME.modifiers.discard_cost = math.max(0, (G.GAME.modifiers.discard_cost or 4) - 4) end,
+    defeat = function(self) if not self.disabled then G.GAME.modifiers.discard_cost = math.max(0, (G.GAME.modifiers.discard_cost or 4) - 4) end end,
+    press_play = function(self) if not self.disabled then ease_dollars(-4) end end
+}
+
 -- Inazuma Eleven 2
 
 local SPFixers = {
@@ -326,7 +348,7 @@ return {
     name = "bigBlinds01",
     list = { ff_regional_a, ff_regional_b, ff_national_a, ff_national_b,
         umbrella, inazuma_kids, sallys,
-        occult, inazuma_eleven, shun, empress }
+        occult, inazuma_eleven, shun, empress, old_kirkwood }
 }
 
 -- return {

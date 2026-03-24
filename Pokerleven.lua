@@ -78,6 +78,23 @@ SMODS.Rarity({
   pools = { ["Joker"] = true },
 })
 
+SMODS.Rarity({
+  key = "vestige",
+  loc_txt = {},
+  badge_colour = SMODS.Gradient({
+    key = 'vestigeplayer',
+    colours = {
+      HEX('7A5E3C'),
+      HEX('B7865B'),
+    },
+    cycle = 5,
+    interpolation = 'trig'
+  }),
+  default_weight = 0.01,
+  get_weight = function(self, weight, object_type) return weight end,
+  pools = { ["Joker"] = true },
+})
+
 SMODS.Sticker:take_ownership("eternal", {
   atlas = "stickers",
   pos = { x = 9, y = 3 },
@@ -350,36 +367,38 @@ local function load_joker_folder(folder_name, item_constructor)
       sendDebugMessage("The error is: " .. load_error)
     else
       local source = mod_func()
-      if source.init then source:init() end
+      if source then
+        if source.init then source:init() end
 
-      for _, item in ipairs(source.list) do
-        if not item.discovered then
-          item.discovered = false
-        end
-        item.key = item.key or item.name
-
-        item.config = item.config or {}
-        item.config.extra = item.config.extra or {}
-
-        if item.ptype then item.config.extra.ptype = item.ptype end
-        if item.pposition then item.config.extra.pposition = item.pposition end
-        if item.pteam then item.config.extra.pteam = item.pteam end
-        if item.special then item.config.extra.special = item.special end
-        -- Aseguramos que la etiqueta especial también se propague a nivel de raíz para que SMODS y Lovely no la pierdan nunca
-        if item.special then item.special_type = item.special end
-        if item.techtype then item.config.extra.techtype = item.techtype end
-        if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
-
-        if not item.custom_pool_func then
-          item.in_pool = function(self)
-            return player_in_pool(self)
+        for _, item in ipairs(source.list) do
+          if not item.discovered then
+            item.discovered = false
           end
+          item.key = item.key or item.name
+
+          item.config = item.config or {}
+          item.config.extra = item.config.extra or {}
+
+          if item.ptype then item.config.extra.ptype = item.ptype end
+          if item.pposition then item.config.extra.pposition = item.pposition end
+          if item.pteam then item.config.extra.pteam = item.pteam end
+          if item.special then item.config.extra.special = item.special end
+          -- Aseguramos que la etiqueta especial también se propague a nivel de raíz para que SMODS y Lovely no la pierdan nunca
+          if item.special then item.special_type = item.special end
+          if item.techtype then item.config.extra.techtype = item.techtype end
+          if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
+
+          if not item.custom_pool_func then
+            item.in_pool = function(self)
+              return player_in_pool(self)
+            end
+          end
+
+          item.generate_ui = Pokerleven.generate_info_ui
+          item.set_badges = ina_set_badges
+
+          item_constructor(item)
         end
-
-        item.generate_ui = Pokerleven.generate_info_ui
-        item.set_badges = ina_set_badges
-
-        item_constructor(item)
       end
     end
   end

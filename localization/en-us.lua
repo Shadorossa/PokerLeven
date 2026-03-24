@@ -128,6 +128,10 @@ return {
                 text = { "Gana una carta emperador",
                     "al derrotar la ciega" }
             },
+            bl_ina_old_kirkwood = {
+                name = "Antiguo Kirkwood",
+                text = { "{C:attention}+1{} Mano y Descarte.", "Usar manos o descartes", "cuesta {C:money}4 ${}." }
+            },
             -- Blinds grandes: Inazuma Eleven 2
 
             bl_ina_spfixers = {
@@ -1484,6 +1488,15 @@ return {
                     "{C:inactive}(Modo: {C:attention}#3#{C:inactive} | Se pierde al vender)"
                 }
             },
+            j_ina_Axel_Kirkwood = {
+                name = "Axel Blaze (Kirkwood)",
+                text = {
+                    "{C:fire}Tornado de Fuego (Prototipo){}",
+                    "Otorga {X:mult,C:white} X#1# {} Mult.",
+                    "{C:red}Destruye{} la carta de menor",
+                    "rango puntuada al jugarse."
+                }
+            },
             j_ina_Maddox = {
                 name = "Maddox",
                 text = {
@@ -2478,6 +2491,7 @@ return {
             -- Rarities
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",
+            k_ina_vestige = "Vestigio",
 
             -- Resources
             ina_resource_barriers = "Barreras",
@@ -2527,6 +2541,7 @@ return {
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",
+            k_ina_vestige = "Vestigio",
         },
         poker_hand_descriptions = {
             ["ina_TriplePair"] = {

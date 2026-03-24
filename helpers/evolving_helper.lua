@@ -14,7 +14,7 @@ family = {
     { "King", "KingR" },
     { "Samford", "SamfordR", "Samford_IJ" },
     { "Dvalin", "Dvalin_Plus" },
-    { "Axel", "Axel_IJ"},
+    { "Axel_Kirkwood", "Axel", "Axel_IJ"},
     { "Jack", "Jack_IJ" },
     { "CalebR", "Caleb_IJ" },
     { "Scotty", "Scotty_Angry" }

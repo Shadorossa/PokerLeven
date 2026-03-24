@@ -40,16 +40,12 @@ local Turi = {
     end,
 }
 
-if Pokerleven and Pokerleven.config and Pokerleven.config.winners_jokers == true then
-    return {
-        name = "tournaments",
-        list = { Turi },
-    }
+local list = {}
+if Pokerleven and Pokerleven.config and Pokerleven.config.winners_jokers then
+    table.insert(list, Turi)
 end
 
-if Pokerleven and Pokerleven.config and Pokerleven.config.winners_jokers == false then
-    return {
-        name = "tournaments",
-        list = {},
-    }
-end
+return {
+    name = "tournaments",
+    list = list
+}

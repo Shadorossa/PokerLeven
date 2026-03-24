@@ -62,6 +62,13 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
+    key = "JokersVestigio",
+    path = "jokersVestigio.png",
+    px = 71,
+    py = 95
+}):register()
+
+SMODS.Atlas({
     key = "top",
     path = "top.png",
     px = 71,
@@ -185,6 +192,15 @@ SMODS.Atlas({
     key = "bigBlinds01",
     atlas_table = "ANIMATION_ATLAS",
     path = "bigBlinds01.png",
+    px = 34,
+    py = 34,
+    frames = 21,
+}):register()
+
+SMODS.Atlas({
+    key = "bossBlinds20",
+    atlas_table = "ANIMATION_ATLAS",
+    path = "bossBlinds20.png",
     px = 34,
     py = 34,
     frames = 21,
