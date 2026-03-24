@@ -34,6 +34,33 @@ local Sandra_Fischer = J({
     end
 })
 
+-- Trevor Cook
+local Trevor = J({
+    name = "Trevor",
+    pos = { x = 2, y = 1 },
+    config = { extra = { mult_mod = 3 } },
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.mult_mod, ex.mult_mod * #find_player_team("ina_team_InakuniRaimon")}} end,
+    rarity = 1, -- Common
+    pools = { ["Inakuni Raimon"] = true },
+    cost = 5,
+    atlas = "Jokers07",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_InakuniRaimon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint then
+            local id = ctx.other_card:get_id()
+            if id == 2 or id == 4 or id == 6 or id == 8 then
+                local count = #find_player_team("ina_team_InakuniRaimon")
+                local m = count * card.ability.extra.mult_mod
+                if m > 0 then return {mult = m, card = card} end
+            end
+        end
+    end
+})
+
 -- Cesar Montalban
 local Cesar = J({
     name = "Cesar",
@@ -189,5 +216,5 @@ local Basile = J({
 
 return {
     name = "Inakuni Raimon",
-    list = { Sandra_Fischer, Cesar, Valentin, Adriano_Donati, Sonny_Wright, Basile }
+    list = { Sandra_Fischer, Trevor, Cesar, Valentin, Adriano_Donati, Sonny_Wright, Basile }
 }

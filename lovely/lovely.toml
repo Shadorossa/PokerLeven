@@ -116,8 +116,8 @@ payload = '''
 G.FUNCS.go_to_twitter = function(e)
   love.system.openURL( "https://x.com/MrDecou" )
 end
-G.FUNCS.go_to_twitterSynkro = function(e)
-  love.system.openURL( "https://x.com/_Synkro" )
+G.FUNCS.go_to_twitterNaczet = function(e)
+  love.system.openURL( "https://x.com/Naczet_" )
 end
 '''
 match_indent = true
@@ -142,8 +142,8 @@ payload = '''
     discord.states.drag.can = false
     twitter = Sprite(0,0,0.6,0.6,G.ASSET_ATLAS["ina_custom_icons"], {x=1, y=0})
     twitter.states.drag.can = false
-    twitterSynkro = Sprite(0,0,0.6,0.6,G.ASSET_ATLAS["ina_custom_icons"], {x=0, y=0})
-    twitterSynkro.states.drag.can = false
+    twitterNaczet = Sprite(0,0,0.6,0.6,G.ASSET_ATLAS["ina_custom_icons"], {x=0, y=0})
+    twitterNaczet.states.drag.can = false
   end
 '''
 match_indent = true
@@ -169,8 +169,8 @@ payload = '''
 {n=G.UIT.C, config={align = "cm", padding = 0.1, r = 0.1, hover = true, colour = G.C.BLACK, button = 'go_to_twitter', shadow = true, tooltip = { title = '@MrDecou' }}, nodes={
   {n=G.UIT.O, config={object = twitter}},
 }},
-{n=G.UIT.C, config={align = "cm", padding = 0.1, r = 0.1, hover = true, colour = G.C.BLACK, button = 'go_to_twitterSynkro', shadow = true, tooltip = { title = '@_Synkro' }}, nodes={
-  {n=G.UIT.O, config={object = twitterSynkro}},
+{n=G.UIT.C, config={align = "cm", padding = 0.1, r = 0.1, hover = true, colour = G.C.BLACK, button = 'go_to_twitterNaczet', shadow = true, tooltip = { title = '@Shadorossa' }}, nodes={
+  {n=G.UIT.O, config={object = twitterNaczet}},
 }}
 '''
 match_indent = true

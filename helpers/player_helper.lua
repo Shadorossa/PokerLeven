@@ -189,9 +189,14 @@ player_in_pool = function(self)
     end
 
     -- Bloquear versiones internacionales si no se tiene el vale de Nivel 1 "Growing Player"
-    if self.pteam == "ina_team_InazumaJapón" and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_growing_player"]) then
+        if self.pteam == "ina_team_InazumaJapon" and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_growing_player"]) then
         return false
     end
+
+        -- Bloquear versiones de Ares (otra realidad) a menos que Eris actúe
+        if (self.pteam == "ina_team_InakuniRaimon" or self.pteam == "ina_team_EiseiGakuen" or self.pteam == "ina_team_Zeus_Ares") and not (Pokerleven.Universe and Pokerleven.Universe.eris_active) then
+            return false
+        end
 
     -- Bloquear versiones corrompidas por la Alius si no se tiene el vale de Nivel 2 "Modified Player"
     if (self.pteam == "ina_team_RoyalRedux" or self.pteam == "ina_team_EmperadoresOscuros") and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_modified_player"]) then
@@ -214,7 +219,7 @@ player_in_pool = function(self)
     end
     if next(find_joker(name)) or player_in_bench(name) or self.pteam == 'ina_team_Scout' then
         return false
-    elseif self.rarity == "winner" then
+        elseif self.rarity == "winner" or self.rarity == "ina_winner" or self.rarity == "ina_vestige" then
         return false
     else
         return true

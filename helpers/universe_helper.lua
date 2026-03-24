@@ -3,7 +3,7 @@ Pokerleven.Universe = {
     active_realities = { ["Base"] = true },
     realities = {
         Base = { teams = {} },
-        Ares = { teams = { ["ina_team_Zeus_Ares"] = true } },
+        Ares = { teams = { ["ina_team_Zeus_Ares"] = true, ["ina_team_EiseiGakuen"] = true, ["ina_team_InakuniRaimon"] = true } },
         Ogre = { teams = {}, blinds = { ["bl_ina_ogre"] = 1 } },
         Corrupta = {
             teams = { ["ina_team_EmperadoresOscuros"] = true, ["ina_team_RoyalRedux"] = true },

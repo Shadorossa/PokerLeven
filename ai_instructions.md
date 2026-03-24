@@ -54,4 +54,7 @@ No reescribas bucles de búsqueda para encontrar posiciones de cartas en la zona
   3. **Estado Actual:** Si el Joker tiene estadísticas que escalan o cambian, la información de su estado en tiempo real debe ir siempre en una nueva línea al final del todo, usando el color inactivo. (Ejemplo: `{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive} Mult){}`).
 
 ## 8. Orden en las Listas de Retorno (`list = {}`)
-Al final de los archivos `.lua` de cada equipo, dentro de la tabla de retorno `list = { ... }`, los comodines o personajes **siempre** deben listarse exactamente en el mismo orden (de arriba a abajo) en el que han sido definidos en el código de dicho archivo. No alteres el orden arbitrariamente.
+Tanto en la declaración de variables locales en los archivos `.lua` como en la tabla de retorno `list = { ... }`, los Jokers **siempre** deben ordenarse estrictamente por sus coordenadas `x` e `y` (primero por **Y** de menor a mayor, luego por **X** de menor a mayor). Los comodines con rareza `ina_top` o aquellos extraídos de atlas diferentes deben intercalarse respetando su valor de `y` y `x` como si estuvieran en la misma cuadrícula.
+
+## 9. Realidades Alternativas (Universe Helper)
+Cualquier nuevo equipo que se añada perteneciente a las sagas de Ares u Orion (cuyos archivos empiecen por `IE7_` o `IE8_`) debe ser registrado siempre dentro de la realidad "Ares" en la tabla `Pokerleven.Universe.realities` del archivo `helpers/universe_helper.lua`.

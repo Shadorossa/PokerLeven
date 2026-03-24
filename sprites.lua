@@ -70,7 +70,7 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "top",
-    path = "top.png",
+    path = "jokers_top01.png",
     px = 71,
     py = 95
 }):register()

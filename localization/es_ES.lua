@@ -1512,9 +1512,9 @@ return {
                 name = "Axel Blaze (Kirkwood)",
                 text = {
                     "{C:fire}Tornado de Fuego (Prototipo){}",
-                    "Otorga {X:mult,C:white} X#1# {} Mult.",
-                    "{C:red}Destruye{} la carta de menor",
-                    "rango puntuada al jugarse."
+                    "Da {X:mult,C:white} X#1# {} Mult si juegas un",
+                    "{C:attention}Color{} de {C:hearts}Corazones{}. {C:red}Destruye{}",
+                    "la carta puntuada de menor rango."
                 }
             },
             j_ina_Maddox = {
@@ -1750,7 +1750,6 @@ return {
                     "{C:forest}La Explosión{}",
                     "Al jugar, drena {C:money}#1#${} al resto de jokers",
                     "y gana {X:mult,C:white} X#2# {} Mult por cada {C:money}1${}.",
-                    "Los {C:red}destruye{} si valen {C:money}0${}.",
                     "{C:inactive}(Actual: {X:mult,C:white} X#3# {C:inactive} Mult){}"
                 }
             },
@@ -1784,6 +1783,15 @@ return {
                     "{C:inactive}(Actual: {X:mult,C:white} X#2# {C:inactive} Mult){}"
                 }
             },
+            j_ina_Trevor = {
+                name = "Trevor Cook",
+                text = {
+                    "{C:wind}Danza del Destello{}",
+                    "Tus {C:attention}2{}, {C:attention}4{}, {C:attention}6{} y {C:attention}8{} dan {C:mult}+#1#{} Mult por",
+                    "cada Joker del {X:ina_team_inakuniraimon,C:white}I. Raimon{} al puntuar.",
+                    "{C:inactive}(Actual: {C:mult}+#2#{C:inactive} Mult){}"
+                }
+            },
             j_ina_Basile = {
                 name = "Basile Hardy",
                 text = {
@@ -1812,7 +1820,7 @@ return {
             },
 
             --Scouts
-            j_ina_1er = {
+            j_ina_Ace_Server = {
                 name = "Ace Server",
                 text = { {
                     "{C:fire}Puño vengativo{}",
@@ -2014,6 +2022,13 @@ return {
         },
 
         Other = {
+            Dios_rematador = {
+                name = "Dios rematador",
+                text = {
+                    "Los {C:red}destruye{} si",
+                    "valen {C:money}0${}."
+                }
+            },
             ina_training_seal = {
                 name = "Sello de entrenamiento",
                 text = {

@@ -51,6 +51,7 @@ technique_values = {
     reduction_gain = 1,
     max_devoured = 0.2,
     threshold = -0.0625,
+    threshold_upper = 0.05,
     cards_rescued = 1
 }
 
