@@ -181,8 +181,9 @@ increment_technique = function(card)
     end
 
     local ex = card.ability.extra
-    if ex and ex.tech_level and G.GAME.modifiers.can_cap_plus then
-        if ex.tech_level == G.GAME.max_tech_level + 1 and not ex.cap_plus then
+    if ex and ex.tech_level and G.GAME.modifiers.can_cap_plus and not Pokerleven.is_spirit(card) then
+        local max_natural = #get_technique_sticker_list(card)
+        if ex.tech_level == max_natural + 1 and not ex.cap_plus then
             ex.cap_plus = true
             ex.cap_max_req = math.random(3, 7)
             for k, _ in pairs(technique_values) do
@@ -191,7 +192,7 @@ increment_technique = function(card)
             card_eval_status_text(card, 'extra', nil, nil, nil, {message = "CAP+", colour = G.C.DARK_EDITION})
             play_sound('tarot1')
         end
-        if ex.cap_plus and not ex.cap_plus_max and ex.tech_level == G.GAME.max_tech_level + 1 + (ex.cap_max_req or 4) then
+        if ex.cap_plus and not ex.cap_plus_max and ex.tech_level == max_natural + 1 + (ex.cap_max_req or 4) then
             ex.cap_plus_max = true
             for k, _ in pairs(technique_values) do
                 if type(ex[k]) == 'number' and type(card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 2 end
@@ -276,7 +277,8 @@ end
 -- Returns true if the card matches the type and position and its technique level is below the max
 can_upgrade_tech_level = function(card, type, position)
     local max_lvl = G.GAME.max_tech_level
-    if G.GAME.modifiers.can_cap_plus then max_lvl = 9999 end
+    if G.GAME.modifiers.can_cap_plus and not Pokerleven.is_spirit(card) then max_lvl = 9999 end
+    if Pokerleven.is_spirit(card) then max_lvl = 5 end
 
     if type and position then
         return is_type(card, type) and is_position(card, position) and

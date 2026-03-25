@@ -316,7 +316,7 @@ local tech_spirit1_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 0, y = 4 },
+  pos = { x = 1, y = 4 },
   hide_badge = false
 }
 
@@ -326,7 +326,7 @@ local tech_spirit2_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 1, y = 4 },
+  pos = { x = 2, y = 4 },
   hide_badge = false
 }
 
@@ -336,7 +336,7 @@ local tech_spirit3_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 2, y = 4 },
+  pos = { x = 3, y = 4 },
   hide_badge = false
 }
 
@@ -346,7 +346,7 @@ local tech_spirit4_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 3, y = 4 },
+  pos = { x = 4, y = 4 },
   hide_badge = false
 }
 
@@ -356,7 +356,7 @@ local tech_spirit5_sticker = {
   badge_colour = HEX("5A00FF"),
   rate = 0.0,
   atlas = "stickers",
-  pos = { x = 4, y = 4 },
+  pos = { x = 5, y = 4 },
   hide_badge = false
 }
 

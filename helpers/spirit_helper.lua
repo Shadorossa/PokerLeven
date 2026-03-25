@@ -49,7 +49,8 @@ Pokerleven.manage_spirit_charges = function(card, ctx)
             if diff < 0 then
                 ex.charges_spent = (ex.charges_spent or 0) + math.abs(diff)
                 local req = math.max(1, math.ceil(ex.max_charges * 0.25 * math.max(1, ex.tech_level or 0)))
-                if ex.charges_spent >= req and (ex.tech_level or 0) < 5 then
+                local max_spirit_lvl = 5
+                if ex.charges_spent >= req and (ex.tech_level or 0) < max_spirit_lvl then
                     ex.charges_spent = 0; increment_technique(card)
                     card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize("ina_evolve_level"), colour = G.C.PURPLE})
                 end
