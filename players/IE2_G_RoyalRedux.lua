@@ -18,10 +18,11 @@ local KingR = J({
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then Pokerleven.ease_barriers(ex.barriers)
     elseif Pokerleven.is_joker_turn(ctx) then
-        local c = ex.chip_mod * (G.GAME and G.GAME.round_resets and G.GAME.round_resets.hands or 1)
+        local hands = (G.GAME and G.GAME.round_resets and G.GAME.round_resets.hands) or 1
+        local c = ex.chip_mod * hands
         return {message = localize{type='variable',key='a_chips',vars={c}}, chip_mod = c, colour = G.C.CHIPS}
     elseif Pokerleven.is_joker_end_of_round(ctx) and not ctx.blueprint then
-        ex.blind_count = (ex.blind_count or 0) + 1
+        ex.blind_count = ex.blind_count + 1
         if ex.blind_count >= ex.trigger_at then
             ex.blind_count = 0; G.GAME.round_resets.hands = math.max(1, G.GAME.round_resets.hands - ex.hands_lost)
             return {message = localize{type='variable',key='a_handsize_minus',vars={ex.hands_lost}}, colour = G.C.RED}
@@ -261,12 +262,14 @@ local CalebR = J({
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
-        local des, ba = false, Pokerleven.ina_bench_area
-        local des, ba, delay_amt = false, Pokerleven.ina_bench_area, 0
-        for i = ba and ba.cards and #ba.cards or 0, 1, -1 do local b = ba.cards[i]
+        local ba = Pokerleven.ina_bench_area
+        local des, delay_amt = false, 0
+        local card_count = ba and ba.cards and #ba.cards or 0
+        for i = card_count, 1, -1 do local b = ba.cards[i]
             if is_team(b, "ina_team_RoyalAcademy") or is_team(b, "ina_team_RoyalRedux") then
-                ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true; b:start_dissolve({G.C.RED}, nil, 1.6)
-                ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true
+                ex.current_xmult = ex.current_xmult + ex.xmult_gain
+                des = true
+                b:start_dissolve({G.C.RED}, nil, 1.6)
                 G.E_MANAGER:add_event(Event({ trigger = 'after', delay = delay_amt, func = function() b:start_dissolve({G.C.RED}, nil, 1.6); return true end }))
                 delay_amt = delay_amt + 0.15
             end
@@ -275,12 +278,20 @@ local CalebR = J({
     elseif Pokerleven.is_joker_end_of_round(ctx) and not ctx.blueprint then
         local k, s
         if G.jokers and G.jokers.cards then
-            for _, v in ipairs(G.jokers.cards) do if v.config.center_key == 'j_ina_King' then k = v elseif v.config.center_key == 'j_ina_Samford' then s = v end end
+            for _, v in ipairs(G.jokers.cards) do
+                if v.config.center_key == 'j_ina_King' then k = v
+                elseif v.config.center_key == 'j_ina_Samford' then s = v end
+            end
         end
         if k or s then
-            ex.redux_turns = (ex.redux_turns or 0) + 1
-            if ex.redux_turns >= ex.turns_needed then ex.redux_turns = 0; if k then ina_evolve(k, 'j_ina_KingR') end; if s then ina_evolve(s, 'j_ina_SamfordR') end
-            else return {message = ex.redux_turns .. "/" .. ex.turns_needed, colour = G.C.DARK_EDITION} end
+            ex.redux_turns = ex.redux_turns + 1
+            if ex.redux_turns >= ex.turns_needed then
+                ex.redux_turns = 0
+                if k then ina_evolve(k, 'j_ina_KingR') end
+                if s then ina_evolve(s, 'j_ina_SamfordR') end
+            else
+                return {message = ex.redux_turns .. "/" .. ex.turns_needed, colour = G.C.DARK_EDITION}
+            end
         else ex.redux_turns = 0 end
     elseif Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then return {message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}, Xmult_mod = ex.current_xmult} end
   end

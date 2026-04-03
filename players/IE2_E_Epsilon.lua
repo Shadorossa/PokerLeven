@@ -191,18 +191,22 @@ local Fedora = J({
                 if c.fedora_void_timer then
                     c.fedora_void_timer = c.fedora_void_timer - 1
                     if c.fedora_void_timer <= 0 then
-                        c.fedora_void_timer = nil; c.area:remove_card(c); G.deck:emplace(c)
+                        c.fedora_void_timer = nil
+                        c.area:remove_card(c)
+                        G.deck:emplace(c)
                     end
                 end
             end
         end
     elseif ctx.discard and not ctx.blueprint then
-        ex.discarded_this_blind = (ex.discarded_this_blind or 0) + 1
+        ex.discarded_this_blind = ex.discarded_this_blind + 1
         ctx.other_card.fedora_void_timer = 2
     elseif ctx.individual and ctx.cardarea == G.play then
         if ctx.other_card and ctx.other_card.config.center.key == 'm_ina_chaotic' then
             local base_card = ctx.blueprint and (get_joker_with_key('j_ina_Fedora') or card) or card
-            local m = (base_card.ability.extra.mult_per_discard or 10) * (base_card.ability.extra.discarded_this_blind or 0)
+            local mult_per_discard = base_card.ability.extra.mult_per_discard or 10
+            local discarded = base_card.ability.extra.discarded_this_blind or 0
+            local m = mult_per_discard * discarded
             if m > 0 then return { mult = m, card = card } end
         end
     end
@@ -212,16 +216,33 @@ local Fedora = J({
           if not Pokerleven.is_state_changed(card, {G.discard, G.fedora_void}) then return end
           for i = #G.discard.cards, 1, -1 do
               local c = G.discard.cards[i]
-              if c.fedora_void_timer then c.area:remove_card(c); if G.fedora_void then G.fedora_void:emplace(c) end; c:juice_up() end
+              if c.fedora_void_timer then
+                  c.area:remove_card(c)
+                  if G.fedora_void then G.fedora_void:emplace(c) end
+                  c:juice_up()
+              end
           end
       end
   end,
   remove_from_deck = function(self, card, from_debuff)
-      if G.jokers and not G.jokers.cards then return end
       if not from_debuff then
-          local h = false
-          if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do if v ~= card and v.config.center_key == 'j_ina_Fedora' then h = true; break end end end
-          if not h and G.fedora_void and G.fedora_void.cards then for i = #G.fedora_void.cards, 1, -1 do local c = G.fedora_void.cards[i]; c.fedora_void_timer = nil; c.area:remove_card(c); G.deck:emplace(c) end end
+          local has_other_fedora = false
+          if G.jokers and G.jokers.cards then
+              for _, v in ipairs(G.jokers.cards) do
+                  if v ~= card and v.config.center_key == 'j_ina_Fedora' then
+                      has_other_fedora = true
+                      break
+                  end
+              end
+          end
+          if not has_other_fedora and G.fedora_void and G.fedora_void.cards then
+              for i = #G.fedora_void.cards, 1, -1 do
+                  local c = G.fedora_void.cards[i]
+                  c.fedora_void_timer = nil
+                  c.area:remove_card(c)
+                  G.deck:emplace(c)
+              end
+          end
       end
   end
 })
@@ -329,24 +350,33 @@ local Metron = J({
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.before and not ctx.blueprint then
-        local lowest_id, lowest_val, required_met = 15, nil, false
+        local lowest_id, lowest_val = 15, nil
+        local required_met = false
         for _, c in ipairs(ctx.full_hand) do
             local id = c:get_id()
-            if id < lowest_id then lowest_id, lowest_val = id, c.base.value end
-            if ex.required_id and id == ex.required_id then required_met = true end
+            if id < lowest_id then
+                lowest_id, lowest_val = id, c.base.value
+            end
+            if ex.required_id and id == ex.required_id then
+                required_met = true
+            end
         end
-        
+
         if not ex.required_id or required_met then
-            ex.current_exp, ex.required_id, ex.required_val = ex.current_exp + ex.exp_gain, lowest_id, lowest_val
+            ex.current_exp = ex.current_exp + ex.exp_gain
+            ex.required_id = lowest_id
+            ex.required_val = lowest_val
             return {message = localize('k_upgrade_ex'), colour = G.C.CHIPS}
         else
-            ex.current_exp, ex.required_id, ex.required_val = 1, lowest_id, lowest_val
+            ex.current_exp = 1
+            ex.required_id = lowest_id
+            ex.required_val = lowest_val
             return {message = localize('k_reset'), colour = G.C.RED}
         end
     elseif Pokerleven.is_joker_turn(ctx) and ex.current_exp > 1 then
         local current_chips = G.GAME.current_round.current_hand.chips or 1
-        local diff = math.floor((current_chips ^ ex.current_exp) - current_chips)
-        return {message = "^" .. string.format("%.3f", ex.current_exp), chip_mod = diff, colour = G.C.CHIPS}
+        local chip_diff = math.floor((current_chips ^ ex.current_exp) - current_chips)
+        return {message = "^" .. string.format("%.3f", ex.current_exp), chip_mod = chip_diff, colour = G.C.CHIPS}
     end
   end
 })

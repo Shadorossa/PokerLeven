@@ -1,7 +1,7 @@
 -- Nathan
 local Nathan_IJ = J({
   name = "Nathan_IJ",
-  pos = { x = 1, y = 0 },
+  pos = { x = 1, y = 0 }, -- Keep y=0
   config = { extra = { xmult = 1.3, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local count = #find_player_team("ina_team_Raimon") + #find_player_team("ina_team_InazumaJapon")
@@ -39,7 +39,7 @@ local Nathan_IJ = J({
 -- Jack_IJ
 local Jack_IJ = J({
   name = "Jack_IJ",
-  pos = { x = 2, y = 0 },
+  pos = { x = 2, y = 0 }, -- Keep y=0
   config = { extra = { chips_mod = 10, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod } }
@@ -75,7 +75,7 @@ local Jack_IJ = J({
 -- Tod_IJ
 local Tod_IJ = J({
   name = "Tod_IJ",
-  pos = { x = 4, y = 0 },
+  pos = { x = 4, y = 0 }, -- Keep y=0
   config = { extra = { chip_mod = 20 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chip_mod } }
@@ -120,7 +120,7 @@ local Tod_IJ = J({
 -- Caleb_IJ
 local Caleb_IJ = J({
   name = "Caleb_IJ",
-  pos = { x = 7, y = 0 },
+  pos = { x = 7, y = 0 }, -- Keep y=0
   config = { extra = { current_xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -177,7 +177,7 @@ local Caleb_IJ = J({
 -- Jude_IJ
 local Jude_IJ = J({
   name = "Jude_IJ",
-  pos = { x = 8, y = 0 },
+  pos = { x = 8, y = 0 }, -- Keep y=0
   soul_pos = { x = 8, y = 1 },
   config = {
     extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
@@ -227,7 +227,7 @@ local Jude_IJ = J({
 -- Axel Blaze_IJ
 local Axel_IJ = J({
   name = "Axel_IJ",
-  pos = { x = 9, y = 0 },
+  pos = { x = 9, y = 0 }, -- Keep y=0
   soul_pos = { x = 9, y = 1 },
   config = { extra = { copies_number = 2, xmult = 3 } },
   loc_vars = function(self, info_queue, center)
@@ -276,7 +276,7 @@ local Axel_IJ = J({
 -- Samford_IJ
 local Samford_IJ = J({
   name = "Samford_IJ",
-  pos = { x = 0, y = 1 },
+  pos = { x = 0, y = 1 }, -- Keep y=0
   config = { extra = { xmult_mod = 3, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.xmult_mod } }
@@ -307,7 +307,7 @@ local Samford_IJ = J({
 -- Kevin_IJ
 local Kevin_IJ = J({
   name = "Kevin_IJ",
-  pos = { x = 1, y = 1 },
+  pos = { x = 1, y = 1 }, -- Keep y=0
   config = { extra = { retriggers = 1, cooldown_base = 6, current_cooldown = 6 } },
   loc_vars = function(self, info_queue, card)
     return {

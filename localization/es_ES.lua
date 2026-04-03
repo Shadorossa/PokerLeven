@@ -1157,7 +1157,7 @@ return {
                 },
             },
 
-                        -- Servicio Secreto
+            -- Servicio Secreto
             j_ina_ironwall = {
                 name = "Ironwall",
                 text = {
@@ -1559,7 +1559,8 @@ return {
                 name = "Nathan Swift",
                 text = {
                     "{C:wind}Entrada Huracán{}",
-                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} / {X:ina_team_inazumajapon,C:white}Inazuma Japón{}", "otorga {X:mult,C:white}X#2#{}"
+                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} / {X:ina_team_inazumajapon,C:white}Inazuma Japón{}",
+                    "otorga {X:mult,C:white}X#2#{}"
                 }
             },
             j_ina_Jack_IJ = {
@@ -1631,7 +1632,36 @@ return {
                 }
             },
 
-            
+            -- Ogre
+            j_ina_Malice = {
+                name = "Escavan Malice",
+                text = {
+                    "{C:fire}Diluvio Letal{}",
+                    "Las cartas {C:dark_edition}Letales{} tienen una",
+                    "probabilidad de {C:green}#1# en #2#{} de",
+                    "dar {X:dark_edition,C:white}^#3#{} mult. en vez de {X:dark_edition,C:white}^#4#{}",
+                }
+            },
+            j_ina_Bash = {
+                name = "Bash Lancer",
+                text = {
+                    "{C:forest}Lanza Destructiva{}",
+                    "{C:attention}#1# en #2#{} de probabilidad:",
+                    "Convierte una carta a {C:dark_edition}Letal{}",
+                    "y destruye otra. Si {C:attention}todas{} son",
+                    "{C:dark_edition}Letales{}, retrigger éstas."
+                }
+            },
+            j_ina_Callous = {
+                name = "Mystral Callous",
+                text = {
+                    "{C:mountain}Lanza Letal{}",
+                    "Gana {X:mult,C:white}X#1#{} Wde mult. por cada",
+                    "carta {C:dark_edition}Letal{} en tu mazo.",
+                    "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive} Mult){}"
+                }
+            },
+
 
             -- Ares - Zeus
             j_ina_Perseus = {
@@ -1934,37 +1964,37 @@ return {
             },
 
             j_ina_Heart = {
-            name = "Corazón",
-            text = {
-                "{C:fire}Marca de Fuego{}",
+                name = "Corazón",
+                text = {
+                    "{C:fire}Marca de Fuego{}",
                     "Tus cartas de {C:hearts}Corazones{} cuentan",
                     "como cartas de {X:fire,C:white}Fuego{}"
-            }
-        },
-        j_ina_Clover = {
-            name = "Trébol",
-            text = {
-                "{C:forest}Marca de Bosque{}",
+                }
+            },
+            j_ina_Clover = {
+                name = "Trébol",
+                text = {
+                    "{C:forest}Marca de Bosque{}",
                     "Tus cartas de {C:clubs}Tréboles{} cuentan",
                     "como cartas de {X:forest,C:white}Bosque{}"
-            }
-        },
-        j_ina_Diamond = {
-            name = "Diamante",
-            text = {
-                "{C:mountain}Marca de Montaña{}",
+                }
+            },
+            j_ina_Diamond = {
+                name = "Diamante",
+                text = {
+                    "{C:mountain}Marca de Montaña{}",
                     "Tus cartas de {C:diamonds}Diamantes{} cuentan",
                     "como cartas de {X:mountain,C:white}Montaña{}"
-            }
-        },
-        j_ina_Spade = {
-            name = "Pica",
-            text = {
-                "{C:wind}Marca de Viento{}",
+                }
+            },
+            j_ina_Spade = {
+                name = "Pica",
+                text = {
+                    "{C:wind}Marca de Viento{}",
                     "Tus cartas de {C:spades}Picas{} cuentan",
                     "como cartas de {X:wind,C:white}Viento{}"
-            }
-        },
+                }
+            },
 
             -- GANADORES DE TORNEO
             j_ina_Turi = {
@@ -2634,8 +2664,8 @@ return {
             ina_fuego_total = "¡Fuego Total!",
             ina_crush = "¡Aplastado!",
             ina_protocol = "¡Protocolo!",
-            ina_caos="Caos",
-            ina_normal="Normal",
+            ina_caos = "Caos",
+            ina_normal = "Normal",
             ina_destructores_protect = "¡Protección!",
 
             -- Rarities
@@ -2751,7 +2781,8 @@ return {
             ["ina_team_EiseiGakuen"] = "Eisei Gakuen",
             ["ina_team_InakuniRaimon"] = "Inakuni Raimon",
             ["ina_team_Scout"] = "Ojeadores",
-                ["ina_team_InazumaJapon"] = "Inazuma Japón",
+            ["ina_team_InazumaJapon"] = "Inazuma Japón",
+            ["ina_team_Ogre"] = "Academia Ogro",
         },
         quips = {},
         ranks = {},
