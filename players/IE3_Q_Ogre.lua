@@ -1,3 +1,33 @@
+local old_use = Card.use_consumeable
+local mangual_letal = function(self, area, copier)
+  if self.ability.name == 'Ectoplasm' and not G.RESET_JIGGLES then
+    local b, m, c = find_joker('Bash'), find_joker('Malice'), find_joker('Callous')
+    if #b > 0 and #m > 0 and #c > 0 then
+      local pool = {}; for _, v in ipairs(G.jokers.cards) do
+        if v.ability.set == 'Joker' and not v.edition then
+          pool[#pool + 1] =
+              v
+        end
+      end
+      if #pool > 0 then
+        local target = pseudorandom_element(pool, pseudoseed('ectoplasm'))
+        local name, p_ed = target.ability.name, { e_ina_lethal = true, key = 'e_ina_lethal' }
+        if name == 'Bash' or name == 'Malice' or name == 'Callous' then
+          for _, j in ipairs({ b[1], m[1], c[1] }) do
+            j.edition = nil; j:set_edition(p_ed, true)
+          end
+          G.GAME.ecto_minus = (G.GAME.ecto_minus or 1); G.hand:change_size(-G.GAME.ecto_minus)
+          G.GAME.ecto_minus = G.GAME.ecto_minus + 1
+          if not copier then set_consumeable_usage(self) end
+          card_eval_status_text(target, 'extra', nil, nil, nil, { message = "Mangual Letal!", colour = G.C.DARK_EDITION })
+          self:start_dissolve(); return
+        end
+      end
+    end
+  end
+  return old_use(self, area, copier)
+end
+
 local Lars = J({
   name = "Lars",
   pos = { x = 0, y = 20 },
@@ -165,6 +195,8 @@ local Bash = J({
   pposition = C.FW,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
+  add_to_deck = function(self, card, from_debuff) Card.use_consumeable = mangual_letal end,
+  remove_from_deck = function(self, card, from_debuff) Card.use_consumeable = old_use end,
   calculate = function(self, card, ctx)
     local ex, count = card.ability.extra, 0
     if G.playing_cards then
