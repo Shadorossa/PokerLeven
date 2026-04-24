@@ -222,10 +222,12 @@ local Gaiel = J({
     if not G.GAME or not G.jokers or card.area ~= G.jokers then return end
 
     if context.after and not context.blueprint then
-      local next_sb_target = get_blind_amount(G.GAME.ante) * 1.0
-      local current_total = G.GAME.chips + context.hand_chips
+      local ante = (G.GAME and G.GAME.ante) or 1
+      local next_sb_target = (get_blind_amount(ante) or 0) * 1.0
+      local current_total = (G.GAME.chips or 0) + (context.hand_chips or 0)
+      local blind_chips = (G.GAME.blind and G.GAME.blind.chips) or 0
       
-      if current_total >= G.GAME.blind.chips + next_sb_target and not G.GAME.ina_sael_active then
+      if current_total >= blind_chips + next_sb_target and not G.GAME.ina_sael_active then
         G.GAME.ina_sael_active = true
         G.E_MANAGER:add_event(Event({
           func = function()

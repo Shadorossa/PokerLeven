@@ -23,7 +23,7 @@ local Astaroth = J({
       card.ability.extra.current_extra = card.ability.extra.extra_hands
     end
 
-    if context.joker_main and G.GAME.current_round.hands_left == 0 then
+    if context.joker_main and (G.GAME and G.GAME.current_round and G.GAME.current_round.hands_left or 0) == 0 then
       if card.ability.extra.current_extra > 0 then
         card.ability.extra.current_extra = card.ability.extra.current_extra - 1
         if not context.blueprint then

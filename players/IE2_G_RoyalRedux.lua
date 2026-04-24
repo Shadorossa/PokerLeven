@@ -349,7 +349,8 @@ local SamfordR = J({
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
-        Pokerleven.consume_all_for_stat(card, G.GAME.current_round.discards_left, function(a) ease_discard(-a, nil, true) end, 'current_xmult', ex.xmult_mod, 1, 'a_xmult', G.C.MULT)
+        local dl = (G.GAME and G.GAME.current_round and G.GAME.current_round.discards_left) or 0
+        Pokerleven.consume_all_for_stat(card, dl, function(a) ease_discard(-a, nil, true) end, 'current_xmult', ex.xmult_mod, 1, 'a_xmult', G.C.MULT)
     elseif Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
         return {message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}, Xmult_mod = ex.current_xmult}
     end
