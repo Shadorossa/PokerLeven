@@ -21,6 +21,30 @@ C.MF = C.ALL_POSITIONS[2]
 C.DF = C.ALL_POSITIONS[3]
 C.GK = C.ALL_POSITIONS[4]
 
+-- Genders
+C.ALL_GENDERS = { "M", "F" }
+C.M = C.ALL_GENDERS[1]
+C.F = C.ALL_GENDERS[2]
+
+-- Nationalities
+C.ALL_NATIONS = { "Italy", "Spain", "France", "Japan", "Korea", "Australia", "USA", "Brazil", "Russia", "Argentina", "Germany", "England", "Uzbekistan" }
+C.ITALY = C.ALL_NATIONS[1]
+C.SPAIN = C.ALL_NATIONS[2]
+C.FRANCE = C.ALL_NATIONS[3]
+C.JAPAN = C.ALL_NATIONS[4]
+C.KOREA = C.ALL_NATIONS[5]
+C.AUSTRALIA = C.ALL_NATIONS[6]
+C.USA = C.ALL_NATIONS[7]
+C.BRAZIL = C.ALL_NATIONS[8]
+C.RUSSIA = C.ALL_NATIONS[9]
+C.ARGENTINA = C.ALL_NATIONS[10]
+C.GERMANY = C.ALL_NATIONS[11]
+C.ENGLAND = C.ALL_NATIONS[12]
+C.UZBEKISTAN = C.ALL_NATIONS[13]
+
+-- Captain
+C.CAPTAIN = true
+
 -- Dictionary
 C.TRAINING = "Training"
 C.STRAT = "Strat"
@@ -28,6 +52,12 @@ C.INA_UPGRADE_TECHNIQUE_KEY = "c_ina_upgrade_technique_"
 
 -- Overridable
 C.MAX_HIGHLIGHTED_MAGICIAN = 2
+
+-- School Years
+C.YEARS = { "1st year", "2nd year", "3rd year" }
+C.YEAR_1 = C.YEARS[1]
+C.YEAR_2 = C.YEARS[2]
+C.YEAR_3 = C.YEARS[3]
 
 -- Upgrades
 C.UPGRADES = { "plus", "number", "grade", "spirit" }
@@ -43,17 +73,17 @@ C.UPGRADES.NumberType.Z = "ina_tech_numberz_sticker"
 --- For specific jokers
 C.CUSTOM = {}
 C.CUSTOM.Bobby_Teams = {
-    ["ina_team_Raimon"]         = { x = 0, y = 0 },
+    ["ina_team_Raimon"]        = { x = 0, y = 0 },
     ["ina_team_RoyalAcademy"]  = { x = 1, y = 0 },
-    ["ina_team_Occult"]         = { x = 5, y = 0 },
-    ["ina_team_Wild"]           = { x = 6, y = 0 },
-    ["ina_team_Brain"]          = { x = 7, y = 0 },
-    ["ina_team_Otaku"]          = { x = 8, y = 0 },
+    ["ina_team_Occult"]        = { x = 5, y = 0 },
+    ["ina_team_Wild"]          = { x = 6, y = 0 },
+    ["ina_team_Brain"]         = { x = 7, y = 0 },
+    ["ina_team_Otaku"]         = { x = 8, y = 0 },
     ["ina_team_InazumaEleven"] = { x = 9, y = 0 },
-    ["ina_team_Shuriken"]       = { x = 10, y = 0 },
-    ["ina_team_Farm"]           = { x = 11, y = 0 },
-    ["ina_team_Kirkwood"]       = { x = 12, y = 0 },
-    ["ina_team_Zeus"]           = { x = 0, y = 1 }
+    ["ina_team_Shuriken"]      = { x = 10, y = 0 },
+    ["ina_team_Farm"]          = { x = 11, y = 0 },
+    ["ina_team_Kirkwood"]      = { x = 12, y = 0 },
+    ["ina_team_Zeus"]          = { x = 0, y = 1 }
 }
 
 local team_number = 0

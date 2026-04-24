@@ -1,106 +1,251 @@
 local Astaroth = J({
   name = "Astaroth",
-  pos = { x = 0, y = 18 },
+  pos = { x = 3, y = 17 },
+  config = { extra = { extra_hands = 1, played_count = 0, current_extra = 1, threshold = 10 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.extra_hands, center.ability.extra.played_count, center.ability.extra.current_extra, center.ability.extra.threshold } }
+  end,
+  rarity = 3,
+  pools = { ["Dark Team"] = true },
+  cost = 8,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_DarkTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if not G.GAME or not G.jokers or card.area ~= G.jokers then return end
+    
+    if context.setting_blind and not self.getting_sliced and not context.blueprint then
+      card.ability.extra.current_extra = card.ability.extra.extra_hands
+    end
+
+    if context.joker_main and G.GAME.current_round.hands_left == 0 then
+      if card.ability.extra.current_extra > 0 then
+        card.ability.extra.current_extra = card.ability.extra.current_extra - 1
+        if not context.blueprint then
+          card.ability.extra.played_count = card.ability.extra.played_count + 1
+          if card.ability.extra.played_count >= card.ability.extra.threshold then
+            card.ability.extra.played_count = 0
+            card.ability.extra.extra_hands = card.ability.extra.extra_hands + 1
+          end
+        end
+        G.E_MANAGER:add_event(Event({
+          func = function()
+            G.GAME.current_round.hands_left = G.GAME.current_round.hands_left + 1
+            return true
+          end
+        }))
+        return {
+          message = localize('ina_oblivion'),
+          colour = G.C.BLACK
+        }
+      end
+    end
+  end
+})
+
+local Rubu = J({
+  name = "Rubú",
+  pos = { x = 4, y = 17 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Dark Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Fire",
-  pposition = "GK",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Belial = J({
-  name = "Belial",
-  pos = { x = 1, y = 18 },
+local Agor = J({
+  name = "Agor",
+  pos = { x = 5, y = 17 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Dark Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gusion = J({
-  name = "Gusion",
-  pos = { x = 2, y = 18 },
+local Hebimos = J({
+  name = "Hebimos",
+  pos = { x = 6, y = 17 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Dark Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Mountain",
-  pposition = "DF",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Magarushia = J({
-  name = "Magarushia",
-  pos = { x = 3, y = 18 },
+local Belal = J({
+  name = "Belal",
+  pos = { x = 7, y = 17 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Dark Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "DF",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Barubatosu = J({
-  name = "Barubatosu",
-  pos = { x = 4, y = 18 },
+local Malphas = J({
+  name = "Malphas",
+  pos = { x = 8, y = 17 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Dark Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Fire",
-  pposition = "MF",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Eligor = J({
-  name = "Eligor",
-  pos = { x = 5, y = 18 },
+local Gorja = J({
+  name = "Gorja",
+  pos = { x = 9, y = 17 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Dark Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Fire",
-  pposition = "MF",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_DarkTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Arakune = J({
+  name = "Arakuné",
+  pos = { x = 10, y = 17 },
+  config = { extra = { odds = 3 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.odds, G.GAME.probabilities.normal or 1 } }
+  end,
+  rarity = 1,
+  pools = { ["Dark Team"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_DarkTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if not G.jokers or card.area ~= G.jokers then return end
+
+    if context.discard and not context.blueprint then
+      if pseudorandom('arakune') < G.GAME.probabilities.normal / card.ability.extra.odds then
+        if Pokerleven.spawn_consumable('Tarot', 'c_hanged_man') then
+          return {
+            message = localize('k_plus_tarot'),
+            colour = G.C.SECONDARY_SET.Tarot,
+            card = card
+          }
+        end
+      end
+    end
+  end
+})
+
+local Borba = J({
+  name = "Borba",
+  pos = { x = 11, y = 17 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Dark Team"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_DarkTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Zanos = J({
+  name = "Zanos",
+  pos = { x = 12, y = 17 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Dark Team"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -108,89 +253,22 @@ local Eligor = J({
 
 local Destra = J({
   name = "Destra",
-  pos = { x = 6, y = 18 },
+  pos = { x = 3, y = 2 },
+  soul_pos = { x = 3, y = 3 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 2,
   pools = { ["Dark Team"] = true },
-  cost = 7,
-  atlas = "Jokers03",
-  ptype = "Forest",
-  pposition = "FW",
-  pteam = "ina_team_DarkTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Beruze = J({
-  name = "Beruze",
-  pos = { x = 7, y = 18 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Dark Team"] = true },
   cost = 5,
-  atlas = "Jokers03",
-  ptype = "Fire",
-  pposition = "MF",
-  pteam = "ina_team_DarkTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Mephisto = J({
-  name = "Mephisto",
-  pos = { x = 8, y = 18 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Dark Team"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = "Forest",
-  pposition = "FW",
-  pteam = "ina_team_DarkTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Baphomet = J({
-  name = "Baphomet",
-  pos = { x = 9, y = 18 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Dark Team"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "FW",
-  pteam = "ina_team_DarkTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Belphegor = J({
-  name = "Belphegor",
-  pos = { x = 10, y = 18 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Dark Team"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = "Forest",
-  pposition = "MF",
+  atlas = "ina_top",
+  ptype = C.Mountain,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -198,5 +276,5 @@ local Belphegor = J({
 
 return {
   name = "Dark Team",
-  list = {}
+  list = { Astaroth, Arakune }
 }

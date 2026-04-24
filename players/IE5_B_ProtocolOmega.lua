@@ -1,341 +1,341 @@
-local Darren = J({
-  name = "Darren LaChance",
+local Hotel = J({
+  name = "Hotel",
+  pos = { x = 0, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Protocol Omega"] = true },
+  cost = 5,
+  atlas = "Jokers05",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Oscar = J({
+  name = "Oscar",
+  pos = { x = 1, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Protocol Omega"] = true },
+  cost = 5,
+  atlas = "Jokers05",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Eco = J({
+  name = "Eco",
+  pos = { x = 2, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Protocol Omega"] = true },
+  cost = 5,
+  atlas = "Jokers05",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Golf = J({
+  name = "Golf",
   pos = { x = 3, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Forest,
-  pposition = C.GK,
+  atlas = "Jokers05",
+  ptype = C.Wind,
+  pposition = C.DF,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_1,
-  pcaptain = C.CAPTAIN,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Fake = J({
-  name = "Drancis Fake",
+local Charlie = J({
+  name = "Charlie",
+  pos = { x = 4, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Protocol Omega"] = true },
+  cost = 5,
+  atlas = "Jokers05",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Lima = J({
+  name = "Lima",
+  pos = { x = 5, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Protocol Omega"] = true },
+  cost = 5,
+  atlas = "Jokers05",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Bravo = J({
+  name = "Bravo",
   pos = { x = 6, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.DF,
+  atlas = "Jokers05",
+  ptype = C.Mountain,
+  pposition = C.MF,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Mishap = J({
-  name = "Mick Mishap",
+local India = J({
+  name = "India",
   pos = { x = 7, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Forest,
-  pposition = C.DF,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  atlas = "Jokers05",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Leave = J({
-  name = "Louis Leave",
+local Julieta = J({
+  name = "Julieta",
   pos = { x = 8, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Fire,
-  pposition = C.DF,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  atlas = "Jokers05",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Badgame = J({
-  name = "Maurice Badgame",
+local Alfa = J({
+  name = "Alfa",
   pos = { x = 9, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
-  rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  rarity = 2,
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Mountain,
-  pposition = C.DF,
+  atlas = "Jokers05",
+  ptype = C.Fire,
+  pposition = C.FW,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pcaptain = C.CAPTAIN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Random = J({
-  name = "Cannon Random",
+local Mike = J({
+  name = "Mike",
   pos = { x = 10, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Fire,
-  pposition = C.MF,
+  atlas = "Jokers05",
+  ptype = C.Forest,
+  pposition = C.FW,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Richmen = J({
-  name = "Ulric Richmen",
+local Uniform = J({
+  name = "Uniform",
   pos = { x = 11, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
+  atlas = "Jokers05",
   ptype = C.Forest,
-  pposition = C.MF,
+  pposition = C.GK,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Fate = J({
-  name = "Dave Fate",
+local Tango = J({
+  name = "Tango",
   pos = { x = 12, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Mountain,
-  pposition = C.FW,
+  atlas = "Jokers05",
+  ptype = C.Fire,
+  pposition = C.DF,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Duskplay = J({
-  name = "Spencer Duskplay",
+local Zulu = J({
+  name = "Zulu",
   pos = { x = 0, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Wind,
+  atlas = "Jokers05",
+  ptype = C.Mountain,
   pposition = C.MF,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Luckyman = J({
-  name = "Jonathan Luckyman",
+local XRay = J({
+  name = "X-Ray",
   pos = { x = 1, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
+  atlas = "Jokers05",
   ptype = C.Forest,
   pposition = C.FW,
   pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Poker = J({
-  name = "Joe Poker",
+local Delta = J({
+  name = "Delta",
   pos = { x = 2, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Fauxshore"] = true },
+  pools = { ["Protocol Omega"] = true },
   cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Fire,
-  pposition = C.FW,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Cracker = J({
-  name = "Wiley Cracker",
-  pos = { x = 3, y = 10 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Fauxshore"] = true },
-  cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Fire,
-  pposition = C.GK,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Failing = J({
-  name = "Mark Failing",
-  pos = { x = 4, y = 10 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Fauxshore"] = true },
-  cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Forest,
-  pposition = C.FW,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Cotts = J({
-  name = "Alton Cotts",
-  pos = { x = 5, y = 10 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Fauxshore"] = true },
-  cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Mountain,
-  pposition = C.MF,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Passing = J({
-  name = "Mike Passing",
-  pos = { x = 6, y = 10 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Fauxshore"] = true },
-  cost = 5,
-  atlas = "Jokers02",
+  atlas = "Jokers05",
   ptype = C.Wind,
   pposition = C.FW,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Bathers = J({
-  name = "Knowle Bathers",
-  pos = { x = 7, y = 10 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Fauxshore"] = true },
-  cost = 5,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.GK,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pteam = "ina_team_Fauxshore",
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.UNKNOWN,
+  pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
 return {
-  name = "Fauxshore",
+  name = "Protocol Omega",
   list = {}
 }

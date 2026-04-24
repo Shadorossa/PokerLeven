@@ -28,8 +28,8 @@ local mangual_letal = function(self, area, copier)
   return old_use(self, area, copier)
 end
 
-local Lars = J({
-  name = "Lars",
+local Luceafar = J({
+  name = "Luceafar",
   pos = { x = 0, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -41,6 +41,7 @@ local Lars = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.GK,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -57,6 +58,7 @@ local Bump = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -73,13 +75,14 @@ local Lump = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Radd = J({
-  name = "Radd",
+local Ischer = J({
+  name = "Ischer",
   pos = { x = 3, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
@@ -89,13 +92,14 @@ local Radd = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jynx = J({
-  name = "Jynx",
+local Jenkins = J({
+  name = "Jenkins",
   pos = { x = 4, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
@@ -105,29 +109,52 @@ local Jynx = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Oni = J({
-  name = "Oni",
+local Triumvir = J({
+  name = "Triumvir",
   pos = { x = 5, y = 20 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center) return { vars = {} } end,
-  rarity = 1,
+  config = { extra = { odds = 2 } },
+  loc_vars = function(self, info, center) return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } } end,
+  rarity = 2,
   pools = { ["Ogre"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    local other = ctx.other_card
+    if ctx.individual and ctx.cardarea == G.play and other.edition and other.edition.key == 'e_ina_lethal' and not other.debuff then
+      local pool = {}; for _, v in ipairs(G.jokers.cards) do
+        if v.config.extra.ptype and v.config.extra.pposition then
+          pool[#pool + 1] =
+              v.config.extra.ptype .. v.config.extra.pposition
+        end
+      end
+      local comb = (pseudorandom('triumvir_fit') < G.GAME.probabilities.normal / card.ability.extra.odds and #pool > 0) and
+          pseudorandom_element(pool, pseudoseed('triumvir_p')) or
+          pseudorandom_element(Pokerleven.get_all_type_pos_combinations(), pseudoseed('triumvir_r'))
+      if Pokerleven.spawn_consumable(C.TRAINING, comb) then
+        return {
+          message = localize('ina_technique_card'),
+          colour = G
+              .C.DARK_EDITION,
+          card = card
+        }
+      end
+    end
+  end
 })
 
-local Drachen = J({
-  name = "Drachen",
+local Gunther = J({
+  name = "Gunther",
   pos = { x = 6, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
@@ -137,13 +164,14 @@ local Drachen = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ichabod = J({
-  name = "Ichabod",
+local Stark = J({
+  name = "Stark",
   pos = { x = 7, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
@@ -153,6 +181,7 @@ local Ichabod = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -162,15 +191,16 @@ local Malice = J({
   name = "Malice",
   pos = { x = 8, y = 20 },
   config = { extra = { odds = 2, mult_low = 1.1, mult_high = 1.2 } },
-  loc_vars = function(self, info, center)
-    local ex = center.ability.extra; return { vars = { G.GAME.probabilities.normal, ex.odds, ex.mult_high, ex.mult_low } }
+  loc_vars = function(self, info_queue, center)
+    local ex = center.ability.extra; info_queue[#info_queue + 1] = { set = 'Other', key = 'Mangual_Letal' }; return { vars = { G.GAME.probabilities.normal, ex.odds, ex.mult_high, ex.mult_low } }
   end,
-  rarity = 1,
+  rarity = 3,
   pools = { ["Ogre"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.FW,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx)
@@ -186,13 +216,16 @@ local Bash = J({
   name = "Bash",
   pos = { x = 9, y = 20 },
   config = { extra = { odds = 4 } },
-  loc_vars = function(self, info, center) return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } } end,
-  rarity = 2,
+  loc_vars = function(self, info_queue, center)
+    info_queue[#info_queue + 1] = { set = 'Other', key = 'Mangual_Letal' }; return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
+  end,
+  rarity = 4,
   pools = { ["Ogre"] = true },
   cost = 7,
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   add_to_deck = function(self, card, from_debuff) Card.use_consumeable = mangual_letal end,
@@ -235,7 +268,7 @@ local Callous = J({
   name = "Callous",
   pos = { x = 10, y = 20 },
   config = { extra = { lethal_mult = 1 } },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     local count = 0; if G.playing_cards then
       for _, v in ipairs(G.playing_cards) do
         if v.edition and v.edition.key == 'e_ina_lethal' then
@@ -243,14 +276,16 @@ local Callous = J({
               count + 1
         end
       end
-    end; return { vars = { 1 + count * center.ability.extra.lethal_mult, center.ability.extra.lethal_mult } }
+    end; info_queue[#info_queue + 1] = { set = 'Other', key = 'Mangual_Letal' }
+    return { vars = { 1 + count * center.ability.extra.lethal_mult, center.ability.extra.lethal_mult } }
   end,
-  rarity = 1,
+  rarity = 3,
   pools = { ["Ogre"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.FW,
+  pgender = C.M,
   pteam = "ina_team_Ogre",
   blueprint_compat = true,
   calculate = function(self, card, ctx)
@@ -266,5 +301,5 @@ local Callous = J({
 })
 return {
   name = "Ogre",
-  list = { Lars, Bump, Lump, Radd, Jynx, Oni, Drachen, Ichabod, Malice, Bash, Callous }
+  list = { Triumvir, Malice, Bash, Callous }
 }

@@ -9,15 +9,17 @@ local Freddy = J({
   pools = { ["Knights of Queen"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Forest,
+  ptype = C.Fire,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Galen = J({
-  name = "Galen Mayhew",
+local Gascoigne = J({
+  name = "Jonny Gascoigne",
   pos = { x = 1, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -27,15 +29,17 @@ local Galen = J({
   pools = { ["Knights of Queen"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Lance = J({
-  name = "Lance Roof",
+local Buckingham = J({
+  name = "David Buckingham",
   pos = { x = 2, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -47,13 +51,15 @@ local Lance = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Edge = J({
-  name = "Edge Edwards",
+local Ralton = J({
+  name = "Lance Ralton",
   pos = { x = 3, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -63,15 +69,17 @@ local Edge = J({
   pools = { ["Knights of Queen"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Fire,
+  ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Peter = J({
-  name = "Peter Cole",
+local Ripper = J({
+  name = "Edge Ripper",
   pos = { x = 4, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -83,50 +91,16 @@ local Peter = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gary = J({
-  name = "Gary Linkless",
+local Coole = J({
+  name = "Peter Coole",
   pos = { x = 5, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Knights of Queen"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Mountain,
-  pposition = C.MF,
-  pteam = "ina_team_KnightsOfQueen",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Paul = J({
-  name = "Paul Appleton",
-  pos = { x = 6, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Knights of Queen"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Wind,
-  pposition = C.MF,
-  pteam = "ina_team_KnightsOfQueen",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Eric = J({
-  name = "Eric Huntley",
-  pos = { x = 7, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -137,13 +111,55 @@ local Eric = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Philip = J({
-  name = "Philip Owen",
+local Mane = J({
+  name = "Gary Mane",
+  pos = { x = 6, y = 5 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Knights of Queen"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
+  pteam = "ina_team_KnightsOfQueen",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Appleton = J({
+  name = "Paul Appleton",
+  pos = { x = 7, y = 5 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Knights of Queen"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
+  pteam = "ina_team_KnightsOfQueen",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Purpleton = J({
+  name = "Eric Purpleton",
   pos = { x = 8, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -153,14 +169,16 @@ local Philip = J({
   pools = { ["Knights of Queen"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Edgar = J({
+local Partinus = J({
   name = "Edgar Partinus",
   pos = { x = 9, y = 5 },
   config = { extra = {} },
@@ -173,13 +191,15 @@ local Edgar = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gareth = J({
-  name = "Gareth Barrett",
+local Arwen = J({
+  name = "Philip Arwen",
   pos = { x = 10, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -191,6 +211,108 @@ local Gareth = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.ENGLAND,
+  pteam = "ina_team_KnightsOfQueen",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Jeeves = J({
+  name = "Servilius Jeeves",
+  pos = { x = 11, y = 5 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Knights of Queen"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.ENGLAND,
+  pteam = "ina_team_KnightsOfQueen",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Squall = J({
+  name = "Martin Squall",
+  pos = { x = 12, y = 5 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Knights of Queen"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
+  pteam = "ina_team_KnightsOfQueen",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Woodgate = J({
+  name = "Nick Woodgate",
+  pos = { x = 13, y = 5 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Knights of Queen"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.ENGLAND,
+  pteam = "ina_team_KnightsOfQueen",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Richards = J({
+  name = "Mikey Richards",
+  pos = { x = 14, y = 5 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Knights of Queen"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
+  pteam = "ina_team_KnightsOfQueen",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Pounding = J({
+  name = "Sirius Pounding",
+  pos = { x = 15, y = 5 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Knights of Queen"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ENGLAND,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end

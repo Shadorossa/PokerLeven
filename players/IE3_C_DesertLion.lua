@@ -1,4 +1,4 @@
-local Nasir = J({
+local Mustafa = J({
   name = "Nasir Mustafa",
   pos = { x = 0, y = 2 },
   config = { extra = {} },
@@ -9,15 +9,18 @@ local Nasir = J({
   pools = { ["Desert Lion"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Mountain,
+  ptype = C.Fire,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Fal = J({
-  name = "Fal Fal",
+local Farooq = J({
+  name = "Faraz Farooq",
   pos = { x = 1, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -29,31 +32,37 @@ local Fal = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Musa = J({
-  name = "Musa Senan",
+local Kalil = J({
+  name = "Bilal Kalil",
   pos = { x = 2, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
   end,
-  rarity = 1,
+  rarity = "ina_top",
   pools = { ["Desert Lion"] = true },
-  cost = 5,
+  cost = 7,
   atlas = "Jokers03",
-  ptype = C.Mountain,
+  ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Yousuf = J({
-  name = "Yousuf Pirzada",
+local Wali = J({
+  name = "Jamila Wali",
   pos = { x = 3, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -63,52 +72,19 @@ local Yousuf = J({
   pools = { ["Desert Lion"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
-  pposition = C.DF,
-  pteam = "ina_team_DesertLion",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Bjorn = J({
-  name = "Bjorn Kyle",
-  pos = { x = 4, y = 2 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 2,
-  pools = { ["Desert Lion"] = true },
-  cost = 7,
-  atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Rajab = J({
-  name = "Rajab Ismail",
-  pos = { x = 5, y = 2 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Desert Lion"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.MF,
-  pteam = "ina_team_DesertLion",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local NasirA = J({
-  name = "Nasir Adwan",
-  pos = { x = 6, y = 2 },
+local Sylla = J({
+  name = "Musa Sylla",
+  pos = { x = 4, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -118,14 +94,59 @@ local NasirA = J({
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
-  pposition = C.MF,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Seif = J({
-  name = "Seif Ahmed",
+local Massoud = J({
+  name = "Yusuf Massoud",
+  pos = { x = 5, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Desert Lion"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_DesertLion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Sulaiman = J({
+  name = "Sulayk Sulaiman",
+  pos = { x = 6, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Desert Lion"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_DesertLion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Armand = J({
+  name = "Sayid Armand",
   pos = { x = 7, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -137,13 +158,16 @@ local Seif = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_3,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Majed = J({
-  name = "Majed Ghazzali",
+local Jasim = J({
+  name = "Mansur Jasim",
   pos = { x = 8, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -153,15 +177,18 @@ local Majed = J({
   pools = { ["Desert Lion"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.FW,
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Talal = J({
-  name = "Talal Hamad",
+local Abdulla = J({
+  name = "Zack Abdulla",
   pos = { x = 9, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -173,13 +200,16 @@ local Talal = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Hassan = J({
-  name = "Hassan Ahmed",
+local Majdi = J({
+  name = "Majdi Ismail",
   pos = { x = 10, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -189,8 +219,116 @@ local Hassan = J({
   pools = { ["Desert Lion"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_DesertLion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Hamad = J({
+  name = "Talal Hamad",
+  pos = { x = 11, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Desert Lion"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_DesertLion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Ahmed = J({
+  name = "Hasan Ahmed",
+  pos = { x = 12, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Desert Lion"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_DesertLion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Jibril = J({
+  name = "Khalfan Jibril",
+  pos = { x = 0, y = 3 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Desert Lion"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_DesertLion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Rajab = J({
+  name = "Rajab Ismail",
+  pos = { x = 1, y = 3 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Desert Lion"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_1,
+  pteam = "ina_team_DesertLion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Siddique = J({
+  name = "Adel Siddique",
+  pos = { x = 2, y = 3 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Desert Lion"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.QATAR,
+  pyear = C.YEAR_2,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end

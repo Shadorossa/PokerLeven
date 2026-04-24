@@ -1,416 +1,419 @@
 -- Dvalin
 local Dvalin = J({
-  name = "Dvalin",
-  pos = { x = 3, y = 0 },
-  soul_pos = { x = 3, y = 1 },
-  config = { extra = { pposition = "GK", pos_left = "GK", pos_right = "FW", chip_mod = 150, barriers_added = 1 } },
-  loc_vars = function(self, info_queue, center)
-      local ex = center.ability.extra
-      info_queue[#info_queue+1] = { set = "Other", key = "RolChange", vars = {ex.pos_left, ex.pos_right} }
-      return { vars = { ex.chip_mod, ex.barriers_added } }
-  end,
-  rarity = "ina_top", -- Destacado
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "top",
-  ptype = C.Fire,
-  pposition = C.GK,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-      local ex = card.ability.extra
-      if Pokerleven.is_joker_turn(ctx) then
-          Pokerleven.ease_barriers(ex.barriers_added); return {message = localize{type='variable',key='a_chips',vars={ex.chip_mod}}, chip_mod = ex.chip_mod, colour = G.C.CHIPS}
-      end
-  end,
-  update = function(self, card, dt)
-      if G.STAGE == G.STAGES.RUN and card.area == G.jokers then 
-          if not Pokerleven.is_state_changed(card, {G.jokers}) then return end
-          if not Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin_Plus') end 
-      end
-  end
+    name = "Dvalin",
+    pos = { x = 3, y = 0 },
+    soul_pos = { x = 3, y = 1 },
+    config = { extra = { pposition = "GK", pos_left = "GK", pos_right = "FW", chip_mod = 150, barriers_added = 1 } },
+    loc_vars = function(self, info_queue, center)
+        local ex = center.ability.extra
+        info_queue[#info_queue + 1] = { set = "Other", key = "RolChange", vars = { ex.pos_left, ex.pos_right } }
+        return { vars = { ex.chip_mod, ex.barriers_added } }
+    end,
+    rarity = "ina_top", -- Destacado
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "top",
+    ptype = C.Fire,
+    pposition = C.GK,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        local ex = card.ability.extra
+        if Pokerleven.is_joker_turn(ctx) then
+            Pokerleven.ease_barriers(ex.barriers_added); return { message = localize { type = 'variable', key = 'a_chips', vars = { ex.chip_mod } }, chip_mod =
+            ex.chip_mod, colour = G.C.CHIPS }
+        end
+    end,
+    update = function(self, card, dt)
+        if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
+            if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
+            if not Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin_Plus') end
+        end
+    end
 })
 
 local Dvalin_Plus = J({
-  name = "Dvalin_Plus",
-  pos = { x = 4, y = 0 },
-  soul_pos = { x = 4, y = 1 },
-  config = { extra = { pposition = "FW", pos_left = "GK", pos_right = "FW", xmult_mod = 0.5, barriers_consumed = 1 } },
-  loc_vars = function(self, info_queue, center)
-      local ex = center.ability.extra
-      info_queue[#info_queue+1] = { set = "Other", key = "RolChange", vars = {ex.pos_left, ex.pos_right} }
-      return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * ex.xmult_mod), ex.barriers_consumed, ex.xmult_mod } }
-  end,
-  rarity = "ina_top",
-  pools = { ["Epsilon"] = false }, -- Not in the normal pool, only obtainable through Dvalin
-  cost = 7,
-  atlas = "top",
-  ptype = C.Wind,
-  pposition = C.FW,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-      local ex = card.ability.extra
-      if Pokerleven.is_joker_turn(ctx) then
-          local b = G.GAME.current_round.barriers or 0
-          if b >= ex.barriers_consumed then
-              Pokerleven.ease_barriers(-ex.barriers_consumed)
-              local v = 1 + b * ex.xmult_mod
-              return {message = localize{type='variable',key='a_xmult',vars={v}}, Xmult_mod = v, colour = G.C.MULT}
-          end
-      end
-  end,
-  update = function(self, card, dt)
-      if G.STAGE == G.STAGES.RUN and card.area == G.jokers then 
-          if not Pokerleven.is_state_changed(card, {G.jokers}) then return end
-          if Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin') end 
-      end
-  end,
-  custom_pool_func = true,
-  in_pool = function() return false end
+    name = "Dvalin_Plus",
+    pos = { x = 4, y = 0 },
+    soul_pos = { x = 4, y = 1 },
+    config = { extra = { pposition = "FW", pos_left = "GK", pos_right = "FW", xmult_mod = 0.5, barriers_consumed = 1 } },
+    loc_vars = function(self, info_queue, center)
+        local ex = center.ability.extra
+        info_queue[#info_queue + 1] = { set = "Other", key = "RolChange", vars = { ex.pos_left, ex.pos_right } }
+        return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * ex.xmult_mod), ex.barriers_consumed, ex.xmult_mod } }
+    end,
+    rarity = "ina_top",
+    pools = { ["Epsilon"] = false }, -- Not in the normal pool, only obtainable through Dvalin
+    cost = 7,
+    atlas = "top",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        local ex = card.ability.extra
+        if Pokerleven.is_joker_turn(ctx) then
+            local b = G.GAME.current_round.barriers or 0
+            if b >= ex.barriers_consumed then
+                Pokerleven.ease_barriers(-ex.barriers_consumed)
+                local v = 1 + b * ex.xmult_mod
+                return { message = localize { type = 'variable', key = 'a_xmult', vars = { v } }, Xmult_mod = v, colour =
+                G.C.MULT }
+            end
+        end
+    end,
+    update = function(self, card, dt)
+        if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
+            if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
+            if Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin') end
+        end
+    end,
+    custom_pool_func = true,
+    in_pool = function() return false end
 })
 
 -- Kenville
 local Kenville = J({
-  name = "Kenville",
-  pos = { x = 1, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 2, -- Uncommon
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Fire,
-  pposition = C.DF,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-    if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint then
-        local oc = ctx.other_card
-        if not oc then return end
-        local id = oc:get_id()
-        if id == 2 or id == 3 or id == 4 then
-            local target_ranks = {{id=14, val='Ace', nom=11}, {id=13, val='King', nom=10}}
-            local diff = Pokerleven.simulate_rank_difference(card, ctx, target_ranks)
-            if diff then diff.card = card; return diff end
+    name = "Kenville",
+    pos = { x = 1, y = 5 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 2, -- Uncommon
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint then
+            local oc = ctx.other_card
+            if not oc then return end
+            local id = oc:get_id()
+            if id == 2 or id == 3 or id == 4 then
+                local target_ranks = { { id = 14, val = 'Ace', nom = 11 }, { id = 13, val = 'King', nom = 10 } }
+                local diff = Pokerleven.simulate_rank_difference(card, ctx, target_ranks)
+                if diff then
+                    diff.card = card; return diff
+                end
+            end
         end
     end
-  end
 })
 
 -- Mole
 local Mole = {
-  name = "Mole",
-  pos = { x = 2, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Forest,
-  pposition = C.DF,
-  pteam = "ina_team_Epsilon",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
+    name = "Mole",
+    pos = { x = 2, y = 5 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1, -- Common
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_Epsilon",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+    end
 }
 
 -- Kayson
 local Kayson = {
-  name = "Kayson",
-  pos = { x = 3, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.DF,
-  pteam = "ina_team_Epsilon",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
+    name = "Kayson",
+    pos = { x = 3, y = 5 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1, -- Common
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Wind,
+    pposition = C.DF,
+    pteam = "ina_team_Epsilon",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+    end
 }
 
 -- Tytan
 local Tytan = {
-  name = "Tytan",
-  pos = { x = 4, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Mountain,
-  pposition = C.DF,
-  pteam = "ina_team_Epsilon",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
+    name = "Tytan",
+    pos = { x = 4, y = 5 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1, -- Common
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_Epsilon",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+    end
 }
 
 -- Fedora
 local Fedora = J({
-  name = "Fedora",
-  pos = { x = 5, y = 5 },
-  config = { extra = { mult_per_discard = 10, discarded_this_blind = 0 } },
-  loc_vars = function(self, info_queue, center)
-    local ex = center.ability.extra
-    return { vars = { ex.mult_per_discard, ex.mult_per_discard * (ex.discarded_this_blind or 0) } }
-  end,
-  rarity = 2, -- Uncommon
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Fire,
-  pposition = C.MF,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-    local ex = card.ability.extra
-    if (ctx.setting_blind or ctx.skip_blind) and not ctx.blueprint then
-        if ctx.setting_blind then ex.discarded_this_blind = 0 end
-        if G.fedora_void and G.fedora_void.cards then
-            for i = #G.fedora_void.cards, 1, -1 do
-                local c = G.fedora_void.cards[i]
-                if c.fedora_void_timer then
-                    c.fedora_void_timer = c.fedora_void_timer - 1
-                    if c.fedora_void_timer <= 0 then
-                        c.fedora_void_timer = nil
-                        c.area:remove_card(c)
-                        G.deck:emplace(c)
+    name = "Fedora",
+    pos = { x = 5, y = 5 },
+    config = { extra = { mult_per_discard = 10, discarded_this_blind = 0 } },
+    loc_vars = function(self, info_queue, center)
+        local ex = center.ability.extra
+        return { vars = { ex.mult_per_discard, ex.mult_per_discard * (ex.discarded_this_blind or 0) } }
+    end,
+    rarity = 2, -- Uncommon
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        local ex = card.ability.extra
+        if (ctx.setting_blind or ctx.skip_blind) and not ctx.blueprint then
+            if ctx.setting_blind then ex.discarded_this_blind = 0 end
+            if G.fedora_void and G.fedora_void.cards then
+                for i = #G.fedora_void.cards, 1, -1 do
+                    local c = G.fedora_void.cards[i]
+                    if c.fedora_void_timer then
+                        c.fedora_void_timer = c.fedora_void_timer - 1
+                        if c.fedora_void_timer <= 0 then
+                            c.fedora_void_timer = nil
+                            c.area:remove_card(c)
+                            G.deck:emplace(c)
+                        end
                     end
                 end
             end
+        elseif ctx.discard and not ctx.blueprint then
+            ex.discarded_this_blind = ex.discarded_this_blind + 1
+            ctx.other_card.fedora_void_timer = 2
+        elseif ctx.individual and ctx.cardarea == G.play then
+            if ctx.other_card and ctx.other_card.config.center.key == 'm_ina_chaotic' then
+                local base_card = ctx.blueprint and (get_joker_with_key('j_ina_Fedora') or card) or card
+                local mult_per_discard = base_card.ability.extra.mult_per_discard or 10
+                local discarded = base_card.ability.extra.discarded_this_blind or 0
+                local m = mult_per_discard * discarded
+                if m > 0 then return { mult = m, card = card } end
+            end
         end
-    elseif ctx.discard and not ctx.blueprint then
-        ex.discarded_this_blind = ex.discarded_this_blind + 1
-        ctx.other_card.fedora_void_timer = 2
-    elseif ctx.individual and ctx.cardarea == G.play then
-        if ctx.other_card and ctx.other_card.config.center.key == 'm_ina_chaotic' then
-            local base_card = ctx.blueprint and (get_joker_with_key('j_ina_Fedora') or card) or card
-            local mult_per_discard = base_card.ability.extra.mult_per_discard or 10
-            local discarded = base_card.ability.extra.discarded_this_blind or 0
-            local m = mult_per_discard * discarded
-            if m > 0 then return { mult = m, card = card } end
+    end,
+    update = function(self, card, dt)
+        if card.area == G.jokers and G.discard and G.discard.cards then
+            if not Pokerleven.is_state_changed(card, { G.discard, G.fedora_void }) then return end
+            for i = #G.discard.cards, 1, -1 do
+                local c = G.discard.cards[i]
+                if c.fedora_void_timer then
+                    c.area:remove_card(c)
+                    if G.fedora_void then G.fedora_void:emplace(c) end
+                    c:juice_up()
+                end
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            local has_other_fedora = false
+            if G.jokers and G.jokers.cards then
+                for _, v in ipairs(G.jokers.cards) do
+                    if v ~= card and v.config.center_key == 'j_ina_Fedora' then
+                        has_other_fedora = true
+                        break
+                    end
+                end
+            end
+            if not has_other_fedora and G.fedora_void and G.fedora_void.cards then
+                for i = #G.fedora_void.cards, 1, -1 do
+                    local c = G.fedora_void.cards[i]
+                    c.fedora_void_timer = nil
+                    c.area:remove_card(c)
+                    G.deck:emplace(c)
+                end
+            end
         end
     end
-  end,
-  update = function(self, card, dt)
-      if card.area == G.jokers and G.discard and G.discard.cards then
-          if not Pokerleven.is_state_changed(card, {G.discard, G.fedora_void}) then return end
-          for i = #G.discard.cards, 1, -1 do
-              local c = G.discard.cards[i]
-              if c.fedora_void_timer then
-                  c.area:remove_card(c)
-                  if G.fedora_void then G.fedora_void:emplace(c) end
-                  c:juice_up()
-              end
-          end
-      end
-  end,
-  remove_from_deck = function(self, card, from_debuff)
-      if not from_debuff then
-          local has_other_fedora = false
-          if G.jokers and G.jokers.cards then
-              for _, v in ipairs(G.jokers.cards) do
-                  if v ~= card and v.config.center_key == 'j_ina_Fedora' then
-                      has_other_fedora = true
-                      break
-                  end
-              end
-          end
-          if not has_other_fedora and G.fedora_void and G.fedora_void.cards then
-              for i = #G.fedora_void.cards, 1, -1 do
-                  local c = G.fedora_void.cards[i]
-                  c.fedora_void_timer = nil
-                  c.area:remove_card(c)
-                  G.deck:emplace(c)
-              end
-          end
-      end
-  end
 })
 
 -- Krypto
 local Krypto = {
-  name = "Krypto",
-  pos = { x = 6, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.MF,
-  pteam = "ina_team_Epsilon",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
+    name = "Krypto",
+    pos = { x = 6, y = 5 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1, -- Common
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_Epsilon",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+    end
 }
 
 -- Sworm
 local Sworm = J({
-  name = "Sworm",
-  pos = { x = 7, y = 5 },
-  config = { extra = { odds = 3 } },
-  loc_vars = function(self, info_queue, center) return {vars = {G.GAME.probabilities.normal or 1, center.ability.extra.odds}} end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Forest,
-  pposition = C.MF,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Plus,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-    if ctx.after and ctx.cardarea == G.jokers and not card.debuff and card.area == G.jokers and not ctx.blueprint then
-        local s = {}; for _, v in ipairs(ctx.full_hand) do if card:odds_triggered('sworm') then s[#s+1] = v end end
-        if Pokerleven.rescue_cards(s) then return {message = localize('k_safe_ex'), colour = G.C.DARK_EDITION} end
+    name = "Sworm",
+    pos = { x = 7, y = 5 },
+    config = { extra = { odds = 3 } },
+    loc_vars = function(self, info_queue, center) return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } } end,
+    rarity = 1, -- Common
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Plus,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        if ctx.after and ctx.cardarea == G.jokers and not card.debuff and card.area == G.jokers and not ctx.blueprint then
+            local s = {}; for _, v in ipairs(ctx.full_hand) do if card:odds_triggered('sworm') then s[#s + 1] = v end end
+            if Pokerleven.rescue_cards(s) then return { message = localize('k_safe_ex'), colour = G.C.DARK_EDITION } end
+        end
     end
-  end
 })
 
 -- Mercury
 local Mercury = J({
-  name = "Mercury",
-  pos = { x = 8, y = 5 },
-  config = { extra = { required_stones = 2, stone_hands = {["Pair"] = true} } },
-  loc_vars = function(self, info_queue, center)
-    info_queue[#info_queue+1] = G.P_CENTERS.m_stone
-    info_queue[#info_queue+1] = G.P_CENTERS.c_mercury
-    return { vars = { center.ability.extra.required_stones } }
-  end,
-  rarity = 2, -- Uncommon
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.FW,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-    if ctx.pre_discard and ctx.full_hand and #ctx.full_hand == 2 and not ctx.blueprint then
-        if ctx.full_hand[1]:get_id() == ctx.full_hand[2]:get_id() then
-            convert_cards_to(ctx.full_hand, {mod_conv = "m_stone"})
-            card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize("ina_convert"), colour = G.C.DARK_EDITION})
-        end
-    elseif Pokerleven.is_joker_turn(ctx) then
-        local stone_count = 0
-        for _, v in ipairs(ctx.scoring_hand) do if SMODS.has_enhancement(v, 'm_stone') then stone_count = stone_count + 1 end end
-        if stone_count >= card.ability.extra.required_stones then
-            if Pokerleven.spawn_consumable('Planet', 'c_mercury') then
-                return { message = localize("k_plus_planet"), colour = G.C.SECONDARY_SET.Planet }
+    name = "Mercury",
+    pos = { x = 8, y = 5 },
+    config = { extra = { required_stones = 2, stone_hands = { ["Pair"] = true } } },
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_mercury
+        return { vars = { center.ability.extra.required_stones } }
+    end,
+    rarity = 2, -- Uncommon
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        if ctx.pre_discard and ctx.full_hand and #ctx.full_hand == 2 and not ctx.blueprint then
+            if ctx.full_hand[1]:get_id() == ctx.full_hand[2]:get_id() then
+                convert_cards_to(ctx.full_hand, { mod_conv = "m_stone" })
+                card_eval_status_text(card, 'extra', nil, nil, nil,
+                    { message = localize("ina_convert"), colour = G.C.DARK_EDITION })
             end
+        elseif Pokerleven.is_joker_turn(ctx) then
+            local stone_count = 0
+            for _, v in ipairs(ctx.scoring_hand) do if SMODS.has_enhancement(v, 'm_stone') then stone_count = stone_count +
+                    1 end end
+            if stone_count >= card.ability.extra.required_stones then
+                if Pokerleven.spawn_consumable('Planet', 'c_mercury') then
+                    return { message = localize("k_plus_planet"), colour = G.C.SECONDARY_SET.Planet }
+                end
+            end
+        end
     end
-  end
-end
 })
 
 -- Metron
 local Metron = J({
-  name = "Metron",
-  pos = { x = 9, y = 5 },
-  config = { extra = { exp_gain = 0.015, current_exp = 1, required_id = nil, required_val = nil } },
-  loc_vars = function(self, info_queue, center)
-    local ex = center.ability.extra
-    local rank_str = ex.required_val and localize(ex.required_val, 'ranks') or localize('k_none')
-    info_queue[#info_queue+1] = {set = 'Other', key = 'ConsecutiveCards', vars = {'de igual rango'}}
-    return { vars = { ex.exp_gain, ex.current_exp, rank_str } }
-  end,
-  rarity = 2, -- Uncommon
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.FW,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Plus,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-    local ex = card.ability.extra
-    if ctx.before and not ctx.blueprint then
-        local lowest_id, lowest_val = 15, nil
-        local required_met = false
-        for _, c in ipairs(ctx.full_hand) do
-            local id = c:get_id()
-            if id < lowest_id then
-                lowest_id, lowest_val = id, c.base.value
+    name = "Metron",
+    pos = { x = 9, y = 5 },
+    config = { extra = { exp_gain = 0.015, current_exp = 1, required_id = nil, required_val = nil } },
+    loc_vars = function(self, info_queue, center)
+        local ex = center.ability.extra
+        local rank_str = ex.required_val and localize(ex.required_val, 'ranks') or localize('k_none')
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'ConsecutiveCards', vars = { 'de igual rango' } }
+        return { vars = { ex.exp_gain, ex.current_exp, rank_str } }
+    end,
+    rarity = 2, -- Uncommon
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Plus,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        local ex = card.ability.extra
+        if ctx.before and not ctx.blueprint then
+            local lowest_id, lowest_val = 15, nil
+            local required_met = false
+            for _, c in ipairs(ctx.full_hand) do
+                local id = c:get_id()
+                if id < lowest_id then
+                    lowest_id, lowest_val = id, c.base.value
+                end
+                if ex.required_id and id == ex.required_id then
+                    required_met = true
+                end
             end
-            if ex.required_id and id == ex.required_id then
-                required_met = true
-            end
-        end
 
-        if not ex.required_id or required_met then
-            ex.current_exp = ex.current_exp + ex.exp_gain
-            ex.required_id = lowest_id
-            ex.required_val = lowest_val
-            return {message = localize('k_upgrade_ex'), colour = G.C.CHIPS}
-        else
-            ex.current_exp = 1
-            ex.required_id = lowest_id
-            ex.required_val = lowest_val
-            return {message = localize('k_reset'), colour = G.C.RED}
+            if not ex.required_id or required_met then
+                ex.current_exp = ex.current_exp + ex.exp_gain
+                ex.required_id = lowest_id
+                ex.required_val = lowest_val
+                return { message = localize('k_upgrade_ex'), colour = G.C.CHIPS }
+            else
+                ex.current_exp = 1
+                ex.required_id = lowest_id
+                ex.required_val = lowest_val
+                return { message = localize('k_reset'), colour = G.C.RED }
+            end
+        elseif Pokerleven.is_joker_turn(ctx) and ex.current_exp > 1 then
+            local current_chips = G.GAME.current_round.current_hand.chips or 1
+            local chip_diff = math.floor((current_chips ^ ex.current_exp) - current_chips)
+            return { message = "^" .. string.format("%.3f", ex.current_exp), chip_mod = chip_diff, colour = G.C.CHIPS }
         end
-    elseif Pokerleven.is_joker_turn(ctx) and ex.current_exp > 1 then
-        local current_chips = G.GAME.current_round.current_hand.chips or 1
-        local chip_diff = math.floor((current_chips ^ ex.current_exp) - current_chips)
-        return {message = "^" .. string.format("%.3f", ex.current_exp), chip_mod = chip_diff, colour = G.C.CHIPS}
     end
-  end
 })
 
 -- Zell
 local Zell = J({
-  name = "Zell",
-  pos = { x = 10, y = 5 },
-  config = { extra = { req_players = 3 } },
-  loc_vars = function(self, info_queue, center)
-    info_queue[#info_queue+1] = G.P_CENTERS.c_pluto
-    return { vars = { center.ability.extra.req_players - 1 } }
-  end,
-  rarity = 3, -- Rare
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.FW,
-  pteam = "ina_team_Epsilon",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-    if Pokerleven.is_joker_turn(ctx) and ctx.scoring_name == "High Card" then
-        if #find_player_team("ina_team_Epsilon") >= card.ability.extra.req_players then
-            if Pokerleven.spawn_consumable('Planet', 'c_pluto') then
-                return { message = localize("k_plus_planet"), colour = G.C.SECONDARY_SET.Planet }
+    name = "Zell",
+    pos = { x = 10, y = 5 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return { vars = { #find_player_team("ina_team_Epsilon") } } end,
+    rarity = 3, -- Rare
+    pools = { ["Epsilon"] = true },
+    cost = 7,
+    atlas = "Jokers02",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "ina_team_Epsilon",
+    techtype = C.UPGRADES.Number,
+    blueprint_compat = true,
+    calculate = function(self, card, ctx)
+        if ctx.before and not ctx.blueprint then
+            local count = #find_player_team("ina_team_Epsilon")
+            if count > 0 then
+                level_up_hand(card, 'High Card', true, count)
+                return { message = localize('k_level_up_ex'), colour = G.C.CHIPS }
             end
+        end
     end
-  end
-end
 })
 
 return {
-  name = "Epsilon",
-  list = { Dvalin, Dvalin_Plus, Kenville, Fedora, Sworm, Mercury, Metron, Zell }
+    name = "Epsilon",
+    list = { Dvalin, Dvalin_Plus, Kenville, Fedora, Sworm, Mercury, Metron, Zell }
 }

@@ -1,6 +1,6 @@
 local Hector = J({
   name = "Hector Helio",
-  pos = { x = 0, y = 15 },
+  pos = { x = 0, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -11,6 +11,7 @@ local Hector = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.GK,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -18,7 +19,7 @@ local Hector = J({
 
 local Zephyr = J({
   name = "Zephyr Vitesse",
-  pos = { x = 1, y = 15 },
+  pos = { x = 1, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -29,6 +30,7 @@ local Zephyr = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -36,7 +38,7 @@ local Zephyr = J({
 
 local Walter = J({
   name = "Walter Mountain",
-  pos = { x = 2, y = 15 },
+  pos = { x = 2, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,6 +49,7 @@ local Walter = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -54,7 +57,7 @@ local Walter = J({
 
 local Jimi = J({
   name = "Jimi Gaines",
-  pos = { x = 3, y = 15 },
+  pos = { x = 3, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -65,6 +68,7 @@ local Jimi = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -72,7 +76,7 @@ local Jimi = J({
 
 local Ian = J({
   name = "Ian Ferrum",
-  pos = { x = 4, y = 15 },
+  pos = { x = 4, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -83,6 +87,7 @@ local Ian = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -90,7 +95,7 @@ local Ian = J({
 
 local Quint = J({
   name = "Quint Hampton",
-  pos = { x = 5, y = 15 },
+  pos = { x = 5, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -101,6 +106,7 @@ local Quint = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -108,7 +114,7 @@ local Quint = J({
 
 local Yasir = J({
   name = "Yasir Haddad",
-  pos = { x = 6, y = 15 },
+  pos = { x = 6, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -119,6 +125,7 @@ local Yasir = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -126,7 +133,7 @@ local Yasir = J({
 
 local Keith = J({
   name = "Keith Ryan",
-  pos = { x = 7, y = 15 },
+  pos = { x = 7, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -137,6 +144,7 @@ local Keith = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -144,7 +152,7 @@ local Keith = J({
 
 local Maximino = J({
   name = "Maximino Cruz",
-  pos = { x = 8, y = 15 },
+  pos = { x = 8, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -155,6 +163,7 @@ local Maximino = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -162,7 +171,7 @@ local Maximino = J({
 
 local Gareth = J({
   name = "Gareth Flare",
-  pos = { x = 9, y = 15 },
+  pos = { x = 9, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -173,6 +182,7 @@ local Gareth = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.FW,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -180,7 +190,7 @@ local Gareth = J({
 
 local Drago = J({
   name = "Drago Hill",
-  pos = { x = 10, y = 15 },
+  pos = { x = 10, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -191,6 +201,7 @@ local Drago = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -198,7 +209,7 @@ local Drago = J({
 
 local Keenan = J({
   name = "Keenan DiFortune",
-  pos = { x = 11, y = 15 },
+  pos = { x = 11, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,6 +220,7 @@ local Keenan = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.GK,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -216,7 +228,7 @@ local Keenan = J({
 
 local Jarell = J({
   name = "Jarell Mangrove",
-  pos = { x = 12, y = 15 },
+  pos = { x = 12, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -227,6 +239,7 @@ local Jarell = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -234,7 +247,7 @@ local Jarell = J({
 
 local Vic = J({
   name = "Vic Vitrum",
-  pos = { x = 13, y = 15 },
+  pos = { x = 0, y = 17 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -245,6 +258,7 @@ local Vic = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -252,7 +266,7 @@ local Vic = J({
 
 local Li = J({
   name = "Li Leung",
-  pos = { x = 14, y = 15 },
+  pos = { x = 1, y = 17 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -263,14 +277,15 @@ local Li = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
 local Jazzy = J({
-  name = "Jazzy Hedgeer",
-  pos = { x = 15, y = 15 },
+  name = "Jazzy Hedgee",
+  pos = { x = 2, y = 17 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -281,6 +296,7 @@ local Jazzy = J({
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.FW,
+  pgender = C.M,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end

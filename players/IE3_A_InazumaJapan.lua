@@ -1,3 +1,26 @@
+-- Mark
+local Mark_IJ = J({
+  name = "Mark_IJ",
+  pos = { x = 0, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pcaptain = C.CAPTAIN,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
 -- Nathan
 local Nathan_IJ = J({
   name = "Nathan_IJ",
@@ -36,7 +59,7 @@ local Nathan_IJ = J({
   end,
 })
 
--- Jack_IJ
+-- Jack
 local Jack_IJ = J({
   name = "Jack_IJ",
   pos = { x = 2, y = 0 }, -- Keep y=0
@@ -72,55 +95,76 @@ local Jack_IJ = J({
   end,
 })
 
--- Tod_IJ
-local Tod_IJ = J({
-  name = "Tod_IJ",
-  pos = { x = 4, y = 0 }, -- Keep y=0
-  config = { extra = { chip_mod = 20 } },
+-- Hurley
+local Hurley_IJ = J({
+  name = "Hurley_IJ",
+  pos = { x = 3, y = 0 },
+  config = { extra = {} },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chip_mod } }
+    return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Inazuma Japón"] = true },
-  cost = 3,
+  cost = 5,
   atlas = "Jokers03",
-  ptype = C.Fire,
+  ptype = C.Wind,
   pposition = C.DF,
-  techtype = C.UPGRADES.Plus,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
-  calculate = function(self, card, context)
-    if Pokerleven.is_joker_turn(context) and context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
-      local count = 0
-      -- Count played metal cards
-      for _, c in ipairs(context.scoring_hand) do
-        count = count + Pokerleven.get_enhancement_count(c, 'm_steel')
-      end
-
-      -- Count metal cards in hand
-      for _, c in ipairs(G.hand.cards) do
-        count = count + Pokerleven.get_enhancement_count(c, 'm_steel')
-      end
-
-      local total_chips = count * card.ability.extra.chip_mod
-      if total_chips > 0 then
-        return {
-          message = localize { type = 'variable', key = 'a_chips', vars = { total_chips } },
-          colour = G.C.CHIPS,
-          chip_mod = total_chips
-        }
-      end
-    end
-  end,
-  ina_credits = {
-    idea = { "Lovahi" }
-  }
+  calculate = function(self, card, ctx) end
 })
 
--- Caleb_IJ
+-- Scotty
+local Scotty_IJ = J({
+  name = "Scotty_IJ",
+  pos = { x = 4, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+-- Archer
+local Archer_IJ = J({
+  name = "Archer_IJ",
+  pos = { x = 5, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+-- Caleb
 local Caleb_IJ = J({
   name = "Caleb_IJ",
-  pos = { x = 7, y = 0 }, -- Keep y=0
+  pos = { x = 6, y = 0 }, -- Keep y=0
   config = { extra = { current_xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -138,47 +182,178 @@ local Caleb_IJ = J({
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
-        local des, ba = false, Pokerleven.ina_bench_area
-        for i = ba and ba.cards and #ba.cards or 0, 1, -1 do
-            local b = ba.cards[i]
-            if is_team(b, "ina_team_RoyalAcademy") or is_team(b, "ina_team_RoyalRedux") then
-                ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true
-                b:start_dissolve({G.C.RED}, nil, 1.6)
-            end
+      local des, ba = false, Pokerleven.ina_bench_area
+      for i = ba and ba.cards and #ba.cards or 0, 1, -1 do
+        local b = ba.cards[i]
+        if is_team(b, "ina_team_RoyalAcademy") or is_team(b, "ina_team_RoyalRedux") then
+          ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true
+          b:start_dissolve({ G.C.RED }, nil, 1.6)
         end
-        if des then
-            card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}})
-        end
+      end
+      if des then
+        card_eval_status_text(card, 'extra', nil, nil, nil,
+          { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } } })
+      end
     elseif Pokerleven.is_joker_end_of_round(ctx) and not ctx.blueprint then
-        local k, s
-        for _, v in ipairs(G.jokers.cards) do
-            if v.config.center_key == 'j_ina_King' then k = v
-            elseif v.config.center_key == 'j_ina_Samford' then s = v
-            end
+      local k, s
+      for _, v in ipairs(G.jokers.cards) do
+        if v.config.center_key == 'j_ina_King' then
+          k = v
+        elseif v.config.center_key == 'j_ina_Samford' then
+          s = v
         end
-        if k or s then
-            ex.redux_turns = (ex.redux_turns or 0) + 1
-            if ex.redux_turns >= ex.turns_needed then
-                ex.redux_turns = 0
-                if k then ina_evolve(k, 'j_ina_KingR') end
-                if s then ina_evolve(s, 'j_ina_SamfordR') end
-            else
-                return {message = ex.redux_turns .. "/" .. ex.turns_needed, colour = G.C.DARK_EDITION}
-            end
+      end
+      if k or s then
+        ex.redux_turns = (ex.redux_turns or 0) + 1
+        if ex.redux_turns >= ex.turns_needed then
+          ex.redux_turns = 0
+          if k then ina_evolve(k, 'j_ina_KingR') end
+          if s then ina_evolve(s, 'j_ina_SamfordR') end
         else
-            ex.redux_turns = 0
+          return { message = ex.redux_turns .. "/" .. ex.turns_needed, colour = G.C.DARK_EDITION }
         end
+      else
+        ex.redux_turns = 0
+      end
     elseif Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
-        return {message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}, Xmult_mod = ex.current_xmult}
+      return {
+        message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } },
+        Xmult_mod = ex
+            .current_xmult
+      }
     end
   end
 })
 
--- Jude_IJ
-local Jude_IJ = J({
-  name = "Jude_IJ",
+-- Shawn
+local Shawn_IJ = J({
+  name = "Shawn_IJ",
+  pos = { x = 7, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+-- Axel
+local Axel_IJ = J({
+  name = "Axel_IJ",
   pos = { x = 8, y = 0 }, -- Keep y=0
   soul_pos = { x = 8, y = 1 },
+  config = { extra = { copies_number = 2, xmult = 3 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.copies_number, center.ability.extra.xmult } }
+  end,
+  rarity = "ina_top",
+  pools = { ["Inazuma Japón"] = true },
+  cost = 8,
+  atlas = "top",
+  ptype = C.Fire,
+  pposition = C.FW,
+  techtype = C.UPGRADES.Number,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = false,
+  calculate = function(self, card, ctx)
+    local ex = card.ability.extra
+    if ctx.before and ctx.cardarea == G.jokers and not ctx.blueprint then
+      if ctx.scoring_name == 'Three of a Kind' and #ctx.full_hand == 3 then
+        local first_card = ctx.scoring_hand[1]
+
+        local clones = Pokerleven.clone_playing_card(first_card, G.play, ex.copies_number)
+        for _, copy in ipairs(clones) do table.insert(ctx.scoring_hand, copy) end
+
+        for _, c in ipairs(ctx.scoring_hand) do
+          if not c.ability.fire_sticker then
+            apply_property_sticker(c, 'Fire', 'type')
+            c:juice_up()
+          end
+        end
+
+        return {
+          message = localize("ina_fuego_total"),
+          colour = G.C.RED
+        }
+      end
+    elseif ctx.joker_main and ctx.scoring_hand then
+      local all_f = true
+      for _, v in ipairs(ctx.scoring_hand) do
+        if not (v:is_suit('Hearts') or v.ability.fire_sticker) then
+          all_f = false; break
+        end
+      end
+      if all_f and ex.xmult > 1 then
+        return {
+          message = localize { type = 'variable', key = 'a_xmult', vars = { ex.xmult } },
+          Xmult_mod = ex.xmult,
+          colour =
+              G.C.XMULT
+        }
+      end
+    end
+  end,
+})
+
+-- Austin
+local Austin_IJ = J({
+  name = "Austin_IJ",
+  pos = { x = 9, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+-- Thor
+local Thor_IJ = J({
+  name = "Thor_IJ",
+  pos = { x = 10, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+-- Jude
+local Jude_IJ = J({
+  name = "Jude_IJ",
+  pos = { x = 11, y = 0 }, -- Keep y=0
+  soul_pos = { x = 11, y = 1 },
   config = {
     extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
     }
@@ -224,56 +399,7 @@ local Jude_IJ = J({
   end
 })
 
--- Axel Blaze_IJ
-local Axel_IJ = J({
-  name = "Axel_IJ",
-  pos = { x = 9, y = 0 }, -- Keep y=0
-  soul_pos = { x = 9, y = 1 },
-  config = { extra = { copies_number = 2, xmult = 3 } },
-  loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.copies_number, center.ability.extra.xmult } }
-  end,
-  rarity = "ina_top",
-  pools = { ["Inazuma Japón"] = true },
-  cost = 8,
-  atlas = "top",
-  ptype = C.Fire,
-  pposition = C.FW,
-  techtype = C.UPGRADES.Number,
-  pteam = "ina_team_InazumaJapon",
-  blueprint_compat = false,
-  calculate = function(self, card, ctx)
-    local ex = card.ability.extra
-    if ctx.before and ctx.cardarea == G.jokers and not ctx.blueprint then
-      if ctx.scoring_name == 'Three of a Kind' and #ctx.full_hand == 3 then
-        local first_card = ctx.scoring_hand[1]
-        
-        local clones = Pokerleven.clone_playing_card(first_card, G.play, ex.copies_number)
-        for _, copy in ipairs(clones) do table.insert(ctx.scoring_hand, copy) end
-        
-        for _, c in ipairs(ctx.scoring_hand) do
-            if not c.ability.fire_sticker then
-                apply_property_sticker(c, 'Fire', 'type')
-                c:juice_up()
-            end
-        end
-
-        return {
-            message = localize("ina_fuego_total"),
-            colour = G.C.RED
-        }
-      end
-    elseif ctx.joker_main and ctx.scoring_hand then
-      local all_f = true
-      for _, v in ipairs(ctx.scoring_hand) do if not (v:is_suit('Hearts') or v.ability.fire_sticker) then all_f = false; break end end
-      if all_f and ex.xmult > 1 then
-        return {message = localize{type='variable',key='a_xmult',vars={ex.xmult}}, Xmult_mod = ex.xmult, colour = G.C.XMULT}
-      end
-    end
-  end,
-})
-
--- Samford_IJ
+-- Samford
 local Samford_IJ = J({
   name = "Samford_IJ",
   pos = { x = 0, y = 1 }, -- Keep y=0
@@ -304,7 +430,7 @@ local Samford_IJ = J({
   end,
 })
 
--- Kevin_IJ
+-- Kevin
 local Kevin_IJ = J({
   name = "Kevin_IJ",
   pos = { x = 1, y = 1 }, -- Keep y=0
@@ -327,7 +453,9 @@ local Kevin_IJ = J({
     if card.ability.extra.current_cooldown == 0 and context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= self then
       if context.other_card == card:get_right_joker() and is_position(context.other_card, "FW") then
         return { message = localize("k_again_ex"), repetitions = card.ability.extra.retriggers, card = card }
-      else return nil, true end
+      else
+        return nil, true
+      end
     elseif card.ability.extra.current_cooldown > 0 and Pokerleven.is_joker_turn(context) then
       card.ability.extra.current_cooldown = card.ability.extra.current_cooldown - 1
     end
@@ -337,7 +465,51 @@ local Kevin_IJ = J({
   end,
 })
 
+-- Xavier
+local Xavier_IJ = J({
+  name = "Xavier_IJ",
+  pos = { x = 2, y = 1 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+-- Darren
+local Darren_IJ = J({
+  name = "Darren_IJ",
+  pos = { x = 3, y = 1 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Inazuma Japón"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pteam = "ina_team_InazumaJapon",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
 return {
-    name = "InazumaJapan",
-    list = { Nathan_IJ, Jack_IJ, Tod_IJ, Caleb_IJ, Jude_IJ, Axel_IJ, Samford_IJ, Kevin_IJ }
+  name = "InazumaJapan",
+  list = { Nathan_IJ, Jack_IJ, Caleb_IJ, Axel_IJ, Jude_IJ, Samford_IJ, Kevin_IJ }
 }

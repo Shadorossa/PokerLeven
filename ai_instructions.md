@@ -52,6 +52,7 @@ No reescribas bucles de búsqueda para encontrar posiciones de cartas en la zona
   1. **Primera línea:** Nombre de la supertécnica coloreada según su elemento (ej. `{C:fire}Tornado de Fuego{}`).
   2. **Cuerpo:** La descripción del efecto mecánico, condensada en un **máximo de 3 líneas**.
   3. **Estado Actual:** Si el Joker tiene estadísticas que escalan o cambian, la información de su estado en tiempo real debe ir siempre en una nueva línea al final del todo, usando el color inactivo. (Ejemplo: `{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive} Mult){}`).
+  4. **Sinergias:** NUNCA añadas texto del tipo "Sinergia: ..." al final de la descripción. Si un Joker tiene una sinergia, crea una entrada en el bloque `Other` del archivo de localización y vincúlala mediante el `info_queue` en la función `loc_vars` del Joker.
 
 ## 8. Orden en las Listas de Retorno (`list = {}`)
 Tanto en la declaración de variables locales en los archivos `.lua` como en la tabla de retorno `list = { ... }`, los Jokers **siempre** deben ordenarse estrictamente por sus coordenadas `x` e `y` (primero por **Y** de menor a mayor, luego por **X** de menor a mayor). Los comodines con rareza `ina_top` o aquellos extraídos de atlas diferentes deben intercalarse respetando su valor de `y` y `x` como si estuvieran en la misma cuadrícula.

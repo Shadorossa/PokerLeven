@@ -1,6 +1,5 @@
--- Paolo Bianchi
-local Bravin = J({
-  name = "Bravin",
+local Lazuli = J({
+  name = "Indigo Lazuli",
   pos = { x = 0, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -10,15 +9,17 @@ local Bravin = J({
   pools = { ["Team D"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Mountain,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.ITALY,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Alphe = J({
-  name = "Alphe",
+local Diamante = J({
+  name = "Rosseo Diamante",
   pos = { x = 1, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -28,15 +29,17 @@ local Alphe = J({
   pools = { ["Team D"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Forest,
+  ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ITALY,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Beru = J({
-  name = "Beru",
+local Turchese = J({
+  name = "Azubel Turchese",
   pos = { x = 2, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -46,16 +49,38 @@ local Beru = J({
   pools = { ["Team D"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Mountain,
+  ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ITALY,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gamma = J({
-  name = "Gamma",
+local Agata = J({
+  name = "Nereo Agata",
   pos = { x = 3, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Zaffiro = J({
+  name = "Azzuro Zaffiro",
+  pos = { x = 4, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -66,14 +91,156 @@ local Gamma = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ITALY,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Delta = J({
-  name = "Delta",
-  pos = { x = 4, y = 9 },
+local Smeraldo = J({
+  name = "Berdeo Smeraldo",
+  pos = { x = 5, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Granato = J({
+  name = "Rosso Granato",
+  pos = { x = 6, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Topazio = J({
+  name = "Giallo Topazio",
+  pos = { x = 7, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Amatista = J({
+  name = "Vittorio Amatista",
+  pos = { x = 8, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Acuto = J({
+  name = "Julio Acuto",
+  pos = { x = 9, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 2,
+  pools = { ["Team D"] = true },
+  cost = 7,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Perla = J({
+  name = "Bianco Perla",
+  pos = { x = 10, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Quarzo = J({
+  name = "Grigio Quarzo",
+  pos = { x = 11, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Berillo = J({
+  name = "Pardo Berillo",
+  pos = { x = 12, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -84,68 +251,16 @@ local Delta = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.ITALY,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Epsilon = J({
-  name = "Epsilon",
-  pos = { x = 5, y = 9 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Team D"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.MF,
-  pteam = "ina_team_TeamD",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Giulio = J({
-  name = "Giulio Acuto",
-  pos = { x = 6, y = 9 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 2,
-  pools = { ["Team D"] = true },
-  cost = 7,
-  atlas = "Jokers03",
-  ptype = C.Wind,
-  pposition = C.MF,
-  pteam = "ina_team_TeamD",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Eta = J({
-  name = "Eta",
-  pos = { x = 7, y = 9 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Team D"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Wind,
-  pposition = C.MF,
-  pteam = "ina_team_TeamD",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Teta = J({
-  name = "Teta",
-  pos = { x = 8, y = 9 },
+local Corniola = J({
+  name = "Marrone Corniola",
+  pos = { x = 13, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -155,33 +270,17 @@ local Teta = J({
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Mountain,
-  pposition = C.FW,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ITALY,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Iota = J({
-  name = "Iota",
-  pos = { x = 9, y = 9 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Team D"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Wind,
-  pposition = C.FW,
-  pteam = "ina_team_TeamD",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Kappa = J({
-  name = "Kappa",
-  pos = { x = 10, y = 9 },
+local Rubino = J({
+  name = "Amaranto Rubino",
+  pos = { x = 14, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -191,7 +290,29 @@ local Kappa = J({
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.ITALY,
+  pteam = "ina_team_TeamD",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Opale = J({
+  name = "Avorio Opale",
+  pos = { x = 15, y = 9 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Team D"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.ITALY,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end

@@ -1,6 +1,6 @@
-local Jean = J({
-  name = "Jean Baker",
-  pos = { x = 0, y = 1 },
+local Whale = J({
+  name = "Gene Whalon",
+  pos = { x = 0, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -11,14 +11,59 @@ local Jean = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_3,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Holly = J({
-  name = "Holly Dash",
-  pos = { x = 1, y = 1 },
+local Water = J({
+  name = "David Waterman",
+  pos = { x = 1, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Big Waves"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_BigWaves",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Beaches = J({
+  name = "Sonny Shore",
+  pos = { x = 2, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Big Waves"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_1,
+  pteam = "ina_team_BigWaves",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Turtle = J({
+  name = "Kjell Snapper",
+  pos = { x = 3, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -29,14 +74,17 @@ local Holly = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Robert = J({
-  name = "Robert Reef",
-  pos = { x = 2, y = 1 },
+local Kraken = J({
+  name = "Ken Crackham",
+  pos = { x = 4, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -45,16 +93,19 @@ local Robert = J({
   pools = { ["Big Waves"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Mountain,
+  ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Wilson = J({
-  name = "Wilson Shore",
-  pos = { x = 3, y = 1 },
+local Prawn = J({
+  name = "Shawn Princeton",
+  pos = { x = 5, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -63,16 +114,19 @@ local Wilson = J({
   pools = { ["Big Waves"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
-  pposition = C.DF,
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Joe = J({
-  name = "Joe Jaws",
-  pos = { x = 4, y = 1 },
+local Fisher = J({
+  name = "Matt Fischer",
+  pos = { x = 6, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -81,16 +135,19 @@ local Joe = J({
   pools = { ["Big Waves"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Mountain,
-  pposition = C.DF,
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Daniel = J({
-  name = "Daniel Gordon",
-  pos = { x = 5, y = 1 },
+local HangTen = J({
+  name = "Hank Tennyson",
+  pos = { x = 7, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -101,32 +158,38 @@ local Daniel = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Nice = J({
-  name = "Nice Dolphin",
-  pos = { x = 6, y = 1 },
+local Dolphin = J({
+  name = "Dolph Hensen",
+  pos = { x = 8, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
   end,
-  rarity = 2,
+  rarity = "ina_top",
   pools = { ["Big Waves"] = true },
   cost = 7,
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_3,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Julian = J({
-  name = "Julian Reef",
-  pos = { x = 7, y = 1 },
+local Reef = J({
+  name = "Hamilton Reith",
+  pos = { x = 9, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -136,15 +199,81 @@ local Julian = J({
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_BigWaves",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Jaws = J({
+  name = "Joe Dawes",
+  pos = { x = 10, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Big Waves"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_BigWaves",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local CHorse = J({
+  name = "Quincy Horace",
+  pos = { x = 11, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Big Waves"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_BigWaves",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Summers = J({
+  name = "Holly Summers",
+  pos = { x = 12, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Big Waves"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local David = J({
-  name = "David Shark",
-  pos = { x = 8, y = 1 },
+local KRab = J({
+  name = "Derek Rabson",
+  pos = { x = 0, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -153,16 +282,19 @@ local David = J({
   pools = { ["Big Waves"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.FW,
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_3,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Sebastian = J({
-  name = "Sebastian Shark",
-  pos = { x = 9, y = 1 },
+local Barracuda = J({
+  name = "Barack Daniels",
+  pos = { x = 1, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -171,16 +303,19 @@ local Sebastian = J({
   pools = { ["Big Waves"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.FW,
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gene = J({
-  name = "Gene Baker",
-  pos = { x = 10, y = 1 },
+local Marlin = J({
+  name = "Bruce Marlin",
+  pos = { x = 2, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -189,8 +324,11 @@ local Gene = J({
   pools = { ["Big Waves"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Forest,
+  ptype = C.Mountain,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.AUSTRALIA,
+  pyear = C.YEAR_2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end

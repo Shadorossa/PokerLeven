@@ -1,22 +1,24 @@
-local Fermin = J({
-  name = "Fermín Sánchez",
+local Inigo = J({
+  name = "Alfonso Íñigo",
   pos = { x = 0, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
   end,
-  rarity = 2,
+  rarity = 1,
   pools = { ["Red Matadors"] = true },
-  cost = 7,
+  cost = 5,
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jose = J({
+local Costa = J({
   name = "José Costa",
   pos = { x = 1, y = 8 },
   config = { extra = {} },
@@ -29,13 +31,15 @@ local Jose = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Rafael = J({
-  name = "Rafael López",
+local Lopez = J({
+  name = "José López",
   pos = { x = 2, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -47,13 +51,15 @@ local Rafael = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Antonio = J({
-  name = "Antonio Gallego",
+local Garrido = J({
+  name = "Antonio Garrido",
   pos = { x = 3, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -65,31 +71,35 @@ local Antonio = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Queraldo = J({
-  name = "Queraldo Naval",
+local Garcia = J({
+  name = "Víctor García",
   pos = { x = 4, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
   end,
-  rarity = 1,
+  rarity = 2,
   pools = { ["Red Matadors"] = true },
-  cost = 5,
+  cost = 7,
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Pedro = J({
-  name = "Pedro Moreno",
+local Rodriguez = J({
+  name = "Joan Rodríguez",
   pos = { x = 5, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -99,15 +109,17 @@ local Pedro = J({
   pools = { ["Red Matadors"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Forest,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Miguel = J({
-  name = "Miguel Pereira",
+local Ferreira = J({
+  name = "Igor Ferreira",
   pos = { x = 6, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -117,15 +129,17 @@ local Miguel = J({
   pools = { ["Red Matadors"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Carlos = J({
-  name = "Carlos Arroyo",
+local Pereira = J({
+  name = "Miguel Pereira",
   pos = { x = 7, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -135,15 +149,17 @@ local Carlos = J({
   pools = { ["Red Matadors"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = C.Mountain,
+  ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Isaac = J({
-  name = "Isaac César",
+local Borja = J({
+  name = "Borja Costa",
   pos = { x = 8, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -154,33 +170,17 @@ local Isaac = J({
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Wind,
-  pposition = C.FW,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Federico = J({
-  name = "Federico Rubiera",
+local Bonachea = J({
+  name = "Mateo Bonachea",
   pos = { x = 9, y = 8 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Red Matadors"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.FW,
-  pteam = "ina_team_RedMatadors",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Samuel = J({
-  name = "Samuel Mayo",
-  pos = { x = 10, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -191,6 +191,128 @@ local Samuel = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.SPAIN,
+  pteam = "ina_team_RedMatadors",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Jimenez = J({
+  name = "Miguel Jiménez",
+  pos = { x = 10, y = 8 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Red Matadors"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.SPAIN,
+  pteam = "ina_team_RedMatadors",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Espindola = J({
+  name = "Juan Espindola",
+  pos = { x = 11, y = 8 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Red Matadors"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.SPAIN,
+  pteam = "ina_team_RedMatadors",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Cesar = J({
+  name = "Isaac César",
+  pos = { x = 12, y = 8 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Red Matadors"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.SPAIN,
+  pteam = "ina_team_RedMatadors",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Castor = J({
+  name = "Laudelino Castor",
+  pos = { x = 13, y = 8 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Red Matadors"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.SPAIN,
+  pteam = "ina_team_RedMatadors",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Arroyo = J({
+  name = "Carlos Arroyo",
+  pos = { x = 14, y = 8 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Red Matadors"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.SPAIN,
+  pteam = "ina_team_RedMatadors",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Rubiera = J({
+  name = "Federico Rubiera",
+  pos = { x = 15, y = 8 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Red Matadors"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.SPAIN,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end

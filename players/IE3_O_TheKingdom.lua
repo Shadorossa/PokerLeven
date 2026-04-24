@@ -1,23 +1,25 @@
-local Falcao = J({
-  name = "Falcao Da Silva",
+local DaSilva = J({
+  name = "Falcão Da Silva",
   pos = { x = 0, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
   end,
-  rarity = 1,
+  rarity = 2,
   pools = { ["The Kingdom"] = true },
-  cost = 5,
+  cost = 7,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Mountain,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.BRAZIL,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
 local Lagarto = J({
-  name = "Lagarto Carlos",
+  name = "Carlos Lagarto",
   pos = { x = 1, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -29,32 +31,16 @@ local Lagarto = J({
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
 local Bagre = J({
-  name = "Bagre Antonio",
+  name = "Antonio Bagre",
   pos = { x = 2, y = 14 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["The Kingdom"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Forest,
-  pposition = C.DF,
-  pteam = "ina_team_TheKingdom",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Borboleta = J({
-  name = "Borboleta",
-  pos = { x = 3, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -65,12 +51,34 @@ local Borboleta = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Formiga = J({
+local Monstro = J({
+  name = "Monstro Ximenes",
+  pos = { x = 3, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Clemens = J({
   name = "Formiga Clemens",
   pos = { x = 4, y = 14 },
   config = { extra = {} },
@@ -83,86 +91,16 @@ local Formiga = J({
   atlas = "Jokers03",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Presa = J({
-  name = "Presa",
+local Passos = J({
+  name = "Presa Passos",
   pos = { x = 5, y = 14 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["The Kingdom"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Mountain,
-  pposition = C.MF,
-  pteam = "ina_team_TheKingdom",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Leonardo = J({
-  name = "Leonardo Almeida",
-  pos = { x = 6, y = 14 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["The Kingdom"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.MF,
-  pteam = "ina_team_TheKingdom",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Mac = J({
-  name = "Mac Robingo",
-  pos = { x = 7, y = 14 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 2,
-  pools = { ["The Kingdom"] = true },
-  cost = 7,
-  atlas = "Jokers03",
-  ptype = C.Mountain,
-  pposition = C.FW,
-  pteam = "ina_team_TheKingdom",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Gato = J({
-  name = "Gato",
-  pos = { x = 8, y = 14 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["The Kingdom"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Fire,
-  pposition = C.FW,
-  pteam = "ina_team_TheKingdom",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Coruja = J({
-  name = "Coruja",
-  pos = { x = 9, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -173,14 +111,56 @@ local Coruja = J({
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Cavalo = J({
-  name = "Cavalo Oliveira",
-  pos = { x = 10, y = 14 },
+local Barboza = J({
+  name = "Bolboreta Barboza",
+  pos = { x = 6, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Cerezo = J({
+  name = "Coruja Cerezo",
+  pos = { x = 7, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Almeida = J({
+  name = "Leonardo Almeida",
+  pos = { x = 8, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -190,7 +170,149 @@ local Cavalo = J({
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Robingo = J({
+  name = "Mac Robingo",
+  pos = { x = 9, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 2,
+  pools = { ["The Kingdom"] = true },
+  cost = 7,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Gato = J({
+  name = "Gato Carvalho",
+  pos = { x = 10, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Ribeiro = J({
+  name = "Xavier Ribeiro",
+  pos = { x = 11, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Nogueira = J({
+  name = "Ulisses Nogueira",
+  pos = { x = 12, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Oliveira = J({
+  name = "Gervasio Oliveira",
+  pos = { x = 13, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Mendes = J({
+  name = "Tigre Mendes",
+  pos = { x = 14, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.BRAZIL,
+  pteam = "ina_team_TheKingdom",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Santos = J({
+  name = "Grillo Santos",
+  pos = { x = 15, y = 14 },
+  config = { extra = {} },
+  loc_vars = function(self, info, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["The Kingdom"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.BRAZIL,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end

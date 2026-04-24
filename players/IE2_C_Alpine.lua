@@ -79,12 +79,20 @@ local gleeson = {
 }
 
 -- snowfield
-local snowfield = {
+local snowfield = J({
   name = "Snowfield",
   pos = { x = 7, y = 2 },
-  config = { extra = {} },
+  config = { extra = { chips = 150 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    local count = 0
+    if G.jokers and G.jokers.cards then
+      for _, v in ipairs(G.jokers.cards) do
+        if v.ability.pteam == "ina_team_Alpino" then
+          count = count + 1
+        end
+      end
+    end
+    return { vars = { center.ability.extra.chips, count * center.ability.extra.chips, count } }
   end,
   rarity = 1, -- Common
   pools = { ["Alpine"] = true },
@@ -95,8 +103,55 @@ local snowfield = {
   pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
+    if context.joker_main and G.jokers and G.jokers.cards and card.area == G.jokers then
+      local count = 0
+      for _, v in ipairs(G.jokers.cards) do
+        if v.ability.pteam == "ina_team_Alpino" then
+          count = count + 1
+        end
+      end
+      if count > 0 then
+        return {
+          message = localize { type = 'variable', key = 'a_chips', vars = { count * card.ability.extra.chips } },
+          chip_mod = count * card.ability.extra.chips,
+          colour = G.C.CHIPS
+        }
+      end
+    end
+  end,
+  update = function(self, card, dt)
+    if G.STAGE ~= G.STAGES.RUN or not G.jokers then return end
+    local is_active = card.area == G.jokers and not card.debuff
+
+    if G.jokers and G.jokers.cards then
+      for _, v in ipairs(G.jokers.cards) do
+        if v ~= card and v.ability.pteam == "ina_team_Alpino" then
+          if is_active then
+            if not v.ability.eternal then
+              v.ability.eternal = true
+              v.ability.ina_snowfield_eternal = true
+            end
+          else
+            if v.ability.ina_snowfield_eternal then
+              v.ability.eternal = false
+              v.ability.ina_snowfield_eternal = nil
+            end
+          end
+        end
+      end
+    end
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    if G.jokers and G.jokers.cards then
+      for _, v in ipairs(G.jokers.cards) do
+        if v.ability.ina_snowfield_eternal then
+          v.ability.eternal = false
+          v.ability.ina_snowfield_eternal = nil
+        end
+      end
+    end
   end
-}
+})
 
 -- bootgaiter
 local bootgaiter = {
@@ -166,7 +221,7 @@ local Maddox = J({
     end
   end,
   remove_from_deck = function(self, card, from_debuff)
-    if G.jokers and not G.jokers.cards then return end
+    if not G.jokers or not G.jokers.cards then return end
     if G.playing_cards then
       for _, c in ipairs(G.playing_cards) do
         if c.ability and c.ability.forest_sticker then
@@ -179,24 +234,33 @@ local Maddox = J({
 })
 
 -- skipolson
-local skipolson = {
+local skipolson = J({
   name = "Skipolson",
   pos = { x = 10, y = 2 },
-  config = { extra = {} },
+  config = { extra = { type = 'Training' } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.type } }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["Alpine"] = true },
-  cost = 7,
+  cost = 4,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
   pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
+    if context.skip_blind then
+      if Pokerleven.spawn_consumable(card.ability.extra.type) then
+        return {
+          message = localize('k_plus_tarot'),
+          colour = G.C.SECONDARY_SET.Tarot,
+          card = card
+        }
+      end
+    end
   end
-}
+})
 
 -- shawn
 local shawn = {
@@ -259,24 +323,31 @@ local rackner = {
 }
 
 -- peggs
-local peggs = {
+local peggs = J({
   name = "Peggs",
   pos = { x = 3, y = 3 },
-  config = { extra = {} },
+  config = { extra = { chips = 80 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.chips } }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["Alpine"] = true },
-  cost = 7,
+  cost = 5,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.GK,
   pteam = "ina_team_Alpino",
   blueprint_compat = true,
   calculate = function(self, card, context)
+    if context.joker_main and G.GAME.blind and G.GAME.blind.boss then
+      return {
+        message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips } },
+        chip_mod = card.ability.extra.chips,
+        colour = G.C.CHIPS
+      }
+    end
   end
-}
+})
 
 -- Ursus
 local ursus = {
@@ -360,5 +431,5 @@ local onlign = {
 
 return {
   name = "Alpine",
-  list = { Maddox }
+  list = { Maddox, skipolson, peggs, snowfield }
 }

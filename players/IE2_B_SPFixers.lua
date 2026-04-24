@@ -19,7 +19,7 @@ local ironwall = J({
     if context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
       if G.GAME.current_round.barriers and G.GAME.current_round.barriers > 0 then
         return {
-          message = localize{type='variable',key='a_chips',vars={card.ability.extra.chip_mod}},
+          message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chip_mod } },
           chip_mod = card.ability.extra.chip_mod,
           colour = G.C.CHIPS
         }
@@ -48,21 +48,21 @@ local Western = J({
   blueprint_compat = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
-    
+
     if ctx.discard and not ctx.blueprint and ctx.other_card and ctx.other_card.ability.wind_sticker then
       ex.pending_cards = ex.pending_cards + 1
     elseif Pokerleven.is_joker_turn(ctx) and ex.pending_cards > 0 and ctx.scoring_name == "Pair" then
       local hand_type = ctx.scoring_name
       if G.GAME.hands[hand_type] then
         local lvls = ex.pending_cards * ex.levels_per_card
-        
+
         local ret = {
           message = localize('ina_protocol'),
           mult_mod = lvls * G.GAME.hands[hand_type].l_mult,
           chip_mod = lvls * G.GAME.hands[hand_type].l_chips,
           colour = G.C.RED
         }
-        
+
         if not ctx.blueprint then ex.pending_cards = 0 end
         return ret
       end
@@ -151,18 +151,20 @@ local Firepool = J({
   blueprint_compat = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
-    
+
     if ctx.repetition and ctx.cardarea == G.play then
       if ctx.scoring_hand and ctx.scoring_hand[1] == ctx.other_card then
         local wind_cover = 0
         for _, c in ipairs(ctx.full_hand) do
           local scored = false
           for _, sc in ipairs(ctx.scoring_hand) do
-            if c == sc then scored = true; break end
+            if c == sc then
+              scored = true; break
+            end
           end
           if not scored and c.ability.wind_sticker then wind_cover = wind_cover + 1 end
         end
-        
+
         if wind_cover > 0 then
           return { message = localize('k_again_ex'), repetitions = wind_cover * ex.retriggers, card = ctx.other_card }
         end
@@ -218,7 +220,10 @@ local function restore_firsthand_hands(ex)
   if ex.hands_lost and ex.hands_lost > 0 then
     if G.GAME and G.GAME.round_resets then
       G.GAME.round_resets.hands = G.GAME.round_resets.hands + ex.hands_lost
-      if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then ease_hands_played(ex.hands_lost) end
+      if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then
+        ease_hands_played(ex
+          .hands_lost)
+      end
     end
     ex.hands_lost = 0
   end
@@ -243,13 +248,16 @@ local firsthand = J({
   update = function(self, card, dt)
     if G.jokers and G.jokers.cards and card.area == G.jokers then
       local ex = card.ability.extra
-      if not Pokerleven.is_state_changed(card, {Pokerleven.get_jokers_hash(), G.GAME and G.GAME.round_resets and G.GAME.round_resets.hands}) then return end
+      if not Pokerleven.is_state_changed(card, { Pokerleven.get_jokers_hash(), G.GAME and G.GAME.round_resets and G.GAME.round_resets.hands }) then return end
       if not card.debuff then
         if G.GAME and G.GAME.round_resets and math.floor(G.GAME.round_resets.hands) > 1 then
           local diff = math.floor(G.GAME.round_resets.hands) - 1
           ex.hands_lost = (ex.hands_lost or 0) + diff
           G.GAME.round_resets.hands = 1
-          if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then ease_hands_played(-diff) end
+          if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then
+            ease_hands_played(-
+              diff)
+          end
         end
       else
         restore_firsthand_hands(ex)
@@ -317,7 +325,7 @@ local Tori = J({
   blueprint_compat = false,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
-    
+
     if (Pokerleven.is_joker_end_of_round(ctx) or ctx.ending_shop) and not ctx.blueprint then
       local current_stones = 0
       if G.playing_cards then
@@ -325,14 +333,14 @@ local Tori = J({
           if SMODS.has_enhancement(v, 'm_stone') then current_stones = current_stones + 1 end
         end
       end
-      
+
       if current_stones > (ex.counted_stones or 0) then
         local new_stones = current_stones - (ex.counted_stones or 0)
         ex.accumulation = (ex.accumulation or 0) + (new_stones * ex.stone_bonus)
         ex.counted_stones = current_stones
       end
     end
-    
+
     if ctx.ending_shop and not ctx.blueprint then
       local r_joker = card:get_right_joker()
       if r_joker and (ex.accumulation or 0) > 0 and type(r_joker.ability.extra) == 'table' and not r_joker.debuff then
@@ -346,10 +354,14 @@ local Tori = J({
             upgraded = true
           end
         end
-        
+
         if upgraded then
           ex.accumulation = 0
-          G.E_MANAGER:add_event(Event({ func = function() r_joker:juice_up(0.5, 0.5); return true end }))
+          G.E_MANAGER:add_event(Event({
+            func = function()
+              r_joker:juice_up(0.5, 0.5); return true
+            end
+          }))
           return { message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION }
         end
       end
@@ -361,8 +373,10 @@ local Tori = J({
 local kennedy = J({
   name = "Kennedy",
   pos = { x = 10, y = 1 },
-  config = { extra = { xmult = 2, xmult_ace = 3.5 } },
-  loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.xmult, ex.xmult_ace}} end,
+  config = { extra = { xmult = 2, xmult_ace = 3.5, last_discount = 0 } },
+  loc_vars = function(self, info_queue, center)
+    local ex = center.ability.extra; return { vars = { ex.xmult, ex.xmult_ace, #find_player_team("ina_team_ServicioSecreto") } }
+  end,
   rarity = 1, -- Common
   pools = { ["SPFixers"] = true },
   cost = 5,
@@ -372,10 +386,28 @@ local kennedy = J({
   pteam = "ina_team_ServicioSecreto",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
+  add_to_deck = function(self, card, from_debuff)
+    local count = #find_player_team("ina_team_ServicioSecreto")
+    card.ability.extra.last_discount = count; G.GAME.round_resets.reroll_cost = G.GAME.round_resets.reroll_cost - count; calculate_reroll_cost(true)
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    G.GAME.round_resets.reroll_cost = G.GAME.round_resets.reroll_cost + (card.ability.extra.last_discount or 0)
+    card.ability.extra.last_discount = 0; calculate_reroll_cost(true)
+  end,
   calculate = function(self, card, ctx)
+    if (ctx.buying_card or ctx.selling_card or ctx.setting_blind) and not ctx.blueprint then
+      local ex, count = card.ability.extra, #find_player_team("ina_team_ServicioSecreto")
+      G.GAME.round_resets.reroll_cost = G.GAME.round_resets.reroll_cost + ex.last_discount - count
+      ex.last_discount = count; calculate_reroll_cost(true)
+    end
     if Pokerleven.is_joker_turn(ctx) and #ctx.full_hand == 1 then
-        local xm = ctx.full_hand[1]:get_id() == 14 and card.ability.extra.xmult_ace or card.ability.extra.xmult
-        return {message = localize{type='variable', key='a_xmult', vars={xm}}, Xmult_mod = xm, colour = G.C.MULT}
+      local xm = ctx.full_hand[1]:get_id() == 14 and card.ability.extra.xmult_ace or card.ability.extra.xmult
+      return {
+        message = localize { type = 'variable', key = 'a_xmult', vars = { xm } },
+        Xmult_mod = xm,
+        colour = G.C
+            .MULT
+      }
     end
   end
 })
@@ -416,16 +448,18 @@ local beray = J({
   blueprint_compat = false,
   calculate = function(self, card, ctx)
     if ctx.selling_self and not ctx.blueprint and G.STATE == G.STATES.SELECTING_HAND then
-        local h_diff = math.max(1, G.GAME.round_resets.hands + (G.GAME.round_bonus.next_hands or 0)) - G.GAME.current_round.hands_left
-        local d_diff = math.max(0, G.GAME.round_resets.discards + (G.GAME.round_bonus.discards or 0)) - G.GAME.current_round.discards_left
-        if h_diff > 0 then ease_hands_played(h_diff) end
-        if d_diff > 0 then ease_discard(d_diff) end
-        if G.fedora_void and G.fedora_void.cards then
-            for i = #G.fedora_void.cards, 1, -1 do
-                local c = G.fedora_void.cards[i]
-                c.fedora_void_timer = nil; c.area:remove_card(c); G.deck:emplace(c)
-            end
+      local h_diff = math.max(1, G.GAME.round_resets.hands + (G.GAME.round_bonus.next_hands or 0)) -
+          G.GAME.current_round.hands_left
+      local d_diff = math.max(0, G.GAME.round_resets.discards + (G.GAME.round_bonus.discards or 0)) -
+          G.GAME.current_round.discards_left
+      if h_diff > 0 then ease_hands_played(h_diff) end
+      if d_diff > 0 then ease_discard(d_diff) end
+      if G.fedora_void and G.fedora_void.cards then
+        for i = #G.fedora_void.cards, 1, -1 do
+          local c = G.fedora_void.cards[i]
+          c.fedora_void_timer = nil; c.area:remove_card(c); G.deck:emplace(c)
         end
+      end
     end
   end
 })

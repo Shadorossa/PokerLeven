@@ -1,106 +1,208 @@
-local Enel = J({
-  name = "Enel",
-  pos = { x = 0, y = 17 },
+local Anorel = J({
+  name = "Anorel",
+  pos = { x = 1, y = 18 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "GK",
+  ptype = C.Forest,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Geshu = J({
-  name = "Geshu",
-  pos = { x = 1, y = 17 },
+local Nenel = J({
+  name = "Nenel",
+  pos = { x = 2, y = 18 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "DF",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Bel = J({
-  name = "Bel",
-  pos = { x = 2, y = 17 },
+local Genel = J({
+  name = "Genel",
+  pos = { x = 3, y = 18 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "DF",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kyuueru = J({
-  name = "Kyuueru",
-  pos = { x = 3, y = 17 },
+local Ekadel = J({
+  name = "Ekadel",
+  pos = { x = 4, y = 18 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ekaderu = J({
-  name = "Ekaderu",
-  pos = { x = 4, y = 17 },
+local Lephiel = J({
+  name = "Lephiel",
+  pos = { x = 5, y = 18 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "MF",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Eremiwa = J({
-  name = "Eremiwa",
-  pos = { x = 5, y = 17 },
+local Sachinel = J({
+  name = "Sachinel",
+  pos = { x = 6, y = 18 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
   atlas = "Jokers03",
-  ptype = "Forest",
-  pposition = "MF",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_SkyTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Wenel = J({
+  name = "Wenel",
+  pos = { x = 7, y = 18 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Sky Team"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_SkyTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Nuel = J({
+  name = "Nuel",
+  pos = { x = 8, y = 18 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Sky Team"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_SkyTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Ientel = J({
+  name = "Ientel",
+  pos = { x = 9, y = 18 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Sky Team"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pteam = "ina_team_SkyTeam",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+local Gaiel = J({
+  name = "Gaiel",
+  pos = { x = 10, y = 18 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return { vars = {} }
+  end,
+  rarity = 1,
+  pools = { ["Sky Team"] = true },
+  cost = 5,
+  atlas = "Jokers03",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.F,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -108,89 +210,22 @@ local Eremiwa = J({
 
 local Sael = J({
   name = "Sael",
-  pos = { x = 6, y = 17 },
+  pos = { x = 4, y = 2 },
+  soul_pos = { x = 4, y = 3 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 2,
   pools = { ["Sky Team"] = true },
-  cost = 7,
-  atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "MF",
-  pteam = "ina_team_SkyTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Neneru = J({
-  name = "Neneru",
-  pos = { x = 7, y = 17 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Sky Team"] = true },
   cost = 5,
-  atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "MF",
-  pteam = "ina_team_SkyTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Inueru = J({
-  name = "Inueru",
-  pos = { x = 8, y = 17 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Sky Team"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "FW",
-  pteam = "ina_team_SkyTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Kyariueru = J({
-  name = "Kyariueru",
-  pos = { x = 9, y = 17 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Sky Team"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "FW",
-  pteam = "ina_team_SkyTeam",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
-})
-
-local Wyueru = J({
-  name = "Wyueru",
-  pos = { x = 10, y = 17 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 1,
-  pools = { ["Sky Team"] = true },
-  cost = 5,
-  atlas = "Jokers03",
-  ptype = "Wind",
-  pposition = "FW",
+  atlas = "ina_top",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.UNKNOWN,
+  pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -198,5 +233,5 @@ local Wyueru = J({
 
 return {
   name = "Sky Team",
-  list = {}
+  list = { }
 }
