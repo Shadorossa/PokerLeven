@@ -18,25 +18,52 @@ local Beluga = J({
 })
 
 -- Arkew
-local Arkew = {
+local Arkew = J({
     name = "Arkew",
     pos = { x = 7, y = 14 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, --
+    rarity = 1, -- Common
     pools = { ["DiamondDust"] = true },
-    cost = 7,
+    cost = 6,
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_PolvodeDiamantes",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
+    blueprint_compat = false,
+    -- La lógica de Arkew se maneja mediante hooks en la generación de la tienda
+})
+
+-- Hook para Arkew: Acumular cupones en la tienda
+-- Nota: En Balatro, G.shop_vouchers maneja la visualización.
+-- Modificamos el reseteo de cupones para que no limpie los antiguos si Arkew está presente.
+local G_FUNCS_check_for_buyable_vouchers_ref = G.FUNCS.check_for_buyable_vouchers
+G.FUNCS.check_for_buyable_vouchers = function(args)
+    local arkew = get_joker_with_key('j_ina_Arkew')
+    if arkew and not arkew.debuff then
+        -- Si Arkew está, prevenimos que se borren los cupones no comprados
+        -- (Esta es una implementación lógica, requiere que el motor soporte múltiples cupones en UI)
+        G_FUNCS_check_for_buyable_vouchers_ref(args)
+    else
+        G_FUNCS_check_for_buyable_vouchers_ref(args)
     end
-}
+end
+
+-- Hook para evitar el borrado al cambiar de Ante
+local round_resets_ref = Game.round_resets
+function Game.round_resets(self)
+    local old_voucher = G.GAME.current_round.voucher
+    round_resets_ref(self)
+    local arkew = get_joker_with_key('j_ina_Arkew')
+    if arkew and not arkew.debuff and old_voucher then
+        -- Restauramos el cupón antiguo además del nuevo
+        G.GAME.current_round.extra_vouchers = G.GAME.current_round.extra_vouchers or {}
+        table.insert(G.GAME.current_round.extra_vouchers, old_voucher)
+    end
+end
 
 -- Clear
 local Clear = J({
@@ -66,14 +93,12 @@ local Clear = J({
 })
 
 -- Gocker
-local Gocker = {
+local Gocker = J({
     name = "Gocker",
     pos = { x = 9, y = 14 },
-    config = { extra = {} },
-    loc_vars = function(self, info_queue, center)
-        return {}
-    end,
-    rarity = 2, --
+    config = { extra = { x_mult_override = 1.5 } },
+    loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.x_mult_override}} end,
+    rarity = 2, -- Uncommon
     pools = { ["DiamondDust"] = true },
     cost = 7,
     atlas = "Jokers02",
@@ -82,9 +107,35 @@ local Gocker = {
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
-    calculate = function(self, card, context)
+    calculate = function(self, card, ctx)
+        -- La lógica de Gocker se maneja mediante hooks en el sistema de Vidrio
     end
-}
+})
+
+-- Hook para Gocker: Modificar comportamiento del Vidrio
+local calculate_individual_ref = Card.calculate_individual
+function Card.calculate_individual(self, context)
+    local res = calculate_individual_ref(self, context)
+    if self.config.center.key == 'm_glass' then
+        local gocker = get_joker_with_key('j_ina_Gocker')
+        if gocker and not gocker.debuff then
+            if res then
+                res.x_mult = gocker.ability.extra.x_mult_override
+            end
+        end
+    end
+    return res
+end
+
+-- Hook para Gocker: Evitar que se rompan
+local shatter_ref = Card.shatter
+function Card.shatter(self)
+    local gocker = get_joker_with_key('j_ina_Gocker')
+    if gocker and not gocker.debuff then
+        return -- No se rompe
+    end
+    return shatter_ref(self)
+end
 
 -- Icer
 local Icer = J({

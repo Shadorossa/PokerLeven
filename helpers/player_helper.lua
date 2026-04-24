@@ -421,7 +421,9 @@ end
 ---@param areaCards table | nil The area to search
 ---@return Card|SMODS.Joker|nil Selected_Joker Joker with that key or nil if not found
 function get_joker_with_key(key, areaCards)
-    for _, v in ipairs(areaCards or G.jokers.cards) do
+    local cards = areaCards or (G.jokers and G.jokers.cards)
+    if not cards then return nil end
+    for _, v in ipairs(cards) do
         if v.config.center_key == key then
             return v
         end

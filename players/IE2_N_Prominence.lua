@@ -1,23 +1,39 @@
 -- Grent
-local Grent = {
+local Grent = J({
     name = "Grent",
     pos = { x = 8, y = 13 },
-    config = { extra = {} },
-    loc_vars = function(self, info_queue, center)
-        return {}
+    config = { extra = { barriers_per_calcination = 1 } },
+    loc_vars = function(self, info_queue, center) 
+        info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic'}
+        return {vars = {center.ability.extra.barriers_per_calcination}} 
     end,
     rarity = 1, -- Common
     pools = { ["Prominence"] = true },
-    cost = 15,
+    cost = 6,
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.GK,
-    techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    techtype = C.UPGRADES.Number,
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
-    calculate = function(self, card, context)
+    calculate = function(self, card, ctx)
+        -- La lógica se activa mediante el hook de calcinación
     end
-}
+})
+
+-- Hook para Grent: Generar barreras al calcinar
+local apply_card_property_ref = Pokerleven.apply_card_property
+function Pokerleven.apply_card_property(card, type, val, ...)
+    local res = apply_card_property_ref(card, type, val, ...)
+    if type == 'enhancement' and val == 'm_ina_chaotic' then
+        local grent = get_joker_with_key('j_ina_Grent')
+        if grent and not grent.debuff then
+            Pokerleven.ease_barriers(grent.ability.extra.barriers_per_calcination)
+            card_eval_status_text(grent, 'extra', nil, nil, nil, {message = localize('k_barrier'), colour = G.C.MOUNTAIN})
+        end
+    end
+    return res
+end
 
 -- Baller
 local Baller = {

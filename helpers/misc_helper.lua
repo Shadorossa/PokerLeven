@@ -224,6 +224,31 @@ function Pokerleven.ease_barriers(mod, instant)
     }
 end
 
+-- Sael Double Shop Hook
+local exit_shop_ref = G.FUNCS.exit_shop
+G.FUNCS.exit_shop = function(e)
+    if G.GAME and G.GAME.ina_sael_active then
+        G.GAME.ina_sael_active = false
+        
+        -- Logic to skip the blind but enter shop again
+        G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = function()
+                -- Skip the next blind (Small Blind)
+                if G.GAME.blind_on_deck == 'Small' then
+                    G.FUNCS.skip_blind()
+                    -- Force back to shop for the "double shop"
+                    G.STATE = G.STATES.SHOP
+                    G.GAME.shop:recalculate()
+                end
+                return true
+            end
+        }))
+    else
+        exit_shop_ref(e)
+    end
+end
+
 local original_unlock_card = unlock_card
 
 function unlock_card(card)
@@ -335,4 +360,58 @@ Pokerleven.get_jokers_hash = function(target_type)
         table.sort(rel); hash = table.concat(rel, ";")
     end
     return hash
+end
+
+---Increases the rank of a card infinitely (cycling Ace to 2)
+---@param card Card
+---@return boolean true if the rank was changed
+Pokerleven.rank_up = function(card)
+    local next_rank = nil
+    local current_rank = card.base.value
+    local ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' }
+
+    if current_rank == 'Ace' then
+        next_rank = '2'
+    else
+        for i, r in ipairs(ranks) do
+            if r == current_rank then
+                next_rank = ranks[i + 1]
+                break
+            end
+        end
+    end
+
+    if next_rank then
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                SMODS.change_base(card, nil, next_rank)
+                card:juice_up()
+                return true
+            end
+        }))
+        return true
+    end
+    return false
+end
+
+-- Coral Protection Hook
+local start_dissolve_ref = Card.start_dissolve
+function Card:start_dissolve(dissolve_colours, silent, shelf_life, drumroll)
+    local coral = get_joker_with_key('j_ina_Coral')
+    if coral and not coral.debuff and (self.edition or self.seal) then
+        self:juice_up()
+        return
+    end
+    start_dissolve_ref(self, dissolve_colours, silent, shelf_life, drumroll)
+end
+
+-- Kayson Blind Reduction Hook
+local set_blind_ref = Blind.set_blind
+function Blind:set_blind(blind, reset, silent)
+    set_blind_ref(self, blind, reset, silent)
+    if G.GAME and G.kayson_next_reduction and G.kayson_next_reduction > 0 then
+        self.chips = math.floor(self.chips * (1 - G.kayson_next_reduction))
+        self.chip_text = number_format(self.chips)
+        G.kayson_next_reduction = 0
+    end
 end

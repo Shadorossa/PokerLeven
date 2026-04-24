@@ -114,22 +114,38 @@ local Hebimos = J({
 local Belal = J({
   name = "Belal",
   pos = { x = 7, y = 17 },
-  config = { extra = {} },
+  config = { extra = { reduction = 0.85 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    return { vars = { (1 - center.ability.extra.reduction) * 100 } }
   end,
-  rarity = 1,
+  rarity = 2,
   pools = { ["Dark Team"] = true },
-  cost = 5,
+  cost = 6,
   atlas = "Jokers03",
-  ptype = C.Wind,
+  ptype = C.Mountain,
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
   pyear = C.YEAR_3,
   pteam = "ina_team_DarkTeam",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, context)
+    if not G.GAME or not G.jokers or card.area ~= G.jokers then return end
+
+    if context.joker_main and Pokerleven.get_cards_of_suite(C.Mountain, context.scoring_hand) > 0 then
+      G.E_MANAGER:add_event(Event({
+        func = function()
+          G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.reduction
+          G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+          return true
+        end
+      }))
+      return {
+        message = localize('ina_hell_drop'),
+        colour = G.C.MOUNTAIN
+      }
+    end
+  end
 })
 
 local Malphas = J({
@@ -181,9 +197,9 @@ local Arakune = J({
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.odds, G.GAME.probabilities.normal or 1 } }
   end,
-  rarity = 1,
+  rarity = 2,
   pools = { ["Dark Team"] = true },
-  cost = 5,
+  cost = 6,
   atlas = "Jokers03",
   ptype = C.Fire,
   pposition = C.MF,
@@ -276,5 +292,5 @@ local Destra = J({
 
 return {
   name = "Dark Team",
-  list = { Astaroth, Arakune }
+  list = { Astaroth, Belal, Arakune }
 }

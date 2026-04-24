@@ -1188,6 +1188,32 @@ return {
                     "son inmunes a ser {C:attention}debilitadas{}."
                 }
             },
+            j_ina_Skipolson = {
+                name = "Skipolson",
+                text = {
+                    "{C:forest}Espejismo{}",
+                    "Al {C:attention}saltar{} una ciega, crea",
+                    "una carta de {C:training}Entrenamiento{}."
+                }
+            },
+            j_ina_Peggs = {
+                name = "Peggs",
+                text = {
+                    "{C:mountain}Presa{}",
+                    "Otorga {C:chips}+#1#{} fichas contra",
+                    "una {C:attention}Ciega de Jefe{}."
+                }
+            },
+            j_ina_Snowfield = {
+                name = "Snowfield",
+                text = {
+                    "{C:mountain}Muro de Nieve{}",
+                    "Otorga {C:chips}+#2#{} fichas.",
+                    "{C:inactive}(Actual: {C:chips}+#1#{C:inactive} por {C:attention}#3#{C:inactive} Alpino/s){}",
+                    "Mientras esté activo, el resto de Jokers",
+                    "del {X:ina_team_alpino,C:white}Alpino{} son {C:attention}Eternos{}."
+                }
+            },
 
             -- IE2_D_Claustre
             -- Claustro Sagrado
@@ -1245,6 +1271,7 @@ return {
                     "jokers del {X:ina_team_claustrosagrado,C:white}Claustro Sagrado{}."
                 }
             },
+
 
             -- IE2_E_Epsilon
             j_ina_Dvalin = {
@@ -1611,6 +1638,63 @@ return {
                     "Gana {X:mult,C:white}X#1#{} Wde mult. por cada",
                     "carta {C:dark_edition}Letal{} en tu mazo.",
                     "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive} Mult){}"
+                }
+            },
+
+            -- IE3_R_SkyTeam
+            -- Sky Team
+            j_ina_Ekadel = {
+                name = "Ekadel",
+                text = {
+                    "{C:wind}Subida a los Cielos{}",
+                    "Al puntuar una carta, tiene una",
+                    "probabilidad de {C:green}#2# entre #1#{} de",
+                    "aumentar su {C:attention}Rango{} permanentemente.",
+                    "{C:inactive}(Ciclo: de As a 2){}"
+                }
+            },
+            j_ina_Sael = {
+                name = "Sael",
+                text = {
+                    "{C:wind}Remate Celestial{}",
+                    "Si tu puntuación final supera el objetivo",
+                    "de la ciega actual más el de la siguiente",
+                    "{C:attention}Ciega Pequeña{}, la {C:attention}salta{} automáticamente.",
+                    "Otorga su {C:attention}Etiqueta{} y permite entrar",
+                    "en la {C:attention}tienda{} dos veces seguidas."
+                }
+            },
+
+            -- IE3_S_DarkTeam
+            -- Dark Team
+            j_ina_Astaroth = {
+                name = "Astaroth",
+                text = {
+                    "{C:fire}El Olvido{}",
+                    "Si juegas la {C:attention}última mano{},",
+                    "la restaura {C:attention}#1#{} vez/veces por ronda.",
+                    "{C:inactive}(Restantes: {C:attention}#3#{C:inactive}){}",
+                    "Cada {C:attention}#4#{} manos olvidadas,",
+                    "el límite aumenta en {C:attention}1{}.",
+                    "{C:inactive}(Progreso: {C:attention}#2#/#4#{C:inactive}){}"
+                }
+            },
+            j_ina_Arakune = {
+                name = "Arakuné",
+                text = {
+                    "{C:fire}Balón Diabólico{}",
+                    "Al {C:red}descartar{} una carta, tiene una",
+                    "probabilidad de {C:green}#2# entre #1#{} de crear",
+                    "un {C:tarot}El Colgado{}."
+                }
+            },
+            j_ina_Belal = {
+                name = "Belal",
+                text = {
+                    "{C:mountain}Caída a los Infiernos{}",
+                    "Si la mano es de tipo {X:mountain,C:white}Montaña{},",
+                    "reduce el objetivo de la ciega actual",
+                    "en un {C:attention}#1#%{}."
                 }
             },
 
@@ -2618,6 +2702,9 @@ return {
             ina_evolve_level = "¡Nivel subido!",
             ina_evolve_success = "¡Intercambio!",
             ina_val_down = "¡Drenado!",
+            ina_oblivion = "El Olvido",
+            ina_hell_drop = "Caída a los Infiernos",
+            ina_rank_up = "¡Ascenso!",
             ina_training = "¡Cambio!",
             ina_next_match = "Siguiente",
             k_team_pack = "Pack de Equipo",

@@ -35,19 +35,31 @@ local KingR = J({
 local Beltzer = J({
   name = "Beltzer",
   pos = { x = 10, y = 6 },
-  config = { extra = {} },
+  config = { extra = { chip_gain = 15, current_chips = 0 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.chip_gain, center.ability.extra.current_chips } }
   end,
   rarity = 1, -- Common
   pools = { ["Royal Redux"] = true },
-  cost = 7,
+  cost = 5,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    if ctx.discard and not ctx.blueprint then
+        local oc = ctx.other_card
+        if oc == ctx.full_hand[1] then -- Solo una vez por descarte (el primero)
+            local lowest = ctx.full_hand[1]
+            for _, v in ipairs(ctx.full_hand) do if v:get_id() < lowest:get_id() then lowest = v end end
+            lowest:start_dissolve()
+            card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.chip_gain
+            return { message = "+" .. card.ability.extra.chip_gain .. " Chips", colour = G.C.CHIPS }
+        end
+    elseif Pokerleven.is_joker_turn(ctx) and card.ability.extra.current_chips > 0 then
+        return { chip_mod = card.ability.extra.current_chips, colour = G.C.CHIPS }
+    end
   end
 })
 
@@ -55,19 +67,25 @@ local Beltzer = J({
 local Blade = J({
   name = "Blade",
   pos = { x = 11, y = 6 },
-  config = { extra = {} },
+  config = { extra = { discards_gain = 3 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.discards_gain } }
   end,
   rarity = 1, -- Common
   pools = { ["Royal Redux"] = true },
-  cost = 7,
+  cost = 5,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    if ctx.discard and not ctx.blueprint then
+        if ctx.scoring_name == 'Flush' then
+            ease_discard(card.ability.extra.discards_gain)
+            return { message = "+" .. card.ability.extra.discards_gain .. " Descartes", colour = G.C.RED }
+        end
+    end
   end
 })
 
@@ -75,19 +93,24 @@ local Blade = J({
 local Argie = J({
   name = "Argie",
   pos = { x = 12, y = 6 },
-  config = { extra = {} },
+  config = { extra = { xmult = 1.2 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.xmult } }
   end,
   rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
-  cost = 7,
+  cost = 6,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    if ctx.joker_main then
+        if G.GAME.current_round.barriers and G.GAME.current_round.barriers > 0 then
+            return { x_mult = card.ability.extra.xmult }
+        end
+    end
   end
 })
 
@@ -97,18 +120,18 @@ local Bamboo = J({
   pos = { x = 0, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
+    info_queue[#info_queue + 1] = G.P_CENTERS.c_fool
     return {}
   end,
   rarity = 1, -- Common
   pools = { ["Royal Redux"] = true },
-  cost = 7,
+  cost = 5,
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
+  blueprint_compat = false,
+  -- La lógica de Bamboo se maneja en el hook de sobres
 })
 
 -- Messer
@@ -153,17 +176,28 @@ local Spark = J({
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
-  cost = 7,
+  cost = 6,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
   pteam = "ina_team_RoyalRedux",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
+  blueprint_compat = false,
 })
+
+-- Hooks de Tienda para Spark y Bamboo
+local create_UIBox_booster_pack_ref = G.UIDEF.booster_pack_info
+G.UIDEF.booster_pack_info = function(card)
+    local res = create_UIBox_booster_pack_ref(card)
+    local spark = get_joker_with_key('j_ina_Spark')
+    if spark and not spark.debuff then
+        if card.ability.extra_cards and card.ability.extra_cards[1] then
+            -- Lógica para mostrar SOLO la primera carta en el tooltip o UI
+        end
+    end
+    return res
+end
 
 -- Sparrow
 local Sparrow = J({
@@ -330,27 +364,26 @@ local Cellar = J({
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
-  cost = 7,
+  cost = 6,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.GK,
   pteam = "ina_team_RoyalRedux",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
+  blueprint_compat = false,
+  -- La lógica de sacrificio se maneja globalmente
 })
 
 -- Zenn
 local Zenn = J({
   name = "Zenn",
   pos = { x = 8, y = 7 },
-  config = { extra = {} },
+  config = { extra = { mult = 40 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    return { vars = { center.ability.extra.mult } }
   end,
-  rarity = 1, -- Common
+  rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
   cost = 7,
   atlas = "Jokers02",
@@ -358,27 +391,12 @@ local Zenn = J({
   pposition = C.FW,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
-})
-
--- Little
-local Little = J({
-  name = "Little",
-  pos = { x = 9, y = 7 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Royal Redux"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.DF,
-  pteam = "ina_team_RoyalRedux",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    if ctx.joker_main then
+        if #ctx.scoring_hand == 1 then
+            return { mult = card.ability.extra.mult, message = localize{type='variable',key='a_mult',vars={card.ability.extra.mult}} }
+        end
+    end
   end
 })
 
@@ -386,11 +404,17 @@ local Little = J({
 local Cossimo = J({
   name = "Cossimo",
   pos = { x = 10, y = 7 },
-  config = { extra = {} },
+  config = { extra = { xmult_per_bench = 0.2 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    local count = 0
+    if Pokerleven.ina_bench_area and Pokerleven.ina_bench_area.cards then
+        for _, v in ipairs(Pokerleven.ina_bench_area.cards) do
+            if is_team(v, "ina_team_RoyalAcademy") or is_team(v, "ina_team_RoyalRedux") then count = count + 1 end
+        end
+    end
+    return { vars = { center.ability.extra.xmult_per_bench, 1 + count * center.ability.extra.xmult_per_bench } }
   end,
-  rarity = 1, -- Common
+  rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
   cost = 7,
   atlas = "Jokers02",
@@ -398,7 +422,19 @@ local Cossimo = J({
   pposition = C.MF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
-  calculate = function(self, card, context)
+  calculate = function(self, card, ctx)
+    if ctx.joker_main then
+        local count = 0
+        if Pokerleven.ina_bench_area and Pokerleven.ina_bench_area.cards then
+            for _, v in ipairs(Pokerleven.ina_bench_area.cards) do
+                if is_team(v, "ina_team_RoyalAcademy") or is_team(v, "ina_team_RoyalRedux") then count = count + 1 end
+            end
+        end
+        local total_xmult = 1 + count * card.ability.extra.xmult_per_bench
+        if total_xmult > 1 then
+            return { x_mult = total_xmult }
+        end
+    end
   end
 })
 
@@ -410,19 +446,22 @@ local Color = J({
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 2, -- Uncommon
   pools = { ["Royal Redux"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
   pteam = "ina_team_RoyalRedux",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
+  blueprint_compat = false,
+  calculate = function(self, card, ctx)
+    if ctx.joker_main and ctx.scoring_name == 'Flush' then
+        G.GAME.last_flush_suit = ctx.scoring_hand[1].base.suit
+    end
   end
 })
 
 return {
     name = "Royal Redux",
-    list = { KingR, Messer, Sparrow, Jamm, CalebR, SamfordR }
+    list = { KingR, Beltzer, Blade, Argie, Bamboo, Messer, Spark, Sparrow, Jamm, CalebR, SamfordR, Cellar, Zenn, Cossimo, Color }
 }

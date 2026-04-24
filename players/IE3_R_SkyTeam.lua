@@ -64,9 +64,9 @@ local Genel = J({
 local Ekadel = J({
   name = "Ekadel",
   pos = { x = 4, y = 18 },
-  config = { extra = {} },
+  config = { extra = { odds = 3 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
   end,
   rarity = 1,
   pools = { ["Sky Team"] = true },
@@ -79,7 +79,20 @@ local Ekadel = J({
   pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, context)
+    if not G.jokers or card.area ~= G.jokers then return end
+
+    if context.individual and context.cardarea == G.play then
+      if pseudorandom('ekadel') < G.GAME.probabilities.normal / card.ability.extra.odds then
+        if Pokerleven.rank_up(context.other_card) then
+          return {
+            message = localize('ina_rank_up'),
+            colour = G.C.WIND
+          }
+        end
+      end
+    end
+  end
 })
 
 local Lephiel = J({
@@ -194,9 +207,9 @@ local Gaiel = J({
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
-  rarity = 1,
+  rarity = 3,
   pools = { ["Sky Team"] = true },
-  cost = 5,
+  cost = 10,
   atlas = "Jokers03",
   ptype = C.Wind,
   pposition = C.FW,
@@ -205,7 +218,30 @@ local Gaiel = J({
   pyear = C.YEAR_3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, context)
+    if not G.GAME or not G.jokers or card.area ~= G.jokers then return end
+
+    if context.after and not context.blueprint then
+      local next_sb_target = get_blind_amount(G.GAME.ante) * 1.0
+      local current_total = G.GAME.chips + context.hand_chips
+      
+      if current_total >= G.GAME.blind.chips + next_sb_target and not G.GAME.ina_sael_active then
+        G.GAME.ina_sael_active = true
+        G.E_MANAGER:add_event(Event({
+          func = function()
+            local tag_key = G.GAME.round_res.small_blind_tag or 'tag_rare'
+            add_tag(Tag(tag_key))
+            play_sound('timpani')
+            return true
+          end
+        }))
+        return {
+          message = localize('ina_celestial_remate'),
+          colour = G.C.WIND
+        }
+      end
+    end
+  end
 })
 
 local Sael = J({
@@ -216,11 +252,11 @@ local Sael = J({
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
-  rarity = 2,
+  rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
   atlas = "ina_top",
-  ptype = C.Forest,
+  ptype = C.Wind,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.UNKNOWN,
@@ -233,5 +269,5 @@ local Sael = J({
 
 return {
   name = "Sky Team",
-  list = { }
+  list = { Ekadel, Gaiel }
 }
