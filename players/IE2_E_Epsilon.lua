@@ -21,8 +21,8 @@ local Dvalin = J({
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if Pokerleven.is_joker_turn(ctx) then
-            Pokerleven.ease_barriers(ex.barriers_added); return { message = localize { type = 'variable', key = 'a_chips', vars = { ex.chip_mod } }, chip_mod =
-            ex.chip_mod, colour = G.C.CHIPS }
+            Pokerleven.ease_barriers(ex.barriers_added)
+            return { message = localize { type = 'variable', key = 'a_chips', vars = { ex.chip_mod } }, chip_mod = ex.chip_mod, colour = G.C.CHIPS }
         end
     end,
     update = function(self, card, dt)
@@ -63,8 +63,7 @@ local Dvalin_Plus = J({
             if b >= ex.barriers_consumed then
                 Pokerleven.ease_barriers(-ex.barriers_consumed)
                 local v = 1 + b * ex.xmult_mod
-                return { message = localize { type = 'variable', key = 'a_xmult', vars = { v } }, Xmult_mod = v, colour =
-                G.C.MULT }
+                return { message = localize { type = 'variable', key = 'a_xmult', vars = { v } }, Xmult_mod = v, colour = G.C.RED }
             end
         end
     end,
@@ -78,7 +77,6 @@ local Dvalin_Plus = J({
     in_pool = function() return false end
 })
 
--- Kenville
 local Kenville = J({
     name = "Kenville",
     pos = { x = 1, y = 5 },
@@ -99,7 +97,6 @@ local Kenville = J({
     calculate = function(self, card, ctx)
         if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint then
             local oc = ctx.other_card
-            if not oc then return end
             local id = oc:get_id()
             if id == 2 or id == 3 or id == 4 then
                 local target_ranks = { { id = 14, val = 'Ace', nom = 11 }, { id = 13, val = 'King', nom = 10 } }
@@ -148,17 +145,16 @@ local Kenville_Plus = J({
     end
 })
 
--- Mole
 local Mole = J({
     name = "Mole",
     pos = { x = 2, y = 5 },
-    config = { extra = { transfers = 0, target_transfers = 20, pending_enhancements = {} } },
-    loc_vars = function(self, info_queue, center)
-        local ex = center.ability.extra
+    config = { extra = { transfers = 0, target_transfers = 200 } },
+    loc_vars = function(self, info_queue, card)
+        local ex = (card and card.ability.extra) or self.config.extra
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Mole_Evolution', vars = { ex.transfers, ex.target_transfers } }
-        return { vars = { ex.transfers, ex.target_transfers } }
+        return { vars = {} }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = true },
     cost = 5,
     atlas = "Jokers02",
@@ -169,28 +165,33 @@ local Mole = J({
     calculate = function(self, card, ctx)
         if ctx.discard and not ctx.blueprint then
             local oc = ctx.other_card
-            local center = oc.config.center
-            if center.key ~= 'm_none' then
-                table.insert(card.ability.extra.pending_enhancements, center.key)
-                oc:set_ability(G.P_CENTERS.m_none)
+            local cnt = oc and oc.config and oc.config.center
+            if cnt and cnt.set == 'Enhanced' then
+                local enh = cnt.key
+                oc:set_ability(G.P_CENTERS.c_base)
                 card.ability.extra.transfers = card.ability.extra.transfers + 1
                 if card.ability.extra.transfers >= card.ability.extra.target_transfers then
                     ina_backend_evolve(card, 'j_ina_Mole_Plus')
                 end
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.8,
+                    func = function()
+                        if G.hand and G.hand.cards then
+                            for _, c in ipairs(G.hand.cards) do
+                                if c.config.center.set ~= 'Enhanced' and not c.mole_applied then
+                                    c:set_ability(G.P_CENTERS[enh])
+                                    c.mole_applied = true
+                                    c:juice_up()
+                                    G.E_MANAGER:add_event(Event({func = function() c.mole_applied = nil; return true end}))
+                                    return true
+                                end
+                            end
+                        end
+                        return true
+                    end
+                }))
                 return { anim = 'dissolve', card = card }
-            end
-        end
-    end,
-    update = function(self, card, dt)
-        if G.STAGE == G.STAGES.RUN and #card.ability.extra.pending_enhancements > 0 and G.hand then
-            for i = #G.hand.cards, 1, -1 do
-                local c = G.hand.cards[i]
-                if c.config.center.key == 'm_none' and not c.highlighted then
-                    local enh = table.remove(card.ability.extra.pending_enhancements)
-                    c:set_ability(G.P_CENTERS[enh])
-                    c:juice_up()
-                    if #card.ability.extra.pending_enhancements == 0 then break end
-                end
             end
         end
     end
@@ -199,9 +200,9 @@ local Mole = J({
 local Mole_Plus = J({
     name = "Mole_Plus",
     pos = { x = 0, y = 6 },
-    config = { extra = { pending_data = {} } },
-    loc_vars = function(self, info_queue, center) return {} end,
-    rarity = 1,
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, card) return {} end,
+    rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 5,
     atlas = "Jokers02",
@@ -212,45 +213,48 @@ local Mole_Plus = J({
     calculate = function(self, card, ctx)
         if ctx.discard and not ctx.blueprint then
             local oc = ctx.other_card
-            local data = { enh = oc.config.center.key, edition = oc.edition, seal = oc.seal }
-            if data.enh ~= 'm_none' or data.edition or data.seal then
-                table.insert(card.ability.extra.pending_data, data)
-                oc:set_ability(G.P_CENTERS.m_none)
+            local cnt = oc and oc.config and oc.config.center
+            if cnt and (cnt.set == 'Enhanced' or oc.edition or oc.seal) then
+                local data = { enh = cnt.key, edition = oc.edition, seal = oc.seal }
+                oc:set_ability(G.P_CENTERS.c_base)
                 oc:set_edition(nil, true)
                 oc.seal = nil
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.8,
+                    func = function()
+                        if G.hand and G.hand.cards then
+                            for _, c in ipairs(G.hand.cards) do
+                                if c.config.center.set ~= 'Enhanced' and not c.edition and not c.seal and not c.mole_applied then
+                                    if G.P_CENTERS[data.enh] and G.P_CENTERS[data.enh].set == 'Enhanced' then c:set_ability(G.P_CENTERS[data.enh]) end
+                                    if data.edition then c:set_edition(data.edition, true) end
+                                    if data.seal then c:set_seal(data.seal, true) end
+                                    c.mole_applied = true
+                                    c:juice_up()
+                                    G.E_MANAGER:add_event(Event({func = function() c.mole_applied = nil; return true end}))
+                                    return true
+                                end
+                            end
+                        end
+                        return true
+                    end
+                }))
                 return { anim = 'dissolve', card = card }
-            end
-        end
-    end,
-    update = function(self, card, dt)
-        if G.STAGE == G.STAGES.RUN and #card.ability.extra.pending_data > 0 and G.hand then
-            for i = #G.hand.cards, 1, -1 do
-                local c = G.hand.cards[i]
-                if c.config.center.key == 'm_none' and not c.edition and not c.seal and not c.highlighted then
-                    local data = table.remove(card.ability.extra.pending_data)
-                    if data.enh ~= 'm_none' then c:set_ability(G.P_CENTERS[data.enh]) end
-                    if data.edition then c:set_edition(data.edition, true) end
-                    if data.seal then c:set_seal(data.seal, true) end
-                    c:set_seal('Gold', true)
-                    c:juice_up()
-                    if #card.ability.extra.pending_data == 0 then break end
-                end
             end
         end
     end
 })
 
--- Kayson
 local Kayson = J({
     name = "Kayson",
     pos = { x = 3, y = 5 },
-    config = { extra = { reduction = 0.05, boss_wins = 0, target_boss_wins = 5 } },
+    config = { extra = { reduction = 0.02, boss_wins = 0, target_boss_wins = 5 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Kayson_Evolution', vars = { ex.boss_wins, ex.target_boss_wins } }
         return { vars = { ex.reduction * 100, ex.boss_wins, ex.target_boss_wins } }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = true },
     cost = 6,
     atlas = "Jokers02",
@@ -262,7 +266,7 @@ local Kayson = J({
         if ctx.before and not ctx.blueprint then
             local is_difficult = (ctx.scoring_name == 'Full House' or ctx.scoring_name == 'Four of a Kind' or ctx.scoring_name == 'Flush')
             if is_difficult then
-                G.kayson_next_reduction = (G.kayson_next_reduction or 0) + card.ability.extra.reduction
+                G.GAME.kayson_next_reduction = (G.GAME.kayson_next_reduction or 0) + card.ability.extra.reduction
                 return { message = "-" .. (card.ability.extra.reduction * 100) .. "% Next Blind", colour = G.C.RED }
             end
         elseif ctx.end_of_round and G.GAME.blind.boss and not ctx.blueprint and not ctx.individual and not ctx.repetition then
@@ -277,11 +281,11 @@ local Kayson = J({
 local Kayson_Plus = J({
     name = "Kayson_Plus",
     pos = { x = 1, y = 6 },
-    config = { extra = { reduction = 0.15, timer = 1 } },
+    config = { extra = { reduction = 0.08, timer = 1 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.reduction * 100, center.ability.extra.timer } }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 6,
     atlas = "Jokers02",
@@ -291,7 +295,7 @@ local Kayson_Plus = J({
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         if ctx.before and not ctx.blueprint then
-             G.kayson_next_reduction = (G.kayson_next_reduction or 0) + card.ability.extra.reduction
+             G.GAME.kayson_next_reduction = (G.GAME.kayson_next_reduction or 0) + card.ability.extra.reduction
              return { message = "-" .. (card.ability.extra.reduction * 100) .. "% Next Blind", colour = G.C.RED }
         elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
             card.ability.extra.timer = card.ability.extra.timer - 1
@@ -300,7 +304,6 @@ local Kayson_Plus = J({
     end
 })
 
--- Tytan
 local Tytan = J({
     name = "Tytan",
     pos = { x = 4, y = 5 },
@@ -310,7 +313,7 @@ local Tytan = J({
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Tytan_Evolution', vars = { ex.scored_count, ex.target_count } }
         return { vars = { ex.chips, ex.scored_count, ex.target_count } }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = true },
     cost = 5,
     atlas = "Jokers02",
@@ -334,11 +337,13 @@ local Tytan = J({
 local Tytan_Plus = J({
     name = "Tytan_Plus",
     pos = { x = 2, y = 6 },
-    config = { extra = { chips = 120, x_mult = 0.2, timer = 3 } },
+    config = { extra = { chips = 100, x_mult = 0.2, timer = 3 } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.chips, center.ability.extra.x_mult, center.ability.extra.timer } }
+        local count = 0
+        if G.playing_cards then for _, c in ipairs(G.playing_cards) do if SMODS.has_enhancement(c, 'm_stone') or SMODS.has_enhancement(c, 'm_steel') then count = count + 1 end end end
+        return { vars = { center.ability.extra.chips, center.ability.extra.x_mult, center.ability.extra.timer, count, count * center.ability.extra.chips, count * center.ability.extra.x_mult } }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 5,
     atlas = "Jokers02",
@@ -347,9 +352,16 @@ local Tytan_Plus = J({
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
-        if ctx.individual and ctx.cardarea == G.play then
-            if SMODS.has_enhancement(ctx.other_card, 'm_stone') or SMODS.has_enhancement(ctx.other_card, 'm_steel') then
-                return { chips = card.ability.extra.chips, x_mult = 1 + card.ability.extra.x_mult, card = card }
+        if Pokerleven.is_joker_turn(ctx) then
+            local count = 0
+            if G.playing_cards then for _, c in ipairs(G.playing_cards) do if SMODS.has_enhancement(c, 'm_stone') or SMODS.has_enhancement(c, 'm_steel') then count = count + 1 end end end
+            if count > 0 then
+                return { 
+                    chip_mod = count * card.ability.extra.chips, 
+                    Xmult_mod = 1 + (count * card.ability.extra.x_mult),
+                    message = localize('k_upgrade_ex'),
+                    colour = G.C.DARK_EDITION
+                }
             end
         elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
             card.ability.extra.timer = card.ability.extra.timer - 1
@@ -358,7 +370,6 @@ local Tytan_Plus = J({
     end
 })
 
--- Fedora
 local Fedora = J({
     name = "Fedora",
     pos = { x = 5, y = 5 },
@@ -416,7 +427,6 @@ local Fedora_Plus = J({
     end
 })
 
--- Krypto
 local Krypto = J({
     name = "Krypto",
     pos = { x = 6, y = 5 },
@@ -428,7 +438,7 @@ local Krypto = J({
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Krypto_Evolution', vars = { count, ex.target_chaotic } }
         return { vars = { ex.target_chaotic } } 
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = true },
     cost = 6,
     atlas = "Jokers02",
@@ -461,7 +471,7 @@ local Krypto_Plus = J({
     pos = { x = 4, y = 6 },
     config = { extra = { target_chaotic = 5 } },
     loc_vars = function(self, info_queue, center) return {} end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 6,
     atlas = "Jokers02",
@@ -489,16 +499,16 @@ local Krypto_Plus = J({
     end
 })
 
--- Sworm
 local Sworm = J({
     name = "Sworm",
     pos = { x = 7, y = 5 },
-    config = { extra = { odds = 3 } },
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue + 1] = { set = 'Other', key = 'Sworm_Evolution' }
-        return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
+    config = { extra = { odds = 3, rescues = 0, target_rescues = 30, discards = 0, target_discards = 90 } },
+    loc_vars = function(self, info_queue, card)
+        local ex = (card and card.ability.extra) or self.config.extra
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Sworm_Evolution', vars = { ex.rescues, ex.target_rescues, ex.discards, ex.target_discards } }
+        return { vars = { G.GAME.probabilities.normal or 1, ex.odds } }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = true },
     cost = 7,
     atlas = "Jokers02",
@@ -507,11 +517,21 @@ local Sworm = J({
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
+        local ex = card.ability.extra
         if ctx.after and ctx.cardarea == G.jokers and not card.debuff and not ctx.blueprint then
             local s = {}; for _, v in ipairs(ctx.full_hand) do if card:odds_triggered('sworm') then s[#s + 1] = v end end
-            if Pokerleven.rescue_cards(s) then return { message = localize('k_safe_ex'), colour = G.C.DARK_EDITION } end
-        elseif ctx.end_of_round and G.GAME.current_round.discards_used == 0 and not ctx.blueprint then
-            ina_backend_evolve(card, 'j_ina_Sworm_Plus')
+            if #s > 0 and Pokerleven.rescue_cards(s) then 
+                ex.rescues = ex.rescues + #s
+                if ex.rescues >= ex.target_rescues and ex.discards >= ex.target_discards then 
+                    ina_backend_evolve(card, 'j_ina_Sworm_Plus')
+                end
+                return { message = localize('k_safe_ex'), colour = G.C.DARK_EDITION } 
+            end
+        elseif ctx.discard and not ctx.blueprint and not ctx.individual and not ctx.repetition then
+            ex.discards = ex.discards + 1
+            if ex.rescues >= ex.target_rescues and ex.discards >= ex.target_discards then 
+                ina_backend_evolve(card, 'j_ina_Sworm_Plus')
+            end
         end
     end
 })
@@ -521,7 +541,7 @@ local Sworm_Plus = J({
     pos = { x = 5, y = 6 },
     config = { extra = { odds = 1 } },
     loc_vars = function(self, info_queue, center) return {} end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 7,
     atlas = "Jokers02",
@@ -540,15 +560,14 @@ local Sworm_Plus = J({
     end
 })
 
--- Mercury
 local Mercury = J({
     name = "Mercury",
     pos = { x = 8, y = 5 },
-    config = { extra = { required_stones = 2, mercuries = 0, target_mercuries = 5 } },
+    config = { extra = { mercuries = 0, target_mercuries = 20 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Mercury_Evolution', vars = { ex.mercuries, ex.target_mercuries } }
-        return { vars = { ex.required_stones, ex.mercuries } }
+        return { vars = { ex.mercuries, ex.target_mercuries } }
     end,
     rarity = 2,
     pools = { ["Epsilon"] = true },
@@ -560,10 +579,8 @@ local Mercury = J({
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         if ctx.pre_discard and ctx.full_hand and #ctx.full_hand == 2 and not ctx.blueprint then
-            if ctx.full_hand[1]:get_id() == ctx.full_hand[2]:get_id() then
-                convert_cards_to(ctx.full_hand, { mod_conv = "m_stone" })
-                return { message = localize("ina_convert"), colour = G.C.DARK_EDITION }
-            end
+            convert_cards_to(ctx.full_hand, { mod_conv = "m_stone" })
+            return { message = localize("ina_convert"), colour = G.C.DARK_EDITION }
         elseif ctx.using_consumeable and ctx.consumeable.ability.set == 'Planet' and ctx.consumeable.config.center.key == 'c_mercury' and not ctx.blueprint then
             card.ability.extra.mercuries = card.ability.extra.mercuries + 1
             if card.ability.extra.mercuries >= card.ability.extra.target_mercuries then ina_backend_evolve(card, 'j_ina_Mercury_Plus') end
@@ -571,7 +588,8 @@ local Mercury = J({
             local stones = 0
             for _, v in ipairs(ctx.scoring_hand) do if SMODS.has_enhancement(v, 'm_stone') then stones = stones + 1 end end
             if stones == 2 and #ctx.scoring_hand == 2 then
-                return { chips = 100, mult = 10, message = localize('k_pair') }
+                SMODS.add_card({set = 'Planet', key = 'c_mercury'})
+                return { message = localize('k_mercury'), colour = G.C.SECONDARY_SET.Planet }
             end
         end
     end
@@ -580,8 +598,11 @@ local Mercury = J({
 local Mercury_Plus = J({
     name = "Mercury_Plus",
     pos = { x = 6, y = 6 },
-    config = { extra = { chips = 100, x_mult = 1.5 } },
-    loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.chips, center.ability.extra.x_mult } } end,
+    config = { extra = { chips_per_planet = 10 } },
+    loc_vars = function(self, info_queue, center)
+        local count = (G.GAME and G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.c_mercury) or 0
+        return { vars = { center.ability.extra.chips_per_planet, count * center.ability.extra.chips_per_planet, count } }
+    end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 7,
@@ -592,25 +613,25 @@ local Mercury_Plus = J({
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         if ctx.pre_discard and ctx.full_hand and #ctx.full_hand == 2 and not ctx.blueprint then
-            if ctx.full_hand[1]:get_id() == ctx.full_hand[2]:get_id() then
-                convert_cards_to(ctx.full_hand, { mod_conv = "m_stone" })
-                return { message = localize("ina_convert"), colour = G.C.DARK_EDITION }
-            end
-        elseif ctx.individual and ctx.cardarea == G.play then
-            if SMODS.has_enhancement(ctx.other_card, 'm_stone') then
-                return { chips = card.ability.extra.chips, x_mult = card.ability.extra.x_mult, card = card }
-            end
+            convert_cards_to(ctx.full_hand, { mod_conv = "m_stone" })
+            return { message = localize("ina_convert"), colour = G.C.DARK_EDITION }
         elseif ctx.joker_main then
             local stones = 0
             for _, v in ipairs(ctx.scoring_hand) do if SMODS.has_enhancement(v, 'm_stone') then stones = stones + 1 end end
             if stones == 2 and #ctx.scoring_hand == 2 then
-                return { message = localize('k_pair'), colour = G.C.CHIPS }
+                SMODS.add_card({set = 'Planet', key = 'c_mercury'})
+                local count = (G.GAME and G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.c_mercury) or 0
+                local total_chips = count * card.ability.extra.chips_per_planet
+                return { 
+                    message = localize('k_mercury'), 
+                    chip_mod = total_chips,
+                    colour = G.C.SECONDARY_SET.Planet 
+                }
             end
         end
     end
 })
 
--- Metron
 local Metron = J({
     name = "Metron",
     pos = { x = 9, y = 5 },
@@ -668,7 +689,6 @@ local Metron_Plus = J({
     end
 })
 
--- Zell
 local Zell = J({
     name = "Zell",
     pos = { x = 10, y = 5 },
@@ -697,7 +717,8 @@ local Zell = J({
     update = function(self, card, dt)
         if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
-            if not Pokerleven.is_in_left_half(card) then
+            local has_dvalin = get_joker_with_key('j_ina_Dvalin') or get_joker_with_key('j_ina_Dvalin_Plus')
+            if not Pokerleven.is_in_left_half(card) and has_dvalin then
                 local dvalin_plus = get_joker_with_key('j_ina_Dvalin_Plus')
                 if dvalin_plus then ina_backend_evolve(dvalin_plus, 'j_ina_Dvalin') end
                 ina_backend_evolve(card, 'j_ina_Zell_Plus') 
@@ -731,7 +752,8 @@ local Zell_Plus = J({
     update = function(self, card, dt)
         if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
-            if Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Zell') end
+            local has_dvalin = get_joker_with_key('j_ina_Dvalin') or get_joker_with_key('j_ina_Dvalin_Plus')
+            if Pokerleven.is_in_left_half(card) or not has_dvalin then ina_backend_evolve(card, 'j_ina_Zell') end
         end
     end
 })

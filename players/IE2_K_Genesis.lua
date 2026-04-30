@@ -89,10 +89,10 @@ local Zohen = J({
 -- Hauser
 local Hauser = J({
   name = "Hauser",
-  pos = { x = 3, y = 11 },
-  config = { extra = {} },
+  pos = { x = 3, y = 12 },
+  config = { extra = { barriers_consumed = 1 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    return { vars = { center.ability.extra.barriers_consumed } }
   end,
   rarity = 1,
   pools = { ["Genesis"] = true },
@@ -105,7 +105,22 @@ local Hauser = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_Genesis",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    if ctx.joker_main and not ctx.blueprint then
+        if (G.GAME.current_round.barriers or 0) >= card.ability.extra.barriers_consumed then
+            local cards_in_hand = {}
+            for _, c in ipairs(G.hand.cards) do if not c.highlighted and c.config.center == G.P_CENTERS.c_base then table.insert(cards_in_hand, c) end end
+            
+            if #cards_in_hand > 0 then
+                Pokerleven.ease_barriers(-card.ability.extra.barriers_consumed)
+                local target = cards_in_hand[math.random(#cards_in_hand)]
+                target:set_ability(G.P_CENTERS.m_stone)
+                target:juice_up()
+                return { message = localize('k_stone'), colour = G.C.GREY }
+            end
+        end
+    end
+  end
 })
 
 -- Kormer
@@ -177,14 +192,14 @@ local Ark = J({
 -- Wittz
 local Wittz = J({
   name = "Wittz",
-  pos = { x = 7, y = 11 },
-  config = { extra = {} },
+  pos = { x = 7, y = 12 },
+  config = { extra = { min_cards = 5, odds = 3 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    return { vars = { center.ability.extra.min_cards, G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
   end,
-  rarity = 1,
+  rarity = 2,
   pools = { ["Genesis"] = true },
-  cost = 5,
+  cost = 6,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
@@ -193,7 +208,30 @@ local Wittz = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_Genesis",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    if ctx.before and not ctx.blueprint and #ctx.scoring_hand >= card.ability.extra.min_cards then
+        for _, oc in ipairs(ctx.scoring_hand) do
+            local type = math.random(1, 2)
+            if type == 1 then
+                local eds = {'foil', 'holo', 'polychrome'}
+                oc:set_edition({[eds[math.random(#eds)]] = true}, true)
+            else
+                local seals = {'Gold', 'Red', 'Blue', 'Purple'}
+                oc:set_seal(seals[math.random(#seals)], true)
+            end
+        end
+        return { message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION }
+    elseif ctx.after and not ctx.blueprint and #ctx.scoring_hand >= card.ability.extra.min_cards then
+        local destroyed_any = false
+        for _, oc in ipairs(ctx.scoring_hand) do
+            if card:odds_triggered('wittz') then
+                oc:start_dissolve()
+                destroyed_any = true
+            end
+        end
+        if destroyed_any then return { message = localize('k_dest_ex'), colour = G.C.RED } end
+    end
+  end
 })
 
 -- Bellatrix
@@ -243,5 +281,5 @@ local Xene = J({
 
 return {
   name = "Genesis",
-  list = {}
+  list = { Hauser, Wittz }
 }

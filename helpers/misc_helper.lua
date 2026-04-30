@@ -409,9 +409,54 @@ end
 local set_blind_ref = Blind.set_blind
 function Blind:set_blind(blind, reset, silent)
     set_blind_ref(self, blind, reset, silent)
-    if G.GAME and G.kayson_next_reduction and G.kayson_next_reduction > 0 then
-        self.chips = math.floor(self.chips * (1 - G.kayson_next_reduction))
+    if G.GAME and G.GAME.kayson_next_reduction and G.GAME.kayson_next_reduction > 0 then
+        self.chips = math.floor(self.chips * (1 - G.GAME.kayson_next_reduction))
         self.chip_text = number_format(self.chips)
-        G.kayson_next_reduction = 0
+        G.GAME.kayson_next_reduction = 0
     end
+end
+
+-- Color Joker Hook: Detect Spectral card usage
+local use_consumeable_ref = Card.use_consumeable
+function Card:use_consumeable(area, copier)
+    if self.config.center.set == 'Spectral' then
+        G.ina_color_force_suit = true
+    end
+    local res = use_consumeable_ref(self, area, copier)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        func = function()
+            G.ina_color_force_suit = nil
+            return true
+        end
+    }))
+    return res
+end
+
+-- Color Joker Hook: Force suit changes ONLY for random spectral effects
+local change_base_ref = SMODS.change_base
+function SMODS.change_base(card, suit, rank)
+    local color = get_joker_with_key('j_ina_Color')
+    if color and not color.debuff and suit and G.GAME and G.GAME.ina_color_suit and G.ina_color_force_suit then
+        suit = G.GAME.ina_color_suit
+    end
+    return change_base_ref(card, suit, rank)
+end
+
+local c_card_ref = create_card
+function create_card(type, area, skip_mat, edit, apply, seed, proto, genes)
+    if type == 'Tarot' and area == G.pack_cards and (not area.cards or #area.cards == 0) then
+        local bamboo = get_joker_with_key('j_ina_Bamboo')
+        if bamboo and not bamboo.debuff then proto = G.P_CENTERS['c_fool']; sendDebugMessage("Bamboo forced Fool") end
+    end
+
+    local card = c_card_ref(type, area, skip_mat, edit, apply, seed, proto, genes)
+    
+    if card and type == 'Default' and G.GAME.ina_color_suit and area == G.pack_cards then
+        local color = get_joker_with_key('j_ina_Color')
+        if color and not color.debuff and G.GAME.open_booster and G.GAME.open_booster.config.center.key:find('standard') then
+            SMODS.change_base(card, G.GAME.ina_color_suit, card.base.value)
+        end
+    end
+    return card
 end

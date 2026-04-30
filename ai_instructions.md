@@ -12,8 +12,7 @@ Para reducir la expansión vertical del código, agrupa declaraciones y variable
 ## 2. Condicionales Inline y Operadores Lógicos
 Siempre que no se sacrifique la lógica matemática, usa operadores lógicos (`and` / `or`) a modo de ternarios para evitar bloques `if/else` largos.
 - **Ternarios:** `local msg = (cond and "A" or "B")`
-- **Colapso de ifs:** Los bloques `if` que contengan una sola instrucción pequeña deben declararse en una sola línea continua, separando instrucciones con punto y coma (`;`) si es estrictamente necesario, aunque preferiblemente usando concatenación lógica.
-**Ejemplo:** `if ctx.setting_blind and not ctx.blueprint then ex.val = ex.val + 1; card:juice_up() end`
+- **Estructura:** Mantén una estructura clara y legible. Aunque se busca concisión, no sacrifiques la claridad por comprimir el código en una sola línea.
 
 ## 3. Eliminación de Funciones Auxiliares Redundantes
 Evita crear múltiples funciones auxiliares locales (`local function do_something()`) encima del joker si dichas funciones solo se van a llamar desde una única rama del `calculate`. 
@@ -32,10 +31,15 @@ En Balatro, las funciones como `calculate` o `update` se ejecutan constantemente
   end
   ```
 
-## 5. Compresión extrema de funciones genéricas (`loc_vars`)
-Las funciones estandarizadas de pura lectura de datos deben colapsarse a una sola línea.
+## 5. Formato de funciones genéricas (`loc_vars`)
+Utiliza un formato estándar y legible para las funciones de lectura de datos.
 **Ejemplo de loc_vars óptimo:**
-`loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.val1, ex.val2}} end,`
+```lua
+loc_vars = function(self, info_queue, center)
+    local ex = center.ability.extra
+    return {vars = {ex.val1, ex.val2}}
+end,
+```
 
 ## 6. Utilización de Extensiones de Clase (Context Helpers)
 No reescribas bucles de búsqueda para encontrar posiciones de cartas en la zona de juego. Utiliza siempre los métodos nativos inyectados en la clase `Card`:
@@ -48,14 +52,22 @@ No reescribas bucles de búsqueda para encontrar posiciones de cartas en la zona
 
 ## 7. Localización y Textos
 - **Archivos de Idioma:** NUNCA escribas ni modifiques los textos en `es_419.lua` ni en `en-us.lua`. Las traducciones y descripciones se deben añadir **únicamente** en el archivo `es_ES.lua`.
+- **Terminología de Registro:** Para cualquier efecto que implique anotar, contar o realizar un seguimiento de una acción, utiliza siempre el término **"puntuar"**. (Ejemplo: "Cada carta que consigas **puntuar**...").
+- **Nombres Completos:** Obligación de usar el nombre completo de los personajes (ej. "Mark Evans" en vez de "Mark").
+- **Epsilon (P)**: Las formas evolucionadas de Épsilon deben usar "(P)" en lugar de "Plus" en su nombre (ej. "Zell (P)").
 - **Formato de las Descripciones (Jokers):** Las descripciones deben ser consistentes y concisas, siguiendo esta estructura exacta:
   1. **Primera línea:** Nombre de la supertécnica coloreada según su elemento (ej. `{C:fire}Tornado de Fuego{}`).
   2. **Cuerpo:** La descripción del efecto mecánico, condensada en un **máximo de 3 líneas**.
-  3. **Estado Actual:** Si el Joker tiene estadísticas que escalan o cambian, la información de su estado en tiempo real debe ir siempre en una nueva línea al final del todo, usando el color inactivo. (Ejemplo: `{C:inactive}(Actual: {X:mult,C:white}X#1#{C:inactive} Mult){}`).
-  4. **Sinergias:** NUNCA añadas texto del tipo "Sinergia: ..." al final de la descripción. Si un Joker tiene una sinergia, crea una entrada en el bloque `Other` del archivo de localización y vincúlala mediante el `info_queue` en la función `loc_vars` del Joker.
+  3. **Estado Actual (Trackers):** Si el Joker tiene estadísticas que escalan o cambian, la información de su estado en tiempo real debe ir siempre en una nueva línea al final del todo, usando el color inactivo.
+     - **Formato Sintáctico:** `{C:inactive}(Actual:{} {COLOR_VALOR}#X#{}{C:inactive}){}`. Es vital cerrar cada tag con `{}`.
+     - **Estética:** El valor numérico debe estar **fuera** del tag inactivo (`{C:inactive}(Actual:{} {C:chips}+#1#{}{C:inactive}){}`) para que sea resaltado por su propio color (chips, mult, etc.).
+- **Sinergias:** NUNCA añadas texto del tipo "Sinergia: ..." al final de la descripción. Si un Joker tiene una sinergia, crea una entrada en el bloque `Other` del archivo de localización y vincúlala mediante el `info_queue` en la función `loc_vars` del Joker.
+- **Limpieza:** No incluyas Jokers en el código ni en la localización que no tengan un efecto funcional definido (evitar "Efecto por definir").
 
 ## 8. Orden en las Listas de Retorno (`list = {}`)
 Tanto en la declaración de variables locales en los archivos `.lua` como en la tabla de retorno `list = { ... }`, los Jokers **siempre** deben ordenarse estrictamente por sus coordenadas `x` e `y` (primero por **Y** de menor a mayor, luego por **X** de menor a mayor). Los comodines con rareza `ina_top` o aquellos extraídos de atlas diferentes deben intercalarse respetando su valor de `y` y `x` como si estuvieran en la misma cuadrícula.
+
+**IMPORTANTE:** Solo los Jokers que tengan efectos funcionales implementados deben añadirse a la tabla `list = { ... }`. Si un Joker no tiene lógica en su `calculate` o su descripción es "Efecto por definir", **NO** debe incluirse en la lista hasta que su mecánica sea programada.
 
 ## 9. Realidades Alternativas (Universe Helper)
 Cualquier nuevo equipo que se añada perteneciente a las sagas de Ares u Orion (cuyos archivos empiecen por `IE7_` o `IE8_`) debe ser registrado siempre dentro de la realidad "Ares" en la tabla `Pokerleven.Universe.realities` del archivo `helpers/universe_helper.lua`.
