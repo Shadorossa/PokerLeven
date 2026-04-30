@@ -526,7 +526,7 @@ local Color = J({
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
   calculate = function(self, card, ctx)
-    if ctx.joker_main and ctx.scoring_name == 'Flush' then
+    if ctx.joker_main and ctx.scoring_name and string.find(ctx.scoring_name, 'Flush') then
         G.GAME.ina_color_suit = ctx.scoring_hand[1].base.suit
         return { message = localize(G.GAME.ina_color_suit, 'suits_singular'), colour = G.C.ORANGE }
     end
