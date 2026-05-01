@@ -23,3 +23,8 @@ Cada vez que un Joker mida o almacene internamente una cantidad variable (fichas
 - **Brevedad:** Máximo de 3 líneas para la mecánica principal.
 - **Colores:** Usar siempre los tags de color adecuados (`{C:attention}`, `{C:mult}`, `{C:chips}`, etc.).
 - **Localización:** Solo se deben realizar cambios en el archivo `es_ES.lua`.
+
+## 4. Nombres de Supertécnicas
+- Todos los Jokers deben tener una línea inicial con el nombre de su supertécnica entre llaves de color (según su tipo elemental).
+- Los nombres deben respetar las reglas de mayúsculas y minúsculas (Capital Case).
+- **Ejemplo:** `{C:fire}Tornado de Fuego{}`

@@ -1555,18 +1555,18 @@ return {
                 }
             },
             j_ina_Beltzer = {
-                name = "Beltzer",
+                name = "Rowan Beltzer",
                 text = {
-                    "{C:wind}Entrada Prohibida{}",
+                    "{C:wind}Ciclón{}",
                     "Al descartar, {C:attention}destruye{} la carta de",
                     "menor rango y gana {C:chips}+#1#{} Fichas permanentes.",
                     "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive} Fichas){}"
                 }
             },
             j_ina_Blade = {
-                name = "Blade",
+                name = "Blade Healen",
                 text = {
-                    "{C:mountain}Defensa Prohibida{}",
+                    "{C:mountain}Sorpresa{}",
                     "El {C:attention}primer Color{} jugado en",
                     "la ciega otorga {C:red}+#1#{} descartes."
                 }
@@ -1616,7 +1616,7 @@ return {
             j_ina_Jamm = {
                 name = "Jamm",
                 text = {
-                    "{C:forest}Coz Prohibida{}",
+                    "{C:forest}Coz{}",
                     "{X:mult,C:white} X#1# {} por joker de {X:fire,C:white}Fuego{} y {X:forest,C:white}Bosque{}.",
                     "{C:red}Debilita{} a los de {X:mountain,C:white}Montaña{} y {X:wind,C:white}Viento{}."
                 }
@@ -1639,9 +1639,9 @@ return {
                 }
             },
             j_ina_Cellar = {
-                name = "Cellar",
+                name = "Jimbo Cellar",
                 text = {
-                    "{C:forest}Sustituto Oscuro{}",
+                    "{C:fire}Escudo de Fuerza Total{}",
                     "Si un Joker fuera a ser {C:attention}destruido{} por",
                     "cualquier efecto, se destruye {C:attention}Cellar{} en su lugar."
                 }
@@ -1672,8 +1672,9 @@ return {
                 }
             },
             j_ina_Color = {
-                name = "Color",
+                name = "Maston Color",
                 text = {
+                    "{C:forest}Truco de Magia{}",
                     "Sobres Estándar y la carta {C:spectral}Sigilo{}",
                     "se fuerzan al {C:attention}palo{} de tu último {C:attention}Color{}.",
                     "{C:inactive}(Actual:{} {C:attention}#1#{}{C:inactive}){}"
