@@ -285,7 +285,7 @@ local Sparrow = J({
 local Jamm = J({
   name = "Jamm",
   pos = { x = 4, y = 7 },
-  config = { extra = { xmult = 1.25 } },
+  config = { extra = { xmult = 2.5 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
     return { vars = { ex.xmult } }

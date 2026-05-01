@@ -1825,10 +1825,9 @@ return {
                 name = "Wittz",
                 text = {
                     "{C:forest}Supernova{}",
-                    "Al puntuar {C:attention}#1# o más cartas{}, cada",
-                    "una gana una {C:dark_edition}Edición{} o {C:attention}Sello{} aleatorio.",
-                    "{C:green}#2# en #3#{} de que las",
-                    "cartas se {C:red}destruyan{} tras puntuar."
+                    "Al puntuar {C:attention}#1# cartas{}, cada una gana",
+                    "{C:attention}Sello{}, {C:dark_edition}Edición{} y {C:enhanced}Mejora{} aleatorios.",
+                    "Tras puntuar, las cartas se {C:red}destruyen{}."
                 }
             },
 

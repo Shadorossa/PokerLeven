@@ -193,9 +193,9 @@ local Ark = J({
 local Wittz = J({
   name = "Wittz",
   pos = { x = 7, y = 12 },
-  config = { extra = { min_cards = 5, odds = 3 } },
+  config = { extra = { min_cards = 5 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.min_cards, G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
+    return { vars = { center.ability.extra.min_cards } }
   end,
   rarity = 2,
   pools = { ["Genesis"] = true },
@@ -209,27 +209,38 @@ local Wittz = J({
   pteam = "ina_team_Genesis",
   blueprint_compat = true,
   calculate = function(self, card, ctx)
-    if ctx.before and not ctx.blueprint and #ctx.scoring_hand >= card.ability.extra.min_cards then
+    if ctx.before and not ctx.blueprint and #ctx.scoring_hand >= 5 then
         for _, oc in ipairs(ctx.scoring_hand) do
-            local type = math.random(1, 2)
-            if type == 1 then
-                local eds = {'foil', 'holo', 'polychrome'}
-                oc:set_edition({[eds[math.random(#eds)]] = true}, true)
-            else
-                local seals = {'Gold', 'Red', 'Blue', 'Purple'}
-                oc:set_seal(seals[math.random(#seals)], true)
-            end
+            local enhancements = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_steel', 'm_stone', 'm_gold', 'm_lucky'}
+            local enh = pseudorandom_element(enhancements, pseudoseed('wittz_enh'))
+            oc:set_ability(G.P_CENTERS[enh])
+            
+            local editions = {'foil', 'holo', 'polychrome'}
+            local ed = pseudorandom_element(editions, pseudoseed('wittz_ed'))
+            oc:set_edition({[ed] = true}, true)
+            
+            local seals = {'Gold', 'Red', 'Blue', 'Purple'}
+            local sl = pseudorandom_element(seals, pseudoseed('wittz_seal'))
+            oc:set_seal(sl, true)
+            
+            oc:juice_up()
         end
         return { message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION }
-    elseif ctx.after and not ctx.blueprint and #ctx.scoring_hand >= card.ability.extra.min_cards then
-        local destroyed_any = false
-        for _, oc in ipairs(ctx.scoring_hand) do
-            if card:odds_triggered('wittz') then
-                oc:start_dissolve()
-                destroyed_any = true
+    elseif ctx.after and not ctx.blueprint and #ctx.scoring_hand >= 5 then
+        local cards_to_destroy = {}
+        for _, v in ipairs(ctx.scoring_hand) do table.insert(cards_to_destroy, v) end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 2.0,
+            func = function()
+                for _, oc in ipairs(cards_to_destroy) do
+                    oc.destroyed = true
+                    oc:start_dissolve({G.C.RED}, nil, 1.2)
+                end
+                return true
             end
-        end
-        if destroyed_any then return { message = localize('k_dest_ex'), colour = G.C.RED } end
+        }))
+        return { message = localize('k_dest_ex'), colour = G.C.RED }
     end
   end
 })
