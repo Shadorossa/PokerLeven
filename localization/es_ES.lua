@@ -230,6 +230,30 @@ return {
                 name = "Otaku",
                 text = { "Las figuras se debilitan" }
             },
+            bl_ina_spfixers = {
+                name = "Servicio Secreto",
+                text = { "Las figuras dan", "{C:chips}+10{} Fichas adicionales" }
+            },
+            bl_ina_alpine = {
+                name = "Instituto Alpino",
+                text = { "Tréboles {C:attention}debilitados{}", "Diamantes dan {C:mult}+5{} Mult" }
+            },
+            bl_ina_cloister = {
+                name = "Claustro Sagrado",
+                text = { "Pierde {C:attention}1 descarte{} (o mano)", "por cada mano jugada" }
+            },
+            bl_ina_osakaccc = {
+                name = "CCC de Osaka",
+                text = { "Gana {C:money}1${} por descarte usado", "Los EG cargan al ganar" }
+            },
+            bl_ina_fauxshore = {
+                name = "Instituto Fauxshore",
+                text = { "Ciega {C:attention}30%{} más grande", "Descartes por {C:money}1${} cada uno" }
+            },
+            bl_ina_marytimes = {
+                name = "Mary Times",
+                text = { "{X:mult,C:white}X2{} si aciertas palo o", "nº de cartas secreto" }
+            },
             bl_ina_shuriken = {
                 name = "Shuriken",
                 text = { "Cada carta jugada",

@@ -238,7 +238,14 @@ local SPFixers = {
     dollars = 4,
     big = { min = 2 },
     calculate = function(self, blind, context)
-        -- TODO Add logic
+        if context.individual and context.cardarea == G.play and context.other_card:is_face() then
+            return {
+                message = "+10",
+                chip_mod = 10,
+                colour = G.C.CHIPS,
+                card = context.other_card
+            }
+        end
     end
 }
 
@@ -254,8 +261,18 @@ local Alpine = {
     boss_colour = HEX("B7865B"),
     dollars = 4,
     big = { min = 2 },
+    debuff_card = function(self, card, from_game_over)
+        if card:is_suit('Clubs') then return true end
+    end,
     calculate = function(self, blind, context)
-        -- TODO Add logic
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit('Diamonds') then
+            return {
+                mult_mod = 5,
+                message = "+5",
+                colour = G.C.RED,
+                card = context.other_card
+            }
+        end
     end
 }
 
@@ -272,7 +289,13 @@ local Cloister = {
     dollars = 4,
     big = { min = 2 },
     calculate = function(self, blind, context)
-        -- TODO Add logic
+        if context.main_scoring then
+            if G.GAME.current_round.discards_left > 0 then
+                ease_discard(-1)
+            else
+                ease_hands_played(-1)
+            end
+        end
     end
 }
 
@@ -288,8 +311,11 @@ local OsakaCCC = {
     boss_colour = HEX("B7865B"),
     dollars = 4,
     big = { min = 2 },
-    calculate = function(self, blind, context)
-        -- TODO Add logic
+    press_discard = function(self)
+        ease_dollars(1)
+    end,
+    defeat = function(self)
+        -- TODO: Al implementar Espíritus Guerreros, añadir carga aquí
     end
 }
 
@@ -299,14 +325,18 @@ local Fauxshore = {
     key = "fauxshore",
     pos = { x = 0, y = 15 },
     discovered = false,
-    mult = 1.5,
+    mult = 1.95, -- 1.5 * 1.3
     atlas = "bigBlinds01",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
     big = { min = 2 },
-    calculate = function(self, blind, context)
-        -- TODO Add logic
+    set_blind = function(self)
+        ease_discard(10)
+    end,
+    press_discard = function(self)
+        ease_dollars(-1)
+        ease_discard(1)
     end
 }
 
@@ -322,8 +352,32 @@ local MaryTimes = {
     boss_colour = HEX("B7865B"),
     dollars = 4,
     big = { min = 2 },
+    set_blind = function(self)
+        self.ina_mary_suit = pseudorandom_element({'Spades', 'Hearts', 'Diamonds', 'Clubs'}, pseudoseed('mary_suit'))
+        self.ina_mary_count = pseudorandom_element({1, 2, 3, 4, 5}, pseudoseed('mary_count'))
+    end,
     calculate = function(self, blind, context)
-        -- TODO Add logic
+        if context.main_scoring then
+            local match_suit = false
+            for _, v in ipairs(context.scoring_hand) do
+                if v:is_suit(self.ina_mary_suit) then match_suit = true; break end
+            end
+            local match_count = #context.scoring_hand == self.ina_mary_count
+            
+            local was_match = match_suit or match_count
+
+            -- Cambiar secreto para la próxima mano
+            self.ina_mary_suit = pseudorandom_element({'Spades', 'Hearts', 'Diamonds', 'Clubs'}, pseudoseed('mary_suit'))
+            self.ina_mary_count = pseudorandom_element({1, 2, 3, 4, 5}, pseudoseed('mary_count'))
+
+            if was_match then
+                return {
+                    x_mult = 2,
+                    message = "¡X2 RITMO!",
+                    colour = G.C.RED
+                }
+            end
+        end
     end
 }
 
@@ -348,7 +402,8 @@ return {
     name = "bigBlinds01",
     list = { ff_regional_a, ff_regional_b, ff_national_a, ff_national_b,
         umbrella, inazuma_kids, sallys,
-        occult, inazuma_eleven, shun, empress, old_kirkwood }
+        occult, inazuma_eleven, shun, empress, old_kirkwood,
+        SPFixers, Alpine, Cloister, OsakaCCC, Fauxshore, MaryTimes }
 }
 
 -- return {

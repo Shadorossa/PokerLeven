@@ -656,12 +656,14 @@ Pokerleven.ui.create_UIBox_gacha = function()
   }
 
   local team_blind_keys = {
+    -- Inazuma Eleven 1
     "bl_ina_raimon", "bl_ina_occult", "bl_ina_royal_blind", "bl_ina_wild",
     "bl_ina_brain", "bl_ina_otaku", "bl_ina_farm", "bl_ina_inazuma_eleven",
-    "bl_ina_kirkwood", "bl_ina_shuriken", "bl_ina_zeus", "bl_ina_tormenta_geminis",
-    "bl_ina_spfixers", "bl_ina_alpine", "bl_ina_epsilon", "bl_ina_RRedux",
-    "bl_ina_Prominence", "bl_ina_Diamond", "bl_ina_cloister",
-    "bl_ina_osakaccc", "bl_ina_fauxshore", "bl_ina_marytimes", "bl_ina_Genesis"
+    "bl_ina_kirkwood", "bl_ina_shuriken", "bl_ina_zeus", 
+    -- Inazuma Eleven 2
+    "bl_ina_tormenta_geminis", "bl_ina_spfixers", "bl_ina_alpine", "bl_ina_cloister", 
+    "bl_ina_epsilon", "bl_ina_RRedux", "bl_ina_osakaccc", "bl_ina_fauxshore", 
+    "bl_ina_marytimes", "bl_ina_Prominence", "bl_ina_Diamond", "bl_ina_Genesis"
   }
 
   local teams_nodes = {}
