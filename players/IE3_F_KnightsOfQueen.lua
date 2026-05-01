@@ -1,4 +1,5 @@
-local Freddy = J({
+-- Freddy McQueen (1)
+local Freddy_McQueen = J({
   name = "Freddy McQueen",
   pos = { x = 0, y = 5 },
   config = { extra = {} },
@@ -13,12 +14,15 @@ local Freddy = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_3,
+  pnumber = 1,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gascoigne = J({
+-- Jonny Gascoigne (2)
+local Jonny_Gascoigne = J({
   name = "Jonny Gascoigne",
   pos = { x = 1, y = 5 },
   config = { extra = {} },
@@ -33,12 +37,15 @@ local Gascoigne = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_3,
+  pnumber = 2,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Buckingham = J({
+-- David Buckingham (3)
+local David_Buckingham = J({
   name = "David Buckingham",
   pos = { x = 2, y = 5 },
   config = { extra = {} },
@@ -53,12 +60,15 @@ local Buckingham = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 3,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ralton = J({
+-- Lance Ralton (4)
+local Lance_Ralton = J({
   name = "Lance Ralton",
   pos = { x = 3, y = 5 },
   config = { extra = {} },
@@ -73,12 +83,15 @@ local Ralton = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ripper = J({
+-- Edge Ripper (5)
+local Edge_Ripper = J({
   name = "Edge Ripper",
   pos = { x = 4, y = 5 },
   config = { extra = {} },
@@ -93,12 +106,15 @@ local Ripper = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 5,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Coole = J({
+-- Peter Coole (6)
+local Peter_Coole = J({
   name = "Peter Coole",
   pos = { x = 5, y = 5 },
   config = { extra = {} },
@@ -113,12 +129,15 @@ local Coole = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Mane = J({
+-- Gary Mane (7)
+local Gary_Mane = J({
   name = "Gary Mane",
   pos = { x = 6, y = 5 },
   config = { extra = {} },
@@ -133,12 +152,15 @@ local Mane = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Appleton = J({
+-- Paul Appleton (8)
+local Paul_Appleton = J({
   name = "Paul Appleton",
   pos = { x = 7, y = 5 },
   config = { extra = {} },
@@ -153,12 +175,15 @@ local Appleton = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 8,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Purpleton = J({
+-- Eric Purpleton (9)
+local Eric_Purpleton = J({
   name = "Eric Purpleton",
   pos = { x = 8, y = 5 },
   config = { extra = {} },
@@ -173,12 +198,15 @@ local Purpleton = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 9,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Partinus = J({
+-- Edgar Partinus (10)
+local Edgar_Partinus = J({
   name = "Edgar Partinus",
   pos = { x = 9, y = 5 },
   config = { extra = {} },
@@ -193,12 +221,16 @@ local Partinus = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
+  pnumber = 10,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Arwen = J({
+-- Philip Arwen (11)
+local Philip_Arwen = J({
   name = "Philip Arwen",
   pos = { x = 10, y = 5 },
   config = { extra = {} },
@@ -213,12 +245,15 @@ local Arwen = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_3,
+  pnumber = 11,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jeeves = J({
+-- Servilius Jeeves (12)
+local Servilius_Jeeves = J({
   name = "Servilius Jeeves",
   pos = { x = 11, y = 5 },
   config = { extra = {} },
@@ -233,12 +268,15 @@ local Jeeves = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Squall = J({
+-- Martin Squall (13)
+local Martin_Squall = J({
   name = "Martin Squall",
   pos = { x = 12, y = 5 },
   config = { extra = {} },
@@ -253,12 +291,15 @@ local Squall = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 13,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Woodgate = J({
+-- Nick Woodgate (14)
+local Nick_Woodgate = J({
   name = "Nick Woodgate",
   pos = { x = 13, y = 5 },
   config = { extra = {} },
@@ -273,12 +314,15 @@ local Woodgate = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 14,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Richards = J({
+-- Mikey Richards (15)
+local Mikey_Richards = J({
   name = "Mikey Richards",
   pos = { x = 14, y = 5 },
   config = { extra = {} },
@@ -293,12 +337,15 @@ local Richards = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 15,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Pounding = J({
+-- Sirius Pounding (16)
+local Sirius_Pounding = J({
   name = "Sirius Pounding",
   pos = { x = 15, y = 5 },
   config = { extra = {} },
@@ -313,6 +360,8 @@ local Pounding = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ENGLAND,
+  pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -320,5 +369,10 @@ local Pounding = J({
 
 return {
   name = "Knights of Queen",
-  list = {}
+  list = {
+    Freddy_McQueen, Jonny_Gascoigne, David_Buckingham, Lance_Ralton,
+    Edge_Ripper, Peter_Coole, Gary_Mane, Paul_Appleton,
+    Eric_Purpleton, Edgar_Partinus, Philip_Arwen, Servilius_Jeeves,
+    Martin_Squall, Nick_Woodgate, Mikey_Richards, Sirius_Pounding
+  }
 }

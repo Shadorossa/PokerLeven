@@ -1,4 +1,5 @@
-local Thorsten = J({
+-- Thorsten Welger (1)
+local Thorsten_Welger = J({
   name = "Thorsten Welger",
   pos = { x = 0, y = 6 },
   config = { extra = {} },
@@ -13,12 +14,15 @@ local Thorsten = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_3,
+  pnumber = 1,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Alexander = J({
+-- Alexander Hausen (2)
+local Alexander_Hausen = J({
   name = "Alexander Hausen",
   pos = { x = 1, y = 6 },
   config = { extra = {} },
@@ -33,12 +37,15 @@ local Alexander = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_3,
+  pnumber = 2,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Heinrich = J({
+-- Heinrich Farber (3)
+local Heinrich_Farber = J({
   name = "Heinrich Farber",
   pos = { x = 2, y = 6 },
   config = { extra = {} },
@@ -53,12 +60,15 @@ local Heinrich = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 3,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kurt = J({
+-- Kurt Zawel (4)
+local Kurt_Zawel = J({
   name = "Kurt Zawel",
   pos = { x = 3, y = 6 },
   config = { extra = {} },
@@ -73,12 +83,15 @@ local Kurt = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Lukas = J({
+-- Lukas Schmidt (5)
+local Lukas_Schmidt = J({
   name = "Lukas Schmidt",
   pos = { x = 4, y = 6 },
   config = { extra = {} },
@@ -93,12 +106,15 @@ local Lukas = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 5,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Theodor = J({
+-- Theodor Ulrich (6)
+local Theodor_Ulrich = J({
   name = "Theodor Ulrich",
   pos = { x = 5, y = 6 },
   config = { extra = {} },
@@ -113,12 +129,15 @@ local Theodor = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jan = J({
+-- Jan Oster (7)
+local Jan_Oster = J({
   name = "Jan Oster",
   pos = { x = 6, y = 6 },
   config = { extra = {} },
@@ -133,12 +152,15 @@ local Jan = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_3,
+  pnumber = 7,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Niklas = J({
+-- Niklas Kuster (8)
+local Niklas_Kuster = J({
   name = "Niklas Kuster",
   pos = { x = 7, y = 6 },
   config = { extra = {} },
@@ -153,12 +175,15 @@ local Niklas = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 8,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jonas = J({
+-- Jonas Polk (9)
+local Jonas_Polk = J({
   name = "Jonas Polk",
   pos = { x = 8, y = 6 },
   config = { extra = {} },
@@ -173,12 +198,16 @@ local Jonas = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
+  pnumber = 9,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Maximilian = J({
+-- Maximilian Müller (10)
+local Maximilian_Muller = J({
   name = "Maximilian Müller",
   pos = { x = 9, y = 6 },
   config = { extra = {} },
@@ -193,12 +222,15 @@ local Maximilian = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_1,
+  pnumber = 10,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Peter = J({
+-- Peter Naumann (11)
+local Peter_Naumann = J({
   name = "Peter Naumann",
   pos = { x = 10, y = 6 },
   config = { extra = {} },
@@ -213,12 +245,15 @@ local Peter = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_1,
+  pnumber = 11,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gerhard = J({
+-- Gerhard Enders (12)
+local Gerhard_Enders = J({
   name = "Gerhard Enders",
   pos = { x = 11, y = 6 },
   config = { extra = {} },
@@ -233,12 +268,15 @@ local Gerhard = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Erwin = J({
+-- Erwin Völz (13)
+local Erwin_Volz = J({
   name = "Erwin Völz",
   pos = { x = 12, y = 6 },
   config = { extra = {} },
@@ -253,12 +291,15 @@ local Erwin = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 13,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jens = J({
+-- Jens Hoffman (14)
+local Jens_Hoffman = J({
   name = "Jens Hoffman",
   pos = { x = 13, y = 6 },
   config = { extra = {} },
@@ -273,12 +314,15 @@ local Jens = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 14,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ernst = J({
+-- Ernst Fliender (15)
+local Ernst_Fliender = J({
   name = "Ernst Fliender",
   pos = { x = 14, y = 6 },
   config = { extra = {} },
@@ -293,12 +337,15 @@ local Ernst = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 15,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Emmanuel = J({
+-- Emmanuel Ewerz (16)
+local Emmanuel_Ewerz = J({
   name = "Emmanuel Ewerz",
   pos = { x = 15, y = 6 },
   config = { extra = {} },
@@ -313,6 +360,8 @@ local Emmanuel = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.GERMANY,
+  pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -320,5 +369,9 @@ local Emmanuel = J({
 
 return {
   name = "Brocken Brigade",
-  list = {}
+  list = {
+    Thorsten_Welger, Alexander_Hausen, Heinrich_Farber, Kurt_Zawel, Lukas_Schmidt,
+    Theodor_Ulrich, Jan_Oster, Niklas_Kuster, Jonas_Polk, Maximilian_Muller,
+    Peter_Naumann, Gerhard_Enders, Erwin_Volz, Jens_Hoffman, Ernst_Fliender, Emmanuel_Ewerz
+  }
 }

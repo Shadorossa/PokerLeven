@@ -1,4 +1,5 @@
-local Ortega = J({
+-- Nacho Ortega (1)
+local Nacho_Ortega = J({
   name = "Nacho Ortega",
   pos = { x = 0, y = 10 },
   config = { extra = {} },
@@ -13,12 +14,15 @@ local Ortega = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 1,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Torres = J({
+-- Thiago Torres (2)
+local Thiago_Torres = J({
   name = "Thiago Torres",
   pos = { x = 1, y = 10 },
   config = { extra = {} },
@@ -33,12 +37,16 @@ local Torres = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
+  pnumber = 2,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Palacios = J({
+-- Felipe Palacios (3)
+local Felipe_Palacios = J({
   name = "Felipe Palacios",
   pos = { x = 2, y = 10 },
   config = { extra = {} },
@@ -53,12 +61,15 @@ local Palacios = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 3,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ros = J({
+-- Miquel Ros (4)
+local Miquel_Ros = J({
   name = "Miquel Ros",
   pos = { x = 3, y = 10 },
   config = { extra = {} },
@@ -73,12 +84,15 @@ local Ros = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Martinez = J({
+-- Ramón Martínez (5)
+local Ramon_Martinez = J({
   name = "Ramón Martínez",
   pos = { x = 4, y = 10 },
   config = { extra = {} },
@@ -93,12 +107,15 @@ local Martinez = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 5,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Caroso = J({
+-- Enrique Caroso (6)
+local Enrique_Caroso = J({
   name = "Enrique Caroso",
   pos = { x = 5, y = 10 },
   config = { extra = {} },
@@ -113,12 +130,15 @@ local Caroso = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_3,
+  pnumber = 6,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Lopez = J({
+-- Sergio López (7)
+local Sergio_Lopez = J({
   name = "Sergio López",
   pos = { x = 6, y = 10 },
   config = { extra = {} },
@@ -133,12 +153,15 @@ local Lopez = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Torinni = J({
+-- Roberto Torinni (8)
+local Roberto_Torinni = J({
   name = "Roberto Torinni",
   pos = { x = 7, y = 10 },
   config = { extra = {} },
@@ -153,12 +176,15 @@ local Torinni = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 8,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Castiglione = J({
+-- Pablo Castiglione (9)
+local Pablo_Castiglione = J({
   name = "Pablo Castiglione",
   pos = { x = 8, y = 10 },
   config = { extra = {} },
@@ -173,12 +199,15 @@ local Castiglione = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 9,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Balone = J({
+-- Leone Balone (10)
+local Leone_Balone = J({
   name = "Leone Balone",
   pos = { x = 9, y = 10 },
   config = { extra = {} },
@@ -193,12 +222,15 @@ local Balone = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_3,
+  pnumber = 10,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Oro = J({
+-- Diego Oro (11)
+local Diego_Oro = J({
   name = "Diego Oro",
   pos = { x = 10, y = 10 },
   config = { extra = {} },
@@ -213,12 +245,15 @@ local Oro = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 11,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Cruz = J({
+-- Lionel Cruz (12)
+local Lionel_Cruz = J({
   name = "Lionel Cruz",
   pos = { x = 11, y = 10 },
   config = { extra = {} },
@@ -233,12 +268,15 @@ local Cruz = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Saviola = J({
+-- Mario Saviola (13)
+local Mario_Saviola = J({
   name = "Mario Saviola",
   pos = { x = 12, y = 10 },
   config = { extra = {} },
@@ -253,12 +291,15 @@ local Saviola = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 13,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Tevez = J({
+-- Hernán Tévez (14)
+local Hernan_Tevez = J({
   name = "Hernán Tévez",
   pos = { x = 13, y = 10 },
   config = { extra = {} },
@@ -273,12 +314,15 @@ local Tevez = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 14,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Samuel = J({
+-- Herman Samuel (15)
+local Herman_Samuel = J({
   name = "Herman Samuel",
   pos = { x = 14, y = 10 },
   config = { extra = {} },
@@ -293,12 +337,15 @@ local Samuel = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 15,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Aguero = J({
+-- Ricardo Agüero (16)
+local Ricardo_Aguero = J({
   name = "Ricardo Agüero",
   pos = { x = 15, y = 10 },
   config = { extra = {} },
@@ -313,6 +360,8 @@ local Aguero = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ARGENTINA,
+  pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_TheEmpire",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -320,5 +369,9 @@ local Aguero = J({
 
 return {
   name = "The Empire",
-  list = {}
+  list = {
+    Nacho_Ortega, Thiago_Torres, Felipe_Palacios, Miquel_Ros, Ramon_Martinez,
+    Enrique_Caroso, Sergio_Lopez, Roberto_Torinni, Pablo_Castiglione, Leone_Balone,
+    Diego_Oro, Lionel_Cruz, Mario_Saviola, Hernan_Tevez, Herman_Samuel, Ricardo_Aguero
+  }
 }

@@ -1,4 +1,5 @@
-local Lazuli = J({
+-- Indigo Lazuli (1)
+local Indigo_Lazuli = J({
   name = "Indigo Lazuli",
   pos = { x = 0, y = 9 },
   config = { extra = {} },
@@ -13,12 +14,15 @@ local Lazuli = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 1,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Diamante = J({
+-- Rosseo Diamante (2)
+local Rosseo_Diamante = J({
   name = "Rosseo Diamante",
   pos = { x = 1, y = 9 },
   config = { extra = {} },
@@ -33,12 +37,15 @@ local Diamante = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 2,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Turchese = J({
+-- Azubel Turchese (3)
+local Azubel_Turchese = J({
   name = "Azubel Turchese",
   pos = { x = 2, y = 9 },
   config = { extra = {} },
@@ -53,12 +60,15 @@ local Turchese = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_1,
+  pnumber = 3,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Agata = J({
+-- Nereo Agata (4)
+local Nereo_Agata = J({
   name = "Nereo Agata",
   pos = { x = 3, y = 9 },
   config = { extra = {} },
@@ -73,12 +83,15 @@ local Agata = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Zaffiro = J({
+-- Azzuro Zaffiro (5)
+local Azzuro_Zaffiro = J({
   name = "Azzuro Zaffiro",
   pos = { x = 4, y = 9 },
   config = { extra = {} },
@@ -93,12 +106,15 @@ local Zaffiro = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_1,
+  pnumber = 5,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Smeraldo = J({
+-- Berdeo Smeraldo (6)
+local Berdeo_Smeraldo = J({
   name = "Berdeo Smeraldo",
   pos = { x = 5, y = 9 },
   config = { extra = {} },
@@ -113,12 +129,15 @@ local Smeraldo = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Granato = J({
+-- Rosso Granato (7)
+local Rosso_Granato = J({
   name = "Rosso Granato",
   pos = { x = 6, y = 9 },
   config = { extra = {} },
@@ -133,12 +152,15 @@ local Granato = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Topazio = J({
+-- Giallo Topazio (8)
+local Giallo_Topazio = J({
   name = "Giallo Topazio",
   pos = { x = 7, y = 9 },
   config = { extra = {} },
@@ -153,12 +175,15 @@ local Topazio = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 8,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Amatista = J({
+-- Vittorio Amatista (9)
+local Vittorio_Amatista = J({
   name = "Vittorio Amatista",
   pos = { x = 8, y = 9 },
   config = { extra = {} },
@@ -173,12 +198,15 @@ local Amatista = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 9,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Acuto = J({
+-- Julio Acuto (10)
+local Julio_Acuto = J({
   name = "Julio Acuto",
   pos = { x = 9, y = 9 },
   config = { extra = {} },
@@ -193,12 +221,16 @@ local Acuto = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pcaptain = C.CAPTAIN,
+  pnumber = 10,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Perla = J({
+-- Bianco Perla (11)
+local Bianco_Perla = J({
   name = "Bianco Perla",
   pos = { x = 10, y = 9 },
   config = { extra = {} },
@@ -213,12 +245,15 @@ local Perla = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 11,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Quarzo = J({
+-- Grigio Quarzo (12)
+local Grigio_Quarzo = J({
   name = "Grigio Quarzo",
   pos = { x = 11, y = 9 },
   config = { extra = {} },
@@ -233,12 +268,15 @@ local Quarzo = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Berillo = J({
+-- Pardo Berillo (13)
+local Pardo_Berillo = J({
   name = "Pardo Berillo",
   pos = { x = 12, y = 9 },
   config = { extra = {} },
@@ -253,12 +291,15 @@ local Berillo = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 13,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Corniola = J({
+-- Marrone Corniola (14)
+local Marrone_Corniola = J({
   name = "Marrone Corniola",
   pos = { x = 13, y = 9 },
   config = { extra = {} },
@@ -273,12 +314,15 @@ local Corniola = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 14,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Rubino = J({
+-- Amaranto Rubino (15)
+local Amaranto_Rubino = J({
   name = "Amaranto Rubino",
   pos = { x = 14, y = 9 },
   config = { extra = {} },
@@ -293,12 +337,15 @@ local Rubino = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 15,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Opale = J({
+-- Avorio Opale (16)
+local Avorio_Opale = J({
   name = "Avorio Opale",
   pos = { x = 15, y = 9 },
   config = { extra = {} },
@@ -313,6 +360,8 @@ local Opale = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.ITALY,
+  pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_TeamD",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -320,5 +369,9 @@ local Opale = J({
 
 return {
   name = "Team D",
-  list = {}
+  list = {
+    Indigo_Lazuli, Rosseo_Diamante, Azubel_Turchese, Nereo_Agata, Azzuro_Zaffiro,
+    Berdeo_Smeraldo, Rosso_Granato, Giallo_Topazio, Vittorio_Amatista, Julio_Acuto,
+    Bianco_Perla, Grigio_Quarzo, Pardo_Berillo, Marrone_Corniola, Amaranto_Rubino, Avorio_Opale
+  }
 }

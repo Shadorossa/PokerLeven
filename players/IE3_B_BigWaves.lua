@@ -1,4 +1,5 @@
-local Whale = J({
+-- Gene Whalon (1)
+local Gene_Whalon = J({
   name = "Gene Whalon",
   pos = { x = 0, y = 2 },
   config = { extra = {} },
@@ -14,12 +15,14 @@ local Whale = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_3,
+  pnumber = 1,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Waterman = J({
+-- David Waterman (2)
+local David_Waterman = J({
   name = "David Waterman",
   pos = { x = 1, y = 2 },
   config = { extra = {} },
@@ -35,12 +38,14 @@ local Waterman = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 2,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Beaches = J({
+-- Sonny Shore (3)
+local Sonny_Shore = J({
   name = "Sonny Shore",
   pos = { x = 2, y = 2 },
   config = { extra = {} },
@@ -56,12 +61,14 @@ local Beaches = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_1,
+  pnumber = 3,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Turtle = J({
+-- Kjell Snapper (4)
+local Kjell_Snapper = J({
   name = "Kjell Snapper",
   pos = { x = 3, y = 2 },
   config = { extra = {} },
@@ -77,12 +84,14 @@ local Turtle = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kraken = J({
+-- Ken Crackham (5)
+local Ken_Crackham = J({
   name = "Ken Crackham",
   pos = { x = 4, y = 2 },
   config = { extra = {} },
@@ -98,12 +107,14 @@ local Kraken = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 5,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Prawn = J({
+-- Shawn Princeton (6)
+local Shawn_Princeton = J({
   name = "Shawn Princeton",
   pos = { x = 5, y = 2 },
   config = { extra = {} },
@@ -119,12 +130,14 @@ local Prawn = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Fisher = J({
+-- Matt Fischer (7)
+local Matt_Fischer = J({
   name = "Matt Fischer",
   pos = { x = 6, y = 2 },
   config = { extra = {} },
@@ -140,12 +153,14 @@ local Fisher = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local HangTen = J({
+-- Hank Tennyson (8)
+local Hank_Tennyson = J({
   name = "Hank Tennyson",
   pos = { x = 7, y = 2 },
   config = { extra = {} },
@@ -161,19 +176,21 @@ local HangTen = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 8,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Dolphin = J({
+-- Dolph Hensen (9)
+local Dolph_Hensen = J({
   name = "Dolph Hensen",
   pos = { x = 8, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
   end,
-  rarity = "ina_top",
+  rarity = 2,
   pools = { ["Big Waves"] = true },
   cost = 7,
   atlas = "Jokers03",
@@ -182,12 +199,15 @@ local Dolphin = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
+  pnumber = 9,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Reef = J({
+-- Hamilton Reith (10)
+local Hamilton_Reith = J({
   name = "Hamilton Reith",
   pos = { x = 9, y = 2 },
   config = { extra = {} },
@@ -203,12 +223,14 @@ local Reef = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 10,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jaws = J({
+-- Joe Dawes (11)
+local Joe_Dawes = J({
   name = "Joe Dawes",
   pos = { x = 10, y = 2 },
   config = { extra = {} },
@@ -224,12 +246,14 @@ local Jaws = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_3,
+  pnumber = 11,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local CHorse = J({
+-- Quincy Horace (12)
+local Quincy_Horace = J({
   name = "Quincy Horace",
   pos = { x = 11, y = 2 },
   config = { extra = {} },
@@ -245,12 +269,14 @@ local CHorse = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Summers = J({
+-- Holly Summers (13)
+local Holly_Summers = J({
   name = "Holly Summers",
   pos = { x = 12, y = 2 },
   config = { extra = {} },
@@ -266,12 +292,14 @@ local Summers = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 13,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local KRab = J({
+-- Derek Rabson (14)
+local Derek_Rabson = J({
   name = "Derek Rabson",
   pos = { x = 0, y = 3 },
   config = { extra = {} },
@@ -287,12 +315,14 @@ local KRab = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_3,
+  pnumber = 14,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Barracuda = J({
+-- Barack Daniels (15)
+local Barack_Daniels = J({
   name = "Barack Daniels",
   pos = { x = 1, y = 3 },
   config = { extra = {} },
@@ -308,12 +338,14 @@ local Barracuda = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 15,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Marlin = J({
+-- Bruce Marlin (16)
+local Bruce_Marlin = J({
   name = "Bruce Marlin",
   pos = { x = 2, y = 3 },
   config = { extra = {} },
@@ -329,6 +361,7 @@ local Marlin = J({
   pgender = C.M,
   pnation = C.AUSTRALIA,
   pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -336,5 +369,9 @@ local Marlin = J({
 
 return {
   name = "Big Waves",
-  list = {}
+  list = {
+    Gene_Whalon, David_Waterman, Sonny_Shore, Kjell_Snapper, Ken_Crackham,
+    Shawn_Princeton, Matt_Fischer, Hank_Tennyson, Dolph_Hensen, Hamilton_Reith,
+    Joe_Dawes, Quincy_Horace, Holly_Summers, Derek_Rabson, Barack_Daniels, Bruce_Marlin
+  }
 }

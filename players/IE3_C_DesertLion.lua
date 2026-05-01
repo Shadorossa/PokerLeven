@@ -1,4 +1,5 @@
-local Mustafa = J({
+-- Nasir Mustafa (1)
+local Nasir_Mustafa = J({
   name = "Nasir Mustafa",
   pos = { x = 0, y = 2 },
   config = { extra = {} },
@@ -14,12 +15,14 @@ local Mustafa = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 1,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Farooq = J({
+-- Faraz Farooq (2)
+local Faraz_Farooq = J({
   name = "Faraz Farooq",
   pos = { x = 1, y = 2 },
   config = { extra = {} },
@@ -35,19 +38,21 @@ local Farooq = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_3,
+  pnumber = 2,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kalil = J({
+-- Bilal Kalil (3)
+local Bilal_Kalil = J({
   name = "Bilal Kalil",
   pos = { x = 2, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
   end,
-  rarity = "ina_top",
+  rarity = 2,
   pools = { ["Desert Lion"] = true },
   cost = 7,
   atlas = "Jokers03",
@@ -56,12 +61,15 @@ local Kalil = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
+  pnumber = 3,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Wali = J({
+-- Jamila Wali (4)
+local Jamila_Wali = J({
   name = "Jamila Wali",
   pos = { x = 3, y = 2 },
   config = { extra = {} },
@@ -77,12 +85,14 @@ local Wali = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Sylla = J({
+-- Musa Sylla (5)
+local Musa_Sylla = J({
   name = "Musa Sylla",
   pos = { x = 4, y = 2 },
   config = { extra = {} },
@@ -98,12 +108,14 @@ local Sylla = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_3,
+  pnumber = 5,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Massoud = J({
+-- Yusuf Massoud (6)
+local Yusuf_Massoud = J({
   name = "Yusuf Massoud",
   pos = { x = 5, y = 2 },
   config = { extra = {} },
@@ -119,12 +131,14 @@ local Massoud = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Sulaiman = J({
+-- Sulayk Sulaiman (7)
+local Sulayk_Sulaiman = J({
   name = "Sulayk Sulaiman",
   pos = { x = 6, y = 2 },
   config = { extra = {} },
@@ -140,12 +154,14 @@ local Sulaiman = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Armand = J({
+-- Sayid Armand (8)
+local Sayid_Armand = J({
   name = "Sayid Armand",
   pos = { x = 7, y = 2 },
   config = { extra = {} },
@@ -161,12 +177,14 @@ local Armand = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_3,
+  pnumber = 8,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jasim = J({
+-- Mansur Jasim (9)
+local Mansur_Jasim = J({
   name = "Mansur Jasim",
   pos = { x = 8, y = 2 },
   config = { extra = {} },
@@ -182,12 +200,14 @@ local Jasim = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 9,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Abdulla = J({
+-- Zack Abdulla (10)
+local Zack_Abdulla = J({
   name = "Zack Abdulla",
   pos = { x = 9, y = 2 },
   config = { extra = {} },
@@ -203,12 +223,14 @@ local Abdulla = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 10,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Majdi = J({
+-- Majdi Ismail (11)
+local Majdi_Ismail = J({
   name = "Majdi Ismail",
   pos = { x = 10, y = 2 },
   config = { extra = {} },
@@ -224,12 +246,14 @@ local Majdi = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 11,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Hamad = J({
+-- Talal Hamad (12)
+local Talal_Hamad = J({
   name = "Talal Hamad",
   pos = { x = 11, y = 2 },
   config = { extra = {} },
@@ -245,12 +269,14 @@ local Hamad = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ahmed = J({
+-- Hasan Ahmed (13)
+local Hasan_Ahmed = J({
   name = "Hasan Ahmed",
   pos = { x = 12, y = 2 },
   config = { extra = {} },
@@ -266,12 +292,14 @@ local Ahmed = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 13,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jibril = J({
+-- Khalfan Jibril (14)
+local Khalfan_Jibril = J({
   name = "Khalfan Jibril",
   pos = { x = 0, y = 3 },
   config = { extra = {} },
@@ -287,12 +315,14 @@ local Jibril = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 14,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Rajab = J({
+-- Rajab Ismail (15)
+local Rajab_Ismail = J({
   name = "Rajab Ismail",
   pos = { x = 1, y = 3 },
   config = { extra = {} },
@@ -308,12 +338,14 @@ local Rajab = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_1,
+  pnumber = 15,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Siddique = J({
+-- Adel Siddique (16)
+local Adel_Siddique = J({
   name = "Adel Siddique",
   pos = { x = 2, y = 3 },
   config = { extra = {} },
@@ -329,6 +361,7 @@ local Siddique = J({
   pgender = C.M,
   pnation = C.QATAR,
   pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_DesertLion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -336,5 +369,9 @@ local Siddique = J({
 
 return {
   name = "Desert Lion",
-  list = {}
+  list = {
+    Nasir_Mustafa, Faraz_Farooq, Bilal_Kalil, Jamila_Wali, Musa_Sylla,
+    Yusuf_Massoud, Sulayk_Sulaiman, Sayid_Armand, Mansur_Jasim, Zack_Abdulla,
+    Majdi_Ismail, Talal_Hamad, Hasan_Ahmed, Khalfan_Jibril, Rajab_Ismail, Adel_Siddique
+  }
 }

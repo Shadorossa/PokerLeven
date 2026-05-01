@@ -1,4 +1,5 @@
-local Dash = J({
+-- Billy Dash (1)
+local Billy_Dash = J({
   name = "Billy Dash",
   pos = { x = 0, y = 11 },
   config = { extra = {} },
@@ -13,12 +14,15 @@ local Dash = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_3,
+  pnumber = 1,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Bryant = J({
+-- Ted Bryant (2)
+local Ted_Bryant = J({
   name = "Ted Bryant",
   pos = { x = 1, y = 11 },
   config = { extra = {} },
@@ -33,12 +37,15 @@ local Bryant = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 2,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Strider = J({
+-- Tony Strider (3)
+local Tony_Strider = J({
   name = "Tony Strider",
   pos = { x = 2, y = 11 },
   config = { extra = {} },
@@ -53,12 +60,15 @@ local Strider = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 3,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Dynamo = J({
+-- Drake Dynamo (4)
+local Drake_Dynamo = J({
   name = "Drake Dynamo",
   pos = { x = 3, y = 11 },
   config = { extra = {} },
@@ -73,12 +83,15 @@ local Dynamo = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Bobby = J({
+-- Bobby Shearer (5)
+local Bobby_Shearer = J({
   name = "Bobby Shearer",
   pos = { x = 4, y = 11 },
   config = { extra = {} },
@@ -93,12 +106,15 @@ local Bobby = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = { C.JAPAN, C.USA },
+  pyear = C.YEAR_2,
+  pnumber = 5,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Woodmark = J({
+-- Steve Woodmark (6)
+local Steve_Woodmark = J({
   name = "Steve Woodmark",
   pos = { x = 5, y = 11 },
   config = { extra = {} },
@@ -113,12 +129,15 @@ local Woodmark = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Erik = J({
+-- Erik Eagle (7)
+local Erik_Eagle = J({
   name = "Erik Eagle",
   pos = { x = 6, y = 11 },
   config = { extra = {} },
@@ -133,12 +152,15 @@ local Erik = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = { C.JAPAN, C.USA },
+  pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Pierce = J({
+-- Shane Pierce (8)
+local Shane_Pierce = J({
   name = "Shane Pierce",
   pos = { x = 7, y = 11 },
   config = { extra = {} },
@@ -153,12 +175,15 @@ local Pierce = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 8,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Krueger = J({
+-- Mark Krueger (9)
+local Mark_Krueger = J({
   name = "Mark Krueger",
   pos = { x = 8, y = 11 },
   config = { extra = {} },
@@ -173,12 +198,16 @@ local Krueger = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pcaptain = C.CAPTAIN,
+  pnumber = 9,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Keats = J({
+-- Dylan Keats (10)
+local Dylan_Keats = J({
   name = "Dylan Keats",
   pos = { x = 9, y = 11 },
   config = { extra = {} },
@@ -193,12 +222,15 @@ local Keats = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 10,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jax = J({
+-- Gabriel Jax (11)
+local Gabriel_Jax = J({
   name = "Gabriel Jax",
   pos = { x = 10, y = 11 },
   config = { extra = {} },
@@ -213,12 +245,15 @@ local Jax = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 11,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Hawke = J({
+-- Alex Hawke (12)
+local Alex_Hawke = J({
   name = "Alex Hawke",
   pos = { x = 11, y = 11 },
   config = { extra = {} },
@@ -233,12 +268,15 @@ local Hawke = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_3,
+  pnumber = 12,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Washington = J({
+-- Corey Washington (13)
+local Corey_Washington = J({
   name = "Corey Washington",
   pos = { x = 12, y = 11 },
   config = { extra = {} },
@@ -253,12 +291,15 @@ local Washington = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_1,
+  pnumber = 13,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Bobbins = J({
+-- Bob Bobbins (14)
+local Bob_Bobbins = J({
   name = "Bob Bobbins",
   pos = { x = 13, y = 11 },
   config = { extra = {} },
@@ -273,12 +314,15 @@ local Bobbins = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_1,
+  pnumber = 14,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Pooma = J({
+-- Petie Pooma (15)
+local Petie_Pooma = J({
   name = "Petie Pooma",
   pos = { x = 14, y = 11 },
   config = { extra = {} },
@@ -293,12 +337,15 @@ local Pooma = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_1,
+  pnumber = 15,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Dexter = J({
+-- Norbert Poindexter (16)
+local Norbert_Poindexter = J({
   name = "Norbert Poindexter",
   pos = { x = 15, y = 11 },
   config = { extra = {} },
@@ -313,6 +360,8 @@ local Dexter = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.USA,
+  pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_Unicorn",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -320,5 +369,9 @@ local Dexter = J({
 
 return {
   name = "Unicorn",
-  list = {}
+  list = {
+    Billy_Dash, Ted_Bryant, Tony_Strider, Drake_Dynamo, Bobby_Shearer,
+    Steve_Woodmark, Erik_Eagle, Shane_Pierce, Mark_Krueger, Dylan_Keats,
+    Gabriel_Jax, Alex_Hawke, Corey_Washington, Bob_Bobbins, Petie_Pooma, Norbert_Poindexter
+  }
 }

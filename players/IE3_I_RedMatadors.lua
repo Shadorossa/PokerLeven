@@ -1,4 +1,5 @@
-local Inigo = J({
+-- Alfonso Íñigo (1)
+local Alfonso_Inigo = J({
   name = "Alfonso Íñigo",
   pos = { x = 0, y = 8 },
   config = { extra = {} },
@@ -13,12 +14,15 @@ local Inigo = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_3,
+  pnumber = 1,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Costa = J({
+-- José Costa (2)
+local Jose_Costa = J({
   name = "José Costa",
   pos = { x = 1, y = 8 },
   config = { extra = {} },
@@ -33,12 +37,15 @@ local Costa = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 2,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Lopez = J({
+-- José López (3)
+local Jose_Lopez = J({
   name = "José López",
   pos = { x = 2, y = 8 },
   config = { extra = {} },
@@ -53,12 +60,15 @@ local Lopez = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 3,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Garrido = J({
+-- Antonio Garrido (4)
+local Antonio_Garrido = J({
   name = "Antonio Garrido",
   pos = { x = 3, y = 8 },
   config = { extra = {} },
@@ -73,12 +83,15 @@ local Garrido = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Garcia = J({
+-- Víctor García (5)
+local Victor_Garcia = J({
   name = "Víctor García",
   pos = { x = 4, y = 8 },
   config = { extra = {} },
@@ -93,12 +106,16 @@ local Garcia = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
+  pnumber = 5,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Rodriguez = J({
+-- Joan Rodríguez (6)
+local Joan_Rodriguez = J({
   name = "Joan Rodríguez",
   pos = { x = 5, y = 8 },
   config = { extra = {} },
@@ -113,12 +130,15 @@ local Rodriguez = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ferreira = J({
+-- Igor Ferreira (7)
+local Igor_Ferreira = J({
   name = "Igor Ferreira",
   pos = { x = 6, y = 8 },
   config = { extra = {} },
@@ -133,12 +153,15 @@ local Ferreira = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Pereira = J({
+-- Miguel Pereira (8)
+local Miguel_Pereira = J({
   name = "Miguel Pereira",
   pos = { x = 7, y = 8 },
   config = { extra = {} },
@@ -153,12 +176,15 @@ local Pereira = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 8,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Borja = J({
+-- Borja Costa (9)
+local Borja_Costa = J({
   name = "Borja Costa",
   pos = { x = 8, y = 8 },
   config = { extra = {} },
@@ -173,12 +199,15 @@ local Borja = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 9,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Bonachea = J({
+-- Mateo Bonachea (10)
+local Mateo_Bonachea = J({
   name = "Mateo Bonachea",
   pos = { x = 9, y = 8 },
   config = { extra = {} },
@@ -193,12 +222,15 @@ local Bonachea = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 10,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jimenez = J({
+-- Miguel Jiménez (11)
+local Miguel_Jimenez = J({
   name = "Miguel Jiménez",
   pos = { x = 10, y = 8 },
   config = { extra = {} },
@@ -213,12 +245,15 @@ local Jimenez = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 11,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Espindola = J({
+-- Juan Espindola (12)
+local Juan_Espindola = J({
   name = "Juan Espindola",
   pos = { x = 11, y = 8 },
   config = { extra = {} },
@@ -233,12 +268,15 @@ local Espindola = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Cesar = J({
+-- Isaac César (13)
+local Isaac_Cesar = J({
   name = "Isaac César",
   pos = { x = 12, y = 8 },
   config = { extra = {} },
@@ -253,12 +291,15 @@ local Cesar = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_3,
+  pnumber = 13,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Castor = J({
+-- Laudelino Castor (14)
+local Laudelino_Castor = J({
   name = "Laudelino Castor",
   pos = { x = 13, y = 8 },
   config = { extra = {} },
@@ -273,12 +314,15 @@ local Castor = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 14,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Arroyo = J({
+-- Carlos Arroyo (15)
+local Carlos_Arroyo = J({
   name = "Carlos Arroyo",
   pos = { x = 14, y = 8 },
   config = { extra = {} },
@@ -293,12 +337,15 @@ local Arroyo = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 15,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Rubiera = J({
+-- Federico Rubiera (16)
+local Federico_Rubiera = J({
   name = "Federico Rubiera",
   pos = { x = 15, y = 8 },
   config = { extra = {} },
@@ -313,6 +360,8 @@ local Rubiera = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.SPAIN,
+  pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_RedMatadors",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -320,5 +369,9 @@ local Rubiera = J({
 
 return {
   name = "Red Matadors",
-  list = {}
+  list = {
+    Alfonso_Inigo, Jose_Costa, Jose_Lopez, Antonio_Garrido, Victor_Garcia,
+    Joan_Rodriguez, Igor_Ferreira, Miguel_Pereira, Borja_Costa, Mateo_Bonachea,
+    Miguel_Jimenez, Juan_Espindola, Isaac_Cesar, Laudelino_Castor, Carlos_Arroyo, Federico_Rubiera
+  }
 }

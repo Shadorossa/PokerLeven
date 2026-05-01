@@ -1,4 +1,5 @@
-local Hector = J({
+-- Hector Helio (1)
+local Hector_Helio = J({
   name = "Hector Helio",
   pos = { x = 0, y = 16 },
   config = { extra = {} },
@@ -12,12 +13,17 @@ local Hector = J({
   ptype = C.Mountain,
   pposition = C.GK,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_2,
+  pcaptain = C.CAPTAIN,
+  pnumber = 1,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Zephyr = J({
+-- Zephyr Vitesse (2)
+local Zephyr_Vitesse = J({
   name = "Zephyr Vitesse",
   pos = { x = 1, y = 16 },
   config = { extra = {} },
@@ -31,12 +37,16 @@ local Zephyr = J({
   ptype = C.Wind,
   pposition = C.DF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_2,
+  pnumber = 2,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Walter = J({
+-- Walter Mountain (3)
+local Walter_Mountain = J({
   name = "Walter Mountain",
   pos = { x = 2, y = 16 },
   config = { extra = {} },
@@ -50,12 +60,16 @@ local Walter = J({
   ptype = C.Mountain,
   pposition = C.DF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 3,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jimi = J({
+-- Jimi Gaines (4)
+local Jimi_Gaines = J({
   name = "Jimi Gaines",
   pos = { x = 3, y = 16 },
   config = { extra = {} },
@@ -69,12 +83,16 @@ local Jimi = J({
   ptype = C.Forest,
   pposition = C.DF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ian = J({
+-- Ian Ferrum (5)
+local Ian_Ferrum = J({
   name = "Ian Ferrum",
   pos = { x = 4, y = 16 },
   config = { extra = {} },
@@ -88,12 +106,16 @@ local Ian = J({
   ptype = C.Fire,
   pposition = C.DF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 5,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Quint = J({
+-- Quint Hampton (6)
+local Quint_Hampton = J({
   name = "Quint Hampton",
   pos = { x = 5, y = 16 },
   config = { extra = {} },
@@ -107,12 +129,16 @@ local Quint = J({
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_2,
+  pnumber = 6,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Yasir = J({
+-- Yasir Haddad (7)
+local Yasir_Haddad = J({
   name = "Yasir Haddad",
   pos = { x = 6, y = 16 },
   config = { extra = {} },
@@ -126,12 +152,16 @@ local Yasir = J({
   ptype = C.Forest,
   pposition = C.MF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 7,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Keith = J({
+-- Keith Ryan (8)
+local Keith_Ryan = J({
   name = "Keith Ryan",
   pos = { x = 7, y = 16 },
   config = { extra = {} },
@@ -145,12 +175,16 @@ local Keith = J({
   ptype = C.Fire,
   pposition = C.MF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 8,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Maximino = J({
+-- Maximino Cruz (9)
+local Maximino_Cruz = J({
   name = "Maximino Cruz",
   pos = { x = 8, y = 16 },
   config = { extra = {} },
@@ -164,12 +198,16 @@ local Maximino = J({
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_2,
+  pnumber = 9,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gareth = J({
+-- Gareth Flare (10)
+local Gareth_Flare = J({
   name = "Gareth Flare",
   pos = { x = 9, y = 16 },
   config = { extra = {} },
@@ -183,12 +221,16 @@ local Gareth = J({
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_2,
+  pnumber = 10,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Drago = J({
+-- Drago Hill (11)
+local Drago_Hill = J({
   name = "Drago Hill",
   pos = { x = 10, y = 16 },
   config = { extra = {} },
@@ -202,12 +244,16 @@ local Drago = J({
   ptype = C.Forest,
   pposition = C.FW,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_2,
+  pnumber = 11,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Keenan = J({
+-- Keenan DiFortune (12)
+local Keenan_DiFortune = J({
   name = "Keenan DiFortune",
   pos = { x = 11, y = 16 },
   config = { extra = {} },
@@ -221,12 +267,16 @@ local Keenan = J({
   ptype = C.Forest,
   pposition = C.GK,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 12,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jarell = J({
+-- Jarell Mangrove (13)
+local Jarell_Mangrove = J({
   name = "Jarell Mangrove",
   pos = { x = 12, y = 16 },
   config = { extra = {} },
@@ -240,12 +290,16 @@ local Jarell = J({
   ptype = C.Fire,
   pposition = C.DF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 13,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Vic = J({
+-- Vic Vitrum (14)
+local Vic_Vitrum = J({
   name = "Vic Vitrum",
   pos = { x = 0, y = 17 },
   config = { extra = {} },
@@ -259,12 +313,16 @@ local Vic = J({
   ptype = C.Mountain,
   pposition = C.MF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 14,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Li = J({
+-- Li Leung (15)
+local Li_Leung = J({
   name = "Li Leung",
   pos = { x = 1, y = 17 },
   config = { extra = {} },
@@ -278,13 +336,17 @@ local Li = J({
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 15,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Jazzy = J({
-  name = "Jazzy Hedgee",
+-- Jazzy Hedgeer (16)
+local Jazzy_Hedgeer = J({
+  name = "Jazzy Hedgeer",
   pos = { x = 2, y = 17 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
@@ -297,6 +359,9 @@ local Jazzy = J({
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
+  pnation = C.COSTAIL,
+  pyear = C.YEAR_1,
+  pnumber = 16,
   pteam = "ina_team_LittleGigant",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -304,5 +369,9 @@ local Jazzy = J({
 
 return {
   name = "Little Gigant",
-  list = { }
+  list = {
+    Hector_Helio, Zephyr_Vitesse, Walter_Mountain, Jimi_Gaines, Ian_Ferrum,
+    Quint_Hampton, Yasir_Haddad, Keith_Ryan, Maximino_Cruz, Gareth_Flare,
+    Drago_Hill, Keenan_DiFortune, Jarell_Mangrove, Vic_Vitrum, Li_Leung, Jazzy_Hedgeer
+  }
 }

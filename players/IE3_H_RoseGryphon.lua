@@ -1,4 +1,5 @@
-local Pialat = J({
+-- Roger Pialat (1)
+local Roger_Pialat = J({
   name = "Roger Pialat",
   pos = { x = 0, y = 7 },
   config = { extra = {} },
@@ -13,12 +14,15 @@ local Pialat = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 1,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Godin = J({
+-- Pierre Godin (2)
+local Pierre_Godin = J({
   name = "Pierre Godin",
   pos = { x = 1, y = 7 },
   config = { extra = {} },
@@ -33,12 +37,16 @@ local Godin = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
+  pnumber = 2,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Aron = J({
+-- Michaël Aron (3)
+local Michael_Aron = J({
   name = "Michaël Aron",
   pos = { x = 2, y = 7 },
   config = { extra = {} },
@@ -53,12 +61,15 @@ local Aron = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 3,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Poujol = J({
+-- Francis Poujol (4)
+local Francis_Poujol = J({
   name = "Francis Poujol",
   pos = { x = 3, y = 7 },
   config = { extra = {} },
@@ -73,12 +84,15 @@ local Poujol = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 4,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Pinot = J({
+-- Kevin Pinot (5)
+local Kevin_Pinot = J({
   name = "Kevin Pinot",
   pos = { x = 4, y = 7 },
   config = { extra = {} },
@@ -93,12 +107,15 @@ local Pinot = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 5,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Perec = J({
+-- Roland Perec (6)
+local Roland_Perec = J({
   name = "Roland Perec",
   pos = { x = 5, y = 7 },
   config = { extra = {} },
@@ -113,12 +130,15 @@ local Perec = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_3,
+  pnumber = 6,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Huysmans = J({
+-- Romuald Huysmans (7)
+local Romuald_Huysmans = J({
   name = "Romuald Huysmans",
   pos = { x = 6, y = 7 },
   config = { extra = {} },
@@ -133,12 +153,15 @@ local Huysmans = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 7,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Hinault = J({
+-- Stéphane Hinault (8)
+local Stephane_Hinault = J({
   name = "Stéphane Hinault",
   pos = { x = 7, y = 7 },
   config = { extra = {} },
@@ -153,12 +176,15 @@ local Hinault = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_3,
+  pnumber = 8,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Rousseau = J({
+-- Julien Rousseau (9)
+local Julien_Rousseau = J({
   name = "Julien Rousseau",
   pos = { x = 8, y = 7 },
   config = { extra = {} },
@@ -173,12 +199,15 @@ local Rousseau = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_3,
+  pnumber = 9,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Hervaud = J({
+-- Jerome Hervaud (10)
+local Jerome_Hervaud = J({
   name = "Jerome Hervaud",
   pos = { x = 9, y = 7 },
   config = { extra = {} },
@@ -193,12 +222,15 @@ local Hervaud = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 10,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Favreau = J({
+-- Alain Favreau (11)
+local Alain_Favreau = J({
   name = "Alain Favreau",
   pos = { x = 10, y = 7 },
   config = { extra = {} },
@@ -213,12 +245,15 @@ local Favreau = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 11,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Lazare = J({
+-- Émile Lazare (12)
+local Emile_Lazare = J({
   name = "Émile Lazare",
   pos = { x = 11, y = 7 },
   config = { extra = {} },
@@ -233,12 +268,15 @@ local Lazare = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 12,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Pinson = J({
+-- André Pinson (13)
+local Andre_Pinson = J({
   name = "André Pinson",
   pos = { x = 12, y = 7 },
   config = { extra = {} },
@@ -253,12 +291,15 @@ local Pinson = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 13,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gutain = J({
+-- Jean Gutain (14)
+local Jean_Gutain = J({
   name = "Jean Gutain",
   pos = { x = 13, y = 7 },
   config = { extra = {} },
@@ -273,12 +314,15 @@ local Gutain = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 14,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Moreau = J({
+-- Claude Moreau (15)
+local Claude_Moreau = J({
   name = "Claude Moreau",
   pos = { x = 14, y = 7 },
   config = { extra = {} },
@@ -293,12 +337,15 @@ local Moreau = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_1,
+  pnumber = 15,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Morland = J({
+-- Michel Morland (16)
+local Michel_Morland = J({
   name = "Michel Morland",
   pos = { x = 15, y = 7 },
   config = { extra = {} },
@@ -313,6 +360,8 @@ local Morland = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.FRANCE,
+  pyear = C.YEAR_2,
+  pnumber = 16,
   pteam = "ina_team_RoseGryphon",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -320,5 +369,9 @@ local Morland = J({
 
 return {
   name = "Rose Gryphon",
-  list = {}
+  list = {
+    Roger_Pialat, Pierre_Godin, Michael_Aron, Francis_Poujol, Kevin_Pinot,
+    Roland_Perec, Romuald_Huysmans, Stephane_Hinault, Julien_Rousseau, Jerome_Hervaud,
+    Alain_Favreau, Emile_Lazare, Andre_Pinson, Jean_Gutain, Claude_Moreau, Michel_Morland
+  }
 }

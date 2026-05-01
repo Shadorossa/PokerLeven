@@ -1,5 +1,5 @@
 -- Jang Cho (1)
-local Jang_FireDragon = J({
+local Jang_Cho = J({
   name = "Jang Cho",
   pos = { x = 0, y = 4 },
   config = { extra = {} },
@@ -22,7 +22,7 @@ local Jang_FireDragon = J({
 })
 
 -- Umi Wang (2)
-local Wang_FireDragon = J({
+local Umi_Wang = J({
   name = "Umi Wang",
   pos = { x = 1, y = 4 },
   config = { extra = {} },
@@ -45,7 +45,7 @@ local Wang_FireDragon = J({
 })
 
 -- Doyo Hong (3)
-local Hong_FireDragon = J({
+local Doyo_Hong = J({
   name = "Doyo Hong",
   pos = { x = 2, y = 4 },
   config = { extra = {} },
@@ -68,7 +68,7 @@ local Hong_FireDragon = J({
 })
 
 -- Minho Cho (4)
-local Minho_FireDragon = J({
+local Minho_Cho = J({
   name = "Minho Cho",
   pos = { x = 3, y = 4 },
   config = { extra = {} },
@@ -91,7 +91,7 @@ local Minho_FireDragon = J({
 })
 
 -- Songwan Ko (5)
-local Ko_FireDragon = J({
+local Songwan_Ko = J({
   name = "Songwan Ko",
   pos = { x = 4, y = 4 },
   config = { extra = {} },
@@ -114,7 +114,7 @@ local Ko_FireDragon = J({
 })
 
 -- Changsu Choi (6)
-local Choi_FireDragon = J({
+local Changsu_Choi = J({
   name = "Changsu Choi",
   pos = { x = 6, y = 4 },
   config = { extra = {} },
@@ -138,7 +138,7 @@ local Choi_FireDragon = J({
 })
 
 -- Pekyong Park (7)
-local Park_FireDragon = J({
+local Pekyong_Park = J({
   name = "Pekyong Park",
   pos = { x = 11, y = 4 },
   config = { extra = {} },
@@ -161,7 +161,7 @@ local Park_FireDragon = J({
 })
 
 -- Enyong Kim (8)
-local Kim_FireDragon = J({
+local Enyong_Kim = J({
   name = "Enyong Kim",
   pos = { x = 10, y = 4 },
   config = { extra = {} },
@@ -184,7 +184,7 @@ local Kim_FireDragon = J({
 })
 
 -- Byron Love (9)
-local Aphrodite_FireDragon = J({
+local Byron_Love = J({
   name = "Byron Love",
   pos = { x = 7, y = 4 },
   config = { extra = {} },
@@ -198,7 +198,7 @@ local Aphrodite_FireDragon = J({
   ptype = C.Forest,
   pposition = C.MF,
   pgender = C.M,
-  pnation = C.JAPAN, -- Byron es Japonés pero juega con Corea
+  pnation = C.JAPAN,
   pyear = C.YEAR_2,
   pnumber = 9,
   pteam = "ina_team_FireDragon",
@@ -207,7 +207,7 @@ local Aphrodite_FireDragon = J({
 })
 
 -- Claude Beacons (10)
-local Torch_FireDragon = J({
+local Claude_Beacons = J({
   name = "Claude Beacons",
   pos = { x = 8, y = 4 },
   config = { extra = {} },
@@ -221,7 +221,7 @@ local Torch_FireDragon = J({
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
-  pnation = C.JAPAN, -- Torch es Japonés
+  pnation = C.JAPAN,
   pyear = C.YEAR_2,
   pnumber = 10,
   pteam = "ina_team_FireDragon",
@@ -230,7 +230,7 @@ local Torch_FireDragon = J({
 })
 
 -- Bryce Whitingale (11)
-local Gazelle_FireDragon = J({
+local Bryce_Whitingale = J({
   name = "Bryce Whitingale",
   pos = { x = 9, y = 4 },
   config = { extra = {} },
@@ -244,7 +244,7 @@ local Gazelle_FireDragon = J({
   ptype = C.Wind,
   pposition = C.FW,
   pgender = C.M,
-  pnation = C.JAPAN, -- Gazelle es Japonés
+  pnation = C.JAPAN,
   pyear = C.YEAR_2,
   pnumber = 11,
   pteam = "ina_team_FireDragon",
@@ -253,7 +253,7 @@ local Gazelle_FireDragon = J({
 })
 
 -- Chi-Won Ho (12)
-local Ho_FireDragon = J({
+local Chi_Won_Ho = J({
   name = "Chi-Won Ho",
   pos = { x = 12, y = 4 },
   config = { extra = {} },
@@ -276,7 +276,7 @@ local Ho_FireDragon = J({
 })
 
 -- Dong-Hyun Seul (13)
-local Seul_FireDragon = J({
+local Dong_Hyun_Seul = J({
   name = "Dong-Hyun Seul",
   pos = { x = 0, y = 5 },
   config = { extra = {} },
@@ -299,7 +299,7 @@ local Seul_FireDragon = J({
 })
 
 -- Jung-Hoon Yi (14)
-local Yi_FireDragon = J({
+local Jung_Hoon_Yi = J({
   name = "Jung-Hoon Yi",
   pos = { x = 1, y = 5 },
   config = { extra = {} },
@@ -322,7 +322,7 @@ local Yi_FireDragon = J({
 })
 
 -- Sung-Jin Noh (15)
-local Noh_FireDragon = J({
+local Sung_Jin_Noh = J({
   name = "Sung-Jin Noh",
   pos = { x = 2, y = 5 },
   config = { extra = {} },
@@ -345,7 +345,7 @@ local Noh_FireDragon = J({
 })
 
 -- Joon-Ho Ja (16)
-local Ja_FireDragon = J({
+local Joon_Ho_Ja = J({
   name = "Joon-Ho Ja",
   pos = { x = 3, y = 5 },
   config = { extra = {} },
@@ -370,8 +370,8 @@ local Ja_FireDragon = J({
 return {
   name = "Fire Dragon",
   list = {
-    Jang_FireDragon, Wang_FireDragon, Hong_FireDragon, Minho_FireDragon, Ko_FireDragon,
-    Choi_FireDragon, Park_FireDragon, Kim_FireDragon, Aphrodite_FireDragon, Torch_FireDragon,
-    Gazelle_FireDragon, Ho_FireDragon, Seul_FireDragon, Yi_FireDragon, Noh_FireDragon, Ja_FireDragon
+    Jang_Cho, Umi_Wang, Doyo_Hong, Minho_Cho, Songwan_Ko,
+    Changsu_Choi, Pekyong_Park, Enyong_Kim, Byron_Love, Claude_Beacons,
+    Bryce_Whitingale, Chi_Won_Ho, Dong_Hyun_Seul, Jung_Hoon_Yi, Sung_Jin_Noh, Joon_Ho_Ja
   }
 }
