@@ -1,7 +1,7 @@
--- DarkFeldt
-local DarkFeldt = J({
-    name = "DarkFeldt",
-    pos = { x = 10, y = 12 },
+-- Feldt_DarkEmp
+local Feldt_DarkEmp = J({
+    name = "Feldt_DarkEmp",
+    pos = { x = 3, y = 11 },
     config = { extra = { cost_tech = 3, cost_type_pos = 5, cost_any = 8 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.cost_tech, ex.cost_type_pos, ex.cost_any}} end,
     rarity = 3, -- Rare
@@ -29,15 +29,15 @@ local DarkFeldt = J({
     end
 })
 
--- NightDark
-local NightDark = {
-    name = "NightDark",
-    pos = { x = 11, y = 12 },
+-- Night_DarkEmp
+local Night_DarkEmp = J({
+    name = "Night_DarkEmp",
+    pos = { x = 3, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 3, -- Common
+    rarity = 1,
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -52,17 +52,17 @@ local NightDark = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
--- SamDark
-local SamDark = {
-    name = "SamDark",
-    pos = { x = 12, y = 12 },
+-- Sam_DarkEmp
+local Sam_DarkEmp = J({
+    name = "Sam_DarkEmp",
+    pos = { x = 4, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 1,
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -77,12 +77,12 @@ local SamDark = {
     blueprint_compat = false,
     calculate = function(self, card, context)
     end
-}
+})
 
--- JimDark
-local JimDark = J({
-    name = "JimDark",
-    pos = { x = 0, y = 13 },
+-- Jim_DarkEmp
+local Jim_DarkEmp = J({
+    name = "Jim_DarkEmp",
+    pos = { x = 6, y = 11 },
     config = { extra = { Xchip_mod = 0.1, current_Xchips = 1 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.Xchip_mod, ex.current_Xchips}} end,
     rarity = 1, -- Common
@@ -110,15 +110,15 @@ local JimDark = J({
     end
 })
 
--- TodDark
-local TodDark = {
-    name = "TodDark",
-    pos = { x = 1, y = 13 },
+-- Tod_DarkEmp
+local Tod_DarkEmp = J({
+    name = "Tod_DarkEmp",
+    pos = { x = 6, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 1,
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -133,21 +133,21 @@ local TodDark = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
--- SteveDark
-local SteveDark = {
-    name = "SteveDark",
-    pos = { x = 2, y = 13 },
-    soul_pos = { x = 0, y = 13 },
+-- Steve_DarkEmp
+local Steve_DarkEmp = J({
+    name = "Steve_DarkEmp",
+    pos = { x = 7, y = 13 },
+    soul_pos = { x = 10, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 1,
     pools = { ["darkemperors"] = true },
     cost = 15,
-    atlas = "jokers02",
+    atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.MF,
     pgender = C.M,
@@ -159,18 +159,18 @@ local SteveDark = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
--- TimmyDark
-local TimmyDark = {
-    name = "TimmyDark",
-    pos = { x = 3, y = 13 },
-    soul_pos = { x = 0, y = 13 },
+-- Timmy_DarkEmp
+local Timmy_DarkEmp = J({
+    name = "Timmy_DarkEmp",
+    pos = { x = 8, y = 13 },
+    soul_pos = { x = 10, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 1,
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -185,18 +185,18 @@ local TimmyDark = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
--- MaxDark
-local MaxDark = {
-    name = "MaxDark",
-    pos = { x = 4, y = 13 },
-    soul_pos = { x = 0, y = 13 },
+-- Max_DarkEmp
+local Max_DarkEmp = J({
+    name = "Max_DarkEmp",
+    pos = { x = 9, y = 13 },
+    soul_pos = { x = 10, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 1,
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -211,18 +211,18 @@ local MaxDark = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
--- ShadowDark
-local ShadowDark = {
-    name = "ShadowDark",
-    pos = { x = 6, y = 13 },
-    soul_pos = { x = 0, y = 13 },
+-- Shadow_DarkEmp
+local Shadow_DarkEmp = J({
+    name = "Shadow_DarkEmp",
+    pos = { x = 11, y = 13 },
+    soul_pos = { x = 10, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
+    rarity = 1,
     pools = { ["darkemperors"] = true },
     cost = 15,
     atlas = "Jokers02",
@@ -237,11 +237,11 @@ local ShadowDark = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
--- Nathan
-local NathanDark = J({
-    name = "NathanDark",
+-- Nathan_DarkEmp
+local Nathan_DarkEmp = J({
+    name = "Nathan_DarkEmp",
     pos = { x = 7, y = 0 },
     soul_pos = { x = 7, y = 1 },
     config = { extra = { charges = 0, max_charges = 10, poly_xmult = 1.5 } },
@@ -283,10 +283,10 @@ local NathanDark = J({
     end
 })
 
--- KevinDark
-local KevinDark = J({
-    name = "KevinDark",
-    pos = { x = 7, y = 13 },
+-- Kevin_DarkEmp
+local Kevin_DarkEmp = J({
+    name = "Kevin_DarkEmp",
+    pos = { x = 7, y = 11 },
     config = { extra = { retriggers = 2, count = 0, limit = 3 } },
     loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.retriggers, center.ability.extra.count, center.ability.extra.limit}} end,
     rarity = 2, -- Common
@@ -319,5 +319,5 @@ local KevinDark = J({
 
 return {
     name = "Emperadores Oscuros",
-    list = { DarkFeldt, JimDark, NathanDark, KevinDark }
+    list = { Feldt_DarkEmp, Night_DarkEmp, Sam_DarkEmp, Jim_DarkEmp, Tod_DarkEmp, Steve_DarkEmp, Timmy_DarkEmp, Max_DarkEmp, Shadow_DarkEmp, Nathan_DarkEmp, Kevin_DarkEmp }
 }

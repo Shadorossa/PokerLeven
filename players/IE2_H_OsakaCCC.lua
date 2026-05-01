@@ -232,7 +232,7 @@ local Sue = J({
 -- Willow
 local Willow = J({
   name = "Lily Willow",
-  pos = { x = 9, y = 8 },
+  pos = { x = 10, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Willow = J({
 -- Closeout
 local Closeout = J({
   name = "Dell Closeout",
-  pos = { x = 10, y = 8 },
+  pos = { x = 11, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Closeout = J({
 -- Spires
 local Spires = J({
   name = "Amy Spires",
-  pos = { x = 11, y = 8 },
+  pos = { x = 12, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Spires = J({
 -- Cash
 local Cash = J({
   name = "Peony Cash",
-  pos = { x = 12, y = 8 },
+  pos = { x = 0, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Cash = J({
 -- Revel
 local Revel = J({
   name = "Gayle Revel",
-  pos = { x = 0, y = 9 },
+  pos = { x = 1, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Revel = J({
 -- Brook
 local Brook = J({
   name = "Janine Brook",
-  pos = { x = 1, y = 9 },
+  pos = { x = 2, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }

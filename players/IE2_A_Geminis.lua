@@ -1,7 +1,7 @@
 -- Galileo
 local Galileo = J({
   name = "Galileo",
-  pos = { x = 1, y = 0 },
+  pos = { x = 0, y = 0 },
   config = { extra = { mult_gain = 2, mult = 0 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.mult_gain, center.ability.extra.mult } }
@@ -54,7 +54,7 @@ local Galileo = J({
 -- Coral
 local Coral = J({
   name = "Coral",
-  pos = { x = 2, y = 0 },
+  pos = { x = 1, y = 0 },
   config = { extra = { chips_per_special = 10 } },
   loc_vars = function(self, info_queue, center)
     local special_count = 0
@@ -98,7 +98,7 @@ local Coral = J({
 -- Gigs
 local Gigs = J({
   name = "Gigs",
-  pos = { x = 3, y = 0 },
+  pos = { x = 2, y = 0 },
   config = { extra = { retriggers = 1 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.retriggers } }
@@ -142,7 +142,7 @@ local Gigs = J({
 -- Ganymede
 local Ganymede = J({
   name = "Ganymede",
-  pos = { x = 4, y = 0 },
+  pos = { x = 3, y = 0 },
   config = { extra = { chips = 150, chip_loss = 5 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chip_loss, center.ability.extra.chips } }
@@ -185,7 +185,7 @@ local Ganymede = J({
 -- Charon
 local Charon = J({
   name = "Charon",
-  pos = { x = 5, y = 0 },
+  pos = { x = 4, y = 0 },
   config = { extra = { mult = 15 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.mult } }
@@ -229,7 +229,7 @@ local Charon = J({
 -- Pandora
 local Pandora = J({
   name = "Pandora",
-  pos = { x = 6, y = 0 },
+  pos = { x = 5, y = 0 },
   config = { extra = { base_odds = 5 } },
   loc_vars = function(self, info_queue, center)
     local wind_count = 0
@@ -284,7 +284,7 @@ local Pandora = J({
 -- Grengo
 local Grengo = J({
   name = "Grengo",
-  pos = { x = 7, y = 0 },
+  pos = { x = 6, y = 0 },
   config = { extra = { chips_per_missing = 10 } },
   loc_vars = function(self, info_queue, center)
     local missing = math.max(0, 52 - #G.playing_cards)
@@ -320,7 +320,7 @@ local Grengo = J({
 -- Io
 local Io = J({
   name = "Io",
-  pos = { x = 8, y = 0 },
+  pos = { x = 7, y = 0 },
   config = { extra = { odds = 3 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
@@ -384,7 +384,7 @@ local Io = J({
 -- Rihm
 local Rihm = J({
   name = "Rihm",
-  pos = { x = 9, y = 0 },
+  pos = { x = 8, y = 0 },
   config = { extra = { x_mult = 1 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.x_mult } }
@@ -426,7 +426,7 @@ local Rihm = J({
 -- Janus
 local Janus = J({
   name = "Janus",
-  pos = { x = 10, y = 0 },
+  pos = { x = 9, y = 0 },
   config = { extra = { x_mult_gain = 0.2, x_mult = 1 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.x_mult_gain, center.ability.extra.x_mult } }
@@ -472,7 +472,7 @@ local Janus = J({
 -- Diam
 local Diam = J({
   name = "Diam",
-  pos = { x = 11, y = 0 },
+  pos = { x = 10, y = 0 },
   config = { extra = { chips_per_destroyed = 40 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_per_destroyed } }

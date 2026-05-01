@@ -39,7 +39,7 @@ function Pokerleven.apply_card_property(card, type, val, ...)
 end
 
 -- Baller
-local Baller = {
+local Baller = J({
     name = "Baller",
     pos = { x = 9, y = 13 },
     config = { extra = {} },
@@ -60,10 +60,10 @@ local Baller = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Balcke
-local Balcke = {
+local Balcke = J({
     name = "Balcke",
     pos = { x = 10, y = 13 },
     config = { extra = {} },
@@ -84,10 +84,10 @@ local Balcke = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Seats
-local Seats = {
+local Seats = J({
     name = "Seats",
     pos = { x = 11, y = 13 },
     config = { extra = {} },
@@ -108,10 +108,10 @@ local Seats = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Bomber
-local Bomber = {
+local Bomber = J({
     name = "Bomber",
     pos = { x = 12, y = 13 },
     config = { extra = {} },
@@ -132,10 +132,10 @@ local Bomber = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Heat
-local Heat = {
+local Heat = J({
     name = "Heat",
     pos = { x = 0, y = 14 },
     config = { extra = {} },
@@ -156,10 +156,10 @@ local Heat = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Lean
-local Lean = {
+local Lean = J({
     name = "Lean",
     pos = { x = 1, y = 14 },
     config = { extra = {} },
@@ -180,10 +180,10 @@ local Lean = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Bountine
-local Bountine = {
+local Bountine = J({
     name = "Bountine",
     pos = { x = 2, y = 14 },
     config = { extra = {} },
@@ -204,10 +204,10 @@ local Bountine = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Sidern
-local Sidern = {
+local Sidern = J({
     name = "Sidern",
     pos = { x = 3, y = 14 },
     config = { extra = {} },
@@ -228,7 +228,7 @@ local Sidern = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Torch
 local Torch = J({
@@ -271,7 +271,7 @@ local Torch = J({
 })
 
 -- Neppten
-local Neppten = {
+local Neppten = J({
     name = "Neppten",
     pos = { x = 5, y = 14 },
     config = { extra = {} },
@@ -292,9 +292,9 @@ local Neppten = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 return {
     name = "Prominence",
-    list = { Torch }
+    list = { Grent, Baller, Balcke, Seats, Bomber, Heat, Lean, Bountine, Sidern, Torch, Neppten }
 }

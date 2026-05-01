@@ -1,4 +1,4 @@
-local King = J({
+local Joseph_King = J({
   name = "Joseph King",
   pos = { x = 9, y = 3 },
   config = { extra = {} },
@@ -19,7 +19,7 @@ local King = J({
   calculate = function(self, card, ctx) end
 })
 
-local Master = J({
+local Alan_Master = J({
   name = "Alan Master",
   pos = { x = 10, y = 3 },
   config = { extra = {} },
@@ -40,7 +40,7 @@ local Master = J({
   calculate = function(self, card, ctx) end
 })
 
-local Zohen = J({
+local Zack_Cummings = J({
   name = "Zack Cummings",
   pos = { x = 11, y = 3 },
   config = { extra = {} },
@@ -61,7 +61,7 @@ local Zohen = J({
   calculate = function(self, card, ctx) end
 })
 
-local Bargie = J({
+local Argie_Bargie = J({
   name = "Argie Bargie",
   pos = { x = 12, y = 3 },
   config = { extra = {} },
@@ -82,7 +82,7 @@ local Bargie = J({
   calculate = function(self, card, ctx) end
 })
 
-local Hatch = J({
+local Daniel_Hatch = J({
   name = "Daniel Hatch",
   pos = { x = 0, y = 4 },
   config = { extra = {} },
@@ -103,7 +103,7 @@ local Hatch = J({
   calculate = function(self, card, ctx) end
 })
 
-local Turner = J({
+local Neil_Turner = J({
   name = "Neil Turner",
   pos = { x = 1, y = 4 },
   config = { extra = {} },
@@ -124,7 +124,7 @@ local Turner = J({
   calculate = function(self, card, ctx) end
 })
 
-local Cloak = J({
+local Sail_Bluesea = J({
   name = "Sail Bluesea",
   pos = { x = 2, y = 4 },
   config = { extra = {} },
@@ -145,7 +145,7 @@ local Cloak = J({
   calculate = function(self, card, ctx) end
 })
 
-local Talisman = J({
+local Johan_Tassman = J({
   name = "Johan Tassman",
   pos = { x = 3, y = 4 },
   config = { extra = {} },
@@ -166,7 +166,7 @@ local Talisman = J({
   calculate = function(self, card, ctx) end
 })
 
-local Wittz = J({
+local Wilbur_Watkins = J({
   name = "Wilbur Watkins",
   pos = { x = 4, y = 4 },
   config = { extra = {} },
@@ -187,7 +187,7 @@ local Wittz = J({
   calculate = function(self, card, ctx) end
 })
 
-local Quagmire = J({
+local Dave_Quagmire = J({
   name = "Dave Quagmire",
   pos = { x = 5, y = 4 },
   config = { extra = {} },
@@ -208,7 +208,7 @@ local Quagmire = J({
   calculate = function(self, card, ctx) end
 })
 
-local Zell = J({
+local Zeke_Valanche = J({
   name = "Zeke Valanche",
   pos = { x = 6, y = 4 },
   config = { extra = {} },
@@ -229,7 +229,7 @@ local Zell = J({
   calculate = function(self, card, ctx) end
 })
 
-local Heat = J({
+local Ethan_Whitering = J({
   name = "Ethan Whitering",
   pos = { x = 7, y = 4 },
   config = { extra = {} },
@@ -250,7 +250,7 @@ local Heat = J({
   calculate = function(self, card, ctx) end
 })
 
-local Hera = J({
+local Henry_House = J({
   name = "Henry House",
   pos = { x = 8, y = 4 },
   config = { extra = {} },
@@ -271,7 +271,7 @@ local Hera = J({
   calculate = function(self, card, ctx) end
 })
 
-local Tyler = J({
+local Tyler_Murdock = J({
   name = "Tyler Murdock",
   pos = { x = 9, y = 4 },
   config = { extra = {} },
@@ -292,7 +292,7 @@ local Tyler = J({
   calculate = function(self, card, ctx) end
 })
 
-local Demeter = J({
+local Jonas_Demetrius = J({
   name = "Jonas Demetrius",
   pos = { x = 10, y = 4 },
   config = { extra = {} },
@@ -313,7 +313,7 @@ local Demeter = J({
   calculate = function(self, card, ctx) end
 })
 
-local Hillvalley = J({
+local Mark_Hillvalley = J({
   name = "Mark Hillvalley",
   pos = { x = 11, y = 4 },
   config = { extra = {} },
@@ -336,5 +336,5 @@ local Hillvalley = J({
 
 return {
   name = "Neo Japan",
-  list = {}
+  list = { Joseph_King, Alan_Master, Zack_Cummings, Argie_Bargie, Daniel_Hatch, Neil_Turner, Sail_Bluesea, Johan_Tassman, Wilbur_Watkins, Dave_Quagmire, Zeke_Valanche, Ethan_Whitering, Henry_House, Tyler_Murdock, Jonas_Demetrius, Mark_Hillvalley }
 }

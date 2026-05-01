@@ -280,7 +280,7 @@ local Hermes = J({
 -- Athena
 local Athena = J({
   name = "Athena",
-  pos = { x = 1, y = 13 },
+  pos = { x = 12, y = 12 },
   rarity = 1,
   pools = { ["ina_team_Zeus"] = true },
   cost = 5,
@@ -394,9 +394,10 @@ local select_byron_ability = function(card, selected_position)
   }
 end
 
+-- Aphrodite
 local Aphrodite = J({
   name = "Aphrodite",
-  pos = { x = 0, y = 2 },
+  pos = { x = 1, y = 13 },
   soul_pos = { x = 0, y = 3 },
   config = { extra = { byron_mult_fw = 0.6, byron_mult_mf = 0.3 } },
   loc_vars = function(self, info_queue, center)
@@ -405,7 +406,7 @@ local Aphrodite = J({
   end,
   rarity = 4,
   cost = 15,
-  atlas = "legendary01",
+  atlas = "Jokers01",
   ptype = C.Forest,
   pposition = C.MF,
   pgender = C.M,

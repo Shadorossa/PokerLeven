@@ -309,7 +309,7 @@ local Scotty_Angry = J({
       }
     elseif ctx.after and not ctx.blueprint then
       local lowest, lowest_id = nil, 15
-      for _, c in ipairs(ctx.scoring_hand) do
+      for _, c in ipairs(G.playing_cards) do
         if c:get_id() < lowest_id and not c.destroyed then lowest, lowest_id = c, c:get_id() end
       end
       if lowest then

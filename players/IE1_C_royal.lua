@@ -368,7 +368,7 @@ local Hatch = J({
 -- Jude
 local Jude = J({
   name = "Jude",
-  pos = { x = 0, y = 0 },
+  pos = { x = 3, y = 3 },
   soul_pos = { x = 0, y = 1 },
   config = {
     extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
@@ -380,7 +380,7 @@ local Jude = J({
   rarity = "ina_top",
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 8,
-  atlas = "top",
+  atlas = "Jokers01",
   ptype = C.Wind,
   stage = "base",
   pposition = C.MF,

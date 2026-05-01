@@ -1,7 +1,6 @@
--- ropes
-local ropes = {
+local ropes = J({
   name = "ropes",
-  pos = { x = 3, y = 2 },
+  pos = { x = 4, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -20,12 +19,11 @@ local ropes = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- downtown
-local downtown = {
+local downtown = J({
   name = "Downtown",
-  pos = { x = 4, y = 2 },
+  pos = { x = 5, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -43,12 +41,11 @@ local downtown = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- bindings
-local bindings = {
+local bindings = J({
   name = "Bindings",
-  pos = { x = 5, y = 2 },
+  pos = { x = 6, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -66,12 +63,11 @@ local bindings = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- gleeson
-local gleeson = {
+local gleeson = J({
   name = "Gleeson",
-  pos = { x = 6, y = 2 },
+  pos = { x = 7, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -89,12 +85,11 @@ local gleeson = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- snowfield
 local snowfield = J({
   name = "Snowfield",
-  pos = { x = 7, y = 2 },
+  pos = { x = 2, y = 2 },
   config = { extra = { chips = 150 } },
   loc_vars = function(self, info_queue, center)
     local count = 0
@@ -169,10 +164,9 @@ local snowfield = J({
   end
 })
 
--- bootgaiter
-local bootgaiter = {
+local bootgaiter = J({
   name = "Bootgaiter",
-  pos = { x = 8, y = 2 },
+  pos = { x = 9, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -190,29 +184,11 @@ local bootgaiter = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Sobrescribimos el debilitamiento del motor para perdonar a los de Bosque
-local card_set_debuff_ref = Card.set_debuff
-function Card:set_debuff(should_debuff)
-    local prevent = false
-    local saved_perma = nil
-    if self.ability and self.ability.forest_sticker then
-        local maddox = G.jokers and G.jokers.cards and get_joker_with_key("j_ina_Maddox")
-        prevent = maddox and not maddox.debuff
-    end
-    
-    if prevent then should_debuff = false; saved_perma = self.ability.perma_debuff; self.ability.perma_debuff = false end
-    
-    card_set_debuff_ref(self, should_debuff)
-    
-    if prevent and saved_perma ~= nil then self.ability.perma_debuff = saved_perma end
-end
-
--- maddox
 local Maddox = J({
   name = "Maddox",
-  pos = { x = 9, y = 2 },
+  pos = { x = 3, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -254,10 +230,9 @@ local Maddox = J({
   end
 })
 
--- skipolson
 local skipolson = J({
   name = "Skipolson",
-  pos = { x = 10, y = 2 },
+  pos = { x = 4, y = 2 },
   config = { extra = { type = 'Training' } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.type } }
@@ -286,10 +261,9 @@ local skipolson = J({
   end
 })
 
--- shawn
-local shawn = {
+local shawn = J({
   name = "Shawn Froste",
-  pos = { x = 11, y = 2 },
+  pos = { x = 12, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -308,12 +282,11 @@ local shawn = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- climbstein
-local climbstein = {
+local climbstein = J({
   name = "Climbstein",
-  pos = { x = 1, y = 3 },
+  pos = { x = 2, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -331,12 +304,11 @@ local climbstein = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Rackner
-local rackner = {
+local rackner = J({
   name = "Rackner",
-  pos = { x = 2, y = 3 },
+  pos = { x = 3, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -354,12 +326,11 @@ local rackner = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- peggs
 local peggs = J({
   name = "Peggs",
-  pos = { x = 3, y = 3 },
+  pos = { x = 5, y = 2 },
   config = { extra = { chips = 80 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips } }
@@ -386,10 +357,9 @@ local peggs = J({
   end
 })
 
--- Ursus
-local ursus = {
+local ursus = J({
   name = "Ursus",
-  pos = { x = 4, y = 3 },
+  pos = { x = 5, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -407,12 +377,11 @@ local ursus = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Bogg
-local bogg = {
+local bogg = J({
   name = "Bogg",
-  pos = { x = 5, y = 3 },
+  pos = { x = 6, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -430,12 +399,11 @@ local bogg = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- strata
-local strata = {
+local strata = J({
   name = "Strata",
-  pos = { x = 6, y = 3 },
+  pos = { x = 7, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -453,12 +421,11 @@ local strata = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- onlign
-local onlign = {
+local onlign = J({
   name = "Onlign",
-  pos = { x = 7, y = 3 },
+  pos = { x = 8, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -476,7 +443,7 @@ local onlign = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 return {
   name = "Alpine",

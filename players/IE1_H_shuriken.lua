@@ -283,83 +283,6 @@ local Samurai = J({
   end
 })
 
--- Hattori
-local Hattori = J({
-  name = "Hattori",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1,
-  pools = { ["ina_team_Shuriken"] = true },
-  cost = 5,
-  atlas = "Jokers01",
-  ptype = C.Forest,
-  pposition = C.MF,
-  pgender = C.M,
-  pnation = C.JAPAN,
-  pyear = C.YEAR_2,
-  pdorsal = 10,
-  pteam = "ina_team_Shuriken",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx)
-  end
-})
-
--- Cloak
-local Cloak = J({
-    name = "Cloak",
-    pos = { x = 6, y = 9 },
-    atlas = "Jokers01",
-    rarity = 3,
-    cost = 8,
-    ptype = C.Fire,
-    pposition = C.FW,
-    pgender = C.M,
-    pnation = C.JAPAN,
-    pyear = C.YEAR_2,
-    pdorsal = 11,
-    pcaptain = C.CAPTAIN,
-    pteam = "ina_team_Shuriken",
-    pools = { ["ina_team_Shuriken"] = true },
-    blueprint_compat = true,
-    config = {
-        extra = {
-            barriers = 5,
-            perish_tally = 1
-        }
-    },
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue + 1] = { set = 'Other', key = 'Frontal' }
-        return {
-            key = (center.ability.extra.tech_level or 0) < 5 and 'j_ina_Cloak' or 'j_ina_Cloak_inf',
-            vars = { center.ability.extra.barriers, center.ability.extra.perish_tally }
-        }
-    end,
-    calculate = function(self, card, context)
-        if card:has_enough_barriers() and (function(c, ctx) return c:is_leftmost_joker() and ctx.setting_blind and #G.jokers.cards > 1 end)(card, context) then
-            local function generate_cloak_card(perish_tally, tech_level)
-                local joker_index = pseudorandom("Cloak", 2, #G.jokers.cards)
-                local new_joker = copy_card(G.jokers.cards[joker_index])
-                if tech_level ~= 5 then
-                    new_joker.ability.perishable = true
-                    new_joker.ability.perish_tally = perish_tally
-                end
-                new_joker:set_edition('e_negative')
-                return new_joker
-            end
-            local new_joker = generate_cloak_card(
-                card.ability.extra.perish_tally, card.ability.extra.tech_level or 0)
-            Pokerleven.add_card_to_jokers(new_joker)
-            Pokerleven.ease_barriers(-card.ability.extra.barriers)
-        end
-    end,
-    ina_credits = {
-        idea = { "Shadorossa" }
-    }
-})
-
 -- Hattori (Original con lógica) - NOTA: El Hattori de dorsal 10 es placeholder, el original se llamaba Hattori en el archivo. 
 -- El usuario dice Hattori dorsal 10. Pero el archivo tenía una lógica compleja para Hattori. 
 -- Re-leyendo: Hattori es dorsal 10. Mantendré la lógica compleja para el dorsal 10.
@@ -423,6 +346,59 @@ local Hattori_Logic = J({
     end,
     ina_credits = {
         idea = { "LegendaryAd" }
+    }
+})
+
+-- Cloak
+local Cloak = J({
+    name = "Cloak",
+    pos = { x = 6, y = 9 },
+    atlas = "Jokers01",
+    rarity = 3,
+    cost = 8,
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 11,
+    pcaptain = C.CAPTAIN,
+    pteam = "ina_team_Shuriken",
+    pools = { ["ina_team_Shuriken"] = true },
+    blueprint_compat = true,
+    config = {
+        extra = {
+            barriers = 5,
+            perish_tally = 1
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Frontal' }
+        return {
+            key = (center.ability.extra.tech_level or 0) < 5 and 'j_ina_Cloak' or 'j_ina_Cloak_inf',
+            vars = { center.ability.extra.barriers, center.ability.extra.perish_tally }
+        }
+    end,
+    calculate = function(self, card, context)
+        if card:has_enough_barriers() and (function(c, ctx) return c:is_leftmost_joker() and ctx.setting_blind and #G.jokers.cards > 1 end)(card, context) then
+            local function generate_cloak_card(perish_tally, tech_level)
+                local joker_index = pseudorandom("Cloak", 2, #G.jokers.cards)
+                local new_joker = copy_card(G.jokers.cards[joker_index])
+                if tech_level ~= 5 then
+                    new_joker.ability.perishable = true
+                    new_joker.ability.perish_tally = perish_tally
+                end
+                new_joker:set_edition('e_negative')
+                return new_joker
+            end
+            local new_joker = generate_cloak_card(
+                card.ability.extra.perish_tally, card.ability.extra.tech_level or 0)
+            Pokerleven.add_card_to_jokers(new_joker)
+            Pokerleven.ease_barriers(-card.ability.extra.barriers)
+        end
+    end,
+    ina_credits = {
+        idea = { "Shadorossa" }
     }
 })
 

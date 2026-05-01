@@ -1,7 +1,7 @@
 -- Nero
 local Nero = J({
   name = "Nero",
-  pos = { x = 12, y = 11 },
+  pos = { x = 0, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Nero = J({
 -- Gele
 local Gele = J({
   name = "Gele",
-  pos = { x = 0, y = 11 },
+  pos = { x = 1, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Gele = J({
 -- Kiburn
 local Kiburn = J({
   name = "Kiburn",
-  pos = { x = 1, y = 11 },
+  pos = { x = 2, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Kiburn = J({
 -- Zohen
 local Zohen = J({
   name = "Zohen",
-  pos = { x = 2, y = 11 },
+  pos = { x = 3, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Zohen = J({
 -- Hauser
 local Hauser = J({
   name = "Hauser",
-  pos = { x = 3, y = 12 },
+  pos = { x = 4, y = 5 },
   config = { extra = { barriers_consumed = 1 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.barriers_consumed } }
@@ -142,7 +142,7 @@ local Hauser = J({
 -- Kormer
 local Kormer = J({
   name = "Kormer",
-  pos = { x = 4, y = 11 },
+  pos = { x = 5, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -165,7 +165,7 @@ local Kormer = J({
 -- Kiwill
 local Kiwill = J({
   name = "Kiwill",
-  pos = { x = 5, y = 11 },
+  pos = { x = 6, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -188,7 +188,7 @@ local Kiwill = J({
 -- Ark
 local Ark = J({
   name = "Ark",
-  pos = { x = 6, y = 11 },
+  pos = { x = 7, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -211,7 +211,7 @@ local Ark = J({
 -- Wittz
 local Wittz = J({
   name = "Wittz",
-  pos = { x = 7, y = 12 },
+  pos = { x = 8, y = 5 },
   config = { extra = { min_cards = 5 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.min_cards } }
@@ -268,7 +268,7 @@ local Wittz = J({
 -- Bellatrix
 local Bellatrix = J({
   name = "Bellatrix",
-  pos = { x = 8, y = 11 },
+  pos = { x = 9, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -291,7 +291,7 @@ local Bellatrix = J({
 -- Xene
 local Xene = J({
   name = "Xene",
-  pos = { x = 9, y = 12 },
+  pos = { x = 10, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }

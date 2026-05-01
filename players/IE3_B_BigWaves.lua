@@ -19,7 +19,7 @@ local Whale = J({
   calculate = function(self, card, ctx) end
 })
 
-local Water = J({
+local Waterman = J({
   name = "David Waterman",
   pos = { x = 1, y = 2 },
   config = { extra = {} },
