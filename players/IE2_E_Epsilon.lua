@@ -167,7 +167,7 @@ local Mole = J({
     pools = { ["Epsilon"] = true },
     cost = 5,
     atlas = "Jokers02",
-    ptype = C.Fire,
+    ptype = C.Forest,
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
@@ -215,7 +215,7 @@ local Mole_Plus = J({
     pools = { ["Epsilon"] = false },
     cost = 5,
     atlas = "Jokers02",
-    ptype = C.Fire,
+    ptype = C.Forest,
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
@@ -382,11 +382,11 @@ local Tytan_Plus = J({
 local Fedora = J({
     name = "Fedora",
     pos = { x = 5, y = 5 },
-    config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0, planets_used = 0, target_planets = 3 } },
+    config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0, total_voided = 0, target_voided = 300 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
-        info_queue[#info_queue + 1] = { set = 'Other', key = 'Fedora_Evolution', vars = { ex.planets_used, ex.target_planets } }
-        return { vars = { ex.mult_per_card, ex.void_count * ex.mult_per_card, ex.planets_used } }
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Fedora_Evolution', vars = { ex.total_voided, ex.target_voided } }
+        return { vars = { ex.mult_per_card, ex.void_count * ex.mult_per_card } }
     end,
     rarity = 2,
     pools = { ["Epsilon"] = true },
@@ -408,14 +408,13 @@ local Fedora = J({
                 seal = oc.seal
             })
             ex.void_count = ex.void_count + 1
+            ex.total_voided = ex.total_voided + 1
+            if ex.total_voided >= ex.target_voided then ina_backend_evolve(card, 'j_ina_Fedora_Plus') end
             oc.removed = true
             oc:start_dissolve()
             return { message = localize('k_void_ex'), colour = G.C.SECONDARY_SET.Spectral }
         elseif ctx.joker_main and ex.void_count > 0 then
             return { mult = ex.void_count * ex.mult_per_card }
-        elseif ctx.using_consumeable and ctx.consumeable.ability.set == 'Planet' and not ctx.blueprint then
-            ex.planets_used = ex.planets_used + 1
-            if ex.planets_used >= ex.target_planets then ina_backend_evolve(card, 'j_ina_Fedora_Plus') end
         elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
             ex.rounds_active = ex.rounds_active + 1
             if ex.rounds_active >= 2 then
@@ -445,10 +444,10 @@ local Fedora = J({
 local Fedora_Plus = J({
     name = "Fedora_Plus",
     pos = { x = 3, y = 6 },
-    config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0 } },
+    config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0, timer = 10 } },
     loc_vars = function(self, info_queue, center) 
         local ex = center.ability.extra
-        return { vars = { ex.mult_per_card, ex.void_count * ex.mult_per_card } } 
+        return { vars = { ex.mult_per_card, ex.void_count * ex.mult_per_card, ex.timer } } 
     end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
@@ -476,6 +475,7 @@ local Fedora_Plus = J({
             return { mult = ex.void_count * ex.mult_per_card }
         elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
             ex.rounds_active = ex.rounds_active + 1
+            ex.timer = ex.timer - 1
             if ex.rounds_active == 1 then
                 -- Return cards immediately but keep bonus for next blind
                 G.E_MANAGER:add_event(Event({
@@ -497,6 +497,7 @@ local Fedora_Plus = J({
                 ex.void_count = 0
                 ex.rounds_active = 0
             end
+            if ex.timer <= 0 then ina_backend_evolve(card, 'j_ina_Fedora') end
         end
     end
 })
@@ -516,7 +517,7 @@ local Krypto = J({
     pools = { ["Epsilon"] = true },
     cost = 6,
     atlas = "Jokers02",
-    ptype = C.Fire,
+    ptype = C.Wind,
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
@@ -549,7 +550,7 @@ local Krypto_Plus = J({
     pools = { ["Epsilon"] = false },
     cost = 6,
     atlas = "Jokers02",
-    ptype = C.Fire,
+    ptype = C.Wind,
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,

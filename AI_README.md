@@ -28,3 +28,6 @@ Cada vez que un Joker mida o almacene internamente una cantidad variable (fichas
 - Todos los Jokers deben tener una línea inicial con el nombre de su supertécnica entre llaves de color (según su tipo elemental).
 - Los nombres deben respetar las reglas de mayúsculas y minúsculas (Capital Case).
 - **Ejemplo:** `{C:fire}Tornado de Fuego{}`
+
+## 5. Independencia de Elementos
+- El color del elemento de la supertécnica en la descripción NO tiene por qué coincidir con el tipo elemental del jugador (`ptype`). Son conceptos independientes.

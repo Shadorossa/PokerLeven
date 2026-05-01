@@ -451,12 +451,5 @@ function create_card(type, area, skip_mat, edit, apply, seed, proto, genes)
     end
 
     local card = c_card_ref(type, area, skip_mat, edit, apply, seed, proto, genes)
-    
-    if card and type == 'Default' and G.GAME.ina_color_suit and (area == G.pack_cards or G.GAME.open_booster) then
-        local color = get_joker_with_key('j_ina_Color')
-        if color and not color.debuff then
-            SMODS.change_base(card, G.GAME.ina_color_suit, card.base.value)
-        end
-    end
     return card
 end

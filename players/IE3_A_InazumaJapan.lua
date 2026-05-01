@@ -250,8 +250,8 @@ local Shawn_IJ = J({
 -- Axel
 local Axel_IJ = J({
   name = "Axel_IJ",
-  pos = { x = 8, y = 0 }, -- Keep y=0
-  soul_pos = { x = 8, y = 1 },
+  pos = { x = 9, y = 0 },
+  soul_pos = { x = 9, y = 1 },
   config = { extra = { copies_number = 2, xmult = 3 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.copies_number, center.ability.extra.xmult } }

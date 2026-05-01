@@ -1367,7 +1367,7 @@ return {
             j_ina_Kenville = {
                 name = "Kenville",
                 text = {
-                    "{C:fire}Taladradora{}",
+                    "{C:wind}Remolino Cortante{}",
                     "Tus cartas de rango {C:attention}2, 3 o 4{}",
                     "puntúan como {C:attention}As o Rey{}."
                 }
@@ -1375,11 +1375,11 @@ return {
             j_ina_Kenville_Plus = {
                 name = "Kenville (P)",
                 text = {
-                    "{C:fire}Destello de Gravedad{}",
+                    "{C:wind}Remolino Cortante{}",
                     "Tus cartas {C:attention}2, 3 o 4{} puntúan como",
                     "{C:attention}As o Rey{} y simulan una",
                     "{C:dark_edition}Edición{} aleatoria al puntuar.",
-                    "{C:inactive}(Dura #1# ciegas)"
+                    "{C:inactive}(Dura {C:attention}#1#{} ciegas)"
                 }
             },
             j_ina_Mole = {
@@ -1430,7 +1430,7 @@ return {
                     "{C:mountain}Terremoto{}",
                     "Su medidor de {C:chips}Fichas{} y {X:mult,C:white} XMult {}",
                     "aumenta por cada carta de {C:attention}Piedra{} o {C:attention}Acero{} en el mazo.",
-                    "{C:inactive}(Actual: {C:chips}+#5#{}{C:inactive} Fichas y {X:mult,C:white}X#6#{}{C:inactive} Mult | Dura #3# ciegas){}"
+                    "{C:inactive}(Actual: {C:chips}+#5#{}{C:inactive} Fichas y {X:mult,C:white}X#6#{}{C:inactive} Mult | Dura {C:attention}#3#{} ciegas){}"
                 }
             },
             j_ina_Fedora = {
@@ -1439,7 +1439,7 @@ return {
                     "{C:wind}Ataque Afilado{}",
                     "Al descartar, envía las cartas {C:spectral}al vacío{} durante {C:attention}1 ciega{}.",
                     "Otorga {C:mult}+#1#{} Mult por cada carta en el vacío.",
-                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive} | Planetas: #3#/3){}"
+                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}"
                 }
             },
             j_ina_Fedora_Plus = {
@@ -1448,13 +1448,13 @@ return {
                     "{C:wind}Ataque Afilado{}",
                     "Al descartar, envía las cartas {C:spectral}al vacío{} y gana {C:mult}+#1#{} Mult.",
                     "Las cartas vuelven la {C:attention}próxima ciega{}, pero el bono persiste.",
-                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}"
+                    "{C:inactive}(Dura {C:attention}#3#{} ciegas | Actual:{} {C:mult}+#2#{}{C:inactive}){}"
                 }
             },
             j_ina_Krypto = {
                 name = "Krypto",
                 text = {
-                    "{C:fire}Lluvia de Meteoros{}",
+                    "{C:mountain}Lluvia de Meteoros{}",
                     "Reactiva la {C:attention}carta central{} si hay",
                     "una {C:dark_edition}Carta Caótica{} en tu mano."
                 }
@@ -1462,7 +1462,7 @@ return {
             j_ina_Krypto_Plus = {
                 name = "Krypto (P)",
                 text = {
-                    "{C:fire}Lluvia de Meteoros{}",
+                    "{C:mountain}Lluvia de Meteoros{}",
                     "Reactiva {C:attention}todas las cartas{} que consigas puntuar",
                     "si tienes una {C:dark_edition}Carta Caótica{} en mano."
                 }
@@ -1470,7 +1470,7 @@ return {
             j_ina_Sworm = {
                 name = "Sworm",
                 text = {
-                    "{C:forest}Enjambre Protector{}",
+                    "{C:mountain}Cabezazo Yoyó{}",
                     "Probabilidad de {C:green}#1# en #2#{} de {C:attention}rescatar{}",
                     "cada carta jugada tras puntuar."
                 }
@@ -1478,7 +1478,7 @@ return {
             j_ina_Sworm_Plus = {
                 name = "Sworm (P)",
                 text = {
-                    "{C:forest}Enjambre de Acero{}",
+                    "{C:mountain}Cabezazo Yoyó{}",
                     "Rescata {C:attention}todas{} las cartas jugadas tras",
                     "puntuar y las convierte en {C:attention}Acero{}."
                 }
@@ -1486,7 +1486,7 @@ return {
             j_ina_Mercury = {
                 name = "Mercury",
                 text = {
-                    "{C:wind}Mano Galáctica{}",
+                    "{C:mountain}Remate de Gaia{}",
                     "Al descartar exactamente {C:attention}2{} cartas,",
                     "las convierte en {C:attention}Piedra{}.",
                     "Permite jugar {C:attention}Parejas de Piedra{},",
@@ -1496,7 +1496,7 @@ return {
             j_ina_Mercury_Plus = {
                 name = "Mercury (P)",
                 text = {
-                    "{C:wind}Manos Galácticas{}",
+                    "{C:mountain}Remate de Gaia{}",
                     "Al descartar exactamente {C:attention}2{} cartas,",
                     "las convierte en {C:attention}Piedra{}.",
                     "Permite jugar {C:attention}Parejas de Piedra{},",
@@ -1508,7 +1508,7 @@ return {
             j_ina_Metron = {
                 name = "Metron",
                 text = {
-                    "{C:wind}Meteoro Galáctico{}",
+                    "{C:mountain}Remate de Gaia{}",
                     "Eleva las {C:chips}fichas{} obtenidas al puntuar",
                     "a la potencia de {C:attention}^#2#{} ({C:attention}+#1#{} por mano)."
                 }
@@ -1516,7 +1516,7 @@ return {
             j_ina_Metron_Plus = {
                 name = "Metron (P)",
                 text = {
-                    "{C:wind}Meteoro Galáctico X{}",
+                    "{C:mountain}Remate de Gaia{}",
                     "Eleva las {C:chips}fichas{} obtenidas al puntuar",
                     "a la potencia de {C:attention}^#2#{} ({C:attention}+#1#{} por mano)."
                 }
@@ -1524,7 +1524,7 @@ return {
             j_ina_Zell = {
                 name = "Zell",
                 text = {
-                    "{C:wind}Tormenta de Arena{}",
+                    "{C:forest}Rayo de Ganímedes{}",
                     "Al jugar una mano, sube de nivel {C:attention}Carta Alta{}",
                     "tantas veces como miembros de {C:attention}Épsilon{} tengas.",
                     "{C:inactive}(Actual:{} {C:attention}#1#{}{C:inactive}){}"
@@ -1533,7 +1533,7 @@ return {
             j_ina_Zell_Plus = {
                 name = "Zell (P)",
                 text = {
-                    "{C:wind}Tormenta de Arena Final{}",
+                    "{C:forest}Agujero de Gusano{}",
                     "Al jugar una mano, sube el nivel de {C:attention}todas las manos{}",
                     "tantas veces como miembros de {C:attention}Épsilon{} tengas.",
                     "{C:inactive}(Actual:{} {C:attention}#1#{}{C:inactive}){}"
@@ -1672,8 +1672,8 @@ return {
                 name = "Maston Color",
                 text = {
                     "{C:forest}Truco de Magia{}",
-                    "Sobres Estándar y la carta {C:spectral}Sigilo{}",
-                    "se fuerzan al {C:attention}palo{} de tu último {C:attention}Color{}.",
+                    "La carta {C:spectral}Sigilo{} se fuerza",
+                    "al {C:attention}palo{} de tu último {C:attention}Color{}.",
                     "{C:inactive}(Actual:{} {C:attention}#1#{}{C:inactive}){}"
                 }
             },
@@ -2546,7 +2546,7 @@ return {
             Mole_Evolution = { name = "Épsilon (P)", text = { "Transfiere {C:attention}#1#/#2# mejoras{}." } },
             Kayson_Evolution = { name = "Épsilon (P)", text = { "Vence a {C:attention}#1#/#2# Ciegas de Jefe{}." } },
             Tytan_Evolution = { name = "Épsilon (P)", text = { "Puntúa {C:attention}#1#/#2# cartas{} de", "{C:attention}Piedra{} o {C:attention}Acero{}." } },
-            Fedora_Evolution = { name = "Épsilon (P)", text = { "Usa {C:attention}#1#/#2# cartas de Planeta{}." } },
+            Fedora_Evolution = { name = "Épsilon (P)", text = { "Envía {C:attention}#1#/#2# cartas{} al vacío." } },
             Krypto_Evolution = { name = "Épsilon (P)", text = { "Ten {C:attention}#1#/#2# Cartas Caóticas{}", "en tu mazo." } },
             Sworm_Evolution = { name = "Épsilon (P)", text = { "Realiza {C:attention}#1#/#2# rescates{} y", "{C:attention}#3#/#4# descartes{}." } },
             Mercury_Evolution = { name = "Épsilon (P)", text = { "Usa {C:attention}#1#/#2# planetas Mercurio{}." } },
