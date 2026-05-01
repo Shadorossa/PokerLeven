@@ -40,6 +40,7 @@ local Hunter_Ares = J({
     pos = { x = 2, y = 5 },
     config = { extra = { mult_gain = 5, chip_gain = 15, current_mult = 0, current_chips = 0 } },
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Combo_Cosmico' }
         local ex = center.ability.extra; return { vars = { ex.mult_gain, ex.chip_gain, 5 + ex.current_mult, 15 + ex.current_chips } }
     end,
     rarity = 2, -- Uncommon
@@ -54,11 +55,18 @@ local Hunter_Ares = J({
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if ctx.before and not ctx.blueprint and get_joker_with_key('j_ina_Xavier_Ares') then
-            ex.current_mult = ex.current_mult + ex.mult_gain; ex.current_chips = ex.current_chips + ex.chip_gain; return { message =
-            localize('k_upgrade_ex'), colour = G.C.MULT }
+            local negative_count = 0
+            if G.jokers and G.jokers.cards then
+                for _, v in ipairs(G.jokers.cards) do
+                    if v.sell_cost < 0 then negative_count = negative_count + 1 end
+                end
+            end
+            local multiplier = 1 + negative_count
+            ex.current_mult = ex.current_mult + (ex.mult_gain * multiplier)
+            ex.current_chips = ex.current_chips + (ex.chip_gain * multiplier)
+            return { message = localize('k_upgrade_ex'), colour = G.C.MULT }
         elseif Pokerleven.is_joker_turn(ctx) then
-            return { message = localize('ina_mano'), mult_mod = 5 + ex.current_mult, chip_mod = 15 + ex.current_chips, colour =
-            G.C.MULT }
+            return { message = localize('ina_mano'), mult_mod = 5 + ex.current_mult, chip_mod = 15 + ex.current_chips, colour = G.C.MULT }
         end
     end
 })
@@ -94,9 +102,9 @@ local Xavier_Ares = J({
             local drained = 0
             if G.jokers and G.jokers.cards then
                 for _, v in ipairs(G.jokers.cards) do
-                    if v ~= card and not v.ability.eternal then
+                    if v ~= card and not v.ability.eternal and v.config.center.key ~= 'j_ina_Hunter_Ares' then
                         drained = drained + ex.drain_amt
-                        drain(card, v, ex.drain_amt, true)
+                        drain(card, v, ex.drain_amt, true, true)
                         v:juice_up(0.1, 0.1)
                     end
                 end

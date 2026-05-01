@@ -1,18 +1,22 @@
-drain = function(card, target, amount, one_way)
+drain = function(card, target, amount, one_way, allow_negative)
     local amt = amount
     local amt_drained = 0
 
-    if target.sell_cost <= 0 then return end
+    if not allow_negative and target.sell_cost <= 0 then return end
 
     target.ability.extra_value = target.ability.extra_value or 0
 
-    local max_drainable = target.sell_cost
-    if max_drainable <= 0 then
-        return
-    end
+    if not allow_negative then
+        local max_drainable = target.sell_cost
+        if max_drainable <= 0 then
+            return
+        end
 
-    if amt >= max_drainable then
-        amt_drained = max_drainable
+        if amt >= max_drainable then
+            amt_drained = max_drainable
+        else
+            amt_drained = amt
+        end
     else
         amt_drained = amt
     end
@@ -30,6 +34,27 @@ drain = function(card, target, amount, one_way)
             card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('k_val_up') })
         end
     end
+end
+
+-- Hook into Card:set_cost to allow negative values
+local card_set_cost_ref = Card.set_cost
+function Card:set_cost()
+    card_set_cost_ref(self)
+    -- If Xavier Schiller is in play, we allow sell_cost to be negative
+    local xavier = get_joker_with_key('j_ina_Xavier_Ares')
+    if xavier and not xavier.debuff then
+        self.sell_cost = math.floor(self.base_cost / 2) + (self.ability.extra_value or 0)
+    end
+end
+
+-- Hook into Card:sell_card to handle negative sell cost (charging the player)
+local card_sell_card_ref = Card.sell_card
+function Card:sell_card()
+    if self.sell_cost < 0 then
+        local cost = self.sell_cost
+        ease_dollars(cost) -- cost is negative, so it subtracts
+    end
+    card_sell_card_ref(self)
 end
 
 --- Consume un recurso y otorga una estadística multiplicada por la cantidad consumida

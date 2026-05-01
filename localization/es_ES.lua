@@ -487,7 +487,7 @@ return {
             j_ina_Willy = {
                 name = "Willy Glass",
                 text = { "{C:forest}Remate gafas{}",
-                    "{C:green}#1# entre #2#{} de convertir la mano",
+                    "{C:green}#1# en #2#{} de convertir la mano",
                     "jugada en cartas {C:attention}policromáticas{},",
                     "de {C:attention}cristal{} y con {C:attention}sello rojo{}" }
             },
@@ -524,9 +524,9 @@ return {
             j_ina_Steve = {
                 name = "Steve Grim",
                 text = { "{C:wind}Disparo Rodante{}",
-                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} otorga {C:chips}+#1#{} y {C:mult}+#2#{}",
-                    "Obtiene {C:money}+#3#${} al terminar la ronda",
-                    "{C:inactive}(Actual:{} {C:chips}+#4#{}{C:inactive} y {C:mult}+#5#{}{C:inactive}){}",
+                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} otorga {C:chips}+#1# Fichas{} y {C:mult}+#2# Mult.{}",
+                    "Gana {C:money}+#3#${} al finalizar la ronda.",
+                    "{C:inactive}(Actual:{} {C:chips}+#4#{} {C:inactive}y{} {C:mult}+#5# {C:inactive}){}",
                 }
             },
             j_ina_Erik = {
@@ -571,7 +571,7 @@ return {
                 name = "Blood",
                 text = { "{C:mountain}Niebla Venenosa{}",
                     "{C:attention}Drena{} {C:money}#1#${} de los {C:attention}Jokers{} adyacentes,",
-                    "Cada {C:money}1${} en su valor de venta obtiene {C:chips}+#2#{} fichas",
+                    "Cada {C:money}1${} en su valor de venta otorga {C:chips}+#2# Fichas{}",
                     "{C:inactive}(Actual:{} {C:chips}+#3#{}{C:inactive}){}" }
             },
             j_ina_Grave = {
@@ -726,7 +726,7 @@ return {
             },
             j_ina_Tell = {
                 name = "Tell",
-                text = { "{C:forest}Adivino{}", "{X:chips,C:white}XPI{} si tienes {C:attention}3 1 4{} en",
+                text = { "{C:forest}Adivino{}", "{X:chips,C:white}Xπ{} si tienes {C:attention}3, 1, 4{} en",
                     "la mano trasera al puntuar" }
             },
             j_ina_Seller = {
@@ -1722,8 +1722,9 @@ return {
                 text = {
                     "{C:forest}Tornado Dragón Oscuro{}",
                     "Reactiva al {C:attention}Joker derecho{} {C:attention}#1#{} veces.",
-                    "Al vencer a un {C:attention}Jefe{}, le {C:red}arranca{}",
-                    "su {C:dark_edition}edición{} o {C:attention}nivel de técnica{}."
+                    "Cada {C:attention}#3#{} veces que se active, le {C:red}elimina{}",
+                    "un nivel de técnica. Si no tiene, lo {C:red}destruye{}.",
+                    "{C:inactive}(Contador: {C:attention}#2#/#3#{C:inactive}){}"
                 }
             },
 
@@ -1731,9 +1732,9 @@ return {
             j_ina_Beluga = {
                 name = "Beluga",
                 text = {
-                    "{C:mountain}Muro de Escarcha{}",
-                    "Aumenta la probabilidad de que",
-                    "aparezcan cartas de {C:attention}Vidrio{}."
+                    "{C:wind}Bloque de Hielo{}",
+                    "Las cartas de {C:attention}Vidrio{} se",
+                    "{C:red}rompen{} siempre."
                 }
             },
             j_ina_Clear = {
@@ -1748,9 +1749,9 @@ return {
             j_ina_Icer = {
                 name = "Icer",
                 text = {
-                    "Gana {C:money}#1# ${} por cada member del {X:ina_team_polvodediamantes,C:white}P.Diamantes{}",
-                    "cuando una carta de {C:attention}Vidrio{} se {C:red}rompe{}.",
-                    "{C:inactive}(Actual:{} {C:money}#2# ${}{C:inactive}){}"
+                    "Gana {C:money}#1# ${} por cada miembro de",
+                    "{X:ina_team_PolvodeDiamantes,C:white}P. Diamantes{} al final de la ronda.",
+                    "{C:inactive}(Si hay miembros de {X:ina_team_Prominence,C:white}Prominence{}, cuenta ambos | Actual:{} {C:money}#2# ${}{C:inactive}){}"
                 }
             },
             j_ina_Gazelle = {
@@ -1785,7 +1786,7 @@ return {
                 text = {
                     "{C:mountain}Cero Absoluto{}",
                     "Las cartas de {C:attention}Vidrio{} no pueden romperse,",
-                    "pero su bono se reduce a {X:mult,C:white} X#1# {}."
+                    "pero su bono se reduce a {X:mult,C:white}X#1#{}."
                 }
             },
 
@@ -2099,11 +2100,11 @@ return {
                 }
             },
             j_ina_Xavier_Ares = {
-                name = "Xavier Foster",
+                name = "Xavier Schiller",
                 text = {
                     "{C:forest}Detonador{}",
-                    "Drena {C:money}#1#{} de valor a cada joker al puntuar",
-                    "Gana {X:mult,C:white}X#2#{} Mult por cada $1 drenado.",
+                    "Al puntuar, {C:attention}drena{} {C:money}#1#${} a los demás Jokers y",
+                    "gana {X:mult,C:white}X#2#{} de Mult por cada {C:money}1${} obtenido.",
                     "{C:inactive}(Actual:{} {X:mult,C:white}X#3#{}{C:inactive}){}"
                 }
             },
@@ -2210,10 +2211,9 @@ return {
             j_ina_Ace_Server = {
                 name = "Ace Server",
                 text = {
-                    "{C:fire}Puño vengativo{}",
-                    "{C:green}1 en #1# {}de aumentar el",
-                    "nivel de la mano jugada.",
-                    "{C:attention}#2# nivel{} si {C:attention}#3# Ases{} consigan puntuar."
+                    "{C:fire}Puño Vengativo{}",
+                    "Al puntuar {C:attention}#3# Ases{}, {C:green}1 en #1#{} de",
+                    "subir {C:attention}#2# nivel{} a la mano jugada."
                 }
             },
             j_ina_Rex_George = {
@@ -2445,8 +2445,9 @@ return {
             Dios_rematador = {
                 name = "Dios rematador",
                 text = {
-                    "Los {C:red}destruye{} si",
-                    "valen {C:money}0${}."
+                    "El valor de los jokers puede",
+                    "descender a {C:red}negativo{}.",
+                    "Venderlos te {C:red}costará dinero{}."
                 }
             },
             ina_training_seal = {
@@ -2552,7 +2553,7 @@ return {
             Mercury_Evolution = { name = "Épsilon (P)", text = { "Usa {C:attention}#1#/#2# planetas Mercurio{}." } },
             Metron_Evolution = { name = "Épsilon (P)", text = { "Llega a un exponente", "de {C:attention}^#1#/^#2#{}." } },
             CalebR_Evolution = { name = "Evolución", text = { "Evoluciona a {C:attention}Joseph King{} y {C:attention}David Samford{} tras {C:attention}#3#{} rondas." } },
-            Caleb_IJ_Evolution = { name = "Transformación", text = { "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{} si son titulares con él durante {C:attention}#3#{} rondas." } },
+            Caleb_IJ_Evolution = { name = "Transformación", text = { "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{} si son titulares en el {X:ina_team_inazumajapan,C:white}I. Japón{} durante {C:attention}#3#{} rondas." } },
             Position_Evolution = { name = "Épsilon (P)", text = { "Mueve al jugador a la", "mitad derecha de tus Jokers." } },
             RolChange = {
                 name = "Cambio de Rol",
@@ -2568,7 +2569,7 @@ return {
                 }
             },
             Chaotic = {
-                name = "Combinación incompatible",
+                name = "Caos",
                 text = { "Junta este jugador",
                     "con uno del equipo {C:attention}#1#{}" }
             },
@@ -2579,8 +2580,9 @@ return {
             },
             Combo_Cosmico = {
                 name = "Combo Cósmico",
-                text = { "Junta este jugador",
-                    "con {C:attention}#1#{}" }
+                text = { "Gana {C:mult}Mult.{} y {C:chips}Fichas{} extra",
+                    "por cada Joker con valor {C:red}negativo{}",
+                    "si {C:attention}Xavier Schiller{} está presente." }
             },
             ina_spirit_charges = {
                 name = "Poder de Espíritu",

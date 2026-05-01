@@ -246,8 +246,8 @@ local NathanDark = J({
 local KevinDark = J({
     name = "KevinDark",
     pos = { x = 7, y = 13 },
-    config = { extra = { retriggers = 2 } },
-    loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.retriggers}} end,
+    config = { extra = { retriggers = 2, count = 0, limit = 3 } },
+    loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.retriggers, center.ability.extra.count, center.ability.extra.limit}} end,
     rarity = 2, -- Common
     pools = { ["darkemperors"] = true },
     cost = 15,
@@ -261,8 +261,13 @@ local KevinDark = J({
         local r = card:get_right_joker()
         if ctx.retrigger_joker_check and not ctx.retrigger_joker and ctx.other_card == r then
             return {message = localize("k_again_ex"), repetitions = card.ability.extra.retriggers, card = card}
-        elseif Pokerleven.is_joker_end_of_round(ctx) and G.GAME.blind.boss and not ctx.blueprint then
-            Pokerleven.corrupt_joker(r)
+        end
+        if ctx.after and not ctx.blueprint and r then
+            card.ability.extra.count = card.ability.extra.count + 1
+            if card.ability.extra.count >= card.ability.extra.limit then
+                card.ability.extra.count = 0
+                Pokerleven.corrupt_joker(r)
+            end
         end
     end
 })

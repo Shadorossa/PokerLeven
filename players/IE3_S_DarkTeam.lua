@@ -191,7 +191,7 @@ local Gorja = J({
 })
 
 local Arakune = J({
-  name = "Arakuné",
+  name = "Arakune",
   pos = { x = 10, y = 17 },
   config = { extra = { odds = 3 } },
   loc_vars = function(self, info_queue, center)

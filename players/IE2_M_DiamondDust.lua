@@ -8,7 +8,7 @@ local Beluga = J({
     pools = { ["DiamondDust"] = true },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Mountain,
+    ptype = C.Wind,
     pposition = C.GK,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_PolvodeDiamantes",
@@ -142,7 +142,15 @@ local Icer = J({
     name = "Icer",
     pos = { x = 10, y = 14 },
     config = { extra = { money = 2 } },
-    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.money, #find_player_team("ina_team_PolvodeDiamantes") * ex.money}} end,
+    loc_vars = function(self, info_queue, center)
+        local ex = center.ability.extra
+        info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic', vars = {localize("ina_team_Prominence", "teams") or "Prominence"}}
+        local dd = find_player_team("ina_team_PolvodeDiamantes")
+        local prom = find_player_team("ina_team_Prominence")
+        local count = #dd
+        if #prom > 0 then count = #dd + #prom end
+        return {vars = {ex.money, count * ex.money, count}}
+    end,
     rarity = 1, --
     pools = { ["DiamondDust"] = true },
     cost = 7,
@@ -153,9 +161,17 @@ local Icer = J({
     pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
-        if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers then local s_c = 0
-            for _, v in ipairs(ctx.removed) do if v.shattered then s_c = s_c + 1 end end
-            if s_c > 0 then local m = s_c * card.ability.extra.money * #find_player_team("ina_team_PolvodeDiamantes"); ease_dollars(m); card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('$')..m, colour = G.C.MONEY}) end
+        if ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
+            local dd = find_player_team("ina_team_PolvodeDiamantes")
+            local prom = find_player_team("ina_team_Prominence")
+            local count = #dd
+            if #prom > 0 then count = #dd + #prom end
+            
+            if count > 0 then
+                local m = count * card.ability.extra.money
+                ease_dollars(m)
+                return { message = localize('$')..m, colour = G.C.MONEY }
+            end
         end
     end
 })
