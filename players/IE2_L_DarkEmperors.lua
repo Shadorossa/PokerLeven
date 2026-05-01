@@ -12,6 +12,7 @@ local DarkFeldt = J({
     pposition = C.GK,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = false,
     calculate = function(self, card, ctx)
         if ctx.setting_blind and not ctx.blueprint and G.GAME.blind:get_type() == 'Boss' and not G.GAME.blind.disabled then
@@ -41,6 +42,7 @@ local NightDark = {
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -62,6 +64,7 @@ local SamDark = J({
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = false,
     calculate = function(self, card, context)
     end
@@ -81,6 +84,7 @@ local JimDark = J({
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
@@ -110,6 +114,7 @@ local TodDark = {
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -132,6 +137,7 @@ local SteveDark = {
     pposition = C.MF,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -154,6 +160,7 @@ local TimmyDark = {
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -176,6 +183,7 @@ local MaxDark = {
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -198,6 +206,7 @@ local ShadowDark = {
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -221,6 +230,7 @@ local NathanDark = J({
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local ex, r_joker = card.ability.extra, card:get_right_joker()
@@ -256,6 +266,7 @@ local KevinDark = J({
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_EmperadoresOscuros",
+    aux_ina = true,
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local r = card:get_right_joker()

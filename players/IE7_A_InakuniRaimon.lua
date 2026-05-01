@@ -21,6 +21,7 @@ local Sandra_Fischer = J({
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = false,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.after and not ctx.blueprint then
             local ex, scored = card.ability.extra,
@@ -52,6 +53,7 @@ local Trevor = J({
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint then
             local id = ctx.other_card:get_id()
@@ -79,6 +81,7 @@ local Cesar = J({
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.ina_tag_added then
             if pseudorandom('cesar') < G.GAME.probabilities.normal / card.ability.extra.odds then
@@ -106,6 +109,7 @@ local Valentin = J({
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = false,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.after and not ctx.blueprint and #ctx.full_hand == 3 then
             if Pokerleven.buff_joker_stats(card:get_right_joker(), card.ability.extra.mult_mod_low, card.ability.extra.chip_mod) then
@@ -132,6 +136,7 @@ local Adriano_Donati = J({
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if Pokerleven.is_joker_turn(ctx) then
@@ -177,6 +182,7 @@ local Sonny_Wright = J({
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
@@ -208,6 +214,7 @@ local Basile = J({
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if ctx.before and ctx.cardarea == G.jokers and not ctx.blueprint then

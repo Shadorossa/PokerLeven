@@ -56,6 +56,7 @@ local Dvalin_Plus = J({
     pteam = "ina_team_Epsilon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if Pokerleven.is_joker_turn(ctx) then
@@ -72,9 +73,7 @@ local Dvalin_Plus = J({
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
             if Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Dvalin') end
         end
-    end,
-    custom_pool_func = true,
-    in_pool = function() return false end
+    end
 })
 
 local Kenville = J({
@@ -131,6 +130,7 @@ local Kenville_Plus = J({
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.individual and ctx.cardarea == G.play and not ctx.blueprint then
             local oc = ctx.other_card
@@ -219,6 +219,7 @@ local Mole_Plus = J({
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.discard and not ctx.blueprint then
             local oc = ctx.other_card
@@ -302,6 +303,7 @@ local Kayson_Plus = J({
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.before and not ctx.blueprint then
              G.GAME.kayson_next_reduction = (G.GAME.kayson_next_reduction or 0) + card.ability.extra.reduction
@@ -360,6 +362,7 @@ local Tytan_Plus = J({
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if Pokerleven.is_joker_turn(ctx) then
             local count = 0
@@ -457,6 +460,7 @@ local Fedora_Plus = J({
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if ctx.discard and not ctx.blueprint then
@@ -554,6 +558,7 @@ local Krypto_Plus = J({
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.repetition and ctx.cardarea == G.play then
             local has_chaotic = false
@@ -624,6 +629,7 @@ local Sworm_Plus = J({
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.after and ctx.cardarea == G.jokers and not card.debuff and not ctx.blueprint then
             local s = {}; for _, v in ipairs(ctx.full_hand) do s[#s + 1] = v end
@@ -686,6 +692,7 @@ local Mercury_Plus = J({
     pposition = C.FW,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.pre_discard and ctx.full_hand and #ctx.full_hand == 2 and not ctx.blueprint then
             convert_cards_to(ctx.full_hand, { mod_conv = "m_stone" })
@@ -751,6 +758,7 @@ local Metron_Plus = J({
     pposition = C.FW,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if ctx.before and not ctx.blueprint then
@@ -815,6 +823,7 @@ local Zell_Plus = J({
     pposition = C.GK,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
+    aux_ina = true,
     calculate = function(self, card, ctx)
         if ctx.before and not ctx.blueprint then
             local count = #find_player_team("ina_team_Epsilon")

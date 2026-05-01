@@ -18,6 +18,7 @@ local Mark_IJ = J({
   pcaptain = C.CAPTAIN,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -39,6 +40,7 @@ local Nathan_IJ = J({
   techtype = C.UPGRADES.Plus,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, context)
     if not context.debuff and context.other_joker then
       if is_team(context.other_joker, "ina_team_Raimon") or is_team(context.other_joker, "ina_team_InazumaJapon") then
@@ -76,6 +78,7 @@ local Jack_IJ = J({
   techtype = C.UPGRADES.Plus,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play
         and not context.other_card.debuff and not context.end_of_round
@@ -114,6 +117,7 @@ local Hurley_IJ = J({
   pyear = C.YEAR_3,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -136,6 +140,7 @@ local Scotty_IJ = J({
   pyear = C.YEAR_1,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -158,6 +163,7 @@ local Archer_IJ = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -179,6 +185,7 @@ local Caleb_IJ = J({
   pteam = "ina_team_InazumaJapon",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
@@ -244,6 +251,7 @@ local Shawn_IJ = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -324,6 +332,7 @@ local Austin_IJ = J({
   pyear = C.YEAR_1,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -346,6 +355,7 @@ local Thor_IJ = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -370,6 +380,7 @@ local Jude_IJ = J({
   techtype = C.UPGRADES.Plus,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, context)
     if context.post_trigger and context.other_card ~= card
         and context.other_card == card:get_left_joker() then
@@ -416,6 +427,7 @@ local Samford_IJ = J({
   pteam = "ina_team_InazumaJapon",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, context)
     if context.joker_main and context.scoring_hand then
       if #find_player_position("FW") >= 2 and #find_player_position("MF") >= 1 then
@@ -484,6 +496,7 @@ local Xavier_IJ = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 
@@ -506,6 +519,7 @@ local Darren_IJ = J({
   pyear = C.YEAR_1,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx) end
 })
 

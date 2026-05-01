@@ -602,8 +602,13 @@ Pokerleven.ui.create_UIBox_gacha = function()
       local coin_sprite = Sprite(0, 0, 0.5, 0.5, G.ASSET_ATLAS['ina_Tags01'], coin.pos)
       coin_sprite:define_draw_steps({{shader = 'dissolve', shadow_height = 0.05}, {shader = 'dissolve'}})
       
+      local dyn_rates = Pokerleven.get_gacha_rates(coin.id)
       local tooltip_text = {
-        "Común: " .. coin.rates.Common .. "%", "Inusual: " .. coin.rates.Uncommon .. "%", "Raro: " .. coin.rates.Rare .. "%", "Destacado: " .. coin.rates.Top .. "%", "Legendario: " .. coin.rates.Legendary .. "%"
+        "Común: " .. (math.floor(dyn_rates[1]*100)/100) .. "%", 
+        "Inusual: " .. (math.floor(dyn_rates[2]*100)/100) .. "%", 
+        "Raro: " .. (math.floor(dyn_rates[3]*100)/100) .. "%", 
+        "Destacado: " .. (math.floor(dyn_rates["ina_top"]*100)/100) .. "%", 
+        "Legendario: " .. (math.floor(dyn_rates[4]*100)/100) .. "%"
       }
       
       local is_selected = Pokerleven.gacha_selected_coin == coin.id
@@ -635,7 +640,7 @@ Pokerleven.ui.create_UIBox_gacha = function()
         { n = G.UIT.T, config = { text = "Equipos Seleccionados", scale = 0.3, colour = G.C.UI.TEXT_LIGHT, shadow = true } }
       }},
       { n = G.UIT.R, config = { align = "cm", padding = 0.05 }, nodes = {
-        { n = G.UIT.O, config = { object = DynaText({string = {{ref_table = Pokerleven, ref_value = 'gacha_selected_count', suffix = " / 5"}}, colours = {G.C.GREEN}, scale = 0.5, shadow = true, silent = true}) } }
+        { n = G.UIT.O, config = { id = 'gacha_selected_count_text', object = DynaText({string = {{ref_table = Pokerleven, ref_value = 'gacha_selected_count', suffix = " / 5"}}, colours = {G.C.GREEN}, scale = 0.5, shadow = true, silent = true}) } }
       }},
       { n = G.UIT.R, config = { align = "cm", padding = 0.1 }, nodes = {
         { n = G.UIT.T, config = { text = "(Mínimo 2)", scale = 0.25, colour = G.C.UI.TEXT_INACTIVE, shadow = true } }

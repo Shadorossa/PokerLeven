@@ -188,23 +188,42 @@ player_in_pool = function(self)
         return false
     end
 
-    -- Bloquear versiones internacionales si no se tiene el vale de Nivel 1 "Growing Player"
-        if self.pteam == "ina_team_InazumaJapon" and not (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_growing_player"]) then
-        return false
-    end
+    -- Lógica centralizada de bloqueo (Tienda y Pool)
+    if self.aux_ina then
+        -- 1. Versiones Plus/Evoluciones: SIEMPRE bloqueadas en tienda
+        if string.find(self.key or "", "_Plus$") or string.find(self.name or "", "_Plus$") then 
+            return false 
+        end
 
-        -- Bloquear versiones de Ares (otra realidad) a menos que Eris actúe
-        if (self.pteam == "ina_team_InakuniRaimon" or self.pteam == "ina_team_EiseiGakuen" or self.pteam == "ina_team_Zeus_Ares") and not (Pokerleven.Universe and Pokerleven.Universe.eris_active) then
+        -- 2. Internacionales: Desbloqueados por Growing Player (V1)
+        local is_international = (self.pteam == "ina_team_InazumaJapon")
+        if is_international then
+            local has_v1 = (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_growing_player"])
+            if has_v1 then return true end
             return false
         end
 
-    -- Bloquear versiones corrompidas por la Alius si no se tiene el vale de Nivel 2 "Modified Player"
-    if (self.pteam == "ina_team_RoyalRedux" or self.pteam == "ina_team_EmperadoresOscuros") then
-        local has_voucher = (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_modified_player"])
-        local is_eris = (Pokerleven.Universe and Pokerleven.Universe.eris_active)
-        if not (has_voucher or is_eris or #find_player_team(self.pteam) > 0) then return false end
+        -- 3. Alius/Especiales/Ares: Desbloqueados por Modified Player (V2) o Eris
+        local is_modified = (self.pteam == "ina_team_RoyalRedux" or self.pteam == "ina_team_EmperadoresOscuros")
+        local is_ares = (self.pteam == "ina_team_InakuniRaimon" or self.pteam == "ina_team_EiseiGakuen" or self.pteam == "ina_team_Zeus_Ares" or self.pteam == "ina_team_Seishou")
+        
+        if is_modified or is_ares then
+            local has_v2 = (G.GAME and G.GAME.used_vouchers and G.GAME.used_vouchers["v_ina_modified_player"])
+            local is_eris = (Pokerleven.Universe and Pokerleven.Universe.eris_active)
+            
+            -- Los Alius se permiten si tienes el vale, eres Eris o ya tienes a alguien del equipo
+            if is_modified and (has_v2 or is_eris or #find_player_team(self.pteam) > 0) then return true end
+            -- Los Ares solo se permiten si Eris está activa
+            if is_ares and is_eris then return true end
+            
+            return false
+        end
+
+        -- Si es aux_ina pero no cumple ninguna condición de arriba, bloqueamos
+        return false
     end
 
+    -- Si no tiene aux_ina, permitimos (salvo filtros de universo)
     if Pokerleven.Universe and not Pokerleven.Universe.is_joker_allowed(self) then
         return false
     end

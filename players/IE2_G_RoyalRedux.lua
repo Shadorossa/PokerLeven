@@ -19,6 +19,7 @@ local KingR = J({
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
@@ -54,6 +55,7 @@ local Beltzer = J({
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.discard and not ctx.blueprint then
@@ -87,6 +89,7 @@ local Blade = J({
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
@@ -117,6 +120,7 @@ local Argie = J({
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.joker_main and G.GAME.current_round.barriers and G.GAME.current_round.barriers > 0 then
@@ -141,6 +145,7 @@ local Bamboo = J({
   pposition = C.DF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
+  aux_ina = true,
 })
 
 local Messer = J({
@@ -160,6 +165,7 @@ local Messer = J({
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Number,
   blueprint_compat = false,
+  aux_ina = true,
   add_to_deck = function(self, card, from_debuff)
     local ex = card.ability.extra
     G.GAME.scry_amount = (G.GAME.scry_amount or 0) + ex.scry_mod
@@ -192,6 +198,7 @@ local Spark = J({
   pposition = C.MF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
+  aux_ina = true,
 })
 
 local get_UIBox_info_ref = Card.get_UIBox_info
@@ -243,6 +250,7 @@ local Sparrow = J({
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Number,
   blueprint_compat = false,
+  aux_ina = true,
   update = function(self, card, dt)
     if G.jokers and G.jokers.cards and card.area == G.jokers then
         if not Pokerleven.is_state_changed(card, {G.jokers}) then return end
@@ -299,6 +307,7 @@ local Jamm = J({
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
+  aux_ina = true,
   update = function(self, card, dt)
     if G.jokers and G.jokers.cards and card.area == G.jokers then 
         if not Pokerleven.is_state_changed(card, {Pokerleven.get_jokers_hash()}) then return end
@@ -358,6 +367,7 @@ local CalebR = J({
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
@@ -404,6 +414,7 @@ local SamfordR = J({
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
@@ -430,6 +441,7 @@ local Cellar = J({
   pposition = C.GK,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
+  aux_ina = true,
 })
 
 local corrupt_joker_ref = Pokerleven.corrupt_joker
@@ -472,6 +484,7 @@ local Zenn = J({
   pposition = C.FW,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.joker_main and #ctx.scoring_hand == 1 then
@@ -502,6 +515,7 @@ local Cossimo = J({
   pposition = C.MF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     if ctx.joker_main then
@@ -533,6 +547,7 @@ local Color = J({
   pposition = C.MF,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
+  aux_ina = true,
   calculate = function(self, card, ctx)
     if ctx.joker_main and ctx.scoring_name and string.find(ctx.scoring_name, 'Flush') then
         G.GAME.ina_color_suit = ctx.scoring_hand[1].base.suit

@@ -130,8 +130,6 @@ local Soundtown = J({
   config = { extra = { 
     current_xmult = 1, 
     tuning = 1, -- 0: Low, 1: Med, 2: High
-    base_vol = 50, 
-    vol_set = false,
     targets = {high = {}, med = {}}
   } },
   loc_vars = function(self, info_queue, center)
@@ -153,21 +151,15 @@ local Soundtown = J({
   pteam = "ina_team_MaryTimes",
   blueprint_compat = true,
   add_to_deck = function(self, card, from_debuff)
-    if not card.ability.extra.vol_set then
-        card.ability.extra.base_vol = G.SETTINGS.music_volume or 50
-        card.ability.extra.vol_set = true
-    end
+    -- Audio will start when blind begins (setting_blind)
   end,
   remove_from_deck = function(self, card, from_debuff)
-    if card.ability.extra.vol_set then
-        G.SETTINGS.music_volume = card.ability.extra.base_vol
-        if G.SETTINGS.SOUND then G.SETTINGS.SOUND.music_volume = G.SETTINGS.music_volume end
-    end
+    Pokerleven.soundtown_stop()
   end,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
     
-    -- Generate conditions at start of round
+    -- Generate conditions and start music at start of round
     if ctx.setting_blind and not ctx.blueprint then
         local possible = {
             {type = 'suit', val = 'Hearts'}, {type = 'suit', val = 'Diamonds'}, {type = 'suit', val = 'Clubs'}, {type = 'suit', val = 'Spades'},
@@ -178,7 +170,13 @@ local Soundtown = J({
         pseudoshuffle(possible, pseudoseed('soundtown_shuffle'))
         ex.targets.high = {possible[1], possible[2]}
         ex.targets.med = {possible[3], possible[4], possible[5], possible[6]}
-        ex.tuning = 1 -- Reset to med at start
+        ex.tuning = 1
+        Pokerleven.soundtown_start(1)
+    end
+
+    -- Stop music at end of round (before shop)
+    if Pokerleven.is_joker_end_of_round(ctx) and not ctx.blueprint then
+        Pokerleven.soundtown_stop()
     end
 
     if Pokerleven.is_joker_turn(ctx) then
@@ -223,12 +221,7 @@ local Soundtown = J({
         end
 
         ex.tuning = new_tuning
-        
-        -- Adjust volume
-        local offset = (ex.tuning - 1) * 20
-        local new_vol = math.max(0, math.min(100, ex.base_vol + offset))
-        G.SETTINGS.music_volume = new_vol
-        if G.SETTINGS.SOUND then G.SETTINGS.SOUND.music_volume = new_vol end
+        Pokerleven.soundtown_set_tuning(new_tuning)
         
         return {
             message = new_tuning == 2 and "¡Sintonía ALTA!" or (new_tuning == 0 and "Sintonía Baja..." or "Sintonía Media"),

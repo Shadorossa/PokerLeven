@@ -300,6 +300,9 @@ SMODS.Sound({
     end,
 })
 
+-- Store mod path for direct audio access (Soundtown vertical remix)
+Pokerleven.mod_path = SMODS.current_mod.path
+
 local custom_colours = loc_colour
 local top_rarity = SMODS.Gradient({
     key = 'topplayer2',
