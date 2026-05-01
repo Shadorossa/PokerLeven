@@ -1385,33 +1385,32 @@ return {
             j_ina_Mole = {
                 name = "Mole",
                 text = {
-                    "{C:forest}Hoyo de Gusano{}",
+                    "{C:fire}Flash de Fotones{}",
                     "Al descartar cartas con {C:attention}Mejora{},",
-                    "la transfiere a las cartas que robas."
+                    "la transfiere a las cartas recibidas."
                 }
             },
             j_ina_Mole_Plus = {
                 name = "Mole (P)",
                 text = {
-                    "{C:forest}Agujero de Gusano{}",
+                    "{C:fire}Flash de Fotones{}",
                     "Transfiere {C:attention}Mejoras{}, {C:dark_edition}Ediciones{}",
                     "y {C:attention}Sellos{} de cartas descartadas",
-                    "a las nuevas."
+                    "a las recibidas."
                 }
             },
             j_ina_Kayson = {
                 name = "Kayson",
                 text = {
-                    "{C:wind}Velocidad de la Luz{}",
+                    "{C:wind}Niebla Venenosa{}",
                     "Al jugar un {C:attention}Full{}, {C:attention}Póker{} o {C:attention}Color{},",
-                    "reduce el tamaño de la {C:attention}siguiente ciega{} un {C:red}#1#%{}.",
-                    "{C:inactive}(Actual:{} {C:attention}#2#/#3#{}{C:inactive}){}"
+                    "reduce el tamaño de la {C:attention}siguiente ciega{} un {C:red}#1#%{}."
                 }
             },
             j_ina_Kayson_Plus = {
                 name = "Kayson (P)",
                 text = {
-                    "{C:wind}Velocidad de la Luz X{}",
+                    "{C:wind}Niebla Venenosa{}",
                     "Reduce el tamaño de la {C:attention}siguiente ciega{} un {C:red}#1#%{}",
                     "con {C:attention}cada mano{} jugada.",
                     "{C:inactive}(Vuelve a su forma base tras {C:attention}#2#{} ronda/s){}"
@@ -1420,52 +1419,50 @@ return {
             j_ina_Tytan = {
                 name = "Tytan",
                 text = {
-                    "{C:mountain}Muro de Tytán{}",
+                    "{C:mountain}Terremoto{}",
                     "Otorga {C:chips}+#1#{} Fichas por cada carta",
-                    "de {C:attention}Piedra{} o {C:attention}Acero{} que consigas puntuar.",
-                    "{C:inactive}(Actual:{} {C:attention}#2#/#3#{}{C:inactive}){}"
+                    "de {C:attention}Piedra{} o {C:attention}Acero{} que consigas puntuar."
                 }
             },
             j_ina_Tytan_Plus = {
                 name = "Tytan (P)",
                 text = {
-                    "{C:mountain}Muro de Tytán Infinito{}",
-                    "Otorga {C:chips}+#5#{} Fichas y {X:mult,C:white} X#6# {} Mult",
-                    "por cada {C:attention}Piedra{} o {C:attention}Acero{} en el mazo.",
-                    "{C:inactive}(Actual:{} {C:attention}#4#{}{C:inactive} cartas | Dura #3# ciegas){}"
+                    "{C:mountain}Terremoto{}",
+                    "Su medidor de {C:chips}Fichas{} y {X:mult,C:white} XMult {}",
+                    "aumenta por cada carta de {C:attention}Piedra{} o {C:attention}Acero{} en el mazo.",
+                    "{C:inactive}(Actual: {C:chips}+#5#{}{C:inactive} Fichas y {X:mult,C:white}X#6#{}{C:inactive} Mult | Dura #3# ciegas){}"
                 }
             },
             j_ina_Fedora = {
                 name = "Fedora",
                 text = {
-                    "{C:fire}Gungnir{}",
-                    "Otorga {C:mult}+#1#{} Mult por cada {C:attention}descarte{}",
-                    "hecho en esta ciega si hay una",
-                    "{C:dark_edition}Carta Caótica{} en juego.",
+                    "{C:wind}Ataque Afilado{}",
+                    "Al descartar, envía las cartas {C:spectral}al vacío{} durante {C:attention}1 ciega{}.",
+                    "Otorga {C:mult}+#1#{} Mult por cada carta en el vacío.",
                     "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive} | Planetas: #3#/3){}"
                 }
             },
             j_ina_Fedora_Plus = {
                 name = "Fedora (P)",
                 text = {
-                    "{C:fire}Lanza de Gungnir{}",
-                    "Otorga {X:mult,C:white} X#1# {} Mult si {C:attention}Dvalin{}",
-                    "está en modo {C:attention}Plus{} (FW)."
+                    "{C:wind}Ataque Afilado{}",
+                    "Al descartar, envía las cartas {C:spectral}al vacío{} y gana {C:mult}+#1#{} Mult.",
+                    "Las cartas vuelven la {C:attention}próxima ciega{}, pero el bono persiste.",
+                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}"
                 }
             },
             j_ina_Krypto = {
                 name = "Krypto",
                 text = {
-                    "{C:wind}Fibra Óptica{}",
+                    "{C:fire}Lluvia de Meteoros{}",
                     "Reactiva la {C:attention}carta central{} si hay",
-                    "una {C:dark_edition}Carta Caótica{} en tu mano.",
-                    "{C:inactive}(Actual:{} {C:attention}#1#/#2#{}{C:inactive}){}"
+                    "una {C:dark_edition}Carta Caótica{} en tu mano."
                 }
             },
             j_ina_Krypto_Plus = {
                 name = "Krypto (P)",
                 text = {
-                    "{C:wind}Fibra Óptica Final{}",
+                    "{C:fire}Lluvia de Meteoros{}",
                     "Reactiva {C:attention}todas las cartas{} que consigas puntuar",
                     "si tienes una {C:dark_edition}Carta Caótica{} en mano."
                 }
@@ -2545,7 +2542,7 @@ return {
                     "{C:inactive,s:0.8}Solo disponible una vez por ronda."
                 }
             },
-            Kenville_Evolution = { name = "Épsilon (P)", text = { "Gana una ciega jugando", "solo {C:attention}Carta Alta{}." } },
+            Kenville_Evolution = { name = "Épsilon (P)", text = { "Juega una {C:attention}Escalera{} que", "contenga un {C:attention}2, 3 y 4{}." } },
             Mole_Evolution = { name = "Épsilon (P)", text = { "Transfiere {C:attention}#1#/#2# mejoras{}." } },
             Kayson_Evolution = { name = "Épsilon (P)", text = { "Vence a {C:attention}#1#/#2# Ciegas de Jefe{}." } },
             Tytan_Evolution = { name = "Épsilon (P)", text = { "Puntúa {C:attention}#1#/#2# cartas{} de", "{C:attention}Piedra{} o {C:attention}Acero{}." } },

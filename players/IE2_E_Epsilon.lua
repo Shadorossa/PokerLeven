@@ -103,8 +103,17 @@ local Kenville = J({
                 local diff = Pokerleven.simulate_rank_difference(card, ctx, target_ranks)
                 if diff then diff.card = card; return diff end
             end
-        elseif ctx.end_of_round and G.GAME.last_hand_played == 'High Card' and not ctx.blueprint then
-            ina_backend_evolve(card, 'j_ina_Kenville_Plus')
+        elseif ctx.before and ctx.scoring_name == 'Straight' and not ctx.blueprint then
+            local has_2, has_3, has_4 = false, false, false
+            for _, c in ipairs(ctx.scoring_hand) do
+                local id = c:get_id()
+                if id == 2 then has_2 = true
+                elseif id == 3 then has_3 = true
+                elseif id == 4 then has_4 = true end
+            end
+            if has_2 and has_3 and has_4 then
+                ina_backend_evolve(card, 'j_ina_Kenville_Plus')
+            end
         end
     end
 })
@@ -112,7 +121,7 @@ local Kenville = J({
 local Kenville_Plus = J({
     name = "Kenville_Plus",
     pos = { x = 12, y = 5 },
-    config = { extra = { timer = 2 } },
+    config = { extra = { timer = 5 } },
     loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.timer } } end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
@@ -158,7 +167,7 @@ local Mole = J({
     pools = { ["Epsilon"] = true },
     cost = 5,
     atlas = "Jokers02",
-    ptype = C.Forest,
+    ptype = C.Fire,
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
@@ -206,7 +215,7 @@ local Mole_Plus = J({
     pools = { ["Epsilon"] = false },
     cost = 5,
     atlas = "Jokers02",
-    ptype = C.Forest,
+    ptype = C.Fire,
     pposition = C.DF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
@@ -341,7 +350,7 @@ local Tytan_Plus = J({
     loc_vars = function(self, info_queue, center)
         local count = 0
         if G.playing_cards then for _, c in ipairs(G.playing_cards) do if SMODS.has_enhancement(c, 'm_stone') or SMODS.has_enhancement(c, 'm_steel') then count = count + 1 end end end
-        return { vars = { center.ability.extra.chips, center.ability.extra.x_mult, center.ability.extra.timer, count, count * center.ability.extra.chips, count * center.ability.extra.x_mult } }
+        return { vars = { center.ability.extra.chips, center.ability.extra.x_mult, center.ability.extra.timer, count, count * center.ability.extra.chips, 1 + (count * center.ability.extra.x_mult) } }
     end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
@@ -373,34 +382,61 @@ local Tytan_Plus = J({
 local Fedora = J({
     name = "Fedora",
     pos = { x = 5, y = 5 },
-    config = { extra = { mult_per_discard = 10, discarded_this_blind = 0, planets_used = 0, target_planets = 3 } },
+    config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0, planets_used = 0, target_planets = 3 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Fedora_Evolution', vars = { ex.planets_used, ex.target_planets } }
-        return { vars = { ex.mult_per_discard, ex.mult_per_discard * (ex.discarded_this_blind or 0), ex.planets_used } }
+        return { vars = { ex.mult_per_card, ex.void_count * ex.mult_per_card, ex.planets_used } }
     end,
     rarity = 2,
     pools = { ["Epsilon"] = true },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Fire,
+    ptype = C.Wind,
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
-        if ctx.using_consumeable and ctx.consumeable.ability.set == 'Planet' and not ctx.blueprint then
+        if ctx.discard and not ctx.blueprint then
+            local oc = ctx.other_card
+            table.insert(ex.void_data, {
+                card_key = oc.config.card_key,
+                ability = oc.config.center.key,
+                edition = oc.edition,
+                seal = oc.seal
+            })
+            ex.void_count = ex.void_count + 1
+            oc.removed = true
+            oc:start_dissolve()
+            return { message = localize('k_void_ex'), colour = G.C.SECONDARY_SET.Spectral }
+        elseif ctx.joker_main and ex.void_count > 0 then
+            return { mult = ex.void_count * ex.mult_per_card }
+        elseif ctx.using_consumeable and ctx.consumeable.ability.set == 'Planet' and not ctx.blueprint then
             ex.planets_used = ex.planets_used + 1
             if ex.planets_used >= ex.target_planets then ina_backend_evolve(card, 'j_ina_Fedora_Plus') end
-        elseif (ctx.setting_blind or ctx.skip_blind) and not ctx.blueprint then
-            if ctx.setting_blind then ex.discarded_this_blind = 0 end
-        elseif ctx.discard and not ctx.blueprint then
-            ex.discarded_this_blind = (ex.discarded_this_blind or 0) + 1
-        elseif ctx.individual and ctx.cardarea == G.play then
-            if ctx.other_card and ctx.other_card.config.center.key == 'm_ina_chaotic' then
-                local m = ex.mult_per_discard * (ex.discarded_this_blind or 0)
-                if m > 0 then return { mult = m, card = card } end
+        elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
+            ex.rounds_active = ex.rounds_active + 1
+            if ex.rounds_active >= 2 then
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    func = function()
+                        for _, data in ipairs(ex.void_data) do
+                            local _c = Card(G.deck.T.x, G.deck.T.y, G.CARD_W, G.CARD_H, G.P_CARDS[data.card_key], G.P_CENTERS[data.ability])
+                            if data.edition then _c:set_edition(data.edition, true) end
+                            if data.seal then _c:set_seal(data.seal, true) end
+                            _c:add_to_deck()
+                            G.deck:emplace(_c)
+                            table.insert(G.playing_cards, _c)
+                        end
+                        ex.void_data = {}
+                        ex.void_count = 0
+                        ex.rounds_active = 0
+                        return true
+                    end
+                }))
+                return { message = localize('k_void_return_ex'), colour = G.C.GREEN }
             end
         end
     end
@@ -409,20 +445,58 @@ local Fedora = J({
 local Fedora_Plus = J({
     name = "Fedora_Plus",
     pos = { x = 3, y = 6 },
-    config = { extra = { x_mult = 2 } },
-    loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.x_mult } } end,
+    config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0 } },
+    loc_vars = function(self, info_queue, center) 
+        local ex = center.ability.extra
+        return { vars = { ex.mult_per_card, ex.void_count * ex.mult_per_card } } 
+    end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Fire,
+    ptype = C.Wind,
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
-        if ctx.joker_main then
-            local dvalin = get_joker_with_key('j_ina_Dvalin_Plus')
-            if dvalin then return { x_mult = card.ability.extra.x_mult } end
+        local ex = card.ability.extra
+        if ctx.discard and not ctx.blueprint then
+            local oc = ctx.other_card
+            table.insert(ex.void_data, {
+                card_key = oc.config.card_key,
+                ability = oc.config.center.key,
+                edition = oc.edition,
+                seal = oc.seal
+            })
+            ex.void_count = ex.void_count + 1
+            oc.removed = true
+            oc:start_dissolve()
+            return { message = localize('k_void_ex'), colour = G.C.SECONDARY_SET.Spectral }
+        elseif ctx.joker_main and ex.void_count > 0 then
+            return { mult = ex.void_count * ex.mult_per_card }
+        elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
+            ex.rounds_active = ex.rounds_active + 1
+            if ex.rounds_active == 1 then
+                -- Return cards immediately but keep bonus for next blind
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    func = function()
+                        for _, data in ipairs(ex.void_data) do
+                            local _c = Card(G.deck.T.x, G.deck.T.y, G.CARD_W, G.CARD_H, G.P_CARDS[data.card_key], G.P_CENTERS[data.ability])
+                            if data.edition then _c:set_edition(data.edition, true) end
+                            if data.seal then _c:set_seal(data.seal, true) end
+                            _c:add_to_deck()
+                            G.deck:emplace(_c)
+                            table.insert(G.playing_cards, _c)
+                        end
+                        ex.void_data = {}
+                        return true
+                    end
+                }))
+            elseif ex.rounds_active >= 2 then
+                ex.void_count = 0
+                ex.rounds_active = 0
+            end
         end
     end
 })
@@ -436,13 +510,13 @@ local Krypto = J({
         local count = 0
         if G.playing_cards then for _, c in ipairs(G.playing_cards) do if c.config.center.key == 'm_ina_chaotic' then count = count + 1 end end end
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Krypto_Evolution', vars = { count, ex.target_chaotic } }
-        return { vars = { ex.target_chaotic } } 
+        return { vars = { count, ex.target_chaotic } } 
     end,
     rarity = 2,
     pools = { ["Epsilon"] = true },
     cost = 6,
     atlas = "Jokers02",
-    ptype = C.Wind,
+    ptype = C.Fire,
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
@@ -475,7 +549,7 @@ local Krypto_Plus = J({
     pools = { ["Epsilon"] = false },
     cost = 6,
     atlas = "Jokers02",
-    ptype = C.Wind,
+    ptype = C.Fire,
     pposition = C.MF,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
