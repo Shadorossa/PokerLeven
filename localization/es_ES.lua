@@ -1992,15 +1992,6 @@ return {
             },
 
 
-            -- IE3_Q_Ogre
-            -- Ogre
-            j_ina_Triumvir = {
-                name = "Oni Triumvir",
-                text = {
-                    "Otorga {X:mult,C:white} X#1# {} si tienes a",
-                    "{C:attention}Lancer{}, {C:attention}Malice{} y {C:attention}Callous{}."
-                }
-            },
             j_ina_Malice = {
                 name = "Escavan Malice",
                 text = {
