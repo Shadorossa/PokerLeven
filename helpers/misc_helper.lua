@@ -419,7 +419,7 @@ end
 -- Color Joker Hook: Detect Spectral card usage
 local use_consumeable_ref = Card.use_consumeable
 function Card:use_consumeable(area, copier)
-    if self.config.center.set == 'Spectral' then
+    if self.config.center.key == 'c_sigil' then
         G.ina_color_force_suit = true
     end
     local res = use_consumeable_ref(self, area, copier)

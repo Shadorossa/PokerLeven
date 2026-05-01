@@ -514,6 +514,7 @@ local Color = J({
   name = "Color",
   pos = { x = 11, y = 7 },
   loc_vars = function(self, info_queue, center)
+    info_queue[#info_queue + 1] = G.P_CENTERS.c_sigil
     local s = G.GAME and G.GAME.ina_color_suit and localize(G.GAME.ina_color_suit, 'suits_singular') or "Ninguno"
     return { vars = { s } }
   end,

@@ -1674,7 +1674,7 @@ return {
             j_ina_Color = {
                 name = "Color",
                 text = {
-                    "Sobres Estándar y efectos {C:spectral}Espectrales{}",
+                    "Sobres Estándar y la carta {C:spectral}Sigilo{}",
                     "se fuerzan al {C:attention}palo{} de tu último {C:attention}Color{}.",
                     "{C:inactive}(Actual:{} {C:attention}#1#{}{C:inactive}){}"
                 }
