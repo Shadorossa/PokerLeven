@@ -74,7 +74,7 @@ local Beltzer = J({
 local Blade = J({
   name = "Blade",
   pos = { x = 11, y = 6 },
-  config = { extra = { discards_gain = 1 } },
+  config = { extra = { discards_gain = 1, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
     return { vars = { ex.discards_gain } }
@@ -89,7 +89,12 @@ local Blade = J({
   blueprint_compat = true,
   calculate = function(self, card, ctx)
     local ex = card.ability.extra
-    if ctx.joker_main and not ctx.blueprint and ctx.scoring_name == 'Flush' then
+    if ctx.setting_blind and not ctx.blueprint then
+        ex.triggered = false
+    end
+
+    if ctx.joker_main and not ctx.blueprint and ctx.scoring_name and string.find(ctx.scoring_name, 'Flush') and not ex.triggered then
+        ex.triggered = true
         ease_discard(ex.discards_gain)
         return { message = "+" .. ex.discards_gain .. " Descartes", colour = G.C.RED }
     end

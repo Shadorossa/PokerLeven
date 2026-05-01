@@ -1567,8 +1567,8 @@ return {
                 name = "Blade",
                 text = {
                     "{C:mountain}Defensa Prohibida{}",
-                    "Si juegas un {C:attention}Color{},",
-                    "gana {C:red}+#1#{} descartes para esta ciega."
+                    "El {C:attention}primer Color{} jugado en",
+                    "la ciega otorga {C:red}+#1#{} descartes."
                 }
             },
             j_ina_Argie = {
