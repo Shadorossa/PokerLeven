@@ -1801,6 +1801,21 @@ return {
                     "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}"
                 }
             },
+
+            -- IE2_J_MaryTimes
+            j_ina_Soundtown = {
+                name = "Cadence Soundtown",
+                text = {
+                    "Ajusta el volumen de la música según tu sintonía con él.",
+                    "Las condiciones de sintonía son {C:attention}secretas{} y cambian cada ronda.",
+                    "{C:inactive}(Nivel actual: #1#){}",
+                    "{C:green}Sintonía Alta{}: {X:mult,C:white}X2{} permanente y volumen +20%.",
+                    "{C:orange}Sintonía Media{}: {X:mult,C:white}X0.25{} permanente.",
+                    "{C:red}Sintonía Baja{}: {X:mult,C:white}X-0.5{} permanente y volumen -20%.",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}"
+                }
+            },
+
             j_ina_Grent = {
                 name = "Grent",
                 text = {
@@ -1815,9 +1830,10 @@ return {
                 name = "Hauser",
                 text = {
                     "{C:mountain}Capa de Alius{}",
-                    "Al puntuar una mano, consume",
-                    "{C:attention}#1# Barrera{} para convertir una",
-                    "carta de tu mano en {C:attention}Piedra{}."
+                    "Al puntuar cartas de {C:attention}Piedra{},",
+                    "las {C:red}elimina{} de tu mazo.",
+                    "Por cada {C:attention}2{} piedras eliminadas,",
+                    "genera {C:attention}1 {X:mountain,C:white}Barrera{}."
                 }
             },
             j_ina_Wittz = {

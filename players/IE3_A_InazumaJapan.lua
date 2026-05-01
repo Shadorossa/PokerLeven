@@ -353,7 +353,7 @@ local Thor_IJ = J({
 local Jude_IJ = J({
   name = "Jude_IJ",
   pos = { x = 8, y = 0 },
-  soul_pos = { x = 8B, y = 1 },
+  soul_pos = { x = 8, y = 1 },
   config = {
     extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
     }

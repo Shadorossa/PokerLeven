@@ -107,17 +107,28 @@ local Hauser = J({
   blueprint_compat = true,
   calculate = function(self, card, ctx)
     if ctx.joker_main and not ctx.blueprint then
-        if (G.GAME.current_round.barriers or 0) >= card.ability.extra.barriers_consumed then
-            local cards_in_hand = {}
-            for _, c in ipairs(G.hand.cards) do if not c.highlighted and c.config.center == G.P_CENTERS.c_base then table.insert(cards_in_hand, c) end end
-            
-            if #cards_in_hand > 0 then
-                Pokerleven.ease_barriers(-card.ability.extra.barriers_consumed)
-                local target = cards_in_hand[math.random(#cards_in_hand)]
-                target:set_ability(G.P_CENTERS.m_stone)
-                target:juice_up()
-                return { message = localize('k_stone'), colour = G.C.GREY }
+        local stones = {}
+        for _, c in ipairs(ctx.scoring_hand) do
+            if SMODS.has_enhancement(c, 'm_stone') then
+                table.insert(stones, c)
             end
+        end
+        
+        local count = #stones
+        if count >= 2 then
+            local barriers_to_add = math.floor(count / 2)
+            local stones_to_destroy = barriers_to_add * 2
+            
+            Pokerleven.ease_barriers(barriers_to_add)
+            
+            for i = 1, stones_to_destroy do
+                stones[i]:start_dissolve()
+            end
+            
+            return {
+                message = "+"..barriers_to_add.." Barreras",
+                colour = G.C.MOUNTAIN
+            }
         end
     end
   end
