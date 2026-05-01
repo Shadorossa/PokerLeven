@@ -658,9 +658,9 @@ Pokerleven.ui.create_UIBox_gacha = function()
   local team_blind_keys = {
     "bl_ina_raimon", "bl_ina_occult", "bl_ina_royal_blind", "bl_ina_wild",
     "bl_ina_brain", "bl_ina_otaku", "bl_ina_farm", "bl_ina_inazuma_eleven",
-    "bl_ina_kirkwood", "bl_ina_shuriken", "bl_ina_zeus", "bl_ina_gemini",
+    "bl_ina_kirkwood", "bl_ina_shuriken", "bl_ina_zeus", "bl_ina_tormenta_geminis",
     "bl_ina_spfixers", "bl_ina_alpine", "bl_ina_epsilon", "bl_ina_RRedux",
-    "bl_ina_epsilonplus", "bl_ina_Prominence", "bl_ina_Diamond", "bl_ina_cloister",
+    "bl_ina_Prominence", "bl_ina_Diamond", "bl_ina_cloister",
     "bl_ina_osakaccc", "bl_ina_fauxshore", "bl_ina_marytimes", "bl_ina_Genesis"
   }
 
@@ -670,7 +670,7 @@ Pokerleven.ui.create_UIBox_gacha = function()
     if blind_def then
       local is_discovered = blind_def.discovered
       local blind_pos = is_discovered and blind_def.pos or G.b_undiscovered.pos
-      local blind_atlas = blind_def.atlas or 'blind_chips'
+      local blind_atlas = is_discovered and (blind_def.atlas or 'blind_chips') or 'blind_chips'
       local blind_sprite = AnimatedSprite(0,0, 0.75, 0.75, G.ANIMATION_ATLAS[blind_atlas] or G.ANIMATION_ATLAS['blind_chips'], blind_pos)
       blind_sprite:define_draw_steps({{shader = 'dissolve', shadow_height = 0.05}, {shader = 'dissolve'}})
       

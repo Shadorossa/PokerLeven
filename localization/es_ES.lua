@@ -197,6 +197,10 @@ return {
                 name = "Jefe de Bosque",
                 text = { "Debilita cartas de {X:forest,C:white}Bosque{}", "tras cada mano jugada.", "{X:fire,C:white}Fuego{} obtiene {C:attention}+20%{} de stats." }
             },
+            bl_ina_tormenta_geminis = {
+                name = "Tormenta de Géminis",
+                text = { "Juega tu mano en {C:attention}10s{}", "o se jugará {C:attention}automáticamente{}" }
+            },
             bl_ina_mountain = {
                 name = "Jefe de Montaña",
                 text = { "Debilita cartas de {X:mountain,C:white}Montaña{}", "tras cada mano jugada.", "{X:wind,C:white}Viento{} obtiene {C:attention}+20%{} de stats." }
@@ -254,41 +258,34 @@ return {
             },
 
             -- Inazuma Eleven 2
-            bl_ina_gemini = {
-                name = "Tormenta de Geminis",
-                text = { "" }
-            },
-
             bl_ina_epsilon = {
                 name = "Épsilon",
-                text = { "" }
+                text = { "La {C:attention}primera mano{} jugada", "no puntúa" }
             },
-
             bl_ina_epsilonplus = {
                 name = "Épsilon Plus",
-                text = { "" }
+                text = { "No puntúan manos de {C:attention}4+ cartas{}", "salvo {C:attention}Tormenta de Fuego{}" }
             },
-
             bl_ina_RRedux = {
                 name = "Royal Academy Redux",
-                text = { "" }
+                text = { "{C:attention}5%{} (+5% por mano) de", "destruir un Joker activado" }
             },
-
             bl_ina_Genesis = {
                 name = "Génesis",
-                text = { "" }
+                text = { "Anula todas las {C:attention}Ediciones{}", "y {C:attention}Sellos{} de tus cartas" }
             },
-
             bl_ina_Prominence = {
                 name = "Prominence",
-                text = { "" }
+                text = { "El {C:attention}25%{} de tu puntuación", "final es destruido" }
             },
-
             bl_ina_Diamond = {
                 name = "Polvo de Diamantes",
-                text = { "" }
+                text = { "Las cartas y Jokers", "{C:attention}no pueden moverse{}" }
             },
-
+            bl_ina_ForestTeam = {
+                name = "Mar de Árboles",
+                text = { "Al jugar o descartar, los palos", "del mazo {C:attention}cambian al azar{}" }
+            },
             bl_ina_YoungInazuma = {
                 name = "Young Inazuma",
                 text = {
@@ -1080,8 +1077,6 @@ return {
                 },
             },
 
-
-            -- IE2_A_TormentaDeGeminis
             -- IE2_A_TormentaDeGeminis
             j_ina_Galileo = {
                 name = "Galileo",
@@ -3180,7 +3175,7 @@ return {
             ["ina_team_Shuriken"] = "Shuriken",
             ["ina_team_Zeus"] = "Zeus",
             ["ina_team_Torneo"] = "Torneo",
-            ["ina_team_TormentadeGéminis"] = "Tormenta de Géminis",
+            ["ina_team_TormentaDeGeminis"] = "Tormenta de Géminis",
             ["ina_team_ServicioSecreto"] = "Servicio Secreto",
             ["ina_team_Alpino"] = "Alpino",
             ["ina_team_Epsilon"] = "Épsilon",

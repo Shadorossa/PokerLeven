@@ -583,3 +583,16 @@ b_plasma=           {name = "Plasma Deck",      stake = 1, unlocked = false,orde
 b_erratic=          {name = "Erratic Deck",     stake = 1, unlocked = false,order = 15, pos = {x=2,y=3}, set = "Back", config = {randomize_rank_suit = true}, unlock_condition = {type = 'win_stake', stake=7}},
 '''
 match_indent = true
+
+# Diamond Dust Movement Restriction
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if self.states.drag.is then"
+position = "before"
+match_indent = true
+payload = '''
+if G.GAME.blind and G.GAME.blind.config.blind and G.GAME.blind.config.blind.key == 'Diamond' then
+    return
+end
+'''

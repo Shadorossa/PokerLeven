@@ -14,7 +14,7 @@ Pokerleven.gacha_team_mapping = {
     bl_ina_kirkwood = "ina_team_Kirkwood",
     bl_ina_shuriken = "ina_team_Shuriken",
     bl_ina_zeus = "ina_team_Zeus",
-    bl_ina_gemini = "ina_team_TormentadeGéminis",
+    bl_ina_tormenta_geminis = "ina_team_TormentaDeGeminis",
     bl_ina_spfixers = "ina_team_ServicioSecreto",
     bl_ina_alpine = "ina_team_Alpino",
     bl_ina_epsilon = "ina_team_Epsilon",
@@ -204,28 +204,7 @@ G.FUNCS.ina_gacha_roll = function(e)
       return
   end
 
-  G.GAME.ina_gacha_coins[coin_id] = G.GAME.ina_gacha_coins[coin_id] - 1
-  play_sound('coin3', 1, 0.3)
-
-  local coin_id = Pokerleven.gacha_selected_coin
-  if not coin_id then return end
-  G.GAME.ina_gacha_coins = G.GAME.ina_gacha_coins or {blue = 0, red = 0, silver = 0, purple = 0, gold = 0}
-  
-  if Pokerleven.gacha_selected_count < 2 then
-      play_sound('cancel', 0.5, 0.3)
-      return
-  end
-
-  if G.GAME.ina_gacha_coins[coin_id] <= 0 then
-      play_sound('cancel', 0.5, 0.3)
-      return
-  end
-
-  if #G.jokers.cards >= G.jokers.config.card_limit then
-      play_sound('cancel', 0.5, 0.3)
-      return
-  end
-
+  -- Restar exactamente 1 moneda
   G.GAME.ina_gacha_coins[coin_id] = G.GAME.ina_gacha_coins[coin_id] - 1
   play_sound('coin3', 1, 0.3)
 

@@ -552,18 +552,91 @@ local kirkwood = {
 
 local gemini = {
     object_type = "Blind",
-    name = "ina-gemini",
-    key = "gemini",
+    name = "Gemini",
+    key = "tormenta_geminis",
     pos = { x = 0, y = 16 },
     config = { extra = {} },
     discovered = false,
-    mult = 0,
+    mult = 2,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
-    calculate = function(self, blind, context)
+    boss = { min = 1, max = 3 },
+    update = function(self, dt)
+        -- Solo actuar si estamos en la fase de elegir mano
+        if G.STATE == G.STATES.SELECT_HAND then
+            self.gemini_timer = (self.gemini_timer or 10) - dt
+            
+            -- Aviso visual
+            if self.gemini_timer <= 3 and not self.timer_warning then
+                attention_text({
+                    text = '¡RÁPIDO!',
+                    scale = 1.2, 
+                    hold = 0.5,
+                    backdrop_colour = G.C.RED,
+                    align = 'cm',
+                    offset = {x = 0, y = -1},
+                    major = G.play
+                })
+                self.timer_warning = true
+            end
+
+            -- Sonido de cuenta atrás
+            if math.ceil(self.gemini_timer) ~= self.last_sec then
+                self.last_sec = math.ceil(self.gemini_timer)
+                if self.last_sec <= 5 and self.last_sec > 0 then
+                    play_sound('base_count', 1 + (0.1 * (5 - self.last_sec)), 0.2)
+                end
+            end
+
+            if self.gemini_timer <= 0 then
+                self.gemini_timer = 10 
+                self.timer_warning = false
+                self:auto_play_hand()
+            end
+        else
+            self.gemini_timer = nil
+            self.timer_warning = false
+        end
+    end,
+
+    auto_play_hand = function(self)
+        if G.STATE ~= G.STATES.SELECT_HAND then return end
+        
+        -- Completar hasta 5 cartas
+        local cards_to_select = 5 - #G.hand.highlighted
+        if cards_to_select > 0 then
+            local unhighlighted = {}
+            for _, v in ipairs(G.hand.cards) do
+                if not v.highlighted then table.insert(unhighlighted, v) end
+            end
+            
+            for i = 1, math.min(cards_to_select, #unhighlighted) do
+                local target = pseudorandom_element(unhighlighted, pseudoseed('gemini_auto'))
+                G.hand:add_to_highlighted(target)
+                for j, c in ipairs(unhighlighted) do
+                    if c == target then table.remove(unhighlighted, j); break end
+                end
+            end
+        end
+
+        G.FUNCS.play_cards_from_highlighted()
+        
+        attention_text({
+            text = '¡TIEMPO!',
+            scale = 1.5, 
+            hold = 1,
+            backdrop_colour = G.C.PURPLE,
+            align = 'cm',
+            major = G.play
+        })
+        play_sound('cancel', 0.8, 0.5)
+    end,
+
+    disable = function(self)
+        self.gemini_timer = nil
+        self.timer_warning = false
     end
 }
 
@@ -574,12 +647,12 @@ local epsilon = {
     pos = { x = 0, y = 17 },
     config = { extra = {} },
     discovered = false,
-    mult = 0,
+    mult = 2,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
+    boss = { min = 3, max = 4 },
     calculate = function(self, blind, context)
     end
 }
@@ -591,13 +664,28 @@ local epsilonplus = {
     pos = { x = 0, y = 18 },
     config = { extra = {} },
     discovered = false,
-    mult = 0,
+    mult = 2.5,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
+    boss = { min = 6, max = 7 },
+    in_pool = function(self)
+        return G.P_BLINDS and G.P_BLINDS.bl_ina_epsilon and G.P_BLINDS.bl_ina_epsilon.discovered
+    end,
     calculate = function(self, blind, context)
+        if context.main_scoring then
+            -- Solo puntúa si es menos de 4 cartas O si es Tormenta de Fuego (MagicHand con variante fuego)
+            local is_firestorm = context.scoring_hand_name == "MagicHand" and G.GAME.magic_hand_variant == "ina_magic_fire"
+            if #context.full_hand >= 4 and not is_firestorm then
+                return {
+                    chips = 0,
+                    mult = 0,
+                    message = "¡DETENIDO!",
+                    colour = G.C.RED
+                }
+            end
+        end
     end
 }
 
@@ -608,13 +696,30 @@ local RRedux = {
     pos = { x = 0, y = 19 },
     config = { extra = {} },
     discovered = false,
-    mult = 0,
+    mult = 2,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
+    boss = { min = 5, max = 6 },
     calculate = function(self, blind, context)
+        if context.joker_main and not context.blueprint then
+            -- 5% base + 5% por mano gastada en ESTA ronda
+            local chance = 5 + (G.GAME.current_round.hands_played * 5)
+            if pseudorandom('rredux_check') < chance/100 then
+                local joker = context.joker_main
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        joker:start_dissolve()
+                        return true
+                    end
+                }))
+                return {
+                    message = "¡PROHIBIDO!",
+                    colour = G.C.RED
+                }
+            end
+        end
     end
 }
 
@@ -625,12 +730,51 @@ local Genesis = {
     pos = { x = 0, y = 20 },
     config = { extra = {} },
     discovered = false,
-    mult = 0,
+    mult = 2,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
+    boss = { min = 7, max = 7 },
+    set_blind = function(self)
+        -- Cero Absoluto: Desactivar Ediciones y Sellos
+        self.ina_genesis_data = {}
+        local targets = {}
+        if G.jokers then for _, v in ipairs(G.jokers.cards) do table.insert(targets, v) end end
+        for _, v in ipairs(G.playing_cards) do table.insert(targets, v) end
+        
+        for _, v in ipairs(targets) do
+            if v.edition or v.seal then
+                self.ina_genesis_data[v.unique_val or v.id] = {
+                    edition = v.edition,
+                    seal = v.seal
+                }
+                v:set_edition(nil, true, true)
+                v:set_seal(nil, true, true)
+            end
+        end
+    end,
+    disable = function(self)
+        self:restore_genesis()
+    end,
+    defeat = function(self)
+        self:restore_genesis()
+    end,
+    restore_genesis = function(self)
+        if not self.ina_genesis_data then return end
+        local targets = {}
+        if G.jokers then for _, v in ipairs(G.jokers.cards) do table.insert(targets, v) end end
+        for _, v in ipairs(G.playing_cards) do table.insert(targets, v) end
+
+        for _, v in ipairs(targets) do
+            local data = self.ina_genesis_data[v.unique_val or v.id]
+            if data then
+                if data.edition then v:set_edition(data.edition, true, true) end
+                if data.seal then v:set_seal(data.seal, true, true) end
+            end
+        end
+        self.ina_genesis_data = nil
+    end,
     calculate = function(self, blind, context)
     end
 }
@@ -641,17 +785,23 @@ local Prominence = {
     key = "Prominence",
     pos = { x = 0, y = 22 },
     config = { extra = {} },
-    boss = {
-        min = 9,
-    },
+    boss = { min = 5 },
     discovered = false,
-    mult = 0,
+    mult = 2,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
     calculate = function(self, blind, context)
+        if context.main_scoring then
+            -- El 25% de la puntuación es destruido
+            return {
+                chips = context.main_scoring.chips * 0.75,
+                mult = context.main_scoring.mult * 0.75,
+                message = "-25% SCORE",
+                colour = G.C.ORANGE
+            }
+        end
     end
 }
 
@@ -661,16 +811,13 @@ local Diamond = {
     key = "Diamond",
     pos = { x = 0, y = 21 },
     config = { extra = {} },
-    boss = {
-        min = 9,
-    },
+    boss = { min = 5 },
     discovered = false,
-    mult = 0,
+    mult = 2.5,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
     calculate = function(self, blind, context)
     end
 }
@@ -728,19 +875,47 @@ local ForestTeam = {
     object_type = "Blind",
     name = "ina-ForestTeam",
     key = "ForestTeam",
-    pos = { x = 0, y = 24 },
+    pos = { x = 0, y = 23 },
     config = { extra = {} },
-    boss = {
-        min = 9,
-    },
+    boss = { min = 5 },
     discovered = false,
-    mult = 0,
+    mult = 2,
     atlas = "bossBlinds",
     order = 1,
     boss_colour = HEX("B7865B"),
     dollars = 4,
-    big = { min = 3 },
-    calculate = function(self, blind, context)
+    set_blind = function(self)
+        -- Guardar palos originales
+        for _, v in ipairs(G.playing_cards) do
+            v.ability.ina_forest_suit = v.base.suit
+        end
+    end,
+    press_play = function(self)
+        self:randomize_suits()
+    end,
+    press_discard = function(self)
+        self:randomize_suits()
+    end,
+    randomize_suits = function(self)
+        local suits = {'S', 'D', 'H', 'C'}
+        for _, v in ipairs(G.playing_cards) do
+            local new_suit = pseudorandom_element(suits, pseudoseed('forest_random'))
+            v:set_suit(new_suit)
+        end
+    end,
+    disable = function(self)
+        self:restore_suits()
+    end,
+    defeat = function(self)
+        self:restore_suits()
+    end,
+    restore_suits = function(self)
+        for _, v in ipairs(G.playing_cards) do
+            if v.ability.ina_forest_suit then
+                v:set_suit(v.ability.ina_forest_suit)
+                v.ability.ina_forest_suit = nil
+            end
+        end
     end
 }
 
@@ -750,7 +925,10 @@ return {
         fire, mountain, wind, forest,
         raimon, royal_blind, wild,
         brain, otaku, shuriken, farm,
-        kirkwood, YoungInazuma }
+        kirkwood, YoungInazuma,
+        gemini, epsilon, epsilonplus, RRedux,
+        Genesis, Prominence, Diamond, ForestTeam
+    }
 }
 
 -- return {
