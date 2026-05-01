@@ -12,6 +12,10 @@ local Galileo = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 1,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -61,12 +65,16 @@ local Coral = J({
     end
     return { vars = { center.ability.extra.chips_per_special, special_count * center.ability.extra.chips_per_special } }
   end,
-  rarity = 2, -- Unusual
+  rarity = 2,
   pools = { ["Geminis"] = true },
   cost = 6,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 2,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -101,6 +109,10 @@ local Gigs = J({
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 3,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -141,6 +153,10 @@ local Ganymede = J({
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 4,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -180,6 +196,10 @@ local Charon = J({
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 5,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -221,12 +241,16 @@ local Pandora = J({
     local numerator = (G.GAME.probabilities.normal or 1) + wind_count
     return { vars = { numerator, center.ability.extra.base_odds, (numerator >= center.ability.extra.base_odds and localize('k_negative') or "") } }
   end,
-  rarity = 2, -- Unusual
+  rarity = 2,
   pools = { ["Geminis"] = true },
   cost = 6,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.F,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 6,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -266,12 +290,16 @@ local Grengo = J({
     local missing = math.max(0, 52 - #G.playing_cards)
     return { vars = { center.ability.extra.chips_per_missing, missing * center.ability.extra.chips_per_missing } }
   end,
-  rarity = 2, -- Unusual
+  rarity = 2,
   pools = { ["Geminis"] = true },
   cost = 6,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 7,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -303,6 +331,10 @@ local Io = J({
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 8,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -363,6 +395,10 @@ local Rihm = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.F,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 9,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -395,12 +431,16 @@ local Janus = J({
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.x_mult_gain, center.ability.extra.x_mult } }
   end,
-  rarity = 3, -- Rare
+  rarity = 3,
   pools = { ["Geminis"] = true },
   cost = 10,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 10,
   pcaptain = C.CAPTAIN,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
@@ -443,6 +483,10 @@ local Diam = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 11,
   pteam = "ina_team_TormentaDeGeminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -451,7 +495,7 @@ local Diam = J({
     if context.joker_main and not context.blueprint then
         local gemini_count = 0
         for _, j in ipairs(G.jokers.cards) do
-            if j.config.center.pteam == "ina_team_TormentadeGéminis" then gemini_count = gemini_count + 1 end
+            if j.config.center.pteam == "ina_team_TormentaDeGeminis" then gemini_count = gemini_count + 1 end
         end
 
         local destroyed_count = 0
@@ -483,5 +527,5 @@ local Diam = J({
 
 return {
   name = "Tormenta de Géminis",
-  list = { Galileo, Gigs, Coral, Ganymede, Charon, Pandora, Io, Rihm, Janus, Diam }
+  list = { Galileo, Coral, Gigs, Ganymede, Charon, Pandora, Io, Rihm, Janus, Diam }
 }

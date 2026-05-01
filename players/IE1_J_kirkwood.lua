@@ -1,3 +1,4 @@
+-- Neville
 local Neville = J({
     name = "Neville",
     pos = { x = 2, y = 11 },
@@ -5,13 +6,17 @@ local Neville = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.normal, G.GAME.probabilities.new_glass_denom or center.ability.extra.new_glass_denom } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Kirkwood"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Kirkwood"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "GK",
-  pteam = "ina_team_Kirkwood",
+    ptype = C.Fire,
+    pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 1,
+    pteam = "ina_team_Kirkwood",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     add_to_deck = function(self, card, from_debuff)
@@ -22,6 +27,7 @@ local Neville = J({
     end,
 })
 
+-- Night
 local Night = J({
     name = "Night",
     pos = { x = 3, y = 11 },
@@ -29,13 +35,17 @@ local Night = J({
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 3, -- Rare
-  pools = { ["ina_team_Kirkwood"] = true },
+    rarity = 3,
+    pools = { ["ina_team_Kirkwood"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "DF",
-  pteam = "ina_team_Kirkwood",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 2,
+    pteam = "ina_team_Kirkwood",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -54,106 +64,79 @@ local Night = J({
     end,
 })
 
-local Marvin = J({
-    name = "Marvin",
-    pos = { x = 10, y = 11 },
-    config = { extra = { mult_mod_low = 4 } },
-    loc_vars = function(self, info_queue, center)
-        local mult_mod = center.ability.extra.mult_mod_low
-        table.insert(info_queue, { set = "Other", key = "Trillizos" })
-        return { vars = { mult_mod } }
-    end,
-    rarity = 2, -- Uncommon
+-- Meenan
+local Meenan = J({
+  name = "Meenan",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
   pools = { ["ina_team_Kirkwood"] = true },
-    cost = 7,
-    atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW",
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 3,
   pteam = "ina_team_Kirkwood",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        local scoring_card = Pokerleven.card_scoring(context)
-        if context.individual and scoring_card and scoring_card:is_uneven() then
-            local mult_mod = card.ability.extra.mult_mod_low
-            return {
-                mult = mult_mod,
-                card = card
-            }
-        end
-    end,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
 })
 
-local has_all_brothers = function()
-    return next(find_joker("Marvin")) and next(find_joker("Thomas")) and next(find_joker("Tyler"))
-end
-
-local Thomas = J({
-    name = "Thomas",
-    pos = { x = 11, y = 11 },
-    config = { extra = { chips_mod = 15, retrigger_count = 1 } },
-    loc_vars = function(self, info_queue, center)
-        local chips_mod = center.ability.extra.chips_mod
-        table.insert(info_queue, { set = "Other", key = "Trillizos" })
-        return { vars = { chips_mod } }
-    end,
-    rarity = 2, -- Uncommon
+-- Mirthful
+local Mirthful = J({
+  name = "Mirthful",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
   pools = { ["ina_team_Kirkwood"] = true },
-    cost = 7,
-    atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW",
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 4,
   pteam = "ina_team_Kirkwood",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        local scoring_card = Pokerleven.card_scoring(context)
-        if context.repetition and context.cardarea == G.play and
-            has_all_brothers() and
-            scoring_card and scoring_card:is_uneven() then
-            return {
-                message = localize('k_again_ex'),
-                repetitions = card.ability.extra.retrigger_count,
-                card = scoring_card
-            }
-        end
-
-        if context.individual and scoring_card and scoring_card:is_uneven() then
-            local chips_mod = card.ability.extra.chips_mod
-            return {
-                chips = chips_mod,
-                card = card
-            }
-        end
-    end,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
 })
 
-local Tyler = J({
-    name = "Tyler",
-    pos = { x = 12, y = 11 },
-    config = { extra = { odds = 4 } },
-    loc_vars = function(self, info_queue, center)
-        table.insert(info_queue, { set = "Other", key = "Trillizos" })
-        return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
-    end,
-    rarity = 2, -- Uncommon
+-- Clover
+local Clover = J({
+  name = "Clover",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
   pools = { ["ina_team_Kirkwood"] = true },
-    cost = 7,
-    atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "FW",
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 5,
   pteam = "ina_team_Kirkwood",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        local scoring_card = Pokerleven.card_scoring(context)
-        if context.individual and scoring_card
-            and scoring_card:is_uneven()
-            and card:odds_triggered('Tyler') then
-            if Pokerleven.spawn_consumable('Tarot') then
-                return {message = localize('k_plus_tarot'), colour = G.C.PURPLE, card = card}
-            end
-        end
-    end
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
 })
 
+-- Damian
 local Damian = J({
     name = "Damian",
     pos = { x = 7, y = 11 },
@@ -161,13 +144,17 @@ local Damian = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Kirkwood"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Kirkwood"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
-  pteam = "ina_team_Kirkwood",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 6,
+    pteam = "ina_team_Kirkwood",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.ending_shop then
@@ -196,6 +183,7 @@ local Damian = J({
     end,
 })
 
+-- Nashmith
 local Nashmith = J({
     name = "Nashmith",
     pos = { x = 8, y = 11 },
@@ -204,12 +192,16 @@ local Nashmith = J({
         return { vars = { center.ability.extra.chip_mod } }
     end,
     rarity = 1,
-  pools = { ["ina_team_Kirkwood"] = true },
+    pools = { ["ina_team_Kirkwood"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF",
-  pteam = "ina_team_Kirkwood",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 7,
+    pteam = "ina_team_Kirkwood",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -234,27 +226,261 @@ local Nashmith = J({
     end,
 })
 
---[[ local z_triangle = J({
-    name = "Z_Triangle",
-    pos = { x = 11, y = 6 },
-    config = {},
+-- Moore
+local Moore = J({
+  name = "Moore",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Kirkwood"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 8,
+  pteam = "ina_team_Kirkwood",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Marvin
+local Marvin = J({
+    name = "Marvin",
+    pos = { x = 10, y = 11 },
+    config = { extra = { mult_mod_low = 4 } },
     loc_vars = function(self, info_queue, center)
-        return {}
+        local mult_mod = center.ability.extra.mult_mod_low
+        table.insert(info_queue, { set = "Other", key = "Trillizos" })
+        return { vars = { mult_mod } }
     end,
-    rarity = 1, -- Common
-    pools = { ["Kirkwood"] = true },
-    cost = 5,
+    rarity = 2,
+    pools = { ["ina_team_Kirkwood"] = true },
+    cost = 7,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW",
-    pteam = "Kirkwood",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 9,
+    pcaptain = C.CAPTAIN,
+    pteam = "ina_team_Kirkwood",
     blueprint_compat = true,
     calculate = function(self, card, context)
-        -- Add logic
+        local scoring_card = Pokerleven.card_scoring(context)
+        if context.individual and scoring_card and scoring_card:is_uneven() then
+            local mult_mod = card.ability.extra.mult_mod_low
+            return {
+                mult = mult_mod,
+                card = card
+            }
+        end
     end,
-    unlocked = false,
-    special = "Technique"
-}) ]]
+})
+
+-- Thomas
+local Thomas = J({
+    name = "Thomas",
+    pos = { x = 11, y = 11 },
+    config = { extra = { chips_mod = 15, retrigger_count = 1 } },
+    loc_vars = function(self, info_queue, center)
+        local chips_mod = center.ability.extra.chips_mod
+        table.insert(info_queue, { set = "Other", key = "Trillizos" })
+        return { vars = { chips_mod } }
+    end,
+    rarity = 2,
+    pools = { ["ina_team_Kirkwood"] = true },
+    cost = 7,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 10,
+    pteam = "ina_team_Kirkwood",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        local scoring_card = Pokerleven.card_scoring(context)
+        if context.repetition and context.cardarea == G.play and
+            (function() return next(find_joker("Marvin")) and next(find_joker("Thomas")) and next(find_joker("Tyler")) end)() and
+            scoring_card and scoring_card:is_uneven() then
+            return {
+                message = localize('k_again_ex'),
+                repetitions = card.ability.extra.retrigger_count,
+                card = scoring_card
+            }
+        end
+
+        if context.individual and scoring_card and scoring_card:is_uneven() then
+            local chips_mod = card.ability.extra.chips_mod
+            return {
+                chips = chips_mod,
+                card = card
+            }
+        end
+    end,
+})
+
+-- Tyler
+local Tyler = J({
+    name = "Tyler",
+    pos = { x = 12, y = 11 },
+    config = { extra = { odds = 4 } },
+    loc_vars = function(self, info_queue, center)
+        table.insert(info_queue, { set = "Other", key = "Trillizos" })
+        return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
+    end,
+    rarity = 2,
+    pools = { ["ina_team_Kirkwood"] = true },
+    cost = 7,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 11,
+    pteam = "ina_team_Kirkwood",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        local scoring_card = Pokerleven.card_scoring(context)
+        if context.individual and scoring_card
+            and scoring_card:is_uneven()
+            and card:odds_triggered('Tyler') then
+            if Pokerleven.spawn_consumable('Tarot') then
+                return {message = localize('k_plus_tarot'), colour = G.C.PURPLE, card = card}
+            end
+        end
+    end
+})
+
+-- Calier
+local Calier = J({
+  name = "Calier",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Kirkwood"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 12,
+  pteam = "ina_team_Kirkwood",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Gloom
+local Gloom = J({
+  name = "Gloom",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Kirkwood"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 13,
+  pteam = "ina_team_Kirkwood",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Talis
+local Talis = J({
+  name = "Talis",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Kirkwood"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 14,
+  pteam = "ina_team_Kirkwood",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Middleton
+local Middleton = J({
+  name = "Middleton",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Kirkwood"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 15,
+  pteam = "ina_team_Kirkwood",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Wells
+local Wells = J({
+  name = "Wells",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Kirkwood"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 16,
+  pteam = "ina_team_Kirkwood",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 return {
     name = "Kirkwood",

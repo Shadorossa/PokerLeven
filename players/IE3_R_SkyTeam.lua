@@ -13,7 +13,8 @@ local Anorel = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 1,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -34,7 +35,8 @@ local Nenel = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 2,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -55,7 +57,8 @@ local Genel = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 3,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -76,7 +79,8 @@ local Ekadel = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 4,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -110,7 +114,8 @@ local Lephiel = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 5,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -131,7 +136,8 @@ local Sachinel = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 6,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -152,7 +158,8 @@ local Wenel = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 7,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -173,7 +180,8 @@ local Nuel = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 8,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -194,7 +202,8 @@ local Ientel = J({
   pposition = C.MF,
   pgender = C.F,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 9,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -203,9 +212,10 @@ local Ientel = J({
 local Gaiel = J({
   name = "Gaiel",
   pos = { x = 10, y = 18 },
-  config = { extra = {} },
+  config = { extra = { savings = 0 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    local savings = G.GAME and G.GAME.gaiel_savings or 0
+    return { vars = { number_format(savings) } }
   end,
   rarity = 3,
   pools = { ["Sky Team"] = true },
@@ -215,34 +225,11 @@ local Gaiel = J({
   pposition = C.FW,
   pgender = C.F,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 10,
   pteam = "ina_team_SkyTeam",
-  blueprint_compat = true,
+  blueprint_compat = false,
   calculate = function(self, card, context)
-    if not G.GAME or not G.jokers or card.area ~= G.jokers then return end
-
-    if context.after and not context.blueprint then
-      local ante = (G.GAME and G.GAME.ante) or 1
-      local next_sb_target = (get_blind_amount(ante) or 0) * 1.0
-      local current_total = (G.GAME.chips or 0) + (context.hand_chips or 0)
-      local blind_chips = (G.GAME.blind and G.GAME.blind.chips) or 0
-      
-      if current_total >= blind_chips + next_sb_target and not G.GAME.ina_sael_active then
-        G.GAME.ina_sael_active = true
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            local tag_key = G.GAME.round_res.small_blind_tag or 'tag_rare'
-            add_tag(Tag(tag_key))
-            play_sound('timpani')
-            return true
-          end
-        }))
-        return {
-          message = localize('ina_celestial_remate'),
-          colour = G.C.WIND
-        }
-      end
-    end
   end
 })
 
@@ -262,7 +249,8 @@ local Sael = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.YEAR_3,
+  pyear = C.YEAR_UNKNOWN,
+  pdorsal = 11,
   pcaptain = C.CAPTAIN,
   pteam = "ina_team_SkyTeam",
   blueprint_compat = true,

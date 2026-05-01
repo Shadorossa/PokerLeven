@@ -1,5 +1,5 @@
 -- King
-local King = {
+local King = J({
   name = "King",
   pos = { x = 6, y = 2 },
   config = { extra = { triggered = false } },
@@ -10,8 +10,13 @@ local King = {
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "GK",
+  ptype = C.Fire,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 1,
+  pcaptain = C.CAPTAIN,
   pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -45,46 +50,10 @@ local King = {
       end
     end
   end
-
-}
-
--- Bloom
-local Bloom = J({
-  name = "Bloom",
-  pos = { x = 12, y = 2 },
-  config = { extra = { Xmult_mod = 3 } },
-  loc_vars = function(self, info_queue, center)
-    local grand_total = 0
-    for _, card in pairs(G.GAME.cards_played) do
-      grand_total = grand_total + card.total
-    end
-    return { vars = { center.ability.extra.Xmult_mod, grand_total } }
-  end,
-  rarity = 1,
-  pools = { ["ina_team_RoyalAcademy"] = true },
-  cost = 5,
-  atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "MF",
-  pteam = "ina_team_RoyalAcademy",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-    local grand_total = 0
-    for _, card in pairs(G.GAME.cards_played) do
-      grand_total = grand_total + card.total
-    end
-    if context.joker_main and context.scoring_hand and next(context.poker_hands['Straight'])
-        and grand_total >= 3 then
-      return {
-        Xmult = card.ability.extra.Xmult_mod
-      }
-    end
-  end,
 })
 
 -- Drent
-local Drent = {
+local Drent = J({
   name = "Drent",
   pos = { x = 7, y = 2 },
   config = { extra = { odds = 5, triggered = false } },
@@ -100,8 +69,12 @@ local Drent = {
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "DF",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 2,
   pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -120,58 +93,66 @@ local Drent = {
       end
     end
   end
-}
+})
 
--- Jude
-local Jude = {
-  name = "Jude",
-  pos = { x = 0, y = 0 },
-  soul_pos = { x = 0, y = 1 },
-  config = {
-    extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
-    }
-  },
+-- Simmons
+local Simmons = J({
+  name = "Simmons",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.current_xmult, center.ability.extra.xmult_mod } }
+    return {}
   end,
-  rarity = "ina_top",
+  rarity = 1,
   pools = { ["ina_team_RoyalAcademy"] = true },
-  cost = 8,
-  atlas = "top",
-  ptype = "Wind",
-  stage = "base",
-  pposition = "MF",
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 3,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Master
+local Master = J({
+  name = "Master",
+  pos = { x = 9, y = 2 },
+  config = { extra = { mult_mod = 7, triggered = false } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.mult_mod } }
+  end,
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 4,
   pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.post_trigger and context.other_card ~= card
-        and context.other_card == card:get_left_joker() then
-      card.ability.extra.current_xmult = (card.ability.extra.current_xmult or 0) + card.ability.extra.xmult_mod
-
-      G.E_MANAGER:add_event(Event({
-        func = function()
-          card_eval_status_text(card, 'extra', nil, nil, nil, {
-            message = localize("ina_evolve_level"),
-            colour = G.C.XMULT
-          })
-          return true
-        end
-      }))
-
-      return {}
+    if context.cardarea == G.jokers and context.joker_main then
+      if not card:get_left_joker() then
+        local count = #find_player_team("ina_team_RoyalAcademy")
+        return {
+          message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * count } },
+          colour = G.C.MULT,
+          mult_mod = card.ability.extra.mult_mod * count
+        }
+      end
     end
-
-    if context.joker_main and context.scoring_hand then
-      card.ability.extra.triggered = true
-      return {
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_xmult } },
-        colour = G.C.XMULT,
-        Xmult_mod = card.ability.extra.current_xmult
-      }
-    end
-  end,
-}
+  end
+})
 
 -- Martin
 local Martin = J({
@@ -188,8 +169,12 @@ local Martin = J({
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 5,
   pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -260,39 +245,184 @@ local Martin = J({
   end,
 })
 
--- Master
-local Master = {
-  name = "Master",
-  pos = { x = 9, y = 2 },
-  config = { extra = { mult_mod = 7, triggered = false } },
+-- Waldon
+local Waldon = J({
+  name = "Waldon",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.mult_mod } }
+    return {}
   end,
   rarity = 1,
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Wind",
-  pposition = "MF",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 6,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Bloom
+local Bloom = J({
+  name = "Bloom",
+  pos = { x = 12, y = 2 },
+  config = { extra = { Xmult_mod = 3 } },
+  loc_vars = function(self, info_queue, center)
+    local grand_total = 0
+    for _, card in pairs(G.GAME.cards_played) do
+      grand_total = grand_total + card.total
+    end
+    return { vars = { center.ability.extra.Xmult_mod, grand_total } }
+  end,
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 7,
+  pteam = "ina_team_RoyalAcademy",
+  techtype = C.UPGRADES.Number,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    local grand_total = 0
+    for _, card in pairs(G.GAME.cards_played) do
+      grand_total = grand_total + card.total
+    end
+    if context.joker_main and context.scoring_hand and next(context.poker_hands['Straight'])
+        and grand_total >= 3 then
+      return {
+        Xmult = card.ability.extra.Xmult_mod
+      }
+    end
+  end
+})
+
+-- Swing
+local Swing = J({
+  name = "Swing",
+  pos = { x = 0, y = 3 },
+  config = { extra = { chips_mod = 60, triggered = false } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.chips_mod } }
+  end,
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 8,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  techtype = C.UPGRADES.Number,
+  calculate = function(self, card, context)
+    if context.scoring_hand and context.joker_main and next(context.poker_hands['Three of a Kind']) then
+      local count = #find_player_team("ina_team_RoyalAcademy")
+      card.ability.extra.triggered = true
+      return {
+        message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips_mod * count } },
+        colour = G.C.CHIPS,
+        chip_mod = card.ability.extra.chips_mod * count
+      }
+    end
+  end
+})
+
+-- Hatch
+local Hatch = J({
+  name = "Hatch",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 9,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Jude
+local Jude = J({
+  name = "Jude",
+  pos = { x = 0, y = 0 },
+  soul_pos = { x = 0, y = 1 },
+  config = {
+    extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
+    }
+  },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.current_xmult, center.ability.extra.xmult_mod } }
+  end,
+  rarity = "ina_top",
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 8,
+  atlas = "top",
+  ptype = C.Wind,
+  stage = "base",
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 10,
   pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.joker_main then
-      if not card:get_left_joker() then
-        local count = #find_player_team("ina_team_RoyalAcademy")
-        return {
-          message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * count } },
-          colour = G.C.MULT,
-          mult_mod = card.ability.extra.mult_mod * count
-        }
-      end
+    if context.post_trigger and context.other_card ~= card
+        and context.other_card == card:get_left_joker() then
+      card.ability.extra.current_xmult = (card.ability.extra.current_xmult or 0) + card.ability.extra.xmult_mod
+
+      G.E_MANAGER:add_event(Event({
+        func = function()
+          card_eval_status_text(card, 'extra', nil, nil, nil, {
+            message = localize("ina_evolve_level"),
+            colour = G.C.XMULT
+          })
+          return true
+        end
+      }))
+
+      return {}
     end
-  end,
-}
+
+    if context.joker_main and context.scoring_hand then
+      card.ability.extra.triggered = true
+      return {
+        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_xmult } },
+        colour = G.C.XMULT,
+        Xmult_mod = card.ability.extra.current_xmult
+      }
+    end
+  end
+})
 
 -- Samford
-local Samford = {
+local Samford = J({
   name = "Samford",
   pos = { x = 4, y = 3 },
   config = { extra = { xmult_mod = 3, triggered = false } },
@@ -303,8 +433,12 @@ local Samford = {
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "FW",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 11,
   pteam = "ina_team_RoyalAcademy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -319,38 +453,128 @@ local Samford = {
         }
       end
     end
-  end,
-}
+  end
+})
 
--- Swing
-local Swing = {
-  name = "Swing",
-  pos = { x = 0, y = 3 },
-  config = { extra = { chips_mod = 60, triggered = false } },
+-- Carlton
+local Carlton = J({
+  name = "Carlton",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod } }
+    return {}
   end,
   rarity = 1,
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Wind",
-  pposition = "MF",
+  ptype = C.Forest,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 12,
   pteam = "ina_team_RoyalAcademy",
   blueprint_compat = true,
-  techtype = C.UPGRADES.Number,
   calculate = function(self, card, context)
-    if context.scoring_hand and context.joker_main and next(context.poker_hands['Three of a Kind']) then
-      local count = #find_player_team("ina_team_RoyalAcademy")
-      card.ability.extra.triggered = true
-      return {
-        message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips_mod * count } },
-        colour = G.C.CHIPS,
-        chip_mod = card.ability.extra.chips_mod * count
-      }
-    end
+  end
+})
+
+-- Tomlinson
+local Tomlinson = J({
+  name = "Tomlinson",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
   end,
-}
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 13,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Lawrenson
+local Lawrenson = J({
+  name = "Lawrenson",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 14,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Potts
+local Potts = J({
+  name = "Potts",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 15,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Ingham
+local Ingham = J({
+  name = "Ingham",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_RoyalAcademy"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 16,
+  pteam = "ina_team_RoyalAcademy",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 return {
   name = "Royal Academy",

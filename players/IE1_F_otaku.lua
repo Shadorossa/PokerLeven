@@ -1,18 +1,22 @@
--- Otaku
-local Idol = {
+-- Idol
+local Idol = J({
     name = "Idol",
     pos = { x = 3, y = 6 },
     config = { extra = { odds2 = 2, retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds2 } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "GK",
-  pteam = "ina_team_Otaku",
+    ptype = C.Mountain,
+    pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 1,
+    pteam = "ina_team_Otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -31,22 +35,76 @@ local Idol = {
     ina_credits = {
         idea = { 'LegendaryAd' }
     }
-}
+})
 
-local Hero = {
+-- Train
+local Train = J({
+  name = "Train",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 2,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Novel
+local Novel = J({
+  name = "Novel",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 3,
+  pcaptain = C.CAPTAIN,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Hero
+local Hero = J({
     name = "Hero",
     pos = { x = 6, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "DF",
-  pteam = "ina_team_Otaku",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 4,
+    pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual and context.other_card then
@@ -64,43 +122,100 @@ local Hero = {
     ina_credits = {
         idea = { "LegendaryAd" }
     }
-}
+})
+
+-- Cosplay
+local Cosplay = J({
+  name = "Cosplay",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 5,
+  pcaptain = C.CAPTAIN,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Online
+local Online = J({
+  name = "Online",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 6,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 -- Custom
-local Custom = {
+local Custom = J({
     name = "Custom",
     pos = { x = 9, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2, -- Common
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW",
-  pteam = "ina_team_Otaku",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 7,
+    pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Robot
-local Robot = {
+local Robot = J({
     name = "Robot",
     pos = { x = 10, y = 6 },
     config = { extra = { retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
-  pteam = "ina_team_Otaku",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 8,
+    pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and next(context.poker_hands['Straight']) then
@@ -119,9 +234,10 @@ local Robot = {
             end
         end
     end
-}
+})
 
-local Gamer = {
+-- Gamer
+local Gamer = J({
     name = "Gamer",
     pos = { x = 11, y = 6 },
     config = { extra = { triggered = false } },
@@ -133,13 +249,17 @@ local Gamer = {
         end
         return { vars = { otaku_count > 1 and fps or fps / 2 } }
     end,
-    rarity = 1, -- Uncommon
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW",
-  pteam = "ina_team_Otaku",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 9,
+    pteam = "ina_team_Otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -158,22 +278,28 @@ local Gamer = {
             }
         end
     end
-}
+})
 
-local Artist = {
+-- Artist
+local Artist = J({
     name = "Artist",
     pos = { x = 12, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 3, -- Rare
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 3,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW",
-  pteam = "ina_team_Otaku",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 10,
+    pcaptain = C.CAPTAIN,
+    pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main then
@@ -201,22 +327,27 @@ local Artist = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
-local Arcade = {
+-- Arcade
+local Arcade = J({
     name = "Arcade",
     pos = { x = 0, y = 7 },
     config = { extra = { new_lucky = 5, minus_dollars = -2, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.new_lucky or center.ability.extra.new_lucky, center.ability.extra.minus_dollars } }
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "FW",
-  pteam = "ina_team_Otaku",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 11,
+    pteam = "ina_team_Otaku",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -238,7 +369,79 @@ local Arcade = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
+
+-- Eldorado
+local Eldorado = J({
+  name = "Eldorado",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 12,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Signalman
+local Signalman = J({
+  name = "Signalman",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 13,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Formby
+local Formby = J({
+  name = "Formby",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 14,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 -- Vox
 local Vox = J({
@@ -249,13 +452,17 @@ local Vox = J({
         table.insert(info_queue, { set = 'Other', key = 'Right_Footed' })
         return { vars = { center.ability.extra.chip_mod } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Otaku"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Otaku"] = true },
     cost = 4,
     atlas = "Jokers01",
     ptype = C.Wind,
     pposition = C.DF,
-  pteam = "ina_team_Otaku",
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 15,
+    pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if Pokerleven.is_joker_turn(context) and context.joker_main and context.scoring_hand and card:is_rightmost_joker() then
@@ -275,7 +482,31 @@ local Vox = J({
     }
 })
 
+-- Net
+local Net = J({
+  name = "Net",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Otaku"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 16,
+  pteam = "ina_team_Otaku",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
 return {
     name = "Otaku",
-    list = { Idol, Hero, Custom, Robot, Gamer, Artist, Arcade, Vox }
+    list = { Idol, Hero, Robot, Gamer, Artist, Arcade, Vox }
 }

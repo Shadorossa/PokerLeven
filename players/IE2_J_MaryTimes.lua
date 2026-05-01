@@ -19,7 +19,7 @@ local Rocky = J({
   calculate = function(self, card, ctx) end
 })
 
-local Diver = J({
+local Scuba = J({
   name = "Chad Taylor",
   pos = { x = 9, y = 11 },
   config = { extra = {} },
@@ -77,6 +77,7 @@ local Hurley = J({
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
+  pcaptain = C.CAPTAIN,
   pteam = "ina_team_MaryTimes",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
@@ -147,6 +148,9 @@ local Soundtown = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pcaptain = C.CAPTAIN,
   pteam = "ina_team_MaryTimes",
   blueprint_compat = true,

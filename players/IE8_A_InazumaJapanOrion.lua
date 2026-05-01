@@ -1,508 +1,531 @@
-local Endou = J({
-  name = "Mark Evans",
+-- Mark Evans
+local Mark_Orion = J({
+  name = "Mark_Orion",
   pos = { x = 0, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
-  rarity = 2,
-  pools = { ["Inazuma Japan"] = true },
-  cost = 7,
-  atlas = "Jokers03",
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
+  rarity = 1,
+  pools = { ["Inazuma Japón (Orion)"] = true },
+  cost = 5,
+  atlas = "Jokers08",
   ptype = C.Mountain,
   pposition = C.GK,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pcaptain = C.CAPTAIN,
+  pnumber = 1,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Sakanoue = J({
-  name = "Billy Miller",
+-- Billy Miller
+local Billy_Orion = J({
+  name = "Billy_Orion",
   pos = { x = 1, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.DF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_1,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 2,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Fudou = J({
-  name = "Caleb Stonewall",
+-- Caleb Stonewall
+local Caleb_Orion = J({
+  name = "Caleb_Orion",
   pos = { x = 2, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.MF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 3,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Shirou = J({
-  name = "Shawn Froste",
+-- Shawn Froste
+local Shawn_Orion = J({
+  name = "Shawn_Orion",
   pos = { x = 3, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.DF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 4,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kidou = J({
-  name = "Jude Sharp",
+-- Jude Sharp
+local Jude_Orion = J({
+  name = "Jude_Orion",
   pos = { x = 4, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 5,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kazemaru = J({
-  name = "Nathan Swift",
+-- Nathan Swift
+local Nathan_Orion = J({
+  name = "Nathan_Orion",
   pos = { x = 5, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.DF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 6,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Hiura = J({
-  name = "Valentin Eisner",
+-- Valentin Eisner
+local Valentin_Orion = J({
+  name = "Valentin_Orion",
   pos = { x = 6, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 7,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Asuto = J({
-  name = "Sonny Wright",
+-- Sonny Wright
+local Sonny_Orion = J({
+  name = "Sonny_Orion",
   pos = { x = 7, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.MF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 8,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Hiroto = J({
-  name = "Xavier Schiller",
+-- Xavier Schiller
+local Xavier_Orion = J({
+  name = "Xavier_Orion",
   pos = { x = 8, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
-  ptype = C.Forest,
+  atlas = "Jokers08",
+  ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 9,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Gouenji = J({
-  name = "Axel Blaze",
+-- Axel Blaze
+local Axel_Orion = J({
+  name = "Axel_Orion",
   pos = { x = 9, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 10,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Haizaki = J({
-  name = "Elliot Ember",
+-- Elliot Ember
+local Elliot_Orion = J({
+  name = "Elliot_Orion",
   pos = { x = 10, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Forest,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_1,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 11,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Goujin = J({
-  name = "Adriano Donati",
+-- Adriano Donati
+local Adriano_Orion = J({
+  name = "Adriano_Orion",
   pos = { x = 11, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 12,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Ichihoshi = J({
-  name = "Philip Star",
-  pos = { x = 12, y = 0 },
+-- Philip Star
+local Philip_Orion = J({
+  name = "Philip_Orion",
+  pos = { x = 0, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_1,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 13,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Nosaka = J({
-  name = "Heath Moore",
-  pos = { x = 13, y = 0 },
+-- Lucas Star
+local Lucas_Orion = J({
+  name = "Lucas_Orion",
+  pos = { x = 1, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pnumber = 13,
+  pteam = "ina_team_InazumaJapanOrion",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx) end
+})
+
+-- Heath Moore
+local Heath_Orion = J({
+  name = "Heath_Orion",
+  pos = { x = 2, y = 1 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
+  rarity = 1,
+  pools = { ["Inazuma Japón (Orion)"] = true },
+  cost = 5,
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.MF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pcaptain = C.CAPTAIN,
+  pnumber = 14,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kiyama = J({
-  name = "Hunter Foster",
-  pos = { x = 14, y = 0 },
+-- Hunter Foster
+local Hunter_Orion = J({
+  name = "Hunter_Orion",
+  pos = { x = 3, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.MF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 15,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Afuro = J({
-  name = "Byron Love",
-  pos = { x = 15, y = 0 },
+-- Aphrody (Byron Love)
+local Aphrody_Orion = J({
+  name = "Aphrody_Orion",
+  pos = { x = 4, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Forest,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 16,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Iwato = J({
-  name = "Cliff Parker",
-  pos = { x = 16, y = 0 },
+-- Cliff Parker (Golem)
+local Golem_Orion = J({
+  name = "Golem_Orion",
+  pos = { x = 5, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Mountain,
   pposition = C.DF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 17,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Mansaku = J({
-  name = "Trevor Cook",
-  pos = { x = 17, y = 0 },
+-- Trevor Cook
+local Trevor_Orion = J({
+  name = "Trevor_Orion",
+  pos = { x = 6, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.DF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 18,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Saginuma = J({
-  name = "Dave Quagmire",
-  pos = { x = 18, y = 0 },
+-- Dave Quagmire
+local Quagmire_Orion = J({
+  name = "Quagmire_Orion",
+  pos = { x = 7, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.GK,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_3,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 19,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Nishikage = J({
-  name = "Duske Grayling",
-  pos = { x = 19, y = 0 },
+-- Duske Grayling
+local Duske_Orion = J({
+  name = "Duske_Orion",
+  pos = { x = 8, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Forest,
   pposition = C.GK,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 20,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Kozoumaru = J({
-  name = "Basile Hardy",
-  pos = { x = 20, y = 0 },
+-- Basile Hardy
+local Basile_Orion = J({
+  name = "Basile_Orion",
+  pos = { x = 9, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 21,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Atsuya = J({
-  name = "Aiden Froste",
-  pos = { x = 21, y = 0 },
+-- Aiden Froste
+local Aiden_Orion = J({
+  name = "Aiden_Orion",
+  pos = { x = 10, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 22,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Norika = J({
-  name = "Sandra Fischer",
-  pos = { x = 22, y = 0 },
+-- Sandra Fischer
+local Sandra_Orion = J({
+  name = "Sandra_Orion",
+  pos = { x = 11, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.GK,
   pgender = C.F,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 23,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local Mizukamiya = J({
-  name = "Acker Reese",
-  pos = { x = 23, y = 0 },
+-- Acker Reese
+local Reese_Orion = J({
+  name = "Reese_Orion",
+  pos = { x = 12, y = 1 }, -- Added a spot for the 24th
   config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japan"] = true },
+  pools = { ["Inazuma Japón (Orion)"] = true },
   cost = 5,
-  atlas = "Jokers03",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.DF,
   pgender = C.M,
   pnation = C.JAPAN,
   pyear = C.YEAR_2,
-  pteam = "ina_team_InazumaJapan",
+  pnumber = 24,
+  pteam = "ina_team_InazumaJapanOrion",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
 return {
-  name = "Inazuma Japan",
-  list = {}
+  name = "InazumaJapanOrion",
+  list = {} -- Functional Jokers go here
 }

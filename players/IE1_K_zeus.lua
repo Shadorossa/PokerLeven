@@ -1,5 +1,5 @@
 -- Poseidon
-local Poseidon = {
+local Poseidon = J({
   name = "Poseidon",
   pos = { x = 5, y = 12 },
   config = { extra = { min_face = 3, barriers_added = 1, chips_mod = 40, barriers = 1 } },
@@ -13,12 +13,16 @@ local Poseidon = {
     local actual_chips_mod = current_barriers * chips_mod
     return { vars = { barriers, min_face, chips_mod, actual_chips_mod } }
   end,
-  rarity = 3, -- Rare
+  rarity = 3,
   pools = { ["ina_team_Zeus"] = true },
   cost = 8,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "GK",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 1,
   techtype = C.UPGRADES.Number,
   pteam = "ina_team_Zeus",
   blueprint_compat = true,
@@ -41,7 +45,58 @@ local Poseidon = {
       return Pokerleven.ease_barriers(barriers)
     end
   end
-}
+})
+
+-- Apollo
+local Apollo = J({
+  name = "Apollo",
+  pos = { x = 6, y = 12 },
+  config = { extra = { chips_mod = 14, alt_chips_mod = 4, mult_mod_low = 3, current_chips = 0, current_mult = 0, triggered = false } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.chips_mod, center.ability.extra.alt_chips_mod, center.ability.extra.current_chips, center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Zeus"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 2,
+  techtype = C.UPGRADES.Plus,
+  pteam = "ina_team_Zeus",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if Pokerleven.is_joker_turn(context) and card.ability.extra.current_chips > 0 then
+      return {
+        message = 'Divino!',
+        chip_mod = card.ability.extra.current_chips,
+        colour = G.C.GOLD,
+        mult_mod = card.ability.extra.current_mult
+      }
+    end
+
+    if context.before and context.cardarea == G.jokers and context.scoring_hand
+        and next(context.poker_hands["Two Pair"]) then
+      local hour = tonumber(os.date("%H"))
+      local mod = card.ability.extra.alt_chips_mod
+
+      if hour >= 14 and hour < 19 then
+        mod = card.ability.extra.chips_mod
+        card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult_mod_low
+      end
+
+      card.ability.extra.current_chips = card.ability.extra.current_chips + mod
+
+      return {
+        message = localize("k_upgrade_ex"),
+        colour = G.C.CHIPS
+      }
+    end
+  end
+})
 
 -- Hephestus
 local Hephestus = J({
@@ -54,8 +109,12 @@ local Hephestus = J({
   pools = { ["ina_team_Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "DF",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 3,
   techtype = C.UPGRADES.Number,
   pteam = "ina_team_Zeus",
   blueprint_compat = true,
@@ -90,55 +149,41 @@ local Hephestus = J({
   end
 })
 
--- Apollo
-local Apollo = {
-  name = "Apollo",
-  pos = { x = 6, y = 12 },
-  config = { extra = { chips_mod = 14, alt_chips_mod = 4, mult_mod_low = 3, current_chips = 0, current_mult = 0, triggered = false } },
-  loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod, center.ability.extra.alt_chips_mod, center.ability.extra.current_chips, center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
-  end,
+-- Ares
+local Ares = J({
+  name = "Ares",
+  pos = { x = 7, y = 12 },
   rarity = 1,
   pools = { ["ina_team_Zeus"] = true },
-  cost = 5,
+  cost = 4,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
-  techtype = C.UPGRADES.Plus,
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 4,
   pteam = "ina_team_Zeus",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-    if Pokerleven.is_joker_turn(context) and card.ability.extra.current_chips > 0 then
-      return {
-        message = 'Divino!',
-        chip_mod = card.ability.extra.current_chips,
-        colour = G.C.GOLD,
-        mult_mod = card.ability.extra.current_mult
-      }
-    end
+  calculate = function(self, card, context) end
+})
 
-    if context.before and context.cardarea == G.jokers and context.scoring_hand
-        and next(context.poker_hands["Two Pair"]) then
-      local hour = tonumber(os.date("%H"))
-      local mod = card.ability.extra.alt_chips_mod
-
-      if hour >= 14 and hour < 19 then
-        mod = card.ability.extra.chips_mod
-        card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult_mod_low
-      end
-
-      card.ability.extra.current_chips = card.ability.extra.current_chips + mod
-
-      return {
-        message = localize("k_upgrade_ex"),
-        colour = G.C.CHIPS
-      }
-    end
-  end,
-  ina_credits = {
-    idea = { "Shadorossa" },
-  }
-}
+-- Dionysus
+local Dionysus = J({
+  name = "Dionysus",
+  pos = { x = 8, y = 12 },
+  rarity = 1,
+  pools = { ["ina_team_Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 5,
+  pteam = "ina_team_Zeus",
+  calculate = function(self, card, context) end
+})
 
 -- Artemis
 local Artemis = J({
@@ -149,12 +194,16 @@ local Artemis = J({
     info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
     return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
   end,
-  rarity = 2, -- Uncommon
+  rarity = 2,
   pools = { ["ina_team_Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
   ptype = C.Wind,
-  pposition = C.MF, -- Midfielder
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 6,
   techtype = C.UPGRADES.Plus,
   pteam = "ina_team_Zeus",
   blueprint_compat = true,
@@ -193,19 +242,23 @@ local Artemis = J({
 })
 
 -- Hermes
-local Hermes = {
+local Hermes = J({
   name = "Hermes",
   pos = { x = 11, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 2, -- Uncommon
+  rarity = 2,
   pools = { ["ina_team_Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "MF", -- Midfielder
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 7,
   pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -221,14 +274,29 @@ local Hermes = {
         card = context.other_card,
       }
     end
-  end,
-  ina_credits = {
-    idea = { "LegendaryAd" },
-  }
-}
+  end
+})
+
+-- Athena
+local Athena = J({
+  name = "Athena",
+  pos = { x = 1, y = 13 },
+  rarity = 1,
+  pools = { ["ina_team_Zeus"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 8,
+  pteam = "ina_team_Zeus",
+  calculate = function(self, card, context) end
+})
 
 -- Demeter
-local Demeter = {
+local Demeter = J({
   name = "Demeter",
   pos = { x = 0, y = 13 },
   config = { extra = { mult_mod_low = 4, chip_mod = 10 } },
@@ -249,6 +317,10 @@ local Demeter = {
   atlas = "Jokers01",
   ptype = C.Fire,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 9,
   techtype = C.UPGRADES.Number,
   pteam = "ina_team_Zeus",
   blueprint_compat = true,
@@ -267,13 +339,10 @@ local Demeter = {
         }
       end
     end
-  end,
-  ina_credits = {
-    idea = { "Shadorossa" },
-  }
-}
+  end
+})
 
--- Aphrodite
+-- Aphrodite (Capitán)
 ---@param card Card
 local swap_random_to_fw_or_mf = function(card)
   local POS_FW = "FW"
@@ -334,11 +403,16 @@ local Aphrodite = J({
     local position = center.ability.extra.pposition
     return { vars = { center.ability.extra.byron_mult_fw, center.ability.extra.byron_mult_mf, get_byron_xmult(center, position) } }
   end,
-  rarity = 4, -- Legendary
+  rarity = 4,
   cost = 15,
   atlas = "legendary01",
-  ptype = "Forest",
-  pposition = "MF", -- Midfielder
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 10,
+  pcaptain = C.CAPTAIN,
   techtype = C.UPGRADES.Plus,
   pteam = "ina_team_Zeus",
   blueprint_compat = true,
@@ -357,13 +431,38 @@ local Aphrodite = J({
     if G and G.GAME and G.GAME.round_resets and G.GAME.round_resets.ante and G.GAME.round_resets.ante > 8 then
       unlock_card(self)
     end
-  end,
-  ina_credits = {
-    idea = { "Shadorossa" },
-  }
+  end
 })
+
+-- Hera
+local Hera = J({
+  name = "Hera",
+  pos = { x = 2, y = 13 },
+  rarity = 2,
+  pools = { ["ina_team_Zeus"] = true },
+  cost = 7,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 11,
+  pteam = "ina_team_Zeus",
+  calculate = function(self, card, context) end
+})
+
+-- Reservas (S)
+local Icarus = J({ name = "Icarus", pos = { x = 3, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Wind, pposition = C.GK, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 12, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Achilles = J({ name = "Achilles", pos = { x = 4, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Mountain, pposition = C.FW, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_1, pdorsal = 13, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Heracles = J({ name = "Heracles", pos = { x = 5, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Fire, pposition = C.DF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 14, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Chronos = J({ name = "Chronos", pos = { x = 6, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Forest, pposition = C.DF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 15, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Medusa = J({ name = "Medusa", pos = { x = 7, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Mountain, pposition = C.MF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_3, pdorsal = 16, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
 
 return {
   name = "Zeus",
-  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Demeter, Aphrodite }
+  list = {
+    Poseidon, Apollo, Hephestus, Artemis,
+    Hermes, Demeter, Aphrodite
+  }
 }

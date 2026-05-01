@@ -41,6 +41,7 @@ C.ARGENTINA = C.ALL_NATIONS[10]
 C.GERMANY = C.ALL_NATIONS[11]
 C.ENGLAND = C.ALL_NATIONS[12]
 C.UZBEKISTAN = C.ALL_NATIONS[13]
+C.UNKNOWN = "UNKNOWN"
 
 -- Captain
 C.CAPTAIN = true
@@ -54,10 +55,12 @@ C.INA_UPGRADE_TECHNIQUE_KEY = "c_ina_upgrade_technique_"
 C.MAX_HIGHLIGHTED_MAGICIAN = 2
 
 -- School Years
-C.YEARS = { "1st year", "2nd year", "3rd year" }
+C.YEARS = { "1st year", "2nd year", "3rd year", "Adult" }
 C.YEAR_1 = C.YEARS[1]
 C.YEAR_2 = C.YEARS[2]
 C.YEAR_3 = C.YEARS[3]
+C.ADULT = C.YEARS[4]
+C.YEAR_UNKNOWN = "UNKNOWN"
 
 -- Upgrades
 C.UPGRADES = { "plus", "number", "grade", "spirit" }

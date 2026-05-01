@@ -376,6 +376,79 @@ G.FUNCS.exit_shop = function(e)
     end
 end
 
+-- Gaiel Auto-Skip Hook
+local function do_gaiel_victory(gaiel, sb_chips, e)
+    if G.ina_gaiel_skipping then return end
+    G.ina_gaiel_skipping = true
+
+    G.GAME.gaiel_savings = G.GAME.gaiel_savings - sb_chips
+    
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            -- Etiqueta x2: Damos una doble para que el skip nativo sea doble
+            add_tag(Tag('tag_double'))
+            
+            -- Generar 2 Espectrales Negativas
+            for i = 1, 2 do
+                local card = create_card('Spectral', G.consumeables, nil, nil, nil, nil, nil, 'gaiel')
+                card:set_edition('e_negative', true)
+                card:add_to_deck()
+                G.consumeables:emplace(card)
+            end
+
+            gaiel:juice_up(0.8, 0.8)
+            play_sound('timpani')
+            
+            -- Llamar al skip nativo para la transición
+            G.FUNCS.skip_blind(e)
+            
+            G.ina_gaiel_skipping = nil
+            return true
+        end
+    }))
+end
+
+local select_blind_ref = G.FUNCS.select_blind
+G.FUNCS.select_blind = function(e)
+    if G.GAME and G.GAME.blind_on_deck == 'Small' and not G.ina_gaiel_skipping then
+        local gaiel = get_joker_with_key('j_ina_Gaiel')
+        if gaiel and not gaiel.debuff then
+            local savings = G.GAME.gaiel_savings or 0
+            local ante = G.GAME.ante or 1
+            local factor = (G.GAME.stack_vars and G.GAME.stack_vars.small_blind_amount) or 1
+            local amount = get_blind_amount(ante)
+            local sb_chips = (type(amount) == 'number' and type(factor) == 'number') and (amount * factor) or 0
+            
+            if sb_chips > 0 and savings >= sb_chips then
+                do_gaiel_victory(gaiel, sb_chips, e)
+                return
+            end
+        end
+    end
+    if select_blind_ref then select_blind_ref(e) end
+end
+
+local skip_blind_ref = G.FUNCS.skip_blind
+G.FUNCS.skip_blind = function(e)
+    if G.GAME and G.GAME.blind_on_deck == 'Small' and not G.ina_gaiel_skipping then
+        local gaiel = get_joker_with_key('j_ina_Gaiel')
+        if gaiel and not gaiel.debuff then
+            local savings = G.GAME.gaiel_savings or 0
+            local ante = G.GAME.ante or 1
+            local factor = (G.GAME.stack_vars and G.GAME.stack_vars.small_blind_amount) or 1
+            local amount = get_blind_amount(ante)
+            local sb_chips = (type(amount) == 'number' and type(factor) == 'number') and (amount * factor) or 0
+            
+            if sb_chips > 0 and savings >= sb_chips then
+                do_gaiel_victory(gaiel, sb_chips, e)
+                return
+            end
+        end
+    end
+    if skip_blind_ref then skip_blind_ref(e) end
+end
+
+
 local original_unlock_card = unlock_card
 
 function unlock_card(card)

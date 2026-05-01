@@ -13,6 +13,9 @@ local Grent = J({
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.Number,
     pteam = "ina_team_Prominence",
     blueprint_compat = true,
@@ -49,8 +52,11 @@ local Baller = {
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.DF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -70,8 +76,11 @@ local Balcke = {
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -91,8 +100,11 @@ local Seats = {
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -111,9 +123,12 @@ local Bomber = {
     cost = 15,
     atlas = "Jokers02",
     ptype = C.Fire,
-    pposition = C.DF,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -133,8 +148,11 @@ local Heat = {
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -154,17 +172,20 @@ local Lean = {
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.MF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
 }
 
 -- Bountine
-local Lean = {
-    name = "Lean",
-    pos = { x = 1, y = 14 },
+local Bountine = {
+    name = "Bountine",
+    pos = { x = 2, y = 14 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -175,16 +196,19 @@ local Lean = {
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.MF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
 }
 
--- Siden
-local Siden = {
-    name = "Siden",
+-- Sidern
+local Sidern = {
+    name = "Sidern",
     pos = { x = 3, y = 14 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
@@ -196,8 +220,11 @@ local Siden = {
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
     techtype = C.UPGRADES.NumberType.A,
-    pteam = "Prominence",
+    pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -219,7 +246,10 @@ local Torch = J({
     atlas = "top",
     ptype = C.Fire,
     pposition = C.FW,
-    techtype = C.UPGRADES.Plus,
+    pgender = C.M,
+    pnation = C.SOUTH_KOREA,
+    pyear = C.YEAR_2,
+    pcaptain = C.CAPTAIN,
     pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -254,6 +284,9 @@ local Neppten = {
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.NumberType.A,
     pteam = "ina_team_Prominence",
     blueprint_compat = true,
@@ -264,5 +297,4 @@ local Neppten = {
 return {
     name = "Prominence",
     list = { Torch }
-    -- list = { Torch },
 }

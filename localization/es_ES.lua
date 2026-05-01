@@ -9,6 +9,15 @@ end
 
 return {
     descriptions = {
+        Other = {
+            fate_tooltip = {
+                name = "Fate",
+                text = {
+                    "Faltan {C:attention}#1#{} intentos",
+                    "para el éxito garantizado."
+                }
+            },
+        },
         Back = {
             b_ina_hillman = {
                 name = "Hillman",
@@ -916,8 +925,8 @@ return {
                     "{C:attention}#1#{} copias {C:dark_edition}negativas{} propias.",
                     "Se destruyen al finalizar la ronda" }
             },
-            j_ina_Cloack = {
-                name = "Cloack",
+            j_ina_Cloak = {
+                name = "Cloak",
                 text = { "{C:fire}Espejismo{}", "{C:attention}Frontal{}",
                     "Al seleccionar la ciega clona",
                     "un joker {C:dark_edition}negativo{} perecedero",
@@ -1143,9 +1152,9 @@ return {
                 name = "Pandora",
                 text = {
                     "{C:wind}Lluvia de Meteoros{}",
-                    "Al {C:attention}destruir{} una carta, {C:green}#1# entre #2#{} de",
+                    "Al {C:attention}destruir{} una carta, {C:green}#1# en #2#{} de",
                     "crear un {C:planet}Planeta{}. Sube por aliado de {X:wind,C:white}Viento{}.",
-                    "Si es {C:green}1 entre 1{}, el planeta es {C:dark_edition}Negativo{}."
+                    "Si es {C:green}1 en 1{}, el planeta es {C:dark_edition}Negativo{}."
                 }
             },
             j_ina_Charon = {
@@ -1170,7 +1179,7 @@ return {
                 text = {
                     "{C:fire}Erupción de Plasma{}",
                     "Si la mano es de {C:attention}4 cartas o menos{}, tiene",
-                    "probabilidad de {C:green}#1# entre #2#{} de destruir la",
+                    "probabilidad de {C:green}#1# en #2#{} de destruir la",
                     "carta {C:attention}más baja{} del mazo y crear un planeta."
                 }
             },
@@ -1697,6 +1706,35 @@ return {
                 }
             },
 
+            -- IE2_I_Fauxshore
+            -- Fauxshore
+            j_ina_Fake = {
+                name = "Drancis Fake",
+                text = {
+                    "Al adquirir cualquier {C:attention}Joker{},",
+                    "crea una copia {C:dark_edition}Negativa{} que",
+                    "se {C:red}destruye{} al final de la ronda."
+                }
+            },
+            j_ina_Leave = {
+                name = "Louis Leave",
+                text = {
+                    "Cada {C:attention}5 ciegas{}, Louis se {C:red}destruye{}",
+                    "para volver a un {C:attention}Joker{} aleatorio",
+                    "{C:dark_edition}Negativo{} durante 10 ciegas.",
+                    "{C:inactive}(Ciegas restantes: #1#){}"
+                }
+            },
+            j_ina_Fate = {
+                name = "Dave Fate",
+                text = {
+                    "Convierte el azar de {C:green}1 en X{}",
+                    "en contadores de {C:attention}Fate{}.",
+                    "El éxito es {C:attention}garantizado{}",
+                    "en el intento {C:attention}X{}."
+                }
+            },
+
             -- IE2_L_DarkEmperors
             j_ina_DarkFeldt = {
                 name = "Thomas Feldt",
@@ -1769,7 +1807,7 @@ return {
                 name = "Icer",
                 text = {
                     "Gana {C:money}#1# ${} por cada miembro de",
-                    "{X:ina_team_PolvodeDiamantes,C:white}P. Diamantes{} al final de la ronda",
+                    "{X:ina_team_DiamondDust,C:white}P. Diamantes{} al final de la ronda",
                     "{C:inactive}(Si hay miembros de {X:ina_team_Prominence,C:white}Prominence{}, cuenta ambos | Actual:{} {C:money}#2# ${}{C:inactive})"
                 }
             },
@@ -1860,13 +1898,40 @@ return {
                 }
             },
 
+            -- IE2_O_YoungInazuma
+            j_ina_Hillman = { name = "Seymour Hillman", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Island = { name = "Charles Island", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Hairtown = { name = "Garret Hairtown", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Sweet = { name = "Arthur Sweet", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Butler = { name = "Peter Mildred", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Nathaniel = { name = "Josh Nathaniel", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Gladstone = { name = "Edward Gladstone", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Tailor = { name = "Tyler Thomas", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Barista = { name = "Joseph Yosemite", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Suffolk = { name = "Ian Suffolk", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Builder = { name = "Constant Builder", text = { "{C:inactive}(Efecto por programar){}" } },
+
+            -- IE2_P_SeaOfTrees
+            j_ina_Mando = { name = "Cam Mando", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Boufante = { name = "Harry Boufante", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Stuhl = { name = "Todd Stuhl", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Blewit = { name = "Aspen Blewit", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Oregon = { name = "Marismus Oregon", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Cypress = { name = "Garjan Cypress", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Deathcap = { name = "Judas Deathcap", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Faithfull = { name = "Chase Faithfull", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Ticker = { name = "Chris Ticker", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Daring = { name = "Roy Daring", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Enoki = { name = "Scaber Enoki", text = { "{C:inactive}(Efecto por programar){}" } },
+
             -- IE3_A_InazumaJapan
             j_ina_Nathan_IJ = {
                 name = "Nathan Swift",
                 text = {
                     "{C:wind}Entrada Huracán{}",
-                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} / {X:ina_team_inazumajapon,C:white}Inazuma Japón{}",
-                    "otorga {X:mult,C:white}X#2#{}"
+                    "Otorga {X:mult,C:white}X#1#{} por cada {C:attention}Joker{}",
+                    "de nacionalidad {C:attention}Japonesa{}",
+                    "{C:inactive}(Contador: #2#){}"
                 }
             },
             j_ina_Jack_IJ = {
@@ -1925,6 +1990,17 @@ return {
                     "ser apta para uno de tus Jokers)."
                 }
             },
+
+
+            -- IE3_Q_Ogre
+            -- Ogre
+            j_ina_Triumvir = {
+                name = "Oni Triumvir",
+                text = {
+                    "Otorga {X:mult,C:white} X#1# {} si tienes a",
+                    "{C:attention}Lancer{}, {C:attention}Malice{} y {C:attention}Callous{}."
+                }
+            },
             j_ina_Malice = {
                 name = "Escavan Malice",
                 text = {
@@ -1961,19 +2037,18 @@ return {
                 text = {
                     "{C:wind}Subida a los Cielos{}",
                     "Al puntuar una carta, tiene una",
-                    "probabilidad de {C:green}#2# entre #1#{} de",
-                    "aumentar su {C:attention}Rango{} permanentemente.",
-                    "{C:inactive}(Ciclo: de As a 2){}"
+                    "probabilidad de {C:green}#1# en #2#{} de",
+                    "aumentar su {C:attention}Rango{} permanentemente."
                 }
             },
             j_ina_Gaiel = {
                 name = "Gaiel",
                 text = {
-                    "{C:wind}Remate Celestial{}",
-                    "Si tu puntuación cubre la ciega actual",
-                    "y la siguiente {C:attention}Ciega Pequeña{}, la salta.",
-                    "Otorga su {C:attention}Etiqueta{} y permite",
-                    "visitar la {C:attention}tienda{} dos veces."
+                    "Ahorra puntos sobrantes. Si cubren",
+                    "la siguiente {C:attention}Ciega Pequeña{}, la",
+                    "salta y da su {C:attention}Etiqueta x2{} y",
+                    "{C:attention}2 cartas Espectrales Negativas{}.",
+                    "{C:inactive}(Ahorrado: {C:chips}#1#{}{C:inactive} pts){}"
                 }
             },
             j_ina_Sael = {
@@ -2004,7 +2079,7 @@ return {
                 text = {
                     "{C:fire}Balón Diabólico{}",
                     "Al realizar un {C:red}descarte{}, tienes una",
-                    "probabilidad de {C:green}#2# entre #1#{} de crear",
+                    "probabilidad de {C:green}#2# en #1#{} de crear",
                     "un {C:tarot}El Colgado{}."
                 }
             },
@@ -2132,9 +2207,9 @@ return {
             j_ina_Xavier_Ares = {
                 name = "Xavier Schiller",
                 text = {
-                    "Al puntuar, {C:attention}drena{} {C:money}1${} de valor de venta",
-                    "de cada Joker y gana {X:mult,C:white}X#1#{} por cada {C:money}1${} drenado",
-                    "{C:inactive}(Si un Joker llega a 0 drena a negativo | Drenado:{} {C:money}#2#${}{C:inactive})"
+                    "Al puntuar, {C:attention}drena{} {C:money}#1#${} de valor de venta",
+                    "de cada Joker y gana {X:mult,C:white}X#2#{} por cada {C:money}1${} drenado",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#3#{}{C:inactive})"
                 }
             },
 
@@ -2629,11 +2704,11 @@ return {
             },
             p_ina_growing_pack = {
                 name = "Pack Creciente",
-                text = { "Elige {C:attention}#1#{} entre {C:attention}#2#{}", "{C:attention}Jokers{} de tus equipos" }
+                text = { "Elige {C:attention}#1#{} en {C:attention}#2#{}", "{C:attention}Jokers{} de tus equipos" }
             },
             p_ina_advanced_pack = {
                 name = "Pack Avanzado",
-                text = { "Elige {C:attention}#1#{} entre {C:attention}#2#{}", "{C:attention}Jokers{} de tus equipos" }
+                text = { "Elige {C:attention}#1#{} en {C:attention}#2#{}", "{C:attention}Jokers{} de tus equipos" }
             },
             p_ina_item_pack_ina = {
                 name = "Ina Pack",
@@ -3103,6 +3178,21 @@ return {
             ina_normal = "Normal",
             ina_destructores_protect = "¡Protección!",
 
+            -- Metadata
+            ina_M = "M",
+            ina_F = "F",
+            ina_JAPAN = "JPN",
+            ina_Japan = "JPN",
+            ina_USA = "USA",
+            ina_Italy = "ITA",
+            ina_Korea = "KOR",
+            ina_Spain = "ESP",
+            ["ina_1st year"] = "1º",
+            ["ina_2nd year"] = "2º",
+            ["ina_3rd year"] = "3º",
+            ina_Adult = "Ad.",
+            ina_UNKNOWN = "???",
+
             -- Rarities
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",
@@ -3205,7 +3295,7 @@ return {
             ["ina_team_Epsilon"] = "Épsilon",
             ["ina_team_RoyalRedux"] = "Royal Academy Redux",
             ["ina_team_EmperadoresOscuros"] = "Emperadores Oscuros",
-            ["ina_team_PolvodeDiamantes"] = "Polvo de Diamantes",
+            ["ina_team_DiamondDust"] = "Polvo de Diamantes",
             ["ina_team_Prominence"] = "Prominence",
             ["ina_team_Zeus_Ares"] = "Zeus",
             ["ina_team_ClaustroSagrado"] = "Claustro Sagrado",

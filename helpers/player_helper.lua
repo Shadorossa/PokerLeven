@@ -145,6 +145,26 @@ is_team = function(card, target_team)
     end
 end
 
+find_player_nation = function(target_nation)
+    local found = {}
+    if G.jokers and G.jokers.cards then
+        for _, v in pairs(G.jokers.cards) do
+            if v.ability and v.ability.extra and type(v.ability.extra) == "table" and v.ability.extra.pnation == target_nation then
+                table.insert(found, v)
+            end
+        end
+    end
+    return found
+end
+
+is_nation = function(card, target_nation)
+    if card.ability and (card.ability.extra and type(card.ability.extra) == "table" and target_nation == card.ability.extra.pnation) then
+        return true
+    else
+        return false
+    end
+end
+
 is_position = function(card, target_position)
     if card.ability and (card.ability.extra and type(card.ability.extra) == "table" and target_position == card.ability.extra.pposition) then
         return true

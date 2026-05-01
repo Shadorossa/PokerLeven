@@ -630,58 +630,31 @@ Pokerleven.get_type_ui = function(card)
         }
     end
 
-    local type_text = localize("ina_" .. (card.ability.extra.ptype or "Fire"))
-    local position_text = localize("ina_" .. (card.ability.extra.pposition or "FW"))
-    local special_text = card.ability.extra.special and localize("ina_" .. card.ability.extra.special) or nil
-    local full_text = type_text ..
-        " / " .. position_text .. " / " .. (special_text or "")
+    local extra = card.ability.extra
+    local type_text = localize("ina_" .. (extra.ptype or "Fire"))
+    local position_text = localize("ina_" .. (extra.pposition or "FW"))
+    local dorsal_text = extra.pdorsal and ("#" .. extra.pdorsal) or nil
+    local gender_text = (extra.pgender and extra.pgender ~= "UNKNOWN") and localize("ina_" .. extra.pgender) or nil
+    local year_text = (extra.pyear and extra.pyear ~= "UNKNOWN") and localize("ina_" .. extra.pyear) or nil
+    local nation_text = (extra.pnation and extra.pnation ~= "UNKNOWN") and localize("ina_" .. extra.pnation) or nil
+    local special_text = (extra.special and extra.special ~= "UNKNOWN") and localize("ina_" .. extra.special) or nil
 
-    local type = {
-        n = G.UIT.O,
-        config = {
-            object = DynaText({
-                string = { type_text },
-                colours = { G.ARGS.LOC_COLOURS[string.lower(card.ability.extra.ptype) or "fire"] },
-                bump = true,
-                silent = true,
-                pop_in = 0,
-                pop_in_rate = 4,
-                maxw = 5,
-                shadow = true,
-                y_offset = 0,
-                spacing = math.max(0, 0.32 * (17 - #full_text)),
-                scale = (0.4 - 0.004 * #full_text)
-            })
-        }
-    }
+    -- Base text for scale calculation (approximate)
+    local full_text = type_text .. " / " .. position_text
+    if dorsal_text then full_text = full_text .. " / " .. dorsal_text end
+    if gender_text then full_text = full_text .. " / " .. gender_text end
+    if year_text then full_text = full_text .. " / " .. year_text end
+    if nation_text then full_text = full_text .. " / " .. nation_text end
+    
+    local common_scale = math.min(0.40, (0.40 - 0.003 * #full_text))
 
-    local position = {
-        n = G.UIT.O,
-        config = {
-            object = DynaText({
-                string = { position_text },
-                colours = { G.ARGS.LOC_COLOURS[string.lower(card.ability.extra.pposition) or "fw"] },
-                bump = true,
-                silent = true,
-                pop_in = 0,
-                pop_in_rate = 4,
-                maxw = 5,
-                shadow = true,
-                y_offset = 0,
-                spacing = math.max(0, 0.32 * (17 - #full_text)),
-                scale = (0.4 - 0.004 * #full_text)
-            })
-        }
-    }
-
-    local special
-    if special_text then
-        special = {
+    local function create_dyna_node(text, color)
+        return {
             n = G.UIT.O,
             config = {
                 object = DynaText({
-                    string = { special_text },
-                    colours = { G.ARGS.LOC_COLOURS["pink"] },
+                    string = { text },
+                    colours = { color or G.C.UI.TEXT_LIGHT },
                     bump = true,
                     silent = true,
                     pop_in = 0,
@@ -689,28 +662,97 @@ Pokerleven.get_type_ui = function(card)
                     maxw = 5,
                     shadow = true,
                     y_offset = 0,
-                    spacing = math.max(0, 0.32 * (17 - #full_text)),
-                    scale = (0.4 - 0.004 * #full_text)
+                    spacing = math.max(0, 0.1),
+                    scale = common_scale
                 })
             }
         }
     end
 
-    local separator = {
-        n = G.UIT.T,
-        config = {
-            text = " / ",
-            colour = G.C.UI.TEXT_LIGHT,
-            scale = (0.4 - 0.004 * #full_text)
+    local function get_separator()
+        return {
+            n = G.UIT.T,
+            config = {
+                text = " / ",
+                colour = G.C.UI.TEXT_LIGHT,
+                scale = common_scale
+            }
         }
-    }
-    return {
-        type,
-        separator,
-        position,
-        special and separator or nil,
-        special,
-    }
+    end
+
+    local nodes = {}
+    -- Type
+    table.insert(nodes, create_dyna_node(type_text, G.ARGS.LOC_COLOURS[string.lower(extra.ptype or "fire")]))
+    -- Position
+    table.insert(nodes, get_separator())
+    table.insert(nodes, create_dyna_node(position_text, G.ARGS.LOC_COLOURS[string.lower(extra.pposition or "fw")]))
+    
+    -- Optional fields
+    if dorsal_text then
+        table.insert(nodes, get_separator())
+        table.insert(nodes, create_dyna_node(dorsal_text, G.C.ORANGE))
+    end
+    
+    if gender_text then
+        local gender_color = (extra.pgender == "M") and G.C.BLUE or G.ARGS.LOC_COLOURS["pink"]
+        table.insert(nodes, get_separator())
+        table.insert(nodes, create_dyna_node(gender_text, gender_color))
+    end
+
+    if year_text then
+        table.insert(nodes, get_separator())
+        table.insert(nodes, create_dyna_node(year_text, G.C.WHITE))
+    end
+
+    if nation_text then
+        table.insert(nodes, get_separator())
+        
+        local nation_configs = {
+            Japan = {{"J", G.C.WHITE}, {"P", G.C.RED}, {"N", G.C.WHITE}},
+            Spain = {{"E", G.C.RED}, {"S", G.C.GOLD}, {"P", G.C.RED}},
+            Italy = {{"I", G.C.GREEN}, {"T", G.C.WHITE}, {"A", G.C.RED}},
+            France = {{"F", G.C.BLUE}, {"R", G.C.WHITE}, {"A", G.C.RED}}, -- Blue-White-Red
+            USA = {{"U", G.C.BLUE}, {"S", G.C.WHITE}, {"A", G.C.RED}},
+            Korea = {{"K", G.C.WHITE}, {"O", G.C.RED}, {"R", G.C.BLUE}},
+            England = {{"E", G.C.WHITE}, {"N", G.C.RED}, {"G", G.C.WHITE}},
+            Germany = {{"G", G.C.BLACK or G.C.UI.TEXT_DARK}, {"E", G.C.RED}, {"R", G.C.GOLD}},
+            Brazil = {{"B", G.C.GREEN}, {"R", G.C.GOLD}, {"A", G.C.BLUE}},
+            Argentina = {{"A", G.C.BLUE}, {"R", G.C.WHITE}, {"G", G.C.BLUE}}
+        }
+
+        local config = nation_configs[extra.pnation]
+        if config then
+            for _, char_data in ipairs(config) do
+                table.insert(nodes, {
+                    n = G.UIT.T,
+                    config = {
+                        text = char_data[1],
+                        colour = char_data[2],
+                        scale = common_scale,
+                        shadow = true
+                    }
+                })
+            end
+        else
+            -- Fallback for unknown configurations
+            table.insert(nodes, {
+                n = G.UIT.T,
+                config = {
+                    text = nation_text,
+                    colour = G.C.WHITE,
+                    scale = common_scale,
+                    shadow = true
+                }
+            })
+        end
+    end
+
+    if special_text then
+        table.insert(nodes, get_separator())
+        table.insert(nodes, create_dyna_node(special_text, G.ARGS.LOC_COLOURS["pink"]))
+    end
+
+    return nodes
 end
 
 

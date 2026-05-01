@@ -6,12 +6,16 @@ local ironwall = J({
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chip_mod } }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SPFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 1,
   pteam = "ina_team_ServicioSecreto",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -37,12 +41,16 @@ local Western = J({
     local ex = center.ability.extra
     return { vars = { ex.levels_per_card, ex.pending_cards } }
   end,
-  rarity = 2, -- Uncommon
+  rarity = 2,
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 2,
   pteam = "ina_team_ServicioSecreto",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -73,64 +81,76 @@ local Western = J({
 })
 
 -- Hammond
-local hammond = {
+local hammond = J({
   name = "Hammond",
   pos = { x = 1, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 3,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Stevens
-local stevens = {
+local stevens = J({
   name = "Stevens",
   pos = { x = 2, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 4,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Smith
-local smith = {
+local smith = J({
   name = "Smith",
   pos = { x = 3, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 5,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Firepool
 local Firepool = J({
@@ -140,12 +160,16 @@ local Firepool = J({
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.retriggers } }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SpFixers"] = true },
   cost = 5,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 6,
   pteam = "ina_team_ServicioSecreto",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -173,7 +197,7 @@ local Firepool = J({
   end
 })
 
--- Fielding
+-- Agente M (Fielding)
 local fielding = J({
   name = "fielding",
   pos = { x = 5, y = 1 },
@@ -181,12 +205,16 @@ local fielding = J({
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.scry_mod, center.ability.extra.money } }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SPFixers"] = true },
   cost = 5,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.F,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 7,
   pteam = "ina_team_ServicioSecreto",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -216,19 +244,6 @@ local fielding = J({
   end
 })
 
-local function restore_firsthand_hands(ex)
-  if ex.hands_lost and ex.hands_lost > 0 then
-    if G.GAME and G.GAME.round_resets then
-      G.GAME.round_resets.hands = G.GAME.round_resets.hands + ex.hands_lost
-      if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then
-        ease_hands_played(ex
-          .hands_lost)
-      end
-    end
-    ex.hands_lost = 0
-  end
-end
-
 -- Firsthand
 local firsthand = J({
   name = "Firsthand",
@@ -237,12 +252,16 @@ local firsthand = J({
   loc_vars = function(self, info_queue, center)
     return { vars = { (center.ability.extra.stat_mult - 1) * 100 } }
   end,
-  rarity = 2, -- Uncommon
+  rarity = 2,
   pools = { ["SPFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 8,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = false,
   update = function(self, card, dt)
@@ -255,11 +274,21 @@ local firsthand = J({
           ex.hands_lost = (ex.hands_lost or 0) + diff
           G.GAME.round_resets.hands = 1
           if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then
-            ease_hands_played(-
-              diff)
+            ease_hands_played(-diff)
           end
         end
       else
+        local restore_firsthand_hands = function(ex_inner)
+          if ex_inner.hands_lost and ex_inner.hands_lost > 0 then
+            if G.GAME and G.GAME.round_resets then
+              G.GAME.round_resets.hands = G.GAME.round_resets.hands + ex_inner.hands_lost
+              if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then
+                ease_hands_played(ex_inner.hands_lost)
+              end
+            end
+            ex_inner.hands_lost = 0
+          end
+        end
         restore_firsthand_hands(ex)
       end
       for _, v in ipairs(G.jokers.cards) do
@@ -275,6 +304,17 @@ local firsthand = J({
   end,
   remove_from_deck = function(self, card, from_debuff)
     if G.jokers and not G.jokers.cards then return end
+    local restore_firsthand_hands = function(ex_inner)
+      if ex_inner.hands_lost and ex_inner.hands_lost > 0 then
+        if G.GAME and G.GAME.round_resets then
+          G.GAME.round_resets.hands = G.GAME.round_resets.hands + ex_inner.hands_lost
+          if G.STAGE == G.STAGES.RUN and G.STATE ~= G.STATES.BLIND_SELECT and G.GAME.current_round then
+            ease_hands_played(ex_inner.hands_lost)
+          end
+        end
+        ex_inner.hands_lost = 0
+      end
+    end
     restore_firsthand_hands(card.ability.extra)
 
     if G.jokers and G.jokers.cards then
@@ -286,24 +326,28 @@ local firsthand = J({
 })
 
 -- Mirror
-local mirror = {
+local mirror = J({
   name = "Mirror",
   pos = { x = 7, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.FW,
+  pgender = C.F,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 9,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Tori
 local Tori = J({
@@ -314,12 +358,17 @@ local Tori = J({
     local ex = center.ability.extra
     return { vars = { ex.stone_bonus * 100, math.floor((ex.accumulation or 0) * 100 + 0.5), ex.counted_stones } }
   end,
-  rarity = 3, -- Rare
+  rarity = 3,
   pools = { ["SpFixers"] = true },
   cost = 8,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.F,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 10,
+  pcaptain = C.CAPTAIN,
   pteam = "ina_team_ServicioSecreto",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = false,
@@ -377,12 +426,16 @@ local kennedy = J({
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra; return { vars = { ex.xmult, ex.xmult_ace, #find_player_team("ina_team_ServicioSecreto") } }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SPFixers"] = true },
   cost = 5,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 11,
   pteam = "ina_team_ServicioSecreto",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -405,45 +458,52 @@ local kennedy = J({
       return {
         message = localize { type = 'variable', key = 'a_xmult', vars = { xm } },
         Xmult_mod = xm,
-        colour = G.C
-            .MULT
+        colour = G.C.MULT
       }
     end
   end
 })
 
 -- Sights
-local sights = {
+local sights = J({
   name = "Sights",
   pos = { x = 11, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 12,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- beray
+-- Beray
 local beray = J({
   name = "Beray",
   pos = { x = 12, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return {} end,
-  rarity = 2, -- Uncommon
+  rarity = 2,
   pools = { ["SPFixers"] = true },
   cost = 6,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 13,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = false,
   calculate = function(self, card, ctx)
@@ -464,25 +524,77 @@ local beray = J({
   end
 })
 
--- toppin
-local toppin = {
+-- Tappin (Toppin)
+local toppin = J({
   name = "Toppin",
   pos = { x = 0, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["SpFixers"] = true },
   cost = 7,
   atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.DF,
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 14,
   pteam = "ina_team_ServicioSecreto",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
+
+-- Shadey
+local shadey = J({
+  name = "Shadey",
+  pos = { x = 1, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["SpFixers"] = true },
+  cost = 7,
+  atlas = "Jokers02",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.F,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 15,
+  pteam = "ina_team_ServicioSecreto",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Safehouse
+local safehouse = J({
+  name = "Safehouse",
+  pos = { x = 2, y = 2 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["SpFixers"] = true },
+  cost = 7,
+  atlas = "Jokers02",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 16,
+  pteam = "ina_team_ServicioSecreto",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 return {
   name = "SPFixers",

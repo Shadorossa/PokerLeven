@@ -5,13 +5,16 @@ local Beluga = J({
     config = { extra = { new_glass_denom = 1 } },
     loc_vars = function(self, info_queue, center) return {vars = {G.GAME.probabilities.normal or 1, center.ability.extra.new_glass_denom}} end,
     rarity = 1, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Wind,
+    ptype = C.Mountain,
     pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     add_to_deck = function(self, card, from_debuff) G.GAME.probabilities.new_glass_denom = card.ability.extra.new_glass_denom end,
     remove_from_deck = function(self, card, from_debuff) G.GAME.probabilities.new_glass_denom = nil end
@@ -26,40 +29,36 @@ local Arkew = J({
         return {}
     end,
     rarity = 1, -- Common
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 6,
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = false,
-    -- La lógica de Arkew se maneja mediante hooks en la generación de la tienda
 })
 
 -- Hook para Arkew: Acumular cupones en la tienda
--- Nota: En Balatro, G.shop_vouchers maneja la visualización.
--- Modificamos el reseteo de cupones para que no limpie los antiguos si Arkew está presente.
 local G_FUNCS_check_for_buyable_vouchers_ref = G.FUNCS.check_for_buyable_vouchers
 G.FUNCS.check_for_buyable_vouchers = function(args)
     local arkew = get_joker_with_key('j_ina_Arkew')
     if arkew and not arkew.debuff then
-        -- Si Arkew está, prevenimos que se borren los cupones no comprados
-        -- (Esta es una implementación lógica, requiere que el motor soporte múltiples cupones en UI)
         G_FUNCS_check_for_buyable_vouchers_ref(args)
     else
         G_FUNCS_check_for_buyable_vouchers_ref(args)
     end
 end
 
--- Hook para evitar el borrado al cambiar de Ante
 local round_resets_ref = Game.round_resets
 function Game.round_resets(self)
     local old_voucher = G.GAME.current_round.voucher
     round_resets_ref(self)
     local arkew = get_joker_with_key('j_ina_Arkew')
     if arkew and not arkew.debuff and old_voucher then
-        -- Restauramos el cupón antiguo además del nuevo
         G.GAME.current_round.extra_vouchers = G.GAME.current_round.extra_vouchers or {}
         table.insert(G.GAME.current_round.extra_vouchers, old_voucher)
     end
@@ -72,13 +71,16 @@ local Clear = J({
     config = { extra = { odds = 2 } },
     loc_vars = function(self, info_queue, center) return {vars = {G.GAME.probabilities.normal or 1, center.ability.extra.odds}} end,
     rarity = 2, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.DF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         if ctx.remove_playing_cards and not card.debuff and card.area == G.jokers then
@@ -99,16 +101,18 @@ local Gocker = J({
     config = { extra = { x_mult_override = 1.5 } },
     loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.x_mult_override}} end,
     rarity = 2, -- Uncommon
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
     ptype = C.Mountain,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
-        -- La lógica de Gocker se maneja mediante hooks en el sistema de Vidrio
     end
 })
 
@@ -127,12 +131,11 @@ function Card.calculate_individual(self, context)
     return res
 end
 
--- Hook para Gocker: Evitar que se rompan
 local shatter_ref = Card.shatter
 function Card.shatter(self)
     local gocker = get_joker_with_key('j_ina_Gocker')
     if gocker and not gocker.debuff then
-        return -- No se rompe
+        return 
     end
     return shatter_ref(self)
 end
@@ -145,24 +148,27 @@ local Icer = J({
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
         info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic', vars = {localize("ina_team_Prominence", "teams") or "Prominence"}}
-        local dd = find_player_team("ina_team_PolvodeDiamantes")
+        local dd = find_player_team("ina_team_DiamondDust")
         local prom = find_player_team("ina_team_Prominence")
         local count = #dd
         if #prom > 0 then count = #dd + #prom end
         return {vars = {ex.money, count * ex.money, count}}
     end,
     rarity = 1, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.MF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         if ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
-            local dd = find_player_team("ina_team_PolvodeDiamantes")
+            local dd = find_player_team("ina_team_DiamondDust")
             local prom = find_player_team("ina_team_Prominence")
             local count = #dd
             if #prom > 0 then count = #dd + #prom end
@@ -185,13 +191,16 @@ local Balen = {
         return {}
     end,
     rarity = 1, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Wind,
+    ptype = C.Mountain,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -206,13 +215,16 @@ local Droll = {
         return {}
     end,
     rarity = 2, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Mountain,
+    ptype = C.Wind,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -227,13 +239,16 @@ local Rhine = {
         return {}
     end,
     rarity = 2, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.MF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -248,13 +263,16 @@ local Blown = {
         return {}
     end,
     rarity = 1, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
@@ -271,13 +289,17 @@ local Gazelle = J({
         local ex = center.ability.extra; return {vars = {1 + (ex.charges * ex.xmult_gain), ex.xmult_gain, ex.charges, ex.max_charges}}
     end,
     rarity = "ina_top", -- Destacado
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 15,
     atlas = "top",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.SOUTH_KOREA,
+    pyear = C.YEAR_2,
+    pcaptain = C.CAPTAIN,
+    pteam = "ina_team_DiamondDust",
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
@@ -317,13 +339,16 @@ local Frost = J({
         return {vars = {center.ability.extra.chip_mod_normal, center.ability.extra.chip_mod_chaos, #find_player_team("ina_team_Prominence") > 0 and localize("ina_caos") or localize("ina_normal")}}
     end,
     rarity = 1, --
-    pools = { ["DiamondDust"] = true },
+    pools = { ["Diamond Dust"] = true },
     cost = 7,
     atlas = "Jokers02",
     ptype = C.Mountain,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_PolvodeDiamantes",
+    pteam = "ina_team_DiamondDust",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local oc, ex = ctx.other_card, card.ability.extra
@@ -351,5 +376,5 @@ local Frost = J({
 
 return {
     name = "Diamond Dust",
-    list = { Beluga, Clear, Icer, Gazelle, Frost }
+    list = { Beluga, Arkew, Clear, Gocker, Icer, Gazelle, Frost }
 }

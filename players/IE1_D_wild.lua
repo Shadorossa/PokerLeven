@@ -1,49 +1,22 @@
--- Chicken
-local Chicken = {
-    name = "Chicken",
-    pos = { x = 11, y = 3 },
-    config = { extra = { money = 4, odds = 2, triggered = false } },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.money } }
-    end,
-    rarity = 3, -- Rare
-  pools = { ["ina_team_Wild"] = true },
-    cost = 8,
-    atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "MF", -- Midfielder
-  pteam = "ina_team_Wild",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        if context.individual and not context.end_of_round and context.cardarea == G.play and context.scoring_hand then
-            if SMODS.has_enhancement(context.other_card, 'm_wild') then
-                if pseudorandom('chicken') < G.GAME.probabilities.normal / card.ability.extra.odds then
-                    card.ability.extra.triggered = true
-                    return {
-                        dollars = card.ability.extra.money,
-                        card = card
-                    }
-                end
-            end
-        end
-    end,
-}
-
 -- Boar
-local Boar = {
+local Boar = J({
     name = "Boar",
     pos = { x = 10, y = 3 },
     config = { extra = { triggered = false, cards_removed = 0 } },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Wild"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "GK", -- Goalkeeper
-  pteam = "ina_team_Wild",
+    ptype = C.Fire,
+    pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 1,
+    pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -71,7 +44,115 @@ local Boar = {
     ina_credits = {
         idea = { "YellowAlberto" }
     }
-}
+})
+
+-- Chicken
+local Chicken = J({
+    name = "Chicken",
+    pos = { x = 11, y = 3 },
+    config = { extra = { money = 4, odds = 2, triggered = false } },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.money } }
+    end,
+    rarity = 3,
+    pools = { ["ina_team_Wild"] = true },
+    cost = 8,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 2,
+    pcaptain = C.CAPTAIN,
+    pteam = "ina_team_Wild",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        if context.individual and not context.end_of_round and context.cardarea == G.play and context.scoring_hand then
+            if SMODS.has_enhancement(context.other_card, 'm_wild') then
+                if pseudorandom('chicken') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                    card.ability.extra.triggered = true
+                    return {
+                        dollars = card.ability.extra.money,
+                        card = card
+                    }
+                end
+            end
+        end
+    end
+})
+
+-- Fishman
+local Fishman = J({
+  name = "Fishman",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 3,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Toad
+local Toad = J({
+  name = "Toad",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 4,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Lion
+local Lion = J({
+  name = "Lion",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 5,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 -- Chamaleon
 local Chamaleon = J({
@@ -81,13 +162,17 @@ local Chamaleon = J({
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Wild"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
-  pteam = "ina_team_Wild",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 6,
+    pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -102,20 +187,16 @@ local Chamaleon = J({
 
             for _, c in ipairs(context.full_hand) do
                 if c:is_suit("Clubs") and not SMODS.has_enhancement(c, 'm_wild') then
-                    suit_counts.Clubs = suit_counts
-                        .Clubs + 1
+                    suit_counts.Clubs = suit_counts.Clubs + 1
                 end
                 if c:is_suit("Hearts") and not SMODS.has_enhancement(c, 'm_wild') then
-                    suit_counts.Hearts = suit_counts
-                        .Hearts + 1
+                    suit_counts.Hearts = suit_counts.Hearts + 1
                 end
                 if c:is_suit("Spades") and not SMODS.has_enhancement(c, 'm_wild') then
-                    suit_counts.Spades = suit_counts
-                        .Spades + 1
+                    suit_counts.Spades = suit_counts.Spades + 1
                 end
                 if c:is_suit("Diamonds") and not SMODS.has_enhancement(c, 'm_wild') then
-                    suit_counts.Diamonds =
-                        suit_counts.Diamonds + 1
+                    suit_counts.Diamonds = suit_counts.Diamonds + 1
                 end
             end
 
@@ -142,27 +223,29 @@ local Chamaleon = J({
         end
     end,
     ina_credits = {
-        idea = {
-            "Shadorossa",
-        }
-    },
+        idea = { "Shadorossa" }
+    }
 })
 
 -- Eagle
-local Eagle = {
+local Eagle = J({
     name = "Eagle",
     pos = { x = 3, y = 4 },
     config = { extra = { current_mult = 0, mult_mod_low = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Wild"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
-  pteam = "ina_team_Wild",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 7,
+    pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -190,14 +273,12 @@ local Eagle = {
         end
     end,
     ina_credits = {
-        idea = {
-            "Shadorossa",
-        }
-    },
-}
+        idea = { "Shadorossa" }
+    }
+})
 
 -- Monkey
-local Monkey = {
+local Monkey = J({
     name = "Monkey",
     pos = { x = 4, y = 4 },
     config = { extra = { wild_count = 0, triggered = false } },
@@ -205,13 +286,17 @@ local Monkey = {
     local wild_players = #find_player_team('ina_team_Wild')
         return { vars = { 1 + ((wild_players * center.ability.extra.wild_count) / 10) } }
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Wild"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
-  pteam = "ina_team_Wild",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 8,
+    pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -237,27 +322,29 @@ local Monkey = {
         end
     end,
     ina_credits = {
-        idea = {
-            "Shadorossa",
-        }
-    },
-}
+        idea = { "Shadorossa" }
+    }
+})
 
 -- Gorilla
-local Gorilla = {
+local Gorilla = J({
     name = "Gorilla",
     pos = { x = 5, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Wild"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "FW", -- Forward
-  pteam = "ina_team_Wild",
+    ptype = C.Mountain,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 9,
+    pteam = "ina_team_Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -272,10 +359,34 @@ local Gorilla = {
             }))
         end
     end
-}
+})
+
+-- Snake
+local Snake = J({
+  name = "Snake",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 10,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 -- Cheetah
-local Cheetah = {
+local Cheetah = J({
     name = "Cheetah",
     pos = { x = 7, y = 4 },
     config = { extra = { current_element = "Wind", possible_elements = { "Wind", "Fire", "Forest", "Mountain" }, triggered = false } },
@@ -284,14 +395,19 @@ local Cheetah = {
             HEX("FFFFFF")
         return { vars = { center.ability.extra.current_element } }
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Wild"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
     ptype = C.Wind,
     pposition = C.FW,
-    techtype = C.UPGRADES.Plus, -- Forward
-  pteam = "ina_team_Wild",
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 11,
+    pcaptain = C.CAPTAIN,
+    pteam = "ina_team_Wild",
+    techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval then
@@ -323,11 +439,129 @@ local Cheetah = {
         end
     end,
     ina_credits = {
-        idea = {
-            "Shadorossa",
-        }
-    },
-}
+        idea = { "Shadorossa" }
+    }
+})
+
+-- Bullford
+local Bullford = J({
+  name = "Bullford",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 12,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Koala
+local Koala = J({
+  name = "Koala",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 13,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Panda
+local Panda = J({
+  name = "Panda",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 14,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Raccoon
+local Raccoon = J({
+  name = "Raccoon",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 15,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Mouseman
+local Mouseman = J({
+  name = "Mouseman",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Wild"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 16,
+  pteam = "ina_team_Wild",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 return {
     name = "Wild",

@@ -387,6 +387,10 @@ local function load_joker_folder(folder_name, item_constructor)
           if item.special then item.special_type = item.special end
           if item.techtype then item.config.extra.techtype = item.techtype end
           if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
+          if item.pdorsal then item.config.extra.pdorsal = item.pdorsal end
+          if item.pgender then item.config.extra.pgender = item.pgender end
+          if item.pnation then item.config.extra.pnation = item.pnation end
+          if item.pyear then item.config.extra.pyear = item.pyear end
 
           if not item.custom_pool_func then
             item.in_pool = function(self)

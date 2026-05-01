@@ -1,10 +1,8 @@
--- Farm Jokers
-
+-- Greeny
 local Greeny = J({
     name = "Greeny",
     pos = { x = 12, y = 9 },
-    config = { extra = { barriers_added = 1, DF_required = 2, barriers = 3 }
-    },
+    config = { extra = { barriers_added = 1, DF_required = 2, barriers = 3 } },
     loc_vars = function(self, info_queue, center)
         table.insert(info_queue, { set = 'Other', key = 'Right_Footed' })
         return {
@@ -12,13 +10,17 @@ local Greeny = J({
                 center.ability.extra.barriers }
         }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Farm"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "GK",
-  pteam = "ina_team_Farm",
+    ptype = C.Fire,
+    pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 1,
+    pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -45,7 +47,7 @@ local Greeny = J({
     end
 })
 
-
+-- Hayseed
 local Hayseed = J({
     name = "Hayseed",
     pos = { x = 0, y = 10 },
@@ -59,12 +61,16 @@ local Hayseed = J({
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult or 0 } }
     end,
     rarity = 1,
-  pools = { ["ina_team_Farm"] = true },
+    pools = { ["ina_team_Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "DF",
-  pteam = "ina_team_Farm",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 2,
+    pteam = "ina_team_Farm",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.scoring_hand and context.joker_main
@@ -83,10 +89,81 @@ local Hayseed = J({
                 colour = G.C.MULT
             }
         end
-    end,
+    end
 })
 
+-- Work
+local Work = J({
+  name = "Work",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 3,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
+-- Hillvalley
+local Hillvalley = J({
+    name = "Hillvalley",
+    pos = { x = 2, y = 10 },
+    config = { extra = { current_chips = 0, triggered = false } },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.current_chips } }
+    end,
+    rarity = 1,
+    pools = { ["ina_team_Farm"] = true },
+    cost = 5,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 4,
+    pteam = "ina_team_Farm",
+    techtype = C.UPGRADES.Plus,
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        if context.individual and context.scoring_hand and context.other_card and
+            context.cardarea == G.play and
+            (context.other_card:get_id() == 8 or
+                context.other_card:get_id() == 9 or
+                context.other_card:get_id() == 10) then
+            card.ability.extra.current_chips = card.ability.extra.current_chips + context.other_card:get_id()
+            card.ability.extra.triggered = true
+            return {
+                message = localize('k_upgrade_ex'),
+                colour = G.C.CHIPS,
+                card = card
+            }
+        end
+
+        if context.scoring_hand and context.joker_main and card.ability.extra.current_chips > 0 then
+            card.ability.extra.triggered = true
+            return {
+                message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
+                colour = G.C.CHIPS,
+                chip_mod = card.ability.extra.current_chips
+            }
+        end
+    end
+})
+
+-- Sherman
 local Sherman = J({
     name = "Sherman",
     pos = { x = 3, y = 10 },
@@ -94,13 +171,17 @@ local Sherman = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chip_mod, center.ability.extra.current_chips } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Farm"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "DF",
-  pteam = "ina_team_Farm",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 5,
+    pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -132,9 +213,58 @@ local Sherman = J({
                 }
             end
         end
-    end,
+    end
 })
 
+-- Milky
+local Milky = J({
+  name = "Milky",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 6,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Mother
+local Mother = J({
+  name = "Mother",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 7,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Spray
 local Spray = J({
     name = "Spray",
     pos = { x = 6, y = 10 },
@@ -142,13 +272,17 @@ local Spray = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.max_money, center.ability.extra.Xmult_mod, center.ability.extra.current_Xmult } }
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Farm"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "MF",
-  pteam = "ina_team_Farm",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 8,
+    pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -171,9 +305,35 @@ local Spray = J({
                 Xmult_mod = card.ability.extra.current_Xmult
             }
         end
-    end,
+    end
 })
 
+-- Roast
+local Roast = J({
+  name = "Roast",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 9,
+  pcaptain = C.CAPTAIN,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Dawson
 local Dawson = J({
     name = "Dawson",
     pos = { x = 7, y = 10 },
@@ -181,13 +341,17 @@ local Dawson = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.max_money } }
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Farm"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
-  pteam = "ina_team_Farm",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 10,
+    pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -200,9 +364,10 @@ local Dawson = J({
                 colour = G.C.XMULT
             }
         end
-    end,
+    end
 })
 
+-- Muffs
 local Muffs = J({
     name = "Muffs",
     pos = { x = 8, y = 10 },
@@ -211,13 +376,17 @@ local Muffs = J({
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Farm"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "FW",
-  pteam = "ina_team_Farm",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 11,
+    pteam = "ina_team_Farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -259,49 +428,127 @@ local Muffs = J({
                 mult_mod = card.ability.extra.current_mult,
             }
         end
-    end,
+    end
 })
 
-local Hillvalley = J({
-    name = "Hillvalley",
-    pos = { x = 2, y = 10 },
-    config = { extra = { current_chips = 0, triggered = false } },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.current_chips } }
-    end,
-    rarity = 1, -- Common
+-- Mower
+local Mower = J({
+  name = "Mower",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
   pools = { ["ina_team_Farm"] = true },
-    cost = 5,
-    atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "DF",
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 12,
   pteam = "ina_team_Farm",
-    techtype = C.UPGRADES.Plus,
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        if context.individual and context.scoring_hand and context.other_card and
-            context.cardarea == G.play and
-            (context.other_card:get_id() == 8 or
-                context.other_card:get_id() == 9 or
-                context.other_card:get_id() == 10) then
-            card.ability.extra.current_chips = card.ability.extra.current_chips + context.other_card:get_id()
-            card.ability.extra.triggered = true
-            return {
-                message = localize('k_upgrade_ex'),
-                colour = G.C.CHIPS,
-                card = card
-            }
-        end
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
-        if context.scoring_hand and context.joker_main and card.ability.extra.current_chips > 0 then
-            card.ability.extra.triggered = true
-            return {
-                message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
-                colour = G.C.CHIPS,
-                chip_mod = card.ability.extra.current_chips
-            }
-        end
-    end,
+-- Grower
+local Grower = J({
+  name = "Grower",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 13,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Howells
+local Howells = J({
+  name = "Howells",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 14,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Lively
+local Lively = J({
+  name = "Lively",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 15,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Nevis
+local Nevis = J({
+  name = "Nevis",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Farm"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 16,
+  pteam = "ina_team_Farm",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
 })
 
 return {

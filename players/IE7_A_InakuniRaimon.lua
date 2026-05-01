@@ -18,6 +18,9 @@ local Sandra_Fischer = J({
     atlas = "Jokers07",
     ptype = C.Wind,
     pposition = C.GK,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = false,
@@ -29,12 +32,30 @@ local Sandra_Fischer = J({
             if scored >= (G.GAME.blind.chips * ex.threshold) then
                 local s = {}; for _, v in ipairs(ctx.scoring_hand) do if v.ability and v.ability.wind_sticker then s[#s + 1] =
                         v end end
-                if #s > 0 and Pokerleven.rescue_cards(s) then return { message = localize('k_safe_ex'), colour = G.C
-                    .GREEN } end
+                if #s > 0 and Pokerleven.rescue_cards(s) then return { message = localize('k_safe_ex'), colour = G.C.GREEN } end
             end
         end
     end
 })
+
+-- Kiko Calavento
+local Kiko = {
+    name = "Kiko",
+    pos = { x = 1, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return {} end,
+    rarity = 1,
+    pools = { ["Inakuni Raimon"] = true },
+    cost = 5,
+    atlas = "Jokers07",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_InakuniRaimon",
+    blueprint_compat = true,
+}
 
 -- Trevor Cook
 local Trevor = J({
@@ -49,7 +70,10 @@ local Trevor = J({
     cost = 5,
     atlas = "Jokers07",
     ptype = C.Wind,
-    pposition = C.MF,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -66,31 +90,63 @@ local Trevor = J({
     end
 })
 
--- Cesar Montalban
-local Cesar = J({
-    name = "Cesar",
+-- Nino Nango
+local Nino = {
+    name = "Nino",
     pos = { x = 3, y = 1 },
-    config = { extra = { odds = 3 } },
-    loc_vars = function(self, info_queue, center) return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } } end,
-    rarity = 2, -- Uncommon
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return {} end,
+    rarity = 1,
+    pools = { ["Inakuni Raimon"] = true },
+    cost = 5,
+    atlas = "Jokers07",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_InakuniRaimon",
+    blueprint_compat = true,
+}
+
+-- Cliff Parker (Gólem)
+local Golem = {
+    name = "Golem",
+    pos = { x = 4, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return {} end,
+    rarity = 1,
+    pools = { ["Inakuni Raimon"] = true },
+    cost = 5,
+    atlas = "Jokers07",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_InakuniRaimon",
+    blueprint_compat = true,
+}
+
+-- Maxime Dassier
+local Maxime = {
+    name = "Maxime",
+    pos = { x = 5, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return {} end,
+    rarity = 2,
     pools = { ["Inakuni Raimon"] = true },
     cost = 6,
     atlas = "Jokers07",
     ptype = C.Forest,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pcaptain = C.CAPTAIN,
     pteam = "ina_team_InakuniRaimon",
-    techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
-    aux_ina = true,
-    calculate = function(self, card, ctx)
-        if ctx.ina_tag_added then
-            if pseudorandom('cesar') < G.GAME.probabilities.normal / card.ability.extra.odds then
-                local dup = Tag(ctx.tag.key); dup.ina_cesar_duped = true; add_tag(dup)
-                return { message = localize('k_copied_ex'), colour = G.C.GREEN }
-            end
-        end
-    end
-})
+}
 
 -- Valentin Eisner
 local Valentin = J({
@@ -106,6 +162,9 @@ local Valentin = J({
     atlas = "Jokers07",
     ptype = C.Wind,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = false,
@@ -114,6 +173,35 @@ local Valentin = J({
         if ctx.after and not ctx.blueprint and #ctx.full_hand == 3 then
             if Pokerleven.buff_joker_stats(card:get_right_joker(), card.ability.extra.mult_mod_low, card.ability.extra.chip_mod) then
                 return { message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION }
+            end
+        end
+    end
+})
+
+-- Cesar Montalban
+local Cesar = J({
+    name = "Cesar",
+    pos = { x = 7, y = 1 },
+    config = { extra = { odds = 3 } },
+    loc_vars = function(self, info_queue, center) return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } } end,
+    rarity = 2, -- Uncommon
+    pools = { ["Inakuni Raimon"] = true },
+    cost = 6,
+    atlas = "Jokers07",
+    ptype = C.Mountain,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_InakuniRaimon",
+    techtype = C.UPGRADES.Plus,
+    blueprint_compat = true,
+    aux_ina = true,
+    calculate = function(self, card, ctx)
+        if ctx.ina_tag_added then
+            if pseudorandom('cesar') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                local dup = Tag(ctx.tag.key); dup.ina_cesar_duped = true; add_tag(dup)
+                return { message = localize('k_copied_ex'), colour = G.C.GREEN }
             end
         end
     end
@@ -133,6 +221,9 @@ local Adriano_Donati = J({
     atlas = "Jokers07",
     ptype = C.Fire,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -179,6 +270,10 @@ local Sonny_Wright = J({
     atlas = "Jokers07",
     ptype = C.Fire,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pcaptain = C.CAPTAIN,
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -211,6 +306,9 @@ local Basile = J({
     atlas = "Jokers07",
     ptype = C.Fire,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
     pteam = "ina_team_InakuniRaimon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,

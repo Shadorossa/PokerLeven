@@ -423,5 +423,5 @@ local Ation = J({
 
 return {
   name = "Claustro Sagrado",
-  list = { Dinglite, Wando, Ation }
+  list = { Dinglite, Wando, Scotty, Ation }
 }

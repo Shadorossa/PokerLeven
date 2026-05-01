@@ -1,33 +1,26 @@
-# AI_README - Estándares de Textos y Localización
+# Guía de Estilo y Arquitectura para PokerLeven
 
-Este documento establece las reglas específicas para la redacción de descripciones y textos de localización en el proyecto PokerLeven. Estas reglas deben seguirse estrictamente para mantener la consistencia en el mod.
+## 1. Orden de Localización (es_ES.lua)
+Es CRÍTICO mantener el orden de los Jokers en el archivo de localización para facilitar el mantenimiento. El orden debe ser:
 
-## 1. Uso del término "puntuar"
-Para cualquier efecto que implique registrar, anotar, contar o realizar un seguimiento de una acción (como cartas jugadas, manos ganadas, etc.), se debe utilizar el término **"puntuar"**.
-- **Ejemplo:** "Gana +1 Mult por cada carta que consigas **puntuar**."
+1. **Por Versión de Juego**: 
+   - `IE1` (Inazuma Eleven 1)
+   - `IE2_C` (Equipos Especiales IE2)
+   - `IE2_K` (Academia Alius IE2)
+   - `IE2_I` (Equipos de Mapa IE2 como Fauxshore)
+   - `IE3` (Inazuma Eleven 3 - Incluye Ogre IE3_Q, Selecciones, Ángeles/Demonios)
 
-## 2. Indicadores de Estado (Trackers)
-Cada vez que un Joker mida o almacene internamente una cantidad variable (fichas acumuladas, mult multiplicador, contadores de manos, etc.), se debe incluir obligatoriamente el valor **actual** al final de la descripción.
+2. **Por Equipo**: Dentro de cada categoría, agrupar por el archivo de equipo correspondiente.
 
-### Formato del Tracker:
-1. Debe ir en una **línea nueva** al final del array de texto.
-2. Debe utilizar el color **inactivo** (`{C:inactive}`).
-3. Debe seguir la estructura: `{C:inactive}(Actual: {TIPO_VALOR}#X#{C:inactive}){}`.
+3. **Por Jugador**: El orden de los jugadores en `es_ES.lua` **DEBE COINCIDIR EXACTAMENTE** con el orden en el que están definidos en su archivo `.lua` original.
 
-### Ejemplos de Trackers:
-- `{C:inactive}(Actual: {C:chips}+#1#{C:inactive}){}`
-- `{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive}){}`
-- `{C:inactive}(Actual: #3# #4#){}` (Donde #4# es el plural/singular de la unidad)
+## 2. Programación de Jugadores
+- **Regla de Oro**: Al inicio de cada `calculate`, SIEMPRE comprobar que el Joker está en el área activa del jugador:
+  `if card.area ~= G.jokers then return end`
+  Esto evita que los efectos se disparen en la tienda o dentro de sobres.
+- Solo añadir a la tabla `list = {}` final aquellos jugadores que tengan su lógica de `calculate` completada. 
+- No dejar jugadores "vacíos" en la lista de retorno para evitar que aparezcan cartas sin efecto en el juego.
 
-## 3. Reglas Generales de Estilo
-- **Brevedad:** Máximo de 3 líneas para la mecánica principal.
-- **Colores:** Usar siempre los tags de color adecuados (`{C:attention}`, `{C:mult}`, `{C:chips}`, etc.).
-- **Localización:** Solo se deben realizar cambios en el archivo `es_ES.lua`.
-
-## 4. Nombres de Supertécnicas
-- Todos los Jokers deben tener una línea inicial con el nombre de su supertécnica entre llaves de color (según su tipo elemental).
-- Los nombres deben respetar las reglas de mayúsculas y minúsculas (Capital Case).
-- **Ejemplo:** `{C:fire}Tornado de Fuego{}`
-
-## 5. Independencia de Elementos
-- El color del elemento de la supertécnica en la descripción NO tiene por qué coincidir con el tipo elemental del jugador (`ptype`). Son conceptos independientes.
+## 3. Estética y Diseño
+- Mantener colores temáticos ( {C:wind}, {C:fire}, etc. ) consistentes con el elemento del jugador.
+- Descripciones narrativas y directas.

@@ -16,6 +16,9 @@ local KingR = J({
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -53,6 +56,9 @@ local Beltzer = J({
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
   aux_ina = true,
@@ -87,6 +93,9 @@ local Blade = J({
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
   aux_ina = true,
@@ -118,6 +127,9 @@ local Argie = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
   aux_ina = true,
@@ -143,6 +155,9 @@ local Bamboo = J({
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
   aux_ina = true,
@@ -162,6 +177,9 @@ local Messer = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Number,
   blueprint_compat = false,
@@ -196,6 +214,9 @@ local Spark = J({
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
   aux_ina = true,
@@ -218,7 +239,7 @@ function Card:get_UIBox_info()
                 pseudoseed_pop()
             end
             if self.ability.spark_peek then
-                G.info_queue[#G.info_queue+1] = G.P_CENTERS[self.ability.spark_peek]
+                G.info_queue[#G.info_queue+1] = G.P_CENTERS.self.ability.spark_peek
             end
         end
     end
@@ -247,6 +268,9 @@ local Sparrow = J({
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.MF,
+  pgender = C.F,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Number,
   blueprint_compat = false,
@@ -304,6 +328,9 @@ local Jamm = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -364,6 +391,10 @@ local CalebR = J({
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pcaptain = C.CAPTAIN,
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -411,6 +442,9 @@ local SamfordR = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -437,8 +471,11 @@ local Cellar = J({
   pools = { ["Royal Academy Redux"] = true },
   cost = 6,
   atlas = "Jokers02",
-  ptype = C.Fire,
+  ptype = C.Forest,
   pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
   aux_ina = true,
@@ -482,6 +519,9 @@ local Zenn = J({
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
   aux_ina = true,
@@ -492,6 +532,29 @@ local Zenn = J({
     end
   end
 })
+
+-- Little
+local Little = {
+  name = "Little",
+  pos = { x = 9, y = 7 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["Royal Academy Redux"] = true },
+  cost = 5,
+  atlas = "Jokers02",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pteam = "ina_team_RoyalRedux",
+  blueprint_compat = true,
+  calculate = function(self, card, ctx)
+  end
+}
 
 local Cossimo = J({
   name = "Cossimo",
@@ -513,6 +576,9 @@ local Cossimo = J({
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = true,
   aux_ina = true,
@@ -545,6 +611,9 @@ local Color = J({
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
   pteam = "ina_team_RoyalRedux",
   blueprint_compat = false,
   aux_ina = true,
@@ -558,5 +627,5 @@ local Color = J({
 
 return {
     name = "Royal Academy Redux",
-    list = { KingR, Beltzer, Blade, Argie, Messer, Sparrow, Jamm, CalebR, SamfordR, Cellar, Zenn, Cossimo, Color }
+    list = { KingR, Beltzer, Blade, Argie, Messer, Spark, Sparrow, Jamm, CalebR, SamfordR, Cellar, Zenn, Cossimo, Color, Bamboo }
 }

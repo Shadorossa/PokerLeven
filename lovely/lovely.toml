@@ -596,3 +596,21 @@ if G.GAME.blind and G.GAME.blind.config.blind and G.GAME.blind.config.blind.key 
     return
 end
 '''
+
+# Gaiel Surplus logic
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "G.GAME.blind:defeat()"
+position = "before"
+payload = '''
+local gaiel = get_joker_with_key('j_ina_Gaiel')
+if gaiel and not gaiel.debuff and G.GAME and G.GAME.chips and G.GAME.blind and G.GAME.blind.chips then
+    local surplus = G.GAME.chips - G.GAME.blind.chips
+    if surplus > 0 then
+        G.GAME.gaiel_savings = (G.GAME.gaiel_savings or 0) + surplus
+        card_eval_status_text(gaiel, 'extra', nil, nil, nil, { message = "+" .. number_format(surplus), colour = G.C.WIND })
+    end
+end
+'''
+match_indent = true

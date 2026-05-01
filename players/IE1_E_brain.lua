@@ -11,13 +11,18 @@ local Feldt = J({
             vars = { center.ability.extra.barriers_added, Xmult_mod, current_mult, center.ability.extra.barriers }
         }
     end,
-    rarity = 3, -- Rare
-  pools = { ["ina_team_Brain"] = true },
+    rarity = 3,
+    pools = { ["ina_team_Brain"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "GK", -- Goalkeeper
-  pteam = "ina_team_Brain",
+    ptype = C.Forest,
+    pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 1,
+    pcaptain = C.CAPTAIN,
+    pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Number,
     numberTechType = C.UPGRADES.NumberType.Z,
     blueprint_compat = true,
@@ -45,21 +50,73 @@ local Feldt = J({
     end
 })
 
+-- Leading
+local Leading = J({
+  name = "Leading",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 2,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Stronger
+local Stronger = J({
+  name = "Stronger",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 3,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
 -- Marvel
-local Marvel = {
+local Marvel = J({
     name = "Marvel",
     pos = { x = 3, y = 5 },
     config = { extra = { mult_mod = 10, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mult_mod } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Brain"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "DF", -- Defense
-  pteam = "ina_team_Brain",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 4,
+    pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -85,23 +142,75 @@ local Marvel = {
             end
         end
     end
-}
+})
+
+-- Good
+local Good = J({
+  name = "Good",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 5,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Rock
+local Rock = J({
+  name = "Rock",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 6,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 -- Tell
-local Tell = {
+local Tell = J({
     name = "Tell",
     pos = { x = 6, y = 5 },
     config = { extra = { Xchips_mod = 3.1416 } },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Brain"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF", -- Midfielder
-  pteam = "ina_team_Brain",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 7,
+    pteam = "ina_team_Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.joker_main and G.hand and G.hand.cards then
@@ -121,24 +230,52 @@ local Tell = {
                 end
             end
         end
-    end,
-}
+    end
+})
+
+-- Busta
+local Busta = J({
+  name = "Busta",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 8,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 -- Seller
-local Seller = {
+local Seller = J({
     name = "Seller",
     pos = { x = 8, y = 5 },
     config = { extra = { sell_potential = 0, sell_mod = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.sell_potential, center.ability.extra.sell_mod } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Brain"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW", -- Forward
-  pteam = "ina_team_Brain",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 9,
+    pteam = "ina_team_Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.end_of_round and not context.game_over and context.main_eval then
@@ -171,23 +308,27 @@ local Seller = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
 -- Kind
-local Kind = {
+local Kind = J({
     name = "Kind",
     pos = { x = 9, y = 5 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Brain"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF", -- Midfielder
-  pteam = "ina_team_Brain",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 10,
+    pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -223,23 +364,27 @@ local Kind = {
             end
         end
     end
-}
+})
 
 -- Turner
-local Turner = {
+local Turner = J({
     name = "Turner",
     pos = { x = 10, y = 5 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2, -- Uncommon
-  pools = { ["ina_team_Brain"] = true },
+    rarity = 2,
+    pools = { ["ina_team_Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW", -- Forward
-  pteam = "ina_team_Brain",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 11,
+    pteam = "ina_team_Brain",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -255,10 +400,10 @@ local Turner = {
             }
         end
     end
-}
+})
 
 -- Under
-local Under = {
+local Under = J({
     name = "Under",
     pos = { x = 11, y = 5 },
     config = { extra = { chips_mod = 120, triggered = false } },
@@ -267,13 +412,17 @@ local Under = {
         local realCount = gkCount > 0 and gkCount or 1
         return { vars = { center.ability.extra.chips_mod, realCount } }
     end,
-    rarity = 1, -- Common
-  pools = { ["ina_team_Brain"] = true },
+    rarity = 1,
+    pools = { ["ina_team_Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "GK", -- Goalkeeper
-  pteam = "ina_team_Brain",
+    ptype = C.Forest,
+    pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 12,
+    pteam = "ina_team_Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main then
@@ -289,7 +438,103 @@ local Under = {
             }
         end
     end
-}
+})
+
+-- Stiller
+local Stiller = J({
+  name = "Stiller",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_1,
+  pdorsal = 13,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Oughtry
+local Oughtry = J({
+  name = "Oughtry",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_3,
+  pdorsal = 14,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Mooney
+local Mooney = J({
+  name = "Mooney",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 15,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Waters
+local Waters = J({
+  name = "Waters",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_Brain"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.YEAR_2,
+  pdorsal = 16,
+  pteam = "ina_team_Brain",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
 
 return {
     name = "Brain",

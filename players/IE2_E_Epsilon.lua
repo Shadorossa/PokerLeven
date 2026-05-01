@@ -1,3 +1,4 @@
+-- Dvalin
 local Dvalin = J({
     name = "Dvalin",
     pos = { x = 3, y = 0 },
@@ -15,6 +16,11 @@ local Dvalin = J({
     atlas = "top",
     ptype = C.Fire,
     pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 1,
+    pcaptain = C.CAPTAIN,
     pteam = "ina_team_Epsilon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -37,6 +43,7 @@ local Dvalin = J({
     end
 })
 
+-- Dvalin_Plus
 local Dvalin_Plus = J({
     name = "Dvalin_Plus",
     pos = { x = 4, y = 0 },
@@ -53,6 +60,11 @@ local Dvalin_Plus = J({
     atlas = "top",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 1,
+    pcaptain = C.CAPTAIN,
     pteam = "ina_team_Epsilon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -76,6 +88,7 @@ local Dvalin_Plus = J({
     end
 })
 
+-- Kenville
 local Kenville = J({
     name = "Kenville",
     pos = { x = 1, y = 5 },
@@ -90,6 +103,10 @@ local Kenville = J({
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 2,
     pteam = "ina_team_Epsilon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -117,6 +134,7 @@ local Kenville = J({
     end
 })
 
+-- Kenville_Plus
 local Kenville_Plus = J({
     name = "Kenville_Plus",
     pos = { x = 12, y = 5 },
@@ -128,6 +146,10 @@ local Kenville_Plus = J({
     atlas = "Jokers02",
     ptype = C.Fire,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 2,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -154,6 +176,7 @@ local Kenville_Plus = J({
     end
 })
 
+-- Mole
 local Mole = J({
     name = "Mole",
     pos = { x = 2, y = 5 },
@@ -169,6 +192,10 @@ local Mole = J({
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.DF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 3,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -206,6 +233,7 @@ local Mole = J({
     end
 })
 
+-- Mole_Plus
 local Mole_Plus = J({
     name = "Mole_Plus",
     pos = { x = 0, y = 6 },
@@ -217,6 +245,10 @@ local Mole_Plus = J({
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.DF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 3,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -255,6 +287,7 @@ local Mole_Plus = J({
     end
 })
 
+-- Kayson
 local Kayson = J({
     name = "Kayson",
     pos = { x = 3, y = 5 },
@@ -270,6 +303,10 @@ local Kayson = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 4,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -288,6 +325,7 @@ local Kayson = J({
     end
 })
 
+-- Kayson_Plus
 local Kayson_Plus = J({
     name = "Kayson_Plus",
     pos = { x = 1, y = 6 },
@@ -301,6 +339,10 @@ local Kayson_Plus = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 4,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -315,6 +357,7 @@ local Kayson_Plus = J({
     end
 })
 
+-- Tytan
 local Tytan = J({
     name = "Tytan",
     pos = { x = 4, y = 5 },
@@ -330,6 +373,10 @@ local Tytan = J({
     atlas = "Jokers02",
     ptype = C.Mountain,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 5,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -345,6 +392,7 @@ local Tytan = J({
     end
 })
 
+-- Tytan_Plus
 local Tytan_Plus = J({
     name = "Tytan_Plus",
     pos = { x = 2, y = 6 },
@@ -360,6 +408,10 @@ local Tytan_Plus = J({
     atlas = "Jokers02",
     ptype = C.Mountain,
     pposition = C.DF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pdorsal = 5,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -382,6 +434,7 @@ local Tytan_Plus = J({
     end
 })
 
+-- Fedora
 local Fedora = J({
     name = "Fedora",
     pos = { x = 5, y = 5 },
@@ -395,8 +448,12 @@ local Fedora = J({
     pools = { ["Epsilon"] = true },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Wind,
+    ptype = C.Fire,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 6,
     pteam = "ina_team_Epsilon",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -418,7 +475,7 @@ local Fedora = J({
             return { message = localize('k_void_ex'), colour = G.C.SECONDARY_SET.Spectral }
         elseif ctx.joker_main and ex.void_count > 0 then
             return { mult = ex.void_count * ex.mult_per_card }
-        elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
+        elseif ctx.end_of_round and not ctx.blueprint and not context.individual and not context.repetition then
             ex.rounds_active = ex.rounds_active + 1
             if ex.rounds_active >= 2 then
                 G.E_MANAGER:add_event(Event({
@@ -444,6 +501,7 @@ local Fedora = J({
     end
 })
 
+-- Fedora_Plus
 local Fedora_Plus = J({
     name = "Fedora_Plus",
     pos = { x = 3, y = 6 },
@@ -456,8 +514,12 @@ local Fedora_Plus = J({
     pools = { ["Epsilon"] = false },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Wind,
+    ptype = C.Fire,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 6,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -477,7 +539,7 @@ local Fedora_Plus = J({
             return { message = localize('k_void_ex'), colour = G.C.SECONDARY_SET.Spectral }
         elseif ctx.joker_main and ex.void_count > 0 then
             return { mult = ex.void_count * ex.mult_per_card }
-        elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition then
+        elseif ctx.end_of_round and not ctx.blueprint and not context.individual and not context.repetition then
             ex.rounds_active = ex.rounds_active + 1
             ex.timer = ex.timer - 1
             if ex.rounds_active == 1 then
@@ -506,6 +568,7 @@ local Fedora_Plus = J({
     end
 })
 
+-- Krypto
 local Krypto = J({
     name = "Krypto",
     pos = { x = 6, y = 5 },
@@ -523,6 +586,10 @@ local Krypto = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.MF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 7,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -545,6 +612,7 @@ local Krypto = J({
     end
 })
 
+-- Krypto_Plus
 local Krypto_Plus = J({
     name = "Krypto_Plus",
     pos = { x = 4, y = 6 },
@@ -556,6 +624,10 @@ local Krypto_Plus = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.MF,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 7,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -579,6 +651,7 @@ local Krypto_Plus = J({
     end
 })
 
+-- Sworm
 local Sworm = J({
     name = "Sworm",
     pos = { x = 7, y = 5 },
@@ -594,6 +667,10 @@ local Sworm = J({
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 8,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -616,6 +693,7 @@ local Sworm = J({
     end
 })
 
+-- Sworm_Plus
 local Sworm_Plus = J({
     name = "Sworm_Plus",
     pos = { x = 5, y = 6 },
@@ -627,6 +705,10 @@ local Sworm_Plus = J({
     atlas = "Jokers02",
     ptype = C.Forest,
     pposition = C.MF,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pdorsal = 8,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -641,6 +723,7 @@ local Sworm_Plus = J({
     end
 })
 
+-- Mercury
 local Mercury = J({
     name = "Mercury",
     pos = { x = 8, y = 5 },
@@ -656,6 +739,10 @@ local Mercury = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 9,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -676,6 +763,7 @@ local Mercury = J({
     end
 })
 
+-- Mercury_Plus
 local Mercury_Plus = J({
     name = "Mercury_Plus",
     pos = { x = 6, y = 6 },
@@ -690,6 +778,10 @@ local Mercury_Plus = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.F,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 9,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -714,6 +806,7 @@ local Mercury_Plus = J({
     end
 })
 
+-- Metron
 local Metron = J({
     name = "Metron",
     pos = { x = 9, y = 5 },
@@ -729,6 +822,10 @@ local Metron = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 10,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -745,6 +842,7 @@ local Metron = J({
     end
 })
 
+-- Metron_Plus
 local Metron_Plus = J({
     name = "Metron_Plus",
     pos = { x = 7, y = 6 },
@@ -756,6 +854,10 @@ local Metron_Plus = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 10,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
@@ -772,6 +874,7 @@ local Metron_Plus = J({
     end
 })
 
+-- Zell
 local Zell = J({
     name = "Zell",
     pos = { x = 10, y = 5 },
@@ -786,6 +889,10 @@ local Zell = J({
     atlas = "Jokers02",
     ptype = C.Wind,
     pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 11,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
@@ -800,61 +907,68 @@ local Zell = J({
     update = function(self, card, dt)
         if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
-            local has_dvalin = get_joker_with_key('j_ina_Dvalin') or get_joker_with_key('j_ina_Dvalin_Plus')
-            if not Pokerleven.is_in_left_half(card) and has_dvalin then
-                local dvalin_plus = get_joker_with_key('j_ina_Dvalin_Plus')
-                if dvalin_plus then ina_backend_evolve(dvalin_plus, 'j_ina_Dvalin') end
+            if Pokerleven.is_in_left_half(card) then
+                local dvalin = get_joker_with_key('j_ina_Dvalin_Plus')
+                if dvalin then ina_backend_evolve(dvalin, 'j_ina_Dvalin') end
                 ina_backend_evolve(card, 'j_ina_Zell_Plus') 
             end
         end
     end
 })
 
+-- Zell_Plus
 local Zell_Plus = J({
     name = "Zell_Plus",
     pos = { x = 11, y = 5 },
-    config = { extra = {} },
-    loc_vars = function(self, info_queue, center) return { vars = { #find_player_team("ina_team_Epsilon") } } end,
+    config = { extra = { xmult_mod = 0.5, barriers_consumed = 1 } },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * center.ability.extra.xmult_mod), center.ability.extra.barriers_consumed, center.ability.extra.xmult_mod } }
+    end,
     rarity = 3,
     pools = { ["Epsilon"] = false },
     cost = 7,
     atlas = "Jokers02",
-    ptype = C.Wind,
-    pposition = C.GK,
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pdorsal = 11,
     pteam = "ina_team_Epsilon",
     blueprint_compat = true,
     aux_ina = true,
     calculate = function(self, card, ctx)
-        if ctx.before and not ctx.blueprint then
-            local count = #find_player_team("ina_team_Epsilon")
-            if count > 0 then
-                for _, v in pairs(G.GAME.hands) do v.level = v.level + count end
-                return { message = localize('k_level_up_ex'), colour = G.C.CHIPS }
+        local ex = card.ability.extra
+        if Pokerleven.is_joker_turn(ctx) then
+            local b = G.GAME.current_round.barriers or 0
+            if b >= ex.barriers_consumed then
+                Pokerleven.ease_barriers(-ex.barriers_consumed)
+                local v = 1 + b * ex.xmult_mod
+                return { message = localize { type = 'variable', key = 'a_xmult', vars = { v } }, Xmult_mod = v, colour = G.C.RED }
             end
         end
     end,
     update = function(self, card, dt)
         if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
-            local has_dvalin = get_joker_with_key('j_ina_Dvalin') or get_joker_with_key('j_ina_Dvalin_Plus')
-            if Pokerleven.is_in_left_half(card) or not has_dvalin then ina_backend_evolve(card, 'j_ina_Zell') end
+            if not Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Zell') end
         end
     end
 })
 
 return {
-    name = "Epsilon",
-    list = { 
-        Dvalin, Dvalin_Plus, 
-        Kenville, Kenville_Plus, 
-        Fedora, Fedora_Plus, 
-        Sworm, Sworm_Plus, 
-        Mercury, Mercury_Plus, 
-        Metron, Metron_Plus, 
-        Zell, Zell_Plus, 
-        Mole, Mole_Plus, 
-        Kayson, Kayson_Plus, 
-        Tytan, Tytan_Plus, 
-        Krypto, Krypto_Plus 
-    }
+  name = "Epsilon",
+  list = {
+    Dvalin, Dvalin_Plus,
+    Kenville, Kenville_Plus,
+    Mole, Mole_Plus,
+    Kayson, Kayson_Plus,
+    Tytan, Tytan_Plus,
+    Fedora, Fedora_Plus,
+    Krypto, Krypto_Plus,
+    Sworm, Sworm_Plus,
+    Mercury, Mercury_Plus,
+    Metron, Metron_Plus,
+    Zell, Zell_Plus
+  }
 }

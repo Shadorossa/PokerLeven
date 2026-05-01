@@ -1,5 +1,5 @@
--- Inazuma Eleven Jokers
-local hillman = J({
+-- Hillman
+local Hillman = J({
   name = "Hillman",
   pos = { x = 6, y = 7 },
   config = { extra = { Xchip_mod = 0.2, triggered = false } },
@@ -10,12 +10,17 @@ local hillman = J({
         1 + center.ability.extra.Xchip_mod * (G.GAME.strat_cards_used or 0) }
     }
   end,
-  rarity = 3, -- Rare
+  rarity = 3,
   pools = { ["ina_team_InazumaEleven"] = true },
   cost = 8,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "GK",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 1,
+  pcaptain = C.CAPTAIN,
   pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -35,7 +40,8 @@ local hillman = J({
   }
 })
 
-local island = J({
+-- Island
+local Island = J({
   name = "Island",
   pos = { x = 7, y = 7 },
   config = { extra = { current_chips = 0, chips_mod = 20, triggered = false } },
@@ -47,12 +53,16 @@ local island = J({
       }
     }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["ina_team_InazumaEleven"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 2,
   pteam = "ina_team_InazumaEleven",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -83,8 +93,32 @@ local island = J({
   }
 })
 
+-- Hairtown
+local Hairtown = J({
+  name = "Hairtown",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 3,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
 -- Sweet
-local sweet = J({
+local Sweet = J({
   name = "Sweet",
   pos = { x = 9, y = 7 },
   config = {
@@ -94,12 +128,16 @@ local sweet = J({
       raimon_chance = 0.5
     }
   },
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["ina_team_InazumaEleven"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "DF",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 4,
   pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -123,7 +161,7 @@ local sweet = J({
 })
 
 -- Butler
-local butler = J({
+local Butler = J({
   name = "Butler",
   pos = { x = 10, y = 7 },
   config = {
@@ -140,12 +178,16 @@ local butler = J({
         center.ability.extra.chips_mod }
     }
   end,
-  rarity = 1, -- Common
+  rarity = 1,
   pools = { ["ina_team_InazumaEleven"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "MF",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 5,
   pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -173,20 +215,96 @@ local butler = J({
   end
 })
 
+-- Nathaniel
+local Nathaniel = J({
+  name = "Nathaniel",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 6,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Gladstone
+local Gladstone = J({
+  name = "Gladstone",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 7,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Tailor
+local Tailor = J({
+  name = "Tailor",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 8,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
 -- Barista
-local barista = J({
+local Barista = J({
   name = "Barista",
   pos = { x = 1, y = 8 },
   config = { extra = { Xchips_mod = 2 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.Xchips_mod } }
   end,
-  rarity = 2, -- Uncommon
+  rarity = 2,
   pools = { ["ina_team_InazumaEleven"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Wind",
-  pposition = "FW",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 9,
   pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -203,19 +321,48 @@ local barista = J({
   }
 })
 
-local builder = J({
+-- Suffolk
+local Suffolk = J({
+  name = "Suffolk",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 10,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Builder
+local Builder = J({
   name = "Builder",
   pos = { x = 3, y = 8 },
   config = {},
   loc_vars = function(self, info_queue, center)
     return {}
   end,
-  rarity = 2, -- Uncommon
+  rarity = 2,
   pools = { ["ina_team_InazumaEleven"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "FW",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 11,
   pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -261,7 +408,127 @@ local builder = J({
   }
 })
 
+-- Poe
+local Poe = J({
+  name = "Poe",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 12,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Heart
+local Heart = J({
+  name = "Heart",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 13,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Foreman
+local Foreman = J({
+  name = "Foreman",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 14,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- MacHines
+local MacHines = J({
+  name = "MacHines",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 15,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Steaky
+local Steaky = J({
+  name = "Steaky",
+  pos = { x = 0, y = 0 }, -- Placeholder pos
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1,
+  pools = { ["ina_team_InazumaEleven"] = true },
+  cost = 5,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pgender = C.M,
+  pnation = C.JAPAN,
+  pyear = C.ADULT,
+  pdorsal = 16,
+  pteam = "ina_team_InazumaEleven",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
 return {
   name = "Inazuma Eleven",
-  list = { hillman, island, sweet, butler, barista, builder },
+  list = { Hillman, Island, Sweet, Butler, Barista, Builder },
 }
