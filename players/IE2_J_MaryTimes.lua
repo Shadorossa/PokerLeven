@@ -125,8 +125,8 @@ local Fordline = J({
 })
 
 local Soundtown = J({
-  name = "Cadence Soundtown",
-  pos = { x = 1, y = 12 },
+  name = "Soundtown",
+  pos = { x = 2, y = 11 },
   config = { extra = { 
     current_xmult = 1, 
     tuning = 1, -- 0: Low, 1: Med, 2: High
@@ -161,6 +161,7 @@ local Soundtown = J({
   remove_from_deck = function(self, card, from_debuff)
     if card.ability.extra.vol_set then
         G.SETTINGS.music_volume = card.ability.extra.base_vol
+        if G.SETTINGS.SOUND then G.SETTINGS.SOUND.music_volume = G.SETTINGS.music_volume end
     end
   end,
   calculate = function(self, card, ctx)
@@ -225,7 +226,9 @@ local Soundtown = J({
         
         -- Adjust volume
         local offset = (ex.tuning - 1) * 20
-        G.SETTINGS.music_volume = math.max(0, math.min(100, ex.base_vol + offset))
+        local new_vol = math.max(0, math.min(100, ex.base_vol + offset))
+        G.SETTINGS.music_volume = new_vol
+        if G.SETTINGS.SOUND then G.SETTINGS.SOUND.music_volume = new_vol end
         
         return {
             message = new_tuning == 2 and "¡Sintonía ALTA!" or (new_tuning == 0 and "Sintonía Baja..." or "Sintonía Media"),

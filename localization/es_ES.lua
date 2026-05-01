@@ -1721,10 +1721,10 @@ return {
                 name = "Kevin Dragonfly",
                 text = {
                     "{C:forest}Tornado Dragón Oscuro{}",
-                    "Reactiva al {C:attention}Joker derecho{} {C:attention}#1#{} veces.",
+                    "Reactiva al {C:attention}Joker derecho{} {C:attention}#1#{} veces",
                     "Cada {C:attention}#3#{} veces que se active, le {C:red}elimina{}",
-                    "un nivel de técnica. Si no tiene, lo {C:red}destruye{}.",
-                    "{C:inactive}(Contador: {C:attention}#2#/#3#{C:inactive}){}"
+                    "un nivel de técnica. Si no tiene, lo {C:red}destruye{}",
+                    "{C:inactive}(Contador: {C:attention}#2#/#3#{C:inactive})"
                 }
             },
 
@@ -1734,7 +1734,7 @@ return {
                 text = {
                     "{C:wind}Bloque de Hielo{}",
                     "Las cartas de {C:attention}Vidrio{} se",
-                    "{C:red}rompen{} siempre."
+                    "{C:red}rompen{} siempre"
                 }
             },
             j_ina_Clear = {
@@ -1743,15 +1743,15 @@ return {
                     "{C:wind}Pureza Gélida{}",
                     "Si una carta de {C:attention}Vidrio{} se rompe,",
                     "tienes una probabilidad de {C:green}#1# en #2#{}",
-                    "de recuperarla en tu mazo."
+                    "de recuperarla en tu mazo"
                 }
             },
             j_ina_Icer = {
                 name = "Icer",
                 text = {
                     "Gana {C:money}#1# ${} por cada miembro de",
-                    "{X:ina_team_PolvodeDiamantes,C:white}P. Diamantes{} al final de la ronda.",
-                    "{C:inactive}(Si hay miembros de {X:ina_team_Prominence,C:white}Prominence{}, cuenta ambos | Actual:{} {C:money}#2# ${}{C:inactive}){}"
+                    "{X:ina_team_PolvodeDiamantes,C:white}P. Diamantes{} al final de la ronda",
+                    "{C:inactive}(Si hay miembros de {X:ina_team_Prominence,C:white}Prominence{}, cuenta ambos | Actual:{} {C:money}#2# ${}{C:inactive})"
                 }
             },
             j_ina_Gazelle = {
@@ -1804,15 +1804,12 @@ return {
 
             -- IE2_J_MaryTimes
             j_ina_Soundtown = {
-                name = "Cadence Soundtown",
+                name = "Soundtown",
                 text = {
-                    "Ajusta el volumen de la música según tu sintonía con él.",
-                    "Las condiciones de sintonía son {C:attention}secretas{} y cambian cada ronda.",
-                    "{C:inactive}(Nivel actual: #1#){}",
-                    "{C:green}Sintonía Alta{}: {X:mult,C:white}X2{} permanente y volumen +20%.",
-                    "{C:orange}Sintonía Media{}: {X:mult,C:white}X0.25{} permanente.",
-                    "{C:red}Sintonía Baja{}: {X:mult,C:white}X-0.5{} permanente y volumen -20%.",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}"
+                    "{C:fire}Baile de Llamas{}",
+                    "Cada ronda se genera una condición de sintonía aleatoria",
+                    "{C:green}Alta{}: {X:mult,C:white}X2{} | {C:orange}Media{}: {X:mult,C:white}X0.25{} | {C:red}Baja{}: {X:mult,C:white}X-0.5{}",
+                    "{C:inactive}(Sintonía: {C:attention}#1#{} | Actual:{} {X:mult,C:white}X#2#{}{C:inactive})"
                 }
             },
 
@@ -1829,11 +1826,9 @@ return {
             j_ina_Hauser = {
                 name = "Hauser",
                 text = {
-                    "{C:mountain}Capa de Alius{}",
-                    "Al puntuar cartas de {C:attention}Piedra{},",
-                    "las {C:red}elimina{} de tu mazo.",
-                    "Por cada {C:attention}2{} piedras eliminadas,",
-                    "genera {C:attention}1 {X:mountain,C:white}Barrera{}."
+                    "{C:mountain}Gravedad Grave{}",
+                    "Al puntuar {C:attention}2{} cartas de {C:attention}Piedra{},",
+                    "son transformadas en {C:attention}1 {X:mountain,C:white}Barrera{}"
                 }
             },
             j_ina_Wittz = {
@@ -2102,8 +2097,8 @@ return {
                     "{C:fire}Espíritu Inquebrantable{}",
                     "Gana {C:chips}+#1#{} Fichas si juegas una mano",
                     "que consiga puntuar menos del {C:attention}#2#%{}",
-                    "de las fichas requeridas.",
-                    "{C:inactive}(Actual:{} {C:chips}+#3#{}{C:inactive}){}"
+                    "de las fichas requeridas",
+                    "{C:inactive}(Actual:{} {C:chips}+#3#{}{C:inactive})"
                 }
             },
             j_ina_Hunter_Ares = {
@@ -2111,17 +2106,16 @@ return {
                 text = {
                     "{C:fire}Cañón de Meteoritos{}",
                     "Al jugar una mano, gana permanentemente",
-                    "{C:mult}+#1#{} Mult y {C:chips}+#2#{} Fichas.",
-                    "{C:inactive}(Actual:{} {C:mult}+#3#{}{C:inactive} y {C:chips}+#4#{}{C:inactive}){}"
+                    "{C:mult}+#1#{} Mult y {C:chips}+#2#{} Fichas",
+                    "{C:inactive}(Actual:{} {C:mult}+#3#{}{C:inactive} y {C:chips}+#4#{}{C:inactive})"
                 }
             },
             j_ina_Xavier_Ares = {
                 name = "Xavier Schiller",
                 text = {
-                    "{C:forest}Detonador{}",
-                    "Al puntuar, {C:attention}drena{} {C:money}#1#${} a los demás Jokers y",
-                    "gana {X:mult,C:white}X#2#{} de Mult por cada {C:money}1${} obtenido.",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#3#{}{C:inactive}){}"
+                    "Al puntuar, {C:attention}drena{} {C:money}1${} de valor de venta",
+                    "de cada Joker y gana {X:mult,C:white}X#1#{} por cada {C:money}1${} drenado",
+                    "{C:inactive}(Si un Joker llega a 0 drena a negativo | Drenado:{} {C:money}#2#${}{C:inactive})"
                 }
             },
 
