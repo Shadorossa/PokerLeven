@@ -311,7 +311,7 @@ return {
                 text = { "Al jugar o descartar, los palos", "del mazo {C:attention}cambian al azar{}" }
             },
             bl_ina_YoungInazuma = {
-                name = "Young Inazuma",
+                name = "Jóvenes Inazuma",
                 text = {
                     "{C:attention}Debilita{} a los jokers mejorados",
                     "Anotar {C:attention}<25%{} requerido",
@@ -1367,7 +1367,7 @@ return {
 
             -- IE2_E_Epsilon
             j_ina_Dvalin = {
-                name = "Dave Quagmire",
+                name = "Dvalin",
                 text = {
                     "{C:fire}Destrozataladros{}",
                     "Otorga {C:chips}+#1#{} fichas y crea",
@@ -1375,7 +1375,7 @@ return {
                 }
             },
             j_ina_Dvalin_Plus = {
-                name = "Dave Quagmire (P)",
+                name = "Dvalin",
                 text = {
                     "{C:wind}Lanza de Odín{}",
                     "Da {X:mult,C:white} X#3# {} por cada",
@@ -1392,7 +1392,7 @@ return {
                 }
             },
             j_ina_Kenville_Plus = {
-                name = "Kenville (P)",
+                name = "Kenville",
                 text = {
                     "{C:wind}Remolino Cortante{}",
                     "Tus cartas {C:attention}2, 3 o 4{} puntúan como",
@@ -1410,7 +1410,7 @@ return {
                 }
             },
             j_ina_Mole_Plus = {
-                name = "Mole (P)",
+                name = "Mole",
                 text = {
                     "{C:fire}Flash de Fotones{}",
                     "Transfiere {C:attention}Mejoras{}, {C:dark_edition}Ediciones{}",
@@ -1427,7 +1427,7 @@ return {
                 }
             },
             j_ina_Kayson_Plus = {
-                name = "Kayson (P)",
+                name = "Kayson",
                 text = {
                     "{C:wind}Niebla Venenosa{}",
                     "Reduce el tamaño de la {C:attention}siguiente ciega{} un {C:red}#1#%{}",
@@ -1444,7 +1444,7 @@ return {
                 }
             },
             j_ina_Tytan_Plus = {
-                name = "Tytan (P)",
+                name = "Tytan",
                 text = {
                     "{C:mountain}Terremoto{}",
                     "Su medidor de {C:chips}Fichas{} y {X:mult,C:white} XMult {}",
@@ -1462,7 +1462,7 @@ return {
                 }
             },
             j_ina_Fedora_Plus = {
-                name = "Fedora (P)",
+                name = "Fedora",
                 text = {
                     "{C:wind}Ataque Afilado{}",
                     "Al descartar, envía las cartas {C:spectral}al vacío{} y gana {C:mult}+#1#{} Mult.",
@@ -1479,7 +1479,7 @@ return {
                 }
             },
             j_ina_Krypto_Plus = {
-                name = "Krypto (P)",
+                name = "Krypto",
                 text = {
                     "{C:mountain}Lluvia de Meteoros{}",
                     "Reactiva {C:attention}todas las cartas{} que consigas puntuar",
@@ -1495,7 +1495,7 @@ return {
                 }
             },
             j_ina_Sworm_Plus = {
-                name = "Sworm (P)",
+                name = "Sworm",
                 text = {
                     "{C:mountain}Cabezazo Yoyó{}",
                     "Rescata {C:attention}todas{} las cartas jugadas tras",
@@ -1513,7 +1513,7 @@ return {
                 }
             },
             j_ina_Mercury_Plus = {
-                name = "Mercury (P)",
+                name = "Mercury",
                 text = {
                     "{C:mountain}Remate de Gaia{}",
                     "Al descartar exactamente {C:attention}2{} cartas,",
@@ -1533,7 +1533,7 @@ return {
                 }
             },
             j_ina_Metron_Plus = {
-                name = "Metron (P)",
+                name = "Metron",
                 text = {
                     "{C:mountain}Remate de Gaia{}",
                     "Eleva las {C:chips}fichas{} obtenidas al puntuar",
@@ -1550,7 +1550,7 @@ return {
                 }
             },
             j_ina_Zell_Plus = {
-                name = "Zell (P)",
+                name = "Zell",
                 text = {
                     "{C:forest}Agujero de Gusano{}",
                     "Al jugar una mano, sube el nivel de {C:attention}todas las manos{}",
@@ -1952,6 +1952,36 @@ return {
             },
 
 
+            -- IE2_O_YoungInazuma
+            j_ina_Hillman_Young = {
+                name = "Seymour Hillman",
+                text = { "{C:inactive}(Sin efecto por ahora){}" }
+            },
+            j_ina_Island_Young = {
+                name = "Island",
+                text = {"{C:forest}Zig zag chispeante{}",
+                    "Cada {C:attention}doble pareja{} jugada obtiene {C:chips}+#1# fichas{},",
+                    "cada 3 usos sube de nivel la mano",
+                    "{C:inactive}(Fichas actuales: {C:chips}+#1#{}{C:inactive}) | {C:inactive}(Doble parejas usadas: #2#/#3#){}"
+                }
+            },
+            j_ina_Sweet_Young = {
+                name = "Sweet",
+                text = {"{C:mountain}Reclutamiento{}",
+                    "Al seleccionar la ciega crea un {C:attention}Joker{}",
+                    "del {X:ina_team_raimon,C:white}Raimon{} o de {X:ina_team_younginazuma,C:white}Jóvenes Inazuma{}.",
+                    "{C:inactive}Ocupa #1# espacios de Joker.{}"
+                }
+            },
+            j_ina_Butler_Young = {
+                name = "Butler",
+                text = {"{C:forest}Rentista{}",
+                    "Adquiere hasta {C:money}-$#1#{} de deuda, por cada C:money}-$#2#{}", 
+                    "ganas {C:chips}+#3#{} fichas, pero los sobres cuestan {X:attention,C:white}x#4#${}.",
+                    "{C:inactive}(Actual: {C:chips}+#5#{C:inactive} fichas)"
+                }
+            },
+
             -- IE2_P_SeaOfTrees
             j_ina_Mando = { 
                 name = "Cam Mando", 
@@ -2181,7 +2211,7 @@ return {
             j_ina_Trevor = {
                 name = "Trevor Cook",
                 text = {
-                    "{C:wind}Danza del Destello{}",
+                    "{C:wind}Viento centelleante{}",
                     "Tus {C:attention}2, 4, 6 y 8{} dan {C:mult}+#1#{} Mult por cada",
                     "Joker del {X:ina_team_inakuniraimon,C:white}I. Raimon{} al puntuar.",
                     "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}"
@@ -2190,7 +2220,7 @@ return {
             j_ina_Cesar = {
                 name = "César Montalbán",
                 text = {
-                    "{C:forest}Técnica Ninja{}",
+                    "{C:forest}Sapo ninja{}",
                     "{C:green}#1# en #2#{} probabilidades de",
                     "duplicar cada {C:attention}Etiqueta{} ganada."
                 }
@@ -2263,10 +2293,8 @@ return {
             j_ina_Quagmire_Ares = {
                 name = "Dave Quagmire",
                 text = {
-                    "{C:fire}Espíritu Inquebrantable{}",
-                    "Gana {C:chips}+#1#{} Fichas si juegas una mano",
-                    "que consiga puntuar menos del {C:attention}#2#%{}",
-                    "de las fichas requeridas",
+                    "{C:fire}Destrozataladros{}",
+                    "Gana {C:chips}+#1# fichas{} al jugar una mano", "que puntúe menos del {C:attention}#2#%{} requerido",
                     "{C:inactive}(Actual:{} {C:chips}+#3#{}{C:inactive})"
                 }
             },
@@ -2438,8 +2466,8 @@ return {
             j_ina_Gold = {
                 name = "Finn Geld",
                 text = {
-                    "Pierde {C:money}3 ${} de valor de",
-                    "venta al finalizar cada ciega"
+                    "Pierde {C:money}#1# ${} de valor de venta",
+                    "al finalizar cada ciega"
                 }
             },
 
@@ -2665,7 +2693,7 @@ return {
             },
             Mangual_Letal = {
                 name = "Mangual Letal",
-                text = { "Ectoplasma otorga {C:dark_edition}Letal{} a {C:attention}Bash{}, {C:attention}Malice{} y {C:attention}Callous{}" }
+                text = { "Ectoplasma otorga {C:dark_edition}Letal{}", "a {C:attention}Bash{}, {C:attention}Malice{} y {C:attention}Callous{}" }
             },
             Dios_rematador = {
                 name = "Dios rematador",
@@ -3423,6 +3451,7 @@ return {
             ["ina_team_Otaku"] = "Otaku",
             ["ina_team_Farm"] = "Farm",
             ["ina_team_InazumaEleven"] = "Inazuma Eleven",
+            ["ina_team_YoungInazuma"] = "Jóvenes Inazuma",
             ["ina_team_Kirkwood"] = "Kirkwood",
             ["ina_team_Shuriken"] = "Shuriken",
             ["ina_team_Zeus"] = "Zeus",

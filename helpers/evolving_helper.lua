@@ -27,7 +27,18 @@ family = {
     { "Axel_Kirkwood", "Axel", "Axel_IJ"},
     { "Jack", "Jack_IJ" },
     { "CalebR", "Caleb_IJ" },
-    { "Scotty", "Scotty_Angry" }
+    { "Scotty", "Scotty_Angry" },
+    { "Hillman_Young", "Hillman" },
+    { "Island_Young", "Island" },
+    { "Hairtown_Young", "Hairtown" },
+    { "Sweet_Young", "Sweet" },
+    { "Butler_Young", "Butler" },
+    { "Nathaniel_Young", "Nathaniel" },
+    { "Gladstone_Young", "Gladstone" },
+    { "Tailor_Young", "Tailor" },
+    { "Barista_Young", "Barista" },
+    { "Suffolk_Young", "Suffolk" },
+    { "Builder_Young", "Builder" }
 }
 
 copy_scaled_values = function(card)

@@ -565,6 +565,9 @@ local Gold = J({
     name = "Gold",
     pos = { x = 8, y = 1 },
     config = { extra = { loss = 3 } },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.loss } }
+    end,
     rarity = 2,
     pools = { ["Scout"] = true },
     cost = 80,
@@ -575,7 +578,7 @@ local Gold = J({
     pyear = C.YEAR_2,
     pteam = "ina_team_Scout",
     calculate = function(self, card, context)
-        if context.end_of_round and not context.blueprint and not context.repetition then
+        if context.end_of_round and context.main_eval and not context.blueprint and not context.repetition then
             card.ability.extra_value = (card.ability.extra_value or 0) - card.ability.extra.loss
             card:set_cost()
             return {

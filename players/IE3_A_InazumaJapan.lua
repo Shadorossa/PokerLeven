@@ -567,8 +567,6 @@ local Darren_IJ = J({
 return {
   name = "InazumaJapan",
   list = {
-    Mark_IJ, Nathan_IJ, Jack_IJ, Hurley_IJ, Tod_IJ, Scotty_IJ,
-    Archer_IJ, Caleb_IJ, Shawn_IJ, Axel_IJ, Austin_IJ, Thor_IJ,
-    Jordan_IJ, Jude_IJ, Samford_IJ, Kevin_IJ, Xavier_IJ, Darren_IJ
+    Mark_IJ, Nathan_IJ, Jack_IJ, Caleb_IJ, Axel_IJ, Jude_IJ, Samford_IJ, Kevin_IJ
   }
 }

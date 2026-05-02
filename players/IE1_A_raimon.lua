@@ -693,5 +693,5 @@ local Shadow = J({
 
 return {
   name = "Raimon",
-  list = { Mark, Nathan, Jack, Jim, Tod, Steve, Timmy, Sam, Peabody, Max, Axel, Kevin, Willy, Bobby, Erik, Jude_Raimon, Shadow },
+  list = { Mark, Nathan, Jack, Jim, Tod, Steve, Peabody, Max, Axel, Kevin, Willy, Bobby, Erik, Jude_Raimon, Shadow },
 }
