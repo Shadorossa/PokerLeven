@@ -382,6 +382,7 @@ local function load_joker_folder(folder_name, item_constructor)
           if item.ptype then item.config.extra.ptype = item.ptype end
           if item.pposition then item.config.extra.pposition = item.pposition end
           if item.pteam then item.config.extra.pteam = item.pteam end
+          if item.pteam_concept then item.config.extra.pteam_concept = item.pteam_concept end
           if item.special then item.config.extra.special = item.special end
           -- Aseguramos que la etiqueta especial también se propague a nivel de raíz para que SMODS y Lovely no la pierdan nunca
           if item.special then item.special_type = item.special end
@@ -443,3 +444,31 @@ end
 load_joker_folder("players", SMODS.Joker)
 load_joker_folder("managers", SMODS.Joker)
 load_joker_folder("Spirit", SMODS.Joker)
+
+-- Hook global para manejar la reversión de Thaddeus Bellefax
+local card_calculate_joker_ref = Card.calculate_joker
+function Card:calculate_joker(context)
+    local res = card_calculate_joker_ref(self, context)
+    
+    if context.end_of_round and context.main_eval and self.thaddeus_transform and not context.blueprint then
+        self.thaddeus_transform.blinds_remaining = self.thaddeus_transform.blinds_remaining - 1
+        if self.thaddeus_transform.blinds_remaining <= 0 then
+            local data = self.thaddeus_transform
+            self:set_ability(G.P_CENTERS[data.original_key])
+            -- Marcamos que ya se usó la transformación en la nueva habilidad
+            if self.ability and self.ability.extra then
+                self.ability.extra.used_transform = true
+                -- Limpieza explícita de stickers de posición que Byron pudo asignar
+                self.ability.fw_sticker = false
+                self.ability.mf_sticker = false
+                self.ability.df_sticker = false
+                self.ability.gk_sticker = false
+            end
+            self.thaddeus_transform = nil -- Limpiamos el estado de transformación
+            card_eval_status_text(self, 'extra', nil, nil, nil, { message = "Reversión", colour = G.C.BLUE })
+            Pokerleven.refresh_concept_boosts("ZEUS", data.stat_boost, "THADDEUS")
+        end
+    end
+    
+    return res
+end

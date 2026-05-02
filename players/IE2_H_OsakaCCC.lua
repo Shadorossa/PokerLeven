@@ -48,9 +48,43 @@ local Sand = J({
 local Earth = J({
   name = "Hellen Hearth",
   pos = { x = 7, y = 7 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+  config = { extra = { chance_per_female = 5 } },
+  calculate = function(self, card, context)
+    if context.using_consumeable and not context.blueprint then
+      if context.consumeable.ability.set == 'Tarot' then
+        local female_count = 0
+        for _, j in ipairs(G.jokers.cards) do
+          if j.config.center.pgender == C.F then female_count = female_count + 1 end
+        end
+        
+        local total_chance = female_count * card.ability.extra.chance_per_female
+        if pseudorandom('hellen_hearth') < total_chance / 100 then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                func = function()
+                    local new_card = copy_card(context.consumeable, nil)
+                    new_card:add_to_deck()
+                    G.consumeables:emplace(new_card)
+                    return true
+                end
+            }))
+            return {
+                message = "¡Femme Fatale!",
+                colour = G.C.PURPLE
+            }
+        end
+      end
+    end
+  end,
+  loc_vars = function(self, info_queue, card)
+    local female_count = 0
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.pgender == C.F then female_count = female_count + 1 end
+        end
+    end
+    return { vars = { card.ability.extra.chance_per_female, female_count * card.ability.extra.chance_per_female } }
   end,
   rarity = 1,
   pools = { ["Osaka CCC"] = true },
@@ -63,8 +97,7 @@ local Earth = J({
   pyear = C.YEAR_1,
   pdorsal = 3,
   pteam = "ina_team_OsakaCCC",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  blueprint_compat = true
 })
 
 -- Pinkpetal
@@ -117,11 +150,20 @@ local Greenland = J({
 local Bluebells = J({
   name = "Bela Bluebells",
   pos = { x = 10, y = 7 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+  config = { extra = { chance = 6 } },
+  calculate = function(self, card, context)
+    if context.joker_main and G.GAME.bluebells_triggered then
+        G.GAME.bluebells_triggered = false
+        return {
+            message = "¡Sorpresa!",
+            colour = G.C.FILTER
+        }
+    end
   end,
-  rarity = 1,
+  loc_vars = function(self, info_queue, card)
+    return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.chance } }
+  end,
+  rarity = 2,
   pools = { ["Osaka CCC"] = true },
   cost = 5,
   atlas = "Jokers02",
@@ -132,8 +174,7 @@ local Bluebells = J({
   pyear = C.YEAR_2,
   pdorsal = 6,
   pteam = "ina_team_OsakaCCC",
-  blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  blueprint_compat = true
 })
 
 -- Sunrise
@@ -369,5 +410,5 @@ local Brook = J({
 
 return {
   name = "Osaka CCC",
-  list = {}
+  list = { Earth, Bluebells }
 }

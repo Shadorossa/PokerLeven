@@ -560,7 +560,33 @@ local Ian_Flappable = J({
     end
 })
 
-local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade, Miles, George, Spring, Summer, Autumn, Tom_Skipper, Ian_Flappable }
+-- Finn Geld
+local Gold = J({
+    name = "Gold",
+    pos = { x = 8, y = 1 },
+    config = { extra = { loss = 3 } },
+    rarity = 2,
+    pools = { ["Scout"] = true },
+    cost = 80,
+    atlas = "Jokers10",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pgender = C.M,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    calculate = function(self, card, context)
+        if context.end_of_round and not context.blueprint and not context.repetition then
+            card.ability.extra_value = (card.ability.extra_value or 0) - card.ability.extra.loss
+            card:set_cost()
+            return {
+                message = "-" .. card.ability.extra.loss .. "$",
+                colour = G.C.MONEY
+            }
+        end
+    end
+})
+
+local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade, Miles, George, Spring, Summer, Autumn, Tom_Skipper, Ian_Flappable, Gold }
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers then
     table.insert(list, 1, Dulce)
     table.insert(list, 2, Ryoma)

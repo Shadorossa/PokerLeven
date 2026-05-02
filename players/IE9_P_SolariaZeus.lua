@@ -189,10 +189,13 @@ local Zelus = J({
 
 -- Thaddeus Bellefax (Archon Aphrodite)
 local Thaddeus_Bellefax = J({
-  name = "Thaddeus Bellefax",
+  name = "Thaddeus_Bellefax",
   pos = { x = 2, y = 11 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center) return { vars = {} } end,
+  config = { extra = { stat_boost = 1.75, transform_blinds = 4, transformed = false, original_key = "j_ina_Thaddeus_Bellefax" } },
+  loc_vars = function(self, info_queue, center) 
+    info_queue[#info_queue + 1] = { set = 'Other', key = 'modo_cambio' }
+    return { vars = { (center.ability.extra.stat_boost - 1) * 100, center.ability.extra.transform_blinds } } 
+  end,
   rarity = 3,
   pools = { ["Solaria Zeus"] = true },
   cost = 8,
@@ -204,8 +207,38 @@ local Thaddeus_Bellefax = J({
   pyear = C.YEAR_2,
   pnumber = 10,
   pteam = "ina_team_SolariaZeus",
+  pteam_concept = "Zeus",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  add_to_deck = function(self, card)
+    card.ability.gives_boost = "THADDEUS"
+    Pokerleven.refresh_concept_boosts("ZEUS", card.ability.extra.stat_boost, "THADDEUS")
+  end,
+  remove_from_deck = function(self, card)
+    card.ability.gives_boost = nil
+    Pokerleven.refresh_concept_boosts("ZEUS", card.ability.extra.stat_boost, "THADDEUS")
+  end,
+  calculate = function(self, card, context)
+    if context.setting_blind or context.joker_main or context.buying_card then
+        Pokerleven.refresh_concept_boosts("ZEUS", card.ability.extra.stat_boost, "THADDEUS")
+    end
+
+    if context.setting_blind and not context.blueprint and not card.ability.extra.used_transform then
+        if G.jokers.cards[#G.jokers.cards] == card then
+            Pokerleven.refresh_concept_boosts("ZEUS", card.ability.extra.stat_boost, "THADDEUS")
+            
+            -- Guardamos los datos de transformación fuera de card.ability.extra para que persistan tras el set_ability
+            card.thaddeus_transform = {
+                blinds_remaining = card.ability.extra.transform_blinds,
+                original_key = card.ability.extra.original_key,
+                stat_boost = card.ability.extra.stat_boost
+            }
+            
+            card:set_ability(G.P_CENTERS["j_ina_Aphrodite"])
+            card_eval_status_text(card, 'extra', nil, nil, nil, { message = "¡BYRON!", colour = G.C.GOLD })
+            return
+        end
+    end
+  end
 })
 
 -- Riza Nagivar (Izanagi)
@@ -336,5 +369,5 @@ local Takemikazuchi = J({
 
 return {
   name = "SolariaZeus",
-  list = {}
+  list = { Thaddeus_Bellefax }
 }

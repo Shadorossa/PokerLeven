@@ -798,6 +798,10 @@ Pokerleven.generate_info_ui = function(self, info_queue, card, desc_nodes, speci
         end
     end
 
+    if card and card.thaddeus_transform then
+        info_queue[#info_queue + 1] = {key = 'fate_tooltip', set = 'Other', vars = {card.thaddeus_transform.blinds_remaining}}
+    end
+
     SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
     if desc_nodes == full_UI_table.main then

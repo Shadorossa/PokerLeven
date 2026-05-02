@@ -9,15 +9,6 @@ end
 
 return {
     descriptions = {
-        Other = {
-            fate_tooltip = {
-                name = "Fate",
-                text = {
-                    "Faltan {C:attention}#1#{} intentos",
-                    "para el éxito garantizado."
-                }
-            },
-        },
         Back = {
             b_ina_hillman = {
                 name = "Hillman",
@@ -1568,6 +1559,26 @@ return {
                 }
             },
 
+            -- IE2_H_OsakaCCC
+            j_ina_Earth = {
+                name = "Hellen Hearth",
+                text = {
+                    "{C:forest}Femme fatale{}",
+                    "Por cada jugador {C:attention}femenino{} en tus jokers,",
+                    "hay un {C:green}#1#%{} de no gastar una carta {C:tarot}tarot{}.",
+                    "{C:inactive}(Actual: {C:green}#2#%#{C:inactive})"
+                }
+            },
+            j_ina_Bluebells = {
+                name = "Bela Bluebells",
+                text = {
+                    "{C:wind}Sorpresa{}",
+                    "Tiene una probabilidad de {C:green}#1# en #2#{} de que la",
+                    "mano jugada se transforme automáticamente en una",
+                    "{C:attention}Escalera de Color{}, sin importar las cartas que sean."
+                }
+            },
+
             -- IE2_G_RoyalRedux
             j_ina_KingR = {
                 name = "Joseph King",
@@ -2424,6 +2435,37 @@ return {
                     "como cartas de {X:wind,C:white}Viento{}"
                 }
             },
+            j_ina_Gold = {
+                name = "Finn Geld",
+                text = {
+                    "Pierde {C:money}3 ${} de valor de",
+                    "venta al finalizar cada ciega"
+                }
+            },
+
+            -- IE9_P_SolariaZeus
+            j_ina_Susanoo = { name = "Wesley Knox", text = { "" } },
+            j_ina_Pan = { name = "Apollon Zeus", text = { "" } },
+            j_ina_Eros = { name = "Jeff Iron", text = { "" } },
+            j_ina_Paieon = { name = "Paul Peabody", text = { "" } },
+            j_ina_Oyamatsumi = { name = "Oyamatsumi", text = { "" } },
+            j_ina_Atlas = { name = "Atlas", text = { "" } },
+            j_ina_Uzume = { name = "Uzume", text = { "" } },
+            j_ina_Harmonia = { name = "Harmonia", text = { "" } },
+            j_ina_Zelus = { name = "Ciro Zealon", text = { "" } },
+            j_ina_Thaddeus_Bellefax = {
+                name = "Thaddeus Bellefax",
+                text = {
+                    "{C:mountain}Refuerzo Divino{}",
+                    "Potencia las estadísticas de los", "{C:attention}Jokers{} del {X:ina_team_zeus,C:white}Zeus{} un {C:attention}#1#%{}"
+                }
+            },
+            j_ina_Izanagi = { name = "Riza Nagivar", text = { "" } },
+            j_ina_Hecate = { name = "Cate Heckel", text = { "" } },
+            j_ina_Tartarus = { name = "Iskandar Tarusian", text = { "" } },
+            j_ina_Izanami = { name = "Orisa Namir", text = { "" } },
+            j_ina_Tajikarao = { name = "Burke Forzane", text = { "" } },
+            j_ina_Takemikazuchi = { name = "Kazimir Stormblade", text = { "" } },
 
             -- IE9_Z_Winners
             j_ina_Turi = {
@@ -2606,6 +2648,21 @@ return {
         },
 
         Other = {
+            modo_cambio = {
+                name = "Modo cambio",
+                text = {
+                    "Si está a la {C:attention}derecha del todo{}",
+                    "al entrar en una ciega, se transforma",
+                    "en {C:attention}Byron{} durante {C:attention}4 ciegas{}."
+                }
+            },
+            fate_tooltip = {
+                name = "Fate",
+                text = {
+                    "Faltan {C:attention}#1#{} ciegas",
+                    "para concluir {C:attention}el acuerdo{}"
+                }
+            },
             Mangual_Letal = {
                 name = "Mangual Letal",
                 text = { "Ectoplasma otorga {C:dark_edition}Letal{} a {C:attention}Bash{}, {C:attention}Malice{} y {C:attention}Callous{}" }
@@ -3410,6 +3467,7 @@ return {
             ["ina_team_EarthEleven"] = "Earth Eleven",
             ["ina_team_ZanarkOutsiders"] = "Zanark Outsiders",
             ["ina_team_SeaOfTrees"] = "Mar de Árboles",
+            ["ina_team_SolariaZeus"] = "Instituto Solaria-Zeus",
         },
         quips = {},
         ranks = {},

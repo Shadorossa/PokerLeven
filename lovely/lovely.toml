@@ -647,3 +647,25 @@ payload = '''
     end
 '''
 match_indent = true
+
+# Bluebells Surprise
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "function get_poker_hand_info(hand)"
+position = "after"
+payload = '''
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.key == 'j_ina_Bluebells' and not j.debuff then
+                if pseudorandom('bluebells') < (G.GAME.probabilities.normal or 1) / 6 then
+                    G.GAME.bluebells_triggered = true
+                    local _cards = {}
+                    for i=1, #hand do _cards[i] = hand[i] end
+                    return {["Straight Flush"] = {_cards}}, _cards
+                end
+            end
+        end
+    end
+'''
+match_indent = true
