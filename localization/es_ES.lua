@@ -1920,7 +1920,7 @@ return {
                 text = {
                     "{C:fire}Baile de Llamas{}",
                     "Cada ronda se genera una condición de sintonía aleatoria",
-                    "{C:green}Alta{}: {X:mult,C:white}X2{} | {C:orange}Media{}: {X:mult,C:white}X0.25{} | {C:red}Baja{}: {X:mult,C:white}X-0.5{}",
+                    "{C:green}Alta{}: {X:mult,C:white}X0.75{} | {C:orange}Media{}: {X:mult,C:white}X0.25{} | {C:red}Baja{}: {X:mult,C:white}X-0.5{}",
                     "{C:inactive}(Sintonía: {C:attention}#1#{} | Actual:{} {X:mult,C:white}X#2#{}{C:inactive})"
                 }
             },

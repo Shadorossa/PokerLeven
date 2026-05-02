@@ -1,4 +1,4 @@
-﻿local Rocky = J({
+local Rocky = J({
   name = "Rocky Black",
   pos = { x = 12, y = 9 },
   config = { extra = {} },
@@ -211,7 +211,7 @@ local Soundtown = J({
         
         if is_high then
             new_tuning = 2
-            ex.current_Xmult = ex.current_Xmult + 2
+            ex.current_Xmult = ex.current_Xmult + 0.75
         else
             local is_med = false
             for _, c in ipairs(ex.targets.med) do if check_cond(c) then is_med = true; break end end
