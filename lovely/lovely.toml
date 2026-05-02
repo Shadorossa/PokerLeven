@@ -682,3 +682,20 @@ payload = '''
     end
 '''
 match_indent = true
+
+# Poker Discount
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "self.cost = math.max(0, self.cost)"
+position = "before"
+payload = '''
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.key == 'j_ina_Poker' and j.ability.extra and j.ability.extra.count > 0 then
+                self.cost = self.cost - (j.ability.extra.count * j.ability.extra.discount)
+            end
+        end
+    end
+'''
+match_indent = true

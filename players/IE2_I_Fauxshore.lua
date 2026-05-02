@@ -5,9 +5,9 @@ local team_id = "ina_team_Fauxshore"
 local Darren = J({
   name = "Darren",
   pos = { x = 8, y = 8 },
-  config = { extra = {} },
+  config = { extra = { odds = 3, boost = 1.9 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    return { vars = { (G.GAME.probabilities.normal or 1), center.ability.extra.odds, (center.ability.extra.boost - 1) * 100 } }
   end,
   rarity = 3,
   pools = { ["Fauxshore"] = true },
@@ -22,7 +22,19 @@ local Darren = J({
   pyear = C.YEAR_1,
   pteam = "ina_team_Fauxshore",
   blueprint_compat = true,
-  calculate = function(self, card, context) end
+  calculate = function(self, card, context)
+    -- Potenciar a otros GK
+    if context.other_joker and context.other_joker ~= card and is_position(context.other_joker, "GK") then
+        if pseudorandom('darren') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            return {
+                message = "¡Mano Infinitas!",
+                Xmult_mod = card.ability.extra.boost,
+                colour = G.C.MULT,
+                card = card
+            }
+        end
+    end
+  end
 })
 
 -- Fake
@@ -296,7 +308,7 @@ local Duskplay = J({
 local Luckyman = J({
   name = "Luckyman",
   pos = { x = 5, y = 9 },
-  rarity = 3,
+  rarity = 2,
   pools = { ["Fauxshore"] = true },
   cost = 8,
   atlas = "Jokers02",
@@ -308,6 +320,12 @@ local Luckyman = J({
   pcaptain = C.CAPTAIN,
   pyear = C.YEAR_2,
   pteam = "ina_team_Fauxshore",
+  add_to_deck = function(self, card, from_debuff)
+    G.GAME.probabilities.normal = G.GAME.probabilities.normal * 2
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    G.GAME.probabilities.normal = G.GAME.probabilities.normal / 2
+  end,
   calculate = function(self, card, context) end
 })
 
@@ -315,6 +333,10 @@ local Luckyman = J({
 local Poker = J({
   name = "Poker",
   pos = { x = 6, y = 9 },
+  config = { extra = { count = 0, discount = 0.5 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.count, center.ability.extra.discount, center.ability.extra.count * center.ability.extra.discount } }
+  end,
   rarity = 2,
   pools = { ["Fauxshore"] = true },
   cost = 6,
@@ -326,7 +348,16 @@ local Poker = J({
   pdorsal = 11,
   pyear = C.YEAR_2,
   pteam = "ina_team_Fauxshore",
-  calculate = function(self, card, context) end
+  calculate = function(self, card, context)
+    if context.before and context.scoring_name == "Four of a Kind" and not context.blueprint then
+        card.ability.extra.count = card.ability.extra.count + 1
+        return {
+            message = "¡Poker!",
+            colour = G.C.MONEY,
+            card = card
+        }
+    end
+  end
 })
 
 -- Cracker
@@ -339,6 +370,6 @@ local Bathers = J({ name = "Bathers", pos = { x = 11, y = 9 }, rarity = 1, pools
 return {
   name = "Fauxshore",
   list = {
-    Fake, Leave
+    Fake, Leave, Darren, Luckyman, Poker
   }
 }
