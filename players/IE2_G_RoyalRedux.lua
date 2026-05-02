@@ -627,6 +627,6 @@ local Color = J({
 
 return {
     name = "Royal Academy Redux",
-    list = { King_Redux, Beltzer, Blade, Argie, Messer, Spark, Sparrow, Jamm, CalebR, Samford_Redux, Cellar, Zenn, Cossimo, Color, Bamboo, Little }
+    list = { King_Redux, Beltzer, Blade, Argie, Messer, Spark, Sparrow, Jamm, Caleb_Redux, Samford_Redux, Cellar, Zenn, Cossimo, Color, Bamboo, Little }
 }
 
