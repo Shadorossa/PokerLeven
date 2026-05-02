@@ -1976,7 +1976,7 @@ return {
             j_ina_Butler_Young = {
                 name = "Butler",
                 text = {"{C:forest}Rentista{}",
-                    "Adquiere hasta {C:money}-$#1#{} de deuda, por cada C:money}-$#2#{}", 
+                    "Adquiere hasta {C:money}-$#1#{} de deuda, por cada {C:money}-$#2#{}", 
                     "ganas {C:chips}+#3#{} fichas, pero los sobres cuestan {X:attention,C:white}x#4#${}.",
                     "{C:inactive}(Actual: {C:chips}+#5#{C:inactive} fichas)"
                 }
