@@ -16,7 +16,7 @@ end
 ---@param card Card
 Pokerleven.update_spirit_visuals = function(card)
     if card.area == Pokerleven.ina_spirits_area then
-        local max_ch = card.ability.extra.max_charges or card.ability.extra.max_charges_plasma
+        local max_ch = get_max_charges(card.ability.extra)
         card.greyed = not Pokerleven.is_spirit_active(card) or (card.ability.extra.charges <= 0) or not max_ch
     else
         card.greyed = false
@@ -49,7 +49,7 @@ Pokerleven.manage_spirit_charges = function(card, ctx)
             diff = Pokerleven.modify_charges(card, -1)
             if diff < 0 then
                 ex.charges_spent = (ex.charges_spent or 0) + math.abs(diff)
-                local max_ch = ex.max_charges or ex.max_charges_plasma or 1
+                local max_ch = get_max_charges(ex) or 1
                 local req = math.max(1, math.ceil(max_ch * 0.25 * math.max(1, ex.tech_level or 0)))
                 local max_spirit_lvl = 5
                 if ex.charges_spent >= req and (ex.tech_level or 0) < max_spirit_lvl then
@@ -58,7 +58,7 @@ Pokerleven.manage_spirit_charges = function(card, ctx)
                 end
             end
         end
-        local max_ch = ex.max_charges or ex.max_charges_plasma or 1
+        local max_ch = get_max_charges(ex) or 1
         if G.GAME.blind:get_type() == 'Boss' then diff = diff + Pokerleven.modify_charges(card, math.max(1, math.floor(max_ch * 0.15))) end
         
         if diff > 0 then return {message = "+" .. diff .. " Carga" .. (diff > 1 and "s" or ""), colour = G.C.PURPLE}

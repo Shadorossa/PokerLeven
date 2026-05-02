@@ -2618,9 +2618,8 @@ return {
                 name = "Sombra de Plasma TI",
                 text = {
                     "{C:fire}Tiro Sombrío{}",
-                    "Cada vez que un Joker {X:fw,C:white}FW{} otorga",
-                    "puntuación, suma {C:mult}+#1#{} Multi.",
-                    "{C:inactive}(Escala con nivel de técnica){}"
+                    "Cada vez que un Joker {X:fw,C:white}FW{}",
+                    "se activa, suma {C:mult}+#1#{} Multi."
                 }
             },
 

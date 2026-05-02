@@ -61,10 +61,26 @@ technique_values = {
     stat_gain = 1,       -- es de Surtur (Espíritu)
     reduction_gain = 0.2, -- es de Gigante / Eris (Espíritu)
     max_devoured = 0.2,
-
-    -- Espíritus (Sombra de Plasma)
-    max_charges_plasma = 1, -- es de las Sombras de Plasma
 }
+
+-- Multiplicative technique values: each level multiplies the field by this factor.
+-- E.g. factor = 2 means each level doubles the value (2 -> 4 -> 8 -> 16...).
+multiplicative_technique_values = {
+    max_charges_plasma = 2, -- es de las Sombras de Plasma (*2 por nivel)
+}
+
+-- Finds max_charges from any naming convention (max_charges, max_charges_plasma, etc.)
+-- so helpers don't need a chain of 'or' checks.
+get_max_charges = function(ex)
+    if not ex then return nil end
+    if ex.max_charges then return ex.max_charges end
+    for k, v in pairs(ex) do
+        if type(k) == 'string' and k:sub(1, 11) == 'max_charges' and type(v) == 'number' then
+            return v
+        end
+    end
+    return nil
+end
 
 local roundable_fields = {
     money = true,
@@ -235,6 +251,7 @@ modify_values = function(card)
     if card.ability.extra and card.ability.extra.cap_plus_max then mult = 4
     elseif card.ability.extra and card.ability.extra.cap_plus then mult = 2 end
 
+    -- Additive scaling
     for name, _ in pairs(technique_values) do
         local data = card.ability.extra[name]
         local base_val = card.config.center.config.extra[name]
@@ -249,6 +266,14 @@ modify_values = function(card)
             if frac then
                 set_frac(card, frac, name)
             end
+        end
+    end
+
+    -- Multiplicative scaling
+    for name, factor in pairs(multiplicative_technique_values) do
+        local data = card.ability.extra[name]
+        if type(data) == "number" then
+            card.ability.extra[name] = data * (factor ^ mult)
         end
     end
 end
