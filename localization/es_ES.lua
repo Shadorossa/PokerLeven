@@ -1842,7 +1842,7 @@ return {
                 name = "Beluga",
                 text = {
                     "{C:wind}Bloque de Hielo{}",
-                    "Las cartas de {C:attention}Vidrio{} se",
+                    "Las cartas de {C:attention}Cristal{} se",
                     "{C:red}rompen{} siempre"
                 }
             },
@@ -1850,7 +1850,7 @@ return {
                 name = "Clear",
                 text = {
                     "{C:wind}Pureza Gélida{}",
-                    "Si una carta de {C:attention}Vidrio{} se rompe,",
+                    "Si una carta de {C:attention}Cristal{} se rompe,",
                     "tienes una probabilidad de {C:green}#1# en #2#{}",
                     "de recuperarla en tu mazo"
                 }
@@ -2843,6 +2843,13 @@ return {
                 text = {
                     "{C:inactive}Cargas: {C:attention}#1#/#2#{}",
                     "{C:inactive}Evolución: {C:attention}Máx.{}"
+                }
+            },
+            ina_wittz_mark = {
+                name = "Marca de Wittz",
+                text = {
+                    "Esta carta {C:red}desaparecerá{}",
+                    "en {C:attention}#1#{} ciega(s)"
                 }
             },
             j_ina_Dvalin_ZO = { name = "Dvalin", text = { "{C:fire}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },

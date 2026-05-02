@@ -26,10 +26,7 @@ local Surtur = J({
     name = "Surtur",
     pos = { x = 9, y = 0 },
     config = { extra = { charges = 4, max_charges = 4, stat_gain = 0.005, accumulated_stats = 0, accumulated_levels = 0, is_active = false, tech_level = 0 } },
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue + 1] = {set = 'poker_hand', key = 'ina_MagicHand'}
-        local ex = center.ability.extra; return {vars = {ex.accumulated_levels or 0, ex.stat_gain * (1 + (ex.tech_level or 0)) * 100, (ex.accumulated_stats or 0) * 100}}
-    end,
+    loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.accumulated_levels or 0, ex.stat_gain * (1 + (ex.tech_level or 0)) * 100, (ex.accumulated_stats or 0) * 100}} end,
     rarity = 2,
     special = "Spirit",
     ptype = C.Fire,

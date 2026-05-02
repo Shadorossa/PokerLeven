@@ -402,7 +402,24 @@ end
 local orig_card_h_popup = G.UIDEF.card_h_popup
 function G.UIDEF.card_h_popup(card)
     local ui = orig_card_h_popup(card)
-    
+
+    -- Wittz mark tooltip
+    if card and card.ability and card.ability.wittz_tally then
+        local wittz_box = {
+            n = G.UIT.R,
+            config = {align = 'cm', colour = G.C.L_BLACK, r = 0.1, padding = 0.05, outline = 0.5, outline_colour = G.C.RED},
+            nodes = {
+                {n = G.UIT.R, config = {align = 'cm', padding = 0.02},
+                    nodes = {{n = G.UIT.T, config = {text = "Marca de Wittz", colour = G.C.RED, scale = 0.35, shadow = true}}}},
+                {n = G.UIT.R, config = {align = 'cm', padding = 0.02},
+                    nodes = {{n = G.UIT.T, config = {text = "Ciegas: " .. card.ability.wittz_tally, colour = G.C.UI.TEXT_LIGHT, scale = 0.3}}}},
+            }
+        }
+        if ui and ui.nodes then
+            table.insert(ui.nodes, 1, wittz_box)
+        end
+    end
+
     local function find_and_reformat_badges(node)
         if type(node) ~= 'table' then return false end
         
@@ -827,6 +844,9 @@ Pokerleven.generate_info_ui = function(self, info_queue, card, desc_nodes, speci
         }
     end
 end
+
+-- Wittz mark tooltip hook (via Card.generate_ui) removed: did not work for playing cards.
+-- Tooltip is now injected directly in G.UIDEF.card_h_popup above.
 
 -- Main menu (Stolen from Cryptid)
 local game_main_menu_ref = Game.main_menu

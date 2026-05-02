@@ -228,39 +228,58 @@ local Wittz = J({
   pdorsal = 9,
   pteam = "ina_team_Genesis",
   blueprint_compat = true,
+  remove_from_deck = function(self, card, from_debuff)
+    for _, c in ipairs(G.playing_cards or {}) do
+      if c.ability and c.ability.wittz_tally and not c.destroyed then
+        c.ability.wittz_tally = nil
+        c.destroyed = true
+        c:start_dissolve({G.C.RED}, nil, 1.2)
+      end
+    end
+  end,
   calculate = function(self, card, ctx)
+    -- Decrement countdown on all Wittz'd cards at the start of each blind
+    if ctx.setting_blind and not ctx.blueprint then
+        for _, c in ipairs(G.playing_cards or {}) do
+            if c.ability and c.ability.wittz_tally then
+                c.ability.wittz_tally = c.ability.wittz_tally - 1
+                if c.ability.wittz_tally <= 0 then
+                    c.ability.wittz_tally = nil
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after', delay = 0.3,
+                        func = function()
+                            if not c.destroyed then
+                                c.destroyed = true
+                                c:start_dissolve({G.C.RED}, nil, 1.2)
+                            end
+                            return true
+                        end
+                    }))
+                end
+            end
+        end
+    end
+
     if ctx.before and not ctx.blueprint and #ctx.scoring_hand >= 5 then
         for _, oc in ipairs(ctx.scoring_hand) do
             local enhancements = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_steel', 'm_stone', 'm_gold', 'm_lucky'}
             local enh = pseudorandom_element(enhancements, pseudoseed('wittz_enh'))
             oc:set_ability(G.P_CENTERS[enh])
-            
+
             local editions = {'foil', 'holo', 'polychrome'}
             local ed = pseudorandom_element(editions, pseudoseed('wittz_ed'))
             oc:set_edition({[ed] = true}, true)
-            
+
             local seals = {'Gold', 'Red', 'Blue', 'Purple'}
             local sl = pseudorandom_element(seals, pseudoseed('wittz_seal'))
             oc:set_seal(sl, true)
-            
+
+            -- Inicia o resetea el contador a 5 ciegas
+            oc.ability.wittz_tally = 5
+
             oc:juice_up()
         end
         return { message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION }
-    elseif ctx.after and not ctx.blueprint and #ctx.scoring_hand >= 5 then
-        local cards_to_destroy = {}
-        for _, v in ipairs(ctx.scoring_hand) do table.insert(cards_to_destroy, v) end
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 2.0,
-            func = function()
-                for _, oc in ipairs(cards_to_destroy) do
-                    oc.destroyed = true
-                    oc:start_dissolve({G.C.RED}, nil, 1.2)
-                end
-                return true
-            end
-        }))
-        return { message = localize('k_dest_ex'), colour = G.C.RED }
     end
   end
 })

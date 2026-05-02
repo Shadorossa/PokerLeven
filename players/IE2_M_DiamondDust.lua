@@ -108,7 +108,7 @@ local Gocker = J({
     blueprint_compat = true,
 })
 
--- Hook para Gocker: Modificar comportamiento del Vidrio
+-- Hook para Gocker: Modificar comportamiento del Cristal
 local calculate_individual_ref = Card.calculate_individual
 function Card.calculate_individual(self, context)
     local res = calculate_individual_ref(self, context)
