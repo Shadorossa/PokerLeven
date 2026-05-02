@@ -381,8 +381,8 @@ local CalebR = J({
   config = { extra = { current_xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
-    info_queue[#info_queue + 1] = G.P_CENTERS.j_ina_KingR
-    info_queue[#info_queue + 1] = G.P_CENTERS.j_ina_SamfordR
+    info_queue[#info_queue + 1] = G.P_CENTERS.j_ina_King_Redux
+    info_queue[#info_queue + 1] = G.P_CENTERS.j_ina_Samford_Redux
     return { vars = { ex.current_xmult, ex.xmult_gain, ex.turns_needed, ex.turns_needed - (ex.redux_turns or 0) } }
   end,
   rarity = 3,

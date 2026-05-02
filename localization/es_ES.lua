@@ -1580,7 +1580,7 @@ return {
             },
 
             -- IE2_G_RoyalRedux
-            j_ina_KingR = {
+            j_ina_King_Redux = {
                 name = "Joseph King",
                 text = {
                     "{C:fire}Colmillo de Pantera{}",
@@ -1665,7 +1665,7 @@ return {
                     "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive} | Rondas: {C:attention}#4#{}{C:inactive}){}"
                 }
             },
-            j_ina_SamfordR = {
+            j_ina_Samford_Redux = {
                 name = "David Samford",
                 text = {
                     "{C:forest}Pingüino Emperador N.º 1{}",
