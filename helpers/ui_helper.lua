@@ -787,8 +787,9 @@ Pokerleven.generate_info_ui = function(self, info_queue, card, desc_nodes, speci
         is_spirit, ex = true, self.config.extra
     end
 
-    if is_spirit and ex and ex.max_charges then
-        local charges, max_charges, spent, tech = ex.charges or ex.max_charges, ex.max_charges, ex.charges_spent or 0, ex.tech_level or 0
+    if is_spirit and ex and (ex.max_charges or ex.max_charges_plasma) then
+        local max_charges = ex.max_charges or ex.max_charges_plasma
+        local charges, spent, tech = ex.charges or max_charges, ex.charges_spent or 0, ex.tech_level or 0
         local req = math.max(1, math.ceil(max_charges * 0.25 * math.max(1, tech)))
         
         if tech >= 5 then

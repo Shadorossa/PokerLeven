@@ -63,7 +63,7 @@ local Surtur = J({
 local Gigante = J({
     name = "Gigante",
     pos = { x = 0, y = 1 },
-    config = { extra = { charges = 7, max_charges = 7, reduction_gain = 0.03, accumulated_reduction = 0, tech_level = 0 } },
+    config = { extra = { charges = 7, max_charges = 7, reduction_gain = 0.003, accumulated_reduction = 0, tech_level = 0 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.reduction_gain * (1 + (ex.tech_level or 0)) * 100, (ex.accumulated_reduction or 0) * 100}} end,
     rarity = 2,
     special = "Spirit",
@@ -118,7 +118,7 @@ local Eris = J({
 local Sombra_de_Plasma_TI = J({
     name = "Sombra_de_Plasma_TI",
     pos = { x = 4, y = 6 },
-    config = { extra = { charges = 4, max_charges = 4, base_mult = 8, tech_level = 0 } },
+    config = { extra = { charges = 2, max_charges_plasma = 2, base_mult = 8, tech_level = 0 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.base_mult * (2 ^ (ex.tech_level or 0))}} end,
     rarity = 2, special = "Spirit", ptype = C.Fire, techtype = C.UPGRADES.Spirit, pools = { ["Spirit"] = true }, cost = 8, atlas = "Spirits01",
     update = function(self, card, dt) Pokerleven.update_spirit_visuals(card) end,
@@ -138,7 +138,7 @@ local Sombra_de_Plasma_TI = J({
 local Sombra_de_Plasma_RE = J({
     name = "Sombra_de_Plasma_RE",
     pos = { x = 5, y = 6 },
-    config = { extra = { charges = 4, max_charges = 4, base_chips = 8, accumulated_chips = 0, tech_level = 0 } },
+    config = { extra = { charges = 2, max_charges_plasma = 2, base_chips = 8, accumulated_chips = 0, tech_level = 0 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.base_chips * (2 ^ (ex.tech_level or 0)), ex.accumulated_chips}} end,
     rarity = 2, special = "Spirit", ptype = C.Wind, techtype = C.UPGRADES.Spirit, pools = { ["Spirit"] = true }, cost = 8, atlas = "Spirits01",
     update = function(self, card, dt) Pokerleven.update_spirit_visuals(card) end,
@@ -168,7 +168,7 @@ local Sombra_de_Plasma_RE = J({
 local Sombra_de_Plasma_DF = J({
     name = "Sombra_de_Plasma_DF",
     pos = { x = 6, y = 6 },
-    config = { extra = { charges = 4, max_charges = 4, base_chips = 8, tech_level = 0 } },
+    config = { extra = { charges = 2, max_charges_plasma = 2, base_chips = 8, tech_level = 0 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.base_chips * (2 ^ (ex.tech_level or 0))}} end,
     rarity = 2, special = "Spirit", ptype = C.Mountain, techtype = C.UPGRADES.Spirit, pools = { ["Spirit"] = true }, cost = 8, atlas = "Spirits01",
     update = function(self, card, dt) Pokerleven.update_spirit_visuals(card) end,
@@ -189,7 +189,7 @@ local Sombra_de_Plasma_DF = J({
 local Sombra_de_Plasma_PO = J({
     name = "Sombra_de_Plasma_PO",
     pos = { x = 7, y = 6 },
-    config = { extra = { charges = 4, max_charges = 4, tech_level = 0 } },
+    config = { extra = { charges = 2, max_charges_plasma = 2, tech_level = 0 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {1 + (7 * (2 ^ (ex.tech_level or 0))) / 10}} end,
     rarity = 2, special = "Spirit", ptype = C.Forest, techtype = C.UPGRADES.Spirit, pools = { ["Spirit"] = true }, cost = 8, atlas = "Spirits01",
     update = function(self, card, dt) Pokerleven.update_spirit_visuals(card) end,

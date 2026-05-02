@@ -1560,24 +1560,21 @@ return {
             },
 
             -- IE2_H_OsakaCCC
-            j_ina_Earth = {
+            j_ina_Hearth = {
                 name = "Hellen Hearth",
                 text = {
                     "{C:forest}Femme fatale{}",
                     "Al usar un {C:tarot}Tarot{}, cada Joker {C:attention}femenino{}",
                     "otorga una probabilidad de {C:green}#1# en 100{}",
-                    "de crear una {C:attention}copia{} del mismo.",
-                    "{C:inactive}(Actual: {C:green}#2#%#{C:inactive})"
+                    "de crear una {C:attention}copia{} del mismo."
                 }
             },
             j_ina_Bluebells = {
                 name = "Bela Bluebells",
                 text = {
                     "{C:wind}Sorpresa{}",
-                    "Al jugar cualquier mano, tiene una",
-                    "probabilidad de {C:green}#1# entre #2#{}" ,
-                    "de que esta se convierta automáticamente",
-                    "en una {C:attention}Escalera de Color{}."
+                    "Al jugar cualquier mano, tiene {C:green}#1# en #2#{}" ,
+                    "de convertirla en {C:attention}Escalera de Color{}."
                 }
             },
 
@@ -1990,8 +1987,8 @@ return {
                 text = { 
                     "{C:mountain}Comandante{}",
                     "Al jugar la {C:attention}primera mano{} de la ronda,",
-                    "gana {C:chips}+#1# Fichas{} por cada {C:attention}elemento distinto{}",
-                    "entre tus Jokers {C:inactive}(Máx. {C:chips}+#2#{C:inactive}){}.",
+                    "gana {C:chips}+#1# Fichas{} por cada",
+                    "{C:attention}elemento distinto{} entre tus Jokers",
                 } 
             },
             j_ina_Boufante = { name = "Harry Boufante", text = { "{C:wind}Camuflaje{}", "{C:inactive}(Efecto por programar){}" } },
@@ -2035,8 +2032,8 @@ return {
                 text = { 
                     "{C:fire}Metrónomo{}",
                     "Al iniciar una ciega, copia el efecto",
-                    "de un {C:attention}Joker{} aleatoriamente",
-                    "{C:inactive}(Efecto actual: {C:attention}#1#{C:inactive})"
+                    "de dos {C:attention}Jokers{} aleatoriamente",
+                    "{C:inactive}(Jokers actuales: {C:attention}#1#{} | {C:attention}#2#{C:inactive})"
                 } 
             },
 
@@ -2047,7 +2044,6 @@ return {
                     "{C:wind}Entrada Huracán{}",
                     "Otorga {X:mult,C:white}X#1#{} por cada {C:attention}Joker{}",
                     "de nacionalidad {X:ina_flag_JPN,C:white} JPN {}",
-                    "{C:inactive}(Contador: #2#){}"
                 }
             },
             j_ina_Jack_IJ = {
@@ -2558,7 +2554,7 @@ return {
             j_ina_Majin_Pegasus = {
                 name = "Pegaso Mágico",
                 text = {
-                    "{C:wind}Pegaso Mágico{}",
+                    "{C:wind}Rayo celeste{}",
                     "Mejora un {C:attention}#1#%{} las estadísticas",
                     "de los comodines de {X:wind,C:white}Viento{}"
                 }
@@ -2573,9 +2569,9 @@ return {
                 }
             },
             j_ina_Gigante = {
-                name = "Gigante",
+                name = "Titán gigante",
                 text = {
-                    "{C:mountain}Gigante{}",
+                    "{C:mountain}Presa titánica{}",
                     "{C:red}Destruye{} 1 carta puntuada",
                     "de {X:mountain,C:white}Montaña{}. Rebaja un {C:attention}#1#%{} las",
                     "fichas de la próxima {C:attention}Ciega Jefe{}.",
@@ -2592,27 +2588,26 @@ return {
                     "{C:inactive}(Universo actual: {C:attention}#1#{C:inactive})"
                 }
             },
-            j_ina_Sombra_de_Plasma_DF = {
-                name = "Sombra de Plasma DF",
-                text = {
-                    "{C:mountain}Sombra de Plasma DF{}",
-                    "Otorga {C:chips}+#1#{} Fichas por cada",
-                    "{X:mountain,C:white}Barrera{} al jugar una mano."
-                }
-            },
             j_ina_Sombra_de_Plasma_PO = {
                 name = "Sombra de Plasma PO",
                 text = {
-                    "{C:forest}Sombra de Plasma PO{}",
-                    "En tu {C:attention}última mano{}, si vas perdiendo,",
-                    "otorga {X:mult,C:white} X#1# {} Mult por cada",
-                    "Joker {X:gk,C:white}GK{}. {C:inactive}(Consume 2 Cargas){}"
+                    "{C:forest}Mano Sombría{}",
+                    "Otorga {X:mult,C:white} X#1#{} por cada", "Joker {X:gk,C:white}GK{} en tu {C:attention}última mano{}",
+                    "{C:inactive}(Consume 2 Cargas){}"
+                }
+            },
+            j_ina_Sombra_de_Plasma_DF = {
+                name = "Sombra de Plasma DF",
+                text = {
+                    "{C:mountain}Guardia Sombría{}",
+                    "Otorga {C:chips}+#1#{} Fichas por cada",
+                    "{X:mountain,C:white}Barrera{} al jugar una mano."
                 }
             },
             j_ina_Sombra_de_Plasma_RE = {
                 name = "Sombra de Plasma RE",
                 text = {
-                    "{C:wind}Sombra de Plasma RE{}",
+                    "{C:wind}Espada Sombría{}",
                     "Al descartar, {C:red}destruye{} la carta",
                     "más baja. Suma {C:chips}+#1#{} Fichas a su",
                     "Aura pasiva por cada {X:mf,C:white}MF{}.",
@@ -2622,7 +2617,7 @@ return {
             j_ina_Sombra_de_Plasma_TI = {
                 name = "Sombra de Plasma TI",
                 text = {
-                    "{C:fire}Sombra de Plasma TI{}",
+                    "{C:fire}Tiro Sombrío{}",
                     "Cada vez que un Joker {X:fw,C:white}FW{} otorga",
                     "puntuación, suma {C:mult}+#1#{} Multi.",
                     "{C:inactive}(Escala con nivel de técnica){}"
@@ -2670,9 +2665,7 @@ return {
                 name = "Tod Ironside",
                 text = {
                     "{C:wind}Equilibrismo{}",
-                    "Gana {C:chips}+#1#{} fichas por",
-                    "cada {C:enhanced}Acero{}",
-                    "en {C:attention}mano{} o {C:attention}jugada{}"
+                    "Gana {C:chips}+#1#{} fichas por cada", "{C:enhanced}Acero{} en {C:attention}mano{} o {C:attention}jugada{}"
                 }
             },
         },

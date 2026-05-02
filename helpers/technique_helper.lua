@@ -1,54 +1,69 @@
 ---@diagnostic disable: assign-type-mismatch
 -- Multipliers for  technique upgrades
 technique_values = {
+    -- Economía
     money = .6,
+    sell_mod = .6,       -- es de Seller
+    sell_potential = .6, -- es de Seller
+    sell_value = .2,     -- es de Finn Geld
+
+    -- Puntuación (Aditivo)
     mult_mod = .2,
     mult_mod_low = 1,    -- es de Arion / Ryoma
     chip_mod = .2,       -- es de Island / Arion / Mark Evans (IJ)
-    Xmult_mod = .2,      -- es de Jude / Byron (MF) / General
-    Xchip_mod = .2,      -- es de Jack (IJ)
-    sell_mod = .6,       -- es de Seller
-    sell_potential = .6, -- es de Seller
-    current_Xmult = .2,  -- es de Jude / Thor / General / Prominence
-    current_chips = .2,  -- es de Eisei Gakuen / Perseus
-    current_mult = .2,   -- es de Eisei Gakuen / Perseus
-    new_glass_denom = .2,-- es de Diamond Dust / Kirkwood
-    xmult = .2,
-    drain = .2,          -- es de Bellatrix / Dvalin
-    odds = -.05,         -- es de Shadow / General
-    sell_value = .2,     -- es de Finn Geld
-    common_mult = .2,    -- es de Martin
-    uncommon_mult = .2,  -- es de Martin
-    rare_xmult = .1,     -- es de Martin
-    legendary_exp = .05, -- es de Martin
-    copies_number = .25, -- es de Hattori
-    alt_chips_mod = .2,  -- es de Mando
-    byron_mult_fw = .2,  -- es de Byron (FW)
-    byron_mult_mf = .2,  -- es de Byron (MF)
-    perish_tally = 1,    -- Cloak
-    extra_back_size = 1, -- Mark Evans
-    cooldown_base = -0.2,-- es de Arion
-    current_cooldown = -0.2, -- es de Arion
-    evolving_retriggers = 1, -- es de Kevin
-    card_count1 = 1,     -- es de Soundtown
-    odds4 = -0.1499,     -- es de Ian Flappable
-    odds2 = -0.1,        -- es de Ian Flappable / Triumvir
-    mult_gain = 0.2667,  -- es de King / Perseus
-    xmult_gain = .2,     -- es de King / Eisei Gakuen
     chip_mod_normal = .2,
     chip_mod_chaos = .2,
-    levels_per_card = .2,-- es de Jack
-    retriggers = 1,      -- es de Suffolk / Arion
-    stone_bonus = .05,   -- es de Hauser
-    stat_mult = 0.02,     -- es de Majin Pegasus (Espíritu)
-    max_charges = 0.2,   -- es de los Espíritus
-    stat_gain = 1,       -- es de Surtur (Espíritu)
-    levels_to_add = 0.5, -- es de Majin Pegasus?
-    reduction_gain = 1,  -- es de Eris (Espíritu)
-    max_devoured = 0.2,
+    current_chips = .2,  -- es de Eisei Gakuen / Perseus
+    current_mult = .2,   -- es de Eisei Gakuen / Perseus
+    mult_gain = 0.2667,  -- es de King / Perseus
+    common_mult = .2,    -- es de Martin
+    uncommon_mult = .2,  -- es de Martin
+    alt_chips_mod = .2,  -- es de Mando
+
+    -- Puntuación (Multiplicativo)
+    Xmult_mod = .2,      -- es de Jude / Byron (MF) / General
+    Xchip_mod = .2,      -- es de Jack (IJ)
+    xmult = .2,
+    xmult_gain = .2,     -- es de King / Eisei Gakuen
+    current_Xmult = .2,  -- es de Jude / Thor / General / Prominence
+    rare_xmult = .1,     -- es de Martin
+
+    -- Probabilidades
+    odds = -.05,         -- es de Shadow / General
+    odds2 = -0.1,        -- es de Ian Flappable / Triumvir
+    odds4 = -0.1499,     -- es de Ian Flappable
     threshold = -0.0625,
     threshold_upper = 0.05,
-    cards_rescued = 1
+
+    -- Evolución y Niveles
+    perish_tally = 1,    -- Cloak
+    extra_back_size = 1, -- Mark Evans
+    evolving_retriggers = 1, -- es de Kevin
+    levels_per_card = .2,-- es de Jack
+    levels_to_add = 0.5, -- es de Majin Pegasus?
+    cards_rescued = 1,
+    retriggers = 1,      -- es de Suffolk / Arion
+
+    -- Específicos de Personaje/Equipo
+    byron_mult_fw = .2,  -- es de Byron (FW)
+    byron_mult_mf = .2,  -- es de Byron (MF)
+    card_count1 = 1,     -- es de Soundtown
+    cooldown_base = -0.2,-- es de Arion
+    current_cooldown = -0.2, -- es de Arion
+    new_glass_denom = .2,-- es de Diamond Dust / Kirkwood
+    drain = .2,          -- es de Bellatrix / Dvalin
+    copies_number = .25, -- es de Hattori
+    stone_bonus = .05,   -- es de Hauser
+
+    -- Espíritus (normales)
+    stat_mult = 0.02,     -- es de Majin Pegasus (Espíritu)
+    max_charges = 0.2,   -- es de Espíritus normales
+    stat_gain = 1,       -- es de Surtur (Espíritu)
+    reduction_gain = 0.2, -- es de Gigante / Eris (Espíritu)
+    max_devoured = 0.2,
+
+    -- Espíritus (Sombra de Plasma)
+    max_charges_plasma = 1, -- es de las Sombras de Plasma
 }
 
 local roundable_fields = {

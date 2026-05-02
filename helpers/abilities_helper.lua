@@ -236,9 +236,10 @@ end
 Pokerleven.modify_charges = function(card, amount)
     if not card or not card.ability or type(card.ability.extra) ~= "table" then return 0 end
     local ex = card.ability.extra
-    if not ex.charges or not ex.max_charges then return 0 end
+    local max_ch = ex.max_charges or ex.max_charges_plasma
+    if not ex.charges or not max_ch then return 0 end
     local old_charges = ex.charges
-    ex.charges = math.max(0, math.min(ex.max_charges, ex.charges + amount))
+    ex.charges = math.max(0, math.min(max_ch, ex.charges + amount))
     return ex.charges - old_charges
 end
 

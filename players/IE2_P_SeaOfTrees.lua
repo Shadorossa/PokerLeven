@@ -234,7 +234,7 @@ local Daring = J({
 local Enoki = J({
   name = "Enoki",
   pos = { x = 12, y = 15 },
-  rarity = 3,
+  rarity = 2,
   pools = { ["Sea of Trees"] = true },
   cost = 10,
   atlas = "Jokers02",
@@ -244,9 +244,9 @@ local Enoki = J({
   pnation = C.JAPAN,
   pdorsal = 11,
   pteam = team_id,
-  config = { extra = { copied_key = nil } },
+  config = { extra = { copied_keys = {nil, nil} } },
   calculate = function(self, card, context)
-    -- Select random joker at start of blind
+    -- Select 2 random jokers at start of blind
     if context.setting_blind and not context.blueprint then
         local pool = {}
         for k, v in pairs(G.P_CENTERS) do
@@ -254,35 +254,51 @@ local Enoki = J({
                 table.insert(pool, k)
             end
         end
-        card.ability.extra.copied_key = pool[math.random(#pool)]
+        local k1 = math.random(#pool)
+        local k2 = math.random(#pool)
+        while k2 == k1 do k2 = math.random(#pool) end
+        card.ability.extra.copied_keys = { pool[k1], pool[k2] }
     end
 
-    if card.ability.extra.copied_key then
-        local other_joker = G.P_CENTERS[card.ability.extra.copied_key]
-        if other_joker and other_joker.calculate then
-            -- We temporarily set the ability to match the other joker for its logic
-            -- This is a bit advanced but should work for many jokers
-            local original_ability = card.ability
-            card.ability = other_joker.config -- Mock ability
-            local res = other_joker:calculate(card, context)
-            card.ability = original_ability -- Restore
-            if res then 
-                res.message = "¡Metrónomo!"
-                return res 
+    if card.ability.extra.copied_keys then
+        local combined_res = nil
+        for _, key in ipairs(card.ability.extra.copied_keys) do
+            local other_joker = G.P_CENTERS[key]
+            if other_joker and other_joker.calculate then
+                local original_ability = card.ability
+                card.ability = other_joker.config -- Mock ability
+                local res = other_joker:calculate(card, context)
+                card.ability = original_ability -- Restore
+                
+                if res then
+                    if not combined_res then
+                        combined_res = res
+                        combined_res.message = "¡Metrónomo!"
+                    else
+                        -- Merge common fields
+                        if res.chips then combined_res.chips = (combined_res.chips or 0) + res.chips end
+                        if res.mult then combined_res.mult = (combined_res.mult or 0) + res.mult end
+                        if res.Xmult_mod then combined_res.Xmult_mod = (combined_res.Xmult_mod or 1) * res.Xmult_mod end
+                        if res.message then combined_res.message = "¡Doble Metrónomo!" end
+                    end
+                end
             end
         end
+        return combined_res
     end
   end,
   loc_vars = function(self, info_queue, card)
-    local name = "Ninguno"
-    if card.ability.extra.copied_key then
-        local other = G.P_CENTERS[card.ability.extra.copied_key]
-        if other then
-            name = other.name
-            info_queue[#info_queue + 1] = other
+    local names = {}
+    if card.ability.extra.copied_keys then
+        for _, key in ipairs(card.ability.extra.copied_keys) do
+            local other = G.P_CENTERS[key]
+            if other then
+                table.insert(names, other.name)
+                info_queue[#info_queue + 1] = other
+            end
         end
     end
-    return { vars = { name } }
+    return { vars = { names[1] or "Ninguno", names[2] or "Ninguno" } }
   end
 })
 
