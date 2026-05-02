@@ -1,38 +1,38 @@
--- Zanark Avalonic
-local Zanark = J({
-  name = "Zanark",
-  pos = { x = 3, y = 0 },
+-- Ryohei Haizaki
+local Haizaki = J({
+  name = "Haizaki",
+  pos = { x = 5, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 2,
-  pools = { ["Zanark Domain"] = true },
-  cost = 8,
-  atlas = "Jokers05",
+  pools = { ["Seishou Gakuen"] = true },
+  cost = 7,
+  atlas = "Jokers07",
   ptype = "Fire",
   pposition = "FW",
-  pteam = "ina_team_ZanarkDomain",
+  pteam = "ina_team_Seishou",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
--- Shuten
-local Shuten = J({
-  name = "Shuten",
-  pos = { x = 4, y = 0 },
+-- Seiya Mizukamiya
+local Mizukamiya = J({
+  name = "Mizukamiya",
+  pos = { x = 6, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Zanark Domain"] = true },
+  pools = { ["Seishou Gakuen"] = true },
   cost = 5,
-  atlas = "Jokers05",
-  ptype = "Mountain",
-  pposition = "GK",
-  pteam = "ina_team_ZanarkDomain",
+  atlas = "Jokers07",
+  ptype = "Forest",
+  pposition = "DF",
+  pteam = "ina_team_Seishou",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
 return {
-  name = "Zanark Domain",
+  name = "Seishou Gakuen",
   list = {  }
 }

@@ -1,7 +1,7 @@
 -- Neville
 local Neville = J({
     name = "Neville",
-    pos = { x = 2, y = 11 },
+    pos = { x = 11, y = 10 },
     config = { extra = { new_glass_denom = 6 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.normal, G.GAME.probabilities.new_glass_denom or center.ability.extra.new_glass_denom } }
@@ -30,7 +30,7 @@ local Neville = J({
 -- Night
 local Night = J({
     name = "Night",
-    pos = { x = 3, y = 11 },
+    pos = { x = 12, y = 10 },
     config = {},
     loc_vars = function(self, info_queue, center)
         return {}
@@ -67,7 +67,7 @@ local Night = J({
 -- Meenan
 local Meenan = J({
   name = "Meenan",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 0, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -91,7 +91,7 @@ local Meenan = J({
 -- Mirthful
 local Mirthful = J({
   name = "Mirthful",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 1, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -112,10 +112,10 @@ local Mirthful = J({
   end
 })
 
--- Clover
-local Clover = J({
-  name = "Clover",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+-- Ricky Clover
+local Ricky_Clover = J({
+  name = "Ricky Clover",
+  pos = { x = 2, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -139,7 +139,7 @@ local Clover = J({
 -- Damian
 local Damian = J({
     name = "Damian",
-    pos = { x = 7, y = 11 },
+    pos = { x = 3, y = 11 },
     config = { extra = { chips_mod = 7, current_chips = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
@@ -186,7 +186,7 @@ local Damian = J({
 -- Nashmith
 local Nashmith = J({
     name = "Nashmith",
-    pos = { x = 8, y = 11 },
+    pos = { x = 4, y = 11 },
     config = { extra = { chip_mod = 15 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chip_mod } }
@@ -229,7 +229,7 @@ local Nashmith = J({
 -- Moore
 local Moore = J({
   name = "Moore",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 5, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -253,7 +253,7 @@ local Moore = J({
 -- Marvin
 local Marvin = J({
     name = "Marvin",
-    pos = { x = 10, y = 11 },
+    pos = { x = 6, y = 11 },
     config = { extra = { mult_mod_low = 4 } },
     loc_vars = function(self, info_queue, center)
         local mult_mod = center.ability.extra.mult_mod_low
@@ -288,7 +288,7 @@ local Marvin = J({
 -- Thomas
 local Thomas = J({
     name = "Thomas",
-    pos = { x = 11, y = 11 },
+    pos = { x = 7, y = 11 },
     config = { extra = { chips_mod = 15, retrigger_count = 1 } },
     loc_vars = function(self, info_queue, center)
         local chips_mod = center.ability.extra.chips_mod
@@ -332,7 +332,7 @@ local Thomas = J({
 -- Tyler
 local Tyler = J({
     name = "Tyler",
-    pos = { x = 12, y = 11 },
+    pos = { x = 8, y = 11 },
     config = { extra = { odds = 4 } },
     loc_vars = function(self, info_queue, center)
         table.insert(info_queue, { set = "Other", key = "Trillizos" })
@@ -365,7 +365,7 @@ local Tyler = J({
 -- Calier
 local Calier = J({
   name = "Calier",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 9, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -389,7 +389,7 @@ local Calier = J({
 -- Gloom
 local Gloom = J({
   name = "Gloom",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 10, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -413,7 +413,7 @@ local Gloom = J({
 -- Talis
 local Talis = J({
   name = "Talis",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 11, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -437,7 +437,7 @@ local Talis = J({
 -- Middleton
 local Middleton = J({
   name = "Middleton",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 12, y = 11 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -461,7 +461,7 @@ local Middleton = J({
 -- Wells
 local Wells = J({
   name = "Wells",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 0, y = 12 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

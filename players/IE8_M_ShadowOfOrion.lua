@@ -1,7 +1,7 @@
 -- Procyon
 local Procyon = J({
   name = "Procyon",
-  pos = { x = 0, y = 4 },
+  pos = { x = 7, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Procyon = J({
 -- Tabit
 local Tabit = J({
   name = "Tabit",
-  pos = { x = 1, y = 4 },
+  pos = { x = 8, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Tabit = J({
 -- Meissa
 local Meissa = J({
   name = "Meissa",
-  pos = { x = 2, y = 4 },
+  pos = { x = 9, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Meissa = J({
 -- Saiph
 local Saiph = J({
   name = "Saiph",
-  pos = { x = 3, y = 4 },
+  pos = { x = 10, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Saiph = J({
 -- Alnitak
 local Alnitak = J({
   name = "Alnitak",
-  pos = { x = 4, y = 4 },
+  pos = { x = 11, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Alnitak = J({
 -- Alnilam
 local Alnilam = J({
   name = "Alnilam",
-  pos = { x = 5, y = 4 },
+  pos = { x = 12, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Alnilam = J({
 -- Mintaka
 local Mintaka = J({
   name = "Mintaka",
-  pos = { x = 6, y = 4 },
+  pos = { x = 0, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -148,7 +148,7 @@ local Mintaka = J({
 -- Bella (Bellatrix)
 local Bella = J({
   name = "Bella",
-  pos = { x = 7, y = 4 },
+  pos = { x = 1, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -169,7 +169,7 @@ local Bella = J({
 -- Rigel
 local Rigel = J({
   name = "Rigel",
-  pos = { x = 8, y = 4 },
+  pos = { x = 2, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -190,7 +190,7 @@ local Rigel = J({
 -- Jade Beor
 local Jade = J({
   name = "Jade Beor",
-  pos = { x = 9, y = 4 },
+  pos = { x = 3, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -212,7 +212,7 @@ local Jade = J({
 -- Betelgeuse (Geuse)
 local Geuse = J({
   name = "Geuse",
-  pos = { x = 10, y = 4 },
+  pos = { x = 4, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -233,7 +233,7 @@ local Geuse = J({
 -- Sirius
 local Sirius = J({
   name = "Sirius",
-  pos = { x = 11, y = 4 },
+  pos = { x = 5, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Sirius = J({
 -- Kappa
 local Kappa = J({
   name = "Kappa",
-  pos = { x = 0, y = 5 },
+  pos = { x = 6, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Kappa = J({
 -- Hatysa
 local Hatysa = J({
   name = "Hatysa",
-  pos = { x = 1, y = 5 },
+  pos = { x = 7, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

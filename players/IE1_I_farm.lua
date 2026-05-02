@@ -1,7 +1,7 @@
 -- Greeny
 local Greeny = J({
     name = "Greeny",
-    pos = { x = 12, y = 9 },
+    pos = { x = 8, y = 9 },
     config = { extra = { barriers_added = 1, DF_required = 2, barriers = 3 } },
     loc_vars = function(self, info_queue, center)
         table.insert(info_queue, { set = 'Other', key = 'Right_Footed' })
@@ -50,7 +50,7 @@ local Greeny = J({
 -- Hayseed
 local Hayseed = J({
     name = "Hayseed",
-    pos = { x = 0, y = 10 },
+    pos = { x = 9, y = 9 },
     config = {
         extra = {
             current_mult = 0,
@@ -95,7 +95,7 @@ local Hayseed = J({
 -- Work
 local Work = J({
   name = "Work",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 10, y = 9 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -119,7 +119,7 @@ local Work = J({
 -- Hillvalley
 local Hillvalley = J({
     name = "Hillvalley",
-    pos = { x = 2, y = 10 },
+    pos = { x = 11, y = 9 },
     config = { extra = { current_chips = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.current_chips } }
@@ -166,7 +166,7 @@ local Hillvalley = J({
 -- Sherman
 local Sherman = J({
     name = "Sherman",
-    pos = { x = 3, y = 10 },
+    pos = { x = 12, y = 9 },
     config = { extra = { current_chips = 0, chip_mod = 5 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chip_mod, center.ability.extra.current_chips } }
@@ -219,7 +219,7 @@ local Sherman = J({
 -- Milky
 local Milky = J({
   name = "Milky",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 0, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -243,7 +243,7 @@ local Milky = J({
 -- Mother
 local Mother = J({
   name = "Mother",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 1, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -267,7 +267,7 @@ local Mother = J({
 -- Spray
 local Spray = J({
     name = "Spray",
-    pos = { x = 6, y = 10 },
+    pos = { x = 2, y = 10 },
     config = { extra = { current_Xmult = 1, max_money = 4, Xmult_mod = 0.25, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.max_money, center.ability.extra.Xmult_mod, center.ability.extra.current_Xmult } }
@@ -311,7 +311,7 @@ local Spray = J({
 -- Roast
 local Roast = J({
   name = "Roast",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 3, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -336,7 +336,7 @@ local Roast = J({
 -- Dawson
 local Dawson = J({
     name = "Dawson",
-    pos = { x = 7, y = 10 },
+    pos = { x = 4, y = 10 },
     config = { extra = { max_money = 2, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.max_money } }
@@ -370,7 +370,7 @@ local Dawson = J({
 -- Muffs
 local Muffs = J({
     name = "Muffs",
-    pos = { x = 8, y = 10 },
+    pos = { x = 5, y = 10 },
     config = { extra = { current_mult = 0, mult_mod_low = 3, triggered = false } },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
@@ -434,7 +434,7 @@ local Muffs = J({
 -- Mower
 local Mower = J({
   name = "Mower",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 6, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -458,7 +458,7 @@ local Mower = J({
 -- Grower
 local Grower = J({
   name = "Grower",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 7, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -482,7 +482,7 @@ local Grower = J({
 -- Howells
 local Howells = J({
   name = "Howells",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 8, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -506,7 +506,7 @@ local Howells = J({
 -- Lively
 local Lively = J({
   name = "Lively",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 9, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -530,7 +530,7 @@ local Lively = J({
 -- Nevis
 local Nevis = J({
   name = "Nevis",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 10, y = 10 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

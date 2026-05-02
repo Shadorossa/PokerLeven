@@ -1,7 +1,7 @@
 -- Lilia Charmont
 local Lilia = J({
   name = "Lilia",
-  pos = { x = 0, y = 17 },
+  pos = { x = 1, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Lilia = J({
 -- Talia Jester
 local Talia = J({
   name = "Talia",
-  pos = { x = 1, y = 17 },
+  pos = { x = 2, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Talia = J({
 -- Evelyn Hale
 local Evelyn = J({
   name = "Evelyn",
-  pos = { x = 2, y = 17 },
+  pos = { x = 3, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Evelyn = J({
 -- Marguerite Frostveil
 local Marguerite = J({
   name = "Marguerite",
-  pos = { x = 3, y = 17 },
+  pos = { x = 4, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Marguerite = J({
 -- Selene Trance
 local Selene = J({
   name = "Selene",
-  pos = { x = 4, y = 17 },
+  pos = { x = 5, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Selene = J({
 -- Galia Flair
 local Galia = J({
   name = "Galia",
-  pos = { x = 5, y = 17 },
+  pos = { x = 6, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Galia = J({
 -- Eliza Florence
 local Eliza = J({
   name = "Eliza",
-  pos = { x = 6, y = 17 },
+  pos = { x = 7, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -148,7 +148,7 @@ local Eliza = J({
 -- Adelina Gearhart
 local Gearhart = J({
   name = "Gearhart",
-  pos = { x = 7, y = 17 },
+  pos = { x = 8, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -169,7 +169,7 @@ local Gearhart = J({
 -- Clarisse Luxe
 local Clarisse = J({
   name = "Clarisse",
-  pos = { x = 8, y = 17 },
+  pos = { x = 9, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -190,7 +190,7 @@ local Clarisse = J({
 -- Elyse Reign
 local Elyse = J({
   name = "Elyse",
-  pos = { x = 9, y = 17 },
+  pos = { x = 10, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -212,7 +212,7 @@ local Elyse = J({
 -- Celina Lavelle
 local Celina = J({
   name = "Celina",
-  pos = { x = 10, y = 17 },
+  pos = { x = 11, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -233,7 +233,7 @@ local Celina = J({
 -- Elara Silvane
 local Silvane = J({
   name = "Silvane",
-  pos = { x = 11, y = 17 },
+  pos = { x = 12, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Silvane = J({
 -- Kiyora Asakiri
 local Asakiri = J({
   name = "Asakiri",
-  pos = { x = 0, y = 18 },
+  pos = { x = 0, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Asakiri = J({
 -- Lenora Graves
 local Graves = J({
   name = "Graves",
-  pos = { x = 1, y = 18 },
+  pos = { x = 1, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local Graves = J({
 -- Liliane Alban
 local Liliane = J({
   name = "Liliane",
-  pos = { x = 2, y = 18 },
+  pos = { x = 2, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -317,7 +317,7 @@ local Liliane = J({
 -- Amara Winslow
 local Amara = J({
   name = "Amara",
-  pos = { x = 3, y = 18 },
+  pos = { x = 3, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

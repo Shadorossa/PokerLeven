@@ -1,6 +1,6 @@
 local Akbar = J({
     name = "Alek Akbar",
-    pos = { x = 2, y = 7 },
+    pos = { x = 0, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -21,7 +21,7 @@ local Akbar = J({
 
 local Ibrohim = J({
     name = "Ibrohim Abi",
-    pos = { x = 3, y = 7 },
+    pos = { x = 1, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -42,7 +42,7 @@ local Ibrohim = J({
 
 local Muhammad = J({
     name = "Muhammad Hawk",
-    pos = { x = 4, y = 7 },
+    pos = { x = 2, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -63,7 +63,7 @@ local Muhammad = J({
 
 local Majid = J({
     name = "Majid Azer",
-    pos = { x = 5, y = 7 },
+    pos = { x = 3, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -84,7 +84,7 @@ local Majid = J({
 
 local Zafar = J({
     name = "Zafar Gin",
-    pos = { x = 6, y = 7 },
+    pos = { x = 4, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -105,7 +105,7 @@ local Zafar = J({
 
 local Kumush = J({
     name = "Kumush Ize",
-    pos = { x = 7, y = 7 },
+    pos = { x = 5, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -126,7 +126,7 @@ local Kumush = J({
 
 local Sarybek = J({
     name = "Sarybek Nahar",
-    pos = { x = 8, y = 7 },
+    pos = { x = 6, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -147,7 +147,7 @@ local Sarybek = J({
 
 local Farhad = J({
     name = "Farhad Gilik",
-    pos = { x = 9, y = 7 },
+    pos = { x = 7, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -168,7 +168,7 @@ local Farhad = J({
 
 local MoHabbot = J({
     name = "Mo'habbot Zark",
-    pos = { x = 10, y = 7 },
+    pos = { x = 8, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -189,7 +189,7 @@ local MoHabbot = J({
 
 local Onaxon = J({
     name = "Onaxon Ims",
-    pos = { x = 11, y = 7 },
+    pos = { x = 9, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -211,7 +211,7 @@ local Onaxon = J({
 
 local Dost = J({
     name = "Dost Gales",
-    pos = { x = 12, y = 7 },
+    pos = { x = 10, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -232,7 +232,7 @@ local Dost = J({
 
 local Norkul = J({
     name = "Norkul Bugen",
-    pos = { x = 0, y = 8 },
+    pos = { x = 11, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -253,7 +253,7 @@ local Norkul = J({
 
 local Keldi = J({
     name = "Keldi Rozel",
-    pos = { x = 1, y = 8 },
+    pos = { x = 12, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }

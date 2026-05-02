@@ -230,7 +230,91 @@ local Falco = J({
     calculate = function(self, card, ctx) end
 })
 
+-- Falco (2ª versión)
+local Falco_Soul = J({
+    name = "Falco_Soul",
+    pos = { x = 11, y = 0 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return { vars = {} } end,
+    rarity = 2,
+    pools = { ["Inazuma Japón (Galaxy)"] = true },
+    cost = 6,
+    atlas = "Jokers06",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_2,
+    pnumber = 11,
+    pteam = "ina_team_InazumaJaponGalaxy",
+    blueprint_compat = true,
+    calculate = function(self, card, ctx) end
+})
+
+-- Zack
+local Zack = J({
+    name = "Zack",
+    pos = { x = 12, y = 0 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return { vars = {} } end,
+    rarity = 1,
+    pools = { ["Inazuma Japón (Galaxy)"] = true },
+    cost = 5,
+    atlas = "Jokers06",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_3,
+    pnumber = 18,
+    pteam = "ina_team_InazumaJaponGalaxy",
+    blueprint_compat = true,
+    calculate = function(self, card, ctx) end
+})
+
+-- JP
+local JP_Galaxy = J({
+    name = "JP_Galaxy",
+    pos = { x = 0, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return { vars = {} } end,
+    rarity = 1,
+    pools = { ["Inazuma Japón (Galaxy)"] = true },
+    cost = 5,
+    atlas = "Jokers06",
+    ptype = C.Mountain,
+    pposition = C.GK,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pnumber = 20,
+    pteam = "ina_team_InazumaJaponGalaxy",
+    blueprint_compat = true,
+    calculate = function(self, card, ctx) end
+})
+
+-- Maneuver Gibbs (Impostor de Victor)
+local Maneuver_Gibbs = J({
+    name = "Maneuver_Gibbs",
+    pos = { x = 1, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center) return { vars = {} } end,
+    rarity = 1,
+    pools = { ["Inazuma Japón (Galaxy)"] = true },
+    cost = 5,
+    atlas = "Jokers06",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.JAPAN,
+    pyear = C.YEAR_1,
+    pnumber = 10,
+    pteam = "ina_team_InazumaJaponGalaxy",
+    blueprint_compat = true,
+    calculate = function(self, card, ctx) end
+})
+
 return {
     name = "InazumaJapanGalaxy",
-    list = {} -- No functional Jokers yet
+    list = { }
 }

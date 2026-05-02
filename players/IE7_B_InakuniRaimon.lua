@@ -60,7 +60,7 @@ local Kiko = {
 -- Trevor Cook
 local Trevor = J({
     name = "Trevor",
-    pos = { x = 2, y = 1 },
+    pos = { x = 1, y = 1 },
     config = { extra = { mult_mod = 3 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra; return { vars = { ex.mult_mod, ex.mult_mod * #find_player_team("ina_team_InakuniRaimon") } }
@@ -151,7 +151,7 @@ local Maxime = {
 -- Valentin Eisner
 local Valentin = J({
     name = "Valentin",
-    pos = { x = 6, y = 1 },
+    pos = { x = 2, y = 1 },
     config = { extra = { mult_mod_low = 1, chip_mod = 10 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra; return { vars = { ex.mult_mod_low, ex.chip_mod } }
@@ -181,7 +181,7 @@ local Valentin = J({
 -- Cesar Montalban
 local Cesar = J({
     name = "Cesar",
-    pos = { x = 7, y = 1 },
+    pos = { x = 3, y = 1 },
     config = { extra = { odds = 3 } },
     loc_vars = function(self, info_queue, center) return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } } end,
     rarity = 2, -- Uncommon
@@ -210,7 +210,7 @@ local Cesar = J({
 -- Adriano Donati
 local Adriano_Donati = J({
     name = "Adriano_Donati",
-    pos = { x = 8, y = 1 },
+    pos = { x = 4, y = 1 },
     config = { extra = { chips_mod = 25, mult_mod_low = 4, current_chips = 0, current_mult = 0 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra; return { vars = { ex.chips_mod, ex.mult_mod_low, ex.current_chips, ex.current_mult } }
@@ -259,7 +259,7 @@ local Adriano_Donati = J({
 -- Sonny Wright
 local Sonny_Wright = J({
     name = "Sonny_Wright",
-    pos = { x = 9, y = 1 },
+    pos = { x = 5, y = 1 },
     config = { extra = { xmult_gain = 0.5, current_xmult = 1 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra; return { vars = { ex.xmult_gain, ex.current_xmult } }
@@ -295,7 +295,7 @@ local Sonny_Wright = J({
 -- Basile
 local Basile = J({
     name = "Basile",
-    pos = { x = 10, y = 1 },
+    pos = { x = 6, y = 1 },
     config = { extra = { mult_mod_low = 1 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra; return { vars = { ex.mult_mod_low } }

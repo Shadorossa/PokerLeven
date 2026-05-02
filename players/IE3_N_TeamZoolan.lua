@@ -1,7 +1,7 @@
 -- Cyril Fox (1)
 local Cyril_Fox = J({
   name = "Cyril Fox",
-  pos = { x = 0, y = 13 },
+  pos = { x = 0, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Cyril_Fox = J({
 -- Jacques Allemand (2)
 local Jacques_Allemand = J({
   name = "Jacques Allemand",
-  pos = { x = 1, y = 13 },
+  pos = { x = 1, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Jacques_Allemand = J({
 -- Phil A. Minion (3)
 local Phil_A_Minion = J({
   name = "Phil A. Minion",
-  pos = { x = 2, y = 13 },
+  pos = { x = 2, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -71,7 +71,7 @@ local Phil_A_Minion = J({
 -- Buddy Plains (4)
 local Buddy_Plains = J({
   name = "Buddy Plains",
-  pos = { x = 3, y = 13 },
+  pos = { x = 3, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -94,7 +94,7 @@ local Buddy_Plains = J({
 -- Dean Goddard (5)
 local Dean_Goddard = J({
   name = "Dean Goddard",
-  pos = { x = 4, y = 13 },
+  pos = { x = 4, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -117,7 +117,7 @@ local Dean_Goddard = J({
 -- Cecil Crowley (6)
 local Cecil_Crowley = J({
   name = "Cecil Crowley",
-  pos = { x = 5, y = 13 },
+  pos = { x = 5, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -140,7 +140,7 @@ local Cecil_Crowley = J({
 -- Seth Hedges (7)
 local Seth_Hedges = J({
   name = "Seth Hedges",
-  pos = { x = 6, y = 13 },
+  pos = { x = 6, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -163,7 +163,7 @@ local Seth_Hedges = J({
 -- Niccolò Mantegna (8)
 local Niccolo_Mantegna = J({
   name = "Niccolò Mantegna",
-  pos = { x = 7, y = 13 },
+  pos = { x = 7, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -186,7 +186,7 @@ local Niccolo_Mantegna = J({
 -- Damien Crawford (9)
 local Damien_Crawford = J({
   name = "Damien Crawford",
-  pos = { x = 8, y = 13 },
+  pos = { x = 8, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Damien_Crawford = J({
 -- Avinash Chowdhury (10)
 local Avinash_Chowdhury = J({
   name = "Avinash Chowdhury",
-  pos = { x = 9, y = 13 },
+  pos = { x = 9, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Avinash_Chowdhury = J({
 -- Sedgley Scofield (11)
 local Sedgley_Scofield = J({
   name = "Sedgley Scofield",
-  pos = { x = 10, y = 13 },
+  pos = { x = 10, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Sedgley_Scofield = J({
 -- Grizzler Bruin (12)
 local Grizzler_Bruin = J({
   name = "Grizzler Bruin",
-  pos = { x = 11, y = 13 },
+  pos = { x = 11, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Grizzler_Bruin = J({
 -- Ian C. Wincy (13)
 local Ian_C_Wincy = J({
   name = "Ian C. Wincy",
-  pos = { x = 12, y = 13 },
+  pos = { x = 12, y = 16 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Ian_C_Wincy = J({
 -- Bandy Horsman (14)
 local Bandy_Horsman = J({
   name = "Bandy Horsman",
-  pos = { x = 13, y = 13 },
+  pos = { x = 0, y = 17 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Bandy_Horsman = J({
 -- Ali Caiman (15)
 local Ali_Caiman = J({
   name = "Ali Caiman",
-  pos = { x = 14, y = 13 },
+  pos = { x = 1, y = 17 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Ali_Caiman = J({
 -- Chris Ellis (16)
 local Chris_Ellis = J({
   name = "Chris Ellis",
-  pos = { x = 15, y = 13 },
+  pos = { x = 2, y = 17 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Chris_Ellis = J({
 
 return {
   name = "Zoolan Team",
-  list = {
-    Cyril_Fox, Jacques_Allemand, Phil_A_Minion, Buddy_Plains, Dean_Goddard,
-    Cecil_Crowley, Seth_Hedges, Niccolo_Mantegna, Damien_Crawford, Avinash_Chowdhury,
-    Sedgley_Scofield, Grizzler_Bruin, Ian_C_Wincy, Bandy_Horsman, Ali_Caiman, Chris_Ellis
-  }
+  list = {}
 }

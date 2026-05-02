@@ -1,7 +1,7 @@
 -- Mask
 local Mask = J({
   name = "Mask",
-  pos = { x = 3, y = 1 },
+  pos = { x = 0, y = 1 },
   config = { extra = { sell_value = 6 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.sell_value } }
@@ -50,7 +50,7 @@ local Mask = J({
 -- Styx
 local Styx = J({
   name = "Styx",
-  pos = { x = 4, y = 1 },
+  pos = { x = 1, y = 1 },
   config = { extra = { chips_mod = 9, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local current_chips = 0
@@ -89,9 +89,9 @@ local Styx = J({
 })
 
 -- Creepy
-local Creepy = J({
+local Creepy_JasonJones = J({
   name = "Creepy",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 2, y = 1 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -115,7 +115,7 @@ local Creepy = J({
 -- Franky
 local Franky = J({
   name = "Franky",
-  pos = { x = 6, y = 1 },
+  pos = { x = 3, y = 1 },
   config = { extra = { mult_mod = 16, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.mult_mod } }
@@ -150,7 +150,7 @@ local Franky = J({
 -- Undead
 local Undead = J({
   name = "Undead",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 4, y = 1 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -174,7 +174,7 @@ local Undead = J({
 -- Jiangshi
 local Jiangshi = J({
   name = "Jiangshi",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 5, y = 1 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -198,7 +198,7 @@ local Jiangshi = J({
 -- Mummy
 local Mummy = J({
   name = "Mummy",
-  pos = { x = 9, y = 1 },
+  pos = { x = 6, y = 1 },
   config = { extra = { mult_mod = 4, chip_mod = 4, suit = "Clubs", triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {
@@ -238,7 +238,7 @@ local Mummy = J({
 -- Grave
 local Grave = J({
   name = "Grave",
-  pos = { x = 10, y = 1 },
+  pos = { x = 7, y = 1 },
   config = { extra = { odds = 5, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds } }
@@ -271,7 +271,7 @@ local Grave = J({
 -- Talisman
 local Talisman = J({
   name = "Talisman",
-  pos = { x = 11, y = 1 },
+  pos = { x = 8, y = 1 },
   config = { extra = { evolving_retriggers = 1, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.evolving_retriggers } }
@@ -307,7 +307,7 @@ local Talisman = J({
 -- Wolfy
 local Wolfy = J({
   name = "Wolfy",
-  pos = { x = 12, y = 1 },
+  pos = { x = 9, y = 1 },
   config = { extra = { xmult_mod = 0.4, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { 1 + center.ability.extra.xmult_mod * (G.GAME.used_moon_cards or 0), center.ability.extra.xmult_mod } }
@@ -343,7 +343,7 @@ local Wolfy = J({
 -- Blood
 local Blood = J({
   name = "Blood",
-  pos = { x = 0, y = 2 },
+  pos = { x = 10, y = 1 },
   config = { extra = { drain = 1, chips_mod = 10, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.drain, center.ability.extra.chips_mod, center.sell_cost * center.ability.extra.chips_mod } }
@@ -384,7 +384,7 @@ local Blood = J({
 -- Zombie
 local Zombie = J({
   name = "Zombie",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 11, y = 1 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -408,7 +408,7 @@ local Zombie = J({
 -- Dollman
 local Dollman = J({
   name = "Dollman",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 12, y = 1 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -432,7 +432,7 @@ local Dollman = J({
 -- Alien
 local Alien = J({
   name = "Alien",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 0, y = 2 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -456,7 +456,7 @@ local Alien = J({
 -- Noir
 local Noir = J({
   name = "Noir",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 1, y = 2 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -480,7 +480,7 @@ local Noir = J({
 -- Ghost
 local Ghost = J({
   name = "Ghost",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 2, y = 2 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

@@ -1,7 +1,7 @@
 -- Feldt_DarkEmp
 local Feldt_DarkEmp = J({
     name = "Feldt_DarkEmp",
-    pos = { x = 3, y = 11 },
+    pos = { x = 0, y = 12 },
     config = { extra = { cost_tech = 3, cost_type_pos = 5, cost_any = 8 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.cost_tech, ex.cost_type_pos, ex.cost_any}} end,
     rarity = 3, -- Rare
@@ -32,7 +32,7 @@ local Feldt_DarkEmp = J({
 -- Night_DarkEmp
 local Night_DarkEmp = J({
     name = "Night_DarkEmp",
-    pos = { x = 3, y = 13 },
+    pos = { x = 1, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -57,7 +57,7 @@ local Night_DarkEmp = J({
 -- Sam_DarkEmp
 local Sam_DarkEmp = J({
     name = "Sam_DarkEmp",
-    pos = { x = 4, y = 13 },
+    pos = { x = 2, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -82,7 +82,7 @@ local Sam_DarkEmp = J({
 -- Jim_DarkEmp
 local Jim_DarkEmp = J({
     name = "Jim_DarkEmp",
-    pos = { x = 6, y = 11 },
+    pos = { x = 3, y = 12 },
     config = { extra = { Xchip_mod = 0.1, current_Xchips = 1 } },
     loc_vars = function(self, info_queue, center) local ex = center.ability.extra; return {vars = {ex.Xchip_mod, ex.current_Xchips}} end,
     rarity = 1, -- Common
@@ -113,7 +113,7 @@ local Jim_DarkEmp = J({
 -- Tod_DarkEmp
 local Tod_DarkEmp = J({
     name = "Tod_DarkEmp",
-    pos = { x = 6, y = 13 },
+    pos = { x = 4, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -138,8 +138,7 @@ local Tod_DarkEmp = J({
 -- Steve_DarkEmp
 local Steve_DarkEmp = J({
     name = "Steve_DarkEmp",
-    pos = { x = 7, y = 13 },
-    soul_pos = { x = 10, y = 13 },
+    pos = { x = 5, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -164,8 +163,7 @@ local Steve_DarkEmp = J({
 -- Timmy_DarkEmp
 local Timmy_DarkEmp = J({
     name = "Timmy_DarkEmp",
-    pos = { x = 8, y = 13 },
-    soul_pos = { x = 10, y = 13 },
+    pos = { x = 6, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -190,8 +188,7 @@ local Timmy_DarkEmp = J({
 -- Max_DarkEmp
 local Max_DarkEmp = J({
     name = "Max_DarkEmp",
-    pos = { x = 9, y = 13 },
-    soul_pos = { x = 10, y = 13 },
+    pos = { x = 7, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -216,8 +213,7 @@ local Max_DarkEmp = J({
 -- Shadow_DarkEmp
 local Shadow_DarkEmp = J({
     name = "Shadow_DarkEmp",
-    pos = { x = 11, y = 13 },
-    soul_pos = { x = 10, y = 13 },
+    pos = { x = 8, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -242,8 +238,8 @@ local Shadow_DarkEmp = J({
 -- Nathan_DarkEmp
 local Nathan_DarkEmp = J({
     name = "Nathan_DarkEmp",
-    pos = { x = 7, y = 0 },
-    soul_pos = { x = 7, y = 1 },
+    pos = { x = 2, y = 0 },
+    soul_pos = { x = 2, y = 1 },
     config = { extra = { charges = 0, max_charges = 10, poly_xmult = 1.5 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -286,7 +282,7 @@ local Nathan_DarkEmp = J({
 -- Kevin_DarkEmp
 local Kevin_DarkEmp = J({
     name = "Kevin_DarkEmp",
-    pos = { x = 7, y = 11 },
+    pos = { x = 9, y = 12 },
     config = { extra = { retriggers = 2, count = 0, limit = 3 } },
     loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.retriggers, center.ability.extra.count, center.ability.extra.limit}} end,
     rarity = 2, -- Common

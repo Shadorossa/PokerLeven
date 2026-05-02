@@ -253,7 +253,7 @@ local Dario = J({
 -- Amelia Rainwalker
 local Amelia = J({
   name = "Amelia",
-  pos = { x = 0, y = 1 },
+  pos = { x = 12, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -274,7 +274,7 @@ local Amelia = J({
 -- Winsor Compete
 local Winsor = J({
   name = "Winsor",
-  pos = { x = 1, y = 1 },
+  pos = { x = 0, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -295,7 +295,7 @@ local Winsor = J({
 -- Marisol Cavallo
 local Marisol = J({
   name = "Marisol",
-  pos = { x = 2, y = 1 },
+  pos = { x = 1, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -316,7 +316,7 @@ local Marisol = J({
 -- Meridia Althoff
 local Meridia = J({
   name = "Meridia",
-  pos = { x = 3, y = 1 },
+  pos = { x = 2, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -337,7 +337,7 @@ local Meridia = J({
 -- Starla Thorn
 local Starla = J({
   name = "Starla",
-  pos = { x = 4, y = 1 },
+  pos = { x = 3, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -358,7 +358,7 @@ local Starla = J({
 -- Ivan Mercer
 local Ivan = J({
   name = "Ivan",
-  pos = { x = 5, y = 1 },
+  pos = { x = 4, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -379,7 +379,7 @@ local Ivan = J({
 -- Nikas Himmelstein
 local Nikas = J({
   name = "Nikas",
-  pos = { x = 6, y = 1 },
+  pos = { x = 5, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -400,7 +400,7 @@ local Nikas = J({
 -- Lemmy Stretchen
 local Lemmy = J({
   name = "Lemmy",
-  pos = { x = 7, y = 1 },
+  pos = { x = 6, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -421,7 +421,7 @@ local Lemmy = J({
 -- Antonia Felicier
 local Antonia = J({
   name = "Antonia",
-  pos = { x = 8, y = 1 },
+  pos = { x = 7, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -442,7 +442,7 @@ local Antonia = J({
 -- Florent Shorleigh
 local Florent = J({
   name = "Florent",
-  pos = { x = 9, y = 1 },
+  pos = { x = 8, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -463,7 +463,7 @@ local Florent = J({
 -- Kelvin Steelborne
 local Kelvin = J({
   name = "Kelvin",
-  pos = { x = 10, y = 1 },
+  pos = { x = 9, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -484,7 +484,7 @@ local Kelvin = J({
 -- Destin Billows
 local Destin = J({
   name = "Destin",
-  pos = { x = 0, y = 2 },
+  pos = { x = 10, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,

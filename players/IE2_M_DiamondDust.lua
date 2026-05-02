@@ -1,7 +1,7 @@
 -- Beluga
 local Beluga = J({
     name = "Beluga",
-    pos = { x = 0, y = 17 },
+    pos = { x = 10, y = 12 },
     config = { extra = { new_glass_denom = 1 } },
     loc_vars = function(self, info_queue, center) return {vars = {G.GAME.probabilities.normal or 1, center.ability.extra.new_glass_denom}} end,
     rarity = 1,
@@ -23,7 +23,7 @@ local Beluga = J({
 -- Arkew
 local Arkew = J({
     name = "Arkew",
-    pos = { x = 1, y = 17 },
+    pos = { x = 11, y = 12 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center) return {} end,
     rarity = 1,
@@ -61,7 +61,7 @@ end
 -- Clear
 local Clear = J({
     name = "Clear",
-    pos = { x = 2, y = 17 },
+    pos = { x = 12, y = 12 },
     config = { extra = { odds = 2 } },
     loc_vars = function(self, info_queue, center) return {vars = {G.GAME.probabilities.normal or 1, center.ability.extra.odds}} end,
     rarity = 2,
@@ -91,7 +91,7 @@ local Clear = J({
 -- Gocker
 local Gocker = J({
     name = "Gocker",
-    pos = { x = 3, y = 17 },
+    pos = { x = 0, y = 13 },
     config = { extra = { x_mult_override = 1.5 } },
     loc_vars = function(self, info_queue, center) return {vars = {center.ability.extra.x_mult_override}} end,
     rarity = 2,
@@ -131,7 +131,7 @@ end
 -- Icer
 local Icer = J({
     name = "Icer",
-    pos = { x = 4, y = 17 },
+    pos = { x = 1, y = 13 },
     config = { extra = { money = 2 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -172,7 +172,7 @@ local Icer = J({
 -- Balen
 local Balen = J({
     name = "Balen",
-    pos = { x = 5, y = 15 },
+    pos = { x = 2, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center) return {} end,
     rarity = 1,
@@ -193,7 +193,7 @@ local Balen = J({
 -- Droll
 local Droll = J({
     name = "Droll",
-    pos = { x = 6, y = 15 },
+    pos = { x = 3, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center) return {} end,
     rarity = 2,
@@ -214,7 +214,7 @@ local Droll = J({
 -- Rhine
 local Rhine = J({
     name = "Rhine",
-    pos = { x = 7, y = 15 },
+    pos = { x = 4, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center) return {} end,
     rarity = 2,
@@ -235,7 +235,7 @@ local Rhine = J({
 -- Blown
 local Blown = J({
     name = "Blown",
-    pos = { x = 8, y = 15 },
+    pos = { x = 5, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center) return {} end,
     rarity = 1,
@@ -256,7 +256,7 @@ local Blown = J({
 -- Gazelle
 local Gazelle = J({
     name = "Gazelle",
-    pos = { x = 5, y = 17 },
+    pos = { x = 6, y = 0 },
     soul_pos = { x = 6, y = 1 },
     config = { extra = { xmult_gain = 0.2, charges = 0, max_charges = 10 } },
     loc_vars = function(self, info_queue, center)
@@ -307,7 +307,7 @@ local Gazelle = J({
 -- Frost
 local Frost = J({
     name = "Frost",
-    pos = { x = 6, y = 17 },
+    pos = { x = 6, y = 13 },
     config = { extra = { chip_mod_normal = 3, chip_mod_chaos = 10 } },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic', vars = {localize("ina_team_Prominence", "teams") or "Prominence"}}

@@ -4,7 +4,7 @@ local team_id = "ina_team_Fauxshore"
 -- Darren
 local Darren = J({
   name = "Darren",
-  pos = { x = 11, y = 9 },
+  pos = { x = 8, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -28,7 +28,7 @@ local Darren = J({
 -- Fake
 local Fake = J({
   name = "Fake",
-  pos = { x = 6, y = 9 },
+  pos = { x = 9, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -88,7 +88,7 @@ local Fake = J({
 -- Mishap
 local Mishap = J({
   name = "Mishap",
-  pos = { x = 7, y = 9 },
+  pos = { x = 10, y = 8 },
   rarity = 1,
   pools = { ["Fauxshore"] = true },
   cost = 4,
@@ -106,7 +106,7 @@ local Mishap = J({
 -- Leave
 local Leave = J({
   name = "Leave",
-  pos = { x = 8, y = 9 },
+  pos = { x = 11, y = 8 },
   config = { extra = { count = 0 } },
   loc_vars = function(self, info_queue, center)
     local data = center.ability.extra
@@ -187,7 +187,7 @@ local Leave = J({
 -- Badgame
 local Badgame = J({
   name = "Badgame",
-  pos = { x = 0, y = 10 },
+  pos = { x = 12, y = 8 },
   rarity = 1,
   pools = { ["Fauxshore"] = true },
   cost = 4,
@@ -205,7 +205,7 @@ local Badgame = J({
 -- Random
 local Random = J({
   name = "Random",
-  pos = { x = 1, y = 10 },
+  pos = { x = 0, y = 9 },
   rarity = 1,
   pools = { ["Fauxshore"] = true },
   cost = 5,
@@ -223,7 +223,7 @@ local Random = J({
 -- Richmen
 local Richmen = J({
   name = "Richmen",
-  pos = { x = 2, y = 10 },
+  pos = { x = 1, y = 9 },
   rarity = 1,
   pools = { ["Fauxshore"] = true },
   cost = 5,
@@ -241,7 +241,7 @@ local Richmen = J({
 -- Fate
 local Fate = J({
   name = "Fate",
-  pos = { x = 12, y = 9 },
+  pos = { x = 2, y = 9 },
   rarity = 3,
   pools = { ["Fauxshore"] = true },
   cost = 8,
@@ -259,7 +259,7 @@ local Fate = J({
 -- Destiny
 local Destiny = J({
   name = "Destiny",
-  pos = { x = 3, y = 10 },
+  pos = { x = 3, y = 9 },
   rarity = 2,
   pools = { ["Fauxshore"] = true },
   cost = 6,
@@ -277,7 +277,7 @@ local Destiny = J({
 -- Duskplay
 local Duskplay = J({
   name = "Duskplay",
-  pos = { x = 4, y = 10 },
+  pos = { x = 4, y = 9 },
   rarity = 2,
   pools = { ["Fauxshore"] = true },
   cost = 6,
@@ -295,7 +295,7 @@ local Duskplay = J({
 -- Luckyman
 local Luckyman = J({
   name = "Luckyman",
-  pos = { x = 5, y = 10 },
+  pos = { x = 5, y = 9 },
   rarity = 3,
   pools = { ["Fauxshore"] = true },
   cost = 8,
@@ -314,7 +314,7 @@ local Luckyman = J({
 -- Poker
 local Poker = J({
   name = "Poker",
-  pos = { x = 6, y = 10 },
+  pos = { x = 6, y = 9 },
   rarity = 2,
   pools = { ["Fauxshore"] = true },
   cost = 6,
@@ -330,11 +330,11 @@ local Poker = J({
 })
 
 -- Cracker
-local Cracker = J({ name = "Cracker", pos = { x = 7, y = 10 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 4, atlas = "Jokers02", ptype = C.Fire, pposition = C.GK, pgender = C.M, pnation = C.JAPAN, pdorsal = 12, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
-local Failing = J({ name = "Failing", pos = { x = 8, y = 10 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 5, atlas = "Jokers02", ptype = C.Forest, pposition = C.FW, pgender = C.M, pnation = C.JAPAN, pdorsal = 13, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
-local Cotts = J({ name = "Cotts", pos = { x = 9, y = 10 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 5, atlas = "Jokers02", ptype = C.Mountain, pposition = C.MF, pgender = C.M, pnation = C.JAPAN, pdorsal = 14, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
-local Passing = J({ name = "Passing", pos = { x = 10, y = 10 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 5, atlas = "Jokers02", ptype = C.Wind, pposition = C.FW, pgender = C.M, pnation = C.JAPAN, pdorsal = 15, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
-local Bathers = J({ name = "Bathers", pos = { x = 11, y = 10 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 4, atlas = "Jokers02", ptype = C.Wind, pposition = C.GK, pgender = C.M, pnation = C.JAPAN, pdorsal = 16, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
+local Cracker = J({ name = "Cracker", pos = { x = 7, y = 9 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 4, atlas = "Jokers02", ptype = C.Fire, pposition = C.GK, pgender = C.M, pnation = C.JAPAN, pdorsal = 12, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
+local Failing = J({ name = "Failing", pos = { x = 8, y = 9 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 5, atlas = "Jokers02", ptype = C.Forest, pposition = C.FW, pgender = C.M, pnation = C.JAPAN, pdorsal = 13, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
+local Cotts = J({ name = "Cotts", pos = { x = 9, y = 9 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 5, atlas = "Jokers02", ptype = C.Mountain, pposition = C.MF, pgender = C.M, pnation = C.JAPAN, pdorsal = 14, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
+local Passing = J({ name = "Passing", pos = { x = 10, y = 9 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 5, atlas = "Jokers02", ptype = C.Wind, pposition = C.FW, pgender = C.M, pnation = C.JAPAN, pdorsal = 15, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
+local Bathers = J({ name = "Bathers", pos = { x = 11, y = 9 }, rarity = 1, pools = { ["Fauxshore"] = true }, cost = 4, atlas = "Jokers02", ptype = C.Wind, pposition = C.GK, pgender = C.M, pnation = C.JAPAN, pdorsal = 16, pyear = C.YEAR_2, pteam = "ina_team_Fauxshore", calculate = function(self, card, context) end })
 
 return {
   name = "Fauxshore",

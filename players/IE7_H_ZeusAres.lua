@@ -1,7 +1,7 @@
 -- Hades
 local Hades = J({
     name = "Hades",
-    pos = { x = 7, y = 4 },
+    pos = { x = 7, y = 3 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -51,7 +51,7 @@ end
 -- Perseus
 local Perseus = J({
     name = "Perseus",
-    pos = { x = 9, y = 4 },
+    pos = { x = 8, y = 3 },
     config = { extra = { mult_gain = 3, current_mult = 0, hands_since = 0 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra

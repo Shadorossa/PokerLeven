@@ -1,7 +1,7 @@
 -- Hector Helio (1)
 local Hector_Helio = J({
   name = "Hector Helio",
-  pos = { x = 0, y = 16 },
+  pos = { x = 6, y = 18 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -25,7 +25,7 @@ local Hector_Helio = J({
 -- Zephyr Vitesse (2)
 local Zephyr_Vitesse = J({
   name = "Zephyr Vitesse",
-  pos = { x = 1, y = 16 },
+  pos = { x = 7, y = 18 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -48,7 +48,7 @@ local Zephyr_Vitesse = J({
 -- Walter Mountain (3)
 local Walter_Mountain = J({
   name = "Walter Mountain",
-  pos = { x = 2, y = 16 },
+  pos = { x = 8, y = 18 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -71,7 +71,7 @@ local Walter_Mountain = J({
 -- Jimi Gaines (4)
 local Jimi_Gaines = J({
   name = "Jimi Gaines",
-  pos = { x = 3, y = 16 },
+  pos = { x = 9, y = 18 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -94,7 +94,7 @@ local Jimi_Gaines = J({
 -- Ian Ferrum (5)
 local Ian_Ferrum = J({
   name = "Ian Ferrum",
-  pos = { x = 4, y = 16 },
+  pos = { x = 10, y = 18 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -117,7 +117,7 @@ local Ian_Ferrum = J({
 -- Quint Hampton (6)
 local Quint_Hampton = J({
   name = "Quint Hampton",
-  pos = { x = 5, y = 16 },
+  pos = { x = 11, y = 18 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -140,7 +140,7 @@ local Quint_Hampton = J({
 -- Yasir Haddad (7)
 local Yasir_Haddad = J({
   name = "Yasir Haddad",
-  pos = { x = 6, y = 16 },
+  pos = { x = 12, y = 18 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -163,7 +163,7 @@ local Yasir_Haddad = J({
 -- Keith Ryan (8)
 local Keith_Ryan = J({
   name = "Keith Ryan",
-  pos = { x = 7, y = 16 },
+  pos = { x = 0, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -186,7 +186,7 @@ local Keith_Ryan = J({
 -- Maximino Cruz (9)
 local Maximino_Cruz = J({
   name = "Maximino Cruz",
-  pos = { x = 8, y = 16 },
+  pos = { x = 1, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Maximino_Cruz = J({
 -- Gareth Flare (10)
 local Gareth_Flare = J({
   name = "Gareth Flare",
-  pos = { x = 9, y = 16 },
+  pos = { x = 2, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Gareth_Flare = J({
 -- Drago Hill (11)
 local Drago_Hill = J({
   name = "Drago Hill",
-  pos = { x = 10, y = 16 },
+  pos = { x = 3, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Drago_Hill = J({
 -- Keenan DiFortune (12)
 local Keenan_DiFortune = J({
   name = "Keenan DiFortune",
-  pos = { x = 11, y = 16 },
+  pos = { x = 4, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Keenan_DiFortune = J({
 -- Jarell Mangrove (13)
 local Jarell_Mangrove = J({
   name = "Jarell Mangrove",
-  pos = { x = 12, y = 16 },
+  pos = { x = 5, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Jarell_Mangrove = J({
 -- Vic Vitrum (14)
 local Vic_Vitrum = J({
   name = "Vic Vitrum",
-  pos = { x = 0, y = 17 },
+  pos = { x = 6, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Vic_Vitrum = J({
 -- Li Leung (15)
 local Li_Leung = J({
   name = "Li Leung",
-  pos = { x = 1, y = 17 },
+  pos = { x = 7, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Li_Leung = J({
 -- Jazzy Hedgeer (16)
 local Jazzy_Hedgeer = J({
   name = "Jazzy Hedgeer",
-  pos = { x = 2, y = 17 },
+  pos = { x = 8, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Jazzy_Hedgeer = J({
 
 return {
   name = "Little Gigant",
-  list = {
-    Hector_Helio, Zephyr_Vitesse, Walter_Mountain, Jimi_Gaines, Ian_Ferrum,
-    Quint_Hampton, Yasir_Haddad, Keith_Ryan, Maximino_Cruz, Gareth_Flare,
-    Drago_Hill, Keenan_DiFortune, Jarell_Mangrove, Vic_Vitrum, Li_Leung, Jazzy_Hedgeer
-  }
+  list = {}
 }

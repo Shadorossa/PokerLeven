@@ -1,7 +1,7 @@
 -- Nasir Mustafa (1)
 local Nasir_Mustafa = J({
   name = "Nasir Mustafa",
-  pos = { x = 0, y = 2 },
+  pos = { x = 6, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Nasir_Mustafa = J({
 -- Faraz Farooq (2)
 local Faraz_Farooq = J({
   name = "Faraz Farooq",
-  pos = { x = 1, y = 2 },
+  pos = { x = 7, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Faraz_Farooq = J({
 -- Bilal Kalil (3)
 local Bilal_Kalil = J({
   name = "Bilal Kalil",
-  pos = { x = 2, y = 2 },
+  pos = { x = 8, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -71,7 +71,7 @@ local Bilal_Kalil = J({
 -- Jamila Wali (4)
 local Jamila_Wali = J({
   name = "Jamila Wali",
-  pos = { x = 3, y = 2 },
+  pos = { x = 9, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -94,7 +94,7 @@ local Jamila_Wali = J({
 -- Musa Sylla (5)
 local Musa_Sylla = J({
   name = "Musa Sylla",
-  pos = { x = 4, y = 2 },
+  pos = { x = 10, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -117,7 +117,7 @@ local Musa_Sylla = J({
 -- Yusuf Massoud (6)
 local Yusuf_Massoud = J({
   name = "Yusuf Massoud",
-  pos = { x = 5, y = 2 },
+  pos = { x = 11, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -140,7 +140,7 @@ local Yusuf_Massoud = J({
 -- Sulayk Sulaiman (7)
 local Sulayk_Sulaiman = J({
   name = "Sulayk Sulaiman",
-  pos = { x = 6, y = 2 },
+  pos = { x = 12, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -163,7 +163,7 @@ local Sulayk_Sulaiman = J({
 -- Sayid Armand (8)
 local Sayid_Armand = J({
   name = "Sayid Armand",
-  pos = { x = 7, y = 2 },
+  pos = { x = 0, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -186,7 +186,7 @@ local Sayid_Armand = J({
 -- Mansur Jasim (9)
 local Mansur_Jasim = J({
   name = "Mansur Jasim",
-  pos = { x = 8, y = 2 },
+  pos = { x = 1, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Mansur_Jasim = J({
 -- Zack Abdulla (10)
 local Zack_Abdulla = J({
   name = "Zack Abdulla",
-  pos = { x = 9, y = 2 },
+  pos = { x = 2, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Zack_Abdulla = J({
 -- Majdi Ismail (11)
 local Majdi_Ismail = J({
   name = "Majdi Ismail",
-  pos = { x = 10, y = 2 },
+  pos = { x = 3, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Majdi_Ismail = J({
 -- Talal Hamad (12)
 local Talal_Hamad = J({
   name = "Talal Hamad",
-  pos = { x = 11, y = 2 },
+  pos = { x = 4, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Talal_Hamad = J({
 -- Hasan Ahmed (13)
 local Hasan_Ahmed = J({
   name = "Hasan Ahmed",
-  pos = { x = 12, y = 2 },
+  pos = { x = 5, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Hasan_Ahmed = J({
 -- Khalfan Jibril (14)
 local Khalfan_Jibril = J({
   name = "Khalfan Jibril",
-  pos = { x = 0, y = 3 },
+  pos = { x = 6, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Khalfan_Jibril = J({
 -- Rajab Ismail (15)
 local Rajab_Ismail = J({
   name = "Rajab Ismail",
-  pos = { x = 1, y = 3 },
+  pos = { x = 7, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Rajab_Ismail = J({
 -- Adel Siddique (16)
 local Adel_Siddique = J({
   name = "Adel Siddique",
-  pos = { x = 2, y = 3 },
+  pos = { x = 8, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Adel_Siddique = J({
 
 return {
   name = "Desert Lion",
-  list = {
-    Nasir_Mustafa, Faraz_Farooq, Bilal_Kalil, Jamila_Wali, Musa_Sylla,
-    Yusuf_Massoud, Sulayk_Sulaiman, Sayid_Armand, Mansur_Jasim, Zack_Abdulla,
-    Majdi_Ismail, Talal_Hamad, Hasan_Ahmed, Khalfan_Jibril, Rajab_Ismail, Adel_Siddique
-  }
+  list = {}
 }

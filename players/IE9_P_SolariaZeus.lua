@@ -1,7 +1,7 @@
 -- Garci Stormdale (Susanoo)
 local Susanoo = J({
   name = "Susanoo",
-  pos = { x = 0, y = 15 },
+  pos = { x = 6, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Susanoo = J({
 -- Patrie Ambrosia (Pan)
 local Pan = J({
   name = "Pan",
-  pos = { x = 1, y = 15 },
+  pos = { x = 7, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Pan = J({
 -- Garrick Loventhal (Eros)
 local Eros = J({
   name = "Eros",
-  pos = { x = 2, y = 15 },
+  pos = { x = 8, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Eros = J({
 -- Sampa Eonius (Paieon)
 local Paieon = J({
   name = "Paieon",
-  pos = { x = 3, y = 15 },
+  pos = { x = 9, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Paieon = J({
 -- Kenard Montemar (Oyamatsumi)
 local Oyamatsumi = J({
   name = "Oyamatsumi",
-  pos = { x = 4, y = 15 },
+  pos = { x = 10, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Oyamatsumi = J({
 -- Atol Lasalle (Atlas)
 local Atlas = J({
   name = "Atlas",
-  pos = { x = 5, y = 15 },
+  pos = { x = 11, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Atlas = J({
 -- Revea Ristair (Uzume)
 local Uzume = J({
   name = "Uzume",
-  pos = { x = 6, y = 15 },
+  pos = { x = 12, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -148,7 +148,7 @@ local Uzume = J({
 -- Harald Monet (Harmonia)
 local Harmonia = J({
   name = "Harmonia",
-  pos = { x = 7, y = 15 },
+  pos = { x = 0, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -169,7 +169,7 @@ local Harmonia = J({
 -- Ciro Zealon (Zelus)
 local Zelus = J({
   name = "Zelus",
-  pos = { x = 8, y = 15 },
+  pos = { x = 1, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -188,9 +188,9 @@ local Zelus = J({
 })
 
 -- Thaddeus Bellefax (Archon Aphrodite)
-local Aphrodite = J({
-  name = "Aphrodite",
-  pos = { x = 9, y = 15 },
+local Thaddeus_Bellefax = J({
+  name = "Thaddeus Bellefax",
+  pos = { x = 2, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -211,7 +211,7 @@ local Aphrodite = J({
 -- Riza Nagivar (Izanagi)
 local Izanagi = J({
   name = "Izanagi",
-  pos = { x = 10, y = 15 },
+  pos = { x = 3, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -232,7 +232,7 @@ local Izanagi = J({
 -- Cate Heckel (Hecate)
 local Hecate = J({
   name = "Hecate",
-  pos = { x = 11, y = 15 },
+  pos = { x = 4, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -253,7 +253,7 @@ local Hecate = J({
 -- Iskandar Tarusian (Tartarus)
 local Tartarus = J({
   name = "Tartarus",
-  pos = { x = 0, y = 16 },
+  pos = { x = 5, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -274,7 +274,7 @@ local Tartarus = J({
 -- Orisa Namir (Izanami)
 local Izanami = J({
   name = "Izanami",
-  pos = { x = 1, y = 16 },
+  pos = { x = 6, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -295,7 +295,7 @@ local Izanami = J({
 -- Burke Forzane (Tajikarao)
 local Tajikarao = J({
   name = "Tajikarao",
-  pos = { x = 2, y = 16 },
+  pos = { x = 7, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -316,7 +316,7 @@ local Tajikarao = J({
 -- Kazimir Stormblade (Takemikazuchi)
 local Takemikazuchi = J({
   name = "Takemikazuchi",
-  pos = { x = 3, y = 16 },
+  pos = { x = 8, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

@@ -1,151 +1,113 @@
+import os
 import re
 
-# Orden de jokers extraído de los archivos
-joker_order = [
-    "Kevin", "Mark", "Nathan", "Axel", "Jude_Raimon", "Bobby", "Steve", "Erik", "Jim", "Tod",
-    "Bloom", "Martin",
-    "Chamaleon",
-    "Feldt",
-    "Vox",
-    "hillman", "island", "sweet", "butler", "barista", "builder",
-    "hood", "hillfort", "code", "star", "cleats", "hattori", "cloack",
-    "Greeny", "Hayseed", "Sherman", "Spray", "Dawson", "Muffs", "Hillvalley",
-    "Neville", "Night", "Marvin", "Thomas", "Tyler", "Damian", "Nashmith", "z_triangle",
-    "Hephestus", "Artemis", "Aphrodite",
-    "ironwall", "Western", "Firepool", "fielding", "firsthand", "Tori", "kennedy", "beray",
-    "Maddox",
-    "Kik", "Waxon", "Sparky", "Maxi", "Water", "Fardream", "Telektual", "Dinglite", "Marshall",
-    "Wando", "Dirk", "Scotty", "Scotty_Angry", "Bookworm", "Gami", "Kandel", "Ation",
-    "Dvalin", "Dvalin_Plus", "Kenville", "Fedora", "Sworm", "Mercury", "Metron", "Zell",
-    "KingR", "Beltzer", "Blade", "Argie", "Bamboo", "Messer", "Spark", "Sparrow", "Jamm", "CalebR",
-    "SamfordR", "Cellar", "Zenn", "Little", "Cossimo", "Color",
-    "Daisy", "Sand", "Earth", "Pinkpetal", "Greenland", "Bluebells", "Sunrise", "Bush", "Moor",
-    "Sue", "Willow", "Closeout", "Spires", "Cash", "Revel", "Brook",
-    "Darren", "Fake", "Mishap", "Leave", "Badgame", "Random", "Richmen", "Fate", "Duskplay",
-    "Luckyman", "Poker", "Cracker", "Failing", "Cotts", "Passing", "Bathers",
-    "Rocky", "Diver", "Hills", "Hurley", "Redding", "Fordline", "Soundtown", "Delight", "Contented",
-    "Easton", "Shark", "Cooley", "Breakfast", "Griddle", "Andagi", "Talent",
-    "Nero", "Gele", "Kiburn", "Zohen", "Hauser", "Kormer", "Kiwill", "Ark", "Wittz", "Bellatrix",
-    "Xene",
-    "DarkFeldt", "SamDark", "JimDark", "NathanDark", "KevinDark",
-    "Beluga", "Clear", "Icer", "Gazelle", "Frost",
-    "Torch",
-    "Mark_IJ", "Nathan_IJ", "Jack_IJ", "Hurley_IJ", "Scotty_IJ", "Archer_IJ", "Caleb_IJ", "Shawn_IJ",
-    "Axel_IJ", "Austin_IJ", "Thor_IJ", "Jude_IJ", "Samford_IJ", "Kevin_IJ", "Xavier_IJ", "Darren_IJ",
-    "Whale", "Water", "Beaches", "Turtle", "Kraken", "Prawn", "Fisher", "HangTen", "Dolphin", "Reef",
-    "Jaws", "CHorse", "Summers", "KRab", "Barracuda", "Marlin",
-    "Mustafa", "Farooq", "Kalil", "Wali", "Sylla", "Massoud", "Sulaiman", "Armand", "Jasim", "Abdulla",
-    "Majdi", "Hamad", "Ahmed", "Jibril", "Rajab", "Siddique",
-    "King", "Master", "Zohen", "Bargie", "Hatch", "Turner", "Cloak", "Talisman", "Wittz", "Quagmire",
-    "Zell", "Heat", "Hera", "Tyler", "Demeter", "Hillvalley",
-    "JungSoo", "DoJun", "SungHwan", "MyungHo", "BaekYong", "Hyun", "Choi", "Byron", "Claude", "Bryce",
-    "EunYong",
-    "Freddy", "Gascoigne", "Buckingham", "Ralton", "Ripper", "Coole", "Mane", "Appleton", "Purpleton",
-    "Partinus", "Arwen", "Jeeves", "Squall", "Woodgate", "Richards", "Pounding",
-    "Thorsten", "Alexander", "Heinrich", "Kurt", "Lukas", "Theodor", "Jan", "Niklas", "Jonas",
-    "Maximilian", "Peter", "Gerhard", "Erwin", "Jens", "Ernst", "Emmanuel",
-    "Pialat", "Godin", "Aron", "Poujol", "Pinot", "Perec", "Huysmans", "Hinault", "Rousseau", "Hervaud",
-    "Favreau", "Lazare", "Pinson", "Gutain", "Moreau", "Morland",
-    "Inigo", "Costa", "Lopez", "Garrido", "Garcia", "Rodriguez", "Ferreira", "Pereira", "Borja", "Bonachea",
-    "Jimenez", "Espindola", "Cesar", "Castor", "Arroyo", "Rubiera",
-    "Lazuli", "Diamante", "Turchese", "Agata", "Zaffiro", "Smeraldo", "Granato", "Topazio", "Amatista",
-    "Acuto", "Perla", "Quarzo", "Berillo", "Corniola", "Rubino", "Opale",
-    "Ortega", "Torres", "Palacios", "Ros", "Martinez", "Caroso", "Lopez", "Torinni", "Castiglione",
-    "Balone", "Oro", "Cruz", "Saviola", "Tevez", "Samuel", "Aguero",
-    "Dash", "Bryant", "Strider", "Dynamo", "Bobby", "Woodmark", "Erik", "Pierce", "Krueger", "Keats",
-    "Jax", "Hawke", "Washington", "Bobbins", "Pooma", "Dexter",
-    "Blasi", "Galliano", "Nobili", "Graziuso", "Maserati", "Gabrini", "Nakata", "Yani", "Diavolo",
-    "Bianchi", "Generani", "Santini", "Oconti", "Rossa", "Carnivale", "Zanardi",
-    "Zorro", "Chacal", "Minion", "Bufalo", "Dingo", "Buho", "Erizo", "Mantis", "Cuervo", "Coyote",
-    "Escorpion", "Oso", "Arana", "Cebra", "Caiman", "Mariposa",
-    "DaSilva", "Lagarto", "Bagre", "Monstro", "Clemens", "Passos", "Barboza", "Cerezo", "Almeida",
-    "Robingo", "Gato", "Ribeiro", "Nogueira", "Oliveira", "Mendes", "Santos",
-    "Hector", "Zephyr", "Walter", "Jimi", "Ian", "Quint", "Yasir", "Keith", "Maximino", "Gareth",
-    "Drago", "Keenan", "Jarell", "Vic", "Li", "Jazzy",
-    "Luceafar", "Bump", "Lump", "Ischer", "Jenkins", "Triumvir", "Gunther", "Stark", "Malice", "Bash",
-    "Callous",
-    "Anorel", "Nenel", "Genel", "Ekadel", "Lephiel", "Sachinel", "Wenel", "Nuel", "Ientel", "Gaiel", "Sael",
-    "Astaroth", "Rubu", "Agor", "Hebimos", "Belal", "Malphas", "Gorja", "Arakune", "Borba", "Zanos",
-    "Destra",
-    "Zolani", "Dakarai", "Jake", "Moeneeb", "Kennedy", "Anton", "Adam", "Reggie", "Nathan", "Melisizwe",
-    "Herschel",
-    "Arion", "Riccardo", "Victor", "JP",
-    "Isozaki", "Mitsuyoshi",
-    "Hotel", "Oscar", "Eco", "Golf", "Charlie", "Lima", "Bravo", "India", "Julieta", "Alfa", "Mike",
-    "Uniform", "Tango", "Zulu", "XRay", "Delta",
-    "Kilo", "Foxtrot", "Noviembre", "Beta",
-    "Zanark", "Shuten",
-    "Terry", "Falco", "Trina",
-    "Sandra_Fischer", "Trevor", "Cesar", "Valentin", "Adriano_Donati", "Sonny_Wright", "Basile",
-    "Haizaki", "Mizukamiya",
-    "Hades", "Perseus",
-    "Quagmire_Ares", "Hunter_Ares", "Xavier_Ares",
-    "Endou", "Sakanoue", "Fudou", "Shirou", "Kidou", "Kazemaru", "Hiura", "Asuto", "Hiroto", "Gouenji",
-    "Haizaki", "Goujin", "Ichihoshi", "Nosaka", "Kiyama", "Afuro", "Iwato", "Mansaku", "Saginuma",
-    "Nishikage", "Kozoumaru", "Atsuya", "Norika", "Mizukamiya",
-    "RaeWon", "DoDoon", "YoungWoo", "SeoAh", "YuHwan", "Younghoon", "SeungJin", "Seok", "JiWon", "Baek",
-    "DongHyuk", "EunChang", "MinSoo", "JungPyo",
-    "Pazuzu", "Agalia", "Demogor", "Belphego", "Amdu", "Beelze", "Beliano", "Asmo", "Satan", "Sarganas",
-    "As", "Lucifer", "Gaap",
-    "Akbar", "Ibrohim", "Muhammad", "Majid", "Zafar", "Kumush", "Sarybek", "Farhad", "MoHabbot", "Onaxon",
-    "Dost", "Norkul", "Keldi",
-    "Kungfu", "Tao", "Xiao", "Minchi", "Lin", "Tanmin", "Wulong", "Zhou", "Hao", "Wantan", "Xiuna", "Chao",
-    "Chinsu",
-    "Alonso", "Domelgo", "Baraja", "Rufino", "Velasco", "Nando", "Emerico", "Chico", "Luther", "Clario",
-    "Bergamo", "Emilio", "Fabio",
-    "Bigman", "Gentleman", "Diver", "Smokey", "Judge", "Hunter", "Yoga", "Cobra", "Shakey", "Convoy",
-    "Lion", "Horn", "Magician", "Jack",
-    "Macero", "Ricardo", "Matheus", "Marcelo", "Lucian", "Renato", "Daninho", "Rolan", "Samuel", "Arthur",
-    "Miguel", "Raymond", "Paulo",
-    "Gabriella", "Elma", "Alice", "Diana", "Nestore", "Nicolo", "Pietro", "Carlos", "Luca", "Matteo",
-    "Petronio", "Racerit", "Kakehashi", "Tonio", "Monica", "Giustino",
-    "Goran", "Alexei", "Rabi", "Gwennady", "Simon", "Karl", "Shamil", "Viktor", "Froy", "Zaur", "Yuri",
-    "Lasker", "Marl", "Asu", "Lus", "Malik",
-    "Procyon", "Tabit", "Meissa", "Saiph", "Alnitak", "Alnilam", "Mintaka", "Bellatrix", "Rigel", "Yurika",
-    "Betelgeuse", "Sirius", "Kappa", "Hatysa",
-    "Unmei", "Sakuraba",
-    "Haruma", "Tsukasa",
-    "Axel_Kirkwood",
-    "Dulce", "Ryoma", "Blazer", "Weathervane", "Noggin", "Montayne", "Chester", "Mach", "Ace_Server",
-    "Rex_George", "Heart", "Clover", "Diamond", "Spade"
-]
+players_dir = r"c:\Users\Secun\AppData\Roaming\Balatro\Mods\PokerLeven-1\players"
+COLS = 13
 
-with open("localization/es_ES.lua", 'r', encoding='utf-8') as f:
-    content = f.read()
+# Regex para encontrar el bloque J({...}) y su clave (nombre de la variable local)
+# El editor usa: /local\s+(\w+)\s*=\s*J\s*\(\s*\{/g
+player_start_regex = re.compile(r'local\s+(\w+)\s*=\s*J\s*\(\s*\{')
 
-joker_start = content.find("Joker = {")
-joker_end = content.find("        },", joker_start + 50) + len("        },")
+def get_block_content(text, start_idx):
+    brace_count = 0
+    found_first = False
+    for i in range(start_idx, len(text)):
+        if text[i] == '{':
+            brace_count += 1
+            found_first = True
+        elif text[i] == '}':
+            brace_count -= 1
+        
+        if found_first and brace_count == 0:
+            return text[start_idx:i+1], i
+    return None, -1
 
-joker_section = content[joker_start:joker_end]
-joker_pattern = r'(\s+)(j_ina_\w+)\s*=\s*\{[^}]*(?:\{[^}]*\}[^}]*)*\},'
-joker_entries = {}
+# Diccionario para llevar la cuenta de jugadores por atlas
+atlas_counters = {}
 
-for match in re.finditer(joker_pattern, content[joker_start:joker_end]):
-    indent = match.group(1)
-    key = match.group(2)
-    full_match = match.group(0)
-    joker_entries[key] = full_match
+# Lista de archivos ordenados
+files = sorted([f for f in os.listdir(players_dir) if f.endswith('.lua')])
 
-joker_variants = {}
-for key in joker_entries.keys():
-    match = re.match(r'j_ina_(\w+?)(?:_|$)', key)
-    if match:
-        base = match.group(1)
-        if base not in joker_variants:
-            joker_variants[base] = []
-        joker_variants[base].append(key)
+for filename in files:
+    filepath = os.path.join(players_dir, filename)
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
 
-new_joker_entries = []
-for base_name in joker_order:
-    if base_name in joker_variants:
-        for variant_key in sorted(joker_variants[base_name]):
-            if variant_key in joker_entries:
-                new_joker_entries.append(joker_entries[variant_key])
+    new_content = content
+    offset = 0
+    
+    # Buscamos todos los jugadores en el archivo
+    for match in player_start_regex.finditer(content):
+        key = match.group(1)
+        start_pos = content.find('{', match.start())
+        block_text, end_pos = get_block_content(content, start_pos)
+        
+        if block_text:
+            # Extraer atlas
+            atlas_match = re.search(r'atlas\s*=\s*["\'](.*?)["\']', block_text)
+            if atlas_match:
+                atlas_name = atlas_match.group(1)
+                
+                # Incrementar contador para este atlas
+                if atlas_name not in atlas_counters:
+                    atlas_counters[atlas_name] = 0
+                
+                # Check if it's ina_top
+                is_ina_top = re.search(r'rarity\s*=\s*["\']ina_top["\']', block_text)
+                is_top_atlas = atlas_name in ["top", "ina_top"]
+                
+                # Extraer el pos actual (por si se salta la reorganización)
+                current_pos_match = re.search(r'pos\s*=\s*\{\s*x\s*=\s*(\d+),\s*y\s*=\s*(\d+)\s*\}', block_text)
+                
+                if is_ina_top or is_top_atlas:
+                    # Incluso si se salta, sincronizamos soul_pos si existe basándonos en su pos actual
+                    if current_pos_match and "soul_pos" in block_text:
+                        curr_x, curr_y = current_pos_match.group(1), current_pos_match.group(2)
+                        new_soul_pos_str = f"soul_pos = {{ x = {curr_x}, y = {int(curr_y) + 1} }},"
+                        updated_block = re.sub(r'soul_pos\s*=\s*\{\s*x\s*=\s*\d+,\s*y\s*=\s*\d+\s*\},?', new_soul_pos_str, block_text)
+                        if updated_block != block_text:
+                            # Aplicar solo el cambio de soul_pos
+                            before = new_content[:start_pos + offset]
+                            after = new_content[start_pos + len(block_text) + offset:]
+                            new_content = before + updated_block + after
+                            offset += (len(updated_block) - len(block_text))
 
-new_joker_section = "Joker = {\n" + '\n'.join(new_joker_entries) + "\n        },"
-new_content = content[:joker_start] + new_joker_section + content[joker_end:]
+                    atlas_counters[atlas_name] += 1
+                    continue
 
-with open("localization/es_ES.lua", 'w', encoding='utf-8') as f:
-    f.write(new_content)
+                current_index = atlas_counters[atlas_name]
+                new_x = current_index % COLS
+                new_y = current_index // COLS
 
-print("Done!")
+                # Reemplazar el pos = { x = ..., y = ... }
+                new_pos_str = f"pos = {{ x = {new_x}, y = {new_y} }},"
+                
+                # Intentamos encontrar el pos y reemplazarlo
+                updated_block = re.sub(r'pos\s*=\s*\{\s*x\s*=\s*\d+,\s*y\s*=\s*\d+\s*\},?', new_pos_str, block_text)
+                
+                # Sincronizar soul_pos (y + 1)
+                if "soul_pos" in updated_block:
+                    new_soul_pos_str = f"soul_pos = {{ x = {new_x}, y = {new_y + 1} }},"
+                    updated_block = re.sub(r'soul_pos\s*=\s*\{\s*x\s*=\s*\d+,\s*y\s*=\s*\d+\s*\},?', new_soul_pos_str, updated_block)
+
+                # Si no lo encuentra con esa regex, intentamos una que acepte placeholders o comentarios
+                if updated_block == block_text:
+                     updated_block = re.sub(r'pos\s*=\s*\{\s*x\s*=\s*\d+,\s*y\s*=\s*\d+\s*\}.*?--', new_pos_str + " --", block_text)
+
+                if updated_block != block_text:
+                    # Aplicar el cambio al contenido total
+                    # Tenemos que tener cuidado con el offset si el bloque cambia de tamaño
+                    before = new_content[:start_pos + offset]
+                    after = new_content[start_pos + len(block_text) + offset:]
+                    new_content = before + updated_block + after
+                    offset += (len(updated_block) - len(block_text))
+                
+                atlas_counters[atlas_name] += 1
+
+    # Guardar el archivo actualizado
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+
+print("¡Reorganización completada!")
+for atlas, count in atlas_counters.items():
+    print(f"- {atlas}: {count} jugadores.")

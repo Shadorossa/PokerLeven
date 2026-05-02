@@ -1,7 +1,7 @@
 -- Freddy McQueen (1)
 local Freddy_McQueen = J({
   name = "Freddy McQueen",
-  pos = { x = 0, y = 5 },
+  pos = { x = 2, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Freddy_McQueen = J({
 -- Jonny Gascoigne (2)
 local Jonny_Gascoigne = J({
   name = "Jonny Gascoigne",
-  pos = { x = 1, y = 5 },
+  pos = { x = 3, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Jonny_Gascoigne = J({
 -- David Buckingham (3)
 local David_Buckingham = J({
   name = "David Buckingham",
-  pos = { x = 2, y = 5 },
+  pos = { x = 4, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local David_Buckingham = J({
 -- Lance Ralton (4)
 local Lance_Ralton = J({
   name = "Lance Ralton",
-  pos = { x = 3, y = 5 },
+  pos = { x = 5, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Lance_Ralton = J({
 -- Edge Ripper (5)
 local Edge_Ripper = J({
   name = "Edge Ripper",
-  pos = { x = 4, y = 5 },
+  pos = { x = 6, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -116,7 +116,7 @@ local Edge_Ripper = J({
 -- Peter Coole (6)
 local Peter_Coole = J({
   name = "Peter Coole",
-  pos = { x = 5, y = 5 },
+  pos = { x = 7, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -139,7 +139,7 @@ local Peter_Coole = J({
 -- Gary Mane (7)
 local Gary_Mane = J({
   name = "Gary Mane",
-  pos = { x = 6, y = 5 },
+  pos = { x = 8, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -162,7 +162,7 @@ local Gary_Mane = J({
 -- Paul Appleton (8)
 local Paul_Appleton = J({
   name = "Paul Appleton",
-  pos = { x = 7, y = 5 },
+  pos = { x = 9, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -185,7 +185,7 @@ local Paul_Appleton = J({
 -- Eric Purpleton (9)
 local Eric_Purpleton = J({
   name = "Eric Purpleton",
-  pos = { x = 8, y = 5 },
+  pos = { x = 10, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -208,7 +208,7 @@ local Eric_Purpleton = J({
 -- Edgar Partinus (10)
 local Edgar_Partinus = J({
   name = "Edgar Partinus",
-  pos = { x = 9, y = 5 },
+  pos = { x = 11, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Edgar_Partinus = J({
 -- Philip Arwen (11)
 local Philip_Arwen = J({
   name = "Philip Arwen",
-  pos = { x = 10, y = 5 },
+  pos = { x = 12, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Philip_Arwen = J({
 -- Servilius Jeeves (12)
 local Servilius_Jeeves = J({
   name = "Servilius Jeeves",
-  pos = { x = 11, y = 5 },
+  pos = { x = 0, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Servilius_Jeeves = J({
 -- Martin Squall (13)
 local Martin_Squall = J({
   name = "Martin Squall",
-  pos = { x = 12, y = 5 },
+  pos = { x = 1, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Martin_Squall = J({
 -- Nick Woodgate (14)
 local Nick_Woodgate = J({
   name = "Nick Woodgate",
-  pos = { x = 13, y = 5 },
+  pos = { x = 2, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Nick_Woodgate = J({
 -- Mikey Richards (15)
 local Mikey_Richards = J({
   name = "Mikey Richards",
-  pos = { x = 14, y = 5 },
+  pos = { x = 3, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Mikey_Richards = J({
 -- Sirius Pounding (16)
 local Sirius_Pounding = J({
   name = "Sirius Pounding",
-  pos = { x = 15, y = 5 },
+  pos = { x = 4, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,10 +369,5 @@ local Sirius_Pounding = J({
 
 return {
   name = "Knights of Queen",
-  list = {
-    Freddy_McQueen, Jonny_Gascoigne, David_Buckingham, Lance_Ralton,
-    Edge_Ripper, Peter_Coole, Gary_Mane, Paul_Appleton,
-    Eric_Purpleton, Edgar_Partinus, Philip_Arwen, Servilius_Jeeves,
-    Martin_Squall, Nick_Woodgate, Mikey_Richards, Sirius_Pounding
-  }
+  list = {}
 }

@@ -1,10 +1,9 @@
+-- Hotel (1)
 local Hotel = J({
   name = "Hotel",
-  pos = { x = 0, y = 9 },
+  pos = { x = 11, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -13,19 +12,19 @@ local Hotel = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 1,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Oscar (2)
 local Oscar = J({
   name = "Oscar",
-  pos = { x = 1, y = 9 },
+  pos = { x = 12, y = 0 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -34,19 +33,19 @@ local Oscar = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 2,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Eco (3)
 local Eco = J({
   name = "Eco",
-  pos = { x = 2, y = 9 },
+  pos = { x = 0, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -55,19 +54,19 @@ local Eco = J({
   pposition = C.DF,
   pgender = C.F,
   pnation = C.UNKNOWN,
+  pnumber = 3,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Golf (4)
 local Golf = J({
   name = "Golf",
-  pos = { x = 3, y = 9 },
+  pos = { x = 1, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -76,19 +75,19 @@ local Golf = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 4,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Charlie (5)
 local Charlie = J({
   name = "Charlie",
-  pos = { x = 4, y = 9 },
+  pos = { x = 2, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -97,19 +96,19 @@ local Charlie = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 5,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Lima (6)
 local Lima = J({
   name = "Lima",
-  pos = { x = 5, y = 9 },
+  pos = { x = 3, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -118,19 +117,19 @@ local Lima = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 6,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Bravo (7)
 local Bravo = J({
   name = "Bravo",
-  pos = { x = 6, y = 9 },
+  pos = { x = 4, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -139,19 +138,19 @@ local Bravo = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 7,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- India (8)
 local India = J({
   name = "India",
-  pos = { x = 7, y = 9 },
+  pos = { x = 5, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -160,19 +159,19 @@ local India = J({
   pposition = C.MF,
   pgender = C.F,
   pnation = C.UNKNOWN,
+  pnumber = 8,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Julieta (9)
 local Julieta = J({
   name = "Julieta",
-  pos = { x = 8, y = 9 },
+  pos = { x = 6, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -181,41 +180,41 @@ local Julieta = J({
   pposition = C.FW,
   pgender = C.F,
   pnation = C.UNKNOWN,
+  pnumber = 9,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Alfa (10)
 local Alfa = J({
   name = "Alfa",
-  pos = { x = 9, y = 9 },
+  pos = { x = 7, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 2,
   pools = { ["Protocol Omega"] = true },
-  cost = 5,
+  cost = 7,
   atlas = "Jokers05",
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.UNKNOWN,
-  pyear = C.UNKNOWN,
   pcaptain = C.CAPTAIN,
+  pnumber = 10,
+  pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Mike (11)
 local Mike = J({
   name = "Mike",
-  pos = { x = 10, y = 9 },
+  pos = { x = 8, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -224,19 +223,19 @@ local Mike = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 11,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Uniform (12)
 local Uniform = J({
   name = "Uniform",
-  pos = { x = 11, y = 9 },
+  pos = { x = 9, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -245,19 +244,19 @@ local Uniform = J({
   pposition = C.GK,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 12,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Tango (13)
 local Tango = J({
   name = "Tango",
-  pos = { x = 12, y = 9 },
+  pos = { x = 10, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -266,19 +265,19 @@ local Tango = J({
   pposition = C.DF,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 13,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Zulu (14)
 local Zulu = J({
   name = "Zulu",
-  pos = { x = 0, y = 10 },
+  pos = { x = 11, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -287,19 +286,19 @@ local Zulu = J({
   pposition = C.MF,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 14,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
-local XRay = J({
+-- X-Ray (15)
+local X_Ray = J({
   name = "X-Ray",
-  pos = { x = 1, y = 10 },
+  pos = { x = 12, y = 1 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -308,19 +307,19 @@ local XRay = J({
   pposition = C.FW,
   pgender = C.M,
   pnation = C.UNKNOWN,
+  pnumber = 15,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
   calculate = function(self, card, ctx) end
 })
 
+-- Delta (16)
 local Delta = J({
   name = "Delta",
-  pos = { x = 2, y = 10 },
+  pos = { x = 0, y = 2 },
   config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return { vars = {} }
-  end,
+  loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
   pools = { ["Protocol Omega"] = true },
   cost = 5,
@@ -329,6 +328,7 @@ local Delta = J({
   pposition = C.FW,
   pgender = C.F,
   pnation = C.UNKNOWN,
+  pnumber = 16,
   pyear = C.UNKNOWN,
   pteam = "ina_team_ProtocolOmega",
   blueprint_compat = true,
@@ -337,5 +337,5 @@ local Delta = J({
 
 return {
   name = "Protocol Omega",
-  list = {}
+  list = {  }
 }

@@ -1,6 +1,6 @@
 local ropes = J({
   name = "ropes",
-  pos = { x = 4, y = 2 },
+  pos = { x = 1, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -23,7 +23,7 @@ local ropes = J({
 
 local downtown = J({
   name = "Downtown",
-  pos = { x = 5, y = 2 },
+  pos = { x = 2, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -45,7 +45,7 @@ local downtown = J({
 
 local bindings = J({
   name = "Bindings",
-  pos = { x = 6, y = 2 },
+  pos = { x = 3, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -67,7 +67,7 @@ local bindings = J({
 
 local gleeson = J({
   name = "Gleeson",
-  pos = { x = 7, y = 2 },
+  pos = { x = 4, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -89,7 +89,7 @@ local gleeson = J({
 
 local snowfield = J({
   name = "Snowfield",
-  pos = { x = 2, y = 2 },
+  pos = { x = 5, y = 2 },
   config = { extra = { chips = 150 } },
   loc_vars = function(self, info_queue, center)
     local count = 0
@@ -166,7 +166,7 @@ local snowfield = J({
 
 local bootgaiter = J({
   name = "Bootgaiter",
-  pos = { x = 9, y = 2 },
+  pos = { x = 6, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -188,7 +188,7 @@ local bootgaiter = J({
 
 local Maddox = J({
   name = "Maddox",
-  pos = { x = 3, y = 2 },
+  pos = { x = 7, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -232,7 +232,7 @@ local Maddox = J({
 
 local skipolson = J({
   name = "Skipolson",
-  pos = { x = 4, y = 2 },
+  pos = { x = 8, y = 2 },
   config = { extra = { type = 'Training' } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.type } }
@@ -263,7 +263,7 @@ local skipolson = J({
 
 local shawn = J({
   name = "Shawn Froste",
-  pos = { x = 12, y = 2 },
+  pos = { x = 9, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -286,7 +286,7 @@ local shawn = J({
 
 local climbstein = J({
   name = "Climbstein",
-  pos = { x = 2, y = 3 },
+  pos = { x = 10, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -308,7 +308,7 @@ local climbstein = J({
 
 local rackner = J({
   name = "Rackner",
-  pos = { x = 3, y = 3 },
+  pos = { x = 11, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -330,7 +330,7 @@ local rackner = J({
 
 local peggs = J({
   name = "Peggs",
-  pos = { x = 5, y = 2 },
+  pos = { x = 12, y = 2 },
   config = { extra = { chips = 80 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips } }
@@ -359,7 +359,7 @@ local peggs = J({
 
 local ursus = J({
   name = "Ursus",
-  pos = { x = 5, y = 3 },
+  pos = { x = 0, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -381,7 +381,7 @@ local ursus = J({
 
 local bogg = J({
   name = "Bogg",
-  pos = { x = 6, y = 3 },
+  pos = { x = 1, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -403,7 +403,7 @@ local bogg = J({
 
 local strata = J({
   name = "Strata",
-  pos = { x = 7, y = 3 },
+  pos = { x = 2, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -425,7 +425,7 @@ local strata = J({
 
 local onlign = J({
   name = "Onlign",
-  pos = { x = 8, y = 3 },
+  pos = { x = 3, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

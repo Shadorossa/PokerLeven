@@ -1,7 +1,7 @@
 -- Ashlan Panoptos
 local Panoptos = J({
   name = "Panoptos",
-  pos = { x = 0, y = 13 },
+  pos = { x = 0, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Panoptos = J({
 -- Hudson Headland
 local Headland = J({
   name = "Headland",
-  pos = { x = 1, y = 13 },
+  pos = { x = 1, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Headland = J({
 -- Vex Frieden
 local Frieden = J({
   name = "Frieden",
-  pos = { x = 2, y = 13 },
+  pos = { x = 2, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Frieden = J({
 -- Asten Royds
 local Royds = J({
   name = "Royds",
-  pos = { x = 3, y = 13 },
+  pos = { x = 3, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Royds = J({
 -- Ruelle Neurivieu
 local Neurivieu = J({
   name = "Neurivieu",
-  pos = { x = 4, y = 13 },
+  pos = { x = 4, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Neurivieu = J({
 -- Theon Stillcliffe
 local Stillcliffe = J({
   name = "Stillcliffe",
-  pos = { x = 5, y = 13 },
+  pos = { x = 5, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Stillcliffe = J({
 -- Ciel Natcherall
 local Natcherall = J({
   name = "Natcherall",
-  pos = { x = 6, y = 13 },
+  pos = { x = 6, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -148,7 +148,7 @@ local Natcherall = J({
 -- Kaien Spiradawn
 local Spiradawn = J({
   name = "Spiradawn",
-  pos = { x = 7, y = 13 },
+  pos = { x = 7, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -169,7 +169,7 @@ local Spiradawn = J({
 -- Kyo Seestar
 local Seestar = J({
   name = "Seestar",
-  pos = { x = 8, y = 13 },
+  pos = { x = 8, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -190,7 +190,7 @@ local Seestar = J({
 -- Syd Faircrest
 local Faircrest = J({
   name = "Faircrest",
-  pos = { x = 9, y = 13 },
+  pos = { x = 9, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -212,7 +212,7 @@ local Faircrest = J({
 -- Solan Brightmoor
 local Brightmoor = J({
   name = "Brightmoor",
-  pos = { x = 10, y = 13 },
+  pos = { x = 10, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -233,7 +233,7 @@ local Brightmoor = J({
 -- Lenox Grinder
 local Grinder = J({
   name = "Grinder",
-  pos = { x = 11, y = 13 },
+  pos = { x = 11, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Grinder = J({
 -- Ophelia Ennercourt
 local Ennercourt = J({
   name = "Ennercourt",
-  pos = { x = 0, y = 14 },
+  pos = { x = 12, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Ennercourt = J({
 -- Riggs Fornstrut
 local Fornstrut = J({
   name = "Fornstrut",
-  pos = { x = 1, y = 14 },
+  pos = { x = 0, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local Fornstrut = J({
 -- Leticia Legatus
 local Legatus = J({
   name = "Legatus",
-  pos = { x = 2, y = 14 },
+  pos = { x = 1, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -317,7 +317,7 @@ local Legatus = J({
 -- Arran Realis
 local Realis = J({
   name = "Realis",
-  pos = { x = 3, y = 14 },
+  pos = { x = 2, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

@@ -1,7 +1,7 @@
 -- Jang Cho (1)
 local Jang_Cho = J({
   name = "Jang Cho",
-  pos = { x = 0, y = 4 },
+  pos = { x = 12, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Jang_Cho = J({
 -- Umi Wang (2)
 local Umi_Wang = J({
   name = "Umi Wang",
-  pos = { x = 1, y = 4 },
+  pos = { x = 0, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Umi_Wang = J({
 -- Doyo Hong (3)
 local Doyo_Hong = J({
   name = "Doyo Hong",
-  pos = { x = 2, y = 4 },
+  pos = { x = 1, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Doyo_Hong = J({
 -- Minho Cho (4)
 local Minho_Cho = J({
   name = "Minho Cho",
-  pos = { x = 3, y = 4 },
+  pos = { x = 2, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Minho_Cho = J({
 -- Songwan Ko (5)
 local Songwan_Ko = J({
   name = "Songwan Ko",
-  pos = { x = 4, y = 4 },
+  pos = { x = 3, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -116,7 +116,7 @@ local Songwan_Ko = J({
 -- Changsu Choi (6)
 local Changsu_Choi = J({
   name = "Changsu Choi",
-  pos = { x = 6, y = 4 },
+  pos = { x = 4, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -140,7 +140,7 @@ local Changsu_Choi = J({
 -- Pekyong Park (7)
 local Pekyong_Park = J({
   name = "Pekyong Park",
-  pos = { x = 11, y = 4 },
+  pos = { x = 5, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -163,7 +163,7 @@ local Pekyong_Park = J({
 -- Enyong Kim (8)
 local Enyong_Kim = J({
   name = "Enyong Kim",
-  pos = { x = 10, y = 4 },
+  pos = { x = 6, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -186,7 +186,7 @@ local Enyong_Kim = J({
 -- Byron Love (9)
 local Byron_Love = J({
   name = "Byron Love",
-  pos = { x = 7, y = 4 },
+  pos = { x = 7, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Byron_Love = J({
 -- Claude Beacons (10)
 local Claude_Beacons = J({
   name = "Claude Beacons",
-  pos = { x = 8, y = 4 },
+  pos = { x = 8, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Claude_Beacons = J({
 -- Bryce Whitingale (11)
 local Bryce_Whitingale = J({
   name = "Bryce Whitingale",
-  pos = { x = 9, y = 4 },
+  pos = { x = 9, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Bryce_Whitingale = J({
 -- Chi-Won Ho (12)
 local Chi_Won_Ho = J({
   name = "Chi-Won Ho",
-  pos = { x = 12, y = 4 },
+  pos = { x = 10, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Chi_Won_Ho = J({
 -- Dong-Hyun Seul (13)
 local Dong_Hyun_Seul = J({
   name = "Dong-Hyun Seul",
-  pos = { x = 0, y = 5 },
+  pos = { x = 11, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Dong_Hyun_Seul = J({
 -- Jung-Hoon Yi (14)
 local Jung_Hoon_Yi = J({
   name = "Jung-Hoon Yi",
-  pos = { x = 1, y = 5 },
+  pos = { x = 12, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Jung_Hoon_Yi = J({
 -- Sung-Jin Noh (15)
 local Sung_Jin_Noh = J({
   name = "Sung-Jin Noh",
-  pos = { x = 2, y = 5 },
+  pos = { x = 0, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Sung_Jin_Noh = J({
 -- Joon-Ho Ja (16)
 local Joon_Ho_Ja = J({
   name = "Joon-Ho Ja",
-  pos = { x = 3, y = 5 },
+  pos = { x = 1, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Joon_Ho_Ja = J({
 
 return {
   name = "Fire Dragon",
-  list = {
-    Jang_Cho, Umi_Wang, Doyo_Hong, Minho_Cho, Songwan_Ko,
-    Changsu_Choi, Pekyong_Park, Enyong_Kim, Byron_Love, Claude_Beacons,
-    Bryce_Whitingale, Chi_Won_Ho, Dong_Hyun_Seul, Jung_Hoon_Yi, Sung_Jin_Noh, Joon_Ho_Ja
-  }
+  list = {}
 }

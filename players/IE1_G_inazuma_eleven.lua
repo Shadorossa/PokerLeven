@@ -1,7 +1,7 @@
 -- Hillman
-local Hillman = J({
+local Hillman_Veteran = J({
   name = "Hillman",
-  pos = { x = 6, y = 7 },
+  pos = { x = 2, y = 7 },
   config = { extra = { Xchip_mod = 0.2, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {
@@ -41,9 +41,9 @@ local Hillman = J({
 })
 
 -- Island
-local Island = J({
+local Island_Veteran = J({
   name = "Island",
-  pos = { x = 7, y = 7 },
+  pos = { x = 3, y = 7 },
   config = { extra = { current_chips = 0, chips_mod = 20, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {
@@ -94,9 +94,9 @@ local Island = J({
 })
 
 -- Hairtown
-local Hairtown = J({
+local Hairtown_Veteran = J({
   name = "Hairtown",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 4, y = 7 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -118,9 +118,9 @@ local Hairtown = J({
 })
 
 -- Sweet
-local Sweet = J({
+local Sweet_Veteran = J({
   name = "Sweet",
-  pos = { x = 9, y = 7 },
+  pos = { x = 5, y = 7 },
   config = {
     extra = {
       triggered = false,
@@ -161,9 +161,9 @@ local Sweet = J({
 })
 
 -- Butler
-local Butler = J({
+local Butler_Veteran = J({
   name = "Butler",
-  pos = { x = 10, y = 7 },
+  pos = { x = 6, y = 7 },
   config = {
     extra = {
       dollars_mod = 4,
@@ -216,9 +216,9 @@ local Butler = J({
 })
 
 -- Nathaniel
-local Nathaniel = J({
+local Nathaniel_Veteran = J({
   name = "Nathaniel",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 7, y = 7 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -240,9 +240,9 @@ local Nathaniel = J({
 })
 
 -- Gladstone
-local Gladstone = J({
+local Gladstone_Veteran = J({
   name = "Gladstone",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 8, y = 7 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -264,9 +264,9 @@ local Gladstone = J({
 })
 
 -- Tailor
-local Tailor = J({
+local Tailor_Veteran = J({
   name = "Tailor",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 9, y = 7 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -288,9 +288,9 @@ local Tailor = J({
 })
 
 -- Barista
-local Barista = J({
+local Barista_Veteran = J({
   name = "Barista",
-  pos = { x = 1, y = 8 },
+  pos = { x = 10, y = 7 },
   config = { extra = { Xchips_mod = 2 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.Xchips_mod } }
@@ -322,9 +322,9 @@ local Barista = J({
 })
 
 -- Suffolk
-local Suffolk = J({
+local Suffolk_Veteran = J({
   name = "Suffolk",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 11, y = 7 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -346,9 +346,9 @@ local Suffolk = J({
 })
 
 -- Builder
-local Builder = J({
+local Builder_Veteran = J({
   name = "Builder",
-  pos = { x = 3, y = 8 },
+  pos = { x = 12, y = 7 },
   config = {},
   loc_vars = function(self, info_queue, center)
     return {}
@@ -409,9 +409,9 @@ local Builder = J({
 })
 
 -- Poe
-local Poe = J({
+local Poe_Veteran = J({
   name = "Poe",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 0, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -433,9 +433,9 @@ local Poe = J({
 })
 
 -- Heart
-local Heart = J({
+local Heart_Veteran = J({
   name = "Heart",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 1, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -457,9 +457,9 @@ local Heart = J({
 })
 
 -- Foreman
-local Foreman = J({
+local Foreman_Veteran = J({
   name = "Foreman",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 2, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -481,9 +481,9 @@ local Foreman = J({
 })
 
 -- MacHines
-local MacHines = J({
+local MacHines_Veteran = J({
   name = "MacHines",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 3, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -505,9 +505,9 @@ local MacHines = J({
 })
 
 -- Steaky
-local Steaky = J({
+local Steaky_Veteran = J({
   name = "Steaky",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 4, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -530,5 +530,5 @@ local Steaky = J({
 
 return {
   name = "Inazuma Eleven",
-  list = { Hillman, Island, Sweet, Butler, Barista, Builder },
+  list = { Hillman_Veteran, Island_Veteran, Sweet_Veteran, Butler_Veteran, Barista_Veteran, Builder_Veteran },
 }

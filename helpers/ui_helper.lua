@@ -6,7 +6,14 @@ ina_set_badges = function(self, card, badges)
         local lower_pteam = string.lower(pteam)
         local loc_team = localize(pteam, 'teams')
         if loc_team == 'ERROR' then loc_team = pteam end
-        badges[#badges + 1] = create_badge(loc_team, G.ARGS.LOC_COLOURS[lower_pteam], text_colour, 1.2)
+        
+        -- Seguridad: Si G.ARGS o LOC_COLOURS no existen (pasa a veces al arrancar), usamos un color gris por defecto
+        local badge_colour = G.C.GREY
+        if G.ARGS and G.ARGS.LOC_COLOURS and G.ARGS.LOC_COLOURS[lower_pteam] then
+            badge_colour = G.ARGS.LOC_COLOURS[lower_pteam]
+        end
+        
+        badges[#badges + 1] = create_badge(loc_team, badge_colour, text_colour, 1.2)
     end
     if card.ability and card.ability.ina_small_sticker then
         local sticker_key = card.ability.ina_small_sticker
@@ -682,10 +689,12 @@ Pokerleven.get_type_ui = function(card)
 
     local nodes = {}
     -- Type
-    table.insert(nodes, create_dyna_node(type_text, G.ARGS.LOC_COLOURS[string.lower(extra.ptype or "fire")]))
+    local type_color = (G.ARGS and G.ARGS.LOC_COLOURS) and G.ARGS.LOC_COLOURS[string.lower(extra.ptype or "fire")] or G.C.WHITE
+    table.insert(nodes, create_dyna_node(type_text, type_color))
     -- Position
     table.insert(nodes, get_separator())
-    table.insert(nodes, create_dyna_node(position_text, G.ARGS.LOC_COLOURS[string.lower(extra.pposition or "fw")]))
+    local pos_color = (G.ARGS and G.ARGS.LOC_COLOURS) and G.ARGS.LOC_COLOURS[string.lower(extra.pposition or "fw")] or G.C.WHITE
+    table.insert(nodes, create_dyna_node(position_text, pos_color))
     
     -- Optional fields
     if dorsal_text then
@@ -694,7 +703,7 @@ Pokerleven.get_type_ui = function(card)
     end
     
     if gender_text then
-        local gender_color = (extra.pgender == "M") and G.C.BLUE or G.ARGS.LOC_COLOURS["pink"]
+        local gender_color = (extra.pgender == "M") and G.C.BLUE or ((G.ARGS and G.ARGS.LOC_COLOURS) and G.ARGS.LOC_COLOURS["pink"] or G.C.WHITE)
         table.insert(nodes, get_separator())
         table.insert(nodes, create_dyna_node(gender_text, gender_color))
     end

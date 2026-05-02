@@ -1,7 +1,7 @@
 -- Daisy
 local Daisy = J({
   name = "Daisy Fields",
-  pos = { x = 12, y = 7 },
+  pos = { x = 5, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Daisy = J({
 -- Sand
 local Sand = J({
   name = "Alexia Sand",
-  pos = { x = 0, y = 8 },
+  pos = { x = 6, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Sand = J({
 -- Earth
 local Earth = J({
   name = "Hellen Hearth",
-  pos = { x = 1, y = 8 },
+  pos = { x = 7, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Earth = J({
 -- Pinkpetal
 local Pinkpetal = J({
   name = "Rose Pinkpetal",
-  pos = { x = 2, y = 8 },
+  pos = { x = 8, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Pinkpetal = J({
 -- Greenland
 local Greenland = J({
   name = "Esther Greenland",
-  pos = { x = 3, y = 8 },
+  pos = { x = 9, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -116,7 +116,7 @@ local Greenland = J({
 -- Bluebells
 local Bluebells = J({
   name = "Bela Bluebells",
-  pos = { x = 4, y = 8 },
+  pos = { x = 10, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -139,7 +139,7 @@ local Bluebells = J({
 -- Sunrise
 local Sunrise = J({
   name = "Natalie Sunrise",
-  pos = { x = 5, y = 8 },
+  pos = { x = 11, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -162,7 +162,7 @@ local Sunrise = J({
 -- Bush
 local Bush = J({
   name = "Hillary Bush",
-  pos = { x = 6, y = 8 },
+  pos = { x = 12, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -185,7 +185,7 @@ local Bush = J({
 -- Moor
 local Moor = J({
   name = "Mary Moor",
-  pos = { x = 7, y = 8 },
+  pos = { x = 0, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -208,7 +208,7 @@ local Moor = J({
 -- Sue
 local Sue = J({
   name = "Suzette Hartland",
-  pos = { x = 8, y = 8 },
+  pos = { x = 1, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Sue = J({
 -- Willow
 local Willow = J({
   name = "Lily Willow",
-  pos = { x = 10, y = 8 },
+  pos = { x = 2, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Willow = J({
 -- Closeout
 local Closeout = J({
   name = "Dell Closeout",
-  pos = { x = 11, y = 8 },
+  pos = { x = 3, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Closeout = J({
 -- Spires
 local Spires = J({
   name = "Amy Spires",
-  pos = { x = 12, y = 8 },
+  pos = { x = 4, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Spires = J({
 -- Cash
 local Cash = J({
   name = "Peony Cash",
-  pos = { x = 0, y = 9 },
+  pos = { x = 5, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Cash = J({
 -- Revel
 local Revel = J({
   name = "Gayle Revel",
-  pos = { x = 1, y = 9 },
+  pos = { x = 6, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Revel = J({
 -- Brook
 local Brook = J({
   name = "Janine Brook",
-  pos = { x = 2, y = 9 },
+  pos = { x = 7, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }

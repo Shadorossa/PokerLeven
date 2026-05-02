@@ -1,6 +1,6 @@
 local Rocky = J({
   name = "Rocky Black",
-  pos = { x = 8, y = 11 },
+  pos = { x = 12, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -21,7 +21,7 @@ local Rocky = J({
 
 local Scuba = J({
   name = "Chad Taylor",
-  pos = { x = 9, y = 11 },
+  pos = { x = 0, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -42,7 +42,7 @@ local Scuba = J({
 
 local Hills = J({
   name = "Victor Hills",
-  pos = { x = 10, y = 11 },
+  pos = { x = 1, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -63,7 +63,7 @@ local Hills = J({
 
 local Hurley = J({
   name = "Hurley Kane",
-  pos = { x = 11, y = 11 },
+  pos = { x = 2, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -85,7 +85,7 @@ local Hurley = J({
 
 local Redding = J({
   name = "Hector Redding",
-  pos = { x = 12, y = 11 },
+  pos = { x = 3, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -106,7 +106,7 @@ local Redding = J({
 
 local Fordline = J({
   name = "Mackenzie Fordline",
-  pos = { x = 0, y = 12 },
+  pos = { x = 4, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -127,7 +127,7 @@ local Fordline = J({
 
 local Soundtown = J({
   name = "Soundtown",
-  pos = { x = 2, y = 11 },
+  pos = { x = 5, y = 10 },
   config = { extra = { 
     current_xmult = 1, 
     tuning = 1, -- 0: Low, 1: Med, 2: High
@@ -237,7 +237,7 @@ local Soundtown = J({
 
 local Delight = J({
   name = "Dora Delight",
-  pos = { x = 2, y = 12 },
+  pos = { x = 6, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -258,7 +258,7 @@ local Delight = J({
 
 local Contented = J({
   name = "Tom Contented",
-  pos = { x = 3, y = 12 },
+  pos = { x = 7, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -279,7 +279,7 @@ local Contented = J({
 
 local Easton = J({
   name = "Joston Easton",
-  pos = { x = 4, y = 12 },
+  pos = { x = 8, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -300,7 +300,7 @@ local Easton = J({
 
 local Shark = J({
   name = "Spring Millpond",
-  pos = { x = 5, y = 12 },
+  pos = { x = 9, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -321,7 +321,7 @@ local Shark = J({
 
 local Cooley = J({
   name = "Gaston Cooley",
-  pos = { x = 6, y = 12 },
+  pos = { x = 10, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -342,7 +342,7 @@ local Cooley = J({
 
 local Breakfast = J({
   name = "Bevan Breakfast",
-  pos = { x = 7, y = 12 },
+  pos = { x = 11, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -363,7 +363,7 @@ local Breakfast = J({
 
 local Griddle = J({
   name = "Jack Griddle",
-  pos = { x = 8, y = 12 },
+  pos = { x = 12, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -384,7 +384,7 @@ local Griddle = J({
 
 local Andagi = J({
   name = "Stan Andagi",
-  pos = { x = 10, y = 12 },
+  pos = { x = 0, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -405,7 +405,7 @@ local Andagi = J({
 
 local Talent = J({
   name = "Coral Talent",
-  pos = { x = 11, y = 12 },
+  pos = { x = 1, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }

@@ -30,7 +30,7 @@ end
 
 local Luceafar = J({
   name = "Luceafar",
-  pos = { x = 0, y = 20 },
+  pos = { x = 9, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -52,7 +52,7 @@ local Luceafar = J({
 
 local Bump = J({
   name = "Bump",
-  pos = { x = 1, y = 20 },
+  pos = { x = 10, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
@@ -72,7 +72,7 @@ local Bump = J({
 
 local Lump = J({
   name = "Lump",
-  pos = { x = 2, y = 20 },
+  pos = { x = 11, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
@@ -92,7 +92,7 @@ local Lump = J({
 
 local Ischer = J({
   name = "Ischer",
-  pos = { x = 3, y = 20 },
+  pos = { x = 12, y = 19 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
@@ -112,7 +112,7 @@ local Ischer = J({
 
 local Jenkins = J({
   name = "Jenkins",
-  pos = { x = 4, y = 20 },
+  pos = { x = 0, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
@@ -132,7 +132,7 @@ local Jenkins = J({
 
 local Triumvir = J({
   name = "Triumvir",
-  pos = { x = 5, y = 20 },
+  pos = { x = 1, y = 20 },
   config = { extra = { odds = 2 } },
   loc_vars = function(self, info, center) return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } } end,
   rarity = 2,
@@ -173,7 +173,7 @@ local Triumvir = J({
 
 local Gunther = J({
   name = "Gunther",
-  pos = { x = 6, y = 20 },
+  pos = { x = 2, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
@@ -193,7 +193,7 @@ local Gunther = J({
 
 local Stark = J({
   name = "Stark",
-  pos = { x = 7, y = 20 },
+  pos = { x = 3, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info, center) return { vars = {} } end,
   rarity = 1,
@@ -213,7 +213,7 @@ local Stark = J({
 
 local Malice = J({
   name = "Malice",
-  pos = { x = 8, y = 20 },
+  pos = { x = 4, y = 20 },
   config = { extra = { odds = 2, mult_low = 1.1, mult_high = 1.2 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra; info_queue[#info_queue + 1] = { set = 'Other', key = 'Mangual_Letal' }; return { vars = { G.GAME.probabilities.normal, ex.odds, ex.mult_high, ex.mult_low } }
@@ -241,7 +241,7 @@ local Malice = J({
 
 local Bash = J({
   name = "Bash",
-  pos = { x = 9, y = 20 },
+  pos = { x = 5, y = 20 },
   config = { extra = { odds = 4 } },
   loc_vars = function(self, info_queue, center)
     info_queue[#info_queue + 1] = { set = 'Other', key = 'Mangual_Letal' }; return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
@@ -297,7 +297,7 @@ local Bash = J({
 
 local Callous = J({
   name = "Callous",
-  pos = { x = 10, y = 20 },
+  pos = { x = 6, y = 20 },
   config = { extra = { lethal_mult = 1 } },
   loc_vars = function(self, info_queue, center)
     local count = 0; if G.playing_cards then

@@ -1,7 +1,7 @@
 -- Billy Dash (1)
 local Billy_Dash = J({
   name = "Billy Dash",
-  pos = { x = 0, y = 11 },
+  pos = { x = 7, y = 13 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Billy_Dash = J({
 -- Ted Bryant (2)
 local Ted_Bryant = J({
   name = "Ted Bryant",
-  pos = { x = 1, y = 11 },
+  pos = { x = 8, y = 13 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Ted_Bryant = J({
 -- Tony Strider (3)
 local Tony_Strider = J({
   name = "Tony Strider",
-  pos = { x = 2, y = 11 },
+  pos = { x = 9, y = 13 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Tony_Strider = J({
 -- Drake Dynamo (4)
 local Drake_Dynamo = J({
   name = "Drake Dynamo",
-  pos = { x = 3, y = 11 },
+  pos = { x = 10, y = 13 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Drake_Dynamo = J({
 -- Bobby Shearer (5)
 local Bobby_Shearer = J({
   name = "Bobby Shearer",
-  pos = { x = 4, y = 11 },
+  pos = { x = 11, y = 13 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -116,7 +116,7 @@ local Bobby_Shearer = J({
 -- Steve Woodmark (6)
 local Steve_Woodmark = J({
   name = "Steve Woodmark",
-  pos = { x = 5, y = 11 },
+  pos = { x = 12, y = 13 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -139,7 +139,7 @@ local Steve_Woodmark = J({
 -- Erik Eagle (7)
 local Erik_Eagle = J({
   name = "Erik Eagle",
-  pos = { x = 6, y = 11 },
+  pos = { x = 0, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -162,7 +162,7 @@ local Erik_Eagle = J({
 -- Shane Pierce (8)
 local Shane_Pierce = J({
   name = "Shane Pierce",
-  pos = { x = 7, y = 11 },
+  pos = { x = 1, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -185,7 +185,7 @@ local Shane_Pierce = J({
 -- Mark Krueger (9)
 local Mark_Krueger = J({
   name = "Mark Krueger",
-  pos = { x = 8, y = 11 },
+  pos = { x = 2, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Mark_Krueger = J({
 -- Dylan Keats (10)
 local Dylan_Keats = J({
   name = "Dylan Keats",
-  pos = { x = 9, y = 11 },
+  pos = { x = 3, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Dylan_Keats = J({
 -- Gabriel Jax (11)
 local Gabriel_Jax = J({
   name = "Gabriel Jax",
-  pos = { x = 10, y = 11 },
+  pos = { x = 4, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Gabriel_Jax = J({
 -- Alex Hawke (12)
 local Alex_Hawke = J({
   name = "Alex Hawke",
-  pos = { x = 11, y = 11 },
+  pos = { x = 5, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Alex_Hawke = J({
 -- Corey Washington (13)
 local Corey_Washington = J({
   name = "Corey Washington",
-  pos = { x = 12, y = 11 },
+  pos = { x = 6, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Corey_Washington = J({
 -- Bob Bobbins (14)
 local Bob_Bobbins = J({
   name = "Bob Bobbins",
-  pos = { x = 13, y = 11 },
+  pos = { x = 7, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Bob_Bobbins = J({
 -- Petie Pooma (15)
 local Petie_Pooma = J({
   name = "Petie Pooma",
-  pos = { x = 14, y = 11 },
+  pos = { x = 8, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Petie_Pooma = J({
 -- Norbert Poindexter (16)
 local Norbert_Poindexter = J({
   name = "Norbert Poindexter",
-  pos = { x = 15, y = 11 },
+  pos = { x = 9, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Norbert_Poindexter = J({
 
 return {
   name = "Unicorn",
-  list = {
-    Billy_Dash, Ted_Bryant, Tony_Strider, Drake_Dynamo, Bobby_Shearer,
-    Steve_Woodmark, Erik_Eagle, Shane_Pierce, Mark_Krueger, Dylan_Keats,
-    Gabriel_Jax, Alex_Hawke, Corey_Washington, Bob_Bobbins, Petie_Pooma, Norbert_Poindexter
-  }
+  list = {}
 }

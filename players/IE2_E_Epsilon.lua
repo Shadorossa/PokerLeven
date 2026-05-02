@@ -1,7 +1,7 @@
 -- Dvalin
 local Dvalin = J({
     name = "Dvalin",
-    pos = { x = 0, y = 3 },
+    pos = { x = 3, y = 0 },
     soul_pos = { x = 3, y = 1 },
     config = { extra = { pposition = "GK", pos_left = "GK", pos_right = "FW", chip_mod = 150, barriers_added = 1 } },
     loc_vars = function(self, info_queue, center)
@@ -46,7 +46,7 @@ local Dvalin = J({
 -- Dvalin_Plus
 local Dvalin_Plus = J({
     name = "Dvalin_Plus",
-    pos = { x = 1, y = 3 },
+    pos = { x = 4, y = 0 },
     soul_pos = { x = 4, y = 1 },
     config = { extra = { pposition = "FW", pos_left = "GK", pos_right = "FW", xmult_mod = 0.5, barriers_consumed = 1 } },
     loc_vars = function(self, info_queue, center)
@@ -91,7 +91,7 @@ local Dvalin_Plus = J({
 -- Kenville
 local Kenville = J({
     name = "Kenville",
-    pos = { x = 2, y = 3 },
+    pos = { x = 8, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Kenville_Evolution' }
@@ -137,7 +137,7 @@ local Kenville = J({
 -- Kenville_Plus
 local Kenville_Plus = J({
     name = "Kenville_Plus",
-    pos = { x = 3, y = 3 },
+    pos = { x = 9, y = 4 },
     config = { extra = { timer = 5 } },
     loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.timer } } end,
     rarity = 2,
@@ -179,7 +179,7 @@ local Kenville_Plus = J({
 -- Mole
 local Mole = J({
     name = "Mole",
-    pos = { x = 4, y = 3 },
+    pos = { x = 10, y = 4 },
     config = { extra = { transfers = 0, target_transfers = 200 } },
     loc_vars = function(self, info_queue, card)
         local ex = (card and card.ability.extra) or self.config.extra
@@ -236,7 +236,7 @@ local Mole = J({
 -- Mole_Plus
 local Mole_Plus = J({
     name = "Mole_Plus",
-    pos = { x = 5, y = 3 },
+    pos = { x = 11, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, card) return {} end,
     rarity = 2,
@@ -290,7 +290,7 @@ local Mole_Plus = J({
 -- Kayson
 local Kayson = J({
     name = "Kayson",
-    pos = { x = 6, y = 3 },
+    pos = { x = 12, y = 4 },
     config = { extra = { reduction = 0.02, boss_wins = 0, target_boss_wins = 5 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -328,7 +328,7 @@ local Kayson = J({
 -- Kayson_Plus
 local Kayson_Plus = J({
     name = "Kayson_Plus",
-    pos = { x = 7, y = 3 },
+    pos = { x = 0, y = 5 },
     config = { extra = { reduction = 0.08, timer = 1 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.reduction * 100, center.ability.extra.timer } }
@@ -360,7 +360,7 @@ local Kayson_Plus = J({
 -- Tytan
 local Tytan = J({
     name = "Tytan",
-    pos = { x = 8, y = 3 },
+    pos = { x = 1, y = 5 },
     config = { extra = { chips = 80, scored_count = 0, target_count = 10 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -395,7 +395,7 @@ local Tytan = J({
 -- Tytan_Plus
 local Tytan_Plus = J({
     name = "Tytan_Plus",
-    pos = { x = 9, y = 3 },
+    pos = { x = 2, y = 5 },
     config = { extra = { chips = 100, x_mult = 0.2, timer = 3 } },
     loc_vars = function(self, info_queue, center)
         local count = 0
@@ -437,7 +437,7 @@ local Tytan_Plus = J({
 -- Fedora
 local Fedora = J({
     name = "Fedora",
-    pos = { x = 10, y = 3 },
+    pos = { x = 3, y = 5 },
     config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0, total_voided = 0, target_voided = 300 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -504,7 +504,7 @@ local Fedora = J({
 -- Fedora_Plus
 local Fedora_Plus = J({
     name = "Fedora_Plus",
-    pos = { x = 11, y = 3 },
+    pos = { x = 4, y = 5 },
     config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0, timer = 10 } },
     loc_vars = function(self, info_queue, center) 
         local ex = center.ability.extra
@@ -571,7 +571,7 @@ local Fedora_Plus = J({
 -- Krypto
 local Krypto = J({
     name = "Krypto",
-    pos = { x = 12, y = 3 },
+    pos = { x = 5, y = 5 },
     config = { extra = { target_chaotic = 5 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -615,7 +615,7 @@ local Krypto = J({
 -- Krypto_Plus
 local Krypto_Plus = J({
     name = "Krypto_Plus",
-    pos = { x = 0, y = 4 },
+    pos = { x = 6, y = 5 },
     config = { extra = { target_chaotic = 5 } },
     loc_vars = function(self, info_queue, center) return {} end,
     rarity = 2,
@@ -654,7 +654,7 @@ local Krypto_Plus = J({
 -- Sworm
 local Sworm = J({
     name = "Sworm",
-    pos = { x = 1, y = 4 },
+    pos = { x = 7, y = 5 },
     config = { extra = { odds = 3, rescues = 0, target_rescues = 30, discards = 0, target_discards = 90 } },
     loc_vars = function(self, info_queue, card)
         local ex = (card and card.ability.extra) or self.config.extra
@@ -696,7 +696,7 @@ local Sworm = J({
 -- Sworm_Plus
 local Sworm_Plus = J({
     name = "Sworm_Plus",
-    pos = { x = 2, y = 4 },
+    pos = { x = 8, y = 5 },
     config = { extra = { odds = 1 } },
     loc_vars = function(self, info_queue, center) return {} end,
     rarity = 2,
@@ -726,7 +726,7 @@ local Sworm_Plus = J({
 -- Mercury
 local Mercury = J({
     name = "Mercury",
-    pos = { x = 3, y = 4 },
+    pos = { x = 9, y = 5 },
     config = { extra = { mercuries = 0, target_mercuries = 20 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -766,7 +766,7 @@ local Mercury = J({
 -- Mercury_Plus
 local Mercury_Plus = J({
     name = "Mercury_Plus",
-    pos = { x = 4, y = 4 },
+    pos = { x = 10, y = 5 },
     config = { extra = { chips_per_planet = 10 } },
     loc_vars = function(self, info_queue, center)
         local count = (G.GAME and G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.c_mercury) or 0
@@ -809,7 +809,7 @@ local Mercury_Plus = J({
 -- Metron
 local Metron = J({
     name = "Metron",
-    pos = { x = 5, y = 4 },
+    pos = { x = 11, y = 5 },
     config = { extra = { exp_gain = 0.015, current_exp = 1, target_exp = 1.3 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -845,7 +845,7 @@ local Metron = J({
 -- Metron_Plus
 local Metron_Plus = J({
     name = "Metron_Plus",
-    pos = { x = 6, y = 4 },
+    pos = { x = 12, y = 5 },
     config = { extra = { exp_gain = 0.04, current_exp = 1.3 } },
     loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.exp_gain, center.ability.extra.current_exp } } end,
     rarity = 2,
@@ -877,7 +877,7 @@ local Metron_Plus = J({
 -- Zell
 local Zell = J({
     name = "Zell",
-    pos = { x = 7, y = 4 },
+    pos = { x = 0, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Position_Evolution' }
@@ -919,7 +919,7 @@ local Zell = J({
 -- Zell_Plus
 local Zell_Plus = J({
     name = "Zell_Plus",
-    pos = { x = 8, y = 4 },
+    pos = { x = 1, y = 6 },
     config = { extra = { xmult_mod = 0.5, barriers_consumed = 1 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * center.ability.extra.xmult_mod), center.ability.extra.barriers_consumed, center.ability.extra.xmult_mod } }

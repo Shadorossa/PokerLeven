@@ -1,7 +1,7 @@
 -- Milo Rankin
 local Milo = J({
   name = "Milo",
-  pos = { x = 0, y = 7 },
+  pos = { x = 4, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Milo = J({
 -- Peake Fletcher
 local Fletcher = J({
   name = "Fletcher",
-  pos = { x = 1, y = 7 },
+  pos = { x = 5, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Fletcher = J({
 -- Sentry Scarborough
 local Scarborough = J({
   name = "Scarborough",
-  pos = { x = 2, y = 7 },
+  pos = { x = 6, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Scarborough = J({
 -- Autry Rogers
 local Autry = J({
   name = "Autry",
-  pos = { x = 3, y = 7 },
+  pos = { x = 7, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Autry = J({
 -- Bodhi Field
 local Field = J({
   name = "Field",
-  pos = { x = 4, y = 7 },
+  pos = { x = 8, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Field = J({
 -- Chase Winthrop
 local Winthrop = J({
   name = "Winthrop",
-  pos = { x = 5, y = 7 },
+  pos = { x = 9, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Winthrop = J({
 -- Hawky Savard
 local Savard = J({
   name = "Savard",
-  pos = { x = 6, y = 7 },
+  pos = { x = 10, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -148,7 +148,7 @@ local Savard = J({
 -- Taliesin Greenhunt
 local Taliesin = J({
   name = "Taliesin",
-  pos = { x = 7, y = 7 },
+  pos = { x = 11, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -169,7 +169,7 @@ local Taliesin = J({
 -- Ivan Mercer
 local Ivan = J({
   name = "Ivan",
-  pos = { x = 8, y = 7 },
+  pos = { x = 12, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -190,7 +190,7 @@ local Ivan = J({
 -- Erdem Barath
 local Erdem = J({
   name = "Erdem",
-  pos = { x = 9, y = 7 },
+  pos = { x = 0, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -211,7 +211,7 @@ local Erdem = J({
 -- Nikas Himmelstein
 local Nikas = J({
   name = "Nikas",
-  pos = { x = 10, y = 7 },
+  pos = { x = 1, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -233,7 +233,7 @@ local Nikas = J({
 -- Hugh Pronghorn
 local Pronghorn = J({
   name = "Pronghorn",
-  pos = { x = 11, y = 7 },
+  pos = { x = 2, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Pronghorn = J({
 -- Everett Shipman
 local Shipman = J({
   name = "Shipman",
-  pos = { x = 0, y = 8 },
+  pos = { x = 3, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Shipman = J({
 -- Armin Marshall
 local Armin = J({
   name = "Armin",
-  pos = { x = 1, y = 8 },
+  pos = { x = 4, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local Armin = J({
 -- Conley Quiver
 local Quiver = J({
   name = "Quiver",
-  pos = { x = 2, y = 8 },
+  pos = { x = 5, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -317,7 +317,7 @@ local Quiver = J({
 -- Denzel Harvest
 local Harvest = J({
   name = "Harvest",
-  pos = { x = 3, y = 8 },
+  pos = { x = 6, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

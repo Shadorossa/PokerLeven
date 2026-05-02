@@ -1,7 +1,7 @@
 -- Roger Pialat (1)
 local Roger_Pialat = J({
   name = "Roger Pialat",
-  pos = { x = 0, y = 7 },
+  pos = { x = 8, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Roger_Pialat = J({
 -- Pierre Godin (2)
 local Pierre_Godin = J({
   name = "Pierre Godin",
-  pos = { x = 1, y = 7 },
+  pos = { x = 9, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -48,7 +48,7 @@ local Pierre_Godin = J({
 -- Michaël Aron (3)
 local Michael_Aron = J({
   name = "Michaël Aron",
-  pos = { x = 2, y = 7 },
+  pos = { x = 10, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -71,7 +71,7 @@ local Michael_Aron = J({
 -- Francis Poujol (4)
 local Francis_Poujol = J({
   name = "Francis Poujol",
-  pos = { x = 3, y = 7 },
+  pos = { x = 11, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -94,7 +94,7 @@ local Francis_Poujol = J({
 -- Kevin Pinot (5)
 local Kevin_Pinot = J({
   name = "Kevin Pinot",
-  pos = { x = 4, y = 7 },
+  pos = { x = 12, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -117,7 +117,7 @@ local Kevin_Pinot = J({
 -- Roland Perec (6)
 local Roland_Perec = J({
   name = "Roland Perec",
-  pos = { x = 5, y = 7 },
+  pos = { x = 0, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -140,7 +140,7 @@ local Roland_Perec = J({
 -- Romuald Huysmans (7)
 local Romuald_Huysmans = J({
   name = "Romuald Huysmans",
-  pos = { x = 6, y = 7 },
+  pos = { x = 1, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -163,7 +163,7 @@ local Romuald_Huysmans = J({
 -- Stéphane Hinault (8)
 local Stephane_Hinault = J({
   name = "Stéphane Hinault",
-  pos = { x = 7, y = 7 },
+  pos = { x = 2, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -186,7 +186,7 @@ local Stephane_Hinault = J({
 -- Julien Rousseau (9)
 local Julien_Rousseau = J({
   name = "Julien Rousseau",
-  pos = { x = 8, y = 7 },
+  pos = { x = 3, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Julien_Rousseau = J({
 -- Jerome Hervaud (10)
 local Jerome_Hervaud = J({
   name = "Jerome Hervaud",
-  pos = { x = 9, y = 7 },
+  pos = { x = 4, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Jerome_Hervaud = J({
 -- Alain Favreau (11)
 local Alain_Favreau = J({
   name = "Alain Favreau",
-  pos = { x = 10, y = 7 },
+  pos = { x = 5, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Alain_Favreau = J({
 -- Émile Lazare (12)
 local Emile_Lazare = J({
   name = "Émile Lazare",
-  pos = { x = 11, y = 7 },
+  pos = { x = 6, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Emile_Lazare = J({
 -- André Pinson (13)
 local Andre_Pinson = J({
   name = "André Pinson",
-  pos = { x = 12, y = 7 },
+  pos = { x = 7, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Andre_Pinson = J({
 -- Jean Gutain (14)
 local Jean_Gutain = J({
   name = "Jean Gutain",
-  pos = { x = 13, y = 7 },
+  pos = { x = 8, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Jean_Gutain = J({
 -- Claude Moreau (15)
 local Claude_Moreau = J({
   name = "Claude Moreau",
-  pos = { x = 14, y = 7 },
+  pos = { x = 9, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Claude_Moreau = J({
 -- Michel Morland (16)
 local Michel_Morland = J({
   name = "Michel Morland",
-  pos = { x = 15, y = 7 },
+  pos = { x = 10, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Michel_Morland = J({
 
 return {
   name = "Rose Gryphon",
-  list = {
-    Roger_Pialat, Pierre_Godin, Michael_Aron, Francis_Poujol, Kevin_Pinot,
-    Roland_Perec, Romuald_Huysmans, Stephane_Hinault, Julien_Rousseau, Jerome_Hervaud,
-    Alain_Favreau, Emile_Lazare, Andre_Pinson, Jean_Gutain, Claude_Moreau, Michel_Morland
-  }
+  list = {}
 }

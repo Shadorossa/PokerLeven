@@ -1,6 +1,6 @@
 local Macero = J({
   name = "Macero",
-  pos = { x = 0, y = 9 },
+  pos = { x = 1, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -8,7 +8,7 @@ local Macero = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.GK,
   pgender = C.M,
@@ -21,7 +21,7 @@ local Macero = J({
 
 local Ricardo = J({
   name = "Ricardo",
-  pos = { x = 1, y = 9 },
+  pos = { x = 2, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -29,7 +29,7 @@ local Ricardo = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Forest,
   pposition = C.DF,
   pgender = C.M,
@@ -42,7 +42,7 @@ local Ricardo = J({
 
 local Matheus = J({
   name = "Matheus",
-  pos = { x = 2, y = 9 },
+  pos = { x = 3, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -50,7 +50,7 @@ local Matheus = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.DF,
   pgender = C.M,
@@ -63,7 +63,7 @@ local Matheus = J({
 
 local Marcelo = J({
   name = "Marcelo",
-  pos = { x = 3, y = 9 },
+  pos = { x = 4, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -71,7 +71,7 @@ local Marcelo = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.DF,
   pgender = C.M,
@@ -84,7 +84,7 @@ local Marcelo = J({
 
 local Lucian = J({
   name = "Lucian",
-  pos = { x = 4, y = 9 },
+  pos = { x = 5, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -92,7 +92,7 @@ local Lucian = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Forest,
   pposition = C.MF,
   pgender = C.M,
@@ -105,7 +105,7 @@ local Lucian = J({
 
 local Renato = J({
   name = "Renato",
-  pos = { x = 5, y = 9 },
+  pos = { x = 6, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -113,7 +113,7 @@ local Renato = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Mountain,
   pposition = C.MF,
   pgender = C.M,
@@ -126,7 +126,7 @@ local Renato = J({
 
 local Daninho = J({
   name = "Daninho",
-  pos = { x = 6, y = 9 },
+  pos = { x = 7, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -134,7 +134,7 @@ local Daninho = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.MF,
   pgender = C.M,
@@ -147,7 +147,7 @@ local Daninho = J({
 
 local Rolan = J({
   name = "Rolan",
-  pos = { x = 7, y = 9 },
+  pos = { x = 8, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -155,7 +155,7 @@ local Rolan = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
@@ -168,7 +168,7 @@ local Rolan = J({
 
 local Samuel = J({
   name = "Samuel",
-  pos = { x = 8, y = 9 },
+  pos = { x = 9, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -176,7 +176,7 @@ local Samuel = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Wind,
   pposition = C.MF,
   pgender = C.M,
@@ -189,7 +189,7 @@ local Samuel = J({
 
 local Arthur = J({
   name = "Arthur",
-  pos = { x = 9, y = 9 },
+  pos = { x = 10, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -197,7 +197,7 @@ local Arthur = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Forest,
   pposition = C.FW,
   pgender = C.M,
@@ -210,7 +210,7 @@ local Arthur = J({
 
 local Miguel = J({
   name = "Miguel",
-  pos = { x = 10, y = 9 },
+  pos = { x = 11, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -218,7 +218,7 @@ local Miguel = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
@@ -231,7 +231,7 @@ local Miguel = J({
 
 local Raymond = J({
   name = "Raymond",
-  pos = { x = 11, y = 9 },
+  pos = { x = 12, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -239,7 +239,7 @@ local Raymond = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Mountain,
   pposition = C.DF,
   pgender = C.M,
@@ -252,7 +252,7 @@ local Raymond = J({
 
 local Paulo = J({
   name = "Paulo",
-  pos = { x = 12, y = 9 },
+  pos = { x = 0, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -260,7 +260,7 @@ local Paulo = J({
   rarity = 1,
   pools = { ["Olé de Samba"] = true },
   cost = 5,
-  atlas = "jokers08",
+  atlas = "Jokers08",
   ptype = C.Mountain,
   pposition = C.MF,
   pgender = C.M,

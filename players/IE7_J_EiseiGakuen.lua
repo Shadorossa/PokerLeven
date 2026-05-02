@@ -1,7 +1,7 @@
 -- Dave Quagmire (Ares)
 local Quagmire_Ares = J({
     name = "Quagmire_Ares",
-    pos = { x = 1, y = 5 },
+    pos = { x = 0, y = 4 },
     config = { extra = { chip_mod = 15, threshold_upper = 0.15, current_chips = 0 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra; return { vars = { ex.chip_mod, math.floor(ex.threshold_upper * 100), ex.current_chips } }
@@ -38,7 +38,7 @@ local Quagmire_Ares = J({
 -- Hunter Foster (Ares)
 local Hunter_Ares = J({
     name = "Hunter_Ares",
-    pos = { x = 2, y = 5 },
+    pos = { x = 1, y = 4 },
     config = { extra = { mult_gain = 5, chip_gain = 15, current_mult = 0, current_chips = 0 } },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Combo_Cosmico' }

@@ -1,7 +1,7 @@
 -- Hood
 local Hood = J({
     name = "Hood",
-    pos = { x = 9, y = 8 },
+    pos = { x = 5, y = 8 },
     config = {
         extra = {
             xmult_mod = 0.6,
@@ -42,7 +42,7 @@ local Hood = J({
 -- Crackshot
 local Crackshot = J({
   name = "Crackshot",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 6, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -66,7 +66,7 @@ local Crackshot = J({
 -- Hillfort
 local Hillfort = J({
     name = "Hillfort",
-    pos = { x = 11, y = 8 },
+    pos = { x = 7, y = 8 },
     config = { extra = { triggered = false, chips_mod = 1, current_chips = 0, dollars_needed = 1 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chips_mod, center.ability.extra.dollars_needed, center.ability.extra.current_chips } }
@@ -108,7 +108,7 @@ local Hillfort = J({
 -- Thunder
 local Thunder = J({
   name = "Thunder",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 8, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -132,7 +132,7 @@ local Thunder = J({
 -- Bandit
 local Bandit = J({
   name = "Bandit",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 9, y = 8 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -156,7 +156,7 @@ local Bandit = J({
 -- Code
 local Code = J({
     name = "Code",
-    pos = { x = 1, y = 9 },
+    pos = { x = 10, y = 8 },
     config = { extra = { { triggered = false } } },
     rarity = 2,
     pools = { ["ina_team_Shuriken"] = true },
@@ -188,7 +188,7 @@ local Code = J({
 -- Star
 local Star = J({
     name = "Star",
-    pos = { x = 2, y = 9 },
+    pos = { x = 11, y = 8 },
     config = { extra = { mult_mod_low = 1, money = 1, suit = "Diamonds", triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.money, center.ability.extra.mult_mod_low } }
@@ -225,7 +225,7 @@ local Star = J({
 -- Cleats
 local Cleats = J({
     name = "Cleats",
-    pos = { x = 3, y = 9 },
+    pos = { x = 12, y = 8 },
     config = {},
     loc_vars = function(self, info_queue, center)
         return {}
@@ -262,7 +262,7 @@ local Cleats = J({
 -- Samurai
 local Samurai = J({
   name = "Samurai",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 0, y = 9 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -290,7 +290,7 @@ local Samurai = J({
 -- Hattori
 local Hattori_Logic = J({
     name = "Hattori",
-    pos = { x = 5, y = 9 },
+    pos = { x = 1, y = 9 },
     config = { extra = { copies_number = 2 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.copies_number } }
@@ -352,7 +352,7 @@ local Hattori_Logic = J({
 -- Cloak
 local Cloak = J({
     name = "Cloak",
-    pos = { x = 6, y = 9 },
+    pos = { x = 2, y = 9 },
     atlas = "Jokers01",
     rarity = 3,
     cost = 8,
@@ -405,7 +405,7 @@ local Cloak = J({
 -- Castle
 local Castle = J({
   name = "Castle",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 3, y = 9 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -429,7 +429,7 @@ local Castle = J({
 -- Ronin
 local Ronin = J({
   name = "Ronin",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 4, y = 9 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -453,7 +453,7 @@ local Ronin = J({
 -- Hopper
 local Hopper = J({
   name = "Hopper",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 5, y = 9 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -477,7 +477,7 @@ local Hopper = J({
 -- Trops
 local Trops = J({
   name = "Trops",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 6, y = 9 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -501,7 +501,7 @@ local Trops = J({
 -- Spook
 local Spook = J({
   name = "Spook",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+  pos = { x = 7, y = 9 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

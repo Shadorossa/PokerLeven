@@ -1,7 +1,7 @@
 -- Dax Prescott
 local Prescott = J({
   name = "Prescott",
-  pos = { x = 0, y = 5 },
+  pos = { x = 11, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Prescott = J({
 -- Edvan Trodden
 local Trodden = J({
   name = "Trodden",
-  pos = { x = 1, y = 5 },
+  pos = { x = 12, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Trodden = J({
 -- Drever Olflaire
 local Olflaire = J({
   name = "Olflaire",
-  pos = { x = 2, y = 5 },
+  pos = { x = 0, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Olflaire = J({
 -- Looke Raundoff
 local Raundoff = J({
   name = "Raundoff",
-  pos = { x = 3, y = 5 },
+  pos = { x = 1, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Raundoff = J({
 -- Rutheo Wheyston
 local Wheyston = J({
   name = "Wheyston",
-  pos = { x = 4, y = 5 },
+  pos = { x = 2, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Wheyston = J({
 -- Ernesta Beauregard
 local Ernesta = J({
   name = "Ernesta",
-  pos = { x = 5, y = 5 },
+  pos = { x = 3, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Ernesta = J({
 -- Laymark Starwyn
 local Starwyn = J({
   name = "Starwyn",
-  pos = { x = 6, y = 5 },
+  pos = { x = 4, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -148,7 +148,7 @@ local Starwyn = J({
 -- Moby Tidbitt
 local Tidbitt = J({
   name = "Tidbitt",
-  pos = { x = 7, y = 5 },
+  pos = { x = 5, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -169,7 +169,7 @@ local Tidbitt = J({
 -- Edgar Loathe
 local Loathe = J({
   name = "Loathe",
-  pos = { x = 8, y = 5 },
+  pos = { x = 6, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -191,7 +191,7 @@ local Loathe = J({
 -- Flanko Midspringle
 local Midspringle = J({
   name = "Midspringle",
-  pos = { x = 9, y = 5 },
+  pos = { x = 7, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -212,7 +212,7 @@ local Midspringle = J({
 -- Berdy Caster
 local Caster = J({
   name = "Caster",
-  pos = { x = 10, y = 5 },
+  pos = { x = 8, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -233,7 +233,7 @@ local Caster = J({
 -- Chicory Bellflower
 local Chicory = J({
   name = "Chicory",
-  pos = { x = 11, y = 5 },
+  pos = { x = 9, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Chicory = J({
 -- Aysen DeMacon
 local DeMacon = J({
   name = "DeMacon",
-  pos = { x = 0, y = 6 },
+  pos = { x = 10, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local DeMacon = J({
 -- Breppo Terrey
 local Terrey = J({
   name = "Terrey",
-  pos = { x = 1, y = 6 },
+  pos = { x = 11, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local Terrey = J({
 -- Frie Sorbet
 local Frie = J({
   name = "Frie",
-  pos = { x = 2, y = 6 },
+  pos = { x = 12, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -317,7 +317,7 @@ local Frie = J({
 -- Eddi Losse
 local Losse = J({
   name = "Losse",
-  pos = { x = 3, y = 6 },
+  pos = { x = 0, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

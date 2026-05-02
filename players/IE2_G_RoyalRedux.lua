@@ -1,6 +1,6 @@
 local KingR = J({
   name = "KingR",
-  pos = { x = 0, y = 2 },
+  pos = { x = 2, y = 6 },
   config = { extra = { barriers = 2, chip_mod = 100, hands_lost = 1, blind_count = 0, trigger_at = 3 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -44,7 +44,7 @@ local KingR = J({
 
 local Beltzer = J({
   name = "Beltzer",
-  pos = { x = 1, y = 2 },
+  pos = { x = 3, y = 6 },
   config = { extra = { chip_gain = 15, current_chips = 0 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -81,7 +81,7 @@ local Beltzer = J({
 
 local Blade = J({
   name = "Blade",
-  pos = { x = 2, y = 2 },
+  pos = { x = 4, y = 6 },
   config = { extra = { discards_gain = 1, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -115,7 +115,7 @@ local Blade = J({
 
 local Argie = J({
   name = "Argie",
-  pos = { x = 3, y = 2 },
+  pos = { x = 5, y = 6 },
   config = { extra = { xmult = 1.2 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -143,7 +143,7 @@ local Argie = J({
 
 local Bamboo = J({
   name = "Bamboo",
-  pos = { x = 4, y = 2 },
+  pos = { x = 6, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     info_queue[#info_queue + 1] = G.P_CENTERS.c_fool
@@ -165,7 +165,7 @@ local Bamboo = J({
 
 local Messer = J({
   name = "Messer",
-  pos = { x = 5, y = 2 },
+  pos = { x = 7, y = 6 },
   config = { extra = { scry_mod = 2, play_limit_loss = 1 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -203,7 +203,7 @@ local Messer = J({
 
 local Spark = J({
   name = "Spark",
-  pos = { x = 6, y = 2 },
+  pos = { x = 8, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -256,7 +256,7 @@ end
 
 local Sparrow = J({
   name = "Sparrow",
-  pos = { x = 7, y = 2 },
+  pos = { x = 9, y = 6 },
   config = { extra = { money = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -316,7 +316,7 @@ local Sparrow = J({
 
 local Jamm = J({
   name = "Jamm",
-  pos = { x = 8, y = 2 },
+  pos = { x = 10, y = 6 },
   config = { extra = { xmult = 2.5 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -377,7 +377,7 @@ local Jamm = J({
 
 local CalebR = J({
   name = "CalebR",
-  pos = { x = 9, y = 2 },
+  pos = { x = 11, y = 6 },
   config = { extra = { current_xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -430,7 +430,7 @@ local CalebR = J({
 
 local Samford_Redux = J({
   name = "Samford_Redux",
-  pos = { x = 10, y = 2 },
+  pos = { x = 12, y = 6 },
   config = { extra = { xmult_mod = 1, current_xmult = 1 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -462,7 +462,7 @@ local Samford_Redux = J({
 
 local Cellar = J({
   name = "Cellar",
-  pos = { x = 11, y = 2 },
+  pos = { x = 0, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -507,7 +507,7 @@ end
 
 local Zenn = J({
   name = "Zenn",
-  pos = { x = 12, y = 2 },
+  pos = { x = 1, y = 7 },
   config = { extra = { mult = 40 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -536,7 +536,7 @@ local Zenn = J({
 -- Little
 local Little = J({
   name = "Little",
-  pos = { x = 11, y = 7 },
+  pos = { x = 2, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -558,7 +558,7 @@ local Little = J({
 
 local Cossimo = J({
   name = "Cossimo",
-  pos = { x = 0, y = 3 },
+  pos = { x = 3, y = 7 },
   config = { extra = { xmult_per_bench = 0.5 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -599,7 +599,7 @@ local Cossimo = J({
 
 local Color = J({
   name = "Color",
-  pos = { x = 1, y = 3 },
+  pos = { x = 4, y = 7 },
   loc_vars = function(self, info_queue, center)
     info_queue[#info_queue + 1] = G.P_CENTERS.c_sigil
     local s = G.GAME and G.GAME.ina_color_suit and localize(G.GAME.ina_color_suit, 'suits_singular') or "Ninguno"

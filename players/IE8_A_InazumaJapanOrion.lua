@@ -254,7 +254,7 @@ local Adriano_Orion = J({
 -- Philip Star
 local Philip_Orion = J({
   name = "Philip_Orion",
-  pos = { x = 0, y = 1 },
+  pos = { x = 12, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Philip_Orion = J({
 -- Lucas Star
 local Lucas_Orion = J({
   name = "Lucas_Orion",
-  pos = { x = 1, y = 1 },
+  pos = { x = 0, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local Lucas_Orion = J({
 -- Heath Moore
 local Heath_Orion = J({
   name = "Heath_Orion",
-  pos = { x = 2, y = 1 },
+  pos = { x = 1, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -318,7 +318,7 @@ local Heath_Orion = J({
 -- Hunter Foster
 local Hunter_Orion = J({
   name = "Hunter_Orion",
-  pos = { x = 3, y = 1 },
+  pos = { x = 2, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -339,7 +339,7 @@ local Hunter_Orion = J({
 -- Aphrody (Byron Love)
 local Aphrody_Orion = J({
   name = "Aphrody_Orion",
-  pos = { x = 4, y = 1 },
+  pos = { x = 3, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -360,7 +360,7 @@ local Aphrody_Orion = J({
 -- Cliff Parker (Golem)
 local Golem_Orion = J({
   name = "Golem_Orion",
-  pos = { x = 5, y = 1 },
+  pos = { x = 4, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -381,7 +381,7 @@ local Golem_Orion = J({
 -- Trevor Cook
 local Trevor_Orion = J({
   name = "Trevor_Orion",
-  pos = { x = 6, y = 1 },
+  pos = { x = 5, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -402,7 +402,7 @@ local Trevor_Orion = J({
 -- Dave Quagmire
 local Quagmire_Orion = J({
   name = "Quagmire_Orion",
-  pos = { x = 7, y = 1 },
+  pos = { x = 6, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -423,7 +423,7 @@ local Quagmire_Orion = J({
 -- Duske Grayling
 local Duske_Orion = J({
   name = "Duske_Orion",
-  pos = { x = 8, y = 1 },
+  pos = { x = 7, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -444,7 +444,7 @@ local Duske_Orion = J({
 -- Basile Hardy
 local Basile_Orion = J({
   name = "Basile_Orion",
-  pos = { x = 9, y = 1 },
+  pos = { x = 8, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -465,7 +465,7 @@ local Basile_Orion = J({
 -- Aiden Froste
 local Aiden_Orion = J({
   name = "Aiden_Orion",
-  pos = { x = 10, y = 1 },
+  pos = { x = 9, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -486,7 +486,7 @@ local Aiden_Orion = J({
 -- Sandra Fischer
 local Sandra_Orion = J({
   name = "Sandra_Orion",
-  pos = { x = 11, y = 1 },
+  pos = { x = 10, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -507,7 +507,7 @@ local Sandra_Orion = J({
 -- Acker Reese
 local Reese_Orion = J({
   name = "Reese_Orion",
-  pos = { x = 12, y = 1 }, -- Added a spot for the 24th
+  pos = { x = 11, y = 1 }, -- Added a spot for the 24th
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

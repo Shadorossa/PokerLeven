@@ -1,7 +1,7 @@
 -- Idol
 local Idol = J({
     name = "Idol",
-    pos = { x = 3, y = 6 },
+    pos = { x = 12, y = 5 },
     config = { extra = { odds2 = 2, retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds2 } }
@@ -40,7 +40,7 @@ local Idol = J({
 -- Train
 local Train = J({
   name = "Train",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 0, y = 6 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -64,7 +64,7 @@ local Train = J({
 -- Novel
 local Novel = J({
   name = "Novel",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 1, y = 6 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -89,7 +89,7 @@ local Novel = J({
 -- Hero
 local Hero = J({
     name = "Hero",
-    pos = { x = 6, y = 6 },
+    pos = { x = 2, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -127,7 +127,7 @@ local Hero = J({
 -- Cosplay
 local Cosplay = J({
   name = "Cosplay",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 3, y = 6 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -152,7 +152,7 @@ local Cosplay = J({
 -- Online
 local Online = J({
   name = "Online",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 4, y = 6 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -176,7 +176,7 @@ local Online = J({
 -- Custom
 local Custom = J({
     name = "Custom",
-    pos = { x = 9, y = 6 },
+    pos = { x = 5, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -200,7 +200,7 @@ local Custom = J({
 -- Robot
 local Robot = J({
     name = "Robot",
-    pos = { x = 10, y = 6 },
+    pos = { x = 6, y = 6 },
     config = { extra = { retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -239,7 +239,7 @@ local Robot = J({
 -- Gamer
 local Gamer = J({
     name = "Gamer",
-    pos = { x = 11, y = 6 },
+    pos = { x = 7, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
     local otaku_count = #find_player_team("ina_team_Otaku")
@@ -283,7 +283,7 @@ local Gamer = J({
 -- Artist
 local Artist = J({
     name = "Artist",
-    pos = { x = 12, y = 6 },
+    pos = { x = 8, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -332,7 +332,7 @@ local Artist = J({
 -- Arcade
 local Arcade = J({
     name = "Arcade",
-    pos = { x = 0, y = 7 },
+    pos = { x = 9, y = 6 },
     config = { extra = { new_lucky = 5, minus_dollars = -2, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.new_lucky or center.ability.extra.new_lucky, center.ability.extra.minus_dollars } }
@@ -374,7 +374,7 @@ local Arcade = J({
 -- Eldorado
 local Eldorado = J({
   name = "Eldorado",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 10, y = 6 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -398,7 +398,7 @@ local Eldorado = J({
 -- Signalman
 local Signalman = J({
   name = "Signalman",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 11, y = 6 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -422,7 +422,7 @@ local Signalman = J({
 -- Formby
 local Formby = J({
   name = "Formby",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 12, y = 6 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -446,7 +446,7 @@ local Formby = J({
 -- Vox
 local Vox = J({
   name = "Vox",
-  pos = { x = 4, y = 7 },
+  pos = { x = 0, y = 7 },
   config = { extra = { chip_mod = 30, triggered = false } },
   loc_vars = function(self, info_queue, center)
     table.insert(info_queue, { set = 'Other', key = 'Right_Footed' })
@@ -484,7 +484,7 @@ local Vox = J({
 -- Net
 local Net = J({
   name = "Net",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 1, y = 7 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

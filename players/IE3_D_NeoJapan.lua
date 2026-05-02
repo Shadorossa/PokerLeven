@@ -189,7 +189,7 @@ local Wilbur_Watkins = J({
 
 local Dave_Quagmire = J({
   name = "Dave Quagmire",
-  pos = { x = 5, y = 4 },
+  pos = { x = 7, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -336,5 +336,5 @@ local Mark_Hillvalley = J({
 
 return {
   name = "Neo Japan",
-  list = { Joseph_King, Alan_Master, Zack_Cummings, Argie_Bargie, Daniel_Hatch, Neil_Turner, Sail_Bluesea, Johan_Tassman, Wilbur_Watkins, Dave_Quagmire, Zeke_Valanche, Ethan_Whitering, Henry_House, Tyler_Murdock, Jonas_Demetrius, Mark_Hillvalley }
+  list = { }
 }

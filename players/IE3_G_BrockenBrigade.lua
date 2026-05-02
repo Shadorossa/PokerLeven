@@ -1,7 +1,7 @@
 -- Thorsten Welger (1)
 local Thorsten_Welger = J({
   name = "Thorsten Welger",
-  pos = { x = 0, y = 6 },
+  pos = { x = 5, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Thorsten_Welger = J({
 -- Alexander Hausen (2)
 local Alexander_Hausen = J({
   name = "Alexander Hausen",
-  pos = { x = 1, y = 6 },
+  pos = { x = 6, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Alexander_Hausen = J({
 -- Heinrich Farber (3)
 local Heinrich_Farber = J({
   name = "Heinrich Farber",
-  pos = { x = 2, y = 6 },
+  pos = { x = 7, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Heinrich_Farber = J({
 -- Kurt Zawel (4)
 local Kurt_Zawel = J({
   name = "Kurt Zawel",
-  pos = { x = 3, y = 6 },
+  pos = { x = 8, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Kurt_Zawel = J({
 -- Lukas Schmidt (5)
 local Lukas_Schmidt = J({
   name = "Lukas Schmidt",
-  pos = { x = 4, y = 6 },
+  pos = { x = 9, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -116,7 +116,7 @@ local Lukas_Schmidt = J({
 -- Theodor Ulrich (6)
 local Theodor_Ulrich = J({
   name = "Theodor Ulrich",
-  pos = { x = 5, y = 6 },
+  pos = { x = 10, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -139,7 +139,7 @@ local Theodor_Ulrich = J({
 -- Jan Oster (7)
 local Jan_Oster = J({
   name = "Jan Oster",
-  pos = { x = 6, y = 6 },
+  pos = { x = 11, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -162,7 +162,7 @@ local Jan_Oster = J({
 -- Niklas Kuster (8)
 local Niklas_Kuster = J({
   name = "Niklas Kuster",
-  pos = { x = 7, y = 6 },
+  pos = { x = 12, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -185,7 +185,7 @@ local Niklas_Kuster = J({
 -- Jonas Polk (9)
 local Jonas_Polk = J({
   name = "Jonas Polk",
-  pos = { x = 8, y = 6 },
+  pos = { x = 0, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Jonas_Polk = J({
 -- Maximilian Müller (10)
 local Maximilian_Muller = J({
   name = "Maximilian Müller",
-  pos = { x = 9, y = 6 },
+  pos = { x = 1, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Maximilian_Muller = J({
 -- Peter Naumann (11)
 local Peter_Naumann = J({
   name = "Peter Naumann",
-  pos = { x = 10, y = 6 },
+  pos = { x = 2, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Peter_Naumann = J({
 -- Gerhard Enders (12)
 local Gerhard_Enders = J({
   name = "Gerhard Enders",
-  pos = { x = 11, y = 6 },
+  pos = { x = 3, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Gerhard_Enders = J({
 -- Erwin Völz (13)
 local Erwin_Volz = J({
   name = "Erwin Völz",
-  pos = { x = 12, y = 6 },
+  pos = { x = 4, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Erwin_Volz = J({
 -- Jens Hoffman (14)
 local Jens_Hoffman = J({
   name = "Jens Hoffman",
-  pos = { x = 13, y = 6 },
+  pos = { x = 5, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Jens_Hoffman = J({
 -- Ernst Fliender (15)
 local Ernst_Fliender = J({
   name = "Ernst Fliender",
-  pos = { x = 14, y = 6 },
+  pos = { x = 6, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Ernst_Fliender = J({
 -- Emmanuel Ewerz (16)
 local Emmanuel_Ewerz = J({
   name = "Emmanuel Ewerz",
-  pos = { x = 15, y = 6 },
+  pos = { x = 7, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Emmanuel_Ewerz = J({
 
 return {
   name = "Brocken Brigade",
-  list = {
-    Thorsten_Welger, Alexander_Hausen, Heinrich_Farber, Kurt_Zawel, Lukas_Schmidt,
-    Theodor_Ulrich, Jan_Oster, Niklas_Kuster, Jonas_Polk, Maximilian_Muller,
-    Peter_Naumann, Gerhard_Enders, Erwin_Volz, Jens_Hoffman, Ernst_Fliender, Emmanuel_Ewerz
-  }
+  list = {}
 }

@@ -136,7 +136,7 @@ local Hurley_IJ = J({
 -- Tod (5)
 local Tod_IJ = J({
   name = "Tod_IJ",
-  pos = { x = 5, y = 1 },
+  pos = { x = 4, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -158,7 +158,7 @@ local Tod_IJ = J({
 -- Scotty (6)
 local Scotty_IJ = J({
   name = "Scotty_IJ",
-  pos = { x = 4, y = 0 },
+  pos = { x = 5, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -182,7 +182,7 @@ local Scotty_IJ = J({
 -- Archer (7)
 local Archer_IJ = J({
   name = "Archer_IJ",
-  pos = { x = 5, y = 0 },
+  pos = { x = 6, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -206,7 +206,7 @@ local Archer_IJ = J({
 -- Caleb (8)
 local Caleb_IJ = J({
   name = "Caleb_IJ",
-  pos = { x = 6, y = 0 },
+  pos = { x = 7, y = 0 },
   config = { extra = { current_xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -267,7 +267,7 @@ local Caleb_IJ = J({
 -- Shawn (9)
 local Shawn_IJ = J({
   name = "Shawn_IJ",
-  pos = { x = 7, y = 0 },
+  pos = { x = 8, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -300,7 +300,7 @@ local Axel_IJ = J({
   rarity = "ina_top",
   pools = { ["Inazuma Japón"] = true },
   cost = 8,
-  atlas = "Jokers03", -- v11.6: Temporalmente en Jokers03
+  atlas = "top", 
   ptype = C.Fire,
   pposition = C.FW,
   pgender = C.M,
@@ -337,7 +337,7 @@ local Axel_IJ = J({
 -- Austin (11)
 local Austin_IJ = J({
   name = "Austin_IJ",
-  pos = { x = 4, y = 1 },
+  pos = { x = 9, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -385,7 +385,7 @@ local Thor_IJ = J({
 -- Jordan (13)
 local Jordan_IJ = J({
   name = "Jordan_IJ",
-  pos = { x = 6, y = 1 },
+  pos = { x = 11, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -415,7 +415,7 @@ local Jude_IJ = J({
   end,
   rarity = "ina_top",
   cost = 8,
-  atlas = "Jokers03", -- v11.6: Temporalmente en Jokers03
+  atlas = "top", 
   stage = "one",
   ptype = C.Wind,
   pposition = C.MF,
@@ -443,7 +443,7 @@ local Jude_IJ = J({
 -- Samford (16)
 local Samford_IJ = J({
   name = "Samford_IJ",
-  pos = { x = 0, y = 1 },
+  pos = { x = 12, y = 0 },
   config = { extra = { xmult_mod = 3, retriggers_ep3 = 2, needed_ij = 2 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -488,7 +488,7 @@ local Samford_IJ = J({
 -- Kevin (17)
 local Kevin_IJ = J({
   name = "Kevin_IJ",
-  pos = { x = 1, y = 1 },
+  pos = { x = 0, y = 1 },
   config = { extra = { retriggers = 1, cooldown_base = 6, current_cooldown = 6 } },
   loc_vars = function(self, info_queue, card)
     return {
@@ -523,7 +523,7 @@ local Kevin_IJ = J({
 -- Xavier (18)
 local Xavier_IJ = J({
   name = "Xavier_IJ",
-  pos = { x = 2, y = 1 },
+  pos = { x = 1, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -545,7 +545,7 @@ local Xavier_IJ = J({
 -- Darren (20)
 local Darren_IJ = J({
   name = "Darren_IJ",
-  pos = { x = 3, y = 1 },
+  pos = { x = 2, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

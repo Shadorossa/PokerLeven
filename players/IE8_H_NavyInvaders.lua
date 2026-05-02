@@ -1,6 +1,6 @@
 local Bigman = J({
     name = "Bigman",
-    pos = { x = 0, y = 1 },
+    pos = { x = 0, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -21,7 +21,7 @@ local Bigman = J({
 
 local Gentleman = J({
     name = "Gentleman",
-    pos = { x = 1, y = 1 },
+    pos = { x = 1, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -42,7 +42,7 @@ local Gentleman = J({
 
 local Diver = J({
     name = "Diver",
-    pos = { x = 2, y = 1 },
+    pos = { x = 2, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -63,7 +63,7 @@ local Diver = J({
 
 local Smokey = J({
     name = "Smokey",
-    pos = { x = 3, y = 1 },
+    pos = { x = 3, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -84,7 +84,7 @@ local Smokey = J({
 
 local Judge = J({
     name = "Judge",
-    pos = { x = 4, y = 1 },
+    pos = { x = 4, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -105,7 +105,7 @@ local Judge = J({
 
 local Hunter = J({
     name = "Hunter",
-    pos = { x = 5, y = 1 },
+    pos = { x = 5, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -126,7 +126,7 @@ local Hunter = J({
 
 local Yoga = J({
     name = "Yoga",
-    pos = { x = 6, y = 1 },
+    pos = { x = 6, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -148,7 +148,7 @@ local Yoga = J({
 
 local Cobra = J({
     name = "Cobra",
-    pos = { x = 7, y = 1 },
+    pos = { x = 7, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -169,7 +169,7 @@ local Cobra = J({
 
 local Shakey = J({
     name = "Shakey",
-    pos = { x = 8, y = 1 },
+    pos = { x = 8, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -190,7 +190,7 @@ local Shakey = J({
 
 local Convoy = J({
     name = "Convoy",
-    pos = { x = 9, y = 1 },
+    pos = { x = 9, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -211,7 +211,7 @@ local Convoy = J({
 
 local Lion = J({
     name = "Lion",
-    pos = { x = 10, y = 1 },
+    pos = { x = 10, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -232,7 +232,7 @@ local Lion = J({
 
 local Horn = J({
     name = "Horn",
-    pos = { x = 11, y = 1 },
+    pos = { x = 11, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -253,7 +253,7 @@ local Horn = J({
 
 local Magician = J({
     name = "Magician",
-    pos = { x = 12, y = 1 },
+    pos = { x = 12, y = 7 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -274,7 +274,7 @@ local Magician = J({
 
 local Jack = J({
     name = "Jack",
-    pos = { x = 0, y = 2 },
+    pos = { x = 0, y = 8 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }

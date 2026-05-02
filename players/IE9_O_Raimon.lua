@@ -1,7 +1,7 @@
 -- Zander Warmington
 local Warmington = J({
   name = "Warmington",
-  pos = { x = 0, y = 3 },
+  pos = { x = 3, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Warmington = J({
 -- Viorain Maleby
 local Maleby = J({
   name = "Maleby",
-  pos = { x = 1, y = 3 },
+  pos = { x = 4, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Maleby = J({
 -- Clement Mariner
 local Mariner = J({
   name = "Mariner",
-  pos = { x = 2, y = 3 },
+  pos = { x = 5, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Mariner = J({
 -- Boone Wretman
 local Boone = J({
   name = "Boone",
-  pos = { x = 3, y = 3 },
+  pos = { x = 6, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Boone = J({
 -- Jazmine Carmine
 local Carmine = J({
   name = "Carmine",
-  pos = { x = 4, y = 3 },
+  pos = { x = 7, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Carmine = J({
 -- Colton Sharps
 local Sharps = J({
   name = "Sharps",
-  pos = { x = 5, y = 3 },
+  pos = { x = 8, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Sharps = J({
 -- Maddock Jackson
 local Jackson = J({
   name = "Jackson",
-  pos = { x = 6, y = 3 },
+  pos = { x = 9, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -148,7 +148,7 @@ local Jackson = J({
 -- Eleanor Estrella
 local Estrella = J({
   name = "Estrella",
-  pos = { x = 7, y = 3 },
+  pos = { x = 10, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -169,7 +169,7 @@ local Estrella = J({
 -- Darian Moonward
 local Darian = J({
   name = "Darian",
-  pos = { x = 8, y = 3 },
+  pos = { x = 11, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -191,7 +191,7 @@ local Darian = J({
 -- Harper Evans
 local Harper = J({
   name = "Harper",
-  pos = { x = 9, y = 3 },
+  pos = { x = 12, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -212,7 +212,7 @@ local Harper = J({
 -- Talon Lewis
 local Lewis = J({
   name = "Lewis",
-  pos = { x = 10, y = 3 },
+  pos = { x = 0, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -233,7 +233,7 @@ local Lewis = J({
 -- Nino Gamberini
 local Gamberini = J({
   name = "Gamberini",
-  pos = { x = 11, y = 3 },
+  pos = { x = 1, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Gamberini = J({
 -- Hortensia Raintree
 local Raintree = J({
   name = "Raintree",
-  pos = { x = 0, y = 4 },
+  pos = { x = 2, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Raintree = J({
 -- Milan McGrath
 local McGrath = J({
   name = "McGrath",
-  pos = { x = 1, y = 4 },
+  pos = { x = 3, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local McGrath = J({
 -- Kaeo Springfield
 local Springfield = J({
   name = "Springfield",
-  pos = { x = 2, y = 4 },
+  pos = { x = 4, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -317,7 +317,7 @@ local Springfield = J({
 -- Matilda Shadebough (Mami Sigdale)
 local Matilda = J({
   name = "Matilda",
-  pos = { x = 3, y = 4 },
+  pos = { x = 5, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

@@ -1,6 +1,6 @@
 local Anorel = J({
   name = "Anorel",
-  pos = { x = 1, y = 18 },
+  pos = { x = 7, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -22,7 +22,7 @@ local Anorel = J({
 
 local Nenel = J({
   name = "Nenel",
-  pos = { x = 2, y = 18 },
+  pos = { x = 8, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -44,7 +44,7 @@ local Nenel = J({
 
 local Genel = J({
   name = "Genel",
-  pos = { x = 3, y = 18 },
+  pos = { x = 9, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -66,7 +66,7 @@ local Genel = J({
 
 local Ekadel = J({
   name = "Ekadel",
-  pos = { x = 4, y = 18 },
+  pos = { x = 10, y = 20 },
   config = { extra = { odds = 3 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
@@ -101,7 +101,7 @@ local Ekadel = J({
 
 local Lephiel = J({
   name = "Lephiel",
-  pos = { x = 5, y = 18 },
+  pos = { x = 11, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -123,7 +123,7 @@ local Lephiel = J({
 
 local Sachinel = J({
   name = "Sachinel",
-  pos = { x = 6, y = 18 },
+  pos = { x = 12, y = 20 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -145,7 +145,7 @@ local Sachinel = J({
 
 local Wenel = J({
   name = "Wenel",
-  pos = { x = 7, y = 18 },
+  pos = { x = 0, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -167,7 +167,7 @@ local Wenel = J({
 
 local Nuel = J({
   name = "Nuel",
-  pos = { x = 8, y = 18 },
+  pos = { x = 1, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -189,7 +189,7 @@ local Nuel = J({
 
 local Ientel = J({
   name = "Ientel",
-  pos = { x = 9, y = 18 },
+  pos = { x = 2, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -211,7 +211,7 @@ local Ientel = J({
 
 local Gaiel = J({
   name = "Gaiel",
-  pos = { x = 10, y = 18 },
+  pos = { x = 3, y = 21 },
   config = { extra = { savings = 0 } },
   loc_vars = function(self, info_queue, center)
     local savings = G.GAME and G.GAME.gaiel_savings or 0
@@ -235,8 +235,8 @@ local Gaiel = J({
 
 local Sael = J({
   name = "Sael",
-  pos = { x = 4, y = 2 },
-  soul_pos = { x = 4, y = 3 },
+  pos = { x = 1, y = 0 },
+  soul_pos = { x = 1, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -244,7 +244,7 @@ local Sael = J({
   rarity = 1,
   pools = { ["Sky Team"] = true },
   cost = 5,
-  atlas = "ina_top",
+  atlas = "top",
   ptype = C.Wind,
   pposition = C.FW,
   pgender = C.M,

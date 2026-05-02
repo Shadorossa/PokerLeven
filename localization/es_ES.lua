@@ -502,7 +502,7 @@ return {
             },
             j_ina_Axel = {
                 name = "Axel Blaze",
-                text = { "{C:fire}Tornado de Fuego",
+                text = { "{C:fire}Tormenta de Fuego",
                     "La mano jugada obtiene {X:mult,C:white}X#1#{}",
                     "si contiene {C:attention}Color{} de {C:hearts}Corazones{}" }
             },
@@ -756,7 +756,7 @@ return {
             },
             j_ina_Tell = {
                 name = "Tell",
-                text = { "{C:forest}Adivino{}", "{X:chips,C:white}Xπ{} si tienes {C:attention}3, 1, 4{} en",
+                text = { "{C:forest}Adivino{}", "{X:chips,C:white}XPI{} si tienes {C:attention}3, 1, 4{} en",
                     "la mano trasera al puntuar" }
             },
             j_ina_Seller = {
@@ -1736,7 +1736,7 @@ return {
             },
 
             -- IE2_L_DarkEmperors
-            j_ina_DarkFeldt = {
+            j_ina_Feldt_DarkEmp = {
                 name = "Thomas Feldt",
                 text = {
                     "{C:forest}Mano Diabólica{}",
@@ -1745,7 +1745,14 @@ return {
                     "{C:inactive}Efectos:{} {C:attention}#1#{} | {C:attention}#2#{} | {C:attention}#3#{}"
                 }
             },
-            j_ina_SamDark = {
+            j_ina_Night_DarkEmp = {
+                name = "Night",
+                text = {
+                    "{C:fire}Corte Giratorio{}",
+                    "{C:inactive}(Efecto por programar){}"
+                }
+            },
+            j_ina_Sam_DarkEmp = {
                 name = "Sam Kincaid",
                 text = {
                     "{C:fire}Escudo Rencoroso{}",
@@ -1755,7 +1762,7 @@ return {
                     "A cambio, {C:red}-#1#{} al tamaño de mano."
                 }
             },
-            j_ina_JimDark = {
+            j_ina_Jim_DarkEmp = {
                 name = "Jim Wraith",
                 text = {
                     "{C:wind}Giro bobina{}",
@@ -1764,7 +1771,42 @@ return {
                     "{C:inactive}(Actual:{} {X:chips,C:white}X#2#{}{C:inactive}){}"
                 }
             },
-            j_ina_NathanDark = {
+            j_ina_Tod_DarkEmp = {
+                name = "Tod Ironside",
+                text = {
+                    "{C:fire}Equilibrismo{}",
+                    "{C:inactive}(Efecto por programar){}"
+                }
+            },
+            j_ina_Steve_DarkEmp = {
+                name = "Steve Grim",
+                text = {
+                    "{C:wind}Disparo Rodante{}",
+                    "{C:inactive}(Efecto por programar){}"
+                }
+            },
+            j_ina_Timmy_DarkEmp = {
+                name = "Timmy Saunders",
+                text = {
+                    "{C:forest}Torbellino{}",
+                    "{C:inactive}(Efecto por programar){}"
+                }
+            },
+            j_ina_Max_DarkEmp = {
+                name = "Maxwell 'Max' Carson",
+                text = {
+                    "{C:wind}Remate Espiral{}",
+                    "{C:inactive}(Efecto por programar){}"
+                }
+            },
+            j_ina_Shadow_DarkEmp = {
+                name = "Shadow Cimmerian",
+                text = {
+                    "{C:forest}Tornado Oscuro{}",
+                    "{C:inactive}(Efecto por programar){}"
+                }
+            },
+            j_ina_Nathan_DarkEmp = {
                 name = "Nathan Swift",
                 text = {
                     "{C:forest}Fénix Oscuro{}",
@@ -1774,7 +1816,7 @@ return {
                     "{C:inactive}(Actual:{} {X:mult,C:white}X#3#{}{C:inactive} | Cargas: {C:attention}#1#/#2#{}{C:inactive}){}"
                 }
             },
-            j_ina_KevinDark = {
+            j_ina_Kevin_DarkEmp = {
                 name = "Kevin Dragonfly",
                 text = {
                     "{C:forest}Tornado Dragón Oscuro{}",
@@ -1898,31 +1940,62 @@ return {
                 }
             },
 
-            -- IE2_O_YoungInazuma
-            j_ina_Hillman = { name = "Seymour Hillman", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Island = { name = "Charles Island", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Hairtown = { name = "Garret Hairtown", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Sweet = { name = "Arthur Sweet", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Butler = { name = "Peter Mildred", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Nathaniel = { name = "Josh Nathaniel", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Gladstone = { name = "Edward Gladstone", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Tailor = { name = "Tyler Thomas", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Barista = { name = "Joseph Yosemite", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Suffolk = { name = "Ian Suffolk", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Builder = { name = "Constant Builder", text = { "{C:inactive}(Efecto por programar){}" } },
 
             -- IE2_P_SeaOfTrees
-            j_ina_Mando = { name = "Cam Mando", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Boufante = { name = "Harry Boufante", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Stuhl = { name = "Todd Stuhl", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Blewit = { name = "Aspen Blewit", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Oregon = { name = "Marismus Oregon", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Cypress = { name = "Garjan Cypress", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Deathcap = { name = "Judas Deathcap", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Faithfull = { name = "Chase Faithfull", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Ticker = { name = "Chris Ticker", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Daring = { name = "Roy Daring", text = { "{C:inactive}(Efecto por programar){}" } },
-            j_ina_Enoki = { name = "Scaber Enoki", text = { "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Mando = { 
+                name = "Cam Mando", 
+                text = { 
+                    "{C:mountain}Comandante{}",
+                    "Al jugar la {C:attention}primera mano{} de la ronda,",
+                    "gana {C:chips}+#1# Fichas{} por cada {C:attention}elemento distinto{}",
+                    "entre tus Jokers {C:inactive}(Máx. {C:chips}+#2#{C:inactive}){}.",
+                } 
+            },
+            j_ina_Boufante = { name = "Harry Boufante", text = { "{C:wind}Camuflaje{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Stuhl = { 
+                name = "Todd Stuhl", 
+                text = { 
+                    "{C:wind}Campo de Minas{}",
+                    "Cada vez que descartas un {X:select_element,C:white}#1#{}",
+                    "gana {C:orange}+1 Barrera{}.",
+                    "Si tienes {C:attention}10+ Barreras{}, la primera carta",
+                    "de {X:select_element,C:white}#1#{} que puntúe otorga {X:mult,C:white}X3 Mult{}.",
+                    "{C:inactive}(Barreras actuales: {C:orange}#2#{C:inactive})"
+                } 
+            },
+            j_ina_Blewit = { name = "Aspen Blewit", text = { "{C:forest}Emboscada{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Oregon = { name = "Marismus Oregon", text = { "{C:fire}Emboscada{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Cypress = { name = "Garjan Cypress", text = { "{C:fire}Anti-Afinidades{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Deathcap = { 
+                name = "Judas Deathcap", 
+                text = { 
+                    "{C:forest}Descomposición{}",
+                    "Cada {C:clubs}Trébol{} destruido en la partida da {C:chips}+#2# Fichas{} permanentes.",
+                    "Por cada mano usada en la ciega, este bono se {C:attention}duplica{}.",
+                    "{C:inactive}(Fichas base: {C:chips}+#1#{C:inactive})",
+                    "{C:inactive}(Multiplicador actual: {X:attention,C:white}x#3#{C:inactive})"
+                } 
+            },
+            j_ina_Faithfull = { name = "Chase Faithfull", text = { "{C:mountain}Disciplina{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Ticker = { 
+                name = "Chris Ticker", 
+                text = { 
+                    "{C:wind}Sincronización{}",
+                    "Si la mano puntuada suma exactamente",
+                    "lo mismo que la anterior, otorga 1 carta de {C:tarot}Tarot{}.",
+                    "{C:inactive}(Suma anterior: {C:attention}#1#{C:inactive})"
+                } 
+            },
+            j_ina_Daring = { name = "Roy Daring", text = { "{C:forest}Guerrilla{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Enoki = { 
+                name = "Scaber Enoki", 
+                text = { 
+                    "{C:fire}Metrónomo{}",
+                    "En cada ciega, copia el efecto de un {C:attention}Joker{}",
+                    "aleatorio de todo el mod.",
+                    "{C:inactive}(Efecto actual: {C:attention}#1#{C:inactive})"
+                } 
+            },
 
             -- IE3_A_InazumaJapan
             j_ina_Nathan_IJ = {
@@ -1930,7 +2003,7 @@ return {
                 text = {
                     "{C:wind}Entrada Huracán{}",
                     "Otorga {X:mult,C:white}X#1#{} por cada {C:attention}Joker{}",
-                    "de nacionalidad {C:attention}Japonesa{}",
+                    "de nacionalidad {X:ina_flag_JPN,C:white} JPN {}",
                     "{C:inactive}(Contador: #2#){}"
                 }
             },
@@ -2210,7 +2283,7 @@ return {
             j_ina_Axel_Kirkwood = {
                 name = "Axel Blaze",
                 text = {
-                    "{C:fire}Tornado de Fuego (Prototipo){}",
+                    "{C:fire}Tornado de Fuego{}",
                     "Da {X:mult,C:white} X#1# {} Mult si juegas un",
                     "{C:attention}Color{} de {C:hearts}Corazones{}. {C:red}Destruye{}",
                     "la carta que consiga puntuar de menor rango."
@@ -2693,6 +2766,23 @@ return {
                     "{C:inactive}Evolución: {C:attention}Máx.{}"
                 }
             },
+            j_ina_Dvalin_ZO = { name = "Dvalin", text = { "{C:fire}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Cao_Cao_ZO = { name = "Cao Cao", text = { "{C:mountain}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Grizzly_ZO = { name = "Grizzly", text = { "{C:fire}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Panca_ZO = { name = "Panca", text = { "{C:wind}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Roma_ZO = { name = "Roma", text = { "{C:mountain}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Zanark_ZO = { name = "Zanark", text = { "{C:mountain}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Sapta_ZO = { name = "Sapta", text = { "{C:fire}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Caleb_ZO = { name = "Caleb", text = { "{C:fire}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Lancer_ZO = { name = "Lancer", text = { "{C:forest}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Destra_ZO = { name = "Destra", text = { "{C:mountain}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Zeta_ZO = { name = "Zeta", text = { "{C:wind}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Gele_ZO = { name = "Gele", text = { "{C:wind}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Arakune_ZO = { name = "Arakuné", text = { "{C:fire}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Luceafar_ZO = { name = "Luceafăr", text = { "{C:mountain}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Oxford_ZO = { name = "Oxford", text = { "{C:mountain}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+            j_ina_Venom_ZO = { name = "Venom", text = { "{C:forest}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },
+
             p_ina_growing_pack = {
                 name = "Pack Creciente",
                 text = { "Elige {C:attention}#1#{} en {C:attention}#2#{}", "{C:attention}Jokers{} de tus equipos" }
@@ -3318,6 +3408,8 @@ return {
             ["ina_team_DarkTeam"] = "Dark Team",
             ["ina_team_RaimonGO"] = "Raimon",
             ["ina_team_EarthEleven"] = "Earth Eleven",
+            ["ina_team_ZanarkOutsiders"] = "Zanark Outsiders",
+            ["ina_team_SeaOfTrees"] = "Mar de Árboles",
         },
         quips = {},
         ranks = {},

@@ -1,7 +1,7 @@
 -- King
 local King = J({
   name = "King",
-  pos = { x = 6, y = 2 },
+  pos = { x = 3, y = 2 },
   config = { extra = { triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -54,7 +54,7 @@ local King = J({
 -- Drent
 local Drent = J({
   name = "Drent",
-  pos = { x = 7, y = 2 },
+  pos = { x = 4, y = 2 },
   config = { extra = { odds = 5, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local count = #find_player_type("Mountain");
@@ -97,7 +97,7 @@ local Drent = J({
 -- Simmons
 local Simmons = J({
   name = "Simmons",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 5, y = 2 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -121,7 +121,7 @@ local Simmons = J({
 -- Master
 local Master = J({
   name = "Master",
-  pos = { x = 9, y = 2 },
+  pos = { x = 6, y = 2 },
   config = { extra = { mult_mod = 7, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.mult_mod } }
@@ -156,7 +156,7 @@ local Master = J({
 -- Martin
 local Martin = J({
   name = "Martin",
-  pos = { x = 10, y = 2 },
+  pos = { x = 7, y = 2 },
   config = { extra = { common_mult = 6, uncommon_mult = 12, rare_xmult = 1.5, legendary_exp = 1.15, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {
@@ -247,7 +247,7 @@ local Martin = J({
 -- Waldon
 local Waldon = J({
   name = "Waldon",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 8, y = 2 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -271,7 +271,7 @@ local Waldon = J({
 -- Bloom
 local Bloom = J({
   name = "Bloom",
-  pos = { x = 12, y = 2 },
+  pos = { x = 9, y = 2 },
   config = { extra = { Xmult_mod = 3 } },
   loc_vars = function(self, info_queue, center)
     local grand_total = 0
@@ -310,7 +310,7 @@ local Bloom = J({
 -- Swing
 local Swing = J({
   name = "Swing",
-  pos = { x = 0, y = 3 },
+  pos = { x = 10, y = 2 },
   config = { extra = { chips_mod = 60, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod } }
@@ -344,7 +344,7 @@ local Swing = J({
 -- Hatch
 local Hatch = J({
   name = "Hatch",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 11, y = 2 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -368,8 +368,7 @@ local Hatch = J({
 -- Jude
 local Jude = J({
   name = "Jude",
-  pos = { x = 3, y = 3 },
-  soul_pos = { x = 0, y = 1 },
+  pos = { x = 0, y = 0 },
   config = {
     extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
     }
@@ -424,7 +423,7 @@ local Jude = J({
 -- Samford
 local Samford = J({
   name = "Samford",
-  pos = { x = 4, y = 3 },
+  pos = { x = 0, y = 3 },
   config = { extra = { xmult_mod = 3, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.xmult_mod } }
@@ -459,7 +458,7 @@ local Samford = J({
 -- Carlton
 local Carlton = J({
   name = "Carlton",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 1, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -483,7 +482,7 @@ local Carlton = J({
 -- Tomlinson
 local Tomlinson = J({
   name = "Tomlinson",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 2, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -507,7 +506,7 @@ local Tomlinson = J({
 -- Lawrenson
 local Lawrenson = J({
   name = "Lawrenson",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 3, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -531,7 +530,7 @@ local Lawrenson = J({
 -- Potts
 local Potts = J({
   name = "Potts",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 4, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -555,7 +554,7 @@ local Potts = J({
 -- Ingham
 local Ingham = J({
   name = "Ingham",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 5, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -564,7 +563,7 @@ local Ingham = J({
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = C.Forest,
+  ptype = C.Mountain,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,

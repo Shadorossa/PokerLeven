@@ -1,7 +1,7 @@
 -- Indigo Lazuli (1)
 local Indigo_Lazuli = J({
   name = "Indigo Lazuli",
-  pos = { x = 0, y = 9 },
+  pos = { x = 1, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Indigo_Lazuli = J({
 -- Rosseo Diamante (2)
 local Rosseo_Diamante = J({
   name = "Rosseo Diamante",
-  pos = { x = 1, y = 9 },
+  pos = { x = 2, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Rosseo_Diamante = J({
 -- Azubel Turchese (3)
 local Azubel_Turchese = J({
   name = "Azubel Turchese",
-  pos = { x = 2, y = 9 },
+  pos = { x = 3, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Azubel_Turchese = J({
 -- Nereo Agata (4)
 local Nereo_Agata = J({
   name = "Nereo Agata",
-  pos = { x = 3, y = 9 },
+  pos = { x = 4, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Nereo_Agata = J({
 -- Azzuro Zaffiro (5)
 local Azzuro_Zaffiro = J({
   name = "Azzuro Zaffiro",
-  pos = { x = 4, y = 9 },
+  pos = { x = 5, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -116,7 +116,7 @@ local Azzuro_Zaffiro = J({
 -- Berdeo Smeraldo (6)
 local Berdeo_Smeraldo = J({
   name = "Berdeo Smeraldo",
-  pos = { x = 5, y = 9 },
+  pos = { x = 6, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -139,7 +139,7 @@ local Berdeo_Smeraldo = J({
 -- Rosso Granato (7)
 local Rosso_Granato = J({
   name = "Rosso Granato",
-  pos = { x = 6, y = 9 },
+  pos = { x = 7, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -162,7 +162,7 @@ local Rosso_Granato = J({
 -- Giallo Topazio (8)
 local Giallo_Topazio = J({
   name = "Giallo Topazio",
-  pos = { x = 7, y = 9 },
+  pos = { x = 8, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -185,7 +185,7 @@ local Giallo_Topazio = J({
 -- Vittorio Amatista (9)
 local Vittorio_Amatista = J({
   name = "Vittorio Amatista",
-  pos = { x = 8, y = 9 },
+  pos = { x = 9, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -208,7 +208,7 @@ local Vittorio_Amatista = J({
 -- Julio Acuto (10)
 local Julio_Acuto = J({
   name = "Julio Acuto",
-  pos = { x = 9, y = 9 },
+  pos = { x = 10, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Julio_Acuto = J({
 -- Bianco Perla (11)
 local Bianco_Perla = J({
   name = "Bianco Perla",
-  pos = { x = 10, y = 9 },
+  pos = { x = 11, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Bianco_Perla = J({
 -- Grigio Quarzo (12)
 local Grigio_Quarzo = J({
   name = "Grigio Quarzo",
-  pos = { x = 11, y = 9 },
+  pos = { x = 12, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Grigio_Quarzo = J({
 -- Pardo Berillo (13)
 local Pardo_Berillo = J({
   name = "Pardo Berillo",
-  pos = { x = 12, y = 9 },
+  pos = { x = 0, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Pardo_Berillo = J({
 -- Marrone Corniola (14)
 local Marrone_Corniola = J({
   name = "Marrone Corniola",
-  pos = { x = 13, y = 9 },
+  pos = { x = 1, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Marrone_Corniola = J({
 -- Amaranto Rubino (15)
 local Amaranto_Rubino = J({
   name = "Amaranto Rubino",
-  pos = { x = 14, y = 9 },
+  pos = { x = 2, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Amaranto_Rubino = J({
 -- Avorio Opale (16)
 local Avorio_Opale = J({
   name = "Avorio Opale",
-  pos = { x = 15, y = 9 },
+  pos = { x = 3, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Avorio_Opale = J({
 
 return {
   name = "Team D",
-  list = {
-    Indigo_Lazuli, Rosseo_Diamante, Azubel_Turchese, Nereo_Agata, Azzuro_Zaffiro,
-    Berdeo_Smeraldo, Rosso_Granato, Giallo_Topazio, Vittorio_Amatista, Julio_Acuto,
-    Bianco_Perla, Grigio_Quarzo, Pardo_Berillo, Marrone_Corniola, Amaranto_Rubino, Avorio_Opale
-  }
+  list = {}
 }

@@ -1,6 +1,6 @@
 local Gabriella = J({
     name = "Gabriella Amati",
-    pos = { x = 0, y = 8 },
+    pos = { x = 1, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -8,7 +8,7 @@ local Gabriella = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Mountain,
     pposition = C.GK,
     pgender = C.F,
@@ -21,7 +21,7 @@ local Gabriella = J({
 
 local Elma = J({
     name = "Elma Chiti",
-    pos = { x = 1, y = 8 },
+    pos = { x = 2, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -29,7 +29,7 @@ local Elma = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Wind,
     pposition = C.DF,
     pgender = C.F,
@@ -42,7 +42,7 @@ local Elma = J({
 
 local Alice = J({
     name = "Alice Berardi",
-    pos = { x = 2, y = 8 },
+    pos = { x = 3, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -50,7 +50,7 @@ local Alice = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Forest,
     pposition = C.DF,
     pgender = C.F,
@@ -63,7 +63,7 @@ local Alice = J({
 
 local Diana = J({
     name = "Diana Scola",
-    pos = { x = 3, y = 8 },
+    pos = { x = 4, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -71,7 +71,7 @@ local Diana = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Fire,
     pposition = C.DF,
     pgender = C.F,
@@ -84,7 +84,7 @@ local Diana = J({
 
 local Nestore = J({
     name = "Nestore Gatto",
-    pos = { x = 4, y = 8 },
+    pos = { x = 5, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -92,7 +92,7 @@ local Nestore = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Forest,
     pposition = C.MF,
     pgender = C.M,
@@ -105,7 +105,7 @@ local Nestore = J({
 
 local Nicolo = J({
     name = "Nicolò Fino",
-    pos = { x = 5, y = 8 },
+    pos = { x = 6, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -113,7 +113,7 @@ local Nicolo = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Wind,
     pposition = C.MF,
     pgender = C.M,
@@ -126,7 +126,7 @@ local Nicolo = J({
 
 local Pietro = J({
     name = "Pietro Moresco",
-    pos = { x = 6, y = 8 },
+    pos = { x = 7, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -134,7 +134,7 @@ local Pietro = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Fire,
     pposition = C.MF,
     pgender = C.M,
@@ -147,7 +147,7 @@ local Pietro = J({
 
 local Carlos = J({
     name = "Carlos Gallo",
-    pos = { x = 7, y = 8 },
+    pos = { x = 8, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -155,7 +155,7 @@ local Carlos = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Fire,
     pposition = C.MF,
     pgender = C.M,
@@ -168,7 +168,7 @@ local Carlos = J({
 
 local Luca = J({
     name = "Luca Russo",
-    pos = { x = 8, y = 8 },
+    pos = { x = 9, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -176,7 +176,7 @@ local Luca = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Mountain,
     pposition = C.FW,
     pgender = C.M,
@@ -189,7 +189,7 @@ local Luca = J({
 
 local Matteo = J({
     name = "Matteo Domenico",
-    pos = { x = 9, y = 8 },
+    pos = { x = 10, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -197,7 +197,7 @@ local Matteo = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Wind,
     pposition = C.FW,
     pgender = C.M,
@@ -210,7 +210,7 @@ local Matteo = J({
 
 local Petronio = J({
     name = "Petronio Patti",
-    pos = { x = 10, y = 8 },
+    pos = { x = 11, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -218,7 +218,7 @@ local Petronio = J({
     rarity = 2,
     pools = { ["Guardians of Queen"] = true },
     cost = 7,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Mountain,
     pposition = C.FW,
     pgender = C.M,
@@ -231,7 +231,7 @@ local Petronio = J({
 
 local Racerit = J({
     name = "Racerit Spto",
-    pos = { x = 11, y = 8 },
+    pos = { x = 12, y = 9 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -239,7 +239,7 @@ local Racerit = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Forest,
     pposition = C.GK,
     pgender = C.M,
@@ -252,7 +252,7 @@ local Racerit = J({
 
 local Kakehashi = J({
     name = "Kakehashi Tsugu",
-    pos = { x = 12, y = 8 },
+    pos = { x = 0, y = 10 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -260,7 +260,7 @@ local Kakehashi = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Wind,
     pposition = C.MF,
     pgender = C.F,
@@ -273,7 +273,7 @@ local Kakehashi = J({
 
 local Tonio = J({
     name = "Tonio Chiara",
-    pos = { x = 13, y = 8 },
+    pos = { x = 1, y = 10 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -281,7 +281,7 @@ local Tonio = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Forest,
     pposition = C.DF,
     pgender = C.M,
@@ -294,7 +294,7 @@ local Tonio = J({
 
 local Monica = J({
     name = "Monica Sala",
-    pos = { x = 14, y = 8 },
+    pos = { x = 2, y = 10 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -302,7 +302,7 @@ local Monica = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Mountain,
     pposition = C.MF,
     pgender = C.F,
@@ -315,7 +315,7 @@ local Monica = J({
 
 local Giustino = J({
     name = "Giustino Giovanni",
-    pos = { x = 15, y = 8 },
+    pos = { x = 3, y = 10 },
     config = { extra = {} },
     loc_vars = function(self, info, center)
         return { vars = {} }
@@ -323,7 +323,7 @@ local Giustino = J({
     rarity = 1,
     pools = { ["Guardians of Queen"] = true },
     cost = 5,
-    atlas = "jokers08",
+    atlas = "Jokers08",
     ptype = C.Mountain,
     pposition = C.DF,
     pgender = C.M,

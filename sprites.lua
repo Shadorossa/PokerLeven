@@ -20,13 +20,6 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
-    key = "Jokers02",
-    path = "jokers02.png",
-    px = 71,
-    py = 95
-}):register()
-
-SMODS.Atlas({
     key = "Spirits01",
     path = "Spirit.png",
     px = 71,
@@ -34,43 +27,64 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
+    key = "Jokers02",
+    path = "Jokers02.png",
+    px = 71,
+    py = 95
+}):register()
+
+SMODS.Atlas({
     key = "Jokers03",
-    path = "jokers03.png",
+    path = "Jokers03.png",
+    px = 71,
+    py = 95
+}):register()
+
+SMODS.Atlas({
+    key = "Jokers04",
+    path = "Jokers04.png",
+    px = 71,
+    py = 95
+}):register()
+
+SMODS.Atlas({
+    key = "Jokers05",
+    path = "Jokers05.png",
     px = 71,
     py = 95
 }):register()
 
 SMODS.Atlas({
     key = "Jokers06",
-    path = "jokers06.png",
+    path = "Jokers06.png",
     px = 71,
     py = 95
 }):register()
 
 SMODS.Atlas({
     key = "Jokers07",
-    path = "Jokers07.png",
+    path = "jokers07.png",
     px = 71,
     py = 95
 }):register()
 
 SMODS.Atlas({
     key = "Jokers08",
-    path = "jokers08.png",
+    path = "Jokers08.png",
     px = 71,
     py = 95
 }):register()
 
 SMODS.Atlas({
     key = "Jokers09",
-    path = "jokers09.png",
+    path = "Jokers09.png",
     px = 71,
     py = 95
 }):register()
 
 SMODS.Atlas({
     key = "Jokers10",
-    path = "Jokers10.png",
+    path = "jokers10.png",
     px = 71,
     py = 95
 }):register()
@@ -84,7 +98,7 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "JokersVestigio",
-    path = "jokersVestigio.png",
+    path = "jokers_vestigio.png",
     px = 71,
     py = 95
 }):register()
@@ -354,6 +368,91 @@ local suits = SMODS.Gradient({
     cycle = 5,
     interpolation = 'trig'
 })
+
+local flag_jpn = SMODS.Gradient({
+    key = 'ina_flag_JPN',
+    colours = { HEX('ffffff'), HEX('bc002d') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_ita = SMODS.Gradient({
+    key = 'ina_flag_ITA',
+    colours = { HEX('008c45'), HEX('f4f5f0'), HEX('cd212a') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_bra = SMODS.Gradient({
+    key = 'ina_flag_BRA',
+    colours = { HEX('009739'), HEX('fedd00'), HEX('012169') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_arg = SMODS.Gradient({
+    key = 'ina_flag_ARG',
+    colours = { HEX('74acdf'), HEX('ffffff'), HEX('74acdf') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_usa = SMODS.Gradient({
+    key = 'ina_flag_USA',
+    colours = { HEX('b22234'), HEX('ffffff'), HEX('3c3b6e') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_eng = SMODS.Gradient({
+    key = 'ina_flag_ENG',
+    colours = { HEX('ffffff'), HEX('ce1124') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_esp = SMODS.Gradient({
+    key = 'ina_flag_ESP',
+    colours = { HEX('aa151b'), HEX('f1bf00'), HEX('aa151b') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_kor = SMODS.Gradient({
+    key = 'ina_flag_KOR',
+    colours = { HEX('ffffff'), HEX('cd2e3a'), HEX('0047a0') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_fra = SMODS.Gradient({
+    key = 'ina_flag_FRA',
+    colours = { HEX('002395'), HEX('ffffff'), HEX('ed2939') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_ger = SMODS.Gradient({
+    key = 'ina_flag_GER',
+    colours = { HEX('000000'), HEX('dd0000'), HEX('ffce00') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_aus = SMODS.Gradient({
+    key = 'ina_flag_AUS',
+    colours = { HEX('012169'), HEX('e8112d'), HEX('ffffff') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_qat = SMODS.Gradient({
+    key = 'ina_flag_QAT',
+    colours = { HEX('8d153a'), HEX('ffffff') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_rus = SMODS.Gradient({
+    key = 'ina_flag_RUS',
+    colours = { HEX('ffffff'), HEX('0039a6'), HEX('d52b1e') },
+    cycle = 3,
+    interpolation = 'trig'
+})
+local flag_mex = SMODS.Gradient({
+    key = 'ina_flag_MEX',
+    colours = { HEX('006847'), HEX('ffffff'), HEX('ce1126') },
+    cycle = 3,
+    interpolation = 'trig'
+})
 function loc_colour(_c, _default)
     if not G.ARGS.LOC_COLOURS then
         custom_colours()
@@ -396,6 +495,30 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["ina_team_scout"] = HEX("546E7A")
     G.ARGS.LOC_COLOURS["pink"] = HEX("FF7ABF")
     G.ARGS.LOC_COLOURS["ina_team_inazumajapon"] = HEX("fb8c00")
+    G.ARGS.LOC_COLOURS["ina_team_knightsofqueen"] = HEX("E1F5FE")
+    G.ARGS.LOC_COLOURS["ina_team_bigwaves"] = HEX("00BCD4")
+    G.ARGS.LOC_COLOURS["ina_team_desertlion"] = HEX("FFB300")
+    G.ARGS.LOC_COLOURS["ina_team_neojapan"] = HEX("B71C1C")
+    G.ARGS.LOC_COLOURS["ina_team_firedragon"] = HEX("D32F2F")
+    G.ARGS.LOC_COLOURS["ina_team_brockenbrigade"] = HEX("2E7D32")
+    G.ARGS.LOC_COLOURS["ina_team_rosegryphon"] = HEX("1976D2")
+    G.ARGS.LOC_COLOURS["ina_team_redmatadors"] = HEX("D32F2F")
+    G.ARGS.LOC_COLOURS["ina_team_teamd"] = HEX("4527A0")
+    G.ARGS.LOC_COLOURS["ina_team_theempire"] = HEX("0277BD")
+    G.ARGS.LOC_COLOURS["ina_team_unicorn"] = HEX("1E88E5")
+    G.ARGS.LOC_COLOURS["ina_team_orpheus"] = HEX("1565C0")
+    G.ARGS.LOC_COLOURS["ina_team_teamzoolan"] = HEX("212121")
+    G.ARGS.LOC_COLOURS["ina_team_thekingdom"] = HEX("FDD835")
+    G.ARGS.LOC_COLOURS["ina_team_littlegigant"] = HEX("C62828")
+    G.ARGS.LOC_COLOURS["ina_team_ogre"] = HEX("37474F")
+    G.ARGS.LOC_COLOURS["ina_team_skyteam"] = HEX("B3E5FC")
+    G.ARGS.LOC_COLOURS["ina_team_darkteam"] = HEX("4A148C")
+    G.ARGS.LOC_COLOURS["ina_team_raimongo"] = HEX("FBC02D")
+    G.ARGS.LOC_COLOURS["ina_team_protocolomega"] = HEX("607D8B")
+    G.ARGS.LOC_COLOURS["ina_team_zanarkdomain"] = HEX("880E4F")
+    G.ARGS.LOC_COLOURS["ina_team_perfectcascade"] = HEX("E0F2F1")
+    G.ARGS.LOC_COLOURS["ina_team_chronostorm"] = HEX("FFD700")
+    G.ARGS.LOC_COLOURS["ina_team_ragnah"] = HEX("311B92")
     G.ARGS.LOC_COLOURS["bench"] = HEX("4ca0a5")
     G.ARGS.LOC_COLOURS["training"] = HEX("5A00FF")
     G.ARGS.LOC_COLOURS["strat"] = HEX("9AA4B7")

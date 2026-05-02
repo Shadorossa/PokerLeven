@@ -1,6 +1,6 @@
 local Alonso = J({
     name = "Alonso Fibiano",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -21,7 +21,7 @@ local Alonso = J({
 
 local Domelgo = J({
     name = "Domelgo Domínguez",
-    pos = { x = 1, y = 0 },
+    pos = { x = 1, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -42,7 +42,7 @@ local Domelgo = J({
 
 local Baraja = J({
     name = "Reinaldo Baraja",
-    pos = { x = 2, y = 0 },
+    pos = { x = 2, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -63,7 +63,7 @@ local Baraja = J({
 
 local Rufino = J({
     name = "Rufino Ávalos",
-    pos = { x = 3, y = 0 },
+    pos = { x = 3, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -84,7 +84,7 @@ local Rufino = J({
 
 local Velasco = J({
     name = "Velasco Meléndez",
-    pos = { x = 4, y = 0 },
+    pos = { x = 4, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -105,7 +105,7 @@ local Velasco = J({
 
 local Nando = J({
     name = "Fernando Davino",
-    pos = { x = 5, y = 0 },
+    pos = { x = 5, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -126,7 +126,7 @@ local Nando = J({
 
 local Emerico = J({
     name = "Emerico Lorca",
-    pos = { x = 6, y = 0 },
+    pos = { x = 6, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -147,7 +147,7 @@ local Emerico = J({
 
 local Chico = J({
     name = "Chico Allison",
-    pos = { x = 7, y = 0 },
+    pos = { x = 7, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -168,7 +168,7 @@ local Chico = J({
 
 local Luther = J({
     name = "Luther Fandam",
-    pos = { x = 8, y = 0 },
+    pos = { x = 8, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -189,7 +189,7 @@ local Luther = J({
 
 local Clario = J({
     name = "Clario Orvan",
-    pos = { x = 9, y = 0 },
+    pos = { x = 9, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -210,7 +210,7 @@ local Clario = J({
 
 local Bergamo = J({
     name = "Bergamo Regult",
-    pos = { x = 10, y = 0 },
+    pos = { x = 10, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -231,7 +231,7 @@ local Bergamo = J({
 
 local Emilio = J({
     name = "Emilio Luján",
-    pos = { x = 11, y = 0 },
+    pos = { x = 11, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -252,7 +252,7 @@ local Emilio = J({
 
 local Fabio = J({
     name = "Fabio Esteve",
-    pos = { x = 12, y = 0 },
+    pos = { x = 12, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }

@@ -1,7 +1,7 @@
 -- Gene Whalon (1)
 local Gene_Whalon = J({
   name = "Gene Whalon",
-  pos = { x = 0, y = 2 },
+  pos = { x = 3, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Gene_Whalon = J({
 -- David Waterman (2)
 local David_Waterman = J({
   name = "David Waterman",
-  pos = { x = 1, y = 2 },
+  pos = { x = 4, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local David_Waterman = J({
 -- Sonny Shore (3)
 local Sonny_Shore = J({
   name = "Sonny Shore",
-  pos = { x = 2, y = 2 },
+  pos = { x = 5, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Sonny_Shore = J({
 -- Kjell Snapper (4)
 local Kjell_Snapper = J({
   name = "Kjell Snapper",
-  pos = { x = 3, y = 2 },
+  pos = { x = 6, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Kjell_Snapper = J({
 -- Ken Crackham (5)
 local Ken_Crackham = J({
   name = "Ken Crackham",
-  pos = { x = 4, y = 2 },
+  pos = { x = 7, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -116,7 +116,7 @@ local Ken_Crackham = J({
 -- Shawn Princeton (6)
 local Shawn_Princeton = J({
   name = "Shawn Princeton",
-  pos = { x = 5, y = 2 },
+  pos = { x = 8, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -139,7 +139,7 @@ local Shawn_Princeton = J({
 -- Matt Fischer (7)
 local Matt_Fischer = J({
   name = "Matt Fischer",
-  pos = { x = 6, y = 2 },
+  pos = { x = 9, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -162,7 +162,7 @@ local Matt_Fischer = J({
 -- Hank Tennyson (8)
 local Hank_Tennyson = J({
   name = "Hank Tennyson",
-  pos = { x = 7, y = 2 },
+  pos = { x = 10, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -185,7 +185,7 @@ local Hank_Tennyson = J({
 -- Dolph Hensen (9)
 local Dolph_Hensen = J({
   name = "Dolph Hensen",
-  pos = { x = 8, y = 2 },
+  pos = { x = 11, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Dolph_Hensen = J({
 -- Hamilton Reith (10)
 local Hamilton_Reith = J({
   name = "Hamilton Reith",
-  pos = { x = 9, y = 2 },
+  pos = { x = 12, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Hamilton_Reith = J({
 -- Joe Dawes (11)
 local Joe_Dawes = J({
   name = "Joe Dawes",
-  pos = { x = 10, y = 2 },
+  pos = { x = 0, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Joe_Dawes = J({
 -- Quincy Horace (12)
 local Quincy_Horace = J({
   name = "Quincy Horace",
-  pos = { x = 11, y = 2 },
+  pos = { x = 1, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Quincy_Horace = J({
 -- Holly Summers (13)
 local Holly_Summers = J({
   name = "Holly Summers",
-  pos = { x = 12, y = 2 },
+  pos = { x = 2, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Holly_Summers = J({
 -- Derek Rabson (14)
 local Derek_Rabson = J({
   name = "Derek Rabson",
-  pos = { x = 0, y = 3 },
+  pos = { x = 3, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Derek_Rabson = J({
 -- Barack Daniels (15)
 local Barack_Daniels = J({
   name = "Barack Daniels",
-  pos = { x = 1, y = 3 },
+  pos = { x = 4, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Barack_Daniels = J({
 -- Bruce Marlin (16)
 local Bruce_Marlin = J({
   name = "Bruce Marlin",
-  pos = { x = 2, y = 3 },
+  pos = { x = 5, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Bruce_Marlin = J({
 
 return {
   name = "Big Waves",
-  list = {
-    Gene_Whalon, David_Waterman, Sonny_Shore, Kjell_Snapper, Ken_Crackham,
-    Shawn_Princeton, Matt_Fischer, Hank_Tennyson, Dolph_Hensen, Hamilton_Reith,
-    Joe_Dawes, Quincy_Horace, Holly_Summers, Derek_Rabson, Barack_Daniels, Bruce_Marlin
-  }
+  list = {}
 }

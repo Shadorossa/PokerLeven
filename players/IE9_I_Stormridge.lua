@@ -1,7 +1,7 @@
 -- Kiona Blackwell
 local Blackwell = J({
   name = "Blackwell",
-  pos = { x = 0, y = 11 },
+  pos = { x = 10, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Blackwell = J({
 -- Lennox Portsman
 local Portsman = J({
   name = "Portsman",
-  pos = { x = 1, y = 11 },
+  pos = { x = 11, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Portsman = J({
 -- Kaz Bloomfield
 local Bloomfield = J({
   name = "Bloomfield",
-  pos = { x = 2, y = 11 },
+  pos = { x = 12, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Bloomfield = J({
 -- Govin Castlehoven
 local Castlehoven = J({
   name = "Castlehoven",
-  pos = { x = 3, y = 11 },
+  pos = { x = 0, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Castlehoven = J({
 -- Floramira Pagotta
 local Pagotta = J({
   name = "Pagotta",
-  pos = { x = 4, y = 11 },
+  pos = { x = 1, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Pagotta = J({
 -- Alistar Montero
 local Montero = J({
   name = "Montero",
-  pos = { x = 5, y = 11 },
+  pos = { x = 2, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -127,7 +127,7 @@ local Montero = J({
 -- Elijah Singleton
 local Singleton = J({
   name = "Singleton",
-  pos = { x = 6, y = 11 },
+  pos = { x = 3, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -149,7 +149,7 @@ local Singleton = J({
 -- Rohan Snatchett
 local Snatchett = J({
   name = "Snatchett",
-  pos = { x = 7, y = 11 },
+  pos = { x = 4, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -170,7 +170,7 @@ local Snatchett = J({
 -- Umbren Lightwood
 local Lightwood = J({
   name = "Lightwood",
-  pos = { x = 8, y = 11 },
+  pos = { x = 5, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -191,7 +191,7 @@ local Lightwood = J({
 -- Blaine Westbrook
 local Westbrook = J({
   name = "Westbrook",
-  pos = { x = 9, y = 11 },
+  pos = { x = 6, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -212,7 +212,7 @@ local Westbrook = J({
 -- Marinus Courier
 local Courier = J({
   name = "Courier",
-  pos = { x = 10, y = 11 },
+  pos = { x = 7, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -233,7 +233,7 @@ local Courier = J({
 -- Drexel Kixley
 local Kixley = J({
   name = "Kixley",
-  pos = { x = 11, y = 11 },
+  pos = { x = 8, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Kixley = J({
 -- Volk Lorius
 local Lorius = J({
   name = "Lorius",
-  pos = { x = 0, y = 12 },
+  pos = { x = 9, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Lorius = J({
 -- Dawsey Geistfeld
 local Geistfeld = J({
   name = "Geistfeld",
-  pos = { x = 1, y = 12 },
+  pos = { x = 10, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local Geistfeld = J({
 -- Rael Abbeybogy
 local Abbeybogy = J({
   name = "Abbeybogy",
-  pos = { x = 2, y = 12 },
+  pos = { x = 11, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -317,7 +317,7 @@ local Abbeybogy = J({
 -- Zelane Whitlow
 local Whitlow = J({
   name = "Whitlow",
-  pos = { x = 3, y = 12 },
+  pos = { x = 12, y = 7 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

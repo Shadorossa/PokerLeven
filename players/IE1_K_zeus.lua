@@ -1,7 +1,7 @@
 -- Poseidon
 local Poseidon = J({
   name = "Poseidon",
-  pos = { x = 5, y = 12 },
+  pos = { x = 1, y = 12 },
   config = { extra = { min_face = 3, barriers_added = 1, chips_mod = 40, barriers = 1 } },
   loc_vars = function(self, info_queue, center)
     table.insert(info_queue, { set = "Other", key = "Frontal" })
@@ -50,7 +50,7 @@ local Poseidon = J({
 -- Apollo
 local Apollo = J({
   name = "Apollo",
-  pos = { x = 6, y = 12 },
+  pos = { x = 2, y = 12 },
   config = { extra = { chips_mod = 14, alt_chips_mod = 4, mult_mod_low = 3, current_chips = 0, current_mult = 0, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod, center.ability.extra.alt_chips_mod, center.ability.extra.current_chips, center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
@@ -101,7 +101,7 @@ local Apollo = J({
 -- Hephestus
 local Hephestus = J({
   name = "Hephestus",
-  pos = { x = 9, y = 12 },
+  pos = { x = 3, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
   end,
@@ -152,7 +152,7 @@ local Hephestus = J({
 -- Ares
 local Ares = J({
   name = "Ares",
-  pos = { x = 7, y = 12 },
+  pos = { x = 4, y = 12 },
   rarity = 1,
   pools = { ["ina_team_Zeus"] = true },
   cost = 4,
@@ -170,7 +170,7 @@ local Ares = J({
 -- Dionysus
 local Dionysus = J({
   name = "Dionysus",
-  pos = { x = 8, y = 12 },
+  pos = { x = 5, y = 12 },
   rarity = 1,
   pools = { ["ina_team_Zeus"] = true },
   cost = 4,
@@ -188,7 +188,7 @@ local Dionysus = J({
 -- Artemis
 local Artemis = J({
   name = "Artemis",
-  pos = { x = 10, y = 12 },
+  pos = { x = 6, y = 12 },
   config = { extra = { current_chips = 0, chips_mod = 10 } },
   loc_vars = function(self, info_queue, center)
     info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
@@ -244,7 +244,7 @@ local Artemis = J({
 -- Hermes
 local Hermes = J({
   name = "Hermes",
-  pos = { x = 11, y = 12 },
+  pos = { x = 7, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -280,7 +280,7 @@ local Hermes = J({
 -- Athena
 local Athena = J({
   name = "Athena",
-  pos = { x = 12, y = 12 },
+  pos = { x = 8, y = 12 },
   rarity = 1,
   pools = { ["ina_team_Zeus"] = true },
   cost = 5,
@@ -298,7 +298,7 @@ local Athena = J({
 -- Demeter
 local Demeter = J({
   name = "Demeter",
-  pos = { x = 0, y = 13 },
+  pos = { x = 9, y = 12 },
   config = { extra = { mult_mod_low = 4, chip_mod = 10 } },
   loc_vars = function(self, info_queue, center)
     local remaining_discards = G.GAME and G.GAME.current_round and G.GAME.current_round.discards_left or 0
@@ -397,7 +397,7 @@ end
 -- Aphrodite
 local Aphrodite = J({
   name = "Aphrodite",
-  pos = { x = 1, y = 13 },
+  pos = { x = 0, y = 2 },
   soul_pos = { x = 0, y = 3 },
   config = { extra = { byron_mult_fw = 0.6, byron_mult_mf = 0.3 } },
   loc_vars = function(self, info_queue, center)
@@ -406,7 +406,7 @@ local Aphrodite = J({
   end,
   rarity = 4,
   cost = 15,
-  atlas = "Jokers01",
+  atlas = "legendary01",
   ptype = C.Forest,
   pposition = C.MF,
   pgender = C.M,
@@ -438,7 +438,7 @@ local Aphrodite = J({
 -- Hera
 local Hera = J({
   name = "Hera",
-  pos = { x = 2, y = 13 },
+  pos = { x = 10, y = 12 },
   rarity = 2,
   pools = { ["ina_team_Zeus"] = true },
   cost = 7,
@@ -454,11 +454,11 @@ local Hera = J({
 })
 
 -- Reservas (S)
-local Icarus = J({ name = "Icarus", pos = { x = 3, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Wind, pposition = C.GK, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 12, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
-local Achilles = J({ name = "Achilles", pos = { x = 4, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Mountain, pposition = C.FW, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_1, pdorsal = 13, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
-local Heracles = J({ name = "Heracles", pos = { x = 5, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Fire, pposition = C.DF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 14, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
-local Chronos = J({ name = "Chronos", pos = { x = 6, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Forest, pposition = C.DF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 15, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
-local Medusa = J({ name = "Medusa", pos = { x = 7, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Mountain, pposition = C.MF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_3, pdorsal = 16, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Icarus = J({ name = "Icarus", pos = { x = 11, y = 12 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Wind, pposition = C.GK, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 12, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Achilles = J({ name = "Achilles", pos = { x = 12, y = 12 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Mountain, pposition = C.FW, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_1, pdorsal = 13, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Heracles = J({ name = "Heracles", pos = { x = 0, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Fire, pposition = C.DF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 14, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Chronos = J({ name = "Chronos", pos = { x = 1, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Forest, pposition = C.DF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_2, pdorsal = 15, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
+local Medusa = J({ name = "Medusa", pos = { x = 2, y = 13 }, rarity = 1, pools = { ["ina_team_Zeus"] = true }, cost = 4, atlas = "Jokers01", ptype = C.Mountain, pposition = C.MF, pgender = C.M, pnation = C.JAPAN, pyear = C.YEAR_3, pdorsal = 16, pteam = "ina_team_Zeus", calculate = function(self, card, context) end })
 
 return {
   name = "Zeus",

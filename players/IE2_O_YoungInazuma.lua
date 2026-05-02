@@ -4,7 +4,7 @@ local team_id = "ina_team_YoungInazuma"
 -- 1. Hillman (Capitán)
 local Hillman = J({
   name = "Hillman",
-  pos = { x = 0, y = 19 },
+  pos = { x = 4, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -24,7 +24,7 @@ local Hillman = J({
 -- 2. Island
 local Island = J({
   name = "Island",
-  pos = { x = 1, y = 19 },
+  pos = { x = 5, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Island = J({
 -- 3. Hairtown
 local Hairtown = J({
   name = "Hairtown",
-  pos = { x = 2, y = 19 },
+  pos = { x = 6, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -62,7 +62,7 @@ local Hairtown = J({
 -- 4. Sweet
 local Sweet = J({
   name = "Sweet",
-  pos = { x = 3, y = 19 },
+  pos = { x = 7, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -81,7 +81,7 @@ local Sweet = J({
 -- 5. Butler
 local Butler = J({
   name = "Butler",
-  pos = { x = 4, y = 19 },
+  pos = { x = 8, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -100,7 +100,7 @@ local Butler = J({
 -- 6. Nathaniel
 local Nathaniel = J({
   name = "Nathaniel",
-  pos = { x = 5, y = 19 },
+  pos = { x = 9, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -119,7 +119,7 @@ local Nathaniel = J({
 -- 7. Gladstone
 local Gladstone = J({
   name = "Gladstone",
-  pos = { x = 6, y = 19 },
+  pos = { x = 10, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -138,7 +138,7 @@ local Gladstone = J({
 -- 8. Tailor
 local Tailor = J({
   name = "Tailor",
-  pos = { x = 7, y = 19 },
+  pos = { x = 11, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -157,7 +157,7 @@ local Tailor = J({
 -- 9. Barista
 local Barista = J({
   name = "Barista",
-  pos = { x = 8, y = 19 },
+  pos = { x = 12, y = 14 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 2,
@@ -176,7 +176,7 @@ local Barista = J({
 -- 10. Suffolk
 local Suffolk = J({
   name = "Suffolk",
-  pos = { x = 9, y = 19 },
+  pos = { x = 0, y = 15 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -195,7 +195,7 @@ local Suffolk = J({
 -- 11. Builder
 local Builder = J({
   name = "Builder",
-  pos = { x = 10, y = 19 },
+  pos = { x = 1, y = 15 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 2,
@@ -213,5 +213,5 @@ local Builder = J({
 
 return {
   name = "Young Inazuma",
-  list = { Hillman, Island, Hairtown, Sweet, Butler, Nathaniel, Gladstone, Tailor, Barista, Suffolk, Builder }
+  list = {  }
 }

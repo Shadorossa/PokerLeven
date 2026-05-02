@@ -72,7 +72,8 @@ local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*S
 position = "at"
 payload = '''
 local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.empty, G.P_CENTERS.j_ina_Mark)
-G.P_CENTERS.j_ina_Mark:set_sprites(replace_card)
+replace_card:set_sprites(G.P_CENTERS.j_ina_Mark)
+
 '''
 match_indent = true
 
@@ -612,5 +613,37 @@ if gaiel and not gaiel.debuff and G.GAME and G.GAME.chips and G.GAME.blind and G
         card_eval_status_text(gaiel, 'extra', nil, nil, nil, { message = "+" .. number_format(surplus), colour = G.C.WIND })
     end
 end
+'''
+match_indent = true
+
+# Global destruction tracker for Deathcap
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "function Card:start_dissolve(dissolve_colours, silent, serialize, agent)"
+position = "after"
+payload = '''
+    if G.jokers and G.jokers.cards and not self.ina_destruction_counted then
+        self.ina_destruction_counted = true
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.key == 'j_ina_Deathcap' then
+                if self:is_suit('Clubs') then
+                    j.ability.extra.base_chips = j.ability.extra.base_chips + j.ability.extra.chips_per_club
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.1,
+                        func = function()
+                            card_eval_status_text(j, 'extra', nil, nil, nil, {message = '¡Descomposición!', colour = G.C.CHIPS})
+                            return true
+                        end
+                    }))
+                end
+            end
+        end
+        -- Keep global variables for other potential synergies (like Axel)
+        G.GAME.ina_cards_destroyed_this_hand = (G.GAME.ina_cards_destroyed_this_hand or 0) + 1
+        if self:is_suit('Hearts') then G.GAME.ina_hearts_destroyed_this_hand = true end
+        if self:is_suit('Clubs') then G.GAME.ina_clubs_destroyed_this_hand = (G.GAME.ina_clubs_destroyed_this_hand or 0) + 1 end
+    end
 '''
 match_indent = true

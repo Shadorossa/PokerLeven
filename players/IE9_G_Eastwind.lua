@@ -1,7 +1,7 @@
 -- Martino Leone
 local Martino = J({
   name = "Martino",
-  pos = { x = 0, y = 9 },
+  pos = { x = 7, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -22,7 +22,7 @@ local Martino = J({
 -- Jenny Okutba
 local Jenny = J({
   name = "Jenny",
-  pos = { x = 1, y = 9 },
+  pos = { x = 8, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -43,7 +43,7 @@ local Jenny = J({
 -- Gigy Maharaja
 local Gigy = J({
   name = "Gigy",
-  pos = { x = 2, y = 9 },
+  pos = { x = 9, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -64,7 +64,7 @@ local Gigy = J({
 -- Robart Anderson
 local Robart = J({
   name = "Robart",
-  pos = { x = 3, y = 9 },
+  pos = { x = 10, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -85,7 +85,7 @@ local Robart = J({
 -- Maribelle Flanmir
 local Maribelle = J({
   name = "Maribelle",
-  pos = { x = 4, y = 9 },
+  pos = { x = 11, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -106,7 +106,7 @@ local Maribelle = J({
 -- Toyo Yamanouchi
 local Yamanouchi = J({
   name = "Yamanouchi",
-  pos = { x = 5, y = 9 },
+  pos = { x = 12, y = 5 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 3,
@@ -128,7 +128,7 @@ local Yamanouchi = J({
 -- Ming Chow
 local Ming = J({
   name = "Ming",
-  pos = { x = 6, y = 9 },
+  pos = { x = 0, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -149,7 +149,7 @@ local Ming = J({
 -- Judie Cassios
 local Judie = J({
   name = "Judie",
-  pos = { x = 7, y = 9 },
+  pos = { x = 1, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -170,7 +170,7 @@ local Judie = J({
 -- Joey Beat
 local Joey = J({
   name = "Joey",
-  pos = { x = 8, y = 9 },
+  pos = { x = 2, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -191,7 +191,7 @@ local Joey = J({
 -- Kai Yoshizaki
 local Yoshizaki = J({
   name = "Yoshizaki",
-  pos = { x = 9, y = 9 },
+  pos = { x = 3, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -212,7 +212,7 @@ local Yoshizaki = J({
 -- Sikuvot Shivan
 local Sikuvot = J({
   name = "Sikuvot",
-  pos = { x = 10, y = 9 },
+  pos = { x = 4, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -233,7 +233,7 @@ local Sikuvot = J({
 -- Olson Carchis
 local Olson = J({
   name = "Olson",
-  pos = { x = 11, y = 9 },
+  pos = { x = 5, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -254,7 +254,7 @@ local Olson = J({
 -- Mengmeng Wang
 local Mengmeng = J({
   name = "Mengmeng",
-  pos = { x = 0, y = 10 },
+  pos = { x = 6, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -275,7 +275,7 @@ local Mengmeng = J({
 -- Kain Vijet
 local Kain = J({
   name = "Kain",
-  pos = { x = 1, y = 10 },
+  pos = { x = 7, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -296,7 +296,7 @@ local Kain = J({
 -- Kaos Dao
 local Kaos = J({
   name = "Kaos",
-  pos = { x = 2, y = 10 },
+  pos = { x = 8, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
@@ -317,7 +317,7 @@ local Kaos = J({
 -- Edmond Pias
 local Edmond = J({
   name = "Edmond",
-  pos = { x = 3, y = 10 },
+  pos = { x = 9, y = 6 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,

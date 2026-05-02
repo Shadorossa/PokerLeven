@@ -1,7 +1,7 @@
 -- Grent
 local Grent = J({
     name = "Grent",
-    pos = { x = 8, y = 13 },
+    pos = { x = 7, y = 13 },
     config = { extra = { barriers_per_calcination = 1 } },
     loc_vars = function(self, info_queue, center) 
         info_queue[#info_queue+1] = {set = 'Other', key = 'Chaotic'}
@@ -41,7 +41,7 @@ end
 -- Baller
 local Baller = J({
     name = "Baller",
-    pos = { x = 9, y = 13 },
+    pos = { x = 8, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -65,7 +65,7 @@ local Baller = J({
 -- Balcke
 local Balcke = J({
     name = "Balcke",
-    pos = { x = 10, y = 13 },
+    pos = { x = 9, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -89,7 +89,7 @@ local Balcke = J({
 -- Seats
 local Seats = J({
     name = "Seats",
-    pos = { x = 11, y = 13 },
+    pos = { x = 10, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -113,7 +113,7 @@ local Seats = J({
 -- Bomber
 local Bomber = J({
     name = "Bomber",
-    pos = { x = 12, y = 13 },
+    pos = { x = 11, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -137,7 +137,7 @@ local Bomber = J({
 -- Heat
 local Heat = J({
     name = "Heat",
-    pos = { x = 0, y = 14 },
+    pos = { x = 12, y = 13 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -161,7 +161,7 @@ local Heat = J({
 -- Lean
 local Lean = J({
     name = "Lean",
-    pos = { x = 1, y = 14 },
+    pos = { x = 0, y = 14 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -185,7 +185,7 @@ local Lean = J({
 -- Bountine
 local Bountine = J({
     name = "Bountine",
-    pos = { x = 2, y = 14 },
+    pos = { x = 1, y = 14 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -209,7 +209,7 @@ local Bountine = J({
 -- Sidern
 local Sidern = J({
     name = "Sidern",
-    pos = { x = 3, y = 14 },
+    pos = { x = 2, y = 14 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -273,7 +273,7 @@ local Torch = J({
 -- Neppten
 local Neppten = J({
     name = "Neppten",
-    pos = { x = 5, y = 14 },
+    pos = { x = 3, y = 14 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -296,5 +296,5 @@ local Neppten = J({
 
 return {
     name = "Prominence",
-    list = { Grent, Baller, Balcke, Seats, Bomber, Heat, Lean, Bountine, Sidern, Torch, Neppten }
+    list = { Torch }
 }

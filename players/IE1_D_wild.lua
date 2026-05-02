@@ -1,7 +1,7 @@
 -- Boar
 local Boar = J({
     name = "Boar",
-    pos = { x = 10, y = 3 },
+    pos = { x = 6, y = 3 },
     config = { extra = { triggered = false, cards_removed = 0 } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -49,7 +49,7 @@ local Boar = J({
 -- Chicken
 local Chicken = J({
     name = "Chicken",
-    pos = { x = 11, y = 3 },
+    pos = { x = 7, y = 3 },
     config = { extra = { money = 4, odds = 2, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.money } }
@@ -85,7 +85,7 @@ local Chicken = J({
 -- Fishman
 local Fishman = J({
   name = "Fishman",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 8, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -109,7 +109,7 @@ local Fishman = J({
 -- Toad
 local Toad = J({
   name = "Toad",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 9, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -133,7 +133,7 @@ local Toad = J({
 -- Lion
 local Lion = J({
   name = "Lion",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 10, y = 3 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -157,7 +157,7 @@ local Lion = J({
 -- Chamaleon
 local Chamaleon = J({
     name = "Chamaleon",
-    pos = { x = 2, y = 4 },
+    pos = { x = 11, y = 3 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -230,7 +230,7 @@ local Chamaleon = J({
 -- Eagle
 local Eagle = J({
     name = "Eagle",
-    pos = { x = 3, y = 4 },
+    pos = { x = 12, y = 3 },
     config = { extra = { current_mult = 0, mult_mod_low = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
@@ -280,7 +280,7 @@ local Eagle = J({
 -- Monkey
 local Monkey = J({
     name = "Monkey",
-    pos = { x = 4, y = 4 },
+    pos = { x = 0, y = 4 },
     config = { extra = { wild_count = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
     local wild_players = #find_player_team('ina_team_Wild')
@@ -329,7 +329,7 @@ local Monkey = J({
 -- Gorilla
 local Gorilla = J({
     name = "Gorilla",
-    pos = { x = 5, y = 4 },
+    pos = { x = 1, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -364,7 +364,7 @@ local Gorilla = J({
 -- Snake
 local Snake = J({
   name = "Snake",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 2, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -388,7 +388,7 @@ local Snake = J({
 -- Cheetah
 local Cheetah = J({
     name = "Cheetah",
-    pos = { x = 7, y = 4 },
+    pos = { x = 3, y = 4 },
     config = { extra = { current_element = "Wind", possible_elements = { "Wind", "Fire", "Forest", "Mountain" }, triggered = false } },
     loc_vars = function(self, info_queue, center)
         G.ARGS.LOC_COLOURS["select_element"] = G.ARGS.LOC_COLOURS[string.lower(center.ability.extra.current_element)] or
@@ -446,7 +446,7 @@ local Cheetah = J({
 -- Bullford
 local Bullford = J({
   name = "Bullford",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 4, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -470,7 +470,7 @@ local Bullford = J({
 -- Koala
 local Koala = J({
   name = "Koala",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 5, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -494,7 +494,7 @@ local Koala = J({
 -- Panda
 local Panda = J({
   name = "Panda",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 6, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -518,7 +518,7 @@ local Panda = J({
 -- Raccoon
 local Raccoon = J({
   name = "Raccoon",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 7, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -542,7 +542,7 @@ local Raccoon = J({
 -- Mouseman
 local Mouseman = J({
   name = "Mouseman",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 8, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

@@ -29,7 +29,7 @@ end
 
 local Dulce = J({
     name = "Dulce",
-    pos = { x = 10, y = 0 },
+    pos = { x = 0, y = 0 },
     config = { extra = { card_count1 = 1 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.card_count1 } }
@@ -38,7 +38,7 @@ local Dulce = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
+    ptype = C.Wind,
     pposition = "DF",
     pteam = "ina_team_Scout",
     blueprint_compat = true,
@@ -52,7 +52,7 @@ local Dulce = J({
 -- Ryoma
 local Ryoma = J({
     name = "Ryoma",
-    pos = { x = 9, y = 0 },
+    pos = { x = 1, y = 0 },
     config = { extra = { current_mult = 0, mult_mod_low = 2 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
@@ -61,8 +61,8 @@ local Ryoma = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Mountain",
-    pposition = "GK",
+    ptype = C.Mountain,
+    pposition = C.GK,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -94,7 +94,7 @@ local Ryoma = J({
 -- Blazer
 local Blazer = J({
     name = "Blazer",
-    pos = { x = 1, y = 0 },
+    pos = { x = 2, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -103,8 +103,8 @@ local Blazer = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Fire",
-    pposition = "GK",
+    ptype = C.Fire,
+    pposition = C.GK,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     allow_element_application = true,
@@ -119,7 +119,7 @@ local Blazer = J({
 -- Weathervane
 local Weathervane = J({
     name = "Weathervane",
-    pos = { x = 2, y = 0 },
+    pos = { x = 3, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -128,7 +128,7 @@ local Weathervane = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
+    ptype = C.Wind,
     pposition = "DF",
     pteam = "ina_team_Scout",
     blueprint_compat = true,
@@ -144,7 +144,7 @@ local Weathervane = J({
 -- Noggin
 local Noggin = J({
     name = "Noggin",
-    pos = { x = 3, y = 0 },
+    pos = { x = 4, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -153,7 +153,7 @@ local Noggin = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Forest",
+    ptype = C.Forest,
     pposition = "MF",
     pteam = "ina_team_Scout",
     blueprint_compat = true,
@@ -169,7 +169,7 @@ local Noggin = J({
 -- Montayne
 local Montayne = J({
     name = "Montayne",
-    pos = { x = 6, y = 0 },
+    pos = { x = 5, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -178,8 +178,8 @@ local Montayne = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Mountain",
-    pposition = "FW",
+    ptype = C.Mountain,
+    pposition = C.FW,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     allow_element_application = true,
@@ -194,7 +194,7 @@ local Montayne = J({
 -- Chester
 local Chester = J({
     name = "Chester",
-    pos = { x = 4, y = 0 },
+    pos = { x = 6, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -203,7 +203,7 @@ local Chester = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Forest",
+    ptype = C.Forest,
     pposition = "MF",
     pteam = "ina_team_Scout",
     blueprint_compat = true,
@@ -224,7 +224,7 @@ local Mach = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = C.Wind,
+    ptype = C.Fire,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
     pteam = "ina_team_Scout",
@@ -255,7 +255,7 @@ local Mach = J({
 })
 
 -- Miles
-local Miles = {
+local Miles = J({
     name = "Miles",
     pos = { x = 8, y = 0 },
     config = { extra = {} },
@@ -266,19 +266,19 @@ local Miles = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
+    ptype = C.Wind,
     pposition = "DF",
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Ace Server
 local Ace_Server = J({
     name = "Ace_Server",
-    pos = { x = 0, y = 0 },
+    pos = { x = 9, y = 0 },
     config = { extra = { odds4 = 4, hand_level_up = 1, ammount_needed = 2, rank_played = 14, } },
     loc_vars = function(self, info_queue, center)
         return {
@@ -309,7 +309,7 @@ local Ace_Server = J({
 -- Rex George
 local Rex_George = J({
     name = "Rex_George",
-    pos = { x = 0, y = 1 },
+    pos = { x = 10, y = 0 },
     config = { extra = { needed_rank = { 2, 3, 4 }, converted_rank = 9 } },
     loc_vars = function(self, info_queue, center)
         local needed_ranks_str = table.concat(center.ability.extra.needed_rank, ", ")
@@ -349,9 +349,9 @@ local Rex_George = J({
 
 -- Versión 0.2
 -- George
-local George = {
+local George = J({
     name = "George",
-    pos = { x = 5, y = 0 },
+    pos = { x = 11, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -360,19 +360,19 @@ local George = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Forest",
-    pposition = "FW",
+    ptype = C.Forest,
+    pposition = C.FW,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Spring
-local Spring = {
+local Spring = J({
     name = "Spring",
-    pos = { x = 4, y = 1 },
+    pos = { x = 12, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -381,19 +381,19 @@ local Spring = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Fire",
-    pposition = "MF",
+    ptype = C.Fire,
+    pposition = C.MF,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Summer
-local Summer = {
+local Summer = J({
     name = "Summer",
-    pos = { x = 3, y = 1 },
+    pos = { x = 0, y = 1 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -402,19 +402,19 @@ local Summer = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Mountain",
-    pposition = "DF",
+    ptype = C.Mountain,
+    pposition = C.DF,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Autumn
-local Autumn = {
+local Autumn = J({
     name = "Autumn",
-    pos = { x = 2, y = 1 },
+    pos = { x = 1, y = 1 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -423,19 +423,19 @@ local Autumn = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
-    pposition = "GK",
+    ptype = C.Wind,
+    pposition = C.GK,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Heart
 local Heart = J({
     name = "Heart",
-    pos = { x = 7, y = 1 },
+    pos = { x = 2, y = 1 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -455,7 +455,7 @@ local Heart = J({
 -- Clover
 local Clover = J({
     name = "Clover",
-    pos = { x = 8, y = 1 },
+    pos = { x = 3, y = 1 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -475,7 +475,7 @@ local Clover = J({
 -- Diamond
 local Diamond = J({
     name = "Diamond",
-    pos = { x = 9, y = 1 },
+    pos = { x = 4, y = 1 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -495,7 +495,7 @@ local Diamond = J({
 -- Spade
 local Spade = J({
     name = "Spade",
-    pos = { x = 10, y = 1 },
+    pos = { x = 5, y = 1 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -512,7 +512,55 @@ local Spade = J({
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Spades', 'Wind', true) end end
 })
 
-local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade }
+-- Tom Skipper
+local Tom_Skipper = J({
+    name = "Tom Skipper",
+    pos = { x = 6, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.UNKNOWN,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Ian Flappable
+local Ian_Flappable = J({
+    name = "Ian Flappable",
+    pos = { x = 7, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pgender = C.M,
+    pnation = C.UNKNOWN,
+    pyear = C.YEAR_3,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade, Miles, George, Spring, Summer, Autumn, Tom_Skipper, Ian_Flappable }
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers then
     table.insert(list, 1, Dulce)
     table.insert(list, 2, Ryoma)

@@ -201,7 +201,40 @@ local Genesis = {
 	cards = {},
 }
 
+local EiseiGakuen = { object_type = "ObjectType", key = "Eisei Gakuen", default = "v_blank", cards = {} }
+local InakuniRaimon = { object_type = "ObjectType", key = "Inakuni Raimon", default = "v_blank", cards = {} }
+local KnightsOfQueen = { object_type = "ObjectType", key = "Knights of Queen", default = "v_blank", cards = {} }
+local BigWaves = { object_type = "ObjectType", key = "Big Waves", default = "v_blank", cards = {} }
+local DesertLion = { object_type = "ObjectType", key = "Desert Lion", default = "v_blank", cards = {} }
+local NeoJapan = { object_type = "ObjectType", key = "Neo Japan", default = "v_blank", cards = {} }
+local FireDragon = { object_type = "ObjectType", key = "Fire Dragon", default = "v_blank", cards = {} }
+local BrockenBrigade = { object_type = "ObjectType", key = "Brocken Brigade", default = "v_blank", cards = {} }
+local RoseGryphon = { object_type = "ObjectType", key = "Rose Gryphon", default = "v_blank", cards = {} }
+local RedMatadors = { object_type = "ObjectType", key = "Red Matadors", default = "v_blank", cards = {} }
+local TeamD = { object_type = "ObjectType", key = "Team D", default = "v_blank", cards = {} }
+local TheEmpire = { object_type = "ObjectType", key = "The Empire", default = "v_blank", cards = {} }
+local Unicorn = { object_type = "ObjectType", key = "Unicorn", default = "v_blank", cards = {} }
+local Orpheus = { object_type = "ObjectType", key = "Orpheus", default = "v_blank", cards = {} }
+local TeamZoolan = { object_type = "ObjectType", key = "Team Zoolan", default = "v_blank", cards = {} }
+local TheKingdom = { object_type = "ObjectType", key = "The Kingdom", default = "v_blank", cards = {} }
+local LittleGigant = { object_type = "ObjectType", key = "Little Gigant", default = "v_blank", cards = {} }
+local Ogre = { object_type = "ObjectType", key = "Ogre", default = "v_blank", cards = {} }
+local SkyTeam = { object_type = "ObjectType", key = "Sky Team", default = "v_blank", cards = {} }
+local DarkTeam = { object_type = "ObjectType", key = "Dark Team", default = "v_blank", cards = {} }
+local RaimonGO = { object_type = "ObjectType", key = "Raimon GO", default = "v_blank", cards = {} }
+local ProtocolOmega = { object_type = "ObjectType", key = "Protocol Omega", default = "v_blank", cards = {} }
+local ZanarkDomain = { object_type = "ObjectType", key = "Zanark Domain", default = "v_blank", cards = {} }
+local PerfectCascade = { object_type = "ObjectType", key = "Perfect Cascade", default = "v_blank", cards = {} }
+local ChronoStorm = { object_type = "ObjectType", key = "Chrono Storm", default = "v_blank", cards = {} }
+local Ragnah = { object_type = "ObjectType", key = "Ragnah", default = "v_blank", cards = {} }
+
 return {
 	name = "Types",
-	list = { Raimon, Occult, Royal, Wild, Brain, Otaku, Farm, InazumaEleven, Kirkwood, Shuriken, Zeus, Training, InazumaJapan, Scout, Torneo, TormentaGeminis, ServicioSecreto, Alpino, Epsilon, RoyalRedux, EmperadoresOscuros, PolvoDiamantes, Prominence, ZeusAres, ClaustroSagrado, OsakaCCC, Fauxshore, MaryTimes, Genesis }
+	list = { 
+		Raimon, Occult, Royal, Wild, Brain, Otaku, Farm, InazumaEleven, Kirkwood, Shuriken, Zeus, Training, InazumaJapan, Scout, Torneo, 
+		TormentaGeminis, ServicioSecreto, Alpino, Epsilon, RoyalRedux, EmperadoresOscuros, PolvoDiamantes, Prominence, ZeusAres, 
+		ClaustroSagrado, OsakaCCC, Fauxshore, MaryTimes, Genesis, EiseiGakuen, InakuniRaimon, KnightsOfQueen, BigWaves, DesertLion, 
+		NeoJapan, FireDragon, BrockenBrigade, RoseGryphon, RedMatadors, TeamD, TheEmpire, Unicorn, Orpheus, TeamZoolan, TheKingdom, 
+		LittleGigant, Ogre, SkyTeam, DarkTeam, RaimonGO, ProtocolOmega, ZanarkDomain, PerfectCascade, ChronoStorm, Ragnah 
+	}
 }

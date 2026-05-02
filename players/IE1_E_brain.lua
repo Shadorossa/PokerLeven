@@ -1,7 +1,7 @@
 -- Feldt
 local Feldt = J({
     name = "Feldt",
-    pos = { x = 0, y = 5 },
+    pos = { x = 9, y = 4 },
     config = { extra = { barriers_added = 1, Xmult_mod = 1, barriers = 4 } },
     loc_vars = function(self, info_queue, center)
         local Xmult_mod = center.ability.extra.Xmult_mod
@@ -53,7 +53,7 @@ local Feldt = J({
 -- Leading
 local Leading = J({
   name = "Leading",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 10, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -77,7 +77,7 @@ local Leading = J({
 -- Stronger
 local Stronger = J({
   name = "Stronger",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 11, y = 4 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -101,7 +101,7 @@ local Stronger = J({
 -- Marvel
 local Marvel = J({
     name = "Marvel",
-    pos = { x = 3, y = 5 },
+    pos = { x = 12, y = 4 },
     config = { extra = { mult_mod = 10, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mult_mod } }
@@ -147,7 +147,7 @@ local Marvel = J({
 -- Good
 local Good = J({
   name = "Good",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 0, y = 5 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -171,7 +171,7 @@ local Good = J({
 -- Rock
 local Rock = J({
   name = "Rock",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 1, y = 5 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -195,7 +195,7 @@ local Rock = J({
 -- Tell
 local Tell = J({
     name = "Tell",
-    pos = { x = 6, y = 5 },
+    pos = { x = 2, y = 5 },
     config = { extra = { Xchips_mod = 3.1416 } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -236,7 +236,7 @@ local Tell = J({
 -- Busta
 local Busta = J({
   name = "Busta",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 3, y = 5 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -260,7 +260,7 @@ local Busta = J({
 -- Seller
 local Seller = J({
     name = "Seller",
-    pos = { x = 8, y = 5 },
+    pos = { x = 4, y = 5 },
     config = { extra = { sell_potential = 0, sell_mod = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.sell_potential, center.ability.extra.sell_mod } }
@@ -313,7 +313,7 @@ local Seller = J({
 -- Kind
 local Kind = J({
     name = "Kind",
-    pos = { x = 9, y = 5 },
+    pos = { x = 5, y = 5 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -369,7 +369,7 @@ local Kind = J({
 -- Turner
 local Turner = J({
     name = "Turner",
-    pos = { x = 10, y = 5 },
+    pos = { x = 6, y = 5 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -405,7 +405,7 @@ local Turner = J({
 -- Under
 local Under = J({
     name = "Under",
-    pos = { x = 11, y = 5 },
+    pos = { x = 7, y = 5 },
     config = { extra = { chips_mod = 120, triggered = false } },
     loc_vars = function(self, info_queue, center)
         local gkCount = #find_player_position("GK") or 0
@@ -443,7 +443,7 @@ local Under = J({
 -- Stiller
 local Stiller = J({
   name = "Stiller",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 8, y = 5 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -467,7 +467,7 @@ local Stiller = J({
 -- Oughtry
 local Oughtry = J({
   name = "Oughtry",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 9, y = 5 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -491,7 +491,7 @@ local Oughtry = J({
 -- Mooney
 local Mooney = J({
   name = "Mooney",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 10, y = 5 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -515,7 +515,7 @@ local Mooney = J({
 -- Waters
 local Waters = J({
   name = "Waters",
-  pos = { x = 0, y = 0 }, -- Placeholder pos
+    pos = { x = 11, y = 5 }, -- Placeholder pos
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

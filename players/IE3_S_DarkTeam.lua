@@ -1,6 +1,6 @@
 local Astaroth = J({
   name = "Astaroth",
-  pos = { x = 3, y = 17 },
+  pos = { x = 4, y = 21 },
   config = { extra = { extra_hands = 1, played_count = 0, current_extra = 1, threshold = 10 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.extra_hands, center.ability.extra.played_count, center.ability.extra.current_extra, center.ability.extra.threshold } }
@@ -50,7 +50,7 @@ local Astaroth = J({
 
 local Rubu = J({
   name = "Rubú",
-  pos = { x = 4, y = 17 },
+  pos = { x = 5, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -71,7 +71,7 @@ local Rubu = J({
 
 local Agor = J({
   name = "Agor",
-  pos = { x = 5, y = 17 },
+  pos = { x = 6, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -92,7 +92,7 @@ local Agor = J({
 
 local Hebimos = J({
   name = "Hebimos",
-  pos = { x = 6, y = 17 },
+  pos = { x = 7, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -113,7 +113,7 @@ local Hebimos = J({
 
 local Belal = J({
   name = "Belal",
-  pos = { x = 7, y = 17 },
+  pos = { x = 8, y = 21 },
   config = { extra = { reduction = 0.85 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { (1 - center.ability.extra.reduction) * 100 } }
@@ -150,7 +150,7 @@ local Belal = J({
 
 local Malphas = J({
   name = "Malphas",
-  pos = { x = 8, y = 17 },
+  pos = { x = 9, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -171,7 +171,7 @@ local Malphas = J({
 
 local Gorja = J({
   name = "Gorja",
-  pos = { x = 9, y = 17 },
+  pos = { x = 10, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -192,7 +192,7 @@ local Gorja = J({
 
 local Arakune = J({
   name = "Arakune",
-  pos = { x = 10, y = 17 },
+  pos = { x = 11, y = 21 },
   config = { extra = { odds = 3 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.odds, G.GAME.probabilities.normal or 1 } }
@@ -227,7 +227,7 @@ local Arakune = J({
 
 local Borba = J({
   name = "Borba",
-  pos = { x = 11, y = 17 },
+  pos = { x = 12, y = 21 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -248,7 +248,7 @@ local Borba = J({
 
 local Zanos = J({
   name = "Zanos",
-  pos = { x = 12, y = 17 },
+  pos = { x = 0, y = 22 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -269,8 +269,8 @@ local Zanos = J({
 
 local Destra = J({
   name = "Destra",
-  pos = { x = 3, y = 2 },
-  soul_pos = { x = 3, y = 3 },
+  pos = { x = 2, y = 0 },
+  soul_pos = { x = 2, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Destra = J({
   rarity = 2,
   pools = { ["Dark Team"] = true },
   cost = 5,
-  atlas = "ina_top",
+  atlas = "top",
   ptype = C.Mountain,
   pposition = C.FW,
   pgender = C.M,

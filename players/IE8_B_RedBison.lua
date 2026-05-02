@@ -1,6 +1,6 @@
 local RaeWon = J({
     name = "Shin Rae-won",
-    pos = { x = 1, y = 5 },
+    pos = { x = 12, y = 1 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -21,7 +21,7 @@ local RaeWon = J({
 
 local DoDoon = J({
     name = "Hwang Do-yoon",
-    pos = { x = 2, y = 5 },
+    pos = { x = 0, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -42,7 +42,7 @@ local DoDoon = J({
 
 local YoungWoo = J({
     name = "Kim Young-woo",
-    pos = { x = 3, y = 5 },
+    pos = { x = 1, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -63,7 +63,7 @@ local YoungWoo = J({
 
 local SeoAh = J({
     name = "Sung Seo-ah",
-    pos = { x = 4, y = 5 },
+    pos = { x = 2, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -84,7 +84,7 @@ local SeoAh = J({
 
 local YuHwan = J({
     name = "Park Yu-hwan",
-    pos = { x = 5, y = 5 },
+    pos = { x = 3, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -105,7 +105,7 @@ local YuHwan = J({
 
 local Younghoon = J({
     name = "Young Ji-hoon",
-    pos = { x = 6, y = 5 },
+    pos = { x = 4, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -126,7 +126,7 @@ local Younghoon = J({
 
 local SeungJin = J({
     name = "Lee Seung-jin",
-    pos = { x = 7, y = 5 },
+    pos = { x = 5, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -147,7 +147,7 @@ local SeungJin = J({
 
 local Seok = J({
     name = "Seok Min-woo",
-    pos = { x = 8, y = 5 },
+    pos = { x = 6, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -169,7 +169,7 @@ local Seok = J({
 
 local JiWon = J({
     name = "Park Ji-won",
-    pos = { x = 9, y = 5 },
+    pos = { x = 7, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -190,7 +190,7 @@ local JiWon = J({
 
 local Baek = J({
     name = "Baek Shi-woo",
-    pos = { x = 10, y = 5 },
+    pos = { x = 8, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -211,7 +211,7 @@ local Baek = J({
 
 local DongHyuk = J({
     name = "Lee Dong-hyuk",
-    pos = { x = 11, y = 5 },
+    pos = { x = 9, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -232,7 +232,7 @@ local DongHyuk = J({
 
 local EunChang = J({
     name = "Heo Eun-chang",
-    pos = { x = 12, y = 5 },
+    pos = { x = 10, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -253,7 +253,7 @@ local EunChang = J({
 
 local MinSoo = J({
     name = "Sung Min-soo",
-    pos = { x = 0, y = 6 },
+    pos = { x = 11, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }
@@ -274,7 +274,7 @@ local MinSoo = J({
 
 local JungPyo = J({
     name = "Ha Jung-pyo",
-    pos = { x = 1, y = 6 },
+    pos = { x = 12, y = 2 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return { vars = {} }

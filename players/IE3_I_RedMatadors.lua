@@ -1,7 +1,7 @@
 -- Alfonso Íñigo (1)
 local Alfonso_Inigo = J({
   name = "Alfonso Íñigo",
-  pos = { x = 0, y = 8 },
+  pos = { x = 11, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -24,7 +24,7 @@ local Alfonso_Inigo = J({
 -- José Costa (2)
 local Jose_Costa = J({
   name = "José Costa",
-  pos = { x = 1, y = 8 },
+  pos = { x = 12, y = 9 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -47,7 +47,7 @@ local Jose_Costa = J({
 -- José López (3)
 local Jose_Lopez = J({
   name = "José López",
-  pos = { x = 2, y = 8 },
+  pos = { x = 0, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -70,7 +70,7 @@ local Jose_Lopez = J({
 -- Antonio Garrido (4)
 local Antonio_Garrido = J({
   name = "Antonio Garrido",
-  pos = { x = 3, y = 8 },
+  pos = { x = 1, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -93,7 +93,7 @@ local Antonio_Garrido = J({
 -- Víctor García (5)
 local Victor_Garcia = J({
   name = "Víctor García",
-  pos = { x = 4, y = 8 },
+  pos = { x = 2, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -117,7 +117,7 @@ local Victor_Garcia = J({
 -- Joan Rodríguez (6)
 local Joan_Rodriguez = J({
   name = "Joan Rodríguez",
-  pos = { x = 5, y = 8 },
+  pos = { x = 3, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -140,7 +140,7 @@ local Joan_Rodriguez = J({
 -- Igor Ferreira (7)
 local Igor_Ferreira = J({
   name = "Igor Ferreira",
-  pos = { x = 6, y = 8 },
+  pos = { x = 4, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -163,7 +163,7 @@ local Igor_Ferreira = J({
 -- Miguel Pereira (8)
 local Miguel_Pereira = J({
   name = "Miguel Pereira",
-  pos = { x = 7, y = 8 },
+  pos = { x = 5, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -186,7 +186,7 @@ local Miguel_Pereira = J({
 -- Borja Costa (9)
 local Borja_Costa = J({
   name = "Borja Costa",
-  pos = { x = 8, y = 8 },
+  pos = { x = 6, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -209,7 +209,7 @@ local Borja_Costa = J({
 -- Mateo Bonachea (10)
 local Mateo_Bonachea = J({
   name = "Mateo Bonachea",
-  pos = { x = 9, y = 8 },
+  pos = { x = 7, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -232,7 +232,7 @@ local Mateo_Bonachea = J({
 -- Miguel Jiménez (11)
 local Miguel_Jimenez = J({
   name = "Miguel Jiménez",
-  pos = { x = 10, y = 8 },
+  pos = { x = 8, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -255,7 +255,7 @@ local Miguel_Jimenez = J({
 -- Juan Espindola (12)
 local Juan_Espindola = J({
   name = "Juan Espindola",
-  pos = { x = 11, y = 8 },
+  pos = { x = 9, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -278,7 +278,7 @@ local Juan_Espindola = J({
 -- Isaac César (13)
 local Isaac_Cesar = J({
   name = "Isaac César",
-  pos = { x = 12, y = 8 },
+  pos = { x = 10, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -301,7 +301,7 @@ local Isaac_Cesar = J({
 -- Laudelino Castor (14)
 local Laudelino_Castor = J({
   name = "Laudelino Castor",
-  pos = { x = 13, y = 8 },
+  pos = { x = 11, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -324,7 +324,7 @@ local Laudelino_Castor = J({
 -- Carlos Arroyo (15)
 local Carlos_Arroyo = J({
   name = "Carlos Arroyo",
-  pos = { x = 14, y = 8 },
+  pos = { x = 12, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -347,7 +347,7 @@ local Carlos_Arroyo = J({
 -- Federico Rubiera (16)
 local Federico_Rubiera = J({
   name = "Federico Rubiera",
-  pos = { x = 15, y = 8 },
+  pos = { x = 0, y = 11 },
   config = { extra = {} },
   loc_vars = function(self, info, center)
     return { vars = {} }
@@ -369,9 +369,5 @@ local Federico_Rubiera = J({
 
 return {
   name = "Red Matadors",
-  list = {
-    Alfonso_Inigo, Jose_Costa, Jose_Lopez, Antonio_Garrido, Victor_Garcia,
-    Joan_Rodriguez, Igor_Ferreira, Miguel_Pereira, Borja_Costa, Mateo_Bonachea,
-    Miguel_Jimenez, Juan_Espindola, Isaac_Cesar, Laudelino_Castor, Carlos_Arroyo, Federico_Rubiera
-  }
+  list = {}
 }

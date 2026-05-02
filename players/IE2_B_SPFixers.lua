@@ -1,7 +1,7 @@
 -- ironwall
 local ironwall = J({
   name = "ironwall",
-  pos = { x = 12, y = 0 },
+  pos = { x = 11, y = 0 },
   config = { extra = { chip_mod = 30 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chip_mod } }
@@ -35,7 +35,7 @@ local ironwall = J({
 -- Western
 local Western = J({
   name = "Western",
-  pos = { x = 0, y = 1 },
+  pos = { x = 12, y = 0 },
   config = { extra = { levels_per_card = 2, pending_cards = 0 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -83,7 +83,7 @@ local Western = J({
 -- Hammond
 local hammond = J({
   name = "Hammond",
-  pos = { x = 1, y = 1 },
+  pos = { x = 0, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -107,7 +107,7 @@ local hammond = J({
 -- Stevens
 local stevens = J({
   name = "Stevens",
-  pos = { x = 2, y = 1 },
+  pos = { x = 1, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -131,7 +131,7 @@ local stevens = J({
 -- Smith
 local smith = J({
   name = "Smith",
-  pos = { x = 3, y = 1 },
+  pos = { x = 2, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -155,7 +155,7 @@ local smith = J({
 -- Firepool
 local Firepool = J({
   name = "Firepool",
-  pos = { x = 4, y = 1 },
+  pos = { x = 3, y = 1 },
   config = { extra = { retriggers = 1 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.retriggers } }
@@ -200,7 +200,7 @@ local Firepool = J({
 -- Agente M (Fielding)
 local fielding = J({
   name = "fielding",
-  pos = { x = 5, y = 1 },
+  pos = { x = 4, y = 1 },
   config = { extra = { scry_mod = 1, money = 2 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.scry_mod, center.ability.extra.money } }
@@ -247,7 +247,7 @@ local fielding = J({
 -- Firsthand
 local firsthand = J({
   name = "Firsthand",
-  pos = { x = 6, y = 1 },
+  pos = { x = 5, y = 1 },
   config = { extra = { stat_mult = 2.5, hands_lost = 0 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { (center.ability.extra.stat_mult - 1) * 100 } }
@@ -328,7 +328,7 @@ local firsthand = J({
 -- Mirror
 local mirror = J({
   name = "Mirror",
-  pos = { x = 7, y = 1 },
+  pos = { x = 6, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -352,7 +352,7 @@ local mirror = J({
 -- Tori
 local Tori = J({
   name = "Tori",
-  pos = { x = 8, y = 1 },
+  pos = { x = 7, y = 1 },
   config = { extra = { stone_bonus = 0.05, accumulation = 0, counted_stones = 0 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
@@ -421,7 +421,7 @@ local Tori = J({
 -- Kennedy
 local kennedy = J({
   name = "Kennedy",
-  pos = { x = 10, y = 1 },
+  pos = { x = 8, y = 1 },
   config = { extra = { xmult = 2, xmult_ace = 3.5, last_discount = 0 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra; return { vars = { ex.xmult, ex.xmult_ace, #find_player_team("ina_team_ServicioSecreto") } }
@@ -467,7 +467,7 @@ local kennedy = J({
 -- Sights
 local sights = J({
   name = "Sights",
-  pos = { x = 11, y = 1 },
+  pos = { x = 9, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -491,7 +491,7 @@ local sights = J({
 -- Beray
 local beray = J({
   name = "Beray",
-  pos = { x = 12, y = 1 },
+  pos = { x = 10, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return {} end,
   rarity = 2,
@@ -527,7 +527,7 @@ local beray = J({
 -- Tappin (Toppin)
 local toppin = J({
   name = "Toppin",
-  pos = { x = 0, y = 2 },
+  pos = { x = 11, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -551,7 +551,7 @@ local toppin = J({
 -- Shadey
 local shadey = J({
   name = "Shadey",
-  pos = { x = 1, y = 2 },
+  pos = { x = 12, y = 1 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -575,7 +575,7 @@ local shadey = J({
 -- Safehouse
 local safehouse = J({
   name = "Safehouse",
-  pos = { x = 2, y = 2 },
+  pos = { x = 0, y = 2 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}

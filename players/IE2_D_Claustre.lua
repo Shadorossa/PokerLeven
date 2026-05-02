@@ -1,6 +1,6 @@
 local Kik = J({
   name = "Kik",
-  pos = { x = 8, y = 3 },
+  pos = { x = 4, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -22,7 +22,7 @@ local Kik = J({
 
 local Waxon = J({
   name = "Waxon",
-  pos = { x = 9, y = 3 },
+  pos = { x = 5, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -43,7 +43,7 @@ local Waxon = J({
 
 local Sparky = J({
   name = "Sparky",
-  pos = { x = 10, y = 3 },
+  pos = { x = 6, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -64,7 +64,7 @@ local Sparky = J({
 
 local Maxi = J({
   name = "Maxi",
-  pos = { x = 11, y = 3 },
+  pos = { x = 7, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -85,7 +85,7 @@ local Maxi = J({
 
 local Water = J({
   name = "Water",
-  pos = { x = 12, y = 3 },
+  pos = { x = 8, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -106,7 +106,7 @@ local Water = J({
 
 local Fardream = J({
   name = "Fardream",
-  pos = { x = 0, y = 4 },
+  pos = { x = 9, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -127,7 +127,7 @@ local Fardream = J({
 
 local Telektual = J({
   name = "Telektual",
-  pos = { x = 1, y = 4 },
+  pos = { x = 10, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -148,7 +148,7 @@ local Telektual = J({
 
 local Dinglite = J({
   name = "Dinglite",
-  pos = { x = 2, y = 4 },
+  pos = { x = 11, y = 3 },
   config = { extra = { mult = 0, gain = 5 } },
   loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.mult, center.ability.extra.gain } } end,
   rarity = 1,
@@ -175,7 +175,7 @@ local Dinglite = J({
 
 local Marshall = J({
   name = "Marshall",
-  pos = { x = 3, y = 4 },
+  pos = { x = 12, y = 3 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -196,7 +196,7 @@ local Marshall = J({
 
 local Wando = J({
   name = "Wando",
-  pos = { x = 4, y = 4 },
+  pos = { x = 0, y = 4 },
   config = { extra = { repetitions = 2 } },
   loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.repetitions } } end,
   rarity = 1,
@@ -227,7 +227,7 @@ local Wando = J({
 
 local Dirk = J({
   name = "Dirk",
-  pos = { x = 5, y = 4 },
+  pos = { x = 1, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -248,7 +248,7 @@ local Dirk = J({
 
 local Scotty = J({
   name = "Scotty",
-  pos = { x = 6, y = 4 },
+  pos = { x = 2, y = 4 },
   config = { extra = { chips = 50, odds = 4 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips, G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
@@ -282,8 +282,7 @@ local Scotty = J({
 
 local Scotty_Angry = J({
   name = "Scotty_Angry",
-  pos = { x = 6, y = 4 },
-  soul_pos = { x = 7, y = 4 },
+  pos = { x = 3, y = 4 },
   config = { extra = { chips = 100 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips } }
@@ -329,7 +328,7 @@ local Scotty_Angry = J({
 
 local Bookworm = J({
   name = "Bookworm",
-  pos = { x = 9, y = 4 },
+  pos = { x = 4, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -350,7 +349,7 @@ local Bookworm = J({
 
 local Gami = J({
   name = "Gami",
-  pos = { x = 10, y = 4 },
+  pos = { x = 5, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -371,7 +370,7 @@ local Gami = J({
 
 local Kandel = J({
   name = "Kandel",
-  pos = { x = 11, y = 4 },
+  pos = { x = 6, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
@@ -392,7 +391,7 @@ local Kandel = J({
 
 local Ation = J({
   name = "Ation",
-  pos = { x = 12, y = 4 },
+  pos = { x = 7, y = 4 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return { vars = {} }
