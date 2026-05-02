@@ -1,4 +1,4 @@
--- Hillman
+﻿-- Hillman
 local Hillman_Veteran = J({
   name = "Hillman",
   pos = { x = 2, y = 7 },
@@ -44,11 +44,11 @@ local Hillman_Veteran = J({
 local Island_Veteran = J({
   name = "Island",
   pos = { x = 3, y = 7 },
-  config = { extra = { current_chips = 0, chips_mod = 20, triggered = false } },
+  config = { extra = { current_chips = 0, chip_mod = 20, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {
       vars = {
-        center.ability.extra.chips_mod,
+        center.ability.extra.chip_mod,
         center.ability.extra.current_chips
       }
     }
@@ -69,7 +69,7 @@ local Island_Veteran = J({
   calculate = function(self, card, context)
     if context.before and context.cardarea == G.jokers
         and next(context.poker_hands['Two Pair']) and not context.blueprint then
-      card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.chips_mod
+      card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.chip_mod
 
       card.ability.extra.triggered = true
       return {
@@ -167,7 +167,7 @@ local Butler_Veteran = J({
   config = {
     extra = {
       dollars_mod = 4,
-      chips_mod = 1,
+      chip_mod = 1,
       triggered = false,
       bankrupt_at = 20
     }
@@ -175,7 +175,7 @@ local Butler_Veteran = J({
   loc_vars = function(self, info_queue, center)
     return {
       vars = { center.ability.extra.bankrupt_at, center.ability.extra.dollars_mod,
-        center.ability.extra.chips_mod }
+        center.ability.extra.chip_mod }
     }
   end,
   rarity = 1,
@@ -194,7 +194,7 @@ local Butler_Veteran = J({
     if context.individual and context.scoring_hand and context.cardarea == G.play
         and context.other_card and G.GAME.dollars < 0 then
       local raw_division = -G.GAME.dollars / 4
-      local chips_to_add = math.floor(raw_division) * card.ability.extra.chips_mod
+      local chips_to_add = math.floor(raw_division) * card.ability.extra.chip_mod
       if chips_to_add ~= 0 then
         context.other_card.ability.bonus =
             context.other_card.ability.bonus + chips_to_add
@@ -291,9 +291,9 @@ local Tailor_Veteran = J({
 local Barista_Veteran = J({
   name = "Barista",
   pos = { x = 10, y = 7 },
-  config = { extra = { Xchips_mod = 2 } },
+  config = { extra = { Xchip_mod = 2 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.Xchips_mod } }
+    return { vars = { center.ability.extra.Xchip_mod } }
   end,
   rarity = 2,
   pools = { ["ina_team_InazumaEleven"] = true },
@@ -311,7 +311,7 @@ local Barista_Veteran = J({
     if context.individual and context.scoring_hand and context.cardarea == G.play
         and context.other_card == context.scoring_hand[#context.scoring_hand] then
       return {
-        xchips = card.ability.extra.Xchips_mod,
+        xchips = card.ability.extra.Xchip_mod,
         card = context.other_card
       }
     end
@@ -532,3 +532,4 @@ return {
   name = "Inazuma Eleven",
   list = { Hillman_Veteran, Island_Veteran, Sweet_Veteran, Butler_Veteran, Barista_Veteran, Builder_Veteran },
 }
+

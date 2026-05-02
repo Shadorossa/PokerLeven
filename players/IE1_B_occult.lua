@@ -1,4 +1,4 @@
--- Mask
+﻿-- Mask
 local Mask = J({
   name = "Mask",
   pos = { x = 0, y = 1 },
@@ -51,13 +51,13 @@ local Mask = J({
 local Styx = J({
   name = "Styx",
   pos = { x = 1, y = 1 },
-  config = { extra = { chips_mod = 9, triggered = false } },
+  config = { extra = { chip_mod = 9, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local current_chips = 0
     if G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.tarot > 0 then
-      current_chips = G.GAME.consumeable_usage_total.tarot * center.ability.extra.chips_mod
+      current_chips = G.GAME.consumeable_usage_total.tarot * center.ability.extra.chip_mod
     end
-    return { vars = { current_chips, center.ability.extra.chips_mod } }
+    return { vars = { current_chips, center.ability.extra.chip_mod } }
   end,
   rarity = 1,
   pools = { ["ina_team_Occult"] = true },
@@ -76,7 +76,7 @@ local Styx = J({
     if context.cardarea == G.jokers and context.scoring_hand
         and G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.tarot > 0 then
       if context.joker_main then
-        local current_chips = G.GAME.consumeable_usage_total.tarot * card.ability.extra.chips_mod
+        local current_chips = G.GAME.consumeable_usage_total.tarot * card.ability.extra.chip_mod
         card.ability.extra.triggered = true
         return {
           message = localize { type = 'variable', key = 'a_chips', vars = { current_chips } },
@@ -308,9 +308,9 @@ local Talisman = J({
 local Wolfy = J({
   name = "Wolfy",
   pos = { x = 9, y = 1 },
-  config = { extra = { xmult_mod = 0.4, triggered = false } },
+  config = { extra = { Xmult_mod = 0.4, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { 1 + center.ability.extra.xmult_mod * (G.GAME.used_moon_cards or 0), center.ability.extra.xmult_mod } }
+    return { vars = { 1 + center.ability.extra.Xmult_mod * (G.GAME.used_moon_cards or 0), center.ability.extra.Xmult_mod } }
   end,
   rarity = 2,
   pools = { ["ina_team_Occult"] = true },
@@ -327,14 +327,14 @@ local Wolfy = J({
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.joker_main and context.scoring_hand
-        and 1 + card.ability.extra.xmult_mod * (G.GAME.used_moon_cards or 0) > 1 then
+        and 1 + card.ability.extra.Xmult_mod * (G.GAME.used_moon_cards or 0) > 1 then
       card.ability.extra.triggered = true
       return {
         message =
             localize { type = 'variable', key = 'a_xmult',
-              vars = { 1 + card.ability.extra.xmult_mod * (G.GAME.used_moon_cards or 0) } },
+              vars = { 1 + card.ability.extra.Xmult_mod * (G.GAME.used_moon_cards or 0) } },
         colour = G.C.MULT,
-        Xmult_mod = 1 + card.ability.extra.xmult_mod * (G.GAME.used_moon_cards or 0)
+        Xmult_mod = 1 + card.ability.extra.Xmult_mod * (G.GAME.used_moon_cards or 0)
       }
     end
   end,
@@ -344,9 +344,9 @@ local Wolfy = J({
 local Blood = J({
   name = "Blood",
   pos = { x = 10, y = 1 },
-  config = { extra = { drain = 1, chips_mod = 10, triggered = false } },
+  config = { extra = { drain = 1, chip_mod = 10, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.drain, center.ability.extra.chips_mod, center.sell_cost * center.ability.extra.chips_mod } }
+    return { vars = { center.ability.extra.drain, center.ability.extra.chip_mod, center.sell_cost * center.ability.extra.chip_mod } }
   end,
   rarity = 2,
   pools = { ["ina_team_Occult"] = true },
@@ -366,9 +366,9 @@ local Blood = J({
       if context.joker_main then
         card.ability.extra.triggered = true
         return {
-          message = localize { type = 'variable', key = 'a_mult', vars = { card.sell_cost * card.ability.extra.chips_mod } },
+          message = localize { type = 'variable', key = 'a_mult', vars = { card.sell_cost * card.ability.extra.chip_mod } },
           colour = G.C.MULT,
-          chip_mod = card.sell_cost * card.ability.extra.chips_mod
+          chip_mod = card.sell_cost * card.ability.extra.chip_mod
         }
       end
     end
@@ -505,3 +505,4 @@ return {
   name = "Occult",
   list = { Mask, Styx, Franky, Mummy, Grave, Talisman, Wolfy, Blood }
 }
+

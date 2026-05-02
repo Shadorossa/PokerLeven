@@ -1,4 +1,4 @@
--- King
+﻿-- King
 local King = J({
   name = "King",
   pos = { x = 3, y = 2 },
@@ -311,9 +311,9 @@ local Bloom = J({
 local Swing = J({
   name = "Swing",
   pos = { x = 10, y = 2 },
-  config = { extra = { chips_mod = 60, triggered = false } },
+  config = { extra = { chip_mod = 60, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod } }
+    return { vars = { center.ability.extra.chip_mod } }
   end,
   rarity = 1,
   pools = { ["ina_team_RoyalAcademy"] = true },
@@ -333,9 +333,9 @@ local Swing = J({
       local count = #find_player_team("ina_team_RoyalAcademy")
       card.ability.extra.triggered = true
       return {
-        message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips_mod * count } },
+        message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chip_mod * count } },
         colour = G.C.CHIPS,
-        chip_mod = card.ability.extra.chips_mod * count
+        chip_mod = card.ability.extra.chip_mod * count
       }
     end
   end
@@ -369,17 +369,18 @@ local Hatch = J({
 local Jude = J({
   name = "Jude",
   pos = { x = 0, y = 0 },
+  soul_pos = { x = 0, y = 1 },
   config = {
-    extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
+    extra = { current_Xmult = 1, Xmult_mod = 0.08, next_xmult = 1, triggered = false
     }
   },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.current_xmult, center.ability.extra.xmult_mod } }
+    return { vars = { center.ability.extra.current_Xmult, center.ability.extra.Xmult_mod } }
   end,
   rarity = "ina_top",
   pools = { ["ina_team_RoyalAcademy"] = true },
   cost = 8,
-  atlas = "Jokers01",
+  atlas = "top",
   ptype = C.Wind,
   stage = "base",
   pposition = C.MF,
@@ -394,7 +395,7 @@ local Jude = J({
   calculate = function(self, card, context)
     if context.post_trigger and context.other_card ~= card
         and context.other_card == card:get_left_joker() then
-      card.ability.extra.current_xmult = (card.ability.extra.current_xmult or 0) + card.ability.extra.xmult_mod
+      card.ability.extra.current_Xmult = (card.ability.extra.current_Xmult or 0) + card.ability.extra.Xmult_mod
 
       G.E_MANAGER:add_event(Event({
         func = function()
@@ -412,9 +413,9 @@ local Jude = J({
     if context.joker_main and context.scoring_hand then
       card.ability.extra.triggered = true
       return {
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_xmult } },
+        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_Xmult } },
         colour = G.C.XMULT,
-        Xmult_mod = card.ability.extra.current_xmult
+        Xmult_mod = card.ability.extra.current_Xmult
       }
     end
   end
@@ -424,9 +425,9 @@ local Jude = J({
 local Samford = J({
   name = "Samford",
   pos = { x = 0, y = 3 },
-  config = { extra = { xmult_mod = 3, triggered = false } },
+  config = { extra = { Xmult_mod = 3, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.xmult_mod } }
+    return { vars = { center.ability.extra.Xmult_mod } }
   end,
   rarity = 2,
   pools = { ["ina_team_RoyalAcademy"] = true },
@@ -446,9 +447,9 @@ local Samford = J({
       if #find_player_position("FW") >= 2 and #find_player_position("MF") >= 1 then
         card.ability.extra.triggered = true
         return {
-          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.xmult_mod } },
+          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult_mod } },
           colour = G.C.XMULT,
-          Xmult_mod = card.ability.extra.xmult_mod
+          Xmult_mod = card.ability.extra.Xmult_mod
         }
       end
     end
@@ -579,3 +580,4 @@ return {
   name = "Royal Academy",
   list = { King, Drent, Martin, Master, Bloom, Swing, Jude, Samford }
 }
+

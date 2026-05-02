@@ -137,7 +137,7 @@ end
 ---@return boolean true si encontró alguna estadística compatible y la mejoró
 Pokerleven.buff_joker_stats = function(joker, mult_gain, chip_gain)
     if not joker or type(joker.ability.extra) ~= 'table' or joker.debuff then return false end
-    local ex, buffed, m_keys, c_keys = joker.ability.extra, false, {'mult_mod', 'mult_mod_low', 'current_mult', 'mult'}, {'chip_mod', 'chips_mod', 'current_chips', 'chips'}
+    local ex, buffed, m_keys, c_keys = joker.ability.extra, false, {'mult_mod', 'mult_mod_low', 'current_mult', 'mult'}, {'chip_mod', 'current_chips', 'chips'}
     if mult_gain and mult_gain > 0 then for _, k in ipairs(m_keys) do if type(ex[k]) == 'number' then ex[k] = ex[k] + mult_gain; buffed = true; break end end end
     if not buffed and chip_gain and chip_gain > 0 then for _, k in ipairs(c_keys) do if type(ex[k]) == 'number' then ex[k] = ex[k] + chip_gain; buffed = true; break end end end
     if buffed then joker:juice_up(0.5, 0.5) end
@@ -268,13 +268,13 @@ Pokerleven.simulate_rank_difference = function(card, context, target_ranks)
                 local sim_eval = j:calculate_joker(sim_ctx); j.ability = copy_table(j_ab)
                 if type(sim_eval) == 'table' then
                     local c = (sim_eval.chips or 0) + (sim_eval.chip_mod or 0)
-                    local xc = (sim_eval.xchips or 1) * (sim_eval.x_chips or 1) * (sim_eval.Xchip_mod or 1) * (sim_eval.Xchips_mod or 1)
+                    local xc = (sim_eval.xchips or 1) * (sim_eval.x_chips or 1) * (sim_eval.Xchip_mod or 1)
                     if c > max_c then max_c = c end; if xc > max_xc then max_xc = xc end
                 end
             end
             oc.get_id = o_id; oc.is_suit = o_s; oc.is_face = o_f; oc.get_nominal = o_nom; oc.base.id = o_b_id; oc.base.value = o_b_val
             local rc, rxc = 0, 1
-            if type(r_eval) == 'table' then rc = (r_eval.chips or 0) + (r_eval.chip_mod or 0); rxc = (r_eval.xchips or 1) * (r_eval.x_chips or 1) * (r_eval.Xchip_mod or 1) * (r_eval.Xchips_mod or 1) end
+            if type(r_eval) == 'table' then rc = (r_eval.chips or 0) + (r_eval.chip_mod or 0); rxc = (r_eval.xchips or 1) * (r_eval.x_chips or 1) * (r_eval.Xchip_mod or 1) end
             b_c, b_xc = b_c + math.max(0, max_c - rc), b_xc * math.max(1, max_xc / rxc)
         end
     end

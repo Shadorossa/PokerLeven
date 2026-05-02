@@ -1,17 +1,17 @@
--- Versión 1
+﻿-- VersiÃ³n 1
 
--- Turiño
+-- TuriÃ±o
 local Turi = {
     name = "Turi",
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
-    config = { extra = { xmult_mod = 0.02, triggered = false, requiered_cards = 3, current_tarot_used = 0 } },
+    config = { extra = { Xmult_mod = 0.02, triggered = false, requiered_cards = 3, current_tarot_used = 0 } },
     loc_vars = function(self, info_queue, center)
         local tarot_count = (G.GAME.used_star_cards or 0) + (G.GAME.used_moon_cards or 0) +
             (G.GAME.used_world_cards or 0) + (G.GAME.used_sun_cards or 0)
         local tarot_units = math.floor(tarot_count / center.ability.extra.requiered_cards)
-        local bonus = tarot_units > 0 and center.ability.extra.xmult_mod * (2 ^ (tarot_units - 1)) or 0
-        return { vars = { 1 + bonus, center.ability.extra.xmult_mod, center.ability.extra.requiered_cards, center.ability.extra.current_tarot_used + tarot_count } }
+        local bonus = tarot_units > 0 and center.ability.extra.Xmult_mod * (2 ^ (tarot_units - 1)) or 0
+        return { vars = { 1 + bonus, center.ability.extra.Xmult_mod, center.ability.extra.requiered_cards, center.ability.extra.current_tarot_used + tarot_count } }
     end,
     rarity = "ina_winner",
     pools = { ["Scout"] = true },
@@ -26,7 +26,7 @@ local Turi = {
             local tarot_count = (G.GAME.used_star_cards or 0) + (G.GAME.used_moon_cards or 0) +
                 (G.GAME.used_world_cards or 0) + (G.GAME.used_sun_cards or 0)
             local tarot_units = math.floor(tarot_count / card.ability.extra.requiered_cards)
-            local bonus = tarot_units > 0 and card.ability.extra.xmult_mod * (2 ^ (tarot_units - 1)) or 0
+            local bonus = tarot_units > 0 and card.ability.extra.Xmult_mod * (2 ^ (tarot_units - 1)) or 0
 
             if 1 + bonus > 1 then
                 card.ability.extra.triggered = true
@@ -49,3 +49,4 @@ return {
     name = "tournaments",
     list = list
 }
+

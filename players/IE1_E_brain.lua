@@ -1,4 +1,4 @@
--- Feldt
+﻿-- Feldt
 local Feldt = J({
     name = "Feldt",
     pos = { x = 9, y = 4 },
@@ -196,7 +196,7 @@ local Rock = J({
 local Tell = J({
     name = "Tell",
     pos = { x = 2, y = 5 },
-    config = { extra = { Xchips_mod = 3.1416 } },
+    config = { extra = { Xchip_mod = 3.1416 } },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
@@ -225,7 +225,7 @@ local Tell = J({
                         message = "Pi!",
                         colour = G.C.RED,
                         card = card,
-                        Xchip_mod = card.ability.extra.Xchips_mod
+                        Xchip_mod = card.ability.extra.Xchip_mod
                     }
                 end
             end
@@ -406,11 +406,11 @@ local Turner = J({
 local Under = J({
     name = "Under",
     pos = { x = 7, y = 5 },
-    config = { extra = { chips_mod = 120, triggered = false } },
+    config = { extra = { chip_mod = 120, triggered = false } },
     loc_vars = function(self, info_queue, center)
         local gkCount = #find_player_position("GK") or 0
         local realCount = gkCount > 0 and gkCount or 1
-        return { vars = { center.ability.extra.chips_mod, realCount } }
+        return { vars = { center.ability.extra.chip_mod, realCount } }
     end,
     rarity = 1,
     pools = { ["ina_team_Brain"] = true },
@@ -428,7 +428,7 @@ local Under = J({
         if context.cardarea == G.jokers and context.joker_main then
             local gkCount = #find_player_position("GK")
             local realCount = gkCount > 0 and gkCount or 1
-            local result = card.ability.extra.chips_mod / (math.log(realCount + 1) / math.log(2))
+            local result = card.ability.extra.chip_mod / (math.log(realCount + 1) / math.log(2))
             card.ability.extra.triggered = true
 
             return {
@@ -540,3 +540,4 @@ return {
     name = "Brain",
     list = { Feldt, Marvel, Tell, Seller, Kind, Turner, Under },
 }
+

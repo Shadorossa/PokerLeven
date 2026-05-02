@@ -1,4 +1,4 @@
-local old_add_tag = add_tag
+﻿local old_add_tag = add_tag
 function add_tag(_tag)
     old_add_tag(_tag)
     if not _tag.ina_cesar_duped and G.jokers and G.jokers.cards then
@@ -109,7 +109,7 @@ local Nino = {
     blueprint_compat = true,
 }
 
--- Cliff Parker (Gólem)
+-- Cliff Parker (GÃ³lem)
 local Golem = {
     name = "Golem",
     pos = { x = 4, y = 1 },
@@ -211,9 +211,9 @@ local Cesar = J({
 local Adriano_Donati = J({
     name = "Adriano_Donati",
     pos = { x = 4, y = 1 },
-    config = { extra = { chips_mod = 25, mult_mod_low = 4, current_chips = 0, current_mult = 0 } },
+    config = { extra = { chip_mod = 25, mult_mod_low = 4, current_chips = 0, current_mult = 0 } },
     loc_vars = function(self, info_queue, center)
-        local ex = center.ability.extra; return { vars = { ex.chips_mod, ex.mult_mod_low, ex.current_chips, ex.current_mult } }
+        local ex = center.ability.extra; return { vars = { ex.chip_mod, ex.mult_mod_low, ex.current_chips, ex.current_mult } }
     end,
     rarity = 2, -- Uncommon
     pools = { ["Inakuni Raimon"] = true },
@@ -246,7 +246,7 @@ local Adriano_Donati = J({
         elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition and not ctx.game_over then
             local blind_type = G.GAME.blind:get_type()
             if blind_type == 'Small' or blind_type == 'Big' then
-                ex.current_chips = ex.current_chips + ex.chips_mod
+                ex.current_chips = ex.current_chips + ex.chip_mod
                 return { message = localize('k_upgrade_ex'), colour = G.C.CHIPS }
             elseif blind_type == 'Boss' then
                 ex.current_mult = ex.current_mult + ex.mult_mod_low
@@ -260,9 +260,9 @@ local Adriano_Donati = J({
 local Sonny_Wright = J({
     name = "Sonny_Wright",
     pos = { x = 5, y = 1 },
-    config = { extra = { xmult_gain = 0.5, current_xmult = 1 } },
+    config = { extra = { xmult_gain = 0.5, current_Xmult = 1 } },
     loc_vars = function(self, info_queue, center)
-        local ex = center.ability.extra; return { vars = { ex.xmult_gain, ex.current_xmult } }
+        local ex = center.ability.extra; return { vars = { ex.xmult_gain, ex.current_Xmult } }
     end,
     rarity = 3, -- Rare
     pools = { ["Inakuni Raimon"] = true },
@@ -280,12 +280,12 @@ local Sonny_Wright = J({
     aux_ina = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
-        if Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
-            return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } }, Xmult_mod =
-            ex.current_xmult, colour = G.C.XMULT }
+        if Pokerleven.is_joker_turn(ctx) and ex.current_Xmult > 1 then
+            return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_Xmult } }, Xmult_mod =
+            ex.current_Xmult, colour = G.C.XMULT }
         elseif ctx.end_of_round and not ctx.blueprint and not ctx.individual and not ctx.repetition and not ctx.game_over then
             if G.GAME.current_round.hands_left == 0 then
-                ex.current_xmult = ex.current_xmult + ex.xmult_gain
+                ex.current_Xmult = ex.current_Xmult + ex.xmult_gain
                 return { message = localize('k_upgrade_ex'), colour = G.C.XMULT }
             end
         end
@@ -340,3 +340,4 @@ return {
     name = "Inakuni Raimon",
     list = { Sandra_Fischer, Trevor, Cesar, Valentin, Adriano_Donati, Sonny_Wright, Basile }
 }
+

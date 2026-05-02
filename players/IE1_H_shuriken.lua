@@ -1,17 +1,17 @@
--- Hood
+﻿-- Hood
 local Hood = J({
     name = "Hood",
     pos = { x = 5, y = 8 },
     config = {
         extra = {
-            xmult_mod = 0.6,
+            Xmult_mod = 0.6,
             triggered = false,
             pposition = "GK"
         }
     },
     loc_vars = function(self, info_queue, center)
         local count = #find_player_position("GK")
-        return { vars = { center.ability.extra.xmult_mod, count * (center.ability.extra.xmult_mod or 0) + 1 } }
+        return { vars = { center.ability.extra.Xmult_mod, count * (center.ability.extra.Xmult_mod or 0) + 1 } }
     end,
     rarity = 2,
     pools = { ["ina_team_Shuriken"] = true },
@@ -28,7 +28,7 @@ local Hood = J({
     calculate = function(self, card, ctx)
         if ctx.cardarea == G.jokers and ctx.scoring_hand and ctx.joker_main then
             local count = #find_player_position("GK")
-            local total_xmult = count * card.ability.extra.xmult_mod + 1
+            local total_xmult = count * card.ability.extra.Xmult_mod + 1
             card.ability.extra.triggered = true
             return {
                 message = localize { type = 'variable', key = 'a_xmult', vars = { total_xmult } },
@@ -67,9 +67,9 @@ local Crackshot = J({
 local Hillfort = J({
     name = "Hillfort",
     pos = { x = 7, y = 8 },
-    config = { extra = { triggered = false, chips_mod = 1, current_chips = 0, dollars_needed = 1 } },
+    config = { extra = { triggered = false, chip_mod = 1, current_chips = 0, dollars_needed = 1 } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.chips_mod, center.ability.extra.dollars_needed, center.ability.extra.current_chips } }
+        return { vars = { center.ability.extra.chip_mod, center.ability.extra.dollars_needed, center.ability.extra.current_chips } }
     end,
     rarity = 1,
     pools = { ["ina_team_Shuriken"] = true },
@@ -88,8 +88,8 @@ local Hillfort = J({
         if context.setting_blind then
             local wind_players = find_player_type(C.Wind)
             if #wind_players > 0 then
-                local chips_mod = card.ability.extra.chips_mod * Pokerleven.calculate_total_sell_cost(wind_players)
-                card.ability.extra.current_chips = card.ability.extra.current_chips + chips_mod
+                local chip_mod = card.ability.extra.chip_mod * Pokerleven.calculate_total_sell_cost(wind_players)
+                card.ability.extra.current_chips = card.ability.extra.current_chips + chip_mod
                 return {
                     message = localize('k_upgrade_ex'),
                     colour = G.C.CHIPS
@@ -283,9 +283,9 @@ local Samurai = J({
   end
 })
 
--- Hattori (Original con lógica) - NOTA: El Hattori de dorsal 10 es placeholder, el original se llamaba Hattori en el archivo. 
--- El usuario dice Hattori dorsal 10. Pero el archivo tenía una lógica compleja para Hattori. 
--- Re-leyendo: Hattori es dorsal 10. Mantendré la lógica compleja para el dorsal 10.
+-- Hattori (Original con lÃ³gica) - NOTA: El Hattori de dorsal 10 es placeholder, el original se llamaba Hattori en el archivo. 
+-- El usuario dice Hattori dorsal 10. Pero el archivo tenÃ­a una lÃ³gica compleja para Hattori. 
+-- Re-leyendo: Hattori es dorsal 10. MantendrÃ© la lÃ³gica compleja para el dorsal 10.
 
 -- Hattori
 local Hattori_Logic = J({
@@ -526,3 +526,4 @@ return {
     name = "Shuriken",
     list = { Hood, Hillfort, Code, Star, Cleats, Hattori_Logic, Cloak },
 }
+

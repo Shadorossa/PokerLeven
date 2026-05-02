@@ -1,17 +1,17 @@
--- Poseidon
+﻿-- Poseidon
 local Poseidon = J({
   name = "Poseidon",
   pos = { x = 1, y = 12 },
-  config = { extra = { min_face = 3, barriers_added = 1, chips_mod = 40, barriers = 1 } },
+  config = { extra = { min_face = 3, barriers_added = 1, chip_mod = 40, barriers = 1 } },
   loc_vars = function(self, info_queue, center)
     table.insert(info_queue, { set = "Other", key = "Frontal" })
     local barriers = center.ability.extra.barriers_added
-    local chips_mod = center.ability.extra.chips_mod
+    local chip_mod = center.ability.extra.chip_mod
     local min_face = center.ability.extra.min_face
 
     local current_barriers = G.GAME.current_round.barriers or 0
-    local actual_chips_mod = current_barriers * chips_mod
-    return { vars = { barriers, min_face, chips_mod, actual_chips_mod } }
+    local actual_chip_mod = current_barriers * chip_mod
+    return { vars = { barriers, min_face, chip_mod, actual_chip_mod } }
   end,
   rarity = 3,
   pools = { ["ina_team_Zeus"] = true },
@@ -31,10 +31,10 @@ local Poseidon = J({
         and card:is_leftmost_joker()
         and card:has_enough_barriers() then
       local current_barriers = G.GAME.current_round.barriers
-      local chips_mod = current_barriers * card.ability.extra.chips_mod
+      local chip_mod = current_barriers * card.ability.extra.chip_mod
       card_eval_status_text(card, 'extra', nil, nil, nil, Pokerleven.ease_barriers(-current_barriers))
       return {
-        chips = chips_mod
+        chips = chip_mod
       }
     end
 
@@ -51,9 +51,9 @@ local Poseidon = J({
 local Apollo = J({
   name = "Apollo",
   pos = { x = 2, y = 12 },
-  config = { extra = { chips_mod = 14, alt_chips_mod = 4, mult_mod_low = 3, current_chips = 0, current_mult = 0, triggered = false } },
+  config = { extra = { chip_mod = 14, alt_chip_mod = 4, mult_mod_low = 3, current_chips = 0, current_mult = 0, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod, center.ability.extra.alt_chips_mod, center.ability.extra.current_chips, center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
+    return { vars = { center.ability.extra.chip_mod, center.ability.extra.alt_chip_mod, center.ability.extra.current_chips, center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
   end,
   rarity = 1,
   pools = { ["ina_team_Zeus"] = true },
@@ -81,10 +81,10 @@ local Apollo = J({
     if context.before and context.cardarea == G.jokers and context.scoring_hand
         and next(context.poker_hands["Two Pair"]) then
       local hour = tonumber(os.date("%H"))
-      local mod = card.ability.extra.alt_chips_mod
+      local mod = card.ability.extra.alt_chip_mod
 
       if hour >= 14 and hour < 19 then
-        mod = card.ability.extra.chips_mod
+        mod = card.ability.extra.chip_mod
         card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult_mod_low
       end
 
@@ -189,10 +189,10 @@ local Dionysus = J({
 local Artemis = J({
   name = "Artemis",
   pos = { x = 6, y = 12 },
-  config = { extra = { current_chips = 0, chips_mod = 10 } },
+  config = { extra = { current_chips = 0, chip_mod = 10 } },
   loc_vars = function(self, info_queue, center)
     info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
-    return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
+    return { vars = { center.ability.extra.chip_mod, center.ability.extra.current_chips } }
   end,
   rarity = 2,
   pools = { ["ina_team_Zeus"] = true },
@@ -210,7 +210,7 @@ local Artemis = J({
   calculate = function(self, card, context)
     if context.discard and context.other_card.ability["ina_harvest_sticker"] == true then
       card.ability.extra.current_chips =
-          card.ability.extra.current_chips + card.ability.extra.chips_mod
+          card.ability.extra.current_chips + card.ability.extra.chip_mod
       return {
         message = localize("ina_harvest"),
         colour = G.C.MULT,
@@ -342,7 +342,7 @@ local Demeter = J({
   end
 })
 
--- Aphrodite (Capitán)
+-- Aphrodite (CapitÃ¡n)
 ---@param card Card
 local swap_random_to_fw_or_mf = function(card)
   local POS_FW = "FW"
@@ -467,3 +467,4 @@ return {
     Hermes, Demeter, Aphrodite
   }
 }
+

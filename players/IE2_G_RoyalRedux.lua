@@ -1,4 +1,4 @@
-local KingR = J({
+﻿local KingR = J({
   name = "KingR",
   pos = { x = 2, y = 6 },
   config = { extra = { barriers = 2, chip_mod = 100, hands_lost = 1, blind_count = 0, trigger_at = 3 } },
@@ -378,12 +378,12 @@ local Jamm = J({
 local CalebR = J({
   name = "CalebR",
   pos = { x = 11, y = 6 },
-  config = { extra = { current_xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
+  config = { extra = { current_Xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
     info_queue[#info_queue + 1] = G.P_CENTERS.j_ina_King_Redux
     info_queue[#info_queue + 1] = G.P_CENTERS.j_ina_Samford_Redux
-    return { vars = { ex.current_xmult, ex.xmult_gain, ex.turns_needed, ex.turns_needed - (ex.redux_turns or 0) } }
+    return { vars = { ex.current_Xmult, ex.xmult_gain, ex.turns_needed, ex.turns_needed - (ex.redux_turns or 0) } }
   end,
   rarity = 3,
   pools = { ["Royal Academy Redux"] = true },
@@ -407,7 +407,7 @@ local CalebR = J({
         for i = count, 1, -1 do
             local b = ba.cards[i]
             if is_team(b, "ina_team_RoyalRedux") then
-                ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true
+                ex.current_Xmult, des = ex.current_Xmult + ex.xmult_gain, true
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     delay = delay_amt,
@@ -420,10 +420,10 @@ local CalebR = J({
             end
         end
         if des then
-            card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } } })
+            card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_Xmult } } })
         end
-    elseif Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
-        return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } }, Xmult_mod = ex.current_xmult }
+    elseif Pokerleven.is_joker_turn(ctx) and ex.current_Xmult > 1 then
+        return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_Xmult } }, Xmult_mod = ex.current_Xmult }
     end
   end
 })
@@ -431,10 +431,10 @@ local CalebR = J({
 local Samford_Redux = J({
   name = "Samford_Redux",
   pos = { x = 12, y = 6 },
-  config = { extra = { xmult_mod = 1, current_xmult = 1 } },
+  config = { extra = { Xmult_mod = 1, current_Xmult = 1 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
-    return { vars = { ex.xmult_mod, ex.current_xmult } }
+    return { vars = { ex.Xmult_mod, ex.current_Xmult } }
   end,
   rarity = 3,
   pools = { ["Royal Academy Redux"] = true },
@@ -453,9 +453,9 @@ local Samford_Redux = J({
     local ex = card.ability.extra
     if ctx.setting_blind and not ctx.blueprint then
         local dl = (G.GAME and G.GAME.current_round and G.GAME.current_round.discards_left) or 0
-        Pokerleven.consume_all_for_stat(card, dl, function(a) ease_discard(-a, nil, true) end, 'current_xmult', ex.xmult_mod, 1, 'a_xmult', G.C.MULT)
-    elseif Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
-        return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } }, Xmult_mod = ex.current_xmult }
+        Pokerleven.consume_all_for_stat(card, dl, function(a) ease_discard(-a, nil, true) end, 'current_Xmult', ex.Xmult_mod, 1, 'a_xmult', G.C.MULT)
+    elseif Pokerleven.is_joker_turn(ctx) and ex.current_Xmult > 1 then
+        return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_Xmult } }, Xmult_mod = ex.current_Xmult }
     end
   end
 })
@@ -629,3 +629,4 @@ return {
     name = "Royal Academy Redux",
     list = { KingR, Beltzer, Blade, Argie, Messer, Spark, Sparrow, Jamm, CalebR, Samford_Redux, Cellar, Zenn, Cossimo, Color, Bamboo, Little }
 }
+

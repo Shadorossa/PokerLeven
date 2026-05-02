@@ -1,4 +1,4 @@
--- Grent
+﻿-- Grent
 local Grent = J({
     name = "Grent",
     pos = { x = 7, y = 13 },
@@ -20,7 +20,7 @@ local Grent = J({
     pteam = "ina_team_Prominence",
     blueprint_compat = true,
     calculate = function(self, card, ctx)
-        -- La lógica se activa mediante el hook de calcinación
+        -- La lÃ³gica se activa mediante el hook de calcinaciÃ³n
     end
 })
 
@@ -235,10 +235,10 @@ local Torch = J({
     name = "Torch",
     pos = { x = 5, y = 0 },
     soul_pos = { x = 5, y = 1 },
-    config = { extra = { xmult_gain = 0.1, current_xmult = 1 } },
+    config = { extra = { xmult_gain = 0.1, current_Xmult = 1 } },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'Fire_Blizzard', vars = {'Gazelle'}}
-        local ex = center.ability.extra; return {vars = {ex.xmult_gain, ex.current_xmult}}
+        local ex = center.ability.extra; return {vars = {ex.xmult_gain, ex.current_Xmult}}
     end,
     rarity = "ina_top", -- Destacado
     pools = { ["Prominence"] = true },
@@ -258,14 +258,14 @@ local Torch = J({
             local tr, gazelle = false, get_joker_with_key('j_ina_Gazelle')
             for _, v in ipairs(ctx.scoring_hand) do
                 if not v.destroyed and not v.shattered and (v:is_suit('Hearts') or v.ability.fire_sticker) then
-                    ex.current_xmult, tr = ex.current_xmult + ex.xmult_gain, true
+                    ex.current_Xmult, tr = ex.current_Xmult + ex.xmult_gain, true
                     if gazelle and not gazelle.debuff then Pokerleven.apply_card_property(v, 'enhancement', 'm_ina_chaotic'); v:juice_up()
                     else v.destroyed = true; v:start_dissolve() end
                 end
             end
-            if tr then return {message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}} end
-        elseif Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
-            return {message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}, Xmult_mod = ex.current_xmult}
+            if tr then return {message = localize{type='variable',key='a_xmult',vars={ex.current_Xmult}}} end
+        elseif Pokerleven.is_joker_turn(ctx) and ex.current_Xmult > 1 then
+            return {message = localize{type='variable',key='a_xmult',vars={ex.current_Xmult}}, Xmult_mod = ex.current_Xmult}
         end
     end
 })
@@ -298,3 +298,4 @@ return {
     name = "Prominence",
     list = { Torch }
 }
+

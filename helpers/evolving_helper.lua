@@ -111,8 +111,8 @@ ina_backend_evolve = function(card, to_key)
 
     clear_stickers(card)
 
-    local names_to_keep = { "targets", "rank", "id", "cards_scored", "upgrade", "mult", "mult_mod", "current_xmult",
-        "tech_level", "xmult_mod" }
+    local names_to_keep = { "targets", "rank", "id", "cards_scored", "upgrade", "mult", "mult_mod", "current_Xmult",
+        "tech_level", "Xmult_mod" }
     local values_to_keep = copy_scaled_values(card)
     if type(card.ability.extra) == "table" then
         for _, k in pairs(names_to_keep) do

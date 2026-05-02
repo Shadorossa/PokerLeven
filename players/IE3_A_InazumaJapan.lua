@@ -1,4 +1,4 @@
--- Mark (1)
+﻿-- Mark (1)
 local Mark_IJ = J({
   name = "Mark_IJ",
   pos = { x = 0, y = 0 },
@@ -7,7 +7,7 @@ local Mark_IJ = J({
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Mountain,
@@ -33,7 +33,7 @@ local Nathan_IJ = J({
     return { vars = { center.ability.extra.xmult, count } }
   end,
   rarity = 2,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 7,
   atlas = "Jokers03",
   ptype = C.Wind,
@@ -75,12 +75,12 @@ local Nathan_IJ = J({
 local Jack_IJ = J({
   name = "Jack_IJ",
   pos = { x = 2, y = 0 },
-  config = { extra = { chips_mod = 10, triggered = false } },
+  config = { extra = { chip_mod = 10, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod } }
+    return { vars = { center.ability.extra.chip_mod } }
   end,
   rarity = 2,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 7,
   atlas = "Jokers03",
   ptype = C.Mountain,
@@ -99,7 +99,7 @@ local Jack_IJ = J({
         and SMODS.has_enhancement(context.other_card, 'm_stone') then
       card.ability.extra.triggered = true
       local count = #find_player_position("DF")
-      context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chips_mod * count
+      context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chip_mod * count
       return {
         extra = { message = localize('k_upgrade_ex'), colour = G.C.CHIPS },
         colour = G.C.CHIPS,
@@ -118,7 +118,7 @@ local Hurley_IJ = J({
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Wind,
@@ -140,7 +140,7 @@ local Tod_IJ = J({
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Fire,
@@ -164,7 +164,7 @@ local Scotty_IJ = J({
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
@@ -188,7 +188,7 @@ local Archer_IJ = J({
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Wind,
@@ -207,13 +207,13 @@ local Archer_IJ = J({
 local Caleb_IJ = J({
   name = "Caleb_IJ",
   pos = { x = 7, y = 0 },
-  config = { extra = { current_xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
+  config = { extra = { current_Xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
-    return { vars = { ex.current_xmult, ex.xmult_gain, ex.turns_needed, ex.turns_needed - (ex.redux_turns or 0) } }
+    return { vars = { ex.current_Xmult, ex.xmult_gain, ex.turns_needed, ex.turns_needed - (ex.redux_turns or 0) } }
   end,
   rarity = 3,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 8,
   atlas = "Jokers03",
   ptype = C.Fire,
@@ -233,12 +233,12 @@ local Caleb_IJ = J({
       for i = ba and ba.cards and #ba.cards or 0, 1, -1 do
         local b = ba.cards[i]
         if is_team(b, "ina_team_RoyalAcademy") or is_team(b, "ina_team_RoyalRedux") then
-          ex.current_xmult, des = ex.current_xmult + ex.xmult_gain, true
+          ex.current_Xmult, des = ex.current_Xmult + ex.xmult_gain, true
           b:start_dissolve({ G.C.RED }, nil, 1.6)
         end
       end
       if des then
-        card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } } })
+        card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_Xmult } } })
       end
     elseif Pokerleven.is_joker_end_of_round(ctx) and not ctx.blueprint then
       local k, s
@@ -258,8 +258,8 @@ local Caleb_IJ = J({
       else
         ex.redux_turns = 0
       end
-    elseif Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
-      return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } }, Xmult_mod = ex.current_xmult }
+    elseif Pokerleven.is_joker_turn(ctx) and ex.current_Xmult > 1 then
+      return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_Xmult } }, Xmult_mod = ex.current_Xmult }
     end
   end
 })
@@ -273,7 +273,7 @@ local Shawn_IJ = J({
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Wind,
@@ -298,7 +298,7 @@ local Axel_IJ = J({
     return { vars = { center.ability.extra.copies_number, center.ability.extra.xmult } }
   end,
   rarity = "ina_top",
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 8,
   atlas = "top", 
   ptype = C.Fire,
@@ -343,14 +343,14 @@ local Austin_IJ = J({
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
   pposition = C.FW,
   pgender = C.M,
   pnation = C.JAPAN,
-  pyear = C.YEAR_1, -- Alevín
+  pyear = C.YEAR_1, -- AlevÃ­n
   pnumber = 11,
   pteam = "ina_team_InazumaJapon",
   blueprint_compat = true,
@@ -367,7 +367,7 @@ local Thor_IJ = J({
     return { vars = {} }
   end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Wind,
@@ -389,7 +389,7 @@ local Jordan_IJ = J({
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
@@ -409,9 +409,9 @@ local Jude_IJ = J({
   name = "Jude_IJ",
   pos = { x = 8, y = 0 },
   soul_pos = { x = 8, y = 1 },
-  config = { extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false } },
+  config = { extra = { current_Xmult = 1, Xmult_mod = 0.08, next_xmult = 1, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.current_xmult, center.ability.extra.current_xmult + center.ability.extra.xmult_mod } }
+    return { vars = { center.ability.extra.current_Xmult, center.ability.extra.current_Xmult + center.ability.extra.Xmult_mod } }
   end,
   rarity = "ina_top",
   cost = 8,
@@ -429,13 +429,13 @@ local Jude_IJ = J({
   aux_ina = true,
   calculate = function(self, card, context)
     if context.post_trigger and context.other_card ~= card and context.other_card == card:get_left_joker() then
-      card.ability.extra.current_xmult = (card.ability.extra.current_xmult or 0) + card.ability.extra.xmult_mod
+      card.ability.extra.current_Xmult = (card.ability.extra.current_Xmult or 0) + card.ability.extra.Xmult_mod
       G.E_MANAGER:add_event(Event({ func = function() card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize("ina_evolve_level"), colour = G.C.XMULT }); return true end }))
       return {}
     end
     if context.joker_main and context.scoring_hand then
       card.ability.extra.triggered = true
-      return { message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_xmult } }, colour = G.C.XMULT, Xmult_mod = card.ability.extra.current_xmult }
+      return { message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_Xmult } }, colour = G.C.XMULT, Xmult_mod = card.ability.extra.current_Xmult }
     end
   end
 })
@@ -444,7 +444,7 @@ local Jude_IJ = J({
 local Samford_IJ = J({
   name = "Samford_IJ",
   pos = { x = 12, y = 0 },
-  config = { extra = { xmult_mod = 3, retriggers_ep3 = 2, needed_ij = 2 } },
+  config = { extra = { Xmult_mod = 3, retriggers_ep3 = 2, needed_ij = 2 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
     local ij_count = #find_player_team("ina_team_InazumaJapon") - 1
@@ -452,10 +452,10 @@ local Samford_IJ = J({
     if ij_count >= ex.needed_ij then info_queue[#info_queue+1] = {set = 'Other', key = 'k_ina_ep3'}
     else info_queue[#info_queue+1] = {set = 'Other', key = 'k_ina_ep2'} end
     
-    return { vars = { ex.xmult_mod, ex.retriggers_ep3, ij_count, ex.needed_ij } }
+    return { vars = { ex.Xmult_mod, ex.retriggers_ep3, ij_count, ex.needed_ij } }
   end,
   rarity = 2,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 7,
   atlas = "Jokers03",
   ptype = C.Forest,
@@ -476,10 +476,10 @@ local Samford_IJ = J({
         local ij_count = #find_player_team("ina_team_InazumaJapon") - 1
         if ij_count >= ex.needed_ij then
             if context.retrigger_joker_check and not context.retrigger_joker then
-                return { message = "¡EP Nº 3!", repetitions = ex.retriggers_ep3, card = card }
+                return { message = "Â¡EP NÂº 3!", repetitions = ex.retriggers_ep3, card = card }
             end
         elseif context.joker_main and context.scoring_hand then
-            return { message = "¡EP Nº 2!", colour = G.C.XMULT, Xmult_mod = ex.xmult_mod }
+            return { message = "Â¡EP NÂº 2!", colour = G.C.XMULT, Xmult_mod = ex.Xmult_mod }
         end
     end
   end,
@@ -497,7 +497,7 @@ local Kevin_IJ = J({
     }
   end,
   rarity = 2,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 7,
   atlas = "Jokers03",
   ptype = C.Forest,
@@ -527,7 +527,7 @@ local Xavier_IJ = J({
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Fire,
@@ -549,7 +549,7 @@ local Darren_IJ = J({
   config = { extra = {} },
   loc_vars = function(self, info_queue, center) return { vars = {} } end,
   rarity = 1,
-  pools = { ["Inazuma Japón"] = true },
+  pools = { ["Inazuma JapÃ³n"] = true },
   cost = 5,
   atlas = "Jokers03",
   ptype = C.Forest,
@@ -570,3 +570,4 @@ return {
     Mark_IJ, Nathan_IJ, Jack_IJ, Caleb_IJ, Axel_IJ, Jude_IJ, Samford_IJ, Kevin_IJ
   }
 }
+

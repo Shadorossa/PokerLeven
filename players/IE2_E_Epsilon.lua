@@ -1,4 +1,4 @@
--- Dvalin
+﻿-- Dvalin
 local Dvalin = J({
     name = "Dvalin",
     pos = { x = 3, y = 0 },
@@ -48,11 +48,11 @@ local Dvalin_Plus = J({
     name = "Dvalin_Plus",
     pos = { x = 4, y = 0 },
     soul_pos = { x = 4, y = 1 },
-    config = { extra = { pposition = "FW", pos_left = "GK", pos_right = "FW", xmult_mod = 0.5, barriers_consumed = 1 } },
+    config = { extra = { pposition = "FW", pos_left = "GK", pos_right = "FW", Xmult_mod = 0.5, barriers_consumed = 1 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
         info_queue[#info_queue + 1] = { set = "Other", key = "RolChange", vars = { ex.pos_left, ex.pos_right } }
-        return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * ex.xmult_mod), ex.barriers_consumed, ex.xmult_mod } }
+        return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * ex.Xmult_mod), ex.barriers_consumed, ex.Xmult_mod } }
     end,
     rarity = "ina_top",
     pools = { ["Epsilon"] = false },
@@ -75,7 +75,7 @@ local Dvalin_Plus = J({
             local b = G.GAME.current_round.barriers or 0
             if b >= ex.barriers_consumed then
                 Pokerleven.ease_barriers(-ex.barriers_consumed)
-                local v = 1 + b * ex.xmult_mod
+                local v = 1 + b * ex.Xmult_mod
                 return { message = localize { type = 'variable', key = 'a_xmult', vars = { v } }, Xmult_mod = v, colour = G.C.RED }
             end
         end
@@ -920,9 +920,9 @@ local Zell = J({
 local Zell_Plus = J({
     name = "Zell_Plus",
     pos = { x = 1, y = 6 },
-    config = { extra = { xmult_mod = 0.5, barriers_consumed = 1 } },
+    config = { extra = { Xmult_mod = 0.5, barriers_consumed = 1 } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * center.ability.extra.xmult_mod), center.ability.extra.barriers_consumed, center.ability.extra.xmult_mod } }
+        return { vars = { 1 + ((G.GAME and G.GAME.current_round and G.GAME.current_round.barriers or 0) * center.ability.extra.Xmult_mod), center.ability.extra.barriers_consumed, center.ability.extra.Xmult_mod } }
     end,
     rarity = 3,
     pools = { ["Epsilon"] = false },
@@ -943,7 +943,7 @@ local Zell_Plus = J({
             local b = G.GAME.current_round.barriers or 0
             if b >= ex.barriers_consumed then
                 Pokerleven.ease_barriers(-ex.barriers_consumed)
-                local v = 1 + b * ex.xmult_mod
+                local v = 1 + b * ex.Xmult_mod
                 return { message = localize { type = 'variable', key = 'a_xmult', vars = { v } }, Xmult_mod = v, colour = G.C.RED }
             end
         end
@@ -972,3 +972,4 @@ return {
     Zell, Zell_Plus
   }
 }
+

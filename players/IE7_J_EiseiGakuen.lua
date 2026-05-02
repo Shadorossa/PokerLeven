@@ -1,4 +1,4 @@
--- Dave Quagmire (Ares)
+﻿-- Dave Quagmire (Ares)
 local Quagmire_Ares = J({
     name = "Quagmire_Ares",
     pos = { x = 0, y = 4 },
@@ -78,9 +78,9 @@ local Xavier_Ares = J({
     name = "Xavier_Ares",
     pos = { x = 6, y = 4 },
     soul_pos = { x = 6, y = 5 },
-    config = { extra = { drain_amt = 1, xmult_gain = 0.2, current_xmult = 1 } },
+    config = { extra = { drain_amt = 1, xmult_gain = 0.2, current_Xmult = 1 } },
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue + 1] = { set = 'Other', key = 'Dios_rematador' }; local ex = center.ability.extra; return { vars = { ex.drain_amt, ex.xmult_gain, ex.current_xmult } }
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Dios_rematador' }; local ex = center.ability.extra; return { vars = { ex.drain_amt, ex.xmult_gain, ex.current_Xmult } }
     end,
     rarity = "ina_top", -- Destacado
     pools = { ["Eisei Gakuen"] = true },
@@ -94,11 +94,11 @@ local Xavier_Ares = J({
     blueprint_compat = true,
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
-        if Pokerleven.is_joker_turn(ctx) and ex.current_xmult > 1 then
+        if Pokerleven.is_joker_turn(ctx) and ex.current_Xmult > 1 then
             return {
-                message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_xmult } },
+                message = localize { type = 'variable', key = 'a_xmult', vars = { ex.current_Xmult } },
                 Xmult_mod =
-                    ex.current_xmult,
+                    ex.current_Xmult,
                 colour = G.C.XMULT
             }
         elseif ctx.after and not ctx.blueprint and card.area == G.jokers then
@@ -113,7 +113,7 @@ local Xavier_Ares = J({
                 end
             end
             if drained > 0 then
-                ex.current_xmult = ex.current_xmult + (drained * ex.xmult_gain)
+                ex.current_Xmult = ex.current_Xmult + (drained * ex.xmult_gain)
                 return { message = localize('k_upgrade_ex'), colour = G.C.DARK_EDITION }
             end
         end
@@ -124,3 +124,4 @@ return {
     name = "Eisei Gakuen",
     list = { Xavier_Ares, Quagmire_Ares, Hunter_Ares }
 }
+

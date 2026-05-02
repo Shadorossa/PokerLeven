@@ -1,4 +1,4 @@
--- Inazuma Eleven 1
+﻿-- Inazuma Eleven 1
 
 local ff_regional_a = {
     object_type = "Blind",
@@ -133,7 +133,7 @@ local inazuma_eleven = {
     name = "ina-inazuma_eleven",
     key = "inazuma_eleven",
     pos = { x = 0, y = 8 },
-    config = { extra = { suit = "Hearts", chips_mod = 20 } },
+    config = { extra = { suit = "Hearts", chip_mod = 20 } },
     discovered = false,
     mult = 1.65,
     atlas = "bigBlinds01",
@@ -145,9 +145,9 @@ local inazuma_eleven = {
         if context.individual and context.cardarea == G.play and context.other_card:is_suit(self.config.extra.suit) and context.scoring_hand then
             return {
                 message = localize { type = 'variable', key = 'a_chips',
-                    vars = { self.config.extra.chips_mod } },
+                    vars = { self.config.extra.chip_mod } },
                 colour = G.C.CHIPS,
-                chip_mod = self.config.extra.chips_mod,
+                chip_mod = self.config.extra.chip_mod,
                 card = context.other_card
             }
         end
@@ -315,7 +315,7 @@ local OsakaCCC = {
         ease_dollars(1)
     end,
     defeat = function(self)
-        -- TODO: Al implementar Espíritus Guerreros, añadir carga aquí
+        -- TODO: Al implementar EspÃ­ritus Guerreros, aÃ±adir carga aquÃ­
     end
 }
 
@@ -366,14 +366,14 @@ local MaryTimes = {
             
             local was_match = match_suit or match_count
 
-            -- Cambiar secreto para la próxima mano
+            -- Cambiar secreto para la prÃ³xima mano
             self.ina_mary_suit = pseudorandom_element({'Spades', 'Hearts', 'Diamonds', 'Clubs'}, pseudoseed('mary_suit'))
             self.ina_mary_count = pseudorandom_element({1, 2, 3, 4, 5}, pseudoseed('mary_count'))
 
             if was_match then
                 return {
                     x_mult = 2,
-                    message = "¡X2 RITMO!",
+                    message = "Â¡X2 RITMO!",
                     colour = G.C.RED
                 }
             end
@@ -412,3 +412,4 @@ return {
 --         umbrella, inazuma_kids, sallys,
 --         occult, inazuma_eleven, shun, empress, SPFixers, Alpine, Cloister, OsakaCCC, Fauxshore, MaryTimes, robotsg }
 -- }
+

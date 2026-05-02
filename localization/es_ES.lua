@@ -1564,8 +1564,9 @@ return {
                 name = "Hellen Hearth",
                 text = {
                     "{C:forest}Femme fatale{}",
-                    "Por cada jugador {C:attention}femenino{} en tus jokers,",
-                    "hay un {C:green}#1#%{} de no gastar una carta {C:tarot}tarot{}.",
+                    "Al usar un {C:tarot}Tarot{}, cada Joker {C:attention}femenino{}",
+                    "otorga una probabilidad de {C:green}#1# en 100{}",
+                    "de crear una {C:attention}copia{} del mismo.",
                     "{C:inactive}(Actual: {C:green}#2#%#{C:inactive})"
                 }
             },
@@ -1573,9 +1574,10 @@ return {
                 name = "Bela Bluebells",
                 text = {
                     "{C:wind}Sorpresa{}",
-                    "Tiene una probabilidad de {C:green}#1# en #2#{} de que la",
-                    "mano jugada se transforme automáticamente en una",
-                    "{C:attention}Escalera de Color{}, sin importar las cartas que sean."
+                    "Al jugar cualquier mano, tiene una",
+                    "probabilidad de {C:green}#1# entre #2#{}" ,
+                    "de que esta se convierta automáticamente",
+                    "en una {C:attention}Escalera de Color{}."
                 }
             },
 
@@ -2032,8 +2034,8 @@ return {
                 name = "Scaber Enoki", 
                 text = { 
                     "{C:fire}Metrónomo{}",
-                    "En cada ciega, copia el efecto de un {C:attention}Joker{}",
-                    "aleatorio de todo el mod.",
+                    "Al iniciar una ciega, copia el efecto",
+                    "de un {C:attention}Joker{} aleatoriamente",
                     "{C:inactive}(Efecto actual: {C:attention}#1#{C:inactive})"
                 } 
             },
@@ -3470,7 +3472,7 @@ return {
             ["ina_team_Fauxshore"] = "Fauxshore",
             ["ina_team_MaryTimes"] = "Mary Times",
             ["ina_team_Genesis"] = "Génesis",
-            ["ina_team_EiseiGakuen"] = "Eisei Gakuen",
+            ["ina_team_EiseiGakuen"] = "Academia Alia",
             ["ina_team_InakuniRaimon"] = "Inakuni Raimon",
             ["ina_team_Scout"] = "Ojeadores",
             ["ina_team_InazumaJapon"] = "Inazuma Japón",

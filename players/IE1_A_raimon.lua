@@ -1,4 +1,4 @@
--- Mark Evans
+﻿-- Mark Evans
 local Mark = J({
   name = "Mark",
   pos = { x = 0, y = 0 },
@@ -73,9 +73,9 @@ local Nathan = J({
 local Jack = J({
   name = "Jack",
   pos = { x = 1, y = 0 },
-  config = { extra = { chips_mod = 10, triggered = false } },
+  config = { extra = { chip_mod = 10, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod } }
+    return { vars = { center.ability.extra.chip_mod } }
   end,
   rarity = 2,
   pools = { ["ina_team_Raimon"] = true },
@@ -95,7 +95,7 @@ local Jack = J({
       local count = #find_player_position("DF");
       context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus or 0;
       context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus +
-          card.ability.extra.chips_mod * count;
+          card.ability.extra.chip_mod * count;
       return {
         extra = { message = localize('k_upgrade_ex'), colour = G.C.CHIPS },
         colour = G.C.CHIPS,
@@ -109,9 +109,9 @@ local Jack = J({
 local Jim = J({
   name = "Jim",
   pos = { x = 2, y = 0 },
-  config = { extra = { chips_mod = 1 } },
+  config = { extra = { chip_mod = 1 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod } }
+    return { vars = { center.ability.extra.chip_mod } }
   end,
   rarity = 1,
   pools = { ["ina_team_Raimon"] = true },
@@ -455,9 +455,9 @@ local Willy = J({
 local Bobby = J({
   name = "Bobby",
   pos = { x = 0, y = 0 },
-  config = { extra = { chips_mod = 30 } },
+  config = { extra = { chip_mod = 30 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.chips_mod } }
+    return { vars = { center.ability.extra.chip_mod } }
   end,
   rarity = 2,
   pools = { ["ina_team_Raimon"] = true },
@@ -477,9 +477,9 @@ local Bobby = J({
           end
         }))
         return {
-          message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips_mod } },
+          message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chip_mod } },
           colour = G.C.CHIPS,
-          chip_mod = card.ability.extra.chips_mod,
+          chip_mod = card.ability.extra.chip_mod,
           card = context.other_joker
         }
       end
@@ -597,11 +597,11 @@ local Jude_Raimon = J({
   pos = { x = 1, y = 0 },
   soul_pos = { x = 1, y = 1 },
   config = {
-    extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
+    extra = { current_Xmult = 1, Xmult_mod = 0.08, next_xmult = 1, triggered = false
     }
   },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.current_xmult, center.ability.extra.current_xmult + center.ability.extra.xmult_mod } }
+    return { vars = { center.ability.extra.current_Xmult, center.ability.extra.current_Xmult + center.ability.extra.Xmult_mod } }
   end,
   rarity = "ina_top",
   cost = 8,
@@ -622,7 +622,7 @@ local Jude_Raimon = J({
     end
     if context.post_trigger and context.other_card ~= card
         and context.other_card == G.jokers.cards[index - 1] then
-      card.ability.extra.current_xmult = (card.ability.extra.current_xmult or 0) + card.ability.extra.xmult_mod
+      card.ability.extra.current_Xmult = (card.ability.extra.current_Xmult or 0) + card.ability.extra.Xmult_mod
 
       G.E_MANAGER:add_event(Event({
         func = function()
@@ -640,9 +640,9 @@ local Jude_Raimon = J({
     if context.joker_main and context.scoring_hand then
       card.ability.extra.triggered = true
       return {
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_xmult } },
+        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_Xmult } },
         colour = G.C.XMULT,
-        Xmult_mod = card.ability.extra.current_xmult
+        Xmult_mod = card.ability.extra.current_Xmult
       }
     end
   end,

@@ -1,4 +1,4 @@
--- Neville
+﻿-- Neville
 local Neville = J({
     name = "Neville",
     pos = { x = 11, y = 10 },
@@ -140,9 +140,9 @@ local Ricky_Clover = J({
 local Damian = J({
     name = "Damian",
     pos = { x = 3, y = 11 },
-    config = { extra = { chips_mod = 7, current_chips = 0, triggered = false } },
+    config = { extra = { chip_mod = 7, current_chips = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
+        return { vars = { center.ability.extra.chip_mod, center.ability.extra.current_chips } }
     end,
     rarity = 1,
     pools = { ["ina_team_Kirkwood"] = true },
@@ -163,7 +163,7 @@ local Damian = J({
 
             if count > 0 then
                 card.ability.extra.current_chips = card.ability.extra.current_chips +
-                    card.ability.extra.chips_mod * count
+                    card.ability.extra.chip_mod * count
             end
             return {
                 message = localize("k_upgrade_ex"),
@@ -289,11 +289,11 @@ local Marvin = J({
 local Thomas = J({
     name = "Thomas",
     pos = { x = 7, y = 11 },
-    config = { extra = { chips_mod = 15, retrigger_count = 1 } },
+    config = { extra = { chip_mod = 15, retrigger_count = 1 } },
     loc_vars = function(self, info_queue, center)
-        local chips_mod = center.ability.extra.chips_mod
+        local chip_mod = center.ability.extra.chip_mod
         table.insert(info_queue, { set = "Other", key = "Trillizos" })
-        return { vars = { chips_mod } }
+        return { vars = { chip_mod } }
     end,
     rarity = 2,
     pools = { ["ina_team_Kirkwood"] = true },
@@ -320,9 +320,9 @@ local Thomas = J({
         end
 
         if context.individual and scoring_card and scoring_card:is_uneven() then
-            local chips_mod = card.ability.extra.chips_mod
+            local chip_mod = card.ability.extra.chip_mod
             return {
-                chips = chips_mod,
+                chips = chip_mod,
                 card = card
             }
         end
@@ -486,3 +486,4 @@ return {
     name = "Kirkwood",
     list = { Neville, Night, Damian, Nashmith, Marvin, Thomas, Tyler }
 }
+

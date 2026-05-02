@@ -1,4 +1,4 @@
-local Rocky = J({
+﻿local Rocky = J({
   name = "Rocky Black",
   pos = { x = 12, y = 9 },
   config = { extra = {} },
@@ -129,7 +129,7 @@ local Soundtown = J({
   name = "Soundtown",
   pos = { x = 5, y = 10 },
   config = { extra = { 
-    current_xmult = 1, 
+    current_Xmult = 1, 
     tuning = 1, -- 0: Low, 1: Med, 2: High
     targets = {high = {}, med = {}}
   } },
@@ -137,10 +137,10 @@ local Soundtown = J({
     local ex = center.ability.extra
     local tuning_str = "Medio"
     local tuning_col = G.C.ORANGE
-    if ex.tuning == 2 then tuning_str = "¡ALTO!"; tuning_col = G.C.GREEN
+    if ex.tuning == 2 then tuning_str = "Â¡ALTO!"; tuning_col = G.C.GREEN
     elseif ex.tuning == 0 then tuning_str = "Bajo"; tuning_col = G.C.RED end
     
-    return { vars = { tuning_str, ex.current_xmult, tuning_col } }
+    return { vars = { tuning_str, ex.current_Xmult, tuning_col } }
   end,
   rarity = 3,
   pools = { ["Mary Times"] = true },
@@ -185,8 +185,8 @@ local Soundtown = J({
 
     if Pokerleven.is_joker_turn(ctx) then
         return {
-            Xmult_mod = ex.current_xmult,
-            message = localize{type='variable',key='a_xmult',vars={ex.current_xmult}}
+            Xmult_mod = ex.current_Xmult,
+            message = localize{type='variable',key='a_xmult',vars={ex.current_Xmult}}
         }
     end
 
@@ -211,16 +211,16 @@ local Soundtown = J({
         
         if is_high then
             new_tuning = 2
-            ex.current_xmult = ex.current_xmult + 2
+            ex.current_Xmult = ex.current_Xmult + 2
         else
             local is_med = false
             for _, c in ipairs(ex.targets.med) do if check_cond(c) then is_med = true; break end end
             if is_med then
                 new_tuning = 1
-                ex.current_xmult = ex.current_xmult + 0.25
+                ex.current_Xmult = ex.current_Xmult + 0.25
             else
                 new_tuning = 0
-                ex.current_xmult = math.max(1, ex.current_xmult - 0.5)
+                ex.current_Xmult = math.max(1, ex.current_Xmult - 0.5)
             end
         end
 
@@ -228,7 +228,7 @@ local Soundtown = J({
         Pokerleven.soundtown_set_tuning(new_tuning)
         
         return {
-            message = new_tuning == 2 and "¡Sintonía ALTA!" or (new_tuning == 0 and "Sintonía Baja..." or "Sintonía Media"),
+            message = new_tuning == 2 and "Â¡SintonÃ­a ALTA!" or (new_tuning == 0 and "SintonÃ­a Baja..." or "SintonÃ­a Media"),
             colour = new_tuning == 2 and G.C.GREEN or (new_tuning == 0 and G.C.RED or G.C.ORANGE)
         }
     end
@@ -428,3 +428,4 @@ return {
   name = "Mary Times",
   list = { Soundtown }
 }
+

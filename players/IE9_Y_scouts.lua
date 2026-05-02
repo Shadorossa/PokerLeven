@@ -1,4 +1,4 @@
--- Versión 0.1
+﻿-- VersiÃ³n 0.1
 
 -- Dulce
 ---@param card Card
@@ -216,9 +216,9 @@ local Chester = J({
 local Mach = J({
     name = "Mach",
     pos = { x = 7, y = 0 },
-    config = { extra = { current_xmult = 1, xmult_mod = 0.15 } },
+    config = { extra = { current_Xmult = 1, Xmult_mod = 0.15 } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.xmult_mod, center.ability.extra.current_xmult } }
+        return { vars = { center.ability.extra.Xmult_mod, center.ability.extra.current_Xmult } }
     end,
     rarity = 3,
     pools = { ["Scout"] = true },
@@ -233,7 +233,7 @@ local Mach = J({
         if context.selling_card and
             context.card.ability.set == "Joker" and
             context.card ~= card then
-            card.ability.extra.current_xmult = card.ability.extra.current_xmult + card.ability.extra.xmult_mod
+            card.ability.extra.current_Xmult = card.ability.extra.current_Xmult + card.ability.extra.Xmult_mod
             G.E_MANAGER:add_event(Event({
                 func = function()
                     card_eval_status_text(card, 'extra', nil, nil, nil, {
@@ -248,7 +248,7 @@ local Mach = J({
 
         if Pokerleven.is_joker_turn(context) then
             return {
-                Xmult = card.ability.extra.current_xmult
+                Xmult = card.ability.extra.current_Xmult
             }
         end
     end
@@ -347,7 +347,7 @@ local Rex_George = J({
     }
 })
 
--- Versión 0.2
+-- VersiÃ³n 0.2
 -- George
 local George = J({
     name = "George",
@@ -589,7 +589,7 @@ local Gold = J({
     end
 })
 
-local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade, Miles, George, Spring, Summer, Autumn, Tom_Skipper, Ian_Flappable, Gold }
+local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade, Gold }
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers then
     table.insert(list, 1, Dulce)
     table.insert(list, 2, Ryoma)
@@ -599,3 +599,4 @@ return {
     name = "Scout",
     list = list
 }
+
