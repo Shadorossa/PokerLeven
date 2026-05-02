@@ -243,24 +243,31 @@ player_in_pool = function(self)
         return false
     end
 
-    -- Si no tiene aux_ina, permitimos (salvo filtros de universo)
-    if Pokerleven.Universe and not Pokerleven.Universe.is_joker_allowed(self) then
-        return false
-    end
-
-    if next(find_joker("Custom")) and self.ptype == "Wind" then
-        return true
-    end
-
+    -- v16.2: Lógica de duplicados (Custom y Trixy Wonder)
     local name
-    if not self.name and self.ability.name then
+    if not self.name and self.ability and self.ability.name then
         name = self.ability.name
     else
         name = self.name or "Mark"
     end
-    if next(find_joker(name)) or player_in_bench(name) or self.pteam == 'ina_team_Scout' then
+
+    local has_custom = next(find_joker("Custom"))
+    local has_wonder = next(find_joker("Trixy_Wonder"))
+    local current_copies = #find_joker(name)
+
+    -- Custom: Duplicados ilimitados de Viento
+    if has_custom and self.ptype == "Wind" then
+        return true
+    end
+
+    -- Trixy Wonder: Máximo 1 duplicado (2 copias total) de CUALQUIER Joker
+    if has_wonder and current_copies == 1 then
+        return true
+    end
+
+    if current_copies > 0 or player_in_bench(name) or self.pteam == 'ina_team_Scout' then
         return false
-        elseif self.rarity == "winner" or self.rarity == "ina_winner" or self.rarity == "ina_vestige" then
+    elseif self.rarity == "winner" or self.rarity == "ina_winner" or self.rarity == "ina_vestige" then
         return false
     else
         return true
@@ -321,19 +328,21 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
         then
             local no_dup = true
             if not enable_dupes and inaarea and inaarea.cards and not next(find_joker("Showman")) then
-                if inaarea == Pokerleven.ina_bench_area then
-                    for _, m in pairs(G.jokers.cards) do
-                        if v.key == m.config.center_key then
-                            no_dup = false
-                            break
-                        end
-                    end
-                end
+                local has_wonder = next(find_joker("Trixy_Wonder"))
+                local count = 0
+                
+                -- Contamos cuántos tenemos de esta key
                 for _, m in pairs(inaarea.cards) do
                     if v.key == m.config.center_key then
-                        no_dup = false
-                        break
+                        count = count + 1
                     end
+                end
+                
+                -- Si tenemos Trixy Wonder, permitimos hasta 1 duplicado (2 total)
+                if has_wonder then
+                    if count >= 2 then no_dup = false end
+                else
+                    if count >= 1 then no_dup = false end
                 end
             end
 

@@ -1,4 +1,4 @@
-﻿-- VersiÃ³n 0.1
+-- VersiÃ³n 0.1
 
 -- Dulce
 ---@param card Card
@@ -589,7 +589,260 @@ local Gold = J({
     end
 })
 
-local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade, Gold }
+-- Trixy Wonder
+local Trixy_Wonder = J({
+    name = "Trixy_Wonder",
+    pos = { x = 9, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pgender = C.F,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Dave Lung
+local Dave_Lung = J({
+    name = "Dave Lung",
+    pos = { x = 10, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Wind,
+    pposition = C.GK,
+    pgender = C.M,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Argento Salvage
+local Argento_Salvage = J({
+    name = "Argento Salvage",
+    pos = { x = 11, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pgender = C.M,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Canon Evans
+local Canon_Evans = J({
+    name = "Canon Evans",
+    pos = { x = 12, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pgender = C.M,
+    pyear = C.UNKNOWN,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Bob Daruma
+local Bob_Daruma = J({
+    name = "Bob Daruma",
+    pos = { x = 0, y = 2 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Mountain,
+    pposition = "MF",
+    pgender = C.M,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Kaya Haskell
+local Kaya_Haskell = J({
+    name = "Kaya Haskell",
+    pos = { x = 1, y = 2 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pgender = C.F,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Virginia "Virgo" Goldstein
+local Virginia_Goldstein = J({
+    name = "Virginia Goldstein",
+    pos = { x = 2, y = 2 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.F,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Isla Pullens
+local Isla_Pullens = J({
+    name = "Isla Pullens",
+    pos = { x = 3, y = 2 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Mountain,
+    pposition = C.GK,
+    pgender = C.F,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Chloe Glazier
+local Chloe_Glazier = J({
+    name = "Chloe Glazier",
+    pos = { x = 4, y = 2 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Wind,
+    pposition = "DF",
+    pgender = C.F,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Shay Diebold
+local Shay_Diebold = J({
+    name = "Shay Diebold",
+    pos = { x = 5, y = 2 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pgender = C.M,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+-- Bruce Barkley
+local Bruce_Barkley = J({
+    name = "Bruce Barkley",
+    pos = { x = 6, y = 2 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pgender = C.M,
+    pyear = C.YEAR_2,
+    pteam = "ina_team_Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+})
+
+local list = { Blazer, Weathervane, Noggin, Montayne, Mach, Ace_Server, Rex_George, Heart, Clover, Diamond, Spade, Gold, Trixy_Wonder }
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers then
     table.insert(list, 1, Dulce)
     table.insert(list, 2, Ryoma)

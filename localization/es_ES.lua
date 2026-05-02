@@ -1894,7 +1894,7 @@ return {
                 name = "Gocker",
                 text = {
                     "{C:mountain}Cero Absoluto{}",
-                    "Las cartas de {C:attention}Vidrio{} no pueden romperse,",
+                    "Las cartas de {C:attention}Cristal{} no pueden romperse,",
                     "pero su bono se reduce a {X:mult,C:white}X#1#{}."
                 }
             },
@@ -1911,6 +1911,32 @@ return {
                 }
             },
 
+            -- IE2_H_OsakaCCC
+            j_ina_Hearth = {
+                name = "Hellen Hearth",
+                text = {
+                    "Al usar una carta de {C:tarot}Tarot{}, tiene un",
+                    "{C:green}#1#%{} de probabilidad por cada {C:attention}Joker femenino{}",
+                    "de crear una {C:attention}copia{} del consumible."
+                }
+            },
+            j_ina_Bluebells = {
+                name = "Bela Bluebells",
+                text = {
+                    "{C:wind}Sorpresa!{}",
+                    "Al puntuar, {C:green}1 en #2#{} de probabilidad",
+                    "de convertir la mano en {C:attention}Color{}."
+                }
+            },
+            j_ina_Peony_Cash = {
+                name = "Peony Cash",
+                text = {
+                    "Otorga {C:money}1 ${} por cada {C:attention}descarte{} usado.",
+                    "Si superas los {C:money}200 ${}, se {C:red}autodestruye{}",
+                    "y genera un Joker {C:dark_edition}Negativo{} del {X:ina_team_osakaccc,C:white}Osaka CCC{}"
+                }
+            },
+
             -- IE2_J_MaryTimes
             j_ina_Soundtown = {
                 name = "Soundtown",
@@ -1919,6 +1945,30 @@ return {
                     "Cada ronda se genera una condición de sintonía aleatoria",
                     "{C:green}Alta{}: {X:mult,C:white}X0.75{} | {C:orange}Media{}: {X:mult,C:white}X0.25{} | {C:red}Baja{}: {X:mult,C:white}X-0.5{}",
                     "{C:inactive}(Sintonía: {C:attention}#1#{} | Actual:{} {X:mult,C:white}X#2#{}{C:inactive})"
+                }
+            },
+            j_ina_Bevan_Breakfast = {
+                name = "Bevan Breakfast",
+                text = {
+                    "Si la {C:attention}primera mano{} de la ronda",
+                    "es una {C:attention}Pareja{}, otorga",
+                    "{C:red}+#1# descartes{}."
+                }
+            },
+            j_ina_Jack_Griddle = {
+                name = "Jack Griddle",
+                text = {
+                    "Si una carta puntúa con un {C:attention}Sello Rojo{}",
+                    "y no tiene edición, entonces se convierte",
+                    "en una {C:attention}Carta de Cristal{}."
+                }
+            },
+            j_ina_Coral_Talent = {
+                name = "Coral Talent",
+                text = {
+                    "Al entrar en una ciega, aumenta un {C:attention}#1#%{}",
+                    "las estadísticas de todos los jugadores",
+                    "del {X:ina_team_marytimes,C:white}Mary Times{}."
                 }
             },
 
@@ -2468,6 +2518,14 @@ return {
                     "al finalizar cada ciega"
                 }
             },
+            j_ina_Trixy_Wonder = {
+                name = "Trixy Wonder",
+                text = {
+                    "{C:wind}Truco de magia{}",
+                    "Permite que aparezca hasta {C:attention}1{}",
+                    "{C:attention}duplicado{} de los Jokers que ya tienes.",
+                }
+            },
 
             -- IE9_P_SolariaZeus
             j_ina_Susanoo = { name = "Wesley Knox", text = { "" } },
@@ -2843,13 +2901,6 @@ return {
                 text = {
                     "{C:inactive}Cargas: {C:attention}#1#/#2#{}",
                     "{C:inactive}Evolución: {C:attention}Máx.{}"
-                }
-            },
-            ina_wittz_mark = {
-                name = "Marca de Wittz",
-                text = {
-                    "Esta carta {C:red}desaparecerá{}",
-                    "en {C:attention}#1#{} ciega(s)"
                 }
             },
             j_ina_Dvalin_ZO = { name = "Dvalin", text = { "{C:fire}Miximax Zanark{}", "{C:inactive}(Efecto por programar){}" } },

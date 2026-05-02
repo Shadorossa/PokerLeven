@@ -337,7 +337,7 @@ local Spires = J({
 
 -- Cash
 local Cash = J({
-  name = "Peony Cash",
+  name = "Peony_Cash",
   pos = { x = 5, y = 8 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
@@ -355,7 +355,40 @@ local Cash = J({
   pdorsal = 14,
   pteam = "ina_team_OsakaCCC",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, context)
+    -- Otorga 1$ por descarte usado
+    if context.discard and not context.blueprint then
+      ease_dollars(1)
+      return {
+        message = "$1",
+        colour = G.C.MONEY,
+        card = card
+      }
+    end
+  end,
+  update = function(self, card, dt)
+    -- Si superas los 200$, se autodestruye y genera un Osaka CCC negativo
+    if G.STAGE == G.STAGES.RUN and G.GAME.dollars > 200 and not card.getting_sliced then
+      card.getting_sliced = true
+      G.E_MANAGER:add_event(Event({
+        func = function()
+          local osaka_list = { "j_ina_Daisy", "j_ina_Sand", "j_ina_Hearth", "j_ina_Pinkpetal", "j_ina_Greenland", "j_ina_Bluebells", "j_ina_Sunrise", "j_ina_Bush", "j_ina_Moor", "j_ina_Sue", "j_ina_Willow", "j_ina_Closeout", "j_ina_Spires", "j_ina_Revel", "j_ina_Brook" }
+          local random_key = osaka_list[pseudorandom_int('peony_cash', 1, #osaka_list)]
+          
+          card:start_dissolve()
+          
+          local new_card = SMODS.create_card({
+            set = 'Joker',
+            key = random_key,
+            edition = 'e_negative'
+          })
+          new_card:add_to_deck()
+          G.jokers:emplace(new_card)
+          return true
+        end
+      }))
+    end
+  end
 })
 
 -- Revel
@@ -406,5 +439,5 @@ local Brook = J({
 
 return {
   name = "Osaka CCC",
-  list = { Hearth, Bluebells }
+  list = { Hearth, Bluebells, Cash }
 }

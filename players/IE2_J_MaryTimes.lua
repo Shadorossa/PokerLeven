@@ -1,4 +1,4 @@
-local Rocky = J({
+﻿local Rocky = J({
   name = "Rocky Black",
   pos = { x = 12, y = 9 },
   config = { extra = {} },
@@ -341,11 +341,11 @@ local Cooley = J({
 })
 
 local Breakfast = J({
-  name = "Bevan Breakfast",
+  name = "Bevan_Breakfast",
   pos = { x = 11, y = 10 },
-  config = { extra = {} },
+  config = { extra = { discards = 2 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    return { vars = { center.ability.extra.discards } }
   end,
   rarity = 1,
   pools = { ["Mary Times"] = true },
@@ -358,11 +358,19 @@ local Breakfast = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_MaryTimes",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, context)
+    if context.joker_main and G.GAME.current_round.hands_played == 0 and context.scoring_name == "Pair" then
+      ease_discard(card.ability.extra.discards)
+      return {
+        message = localize('k_active_ex'),
+        card = card
+      }
+    end
+  end
 })
 
 local Griddle = J({
-  name = "Jack Griddle",
+  name = "Jack_Griddle",
   pos = { x = 12, y = 10 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
@@ -379,7 +387,24 @@ local Griddle = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_MaryTimes",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, context)
+    if context.individual and context.cardarea == G.play and not context.end_of_round then
+      local other = context.other_card
+      if other.seal == 'Red' and not other.edition then
+        other:set_ability(G.P_CENTERS.m_glass)
+        G.E_MANAGER:add_event(Event({
+          func = function()
+            other:juice_up()
+            return true
+          end
+        }))
+        return {
+          message = localize('k_glass'),
+          colour = G.C.ICE
+        }
+      end
+    end
+  end
 })
 
 local Andagi = J({
@@ -404,11 +429,11 @@ local Andagi = J({
 })
 
 local Talent = J({
-  name = "Coral Talent",
+  name = "Coral_Talent",
   pos = { x = 1, y = 11 },
-  config = { extra = {} },
+  config = { extra = { boost = 1.02 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = {} }
+    return { vars = { (center.ability.extra.boost - 1) * 100 } }
   end,
   rarity = 1,
   pools = { ["Mary Times"] = true },
@@ -421,11 +446,39 @@ local Talent = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_MaryTimes",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, context)
+    if context.setting_blind and not context.blueprint then
+      local mt_jokers = find_player_team("ina_team_MaryTimes")
+      -- TambiÃ©n buscamos en el banquillo
+      if Pokerleven.ina_bench_area and Pokerleven.ina_bench_area.cards then
+        for _, b in ipairs(Pokerleven.ina_bench_area.cards) do
+          if is_team(b, "ina_team_MaryTimes") then
+            table.insert(mt_jokers, b)
+          end
+        end
+      end
+
+      local keys_to_scale = { "mult", "chips", "Xmult_mod", "chip_mod", "current_Xmult", "xmult" }
+      for _, v in ipairs(mt_jokers) do
+        if v ~= card and v.ability and v.ability.extra and type(v.ability.extra) == "table" then
+          for _, key in ipairs(keys_to_scale) do
+            if v.ability.extra[key] and type(v.ability.extra[key]) == "number" then
+              v.ability.extra[key] = v.ability.extra[key] * card.ability.extra.boost
+            end
+          end
+          v:juice_up()
+        end
+      end
+      return {
+        message = "Â¡Ritmo Coral!",
+        colour = G.C.WIND
+      }
+    end
+  end
 })
 
 return {
   name = "Mary Times",
-  list = { Soundtown }
+  list = { Soundtown, Breakfast, Griddle, Talent }
 }
 
