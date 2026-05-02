@@ -386,6 +386,10 @@ local function load_joker_folder(folder_name, item_constructor)
           if item.special then item.config.extra.special = item.special end
           -- Aseguramos que la etiqueta especial también se propague a nivel de raíz para que SMODS y Lovely no la pierdan nunca
           if item.special then item.special_type = item.special end
+          if item.no_training then 
+            item.config.extra.no_training = item.no_training 
+            item.config.extra.tech_level = 1
+          end
           if item.techtype then item.config.extra.techtype = item.techtype end
           if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
           if item.pdorsal then item.config.extra.pdorsal = item.pdorsal end

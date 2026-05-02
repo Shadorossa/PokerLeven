@@ -191,8 +191,14 @@ local Zelus = J({
 local Thaddeus_Bellefax = J({
   name = "Thaddeus_Bellefax",
   pos = { x = 2, y = 11 },
-  config = { extra = { stat_boost = 1.75, transform_blinds = 4, transformed = false, original_key = "j_ina_Thaddeus_Bellefax" } },
+  config = { extra = { stat_boost = 1.75, transform_blinds = 4, transformed = false, original_key = "j_ina_Thaddeus_Bellefax", tech_level = 1, techtype = 'grade' } },
   loc_vars = function(self, info_queue, center) 
+    -- Asegurar recalculo visual correcto
+    local mult = 1
+    if center.ability.extra.cap_plus_max then mult = 4
+    elseif center.ability.extra.cap_plus then mult = 2 end
+    center.ability.extra.stat_boost = 1.75 + ((center.ability.extra.tech_level - 1) * 0.0075 * mult)
+
     info_queue[#info_queue + 1] = { set = 'Other', key = 'modo_cambio' }
     return { vars = { (center.ability.extra.stat_boost - 1) * 100, center.ability.extra.transform_blinds } } 
   end,
@@ -211,6 +217,7 @@ local Thaddeus_Bellefax = J({
   blueprint_compat = true,
   add_to_deck = function(self, card)
     card.ability.gives_boost = "THADDEUS"
+    modify_values(card)
     Pokerleven.refresh_concept_boosts("ZEUS", card.ability.extra.stat_boost, "THADDEUS")
   end,
   remove_from_deck = function(self, card)
@@ -219,6 +226,7 @@ local Thaddeus_Bellefax = J({
   end,
   calculate = function(self, card, context)
     if context.setting_blind or context.joker_main or context.buying_card then
+        modify_values(card)
         Pokerleven.refresh_concept_boosts("ZEUS", card.ability.extra.stat_boost, "THADDEUS")
     end
 

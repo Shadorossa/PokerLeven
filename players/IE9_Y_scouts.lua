@@ -1,4 +1,4 @@
--- VersiÃ³n 0.1
+﻿-- VersiÃ³n 0.1
 
 -- Dulce
 ---@param card Card
@@ -107,6 +107,7 @@ local Blazer = J({
     pposition = C.GK,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
+    no_training = true,
     allow_element_application = true,
     calculate = function(self, card, context)
         if Pokerleven.is_active_elemental(card) then apply_element("Fire", "ina_onfire", G.ARGS.LOC_COLOURS['fire']) end
@@ -132,6 +133,7 @@ local Weathervane = J({
     pposition = "DF",
     pteam = "ina_team_Scout",
     blueprint_compat = true,
+    no_training = true,
     allow_element_application = true,
     calculate = function(self, card, context)
         if Pokerleven.is_active_elemental(card) then apply_element("Wind", "ina_onwind", G.ARGS.LOC_COLOURS['wind']) end
@@ -157,6 +159,7 @@ local Noggin = J({
     pposition = "MF",
     pteam = "ina_team_Scout",
     blueprint_compat = true,
+    no_training = true,
     allow_element_application = true,
     calculate = function(self, card, context)
         if Pokerleven.is_active_elemental(card) then apply_element("Forest", "ina_onforest", G.ARGS.LOC_COLOURS['forest']) end
@@ -182,6 +185,7 @@ local Montayne = J({
     pposition = C.FW,
     pteam = "ina_team_Scout",
     blueprint_compat = true,
+    no_training = true,
     allow_element_application = true,
     calculate = function(self, card, context)
         if Pokerleven.is_active_elemental(card) then apply_element("Mountain", "ina_onmountain", G.ARGS.LOC_COLOURS['mountain']) end
@@ -347,7 +351,6 @@ local Rex_George = J({
     }
 })
 
--- VersiÃ³n 0.2
 -- George
 local George = J({
     name = "George",
@@ -447,6 +450,7 @@ local Heart = J({
     ptype = C.Fire,
     pposition = C.GK,
     pteam = "ina_team_Scout",
+    no_training = true,
         blueprint_compat = false,
         update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Hearts', 'Fire') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Hearts', 'Fire', true) end end
@@ -467,6 +471,7 @@ local Clover = J({
     ptype = C.Forest,
     pposition = C.DF,
     pteam = "ina_team_Scout",
+    no_training = true,
         blueprint_compat = false,
         update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Clubs', 'Forest') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Clubs', 'Forest', true) end end
@@ -487,6 +492,7 @@ local Diamond = J({
     ptype = C.Mountain,
     pposition = C.MF,
     pteam = "ina_team_Scout",
+    no_training = true,
         blueprint_compat = false,
         update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Diamonds', 'Mountain') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Diamonds', 'Mountain', true) end end
@@ -507,6 +513,7 @@ local Spade = J({
     ptype = C.Wind,
     pposition = C.FW,
     pteam = "ina_team_Scout",
+    no_training = true,
         blueprint_compat = false,
         update = function(self, card, dt) if card.area ~= G.jokers then return end; if not Pokerleven.is_state_changed(card, {G.playing_cards}) then return end; Pokerleven.suit_element_aura(card, 'Spades', 'Wind') end,
         remove_from_deck = function(self, card, from_debuff) if not from_debuff then Pokerleven.suit_element_aura(card, 'Spades', 'Wind', true) end end
@@ -577,6 +584,7 @@ local Gold = J({
     pgender = C.M,
     pyear = C.YEAR_2,
     pteam = "ina_team_Scout",
+    no_training = true,
     calculate = function(self, card, context)
         if context.end_of_round and context.main_eval and not context.blueprint and not context.repetition then
             card.ability.extra_value = (card.ability.extra_value or 0) - card.ability.extra.loss

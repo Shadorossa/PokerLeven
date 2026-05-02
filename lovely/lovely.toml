@@ -669,3 +669,16 @@ payload = '''
     end
 '''
 match_indent = true
+
+# Cap+ Immunity to Debuffs
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if self.ability.perishable and self.ability.perish_tally <= 0 then self.debuff = true end"
+position = "after"
+payload = '''
+    if self.ability.extra and type(self.ability.extra) == 'table' and self.ability.extra.cap_plus then
+        self.debuff = false
+    end
+'''
+match_indent = true

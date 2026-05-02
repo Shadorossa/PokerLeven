@@ -2,11 +2,22 @@
 Pokerleven.ui = {}
 ina_joker_page = 1
 
-local get_upgrade_cards = function(key, card_area)
+local get_upgrade_cards = function(key, card_area, is_no_training)
   local upgrade_cards = {}
-  local is_spirit = G.P_CENTERS[key].special == 'Spirit' or (G.P_CENTERS[key].config and type(G.P_CENTERS[key].config.extra) == 'table' and G.P_CENTERS[key].config.extra.special == 'Spirit')
-  local limit = is_spirit and 6 or 8
-  for i = 1, limit do
+  local center = G.P_CENTERS[key]
+  local is_spirit = center.special == 'Spirit' or (center.config and type(center.config.extra) == 'table' and center.config.extra.special == 'Spirit')
+  local limit = is_spirit and 6 or 6 -- Nivel 6 (GO) es el máximo estándar
+  
+  -- Si es no_training, solo queremos los índices 1, 7 y 8
+  local indices_to_create = {}
+  if is_no_training then
+    indices_to_create = {1, 7, 8}
+    limit = 3 -- Para el tamaño del área
+  else
+    for i = 1, limit do table.insert(indices_to_create, i) end
+  end
+
+  for _, i in ipairs(indices_to_create) do
     local added_card = SMODS.create_card({
       key = key,
       no_edition = true,
@@ -15,24 +26,19 @@ local get_upgrade_cards = function(key, card_area)
     
     local ex = added_card.ability.extra
     if ex and type(ex) == 'table' then
-      ex.tech_level = math.min(5, i - 1)
-      if i > 1 then for _ = 1, ex.tech_level do modify_values(added_card) end end
-
+      ex.tech_level = i
+      
       if not is_spirit then
         if i == 7 then
           ex.cap_plus = true
-          for k, _ in pairs(technique_values) do
-              if type(ex[k]) == 'number' and type(added_card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 2 end
-          end
         elseif i == 8 then
           ex.cap_plus = true
           ex.cap_plus_max = true
-          for k, _ in pairs(technique_values) do
-              if type(ex[k]) == 'number' and type(added_card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 4 end
-          end
           added_card:set_edition({negative = true}, true, true)
         end
       end
+      
+      if i > 1 then modify_values(added_card) end
       if set_sticker then set_sticker(added_card) end
     end
     
@@ -163,14 +169,17 @@ end
 local function create_upgrade_tab_for_joker(key)
   Pokerleven.upgrades_area = {}
   local center = G.P_CENTERS[key]
+  local is_no_training = center.config and center.config.extra and center.config.extra.no_training
+
   if center.special ~= 'Manager' and (not center.config or type(center.config.extra) ~= 'table' or center.config.extra.special ~= 'Manager') then
     local is_spirit = center.special == 'Spirit' or (center.config and type(center.config.extra) == 'table' and center.config.extra.special == 'Spirit')
     return {
       label = is_spirit and "Evolución de EG" or localize("ina_training_upgrades"),
       chosen = true,
       tab_definition_function = function(t)
-        local card_area = Pokerleven.ui.create_card_area_to_area_table(is_spirit and 6 or 8, t.area_table)
-        local card_upgrade_list = get_upgrade_cards(key, card_area)
+        local card_area = Pokerleven.ui.create_card_area_to_area_table(is_spirit and 6 or (is_no_training and 3 or 6), t.area_table)
+        local card_upgrade_list = get_upgrade_cards(key, card_area, is_no_training)
+        
         Pokerleven.ui.emplace_collection_in_area(card_upgrade_list, card_area)
         return Pokerleven.ui.create_tab_from_card_area(card_area)
       end,
@@ -184,7 +193,8 @@ local function create_forms_tab_for_joker(key)
   local card_center = G.P_CENTERS[key]
   local keys_to_add = get_family_keys(card_center.name)
 
-  if #keys_to_add > 1 or key == 'j_ina_Bobby' or key == 'j_ina_Shadow' then
+  local is_no_training = card_center.config and card_center.config.extra and card_center.config.extra.no_training
+  if not is_no_training and (#keys_to_add > 1 or key == 'j_ina_Bobby' or key == 'j_ina_Shadow') then
     return {
       label = localize("ina_forms"),
       chosen = false,

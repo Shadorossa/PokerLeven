@@ -197,6 +197,10 @@ return {
                 name = "Jefe de Bosque",
                 text = { "Debilita cartas de {X:forest,C:white}Bosque{}", "tras cada mano jugada.", "{X:fire,C:white}Fuego{} obtiene {C:attention}+20%{} de stats." }
             },
+            bl_ina_tormenta_geminis = {
+                name = "Tormenta de Géminis",
+                text = { "Juega tu mano en {C:attention}10s{}", "o se jugará {C:attention}automáticamente{}" }
+            },
             bl_ina_mountain = {
                 name = "Jefe de Montaña",
                 text = { "Debilita cartas de {X:mountain,C:white}Montaña{}", "tras cada mano jugada.", "{X:wind,C:white}Viento{} obtiene {C:attention}+20%{} de stats." }
@@ -226,6 +230,30 @@ return {
                 name = "Otaku",
                 text = { "Las figuras se debilitan" }
             },
+            bl_ina_spfixers = {
+                name = "Servicio Secreto",
+                text = { "Las figuras dan", "{C:chips}+10{} Fichas adicionales" }
+            },
+            bl_ina_alpine = {
+                name = "Instituto Alpino",
+                text = { "Tréboles {C:attention}debilitados{}", "Diamantes dan {C:mult}+5{} Mult" }
+            },
+            bl_ina_cloister = {
+                name = "Claustro Sagrado",
+                text = { "Pierde {C:attention}1 descarte{} (o mano)", "por cada mano jugada" }
+            },
+            bl_ina_osakaccc = {
+                name = "CCC de Osaka",
+                text = { "Gana {C:money}1${} por descarte usado", "Los EG cargan al ganar" }
+            },
+            bl_ina_fauxshore = {
+                name = "Instituto Fauxshore",
+                text = { "Ciega {C:attention}30%{} más grande", "Descartes por {C:money}1${} cada uno" }
+            },
+            bl_ina_marytimes = {
+                name = "Mary Times",
+                text = { "{X:mult,C:white}X2{} si aciertas palo o", "nº de cartas secreto" }
+            },
             bl_ina_shuriken = {
                 name = "Shuriken",
                 text = { "Cada carta jugada",
@@ -254,43 +282,36 @@ return {
             },
 
             -- Inazuma Eleven 2
-            bl_ina_gemini = {
-                name = "Tormenta de Geminis",
-                text = { "" }
-            },
-
             bl_ina_epsilon = {
                 name = "Épsilon",
-                text = { "" }
+                text = { "La {C:attention}primera mano{} jugada", "no puntúa" }
             },
-
             bl_ina_epsilonplus = {
                 name = "Épsilon Plus",
-                text = { "" }
+                text = { "No puntúan manos de {C:attention}4+ cartas{}", "salvo {C:attention}Tormenta de Fuego{}" }
             },
-
             bl_ina_RRedux = {
                 name = "Royal Academy Redux",
-                text = { "" }
+                text = { "{C:attention}5%{} (+5% por mano) de", "destruir un Joker activado" }
             },
-
             bl_ina_Genesis = {
                 name = "Génesis",
-                text = { "" }
+                text = { "Anula todas las {C:attention}Ediciones{}", "y {C:attention}Sellos{} de tus cartas" }
             },
-
             bl_ina_Prominence = {
                 name = "Prominence",
-                text = { "" }
+                text = { "El {C:attention}25%{} de tu puntuación", "final es destruido" }
             },
-
             bl_ina_Diamond = {
                 name = "Polvo de Diamantes",
-                text = { "" }
+                text = { "Las cartas y Jokers", "{C:attention}no pueden moverse{}" }
             },
-
+            bl_ina_ForestTeam = {
+                name = "Mar de Árboles",
+                text = { "Al jugar o descartar, los palos", "del mazo {C:attention}cambian al azar{}" }
+            },
             bl_ina_YoungInazuma = {
-                name = "Young Inazuma",
+                name = "Jóvenes Inazuma",
                 text = {
                     "{C:attention}Debilita{} a los jokers mejorados",
                     "Anotar {C:attention}<25%{} requerido",
@@ -445,39 +466,39 @@ return {
         Joker = {
             -- IE1_A_raimon
             j_ina_Kevin = {
-                name = "Kevin",
+                name = "Kevin Dragonfly",
                 text = { "{C:forest}Tornado Dragón{}",
                     "Reactiva el {C:attention}Joker{} {X:fw,C:white}FW{}",
                     "derecho cada {C:attention}#1# manos",
                     "{C:inactive}#2# restantes" }
             },
             j_ina_Mark = {
-                name = "Mark",
+                name = "Mark Evans",
                 text = { "{C:mountain}Mano Mágica{}",
                     "{C:attention}+#1#{} al tamaño de mano jugada y de {C:red}descarte{}",
                     "{C:chips}+#2#{} al tamaño de {C:chips}mano{}" }
             },
             j_ina_Nathan = {
-                name = "Nathan",
+                name = "Nathan Swift",
                 text = { "{C:wind}Entrada Huracán{}",
                     "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{}",
                     "otorga {X:mult,C:white}X#2#{}" }
             },
             j_ina_Jack = {
-                name = "Jack",
+                name = "Jack Wallside",
                 text = { "{C:mountain}El Muro{}",
                     "{C:attention}Las Piedras{} ganan {C:chips}+#1#{} fichas",
                     "permanentemente por cada {C:attention}Joker{} {X:df,C:white}DF{}"
                 }
             },
             j_ina_Axel = {
-                name = "Axel",
-                text = { "{C:fire}Tornado de Fuego",
+                name = "Axel Blaze",
+                text = { "{C:fire}Tormenta de Fuego",
                     "La mano jugada obtiene {X:mult,C:white}X#1#{}",
                     "si contiene {C:attention}Color{} de {C:hearts}Corazones{}" }
             },
             j_ina_Shadow = {
-                name = "Shadow",
+                name = "Shadow Cimmerian",
                 text = { "{C:forest}Tornado Oscuro{}",
                     "Si al seleccionar la ciega es",
                     "el único {C:attention}Joker{}, crea una copia",
@@ -485,28 +506,28 @@ return {
                 }
             },
             j_ina_Willy = {
-                name = "Willy",
+                name = "Willy Glass",
                 text = { "{C:forest}Remate gafas{}",
-                    "{C:green}#1# entre #2#{} de convertir la mano",
+                    "{C:green}#1# en #2#{} de convertir la mano",
                     "jugada en cartas {C:attention}policromáticas{},",
                     "de {C:attention}cristal{} y con {C:attention}sello rojo{}" }
             },
             j_ina_Max = {
-                name = "Max",
+                name = "Maxwell 'Max' Carson",
                 text = { "{C:wind}Remate Espiral{}",
                     "{C:chips}+#1#{} fichas por cada comodín de {X:wind,C:white}Viento{}",
-                    "{C:inactive}(Actual:{} {C:chips}+#2#{} {C:inactive}){}" }
+                    "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}" }
             },
             j_ina_Peabody = {
-                name = "Peabody",
+                name = "Paul Peabody",
                 text = { "{C:mountain}Mano Celestial{}",
                     "Aumenta en {C:mult}+#2#{} por cada {C:attention}carta puntuada{}",
                     "en la última mano jugada",
-                    "{C:inactive}(Actual:{} {C:mult}+#1#{} {C:inactive}multi en tu última mano){}"
+                    "{C:inactive}(Actual:{} {C:mult}+#1#{}{C:inactive} multi en tu última mano){}"
                 }
             },
             j_ina_Jude_Raimon = {
-                name = "Jude",
+                name = "Jude Sharp",
                 text = { "{C:wind}Espejismo de Balón{}",
                     "Gana {X:mult,C:white}X#2#{} cada vez que el {C:attention}Joker",
                     "a su {C:attention}izquierda{} se activa",
@@ -514,7 +535,7 @@ return {
                 }
             },
             j_ina_Bobby = {
-                name = "Bobby",
+                name = "Bobby Shearer",
                 text = { { "{C:forest}El Traidor{}",
                     "Al seleccionar la ciega, cambia",
                     "a tu equipo más numeroso", },
@@ -522,27 +543,27 @@ return {
                         "de {C:attention}Bobby{} otorgan {C:chips}+#1# Chips{}", } }
             },
             j_ina_Steve = {
-                name = "Steve",
+                name = "Steve Grim",
                 text = { "{C:wind}Disparo Rodante{}",
-                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} otorga {C:chips}+#1#{} y {C:mult}+#2#{}",
-                    "Obtiene {C:money}+#3#${} al terminar la ronda",
-                    "{C:inactive}(Actual: {C:chips}+#4#{} {C:inactive}y{} {C:mult}+#5#{}{C:inactive}){}",
+                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} otorga {C:chips}+#1# Fichas{} y {C:mult}+#2# Mult.{}",
+                    "Gana {C:money}+#3#${} al finalizar la ronda.",
+                    "{C:inactive}(Actual:{} {C:chips}+#4#{} {C:inactive}y{} {C:mult}+#5# {C:inactive}){}",
                 }
             },
             j_ina_Erik = {
-                name = "Erik",
+                name = "Erik Eagle",
                 text = { "{C:forest}Tri-Pegaso{}",
                     "{C:tarot}El Mago{} cambia su efecto y",
                     "pasa a otorgar {C:attention}2 sellos{} al azar", }
             },
             j_ina_Jim = {
-                name = "Jim",
+                name = "Jim Wraith",
                 text = { "{C:wind}Giro bobina{}",
                     "Gana {C:chips}+#1#{} fichas",
                 }
             },
             j_ina_Tod = {
-                name = "Tod",
+                name = "Tod Ironside",
                 text = {
                     "{C:wind}Equilibrismo{}",
                     "Gana {C:chips}+#1#{} fichas por",
@@ -564,20 +585,20 @@ return {
                 text = { "{C:fire}Luna creciente{}",
                     "Gana {X:mult,C:white}X#2#{} por cada",
                     "{C:tarot}La Luna{} usada",
-                    "{C:inactive}(Actual {X:mult,C:white}X#1#{}{C:inactive}){}",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive}){}",
                 }
             },
             j_ina_Blood = {
                 name = "Blood",
                 text = { "{C:mountain}Niebla Venenosa{}",
                     "{C:attention}Drena{} {C:money}#1#${} de los {C:attention}Jokers{} adyacentes,",
-                    "Cada {C:money}1${} en su valor de venta obtiene {C:chips}+#2#{} fichas",
-                    "{C:inactive}(Actual{} {C:chips}+#3#{}{C:inactive}){}" }
+                    "Cada {C:money}1${} en su valor de venta otorga {C:chips}+#2# Fichas{}",
+                    "{C:inactive}(Actual:{} {C:chips}+#3#{}{C:inactive}){}" }
             },
             j_ina_Grave = {
                 name = "Grave",
                 text = { "{C:fire}Maldición{}", "{C:green}#1# en #2#{} de crear una carta",
-                    "{C:tarot}Muerte{} por cada {C:attention}6{} anotado" }
+                    "{C:tarot}Muerte{} por cada {C:attention}6{} que consigas puntuar" }
             },
             j_ina_Mask = {
                 name = "Mask",
@@ -604,7 +625,7 @@ return {
 
             -- IE1_C_royal
             j_ina_King = {
-                name = "King",
+                name = "Joseph King",
                 text = { "{C:fire}Escudo de Fuerza{}",
                     "Copia el rey {C:attention}derecho{} al",
                     "jugar una mano que contenga",
@@ -614,8 +635,8 @@ return {
                 name = "Bloom",
                 text = { "{C:fire}Chut de los 100 toques{}",
                     "{X:mult,C:white}X#1#{} si juegas {C:attention}Escalera{} tras",
-                    "haber jugado {C:attention}100{} cartas",
-                    "{C:inactive}(Actual:{} {C:mult}#2#{} {C:inactive}jugadas){}" }
+                    "haber conseguido puntuar {C:attention}100{} cartas",
+                    "{C:inactive}(Actual:{} {C:attention}#2#{}{C:inactive} puntuadas){}" }
             },
             j_ina_Drent = {
                 name = "Drent",
@@ -625,7 +646,7 @@ return {
                     "Cada {C:attention}Joker{} {X:mountain,C:white}Montaña{} lo mejora en {C:green}1{}" }
             },
             j_ina_Jude = {
-                name = "Jude",
+                name = "Jude Sharp",
                 text = { "{C:wind}Espejismo de Balón{}",
                     "Gana {X:mult,C:white}X#2#{} cada vez que el {C:attention}Joker",
                     "a su {C:attention}izquierda{} se activa",
@@ -646,7 +667,7 @@ return {
                     "gana {C:mult}+#1#{} de multi por cada {X:ina_team_royalacademy,C:white}Acad. Royal{}", }
             },
             j_ina_Samford = {
-                name = "Samford",
+                name = "David Samford",
                 text = { "{C:forest}Pingüino Emperador N.º 2{}", "{X:mult,C:white}X#1#{} multi si hay",
                     "{C:attention}1{} {X:mf,C:white}MF{} y {C:attention}2{} {X:fw,C:white}FW{}" }
             },
@@ -678,7 +699,7 @@ return {
                 name = "Eagle",
                 text = { "{C:wind}Ataque de Cóndor{}",
                     "Adquiere {C:mult}+#1#{} de multi por cada carta",
-                    "{C:enhanced}versátil{} puntuada en un {C:attention}Color",
+                    "{C:enhanced}versátil{} que consigas puntuar en un {C:attention}Color",
                     "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}" }
             },
             j_ina_Monkey = {
@@ -686,7 +707,7 @@ return {
                 text = { "{C:wind}Giro del Mono{}",
                     "Obtén {X:mult,C:white}XMult{} por {C:enhanced}cartas versátiles{}",
                     "en el mazo, multiplicado por {X:ina_team_wild,C:white}Wild{} / 10",
-                    "{C:inactive}(Actual: {X:mult,C:white}X#1#{}{C:inactive}){}" }
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive}){}" }
             },
             j_ina_Gorilla = {
                 name = "Gorilla",
@@ -703,7 +724,7 @@ return {
 
             -- IE1_E_brain
             j_ina_Feldt = {
-                name = "Feldt",
+                name = "Thomas Feldt",
                 text = { {
                     "{C:forest}Campo de Fuerza Defensivo{}",
                     "Genera {C:attention}#1#{} {X:mountain,C:white}Barrera{}",
@@ -713,20 +734,20 @@ return {
                         "En la {C:attention}última mano{} consume",
                         "todas las {X:mountain,C:white}Barreras{} para",
                         "dar {X:mult,C:white}X#2#{} por {C:attention}Joker de {X:forest,C:white}Bosque{}",
-                        "{C:inactive}(Actual:{} {X:mult,C:white}X#3# {C:inactive}){}"
+                        "{C:inactive}(Actual:{} {X:mult,C:white}X#3#{}{C:inactive}){}"
                     }
                 }
             },
             j_ina_Marvel = {
                 name = "Marvel",
                 text = { "{C:mountain}Escaner Defensa", "Si el valor en {C:chips}fichas{}",
-                    "de la carta que puntua",
+                    "de la carta que consigues puntuar",
                     "tiene {C:attention}exactamente 3 bits en 1{}",
                     "{C:mult}+#1#{} de multi" }
             },
             j_ina_Tell = {
                 name = "Tell",
-                text = { "{C:forest}Adivino{}", "{X:chips,C:white}XPI{} si tienes {C:attention}3 1 4{} en",
+                text = { "{C:forest}Adivino{}", "{X:chips,C:white}XPI{} si tienes {C:attention}3, 1, 4{} en",
                     "la mano trasera al puntuar" }
             },
             j_ina_Seller = {
@@ -745,7 +766,7 @@ return {
                 name = "Turner",
                 text = { "{C:fire}Tornado de fuego{}",
                     "Si la mano contiene un {C:attention}póker{}, se crea una copia",
-                    "de la primera carta puntuada por cada {X:ina_team_brain,C:white}Brain{}" }
+                    "de la primera carta que consigas puntuar por cada {X:ina_team_brain,C:white}Brain{}" }
 
             },
             j_ina_Under = {
@@ -764,7 +785,7 @@ return {
             j_ina_Hero = {
                 name = "Hero",
                 text = { "{C:fire}Bola falsa{}", "Transforma cada carta",
-                    "{C:attention}figura{} puntuada en un {C:attention}4{}" }
+                    "{C:attention}figura{} que consigas puntuar en un {C:attention}4{}" }
             },
             j_ina_Custom = {
                 name = "Custom",
@@ -777,1375 +798,119 @@ return {
                     "{C:attention}Escalera{} que coincidan en posición con ",
                     "cada {X:mf,C:white}MF{} empezando por la izquierda" }
             },
-            j_ina_Gamer = {
-                name = "Gamer",
-                text = { "{C:fire}Bateo Total{}",
-                    "Ganas {C:chips}fichas{} por tus {C:attention}FPS / 2{}",
-                    "Pasa a ser {C:attention}FPS{} con 2 Jokers del ",
-                    "{X:ina_team_otaku,C:white}Otaku{} y valor máximo de {C:attention}144 FPS{}",
-                    "{C:inactive}(Actual:{} {C:chips}+#1#{}{C:inactive}){}" }
+            j_ina_Moe = {
+                name = "Moe",
+                text = { "{C:forest}Aura de Maquillaje{}", "Los {C:attention}4s{} otorgan {X:mult,C:white}X#1#{} Mult",
+                    "Suma {C:attention}#2#{} al tamaño de mano jugada" }
             },
-            j_ina_Artist = {
-                name = "Artista",
-                text = { "{C:wind}Ludopatía Máxima{}", "Si la mano jugada puntúa un {C:attention}Rey{}",
-                    " y {C:attention}Reina{} convierte toda la mano",
-                    " puntuada en {C:gold}Cartas de la Suerte{}" }
+            j_ina_Hacker = {
+                name = "Hacker",
+                text = { "{C:mountain}Ciberbalón{}", "Al puntuar un {C:attention}4{} roba",
+                    "una carta adicional" }
             },
-            j_ina_Arcade = {
-                name = "Arcade",
-                text = { "{C:forest}Tiro del Cometa{}",
-                    "{C:green}#1# en 15{} de ganar {C:money}$20{}",
-                    "en una {C:gold}Carta de la Suerte{}",
-                    "{C:inactive}Jugarlas cuesta{} {C:money}#2#${}", }
+            j_ina_Artie = {
+                name = "Artie",
+                text = { "{C:wind}Regate Rítmico{}", "Al jugar una {C:attention}Escalera{} gana",
+                    "{C:money}#1#${} por cada {C:attention}4{} que contenga" }
             },
-            j_ina_Vox = {
-                name = "Vox",
-                text = {
-                    "{C:wind}Segundón Resonante{}",
-                    "{C:attention}Diestro{}",
-                    "Gana {C:chips}+#1#{} fichas por",
-                    "cada {C:attention}Joker{} a su izquierda"
-                }
+            j_ina_Nerd = {
+                name = "Nerd",
+                text = { "{C:mountain}Muro de Gafas{}", "Otorga {C:chips}+#1#{} Fichas por cada {C:attention}4{}",
+                    "en tu mazo completo" }
             },
 
             -- IE1_G_inazuma_eleven
-            j_ina_Hillman = {
-                name = "Hillman",
-                text = { "{C:mountain}Restaurante Ray Ray{}",
-                    "Gana {X:chips,C:white}X#1#{} fichas por",
-                    "{C:pink}Strat{} usada esta partida",
-                    "{C:inactive}(Actual:{} {X:chips,C:white}X#2#{}{C:inactive}){}" }
-            },
-            j_ina_Island = {
-                name = "Island",
-                text = { "{C:forest}Zig zag chispeante{}",
-                    "Gana {C:chips}+#1#{} fichas si la mano",
-                    "jugada contiene {C:attention}doble pareja{}",
-                    "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}" }
-            },
-            j_ina_Sweet = {
-                name = "Sweet",
-                text = { "{C:mountain}Reclutamiento{}",
-                    "Al seleccionar la ciega crea un {C:attention}Joker{}",
-                    "{C:chips}Común{} o {C:green}Inusual{} del {X:ina_team_raimon,C:white}Raimon{} o {X:ina_team_inazumaeleven,C:white}I.Eleven{}",
-                    "{C:inactive}Debe haber espacio{}" }
-            },
-            j_ina_Butler = {
-                name = "Butler",
-                text = { "{C:forest}Rentista{}",
-                    "Adquiere hasta {C:money}-#1#${} de deuda",
-                    "Cada carta que puntúe gana {C:chips}+#3#{} fichas",
-                    "por cada {C:money}-#2#${} para el resto de partida", }
-            },
-            j_ina_Barista = {
-                name = "Barista",
-                text = { "{C:wind}Pase Cruzado{}",
-                    "La última carta jugada da",
-                    "{X:chips,C:white}X#1#{} chips a mayores" }
-            },
-            j_ina_Builder = {
-                name = "Builder",
-                text = { "{C:fire}Pájaro de Fuego{}",
-                    "Si la mano contiene {C:attention}Full{},",
-                    "transforma una carta al azar",
-                    "en {C:enhanced}Acero{} y {C:red}destruye{} otra", }
-            },
-
-            -- IE1_H_shuriken
-            j_ina_Hood = {
-                name = "Hood",
-                text = {
-                    "{C:forest}Torbellino{}",
-                    "Gana {X:mult,C:white}X#1#{} por",
-                    "cada Joker {X:gk,C:white}GK{}{}",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}"
-                }
-            },
-            j_ina_Hillfort = {
-                name = "Hillfort",
-                text = { "{C:wind}Ataque de las Sombras{}",
-                    "Al seleccionar la ciega gana",
-                    "{C:chips}+#1#{} fichas por cada {C:money}#2#${} de valor de",
-                    "venta de los {C:attention}Jokers{} de {X:wind,C:white}Viento{}",
-                    "{C:inactive}(Actual:{} {C:chips}+#3#{}{C:inactive}){}" }
-            },
-            j_ina_Code = {
-                name = "Code",
-                text = { "{C:mountain}Telaraña{}",
-                    "Reactiva las cartas {C:attention}doradas{} al final de",
-                    "la ronda por cada {C:attention}Joker{} del {X:ina_team_shuriken,C:white}Shuriken{}", }
-            },
-            j_ina_Star = {
-                name = "Star",
-                text = { "{C:wind}Regate Múltiple{}", "Por cada carta de {C:red}diamantes{}",
-                    "gana {C:money}+#1#${} y {C:mult}+#2#{} de multi", }
-            },
-            j_ina_Cleats = {
-                name = "Cleats",
-                text = { "{C:wind}Luna creciente{}",
-                    "Al seleccionar la ciega",
-                    "{C:green}transforma{} el {C:attention}Joker derecho{}",
-                    "en otro de la misma {C:green}rareza"
-                }
-            },
-            j_ina_Hattori = {
-                name = "Hattori",
-                text = { "{C:forest}Remate Múltiple{}",
-                    "Al seleccionar la ciega crea",
-                    "{C:attention}#1#{} copias {C:dark_edition}negativas{} propias.",
-                    "Se destruyen al finalizar la ronda" }
-            },
-            j_ina_Cloack = {
-                name = "Cloack",
-                text = { "{C:fire}Espejismo{}", "{C:attention}Frontal{}",
-                    "Al seleccionar la ciega clona",
-                    "un joker {C:dark_edition}negativo{} perecedero",
-                    "({C:attention}#2#{} rondas) gastando {C:mountain}#1# Barreras{}" },
-            },
-
-            -- IE1_I_farm
-            j_ina_Greeny = {
-                name = "Greeny",
-                text = {
-                    {
-                        "{C:fire}Muralla infinita{}",
-                        "Genera {C:attention}#1#{} {X:mountain,C:white}barrera{} si al ",
-                        "entrar en la ciega tienes {C:attention}#2#{} {X:df,C:white}DF{}"
-                    },
-                    {
-                        "{C:attention}Diestro{}",
-                        "Crea una carta de {C:training}entrenamiento{} apta",
-                        "a un {C:attention}Joker{} consumiendo {C:attention}#3#{} {X:mountain,C:white}barreras{}",
-                    }
-                }
-            },
-            j_ina_Hayseed = {
-                name = "Hayseed",
-                text = {
-                    "{C:mountain}Siembra{}",
-                    "Gana {C:mult}+#1#{} de multi por",
-                    "cada {C:attention}Trío exacto{} jugado",
-                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}"
-                }
-            },
-            j_ina_Sherman = {
-                name = "Sherman",
-                text = { "{C:fire}Trama Trama{}",
-                    "Gana {C:chips}+#1#{} fichas", "cuando se activa un",
-                    "{C:attention}Joker{} del {X:ina_team_farm,C:white}Farm{}",
-                    "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}" }
-            },
-            j_ina_Spray = {
-                name = "Spray",
-                text = { "{C:fire}Superbalón rodante{}",
-                    "Al seleccionar una {C:attention}ciega{}",
-                    "con {C:money}<#1#${} gana {X:mult,C:white}X#2#{}",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#3#{}{C:inactive}){}" }
-            },
-            j_ina_Dawson = {
-                name = "Dawson",
-                text = { "{C:wind}Regate topo{}",
-                    "Al jugar {C:attention}carta alta{} con {C:money}<#1#${}",
-                    "se duplica dicha carta" }
-            },
-            j_ina_Muffs = {
-                name = "Muffs",
-                text = { "{C:forest}Tiro Cegador{}",
-                    "Tras jugar una mano {C:attention}Siembra{}.",
-                    "{C:attention}Cosechador:{} Gana {C:mult}+#1#{} de multi",
+            j_ina_Hoshi = {
+                name = "Hoshi",
+                text = { "{C:wind}Campo Torbellino{}",
+                    "Gana {C:mult}+#1#{} de multi por cada {X:ina_team_inazumaeleven,C:white}Inazuma 11{}",
                     "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}" }
             },
-            j_ina_Hillvalley = {
-                name = "Hillvalley",
-                text = { "{C:mountain}Muralla infinita{}",
-                    "Gana {C:chips}+X{} fichas permanentemente ",
-                    "al anotar un {C:attention}8{}, {C:attention}9{} o {C:attention}10{} siendo {C:chips}X{} el",
-                    "{C:attention}valor{} de esas cartas",
-                    "{C:inactive}(Actual:{} {C:chips}+#1#{}{C:inactive}){}" }
+            j_ina_Hibiki = {
+                name = "Seymour Hillman",
+                text = { "{C:mountain}Mano Celestial{}",
+                    "{C:attention}Retrigger{} a todos los {X:gk,C:white}GK{}" }
+            },
+            j_ina_Silvia = {
+                name = "Silvia Woods",
+                text = { "{C:forest}Mánager Eficiente{}", "Otorga {X:mult,C:white}X#1#{} si tienes",
+                    "exactamente {C:attention}#2#{} {C:pink}Managers{}" }
+            },
+            j_ina_Celia = {
+                name = "Celia Hills",
+                text = { "{C:wind}Análisis de Datos{}", "Al seleccionar la ciega,",
+                    "revela {C:attention}#1#{} cartas del mazo" }
+            },
+            j_ina_Nelly = {
+                name = "Nelly Raimon",
+                text = { "{C:fire}Apoyo Directivo{}", "Otorga {C:chips}+#1#{} Fichas por cada",
+                    "Joker del equipo {C:attention}#2#{}" }
             },
 
-            -- IE1_J_kirkwood
-            j_ina_Neville = {
-                name = "Neville",
-                text = { "{C:fire}Bloque Dureza{}",
-                    "Las cartas de {C:attention}Cristal{}",
-                    "se rompen {C:green}#1# de #2#{} veces" }
+            -- IE1_H_zeus
+            j_ina_Aphrodite = {
+                name = "Byron Love",
+                text = { "{C:wind}Sabiduría Divina{}",
+                    "{X:mult,C:white}X#1#{} multi si la mano",
+                    "contiene un {C:attention}As{}",
+                    "{C:inactive}(Escala con nivel de técnica){}" }
             },
-            j_ina_Night = {
-                name = "Night",
-                text = { "{C:fire}Corte Giratorio{}",
-                    "Al elegir una ciega, genera un",
-                    "{C:attention}Joker{} del {X:ina_team_kirkwood,C:white}Kirkwood{}: {C:chips}Común{} o {C:green}Inusual{}",
-                    "{C:attention}Puede generar repetidos{}",
-                    "{C:inactive}Requiere espacio{}" }
-            },
-            j_ina_Marvin = {
-                name = "Marvin",
-                text = { "{C:fire}Tornado Inverso{}",
-                    "{X:attention,C:white}Trillizos{}",
-                    "Las cartas {C:attention}impares{}",
-                    "otorgan {C:mult}+#1#{} de multi" }
-            },
-            j_ina_Thomas = {
-                name = "Thomas",
-                text = { "{C:wind}Tornado Inverso{}",
-                    "{X:attention,C:white}Trillizos{}",
-                    "Las cartas {C:attention}impares{}",
-                    "otorgan {C:chips}+#1#{} fichas" }
-            },
-            j_ina_Tyler = {
-                name = "Tyler",
-                text = {
-                    "{C:mountain}Tornado Inverso{}",
-                    "{X:attention,C:white}Trillizos{}",
-                    "Las cartas {C:attention}impares{} generan",
-                    "un {C:tarot}tarot{} {C:green}#1# de #2# veces{}" }
-            },
-            j_ina_Damian = {
-                name = "Damian",
-                text = {
-                    "{C:wind}Luna Creciente{}",
-                    "Al salir de la tienda, gana {C:chips}+#1# fichas{}",
-                    " por cada {C:attention}Joker{} de {X:fire,C:white}Fuego{} en juego",
-                    "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}" }
-            },
-            j_ina_Nashmith = {
-                name = "Nashmith",
-                text = {
-                    "{C:forest}Potenciación{}",
-                    "Cada {C:spades}Pica{} jugada otorga",
-                    "{C:chips}+#1#{} fichas por cada",
-                    "{C:attention}Joker{} de {X:forest,C:white}Bosque{}",
-                }
-            },
-            j_ina_Z_Triangle = {
-                name = "Triángulo Z",
-                text = { "{C:forest}Placeholder{}", "Placeholder effect line 1", "Placeholder effect line 2" }
-            },
-
-            -- IE1_K_zeus
             j_ina_Poseidon = {
                 name = "Poseidon",
-                text = { { "{C:mountain}Muralla Tsunami{}",
-                    "Genera {C:attention}#1#{} {X:mountain,C:white}barrera{} al puntuar",
-                    "un mínimo de {C:attention}#2#{} de {C:attention}figuras{}" },
-                    { "{C:attention}Muralla Gigante{}",
-                        "{{C:mult}Consume{} todas las {X:mountain,C:white}barrera{}",
-                        "y otorga {C:chips}+#3# Chips{} por cada una",
-                        "{C:inactive}(Actual:{} {C:chips}+#4#{}{C:inactive}){}" } }
+                text = { "{C:mountain}Muralla de Tsunami{}",
+                    "Al puntuar una {C:attention}figura{} gana",
+                    "{C:chips}+#1#{} fichas" }
             },
-            j_ina_Hephestus = {
-                name = "Hephestus",
-                text = {
-                    "{C:fire}Entrada Tormenta{}",
-                    "Al ganar la ciega convierte ",
-                    "una {C:attention}Carta{} en {C:enhanced}Acero{} por",
-                    "cada {C:attention}Joker{} {X:fire,C:white}Fuego{} {X:df,C:white}DF{}"
-                }
+            j_ina_Hermes = {
+                name = "Hermes",
+                text = { "{C:wind}Carrera Acuática{}",
+                    "Gana {C:mult}+#1#{} multi por cada",
+                    "mano {C:attention}consecutiva{} jugada sin descartar",
+                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}" }
             },
-            j_ina_Apollo = {
-                name = "Apollo",
-                text = {
-                    "{C:forest}Hora Celestial{}",
-                    "Al jugar {C:attention}doble pareja{} gana {C:chips}+#2# fichas{}",
-                    "{C:inactive}De 14:00 a 19:00h:{} gana {C:chips}+#1# fichas{} y {C:mult}+#4# multi{}",
-                    "{C:inactive}(Actual:{} {C:chips}+#3#{} {C:inactive}y{} {C:mult}+#5#{}{C:instead}{C:inactive}){}"
-                }
+            j_ina_Dionysus = {
+                name = "Dionysus",
+                text = { "{C:forest}Remate Divino{}",
+                    "{C:green}#1# en #2#{} de crear una",
+                    "carta de {C:tarot}Tarot{} al azar" }
             },
             j_ina_Artemis = {
                 name = "Artemis",
                 text = { "{C:wind}Flecha Divina{}",
-                    "Tras jugar una figura {C:attention}Siémbrala{}.",
-                    "{C:attention}Cosechador:{} Gana {C:chips}+#1#{} fichas",
-                    "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}" }
+                    "{C:chips}+#1#{} fichas por cada {C:attention}As{}",
+                    "en tu mazo completo" }
             },
-            j_ina_Hermes = {
-                name = "Hermes",
-                text = { "{C:forest}Oro divino",
-                    "Si la primera mano jugada es {C:attention}pareja{}",
-                    "la convierte en {C:gold}cartas de oro{}" }
+            j_ina_Apollo = {
+                name = "Apollo",
+                text = { "{C:fire}Rayo Luminoso{}",
+                    "Al puntuar un {C:attention}As{} gana",
+                    "{X:mult,C:white}X#1#{} multi" }
+            },
+            j_ina_Ares = {
+                name = "Ares",
+                text = { "{C:fire}Ataque de Meteoritos{}",
+                    "Al destruir una carta gana",
+                    "{C:mult}+#1#{} multi" }
+            },
+            j_ina_Hera = {
+                name = "Hera",
+                text = { "{C:mountain}Juicio Divino{}",
+                    "Si la mano es una {C:attention}Escalera Color{},",
+                    "crea una carta {C:spectral}Espectral{} aleatoria" }
             },
             j_ina_Demeter = {
                 name = "Demeter",
-                text = {
-                    "{C:fire}Disparo con Rebotes{}",
-                    "Otorga {C:mult}+#1#{} de multi y {C:chips}+#2#{} fichas",
-                    "por cada descarte restante",
-                    "{C:inactive}(Actual:{} {C:mult}+#3#{} {C:inactive}y{} {C:chips}+#4#{}{C:inactive}){}"
-                }
-            },
-            j_ina_Aphrodite = {
-                name = "Aphrodite",
-                text = { { "{C:forest}Sabiduría Divina{}",
-                    "Al acabar una ronda",
-                    "cambia entre {X:fw,C:white}FW{} y {X:mf,C:white}MF{}",
-                    "según venga mejor" },
-                    { "Si es {X:fw,C:white}FW{} {X:mult,C:white}X#1#{} por cada",
-                        "{X:fw,C:white}FW{}, {X:ina_team_zeus,C:white}Zeus{} y multiplicado por {C:mult}descartes",
-                        "Si es {X:mf,C:white}MF{} {X:mult,C:white}X#2#{} por cada",
-                        "{X:mf,C:white}MF{}, {X:ina_team_zeus,C:white}Zeus{} y multiplicado por {C:chips}manos",
-                        "{C:inactive}Actualmente{} {X:mult,C:white}X#3#{}" } },
-                unlock = {
-                    "Llega al ante {C:attention}9",
-                },
-            },
-
-            -- IE2_B_SPFixers
-            j_ina_ironwall = {
-                name = "Ironwall",
-                text = {
-                    "{C:mountain}Muralla de Escudos{}",
-                    "Otorga {C:chips}+#1#{} fichas si tienes",
-                    "al menos {C:attention}1{} {X:mountain,C:white}Barrera{}"
-                }
-            },
-            j_ina_Western = {
-                name = "Western",
-                text = {
-                    {
-                        "{C:wind}Protocolo de Seguridad{}",
-                        "Al {C:red}descartar{} cartas de {X:wind,C:white}Viento{},",
-                        "la siguiente {C:attention}Pareja{} obtiene un",
-                        "crecimiento de {C:attention}#1# niveles{} por carta."
-                    },
-                    {
-                        "{C:inactive}(Acumulado: {C:attention}#2# {C:inactive}cartas)"
-                    }
-                }
-            },
-            j_ina_Firepool = {
-                name = "Firepool",
-                text = {
-                    "{C:wind}Fuego de Cobertura{}",
-                    "La {C:attention}primera{} carta puntuada",
-                    "se reactiva {C:attention}#1#{} vez por cada carta",
-                    "carta de {X:wind,C:white}Viento{} jugada que {C:red}no puntúe{}."
-                }
-            },
-            j_ina_fielding = {
-                name = "Marge Fielding",
-                text = {
-                    "{C:wind}Escáner de Ataque{}",
-                    "Muestra {C:attention}+#1#{} cartas de la baraja.",
-                    "Gana {C:money}#2# ${} si la mano",
-                    "jugada contiene un {C:attention}As{}."
-                }
-            },
-            j_ina_Firsthand = {
-                name = "Firsthand",
-                text = {
-                    "{C:mountain}Información Clasificada{}",
-                    "Multiplica un {C:attention}#1#%{} las estadísticas base",
-                    "del resto de tus comodines.",
-                    "{C:red}Te quedas con una única mano{}"
-                }
-            },
-            j_ina_Tori = {
-                name = "Victoria Vanguard",
-                text = {
-                    {
-                        "{C:wind}La Torre{}",
-                        "Gana un {C:attention}#1#%{} de acumulación por cada",
-                        "carta de {C:attention}Piedra{} nueva en tu baraja."
-                    },
-                    {
-                        "Al {C:attention}salir de la tienda{}, transfiere su",
-                        "acumulación al {C:attention}Joker derecho{} mejorando",
-                        "sus estadísticas de forma {C:attention}permanente{}."
-                    },
-                    {
-                        "{C:inactive}(Acumulado: {C:attention}#2#%{C:inactive} | Piedras: {C:attention}#3#{C:inactive})"
-                    }
-                }
-            },
-            j_ina_Kennedy = {
-                name = "Kennedy",
-                text = {
-                    "{C:forest}Tiro Limpio{}",
-                    "Otorga {X:mult,C:white} X#1# {} Mult si juegas",
-                    "{C:attention}exactamente 1{} carta.",
-                    "Si la carta es un {C:attention}As{},",
-                    "otorga {X:mult,C:white} X#2# {} Mult en su lugar."
-                }
-            },
-            j_ina_Beray = {
-                name = "Beray",
-                text = {
-                    "{C:wind}Plan de Evacuación{}",
-                    "Al {C:red}vender{} esta carta durante una",
-                    "ciega, restaura tus {C:blue}Manos{} y",
-                    "{C:red}Descartes{} a su máximo y recupera",
-                    "cartas en el {C:attention}vacío{}."
-                }
-            },
-
-            -- IE2_C_Alpine
-            j_ina_Maddox = {
-                name = "Maddox",
-                text = {
-                    "{C:forest}Ataque de Cóndor{}",
-                    "Tus cartas de {X:forest,C:white}Bosque{}",
-                    "son inmunes a ser {C:attention}debilitadas{}."
-                }
-            },
-            j_ina_Skipolson = {
-                name = "Skipolson",
-                text = {
-                    "{C:forest}Espejismo{}",
-                    "Al {C:attention}saltar{} una ciega, crea",
-                    "una carta de {C:training}Entrenamiento{}."
-                }
-            },
-            j_ina_Peggs = {
-                name = "Peggs",
-                text = {
-                    "{C:mountain}Presa{}",
-                    "Otorga {C:chips}+#1#{} fichas contra",
-                    "una {C:attention}Ciega de Jefe{}."
-                }
-            },
-            j_ina_Snowfield = {
-                name = "Snowfield",
-                text = {
-                    "{C:mountain}Muro de Nieve{}",
-                    "Otorga {C:chips}+#2#{} fichas.",
-                    "{C:inactive}(Actual: {C:chips}+#1#{C:inactive} por {C:attention}#3#{C:inactive} Alpino/s){}",
-                    "Mientras esté activo, el resto de Jokers",
-                    "del {X:ina_team_alpino,C:white}Alpino{} son {C:attention}Eternos{}."
-                }
-            },
-
-            -- IE2_D_Claustre
-            -- Claustro Sagrado
-            j_ina_Kik = { name = "Crane Kik", text = { "{C:forest}Coz de la Grulla{}", "Efecto por definir." } },
-            j_ina_Waxon = { name = "Parry Waxon", text = { "{C:wind}Parada en Plancha{}", "Efecto por definir." } },
-            j_ina_Sparky = { name = "Bri Spark", text = { "Efecto por definir." } },
-            j_ina_Maxi = { name = "Max Fortune", text = { "Efecto por definir." } },
-            j_ina_Water = { name = "Brendan Water", text = { "Efecto por definir." } },
-            j_ina_Fardream = { name = "Junior Fardream", text = { "Efecto por definir." } },
-            j_ina_Telektual = { name = "Ian Telektual", text = { "Efecto por definir." } },
-            j_ina_Dinglite = {
-                name = "Lee Dinglite",
-                text = {
-                    "{C:forest}Flash de Fotón{}",
-                    "Al puntuar una mano con {C:attention}0{} descartes,",
-                    "gana {C:mult}+#2#{} Mult permanentemente.",
-                    "{C:inactive}(Actual: {C:mult}+#1#{C:inactive} Mult){}"
-                }
-            },
-            j_ina_Marshall = { name = "Marshall Artz", text = { "Efecto por definir." } },
-            j_ina_Wando = {
-                name = "Tyke Wando",
-                text = {
-                    "{C:forest}Tyke Wando{}",
-                    "Si la mano que puntúa es un {C:attention}Trío{} de",
-                    "{C:attention}2, 3 o 4{}, las reactiva {C:attention}#1#{} veces"
-                }
-            },
-            j_ina_Dirk = { name = "Dirk Artz", text = { "Efecto por definir." } },
-            j_ina_Scotty = {
-                name = "Scotty",
-                text = {
-                    "{C:forest}Campo Torbellino{}",
-                    "Otorga {C:chips}+#1#{} Fichas.",
-                    "{C:green}#2# en #3#{} de enfadarse."
-                }
-            },
-            j_ina_Scotty_Angry = {
-                name = "Scotty",
-                text = {
-                    "{C:forest}Enfadado{}",
-                    "Otorga {C:chips}+#1#{} Fichas. Al jugar,",
-                    "destruye la carta de menor rango."
-                }
-            },
-            j_ina_Bookworm = { name = "Earnest Bookworm", text = { "Efecto por definir." } },
-            j_ina_Gami = { name = "Ollie Gami", text = { "Efecto por definir." } },
-            j_ina_Kandel = { name = "Roman Kandel", text = { "Efecto por definir." } },
-            j_ina_Ation = {
-                name = "Don Ation",
-                text = {
-                    "{C:wind}Don Ation{}",
-                    "Al venderse, reparte su {C:money}valor de venta{}",
-                    "como {C:mult}Mult{} permanente entre todos los",
-                    "jokers del {X:ina_team_claustrosagrado,C:white}Claustro Sagrado{}."
-                }
-            },
-
-
-            -- IE2_E_Epsilon
-            j_ina_Dvalin = {
-                name = "Dvalin",
-                text = {
-                    "{C:fire}Destrozataladros{}",
-                    "Otorga {C:chips}+#1#{} fichas y crea",
-                    "{C:attention}#2#{} {X:mountain,C:white}Barrera{} al anotar."
-                }
-            },
-            j_ina_Dvalin_Plus = {
-                name = "Dvalin",
-                text = {
-                    "{C:wind}Lanza de Odín{}",
-                    "Da {X:mult,C:white} X#3# {} por cada",
-                    "{X:mountain,C:white}Barrera{} en juego (Consume {C:attention}#2#{}).",
-                    "{C:inactive}(Actual: {X:mult,C:white} X#1# {C:inactive})"
-                }
-            },
-            j_ina_Kenville = {
-                name = "Kenville",
-                text = {
-                    "{C:fire}Taladradora{}",
-                    "Cada {C:attention}2{}, {C:attention}3{} y {C:attention}4{} jugados puntúan",
-                    "como {C:attention}Reyes{} o {C:attention}Ases{} para los jokers"
-                }
-            },
-            j_ina_Fedora = {
-                name = "Fedora",
-                text = {
-                    "{C:fire}Agujero Negro{}",
-                    "Los {C:red}descartes{} van al {C:attention}vacío{} por {C:attention}1{} ciega.",
-                    "Las {C:attention}Cartas Caóticas{} dan {C:mult}+#1#{} Mult",
-                    "por carta enviada al vacío esta ciega.",
-                    "{C:inactive}(Actual: {C:mult}+#2#{C:inactive} Mult)"
-                }
-            },
-            j_ina_Sworm = {
-                name = "Sworm",
-                text = {
-                    "{C:forest}Agujero de Gusano{}",
-                    "Cada carta jugada tiene {C:green}#1# en #2#{}",
-                    "probabilidades de volver a la",
-                    "{C:attention}baraja{} tras puntuar."
-                }
-            },
-            j_ina_Mercury = {
-                name = "Mercury",
-                text = {
-                    "{C:wind}Lluvia de Meteoros{}",
-                    "Descartar una {C:attention}Pareja{} la transforma en {C:attention}Piedra{}",
-                    "Si puntúa una pareja de piedras, se genera un planeta {C:planet}Mercurio{}"
-                }
-            },
-            j_ina_Metron = {
-                name = "Metron",
-                text = {
-                    "{C:wind}Remate de Gaia{}",
-                    "Las {C:chips}fichas{} aumentan {C:dark_edition}^#1#{} cada vez",
-                    "que juegues una carta del {C:attention}mismo rango{} a la anterior.",
-                    "Si fallas, el efecto se {C:red}reinicia{}.",
-                    "{C:inactive}(Actual: {C:dark_edition}^#2#{C:inactive} Fichas | Requiere: {C:attention}#3#{C:inactive})"
-                }
-            },
-            j_ina_Zell = {
-                name = "Zell",
-                text = {
-                    "{C:wind}Rayo de Ganímedes{}",
-                    "Al jugar una mano, aumenta el",
-                    "nivel de {C:attention}Carta Alta{} por cada",
-                    "Joker del {X:ina_team_epsilon,C:white}Épsilon{}."
-                }
-            },
-
-            -- IE2_G_RoyalRedux
-            j_ina_KingR = {
-                name = "Joseph King",
-                text = {
-                    "{C:fire}Colmillo de Pantera{}",
-                    "Crea {C:attention}#1#{} {X:mountain,C:white}Barrera/s{} al inicio de ciega.",
-                    "Da {C:chips}+#2#{} fichas por cada {C:attention}Mano máxima{}.",
-                    "{C:red}Pierdes #3# mano máxima{} cada {C:attention}#5#{} ciegas superadas.",
-                    "{C:inactive}(Actual: {C:chips}+#4#{C:inactive}, {C:attention}#6#{C:inactive}/#5#)"
-                }
-            },
-            j_ina_Messer = {
-                name = "Messer",
-                text = {
-                    "{C:forest}Técnica Prohibida{}",
-                    "Muestra {C:tarot}+#1#{} cartas de la baraja.",
-                    "{C:red}-#2#{} al tamaño máximo",
-                    "de cartas jugables."
-                }
-            },
-            j_ina_Sparrow = {
-                name = "Sparrow",
-                text = {
-                    "{C:wind}Tornado inverso{}",
-                    "{C:red}Debilita{} a los comodines adyacentes",
-                    "Al finalizar la ronda, otorga {C:money}#1# ${} por",
-                    "cada joker debilitado de esta forma"
-                }
-            },
-            j_ina_Jamm = {
-                name = "Jamm",
-                text = {
-                    "{C:forest}Coz{}",
-                    "Otorga {X:mult,C:white} X#1# {} Mult a los {C:attention}Jokers{}",
-                    "de {X:fire,C:white}Fuego{} y {X:forest,C:white}Bosque{}.",
-                    "{C:red}Desactiva{} a los de {X:mountain,C:white}Montaña{} y {X:wind,C:white}Viento{}."
-                }
-            },
-            j_ina_CalebR = {
-                name = "Caleb Stonewall",
-                text = {
-                    "Al elegir ciega {C:attention}destruye{} a los reservas",
-                    "de la {X:ina_team_royalacademy,C:white}Royal{} para ganar {X:mult,C:white} X#2# {} de Mult.",
-                    "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{}",
-                    "si juegas con él durante {C:attention}#3#{} rondas.",
-                    "{C:inactive}(Multi: {X:mult,C:white} X#1# {} | Rondas: {C:attention}#4#{C:inactive})"
-                }
-            },
-            j_ina_SamfordR = {
-                name = "David Samford",
-                text = {
-                    "{C:forest}Pingüino Emperador N.º 1{}",
-                    "Tus {C:red}descartes{} se transforman a {X:mult,C:white} X#1# {}",
-                    "{C:inactive}(Actual: {X:mult,C:white} X#2# {C:inactive})"
-                }
-            },
-
-            -- IE2_L_DarkEmperors
-            j_ina_DarkFeldt = {
-                name = "Thomas Feldt",
-                text = {
-                    {
-                        "{C:forest}Mano Diabólica{}",
-                        "Consume {X:mountain,C:white}Barreras{} al seleccionar",
-                        "una {C:attention}Ciega Jefe{} para anularla:"
-                    },
-                    {
-                        "Si afecta al {C:attention}nivel de técnica{}: {C:attention}#1#",
-                        "Si afecta a un {C:attention}tipo{} o {C:attention}posición{}: {C:attention}#2#",
-                        "Cualquier otro efecto: {C:attention}#3#"
-                    }
-                }
-            },
-            j_ina_SamDark = {
-                name = "Sam Kincaid",
-                text = {
-                    "{C:fire}Escudo Rencoroso{}",
-                    "Desde el {C:bench}Banquillo{}, hace {C:attention}Eternos{} e",
-                    "{C:attention}Inmunes{} a tus Jokers titulares,",
-                    "excepto a los {C:dark_edition}Negativos{}.",
-                    "A cambio, {C:red}-#1#{} al tamaño de mano."
-                }
-            },
-            j_ina_JimDark = {
-                name = "Jim Wraith",
-                text = {
-                    "{C:wind}Giro bobina{}",
-                    "Gana {X:chips,C:white} X#1# {} Fichas",
-                    "cada vez que anota puntos.",
-                    "{C:inactive}(Actual: {X:chips,C:white} X#2# {C:inactive})"
-                }
-            },
-            j_ina_NathanDark = {
-                name = "Nathan Swift",
-                text = {
-                    {
-                        "{C:forest}Fénix Oscuro{}",
-                        "{C:attention}Absorbe{} {C:dark_edition}Policromía{} de las cartas",
-                        "puntuadas para ganar {X:mult,C:white} X1.5 {} Mult",
-                        "por cada carga acumulada."
-                    },
-                    {
-                        "{C:attention}Asistencia{}",
-                        "{C:attention}Despliega{} estas cargas sobre las",
-                        "cartas que beneficien al {C:attention}Joker derecho{}.",
-                        "{C:inactive}(Multi: {X:mult,C:white} X#3# {} | Cargas: {C:attention}#1#/#2#{C:inactive})"
-                    }
-                }
-            },
-            j_ina_KevinDark = {
-                name = "Kevin Dragonfly",
-                text = {
-                    "{C:forest}Tornado Dragón Oscuro{}",
-                    "Reactiva al {C:attention}Joker derecho{} {C:attention}#1#{} veces.",
-                    "Al vencer a un {C:attention}Jefe{}, le {C:red}arranca{}",
-                    "su {C:dark_edition}edición{} o {C:attention}nivel de técnica{}.",
-                    "{C:inactive}(Si no tiene, lo destruye)"
-                }
-            },
-
-            -- IE2_M_DiamondDust
-            j_ina_Beluga = {
-                name = "Beluga",
-                text = {
-                    "{C:wind}Bloque de Hielo{}",
-                    "Las cartas de {C:attention}Cristal{}",
-                    "se rompen {C:green}#1# de #2#{} veces"
-                }
-            },
-            j_ina_Clear = {
-                name = "Clear",
-                text = {
-                    "{C:wind}Bloque de hielo{}",
-                    "Cuando una carta de {C:attention}Cristal{} se {C:red}rompe{},",
-                    "hay {C:green}#1# en #2#{} probabilidades de que regrese",
-                    "a tu baraja como carta base"
-                }
-            },
-            j_ina_Icer = {
-                name = "Icer",
-                text = {
-                    "{C:fire}Robo de Hielo{}",
-                    "Gana {C:money}#1# ${} por cada aliado del {X:ina_team_polvodediamantes,C:white}P.Diamantes{}",
-                    "cuando una carta de {C:attention}Cristal{} se {C:red}rompe{}.",
-                    "{C:inactive}(Actual: {C:money}#2# ${C:inactive})"
-                }
-            },
-            j_ina_Gazelle = {
-                name = "Gazelle",
-                text = {
-                    {
-                        "{C:wind}Balón Iceberg{}",
-                        "{C:attention}Absorbe{} cargas de los {C:attention}Cristales{}",
-                        "{C:red}rotos{} para ganar {X:mult,C:white} X#2# {} Mult por carga.",
-                        "{C:attention}Despliega{} cargas en forma de",
-                        "{C:attention}Cristal{} al jugar {C:attention}Póker{}."
-                    },
-                    {
-                        "{C:attention}Ventisca de Fuego{}",
-                        "Despliega {C:attention}Cartas Caóticas{} en su lugar.",
-                        "{C:inactive}(Multi: {X:mult,C:white} X#1# {} | Cargas: {C:attention}#3#/#4#{C:inactive})"
-                    }
-                }
-            },
-            j_ina_Frost = {
-                name = "Frost",
-                text = {
-                    "{C:mountain}Pisada de Hielo{}",
-                    "Las {C:attention}cartas{} jugadas ganan {C:chips}+#1#{} Fichas base al anotar.",
-                    "{C:attention}Combinación incompatible{} afecta a las {C:attention}Cartas Caóticas{} ({C:chips}+#2#{}).",
-                    "{C:inactive}(Modo: {C:attention}#3#{C:inactive} | Se pierde al vender)"
-                }
-            },
-
-            -- IE2_N_Prominence
-            j_ina_Torch = {
-                name = "Torch",
-                text = {
-                    {
-                        "{C:fire}Llamarada Atómica{}",
-                        "{C:red}Destruye{} cartas puntuadas de",
-                        "{C:hearts}Corazones{} o {X:fire,C:white}Fuego{} para",
-                        "ganar {X:mult,C:white} X#1# {} Mult por carta."
-                    },
-                    {
-                        "{C:attention}Ventisca de Fuego{}",
-                        "Las calcina a {C:attention}Cartas Caóticas{}.",
-                        "{C:inactive}(Actual: {X:mult,C:white} X#2# {C:inactive})"
-                    }
-                }
-            },
-
-            -- IE3_A_InazumaJapan
-            j_ina_Nathan_IJ = {
-                name = "Nathan Swift",
-                text = {
-                    "{C:wind}Entrada Huracán{}",
-                    "Cada {C:attention}Joker{} del {X:ina_team_raimon,C:white}Raimon{} / {X:ina_team_inazumajapon,C:white}Inazuma Japón{}",
-                    "otorga {X:mult,C:white}X#2#{}"
-                }
-            },
-            j_ina_Jack_IJ = {
-                name = "Jack Wallside",
-                text = { "{C:mountain}El Muro{}",
-                    "{C:attention}Las Piedras{} ganan {C:chips}+#1#{} fichas",
-                    "permanentemente por cada {C:attention}Joker{} {X:df,C:white}DF{}"
-                }
-            },
-            j_ina_Caleb_IJ = {
-                name = "Caleb Stonewall",
-                text = {
-                    "Al elegir ciega {C:attention}destruye{} a los reservas",
-                    "de la {X:ina_team_royalacademy,C:white}Royal{} para ganar {X:mult,C:white}X#2#{} de Mult.",
-                    "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{}",
-                    "si son titulares con él durante {C:attention}#3#{} rondas",
-                    "{C:inactive}(Multi: {X:mult,C:white}X#1#{C:inactive} | Rondas: {C:attention}#4#{C:inactive}){}"
-                }
-            },
-            j_ina_Axel_IJ = {
-                name = "Axel",
-                text = {
-                    {
-                        "{C:fire}Fuego Total{}",
-                        "Si juegas exactamente un {C:attention}Trío{},",
-                        "la primera carta se {C:attention}clona #1# veces{}",
-                        "en la jugada y todas se",
-                        "vuelven de tipo {X:fire,C:white}Fuego{}."
-                    },
-                    {
-                        "Otorga {X:mult,C:white}X#2#{} de multi si todas",
-                        "las cartas puntuadas son de",
-                        "{C:hearts}Corazones{} o {X:fire,C:white}Fuego{}"
-                    }
-                }
-            },
-            j_ina_Jude_IJ = {
-                name = "Jude",
-                text = { "{C:wind}Espejismo de Balón{}",
-                    "Gana {X:mult,C:white}X#2#{} cada vez que el {C:attention}Joker",
-                    "a su {C:attention}izquierda{} se activa",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive}){}"
-                }
-            },
-            j_ina_Samford_IJ = {
-                name = "David Samford",
-                text = { "{C:forest}Pingüino Emperador N.º 2{}", "{X:mult,C:white}X#1#{} multi si hay",
-                    "{C:attention}1{} {X:mf,C:white}MF{} y {C:attention}2{} {X:fw,C:white}FW{}" }
-            },
-            j_ina_Kevin_IJ = {
-                name = "Kevin Dragonfly",
-                text = { "{C:forest}Tornado Dragón{}",
-                    "Reactiva el {C:attention}Joker{} {X:fw,C:white}FW{}",
-                    "derecho cada {C:attention}#1# manos",
-                    "{C:inactive}#2# restantes" }
-            },
-
-            -- IE3_Q_Ogre
-            j_ina_Triumvir = {
-                name = "Oni Triumvir",
-                text = {
-                    "{C:forest}Coz 3{}",
-                    "Al puntuar una carta {C:dark_edition}Letal{}, crea",
-                    "una {C:training}Carta de Entrenamiento{} ({C:green}#1# en #2#{} de",
-                    "ser apta para uno de tus Jokers)."
-                }
-            },
-            j_ina_Malice = {
-                name = "Escavan Malice",
-                text = {
-                    "{C:fire}Diluvio Letal{}",
-                    "Las cartas {C:dark_edition}Letales{} tienen una",
-                    "probabilidad de {C:green}#1# en #2#{} de",
-                    "dar {X:dark_edition,C:white}^#3#{} mult. en vez de {X:dark_edition,C:white}^#4#{}",
-                }
-            },
-            j_ina_Bash = {
-                name = "Bash Lancer",
-                text = {
-                    "{C:forest}Lanza Destructiva{}",
-                    "{C:attention}#1# en #2#{} de probabilidad:",
-                    "Convierte una carta a {C:dark_edition}Letal{}",
-                    "y destruye otra. Si {C:attention}todas{} son",
-                    "{C:dark_edition}Letales{}, retrigger éstas."
-                }
-            },
-            j_ina_Callous = {
-                name = "Mystral Callous",
-                text = {
-                    "{C:mountain}Lanza Letal{}",
-                    "Gana {X:mult,C:white}X#1#{} Wde mult. por cada",
-                    "carta {C:dark_edition}Letal{} en tu mazo.",
-                    "{C:inactive}(Actual: {X:mult,C:white}X#2#{C:inactive} Mult){}"
-                }
-            },
-
-            -- IE3_R_SkyTeam
-            -- Sky Team
-            j_ina_Ekadel = {
-                name = "Ekadel",
-                text = {
-                    "{C:wind}Subida a los Cielos{}",
-                    "Al puntuar una carta, tiene una",
-                    "probabilidad de {C:green}#2# entre #1#{} de",
-                    "aumentar su {C:attention}Rango{} permanentemente.",
-                    "{C:inactive}(Ciclo: de As a 2){}"
-                }
-            },
-            j_ina_Sael = {
-                name = "Sael",
-                text = {
-                    "{C:wind}Remate Celestial{}",
-                    "Si tu puntuación final supera el objetivo",
-                    "de la ciega actual más el de la siguiente",
-                    "{C:attention}Ciega Pequeña{}, la {C:attention}salta{} automáticamente.",
-                    "Otorga su {C:attention}Etiqueta{} y permite entrar",
-                    "en la {C:attention}tienda{} dos veces seguidas."
-                }
-            },
-
-            -- IE3_S_DarkTeam
-            -- Dark Team
-            j_ina_Astaroth = {
-                name = "Astaroth",
-                text = {
-                    "{C:fire}El Olvido{}",
-                    "Si juegas la {C:attention}última mano{},",
-                    "la restaura {C:attention}#1#{} vez/veces por ronda.",
-                    "{C:inactive}(Restantes: {C:attention}#3#{C:inactive}){}",
-                    "Cada {C:attention}#4#{} manos olvidadas,",
-                    "el límite aumenta en {C:attention}1{}.",
-                    "{C:inactive}(Progreso: {C:attention}#2#/#4#{C:inactive}){}"
-                }
-            },
-            j_ina_Arakune = {
-                name = "Arakuné",
-                text = {
-                    "{C:fire}Balón Diabólico{}",
-                    "Al {C:red}descartar{} una carta, tiene una",
-                    "probabilidad de {C:green}#2# entre #1#{} de crear",
-                    "un {C:tarot}El Colgado{}."
-                }
-            },
-            j_ina_Belal = {
-                name = "Belal",
-                text = {
-                    "{C:mountain}Caída a los Infiernos{}",
-                    "Si la mano es de tipo {X:mountain,C:white}Montaña{},",
-                    "reduce el objetivo de la ciega actual",
-                    "en un {C:attention}#1#%{}."
-                }
-            },
-
-            -- IE7_A_InakuniRaimon
-            j_ina_Sandra_Fischer = {
-                name = "Sandra Fischer",
-                text = {
-                    "{C:wind}Mano Oceánica{}",
-                    "Si anota el {C:attention}#1#%{} de la ciega,",
-                    "devuelve todas las cartas de",
-                    "{X:wind,C:white}Viento{} puntuadas al mazo."
-                }
-            },
-            j_ina_Trevor = {
-                name = "Trevor Cook",
-                text = {
-                    "{C:wind}Danza del Destello{}",
-                    "Tus {C:attention}2{}, {C:attention}4{}, {C:attention}6{} y {C:attention}8{} dan {C:mult}+#1#{} Mult por",
-                    "cada Joker del {X:ina_team_inakuniraimon,C:white}I. Raimon{} al puntuar.",
-                    "{C:inactive}(Actual: {C:mult}+#2#{C:inactive} Mult){}"
-                }
-            },
-            j_ina_Cesar = {
-                name = "César Montalbán",
-                text = {
-                    "{C:forest}Técnica Ninja{}",
-                    "{C:green}#1# en #2#{} probabilidades de",
-                    "duplicar cada {C:attention}Etiqueta{} ganada."
-                }
-            },
-            j_ina_Valentin = {
-                name = "Valentín Eisner",
-                text = {
-                    "{C:wind}Flecha de Hielo{}",
-                    "Si juegas exactamente {C:attention}3{} cartas, da",
-                    "{C:mult}+#1#{} Mult o {C:chips}+#2#{} Fichas al comodín",
-                    "derecho (según la stat que use)."
-                }
-            },
-            j_ina_Adriano_Donati = {
-                name = "Adriano Donati",
-                text = {
-                    "{C:fire}Limonada de Fuego{}",
-                    "Da {C:chips}+#1#{} Fichas al superar ciegas",
-                    "{C:blue}Pequeñas/Grandes{}, o {C:mult}+#2#{} Mult",
-                    "al superar {C:red}Ciegas de Jefe{}.",
-                    "{C:inactive}(Actual: {C:chips}+#3# {C:inactive}y {C:mult}+#4#{C:inactive}){}"
-                }
-            },
-            j_ina_Sonny_Wright = {
-                name = "Sonny Wright",
-                text = {
-                    "{C:fire}Pájaro Luminoso{}",
-                    "Gana {X:mult,C:white} X#1# {} Mult al superar",
-                    "una ciega en tu {C:attention}última mano{}.",
-                    "{C:inactive}(Actual: {X:mult,C:white} X#2# {C:inactive} Mult){}"
-                }
-            },
-            j_ina_Basile = {
-                name = "Basile Hardy",
-                text = {
-                    "{C:fire}Macarrones con Espaguetis{}",
-                    "Si juegas {C:attention}Doble Pareja{}, convierte",
-                    "las cartas puntuadas a {X:fire,C:white}Fuego{} y les",
-                    "añade {C:mult}+#1#{} Mult permanente."
-                }
-            },
-
-            -- IE7_G_ZeusAres
-            j_ina_Hades = {
-                name = "Hades",
-                text = {
-                    "{C:wind}Pisotón de Justicia{}",
-                    "Al jugar una {C:attention}Pareja{} exacta junto a",
-                    "cartas {C:attention}mayores{}, las {C:attention}aplasta{}",
-                    "y las convierte a su categoría."
-                }
-            },
-            j_ina_Perseus = {
-                name = "Perseus",
-                text = {
-                    {
-                        "{C:fire}Sierra Celestial{}",
-                        "Gana {C:mult}+#1#{} Multi por carta",
-                        "puntuada de {C:hearts}Corazones{} o {X:fire,C:white}Fuego{}."
-                    },
-                    {
-                        "Pierde {C:attention}#3#%{} del Multi si pasan",
-                        "{C:attention}#2#{} manos sin activarse.",
-                        "{C:inactive}(Multi: {C:mult}+#4#{C:inactive} | Inactivo: {C:attention}#5#/#2#{C:inactive})"
-                    }
-                }
-            },
-
-            -- IE7_I_EiseiGakuen
-            j_ina_Quagmire_Ares = {
-                name = "Dave Quagmire (Ares)",
-                text = {
-                    "{C:fire}Espíritu Inquebrantable{}",
-                    "Gana {C:chips}+#1#{} Fichas si juegas una",
-                    "mano que anota menos del {C:attention}#2#%{}",
-                    "de las fichas requeridas.",
-                    "{C:inactive}(Actual: {C:chips}+#3#{C:inactive} Fichas){}"
-                }
-            },
-            j_ina_Hunter_Ares = {
-                name = "Hunter Ares",
-                text = {
-                    "{C:fire}Cañón de Meteoritos{}",
-                    "Al jugar una mano, gana permanentemente",
-                    "{C:mult}+#1#{} Mult y {C:chips}+#2#{} Fichas.",
-                    "{C:inactive}(Actual: {C:mult}+#3#{C:inactive} Mult, {C:chips}+#4#{C:inactive} Fichas){}"
-                }
-            },
-            j_ina_Xavier_Ares = {
-                name = "Xavier Ares",
-                text = {
-                    "{C:forest}Detonador{}",
-                    "Drena {C:money}#1#{} de valor a cada joker al puntuar",
-                    "Gana {X:mult,C:white}X#2#{} Mult por cada $1 drenado.",
-                    "{C:inactive}(Actual: {X:mult,C:white}X#3#{C:inactive} Mult){}"
-                }
-            },
-
-            -- IE8_H_NavyInvaders
-
-            -- IE9_X_Vestiges
-            j_ina_Axel_Kirkwood = {
-                name = "Axel Blaze (Kirkwood)",
-                text = {
-                    "{C:fire}Tornado de Fuego (Prototipo){}",
-                    "Da {X:mult,C:white} X#1# {} Mult si juegas un",
-                    "{C:attention}Color{} de {C:hearts}Corazones{}. {C:red}Destruye{}",
-                    "la carta puntuada de menor rango."
-                }
-            },
-
-            -- IE9_Y_scouts
-            j_ina_Dulce = {
-                name = "Dulce",
-                text = {
-                    "{C:wind}Viento de cosecha{}",
-                    "Siembra {C:attention}#1#{} carta/s al azar por cada",
-                    "{C:attention}Joker {X:mf,C:white}MF{} ó {X:wind,C:white}Viento{} al elegir la ciega",
-                }
-            },
-            j_ina_Ryoma = {
-                name = "Ryoma",
-                text = {
-                    "{C:mountain}Parada Infinita{}",
-                    "Gana {C:mult}+#1#{} de multi cada vez",
-                    "que se activa un {X:gk,C:white}GK{}",
-                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}"
-                }
-            },
-            j_ina_Blazer = {
-                name = "Blazer",
-                text = { {
-                    "{C:purple}Carga elemental{}",
-                    "Todos los {C:attention}Jokers{} son de {X:fire,C:white}Fuego{}",
-                    "Solo funciona el elemental {C:attention}izquierdo",
-                },
-                    {
-                        "Se revierte fuera del área de juego",
-                        "{C:inactive}Funciona aún {C:mult}deshabilitado{}{}"
-                    }
-                }
-            },
-            j_ina_Weathervane = {
-                name = "Weathervane",
-                text = { {
-                    "{C:purple}Carga elemental{}",
-                    "Todos los {C:attention}Jokers{} son de {X:wind,C:white}Viento{}",
-                    "Solo funciona el elemental {C:attention}izquierdo"
-                },
-                    {
-                        "Se revierte fuera del área de juego",
-                        "{C:inactive}Funciona aún {C:mult}deshabilitado{}{}"
-                    }
-                }
-            },
-            j_ina_Noggin = {
-                name = "Noggin",
-                text = { {
-                    "{C:purple}Carga elemental{}",
-                    "Todos los {C:attention}Jokers{} son de {X:forest,C:white}Bosque{}",
-                    "Solo funciona el elemental {C:attention}izquierdo"
-                },
-                    {
-                        "Se revierte fuera del área de juego",
-                        "{C:inactive}Funciona aún {C:mult}deshabilitado{}{}"
-                    }
-                }
-            },
-            j_ina_Montayne = {
-                name = "Montayne",
-                text = { {
-                    "{C:purple}Carga elemental{}",
-                    "Todos los {C:attention}Jokers{} son de {X:mountain,C:white}Montaña{}",
-                    "Solo funciona el elemental {C:attention}izquierdo"
-                },
-                    {
-                        "Se revierte fuera del área de juego",
-                        "{C:inactive}Funciona aún {C:mult}deshabilitado{}{}"
-                    }
-                }
-            },
-            j_ina_Chester = {
-                name = "Chester",
-                text = {
-                    "Puedes ver las próximas {C:tarot}#1#{}",
-                    "cartas que van a salir"
-                }
-            },
-            j_ina_Mach = {
-                name = "Mach",
-                text = {
-                    "{C:fire}Chut Granada{}",
-                    "Gana {X:mult,C:white}X#1#{} al vender",
-                    "un {C:attention}Joker {}o {C:attention}Mánager{}",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}"
-                }
-            },
-            j_ina_Ace_Server = {
-                name = "Ace Server",
-                text = { {
-                    "{C:fire}Puño vengativo{}",
-                    "{C:green}1 en #1# {}de aumentar el",
-                    "nivel de la mano jugada",
-                    "{C:attention}#2# nivel{} si {C:attention}#3# Ases{} puntúan."
-                } }
-            },
-            j_ina_Rex_George = {
-                name = "Rex George",
-                text = { {
-                    "{C:wind}Hojarasca{}",
-                    "Convierte los {C:attention}#1#{}",
-                    "puntuados en {C:attention}#2#s{}",
-                } }
-            },
-            j_ina_Heart = {
-                name = "Corazón",
-                text = {
-                    "{C:fire}Marca de Fuego{}",
-                    "Tus cartas de {C:hearts}Corazones{} cuentan",
-                    "como cartas de {X:fire,C:white}Fuego{}"
-                }
-            },
-            j_ina_Clover = {
-                name = "Trébol",
-                text = {
-                    "{C:forest}Marca de Bosque{}",
-                    "Tus cartas de {C:clubs}Tréboles{} cuentan",
-                    "como cartas de {X:forest,C:white}Bosque{}"
-                }
-            },
-            j_ina_Diamond = {
-                name = "Diamante",
-                text = {
-                    "{C:mountain}Marca de Montaña{}",
-                    "Tus cartas de {C:diamonds}Diamantes{} cuentan",
-                    "como cartas de {X:mountain,C:white}Montaña{}"
-                }
-            },
-            j_ina_Spade = {
-                name = "Pica",
-                text = {
-                    "{C:wind}Marca de Viento{}",
-                    "Tus cartas de {C:spades}Picas{} cuentan",
-                    "como cartas de {X:wind,C:white}Viento{}"
-                }
-            },
-
-            -- IE9_Z_Winners
-            j_ina_Turi = {
-                name = "Turiño",
-                text = { { "{C:forest}Remate Rebotado{}",
-                    "Gana {X:dark_edition,C:white}^X#2#{} por cada",
-                    "{C:attention}#3#{} {C:tarot}Tarots{} de {C:suits}Palo{} usados",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}, {C:tarot}#4#{} {C:inactive}usados){}" }, }
-            },
-
-            -- Managers
-            j_ina_Nelly = {
-                name = "Nelly",
-                text = { { "Por cada ronda se otorga entre {C:money}#1#${} a {C:money}#2#${},",
-                    "si se {C:attention}pierde la partida{}, en vez de eso,",
-                    "se {C:mult}destruyen{} todos los jokers",
-                    "fuera del banquillo y esta carta." },
-                    { "Si es más de ante {C:attention}#3#{}",
-                        "al morir pone el dinero a {C:money}#4#${}" } }
-            },
-            j_ina_Celia = {
-                name = "Celia",
-                text = { {
-                    "Si tienes un {C:attention}Jude{},",
-                    "lo transforma a su forma del {X:ina_team_raimon,C:white}Raimon{}",
-                    "al comienzo de la próxima tienda"
-                },
-                    { "Genera un {C:attention}Scout{} en el {C:bench}Banquillo{}",
-                        "al seleccionar una ciega",
-                        "{C:inactive}Debe haber espacio{}" } }
-            },
-            j_ina_Silvia = {
-                name = "Silvia",
-                text = {
-                    "{C:green}+#1#{} {C:attention}booster pack{} slot"
-                }
-            },
-            j_ina_Aurelia = {
-                name = "Aurelia",
-                text = {
-                    "{C:green}+#1#{} {C:attention}reroll{} gratis por tienda"
-                }
-            },
-            j_ina_Koudera = {
-                name = "Koudera",
-                text = {
-                    "{C:tarot}+#1#{} espacio de {C:tarot}consumibles{}"
-                }
-            },
-            j_ina_Akihiro = {
-                name = "Akihiro Hino",
-                text = {
-                    "{C:dark_edition,E:1}Por favor espere un poco más{}"
-                }
-            },
-
-            -- Espíritus
-            j_ina_Majin_Pegasus = {
-                name = "Pegaso Mágico",
-                text = {
-                    "{C:wind}Pegaso Mágico{}",
-                    "Mejora un {C:attention}#1#%{} las estadísticas",
-                    "de los comodines de {X:wind,C:white}Viento{}"
-                }
-            },
-            j_ina_Surtur = {
-                name = "Surtur",
-                text = {
-                    "{C:fire}Tormenta de Fuego{}",
-                    "Jugar esta mano suma {C:attention}+#2#%{} a las",
-                    "estadísticas de {X:fire,C:white}Fuego{} y sube su {C:attention}nivel{}",
-                    "{C:inactive}(Actual: {C:attention}+#3#%{C:inactive} | Nvl: {C:attention}+#1#{C:inactive})"
-                }
-            },
-            j_ina_Gigante = {
-                name = "Gigante",
-                text = {
-                    "{C:mountain}Gigante{}",
-                    "{C:red}Destruye{} 1 carta puntuada",
-                    "de {X:mountain,C:white}Montaña{}. Rebaja un {C:attention}#1#%{} las",
-                    "fichas de la próxima {C:attention}Ciega Jefe{}.",
-                    "{C:inactive}(Acumulado: {C:attention}-#2#%{C:inactive})"
-                }
-            },
-            j_ina_Eris = {
-                name = "Eris",
-                text = {
-                    "{C:purple}Manzana de la Discordia{}",
-                    "Mientras esté activa, {C:attention}fusiona{} las",
-                    "{C:attention}Realidades{}. Activa Jokers {C:dark_edition}Corruptos{}",
-                    "y permite a otros equipos aparecer.",
-                    "{C:inactive}(Universo actual: {C:attention}#1#{C:inactive})"
-                }
-            },
-            j_ina_Sombra_de_Plasma_DF = {
-                name = "Sombra de Plasma DF",
-                text = {
-                    "{C:mountain}Sombra de Plasma DF{}",
-                    "Otorga {C:chips}+#1#{} Fichas por cada",
-                    "{X:mountain,C:white}Barrera{} al jugar una mano."
-                }
-            },
-            j_ina_Sombra_de_Plasma_PO = {
-                name = "Sombra de Plasma PO",
-                text = {
-                    "{C:forest}Sombra de Plasma PO{}",
-                    "En tu {C:attention}última mano{}, si vas perdiendo,",
-                    "otorga {X:mult,C:white} X#1# {} Mult por cada",
-                    "Joker {X:gk,C:white}GK{}. {C:inactive}(Consume 2 Cargas){}"
-                }
-            },
-            j_ina_Sombra_de_Plasma_RE = {
-                name = "Sombra de Plasma RE",
-                text = {
-                    "{C:wind}Sombra de Plasma RE{}",
-                    "Al descartar, {C:red}destruye{} la carta",
-                    "más baja. Suma {C:chips}+#1#{} Fichas a su",
-                    "Aura pasiva por cada {X:mf,C:white}MF{}.",
-                    "{C:inactive}(Aura actual: {C:chips}+#2#{C:inactive})"
-                }
-            },
-            j_ina_Sombra_de_Plasma_TI = {
-                name = "Sombra de Plasma TI",
-                text = {
-                    "{C:fire}Sombra de Plasma TI{}",
-                    "Cada vez que un Joker {X:fw,C:white}FW{} otorga",
-                    "puntuación, suma {C:mult}+#1#{} Multi.",
-                    "{C:inactive}(Escala con nivel de técnica){}"
-                }
-            },
-
-            -- Otros
-            j_ina_Cloack_inf = {
-                name = "Cloack",
-                text = { "{C:fire}Espejismo{}", "{C:attention}Frontal{}",
-                    "Al seleccionar la ciega",
-                    "clona un joker {C:dark_edition}negativo{}",
-                    "gastando {C:mountain}#1# Barreras{}" },
-            },
-            j_ina_Feldt_n3 = {
-                name = "Feldt",
-                text = { {
-                    "{C:forest}Campo de Fuerza Defensivo{}",
-                    "Genera {C:attention}#1#{} {X:mountain,C:white}Barrera{}",
-                    "si juegas al menos {C:attention}3{} {C:spades}Picas{}"
-                },
-                    {
-                        "En la {C:attention}última mano{} consume",
-                        "{C:attention}#4# {X:mountain,C:white}Barreras{} para dar {X:mult,C:white}X#2#{}",
-                        "por cada {C:attention}Joker{} de {X:forest,C:white}Bosque{}",
-                        "{C:inactive}Actualmente{} {X:mult,C:white}X#3#"
-                    }
-                }
-            },
-            j_ina_Kevin_inf = {
-                name = "Kevin",
-                text = { "{C:forest}Tornado Dragón{}", "Vuelve a activar el comodín {X:fw,C:white}FW{}",
-                    "que está a su derecha{}" }
-            },
-            j_ina_Kevin_inf_IJ = {
-                name = "Kevin Dragonfly",
-                text = { "{C:forest}Tornado Dragón{}", "Vuelve a activar el comodín {X:fw,C:white}FW{}",
-                    "que está a su derecha{}" }
-            },
-            j_ina_Shadow_clone = {
-                name = "Shadow",
-                text = { "Solo una {C:dark_edition}Sombra{}" }
-            },
-            j_ina_Tod_IJ = {
-                name = "Tod Ironside",
-                text = {
-                    "{C:wind}Equilibrismo{}",
-                    "Gana {C:chips}+#1#{} fichas por",
-                    "cada {C:enhanced}Acero{}",
-                    "en {C:attention}mano{} o {C:attention}jugada{}"
-                }
+                text = { "{C:forest}Cosecha Divina{}",
+                    "Gana {C:money}#1#${} por cada",
+                    "carta {C:attention}As{} en tu mano al final de la ronda" }
+            },
+            j_ina_Hephaestus = {
+                name = "Hephaestus",
+                text = { "{C:fire}Martillo Divino{}",
+                    "Mejora un {C:attention}As{} aleatorio a",
+                    "{C:attention}Carta de Oro{} cada ronda" }
             },
         },
-
         Other = {
             Mangual_Letal = {
                 name = "Mangual Letal",
@@ -2154,8 +919,9 @@ return {
             Dios_rematador = {
                 name = "Dios rematador",
                 text = {
-                    "Los {C:red}destruye{} si",
-                    "valen {C:money}0${}."
+                    "El valor de los jokers puede",
+                    "descender a {C:red}negativo{}.",
+                    "Venderlos te {C:red}costará dinero{}."
                 }
             },
             ina_training_seal = {
@@ -2167,14 +933,15 @@ return {
                 },
             },
             ina_tech_cap_plus_sticker = {
-                name = "Superación (Cap+)",
+                name = "Cap+",
                 text = {
                     "Este comodín ha",
-                    "roto sus límites"
+                    "roto sus límites.",
+                    "{C:attention}Inmune a Debuffs{}"
                 },
             },
             ina_tech_cap_plus_max_sticker = {
-                name = "Superación Total (Cap+ Max)",
+                name = "Cap+ max",
                 text = {
                     "Este comodín ha alcanzado",
                     "el poder absoluto"
@@ -2243,279 +1010,13 @@ return {
                 text = { "Se activa si es el",
                     "joker de más a la {C:attention}Derecha{}" }
             },
-            RolChange = {
-                name = "Cambio de Rol",
-                text = { "{C:attention}#1#{} más a la izquierda",
-                    "{C:attention}#2#{} más a la derecha" }
-            },
-            ConsecutiveCards = {
-                name = "Cartas consecutivas",
+            Evolution = {
+                name = "Evolución",
                 text = {
-                    "Se activa al jugar una carta",
-                    "{C:attention}#1#{} a la carta",
-                    "de referencia de la mano anterior"
+                    "Este jugador puede {C:attention}evolucionar{}",
+                    "al cumplir su objetivo.",
+                    "{C:inactive,s:0.8}Solo disponible una vez por ronda."
                 }
-            },
-            Chaotic = {
-                name = "Combinación incompatible",
-                text = { "Junta este jugador",
-                    "con uno del equipo {C:attention}#1#{}" }
-            },
-            Fire_Blizzard = {
-                name = "Ventisca de Fuego",
-                text = { "Junta este jugador",
-                    "con {C:attention}#1#{}" }
-            },
-            Combo_Cosmico = {
-                name = "Combo Cósmico",
-                text = { "Junta este jugador",
-                    "con {C:attention}#1#{}" }
-            },
-            ina_spirit_charges = {
-                name = "Poder de Espíritu",
-                text = {
-                    "{C:inactive}Cargas: {C:attention}#1#/#2#{}",
-                    "{C:inactive}Evolución: {C:attention}#3#/#4# {C:inactive}usos{}",
-                }
-            },
-            ina_spirit_charges_max = {
-                name = "Poder de Espíritu",
-                text = {
-                    "{C:inactive}Cargas: {C:attention}#1#/#2#{}",
-                    "{C:inactive}Evolución: {C:attention}Máx.{}"
-                }
-            },
-            p_ina_growing_pack = {
-                name = "Pack Creciente",
-                text = { "Elige {C:attention}#1#{} entre {C:attention}#2#{}", "{C:attention}Jokers{} de tus equipos" }
-            },
-            p_ina_advanced_pack = {
-                name = "Pack Avanzado",
-                text = { "Elige {C:attention}#1#{} entre {C:attention}#2#{}", "{C:attention}Jokers{} de tus equipos" }
-            },
-            p_ina_item_pack_ina = {
-                name = "Ina Pack",
-                text = { "Elige {C:attention}#1#{} de {C:attention}#2#{} Cartas del {C:tarot}Tarot{}",
-                    "#3# {C:strat}Strats{} o #4# {C:training}Entrenamientos{}",
-                    "compatible con uno de tus jugadores",
-                    "para usar de inmediato" }
-            },
-            p_ina_manager_pack = {
-                name = "Manager Pack",
-                text = { "Elige {C:attention}#1#{} de {C:attention}#2#{} {C:pink}Managers{}" }
-            },
-            p_ina_training_pack = {
-                name = "Training Pack",
-                text = { "Elige {C:attention}#1#{} de {C:attention}#2#{} {C:training}Entrenamientos{}",
-                    "para usar de inmediato" }
-            },
-            p_ina_jumbo_training_pack = {
-                name = "Jumbo Training Pack",
-                text = { "Elige {C:attention}#1#{} de {C:attention}#2#{} {C:training}Entrenamientos{}",
-                    "para usar de inmediato", "Al menos uno será compatible",
-                    "con tus {C:attention}Jokers{}" }
-            },
-            p_ina_mega_training_pack = {
-                name = "Mega Training Pack",
-                text = { "Elige {C:attention}#1#{} de {C:attention}#2#{} {C:training}Entrenamientos{}",
-                    "para usar de inmediato", "Al menos dos serán compatibles",
-                    "con tus {C:attention}Jokers{}" }
-            },
-            ina_harvest_sticker = {
-                name = "Cosechable",
-                text = {
-                    "Esta carta puede ser",
-                    "cosechada por jokers"
-                },
-            },
-            ina_tech_plus1_sticker = {
-                name = "Técnica +1",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_plus2_sticker = {
-                name = "Técnica +2",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_plus3_sticker = {
-                name = "Técnica +3",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_plus4_sticker = {
-                name = "Técnica +4",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_plus5_sticker = {
-                name = "Técnica +5",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_number2_sticker = {
-                name = "Técnica número 2",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_number3_sticker = {
-                name = "Técnica número 3",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_number4_sticker = {
-                name = "Técnica número 4",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_numbera_sticker = {
-                name = "Técnica A",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_numbers_sticker = {
-                name = "Técnica S",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_numberz_sticker = {
-                name = "Técnica Z",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_numberinf_sticker = {
-                name = "Técnica infinito",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_grade2_sticker = {
-                name = "Técnica grado 2",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_grade3_sticker = {
-                name = "Técnica grado 3",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_grade4_sticker = {
-                name = "Técnica grado 4",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_grade5_sticker = {
-                name = "Técnica grado 5",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_grade0_sticker = {
-                name = "Técnica grado 0",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_j_sticker = {
-                name = "Técnica J",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_q_sticker = {
-                name = "Técnica Q",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_k_sticker = {
-                name = "Técnica K",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_a_sticker = {
-                name = "Técnica A",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_joker_sticker = {
-                name = "Técnica Joker",
-                text = {
-                    "Este comodín tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_spirit1_sticker = {
-                name = "Evolución Nvl. II",
-                text = {
-                    "Este Espíritu tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_spirit2_sticker = {
-                name = "Evolución Nvl. III",
-                text = {
-                    "Este Espíritu tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_spirit3_sticker = {
-                name = "Evolución Nvl. IV",
-                text = {
-                    "Este Espíritu tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_spirit4_sticker = {
-                name = "Evolución Nvl. V",
-                text = {
-                    "Este Espíritu tiene las",
-                    "estadísticas aumentadas"
-                },
-            },
-            ina_tech_spirit5_sticker = {
-                name = "Evolución Nvl. Omega",
-                text = {
-                    "Este Espíritu tiene las",
-                    "estadísticas aumentadas"
-                },
             },
         },
         Planet = {
@@ -2811,8 +1312,8 @@ return {
             ina_tech_spirit3_sticker = "Evolución Nvl. IV",
             ina_tech_spirit4_sticker = "Evolución Nvl. V",
             ina_tech_spirit5_sticker = "Evolución Nvl. Omega",
-            ina_tech_cap_plus_sticker = "Superación (Cap+)",
-            ina_tech_cap_plus_max_sticker = "Superación Total (Cap+ Max)",
+            ina_tech_cap_plus_sticker = "Cap+",
+            ina_tech_cap_plus_max_sticker = "Cap+ max",
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",
@@ -2873,44 +1374,33 @@ return {
             ["ina_team_Genesis"] = "Génesis",
             ["ina_team_EiseiGakuen"] = "Eisei Gakuen",
             ["ina_team_InakuniRaimon"] = "Inakuni Raimon",
-            ["ina_team_Scout"] = "Ojeadores",
+            ["ina_team_Seishou"] = "Seishou Academy",
+            ["ina_team_Tonegawa"] = "Tonegawa Tousen",
+            ["ina_team_Oumahara"] = "Oumahara",
             ["ina_team_InazumaJapon"] = "Inazuma Japón",
-            ["ina_team_Ogre"] = "Academia Ogro",
-            ["ina_team_BigWaves"] = "Big Waves",
-            ["ina_team_DesertLion"] = "Leones del Desierto",
-            ["ina_team_NeoJapan"] = "Neo Japón",
-            ["ina_team_FireDragon"] = "Dragones de Fuego",
-            ["ina_team_KnightsOfQueen"] = "Caballeros de la Reina",
-            ["ina_team_BrockenBrigade"] = "Brocken Brigade",
-            ["ina_team_RoseGryphon"] = "Rose Gryphon",
-            ["ina_team_RedMatadors"] = "Matadores Rojos",
-            ["ina_team_TeamD"] = "Equipo D",
-            ["ina_team_TheEmpire"] = "Los Emperadores",
+            ["ina_team_NeoJapon"] = "Neo Japón",
+            ["ina_team_TheEmpire"] = "The Empire",
+            ["ina_team_KnightsOfQueen"] = "Knights of Queen",
             ["ina_team_Unicorn"] = "Unicorn",
-            ["ina_team_Orpheus"] = "Orfeo",
-            ["ina_team_ZoolanTeam"] = "Zoolan Team",
-            ["ina_team_TheKingdom"] = "Os Reis",
-            ["ina_team_LittleGigant"] = "Pequeños Gigantes",
+            ["ina_team_Orpheus"] = "Orpheus",
+            ["ina_team_TheKingdom"] = "The Kingdom",
+            ["ina_team_LittleGigant"] = "Little Gigant",
+            ["ina_team_TeamZoolan"] = "Team Zoolan",
+            ["ina_team_TeamGarshield"] = "Team Garshield",
+            ["ina_team_DarkAngels"] = "Dark Angels",
             ["ina_team_SkyTeam"] = "Sky Team",
-            ["ina_team_DarkTeam"] = "Dark Team",
-            ["ina_team_RaimonGO"] = "Raimon",
-            ["ina_team_EarthEleven"] = "Earth Eleven",
-        },
-        quips = {},
-        ranks = {},
-        suits_plural = {},
-        suits_singular = {},
-        tutorial = {},
-        v_dictionary = {
-            a_powmult = { "^#1# Mult" },
-            ina_idea = { "Idea: #1#" },
-            ina_art = { "Arte: #1#" },
-            ina_code = { "Código: #1#" }
-        },
-        v_text = {
-            ch_c_ina_futbol_frontier = { "Las ciegas saldrán en el orden del {C:attention}Fútbol Frontier{}" },
-            ch_c_ina_win_ante16 = { "Supera un enemigo {C:dark_edition}Legendario{}" },
-            ch_c_ina_elementals = { "Las ciegas solo podrán ser {C:dark_edition}Elementales{}" }
+            ["ina_team_MakaiArmy"] = "Makai Army Z",
+            ["ina_team_RoseGryphon"] = "Rose Gryphon",
+            ["ina_team_BrockenBorg"] = "Brocken Borg",
+            ["ina_team_TheBarracudas"] = "The Barracudas",
+            ["ina_team_RedMatadors"] = "Red Matadors",
+            ["ina_team_DesertLion"] = "Desert Lion",
+            ["ina_team_BigWaves"] = "Big Waves",
+            ["ina_team_FireDragon"] = "Fire Dragon",
+            ["ina_team_Scout"] = "Scouts",
+            ["ina_team_Ogre"] = "Academia Ogro",
+            ["ina_team_OgreRedux"] = "Ogro Redux",
+            ["ina_team_Destructores"] = "Destructores",
         }
     }
 }

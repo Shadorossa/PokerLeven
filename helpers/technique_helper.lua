@@ -54,6 +54,7 @@ technique_values = {
     drain = .2,          -- es de Bellatrix / Dvalin
     copies_number = .25, -- es de Hattori
     stone_bonus = .05,   -- es de Hauser
+    stat_boost = 0.0075,    -- es de Thaddeus
 
     -- Espíritus (normales)
     stat_mult = 0.02,     -- es de Majin Pegasus (Espíritu)
@@ -141,7 +142,6 @@ end
 function set_sticker(card)
     local tech_level = card.ability.extra and card.ability.extra.tech_level or 0
     local sticker_list = get_technique_sticker_list(card)
-    local clamped_level = math.max(1, math.min(tech_level, #sticker_list))
 
     for _, sticker_key in ipairs(sticker_list) do
         if card.ability[sticker_key] then card.ability[sticker_key] = false end
@@ -157,8 +157,10 @@ function set_sticker(card)
         final_sticker = "ina_tech_cap_plus_max_sticker"
     elseif ex and ex.cap_plus then
         final_sticker = "ina_tech_cap_plus_sticker"
-    elseif tech_level >= 1 then
-        final_sticker = sticker_list[clamped_level]
+    elseif tech_level > 1 then
+        -- El nivel 1 es base (sin sticker), el nivel 2 usa el sticker 1, etc.
+        local clamped_index = math.max(1, math.min(tech_level - 1, #sticker_list))
+        final_sticker = sticker_list[clamped_index]
     end
 
     if final_sticker and card.ability then
@@ -200,32 +202,25 @@ end
 -- Increments technique level of a joker and applies stat changes based on technique values
 increment_technique = function(card)
     if card.ability.extra and type(card.ability.extra) == "table" then
-        if card.ability.extra.tech_level then
-            card.ability.extra.tech_level = card.ability.extra.tech_level + 1
-        else
-            card.ability.extra.tech_level = 1
+        local old_level = card.ability.extra.tech_level or 1
+        local new_level = old_level + 1
+        
+        -- Salto directo al CAP+ para no_training (Nivel 1 -> 7)
+        if card.ability.extra.no_training and old_level == 1 then
+            new_level = 7
         end
-    end
+        
+        card.ability.extra.tech_level = new_level
 
-    local ex = card.ability.extra
-    if ex and ex.tech_level and G.GAME.modifiers.can_cap_plus and not Pokerleven.is_spirit(card) then
-        local max_natural = #get_technique_sticker_list(card)
-        if ex.tech_level == max_natural + 1 and not ex.cap_plus then
-            ex.cap_plus = true
-            ex.cap_max_req = math.random(3, 7)
-            for k, _ in pairs(technique_values) do
-                if type(ex[k]) == 'number' and type(card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 2 end
-            end
-            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "CAP+", colour = G.C.DARK_EDITION})
+        -- Aplicar flags de CAP y efectos (Niveles 7 y 8 exclusivos para veteranos)
+        if new_level == 7 then
+            card.ability.extra.cap_plus = true
+            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "Cap+", colour = G.C.DARK_EDITION})
             play_sound('tarot1')
-        end
-        if ex.cap_plus and not ex.cap_plus_max and ex.tech_level == max_natural + 1 + (ex.cap_max_req or 4) then
-            ex.cap_plus_max = true
-            for k, _ in pairs(technique_values) do
-                if type(ex[k]) == 'number' and type(card.config.center.config.extra[k]) == 'number' then ex[k] = ex[k] * 2 end
-            end
+        elseif new_level == 8 then
+            card.ability.extra.cap_plus_max = true
             card:set_edition({negative = true}, true, true)
-            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "CAP+ MAX", colour = G.C.DARK_EDITION})
+            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "Cap+ max", colour = G.C.DARK_EDITION})
             play_sound('foil1')
         end
     end
@@ -251,29 +246,36 @@ modify_values = function(card)
     if card.ability.extra and card.ability.extra.cap_plus_max then mult = 4
     elseif card.ability.extra and card.ability.extra.cap_plus then mult = 2 end
 
+    local ex = card.ability.extra
+    if not ex then return end
+    local tech_level = ex.tech_level or 1
+
     -- Additive scaling
-    for name, _ in pairs(technique_values) do
-        local data = card.ability.extra[name]
-        local base_val = card.config.center.config.extra[name]
-        if type(data) == "number" and type(base_val) == "number" then
-            local addition = technique_values[name]
-
-            card.ability.extra[name] = data + (base_val * addition * mult)
-
-            local rounded, frac = round_value(card.ability.extra[name], name)
-            card.ability.extra[name] = rounded
-
-            if frac then
-                set_frac(card, frac, name)
+    -- Nueva lógica: Calculamos desde la base cada vez para aplicar el CAP correctamente
+    -- Fórmula: base * (1 + (nivel-1) * incremento) * multiplicador_CAP
+    for name, addition in pairs(technique_values) do
+        local center = G.P_CENTERS[card.config.center.key] or card.config.center
+        local base_val = center.config.extra and center.config.extra[name] or 1
+        
+        if type(ex[name]) == "number" then
+            -- Fórmula final: Base + (Base * (Lvl-1) * Incremento * Mult_CAP)
+            -- El Mult_CAP solo afecta al incremento, no a la base.
+            local bonus = base_val * (tech_level - 1) * addition * mult
+            ex[name] = base_val + bonus
+            
+            if roundable_fields[name] then
+                ex[name] = math.floor(ex[name] + 0.5)
             end
         end
     end
 
     -- Multiplicative scaling
     for name, factor in pairs(multiplicative_technique_values) do
-        local data = card.ability.extra[name]
-        if type(data) == "number" then
-            card.ability.extra[name] = data * (factor ^ mult)
+        local base_val = card.config.center.config.extra[name]
+        if type(ex[name]) == "number" and type(base_val) == "number" then
+            -- Para multiplicativos, el CAP multiplica el exponente o el factor según se prefiera
+            -- Aquí mantenemos la lógica de potencia sobre el nivel
+            ex[name] = base_val * (factor ^ ((tech_level - 1) * mult))
         end
     end
 end
@@ -312,14 +314,28 @@ end
 
 -- Returns true if the card matches the type and position and its technique level is below the max
 can_upgrade_tech_level = function(card, type, position)
-    local max_lvl = G.GAME.max_tech_level
-    if G.GAME.modifiers.can_cap_plus and not Pokerleven.is_spirit(card) then max_lvl = 9999 end
-    if Pokerleven.is_spirit(card) then max_lvl = 5 end
+    local ex = card.ability.extra
+    local current_level = ex.tech_level or 1
+
+    -- Bloqueos según tipo de jugador
+    if not ex.no_training then
+        -- Jugadores estándar: máximo nivel 6 (GO), nunca pueden llegar al 7+
+        if current_level >= 6 then return false end
+    else
+        -- Jugadores veteranos: no pueden subir a niveles intermedios (2-6)
+        -- Si están en nivel 1, pueden subir (porque saltarán al 7)
+        -- Si están en nivel 7, pueden subir (al 8/MAX)
+        if current_level > 1 and current_level < 7 then return false end
+        if current_level >= 8 then return false end -- Nivel 8 es el CAP+ MAX
+    end
+
+    local max_lvl = 8
+    if Pokerleven.is_spirit(card) then max_lvl = 6 end -- Espíritus suelen tener un nivel menos o diferente escala
 
     if type and position then
         return is_type(card, type) and is_position(card, position) and
-            (card.ability.extra.tech_level or 0) < max_lvl
+            current_level < max_lvl
     else
-        return (card.ability.extra.tech_level or 0) < max_lvl
+        return current_level < max_lvl
     end
 end

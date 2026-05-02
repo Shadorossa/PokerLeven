@@ -2764,14 +2764,15 @@ return {
                 },
             },
             ina_tech_cap_plus_sticker = {
-                name = "Superación (Cap+)",
+                name = "Cap+",
                 text = {
                     "Este comodín ha",
-                    "roto sus límites"
+                    "roto sus límites.",
+                    "{C:attention}Inmune a Debuffs{}"
                 },
             },
             ina_tech_cap_plus_max_sticker = {
-                name = "Superación Total (Cap+ Max)",
+                name = "Cap+ max",
                 text = {
                     "Este comodín ha alcanzado",
                     "el poder absoluto"
@@ -3461,8 +3462,8 @@ return {
             ina_tech_spirit3_sticker = "Evolución Nvl. IV",
             ina_tech_spirit4_sticker = "Evolución Nvl. V",
             ina_tech_spirit5_sticker = "Evolución Nvl. Omega",
-            ina_tech_cap_plus_sticker = "Superación (Cap+)",
-            ina_tech_cap_plus_max_sticker = "Superación Total (Cap+ Max)",
+            ina_tech_cap_plus_sticker = "Cap+",
+            ina_tech_cap_plus_max_sticker = "Cap+ max",
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",

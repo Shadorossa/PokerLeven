@@ -1,5 +1,5 @@
-﻿local KingR = J({
-  name = "KingR",
+﻿local King_Redux = J({
+  name = "King_Redux",
   pos = { x = 2, y = 6 },
   config = { extra = { barriers = 2, chip_mod = 100, hands_lost = 1, blind_count = 0, trigger_at = 3 } },
   loc_vars = function(self, info_queue, center)
@@ -375,8 +375,8 @@ local Jamm = J({
   end
 })
 
-local CalebR = J({
-  name = "CalebR",
+local Caleb_Redux = J({
+  name = "Caleb_Redux",
   pos = { x = 11, y = 6 },
   config = { extra = { current_Xmult = 1, xmult_gain = 0.5, redux_turns = 0, turns_needed = 4 } },
   loc_vars = function(self, info_queue, center)
@@ -627,6 +627,6 @@ local Color = J({
 
 return {
     name = "Royal Academy Redux",
-    list = { KingR, Beltzer, Blade, Argie, Messer, Spark, Sparrow, Jamm, CalebR, Samford_Redux, Cellar, Zenn, Cossimo, Color, Bamboo, Little }
+    list = { King_Redux, Beltzer, Blade, Argie, Messer, Spark, Sparrow, Jamm, CalebR, Samford_Redux, Cellar, Zenn, Cossimo, Color, Bamboo, Little }
 }
 

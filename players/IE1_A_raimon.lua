@@ -672,6 +672,7 @@ local Shadow = J({
   techtype = C.UPGRADES.Plus,
   pteam = "ina_team_Raimon",
   blueprint_compat = true,
+  no_training = true,
   calculate = function(self, card, context)
     if context.setting_blind
         and #G.jokers.cards == 1 then
