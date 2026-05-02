@@ -370,6 +370,6 @@ local Bathers = J({ name = "Bathers", pos = { x = 11, y = 9 }, rarity = 1, pools
 return {
   name = "Fauxshore",
   list = {
-    Fake, Leave, Darren, Luckyman, Poker
+    Darren, Fake, Leave, Luckyman, Poker
   }
 }
