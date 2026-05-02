@@ -1620,8 +1620,8 @@ return {
                 name = "Bamboo",
                 text = {
                     "{C:fire}Baraja Marcada{}",
-                    "El primer objeto de cada {C:tarot}Sobre de Tarot{}",
-                    "es siempre un {C:tarot}El Loco{} (Copia del último usado)."
+                    "El primer objeto de cada Ssbre ",
+                    "de {C:tarot}Tarot{} es siempre un {C:tarot}El Loco{}"
                 }
             },
             j_ina_Messer = {

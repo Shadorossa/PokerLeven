@@ -238,8 +238,8 @@ local Shadow_DarkEmp = J({
 -- Nathan_DarkEmp
 local Nathan_DarkEmp = J({
     name = "Nathan_DarkEmp",
-    pos = { x = 2, y = 0 },
-    soul_pos = { x = 2, y = 1 },
+    pos = { x = 7, y = 0 },
+    soul_pos = { x = 7, y = 1 },
     config = { extra = { charges = 0, max_charges = 10, poly_xmult = 1.5 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
@@ -315,5 +315,5 @@ local Kevin_DarkEmp = J({
 
 return {
     name = "Emperadores Oscuros",
-    list = { Feldt_DarkEmp, Night_DarkEmp, Sam_DarkEmp, Jim_DarkEmp, Tod_DarkEmp, Steve_DarkEmp, Timmy_DarkEmp, Max_DarkEmp, Shadow_DarkEmp, Nathan_DarkEmp, Kevin_DarkEmp }
+    list = { Feldt_DarkEmp, Jim_DarkEmp, Nathan_DarkEmp, Kevin_DarkEmp }
 }
