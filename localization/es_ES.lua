@@ -1656,7 +1656,7 @@ return {
                     "{C:red}Debilita{} a los de {X:mountain,C:white}Montaña{} y {X:wind,C:white}Viento{}."
                 }
             },
-            j_ina_CalebR = {
+            j_ina_Caleb_Redux = {
                 name = "Caleb Stonewall",
                 text = {
                     "Al elegir ciega, {C:attention}destruye{} a los reservas",
