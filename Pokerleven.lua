@@ -186,6 +186,46 @@ loadResourceFolder("backs", SMODS.Back)
 --Load poker_hands
 loadResourceFolder("poker_hands", SMODS.PokerHand)
 
+-- Helper to process joker item properties before registration
+local function process_joker_item(item)
+  if not item.discovered then
+    item.discovered = false
+  end
+  item.key = item.key or item.name
+
+  item.config = item.config or {}
+  item.config.extra = item.config.extra or {}
+
+  -- Copy player properties to config.extra
+  if item.ptype then item.config.extra.ptype = item.ptype end
+  if item.pposition then item.config.extra.pposition = item.pposition end
+  if item.pteam then item.config.extra.pteam = item.pteam end
+  if item.pteam_concept then item.config.extra.pteam_concept = item.pteam_concept end
+  if item.special then item.config.extra.special = item.special end
+  if item.special then item.special_type = item.special end
+  if item.no_training then
+    item.config.extra.no_training = item.no_training
+    item.config.extra.tech_level = 1
+  end
+  if item.techtype then item.config.extra.techtype = item.techtype end
+  if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
+  if item.pdorsal then item.config.extra.pdorsal = item.pdorsal end
+  if item.pgender then item.config.extra.pgender = item.pgender end
+  if item.pnation then item.config.extra.pnation = item.pnation end
+  if item.pyear then item.config.extra.pyear = item.pyear end
+
+  -- Set default pool function for players
+  if not item.custom_pool_func then
+    item.in_pool = function(self)
+      return player_in_pool(self)
+    end
+  end
+
+  -- Set UI and badge functions
+  item.generate_ui = Pokerleven.generate_info_ui
+  item.set_badges = ina_set_badges
+end
+
 --Load jokers files
 local function load_joker_folder(folder_name, item_constructor)
   local files = NFS.getDirectoryItems(mod_dir .. folder_name)
@@ -200,41 +240,7 @@ local function load_joker_folder(folder_name, item_constructor)
         if source.init then source:init() end
 
         for _, item in ipairs(source.list) do
-          if not item.discovered then
-            item.discovered = false
-          end
-          item.key = item.key or item.name
-
-          item.config = item.config or {}
-          item.config.extra = item.config.extra or {}
-
-          if item.ptype then item.config.extra.ptype = item.ptype end
-          if item.pposition then item.config.extra.pposition = item.pposition end
-          if item.pteam then item.config.extra.pteam = item.pteam end
-          if item.pteam_concept then item.config.extra.pteam_concept = item.pteam_concept end
-          if item.special then item.config.extra.special = item.special end
-          -- Aseguramos que la etiqueta especial también se propague a nivel de raíz para que SMODS y Lovely no la pierdan nunca
-          if item.special then item.special_type = item.special end
-          if item.no_training then 
-            item.config.extra.no_training = item.no_training 
-            item.config.extra.tech_level = 1
-          end
-          if item.techtype then item.config.extra.techtype = item.techtype end
-          if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
-          if item.pdorsal then item.config.extra.pdorsal = item.pdorsal end
-          if item.pgender then item.config.extra.pgender = item.pgender end
-          if item.pnation then item.config.extra.pnation = item.pnation end
-          if item.pyear then item.config.extra.pyear = item.pyear end
-
-          if not item.custom_pool_func then
-            item.in_pool = function(self)
-              return player_in_pool(self)
-            end
-          end
-
-          item.generate_ui = Pokerleven.generate_info_ui
-          item.set_badges = ina_set_badges
-
+          process_joker_item(item)
           item_constructor(item)
         end
       end
