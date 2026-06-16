@@ -2184,6 +2184,15 @@ return {
                     "{C:inactive}#2# restantes" }
             },
 
+            -- IE3_B_BigWaves
+            j_ina_Ken_Crackham = {
+                name = "Ken Crackham",
+                text = { "{C:forest}Tentáculos{}",
+                    "Las cartas {X:forest,C:white}Bosque{} atrapadas se",
+                    "juegan {C:attention}#1#{} vez más",
+                    "Potencia reducida: {C:attention}#2#%{}" }
+            },
+
             -- IE3_Q_Ogre
             j_ina_Triumvir = {
                 name = "Oni Triumvir",

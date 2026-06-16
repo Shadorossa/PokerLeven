@@ -90,13 +90,13 @@ local Kjell_Snapper = J({
   calculate = function(self, card, ctx) end
 })
 
--- Ken Crackham (5)
+-- Ken Crackham (5) - Kraken
 local Ken_Crackham = J({
   name = "Ken Crackham",
   pos = { x = 7, y = 1 },
-  config = { extra = {} },
+  config = { extra = { retrigger_count = 2, potency = 0.5 } },
   loc_vars = function(self, info, center)
-    return { vars = {} }
+    return { vars = { center.ability.extra.retrigger_count, math.floor(center.ability.extra.potency * 100) } }
   end,
   rarity = 1,
   pools = { ["Big Waves"] = true },
@@ -110,7 +110,18 @@ local Ken_Crackham = J({
   pnumber = 5,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    if Pokerleven.is_individual_play_card(ctx) then
+      if ctx.other_card and ctx.other_card.ability and ctx.other_card.ability.extra and
+         ctx.other_card.ability.extra.ptype == C.Forest then
+        return {
+          message = localize('k_retrigger'),
+          retrigger = card.ability.extra.retrigger_count,
+          colour = G.C.BLUE
+        }
+      end
+    end
+  end
 })
 
 -- Shawn Princeton (6)
@@ -369,5 +380,7 @@ local Bruce_Marlin = J({
 
 return {
   name = "Big Waves",
-  list = {}
+  list = {
+    Ken_Crackham
+  }
 }
