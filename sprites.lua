@@ -453,6 +453,12 @@ local flag_mex = SMODS.Gradient({
     cycle = 3,
     interpolation = 'trig'
 })
+local flag_cgo = SMODS.Gradient({
+    key = 'ina_flag_CGO',
+    colours = { HEX('007a5e'), HEX('ffd500'), HEX('ce1126') },
+    cycle = 3,
+    interpolation = 'trig'
+})
 function loc_colour(_c, _default)
     if not G.ARGS.LOC_COLOURS then
         custom_colours()

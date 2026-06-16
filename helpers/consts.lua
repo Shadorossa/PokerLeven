@@ -27,7 +27,7 @@ C.M = C.ALL_GENDERS[1]
 C.F = C.ALL_GENDERS[2]
 
 -- Nationalities
-C.ALL_NATIONS = { "Italy", "Spain", "France", "Japan", "Korea", "Australia", "USA", "Brazil", "Russia", "Argentina", "Germany", "England", "Uzbekistan" }
+C.ALL_NATIONS = { "Italy", "Spain", "France", "Japan", "Korea", "Australia", "USA", "Brazil", "Russia", "Argentina", "Germany", "England", "Uzbekistan", "Qatar", "Congo" }
 C.ITALY = C.ALL_NATIONS[1]
 C.SPAIN = C.ALL_NATIONS[2]
 C.FRANCE = C.ALL_NATIONS[3]
@@ -41,6 +41,8 @@ C.ARGENTINA = C.ALL_NATIONS[10]
 C.GERMANY = C.ALL_NATIONS[11]
 C.ENGLAND = C.ALL_NATIONS[12]
 C.UZBEKISTAN = C.ALL_NATIONS[13]
+C.QATAR = C.ALL_NATIONS[14]
+C.CONGO = C.ALL_NATIONS[15]
 C.UNKNOWN = "UNKNOWN"
 
 -- Captain

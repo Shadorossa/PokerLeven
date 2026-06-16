@@ -2201,6 +2201,27 @@ return {
                     "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}" }
             },
 
+            -- IE3_C_DesertLion
+            j_ina_Khalfan_Jibril = {
+                name = "Khalfan Jibril",
+                text = { "{C:forest}Sucesor{}",
+                    "Copia {C:attention}#1#%{} del Mult",
+                    "del Joker a la izquierda" }
+            },
+            j_ina_Zack_Abdulla = {
+                name = "Zack Abdulla",
+                text = { "{C:fire}Siervo{}",
+                    "Todos los Jokers pierden {C:attention}#1#%{} de stats",
+                    "Los Jokers {X:fw,C:white}FW{} ganan {C:attention}+#2#%{} de stats" }
+            },
+            j_ina_Jamila_Wali = {
+                name = "Jamila Wali",
+                text = { "{C:mountain}Guardián{}",
+                    "Acumula {C:attention}#2#%{} de defensa cada ronda",
+                    "Al perder, usa defensa acumulada para no fallar",
+                    "{C:inactive}(Defensa:{} {C:attention}#1#%{}{C:inactive}){}" }
+            },
+
             -- IE3_Q_Ogre
             j_ina_Triumvir = {
                 name = "Oni Triumvir",
