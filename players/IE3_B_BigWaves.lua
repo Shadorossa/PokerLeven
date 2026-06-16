@@ -92,9 +92,9 @@ local Kjell_Snapper = J({
 
 -- Ken Crackham (5) - Kraken
 local Ken_Crackham = J({
-  name = "Ken Crackham",
+  name = "Ken_Crackham",
   pos = { x = 7, y = 1 },
-  config = { extra = { retrigger_count = 2, potency = 0.5 } },
+  config = { extra = { retrigger_count = 2, potency = 0.15 } },
   loc_vars = function(self, info, center)
     return { vars = { center.ability.extra.retrigger_count, math.floor(center.ability.extra.potency * 100) } }
   end,
@@ -288,11 +288,11 @@ local Quincy_Horace = J({
 
 -- Holly Summers (13)
 local Holly_Summers = J({
-  name = "Holly Summers",
+  name = "Holly_Summers",
   pos = { x = 2, y = 2 },
-  config = { extra = {} },
+  config = { extra = { mult_gain = 4, mult = 0 } },
   loc_vars = function(self, info, center)
-    return { vars = {} }
+    return { vars = { center.ability.extra.mult_gain, center.ability.extra.mult } }
   end,
   rarity = 1,
   pools = { ["Big Waves"] = true },
@@ -306,7 +306,24 @@ local Holly_Summers = J({
   pnumber = 13,
   pteam = "ina_team_BigWaves",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    if ctx.before and ctx.cardarea == G.jokers and not ctx.blueprint then
+      card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+      return Pokerleven.create_mult_return(card.ability.extra.mult)
+    end
+
+    if Pokerleven.is_joker_turn(ctx) then
+      return Pokerleven.create_mult_return(card.ability.extra.mult)
+    end
+
+    if (ctx.discard or (ctx.destroyed and ctx.destroyed > 0)) and not ctx.blueprint then
+      card.ability.extra.mult = 0
+      return {
+        message = localize('k_reset'),
+        colour = G.C.MULT
+      }
+    end
+  end
 })
 
 -- Derek Rabson (14)
@@ -381,6 +398,7 @@ local Bruce_Marlin = J({
 return {
   name = "Big Waves",
   list = {
-    Ken_Crackham
+    Ken_Crackham,
+    Holly_Summers
   }
 }

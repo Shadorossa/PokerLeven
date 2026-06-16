@@ -2188,9 +2188,17 @@ return {
             j_ina_Ken_Crackham = {
                 name = "Ken Crackham",
                 text = { "{C:forest}Tentáculos{}",
-                    "Las cartas {X:forest,C:white}Bosque{} atrapadas se",
-                    "juegan {C:attention}#1#{} vez más",
-                    "Potencia reducida: {C:attention}#2#%{}" }
+                    "Las cartas {X:forest,C:white}Bosque{} jugadas",
+                    "puntúan {C:attention}#1#{} veces pero con",
+                    "{C:attention}-#2#%{} de potencia" }
+            },
+            j_ina_Holly_Summers = {
+                name = "Holly Summers",
+                text = { "{C:fire}Verano{}",
+                    "Gana {C:mult}+#1#{} Mult por cada",
+                    "mano jugada, se reinicia al descartar",
+                    "o destruir cartas",
+                    "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}" }
             },
 
             -- IE3_Q_Ogre
