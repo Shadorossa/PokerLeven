@@ -403,13 +403,17 @@ local Turner = J({
 })
 
 -- Under
+local function get_under_gk_count()
+  local gkCount = #find_player_position("GK") or 0
+  return gkCount > 0 and gkCount or 1
+end
+
 local Under = J({
     name = "Under",
     pos = { x = 7, y = 5 },
     config = { extra = { chip_mod = 120, triggered = false } },
     loc_vars = function(self, info_queue, center)
-        local gkCount = #find_player_position("GK") or 0
-        local realCount = gkCount > 0 and gkCount or 1
+        local realCount = get_under_gk_count()
         return { vars = { center.ability.extra.chip_mod, realCount } }
     end,
     rarity = 1,
@@ -426,16 +430,10 @@ local Under = J({
     blueprint_compat = true,
     calculate = function(self, card, context)
         if Pokerleven.is_joker_turn(context) then
-            local gkCount = #find_player_position("GK")
-            local realCount = gkCount > 0 and gkCount or 1
+            local realCount = get_under_gk_count()
             local result = card.ability.extra.chip_mod / (math.log(realCount + 1) / math.log(2))
             card.ability.extra.triggered = true
-
-            return {
-                message = localize { type = 'variable', key = 'a_chips', vars = { result } },
-                colour = G.C.CHIPS,
-                chip_mod = result
-            }
+            return Pokerleven.create_chips_return(result)
         end
     end
 })

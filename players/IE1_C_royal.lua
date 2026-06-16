@@ -52,16 +52,18 @@ local King = J({
 })
 
 -- Drent
+local function get_drent_odds(base_odds)
+  local count = #find_player_type("Mountain")
+  local odds = base_odds - count
+  return odds < 0 and 1 or odds
+end
+
 local Drent = J({
   name = "Drent",
   pos = { x = 4, y = 2 },
   config = { extra = { odds = 5, triggered = false } },
   loc_vars = function(self, info_queue, center)
-    local count = #find_player_type("Mountain");
-    local odds = center.ability.extra.odds - count
-    if odds < 0 then
-      odds = 1
-    end
+    local odds = get_drent_odds(center.ability.extra.odds)
     return { vars = { G.GAME.probabilities.normal, odds } }
   end,
   rarity = 2,
@@ -79,16 +81,12 @@ local Drent = J({
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.after and context.cardarea == G.jokers then
-      local count = #find_player_type("Mountain");
-      local odds = card.ability.extra.odds - count
-      if odds < 0 then
-        odds = 1
-      end
+      local odds = get_drent_odds(card.ability.extra.odds)
       if not context.blueprint and pseudorandom('group_0_05214300') < G.GAME.probabilities.normal / odds then
-          if Pokerleven.spawn_consumable('Tarot', 'c_tower') then
-              card.ability.extra.triggered = true
-              return { message = "Quake!", colour = G.C.PURPLE }
-          end
+        if Pokerleven.spawn_consumable('Tarot', 'c_tower') then
+          card.ability.extra.triggered = true
+          return { message = "Quake!", colour = G.C.PURPLE }
+        end
       end
     end
   end
