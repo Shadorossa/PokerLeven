@@ -178,67 +178,34 @@ local Martin = J({
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if not context.debuff then
-      if context.other_joker and not context.other_joker.debuff
-          and (context.other_joker.config.center.rarity == 3 or context.other_joker.config.center.rarity == "ina_top")
-          and card ~= context.other_joker then
-        card.ability.extra.triggered = true;
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            context.other_joker:juice_up(0.5, 0.5)
-            return true
-          end
-        }))
-        return {
-          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.rare_xmult } },
-          colour = G.C.XMULT,
-          Xmult_mod = card.ability.extra.rare_xmult
-        }
-      elseif context.other_joker and not context.other_joker.debuff and context.other_joker.config.center.rarity == 2 and card ~= context.other_joker then
-        card.ability.extra.triggered = true;
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            context.other_joker:juice_up(0.5, 0.5)
-            return true
-          end
-        }))
-        return {
-          message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.uncommon_mult } },
-          colour = G.C.MULT,
-          mult_mod = card.ability.extra.uncommon_mult
-        }
-      elseif context.other_joker and not context.other_joker.debuff and context.other_joker.config.center.rarity == 1 and card ~= context.other_joker then
-        card.ability.extra.triggered = true;
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            context.other_joker:juice_up(0.5, 0.5)
-            return true
-          end
-        }))
-        return {
-          message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.common_mult } },
-          colour = G.C.MULT,
-          mult_mod = card.ability.extra.common_mult
-        }
-      elseif context.other_joker and not context.other_joker.debuff and context.other_joker.config.center.rarity == 4 and card ~= context.other_joker then
-        card.ability.extra.triggered = true;
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            context.other_joker:juice_up(0.5, 0.5)
-            return true
-          end
-        }))
-        return {
-          mult_message = {
-            message = localize({
-              type = "variable",
-              key = "a_powmult",
-              vars = { number_format(card.ability.extra.legendary_exp) },
-            }),
-            colour = G.C.DARK_EDITION,
-          },
-          mult = (mult ^ card.ability.extra.legendary_exp) - mult,
-        }
+    if not context.debuff and context.other_joker and not context.other_joker.debuff and card ~= context.other_joker then
+      local rarity = context.other_joker.config.center.rarity
+      local rarity_effects = {
+        [1] = { key = 'a_mult', value = card.ability.extra.common_mult, type = 'mult' },
+        [2] = { key = 'a_mult', value = card.ability.extra.uncommon_mult, type = 'mult' },
+        [3] = { key = 'a_xmult', value = card.ability.extra.rare_xmult, type = 'xmult' },
+        [4] = { key = 'a_powmult', value = card.ability.extra.legendary_exp, type = 'legendary' },
+        ["ina_top"] = { key = 'a_xmult', value = card.ability.extra.rare_xmult, type = 'xmult' },
+      }
+
+      local effect = rarity_effects[rarity]
+      if effect then
+        card.ability.extra.triggered = true
+        Pokerleven.trigger_other_joker_animation(context)
+
+        if effect.type == 'legend ary' then
+          return {
+            mult_message = {
+              message = localize({ type = "variable", key = effect.key, vars = { number_format(effect.value) } }),
+              colour = G.C.DARK_EDITION,
+            },
+            mult = (mult ^ effect.value) - mult,
+          }
+        elseif effect.type == 'xmult' then
+          return Pokerleven.create_xmult_return(effect.value, effect.key)
+        else
+          return Pokerleven.create_mult_return(effect.value, effect.key)
+        end
       end
     end
   end,
