@@ -229,7 +229,7 @@ local Artemis = J({
       }
     end
 
-    if context.scoring_hand and context.cardarea == G.jokers and context.joker_main
+    if context.scoring_hand and Pokerleven.is_joker_turn(context)
         and card.ability.extra.current_chips > 0 then
       card.ability.extra.triggered = true
       return {
@@ -325,7 +325,7 @@ local Demeter = J({
   pteam = "ina_team_Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.joker_main then
+    if Pokerleven.is_joker_turn(context) then
       local remaining_discards = G.GAME.current_round.discards_left or 0
       local extra_mult = card.ability.extra.mult_mod_low * remaining_discards
       local extra_chips = card.ability.extra.chip_mod * remaining_discards
@@ -467,4 +467,5 @@ return {
     Hermes, Demeter, Aphrodite
   }
 }
+
 

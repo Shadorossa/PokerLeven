@@ -1,4 +1,4 @@
--- Greeny
+﻿-- Greeny
 local Greeny = J({
     name = "Greeny",
     pos = { x = 8, y = 9 },
@@ -297,7 +297,7 @@ local Spray = J({
             end
         end
 
-        if context.cardarea == G.jokers and context.joker_main and context.scoring_hand and card.ability.extra.current_Xmult > 1 then
+        if Pokerleven.is_joker_turn(context) and context.scoring_hand and card.ability.extra.current_Xmult > 1 then
             card.ability.extra.triggered = true
             return {
                 message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_Xmult } },
@@ -355,7 +355,7 @@ local Dawson = J({
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main and G.GAME.dollars < card.ability.extra.max_money
+        if Pokerleven.is_joker_turn(context) and G.GAME.dollars < card.ability.extra.max_money
             and #context.full_hand == 1 then
             G.E_MANAGER:add_event(Event({ delay = 0.5, func = function() Pokerleven.clone_playing_card(context.scoring_hand[1], G.deck, 1); return true end }))
             card.ability.extra.triggered = true
@@ -419,7 +419,7 @@ local Muffs = J({
             }
         end
 
-        if context.scoring_hand and context.cardarea == G.jokers and context.joker_main
+        if context.scoring_hand and Pokerleven.is_joker_turn(context)
             and card.ability.extra.current_mult > 0 then
             card.ability.extra.triggered = true
             return {
@@ -555,3 +555,4 @@ return {
     name = "Farm",
     list = { Greeny, Hayseed, Hillvalley, Sherman, Spray, Dawson, Muffs },
 }
+

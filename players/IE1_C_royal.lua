@@ -20,7 +20,7 @@ local King = J({
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.joker_main then
+    if Pokerleven.is_joker_turn(context) then
       local rankCount = 0
       for i, c in ipairs(context.scoring_hand) do
         if c:get_id() == 13 then
@@ -140,7 +140,7 @@ local Master = J({
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.joker_main then
+    if Pokerleven.is_joker_turn(context) then
       if not card:get_left_joker() then
         local count = #find_player_team("ina_team_RoyalAcademy")
         return {
@@ -580,4 +580,5 @@ return {
   name = "Royal Academy",
   list = { King, Drent, Martin, Master, Bloom, Swing, Jude, Samford }
 }
+
 

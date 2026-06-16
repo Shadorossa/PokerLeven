@@ -1,4 +1,4 @@
--- Boar
+﻿-- Boar
 local Boar = J({
     name = "Boar",
     pos = { x = 6, y = 3 },
@@ -176,7 +176,7 @@ local Chamaleon = J({
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main
+        if Pokerleven.is_joker_turn(context)
             and next(context.poker_hands['Flush']) and #context.full_hand > 4 then
             local suit_counts = {
                 Clubs = 0,
@@ -567,3 +567,4 @@ return {
     name = "Wild",
     list = { Boar, Chicken, Chamaleon, Eagle, Monkey, Gorilla, Cheetah }
 }
+

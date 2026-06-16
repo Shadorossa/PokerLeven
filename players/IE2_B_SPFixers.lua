@@ -1,4 +1,4 @@
--- ironwall
+﻿-- ironwall
 local ironwall = J({
   name = "ironwall",
   pos = { x = 11, y = 0 },
@@ -20,7 +20,7 @@ local ironwall = J({
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
+    if Pokerleven.is_joker_turn(context) and context.scoring_hand then
       if G.GAME.current_round.barriers and G.GAME.current_round.barriers > 0 then
         return {
           message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chip_mod } },
@@ -600,3 +600,4 @@ return {
   name = "SPFixers",
   list = { ironwall, Western, Firepool, fielding, firsthand, Tori, kennedy, beray }
 }
+

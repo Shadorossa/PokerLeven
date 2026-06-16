@@ -24,7 +24,7 @@ local Hillman_Veteran = J({
   pteam = "ina_team_InazumaEleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.joker_main then
+    if Pokerleven.is_joker_turn(context) then
       return {
         message = localize {
           type = 'variable',
@@ -532,4 +532,5 @@ return {
   name = "Inazuma Eleven",
   list = { Hillman_Veteran, Island_Veteran, Sweet_Veteran, Butler_Veteran, Barista_Veteran, Builder_Veteran },
 }
+
 

@@ -171,7 +171,7 @@ local Damian = J({
             }
         end
 
-        if context.scoring_hand and context.cardarea == G.jokers and context.joker_main then
+        if context.scoring_hand and Pokerleven.is_joker_turn(context) then
             if card.ability.extra.current_chips > 0 then
                 return {
                     message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
@@ -486,4 +486,5 @@ return {
     name = "Kirkwood",
     list = { Neville, Night, Damian, Nashmith, Marvin, Thomas, Tyler }
 }
+
 

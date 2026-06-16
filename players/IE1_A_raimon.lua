@@ -149,7 +149,7 @@ local Tod = J({
   pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if Pokerleven.is_joker_turn(context) and context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
+    if Pokerleven.is_joker_turn(context) and Pokerleven.is_joker_turn(context) and context.scoring_hand then
       local count = 0
       -- Count played metal cards
       for _, c in ipairs(context.scoring_hand) do
@@ -231,7 +231,7 @@ local Timmy = J({
   pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if Pokerleven.is_joker_turn(context) and context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
+    if Pokerleven.is_joker_turn(context) and Pokerleven.is_joker_turn(context) and context.scoring_hand then
       return {
         chips = card.ability.extra.chip_mod
       }
@@ -260,7 +260,7 @@ local Sam = J({
   pteam = "ina_team_Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if Pokerleven.is_joker_turn(context) and context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
+    if Pokerleven.is_joker_turn(context) and Pokerleven.is_joker_turn(context) and context.scoring_hand then
       return {
         chips = card.ability.extra.chip_mod
       }
@@ -696,3 +696,4 @@ return {
   name = "Raimon",
   list = { Mark, Nathan, Jack, Jim, Tod, Steve, Peabody, Max, Axel, Kevin, Willy, Bobby, Erik, Jude_Raimon, Shadow },
 }
+

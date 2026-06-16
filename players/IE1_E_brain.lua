@@ -388,7 +388,7 @@ local Turner = J({
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main
+        if Pokerleven.is_joker_turn(context)
             and next(context.poker_hands['Four of a Kind']) then
             card.ability.extra.triggered = true
             G.E_MANAGER:add_event(Event({ delay = 2, func = function() Pokerleven.clone_playing_card(context.scoring_hand[1], G.hand, #find_player_team("ina_team_Brain")); return true end }))
@@ -425,7 +425,7 @@ local Under = J({
     pteam = "ina_team_Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main then
+        if Pokerleven.is_joker_turn(context) then
             local gkCount = #find_player_position("GK")
             local realCount = gkCount > 0 and gkCount or 1
             local result = card.ability.extra.chip_mod / (math.log(realCount + 1) / math.log(2))
@@ -540,4 +540,5 @@ return {
     name = "Brain",
     list = { Feldt, Marvel, Tell, Seller, Kind, Turner, Under },
 }
+
 

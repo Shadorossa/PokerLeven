@@ -1,4 +1,4 @@
--- Idol
+﻿-- Idol
 local Idol = J({
     name = "Idol",
     pos = { x = 12, y = 5 },
@@ -302,7 +302,7 @@ local Artist = J({
     pteam = "ina_team_Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main then
+        if Pokerleven.is_joker_turn(context) then
             local hasQueen = false
             local hasKing = false
             for i, c in ipairs(context.scoring_hand) do
@@ -509,3 +509,4 @@ return {
     name = "Otaku",
     list = { Idol, Hero, Robot, Gamer, Artist, Arcade, Vox }
 }
+
