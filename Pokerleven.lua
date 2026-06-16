@@ -9,6 +9,18 @@ SMODS.current_mod.optional_features = {
 Pokerleven = {}
 Pokerleven.config = SMODS.current_mod.config
 
+---Helper para crear eventos simples sin boilerplate
+---@param func function La función a ejecutar
+---@param delay number|nil Delay opcional (default: 0)
+Pokerleven.add_simple_event = function(func, delay)
+    delay = delay or 0
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = delay,
+        func = func
+    }))
+end
+
 --Load Sprites file
 local sprite, load_error = SMODS.load_file("sprites.lua")
 if load_error then

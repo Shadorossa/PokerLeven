@@ -70,21 +70,29 @@ end
 ---@param card Card
 ---@param target_type string El elemento o tipo que recibe el aura (ej: C.Wind)
 Pokerleven.update_spirit_aura = function(card, target_type)
-    local ex, act = card.ability.extra, not card.debuff and (card.ability.extra.charges > 0) and Pokerleven.is_spirit_active(card)
+    local ex = card.ability.extra
+    local act = not card.debuff and (card.ability.extra.charges > 0) and Pokerleven.is_spirit_active(card)
+    local spirit_key = card.config.center_key..'_'..card.sort_id
+    local sticker_key = string.lower(target_type).."_sticker"
     local has_target = false
-    if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do
-        if act and (is_type(v, target_type) or (v.ability and v.ability[string.lower(target_type).."_sticker"])) then 
-            Pokerleven.apply_stat_multiplier(v, card.config.center_key..'_'..card.sort_id, ex.stat_mult)
+
+    SMODS.find_card("Joker", function(v)
+        if act and (is_type(v, target_type) or (v.ability and v.ability[sticker_key])) then
+            Pokerleven.apply_stat_multiplier(v, spirit_key, ex.stat_mult)
             has_target = true
-        else 
-            Pokerleven.remove_stat_multiplier(v, card.config.center_key..'_'..card.sort_id) 
+        else
+            Pokerleven.remove_stat_multiplier(v, spirit_key)
         end
-    end end
+        return false
+    end)
+
     if has_target then card.ability.spirit_used_this_round = true end
 end
 
---- Limpia el aura de un espíritu al ser vendido o destruido
----@param card Card
 Pokerleven.remove_spirit_aura = function(card)
-    if G.jokers and G.jokers.cards then for _, v in ipairs(G.jokers.cards) do Pokerleven.remove_stat_multiplier(v, card.config.center_key..'_'..card.sort_id) end end
+    local spirit_key = card.config.center_key..'_'..card.sort_id
+    SMODS.find_card("Joker", function(v)
+        Pokerleven.remove_stat_multiplier(v, spirit_key)
+        return false
+    end)
 end

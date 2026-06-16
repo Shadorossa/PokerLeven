@@ -40,15 +40,9 @@ Pokerleven.get_player_concept = function(card)
 end
 
 Pokerleven.find_player_concept = function(concept)
-    local members = {}
-    if G.jokers and G.jokers.cards then
-        for _, v in ipairs(G.jokers.cards) do
-            if Pokerleven.get_player_concept(v) == concept then
-                table.insert(members, v)
-            end
-        end
-    end
-    return members
+    return SMODS.find_card("Joker", function(v)
+        return Pokerleven.get_player_concept(v) == concept
+    end)
 end
 
 Pokerleven.is_concept = function(card, concept)

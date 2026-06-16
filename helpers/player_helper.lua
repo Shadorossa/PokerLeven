@@ -137,12 +137,12 @@ find_player_team = function(target_type)
     return found
 end
 
+local check_player_property = function(card, field, value)
+    return card and card.ability and card.ability.extra and type(card.ability.extra) == "table" and card.ability.extra[field] == value
+end
+
 is_team = function(card, target_team)
-    if card.ability and (card.ability.extra and type(card.ability.extra) == "table" and target_team == card.ability.extra.pteam) then
-        return true
-    else
-        return false
-    end
+    return check_player_property(card, "pteam", target_team)
 end
 
 find_player_nation = function(target_nation)
@@ -158,27 +158,15 @@ find_player_nation = function(target_nation)
 end
 
 is_nation = function(card, target_nation)
-    if card.ability and (card.ability.extra and type(card.ability.extra) == "table" and target_nation == card.ability.extra.pnation) then
-        return true
-    else
-        return false
-    end
+    return check_player_property(card, "pnation", target_nation)
 end
 
 is_position = function(card, target_position)
-    if card.ability and (card.ability.extra and type(card.ability.extra) == "table" and target_position == card.ability.extra.pposition) then
-        return true
-    else
-        return false
-    end
+    return check_player_property(card, "pposition", target_position)
 end
 
 is_type = function(card, target_type)
-    if card.ability and (card.ability.extra and type(card.ability.extra) == "table" and target_type == card.ability.extra.ptype) then
-        return true
-    else
-        return false
-    end
+    return check_player_property(card, "ptype", target_type)
 end
 
 get_team = function(card)

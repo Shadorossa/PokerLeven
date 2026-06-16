@@ -546,20 +546,22 @@ end
 ---@param target_type string|nil Opcional. Si se provee, solo evalúa jokers de este tipo.
 ---@return string
 Pokerleven.get_jokers_hash = function(target_type)
-    local hash = ""
-    if G.jokers and G.jokers.cards then
-        local rel = {}
-        for _, v in ipairs(G.jokers.cards) do 
-            local t = (v.ability.extra and type(v.ability.extra) == 'table' and v.ability.extra.ptype) or ""
-            local s_f, s_w, s_fo, s_m = v.ability.fire_sticker, v.ability.wind_sticker, v.ability.forest_sticker, v.ability.mountain_sticker
-            if not target_type or (t == target_type) or (target_type == 'Fire' and s_f) or (target_type == 'Wind' and s_w) or (target_type == 'Forest' and s_fo) or (target_type == 'Mountain' and s_m) then
-                local s = (s_f and "1" or "0") .. (s_w and "1" or "0") .. (s_fo and "1" or "0") .. (s_m and "1" or "0")
-                rel[#rel+1] = tostring(v.unique_val)..(v.debuff and "1" or "0")..t..s
-            end
-        end
-        table.sort(rel); hash = table.concat(rel, ";")
+    local rel = {}
+    local matches = SMODS.find_card("Joker", function(v)
+        local t = (v.ability.extra and type(v.ability.extra) == 'table' and v.ability.extra.ptype) or ""
+        local s_f, s_w, s_fo, s_m = v.ability.fire_sticker, v.ability.wind_sticker, v.ability.forest_sticker, v.ability.mountain_sticker
+        return not target_type or (t == target_type) or (target_type == 'Fire' and s_f) or (target_type == 'Wind' and s_w) or (target_type == 'Forest' and s_fo) or (target_type == 'Mountain' and s_m)
+    end)
+
+    for _, v in ipairs(matches) do
+        local t = (v.ability.extra and type(v.ability.extra) == 'table' and v.ability.extra.ptype) or ""
+        local s_f, s_w, s_fo, s_m = v.ability.fire_sticker, v.ability.wind_sticker, v.ability.forest_sticker, v.ability.mountain_sticker
+        local s = (s_f and "1" or "0") .. (s_w and "1" or "0") .. (s_fo and "1" or "0") .. (s_m and "1" or "0")
+        rel[#rel+1] = tostring(v.unique_val)..(v.debuff and "1" or "0")..t..s
     end
-    return hash
+
+    table.sort(rel)
+    return table.concat(rel, ";")
 end
 
 ---Increases the rank of a card infinitely (cycling Ace to 2)
