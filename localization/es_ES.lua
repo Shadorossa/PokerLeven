@@ -2205,8 +2205,8 @@ return {
             j_ina_Khalfan_Jibril = {
                 name = "Khalfan Jibril",
                 text = { "{C:forest}Sucesor{}",
-                    "Copia {C:attention}#1#%{} del Mult",
-                    "del Joker a la izquierda" }
+                    "Al jugar la mano aplica el {C:attention}50%{}",
+                    "del Mult del joker de la izquierda" }
             },
             j_ina_Zack_Abdulla = {
                 name = "Zack Abdulla",
@@ -2220,6 +2220,14 @@ return {
                     "Acumula {C:attention}#2#%{} de defensa cada ronda",
                     "Al perder, usa defensa acumulada para no fallar",
                     "{C:inactive}(Defensa:{} {C:attention}#1#%{}{C:inactive}){}" }
+            },
+
+            -- IE3_U_LittleGiants
+            j_ina_Maximino_Cruz = {
+                name = "Maximino Cruz",
+                text = { "{C:wind}Remate Espiral{}",
+                    "{X:mult,C:white}X#1#{} por cada comodín de {X:wind,C:white}Aire{}",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}" }
             },
 
             -- IE3_Q_Ogre
@@ -3610,6 +3618,7 @@ return {
             ["ina_team_Ogre"] = "Academia Ogro",
             ["ina_team_BigWaves"] = "Big Waves",
             ["ina_team_DesertLion"] = "Leones del Desierto",
+            ["ina_team_LittleGiants"] = "Little Giants",
             ["ina_team_NeoJapan"] = "Neo Japón",
             ["ina_team_FireDragon"] = "Dragones de Fuego",
             ["ina_team_KnightsOfQueen"] = "Caballeros de la Reina",
