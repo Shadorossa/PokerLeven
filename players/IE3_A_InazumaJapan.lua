@@ -1,4 +1,4 @@
-﻿-- Mark (1)
+-- Mark (1)
 local Mark_IJ = J({
   name = "Mark_IJ",
   pos = { x = 0, y = 0 },
@@ -250,8 +250,8 @@ local Caleb_IJ = J({
         ex.redux_turns = (ex.redux_turns or 0) + 1
         if ex.redux_turns >= ex.turns_needed then
           ex.redux_turns = 0
-          if k then ina_evolve(k, 'j_ina_KingR') end
-          if s then ina_evolve(s, 'j_ina_SamfordR') end
+          if k then ina_evolve(k, 'j_ina_King_Redux') end
+          if s then ina_evolve(s, 'j_ina_Samford_Redux') end
         else
           return { message = ex.redux_turns .. "/" .. ex.turns_needed, colour = G.C.DARK_EDITION }
         end

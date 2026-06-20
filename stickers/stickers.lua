@@ -380,6 +380,29 @@ local tech_cap_plus_max_sticker = {
   hide_badge = false
 }
 
+local stone_seal = {
+  object_type = "Sticker",
+  key = "stone_seal",
+  badge_colour = HEX("808080"),
+  rate = 0.0,
+  atlas = "stickers02",
+  pos = { x = 4, y = 0 },
+  hide_badge = false
+}
+
+local space_seal = {
+  object_type = "Sticker",
+  key = "space_seal",
+  badge_colour = HEX("7f5ae8"),
+  rate = 0.0,
+  atlas = "stickers02",
+  pos = { x = 5, y = 0 },
+  hide_badge = false,
+  loc_vars = function(self, info_queue, center)
+    return { vars = { G.GAME and G.GAME.probabilities.normal or 1, 7 } }
+  end
+}
+
 return
 {
   name = "Stickers",
@@ -391,5 +414,5 @@ return
     tech_grade3_sticker,
     tech_grade4_sticker, tech_grade5_sticker, tech_grade0_sticker, tech_j_sticker, tech_q_sticker, tech_k_sticker,
     tech_a_sticker, tech_joker_sticker, tech_spirit1_sticker, tech_spirit2_sticker, tech_spirit3_sticker,
-    tech_spirit4_sticker, tech_spirit5_sticker, tech_cap_plus_sticker, tech_cap_plus_max_sticker }
+    tech_spirit4_sticker, tech_spirit5_sticker, tech_cap_plus_sticker, tech_cap_plus_max_sticker, stone_seal, space_seal }
 }

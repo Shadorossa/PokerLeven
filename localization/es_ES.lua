@@ -2223,12 +2223,81 @@ return {
             },
 
             -- IE3_F_KnightsOfQueen
+            j_ina_Nacho_Ortega = {
+                name = "Nacho Ortega",
+                text = {
+                    "{C:fire}Millón de Manos{}",
+                    "En ciegas {C:attention}PvP{}, cada mano disponible",
+                    "reduce el objetivo rival un {C:attention}#1#%{}",
+                    "Excelente para {C:green}defensa pasiva{}"
+                }
+            },
+            j_ina_Ortega = {
+                name = "Ortega",
+                text = {
+                    "{C:fire}Millón de Manos{}",
+                    "En ciegas {C:attention}PvP{}, cada mano disponible",
+                    "reduce el objetivo rival un {C:attention}#1#%{}",
+                    "Excelente para {C:green}defensa pasiva{}"
+                }
+            },
+            j_ina_Ricardo_Aguero = {
+                name = "Ricardo Agüero",
+                text = {
+                    "{C:mountain}Goleador Serial{}",
+                    "Si superas el blind por más de {C:attention}#3#%{}",
+                    "suma {C:attention}+1{} racha",
+                    "Cada racha suma {C:attention}#2#%{} poder (fichas y mult)",
+                    "{C:inactive}(Racha actual: #1#){}"
+                }
+            },
+            j_ina_David_Buckingham = {
+                name = "David Buckingham",
+                text = {
+                    "{C:mountain}Palacio Indestructible{}",
+                    "Cada mano jugada construye un {C:attention}piso{}",
+                    "Al llegar a {C:attention}5{} pisos, la próxima mano",
+                    "multiplica las fichas por {X:chips,C:white}X3{}",
+                    "{C:inactive}#1#{}"
+                }
+            },
+            j_ina_Lance_Ralton = {
+                name = "Lance Ralton",
+                text = {
+                    "{C:wind}Carga de Lanza{}",
+                    "Si juegas {C:attention}3+{} cartas del mismo rango",
+                    "de forma consecutiva durante {C:attention}3{} manos seguidas,",
+                    "reduce el objetivo de la ciega un {C:attention}15%{}",
+                    "{C:inactive}(Rango: #1# | Consecutivas: #2#/3){}"
+                }
+            },
+            j_ina_Gary_Mane = {
+                name = "Gary Mane",
+                text = {
+                    "{C:mountain}Orgullo Montañoso{}",
+                    "Gana {X:chips,C:white}X#1#{} de fichas permanente",
+                    "por cada mano jugada del {C:attention}mismo tipo{}",
+                    "consecutivamente. Si rompes la cadena,",
+                    "pierdes la {C:red}mitad{} del multiplicador acumulado.",
+                    "{C:inactive}(Actual: {X:chips,C:white}X#2#{C:inactive} | Última: #3#){}"
+                }
+            },
             j_ina_Edgar_Partinus = {
                 name = "Edgar Partinus",
                 text = {
                     "{C:wind}Excalibur{}",
                     "Las cartas necesarias para",
                     "{C:attention}Escalera{} varían según el ciclo"
+                }
+            },
+            j_ina_Mikey_Richards = {
+                name = "Mikey Richards",
+                text = {
+                    "{C:forest}Ciclo del Bosque{}",
+                    "Cada {C:attention}#1#{} manos puntuadas, añade",
+                    "{C:attention}#2#{} cartas de tu pila de descartes",
+                    "aleatoriamente de vuelta a tu mano.",
+                    "{C:inactive}(Progreso: #3#/#1#){}"
                 }
             },
 
@@ -2826,6 +2895,21 @@ return {
         },
 
         Other = {
+            ina_stone_seal = {
+                name = "Sello de Piedra",
+                text = {
+                    "Esta carta {C:attention}siempre{}",
+                    "puntúa cuando se juega"
+                }
+            },
+            ina_space_seal = {
+                name = "Sello Espacial",
+                text = {
+                    "Al puntuar, tiene una probabilidad",
+                    "de {C:green}#1# en #2#{} de aumentar de",
+                    "nivel la mano jugada"
+                }
+            },
             modo_cambio = {
                 name = "Modo cambio",
                 text = {
@@ -3453,6 +3537,14 @@ return {
         },
         collabs = {},
         dictionary = {
+            k_palace = "¡Palacio!",
+            k_palace_built = "¡Palacio Construido!",
+            k_floor = "Piso",
+            k_lance_charge = "¡Carga de Lanza!",
+            k_lance = "Lanza",
+            k_chain_broken = "¡Cadena rota!",
+            k_forest_cycle = "¡Ciclo del Bosque!",
+            k_excalibur = "¡Excalibur!",
             ina_evolve_level = "¡Nivel subido!",
             ina_evolve_success = "¡Intercambio!",
             ina_val_down = "¡Drenado!",

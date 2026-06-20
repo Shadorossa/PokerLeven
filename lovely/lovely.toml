@@ -699,3 +699,53 @@ payload = '''
     end
 '''
 match_indent = true
+
+# Stone Seal always scores when played
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = '''    --stone cards
+    for i=1, #cards do
+        if cards[i].config.center == G.P_CENTERS.m_stone then
+            table.insert(scoring_hand, cards[i])
+        end
+    end'''
+position = "after"
+payload = '''
+    -- stone seal sticker (always scores when played)
+    for i=1, #cards do
+        if cards[i].ability.ina_stone_seal then
+            local already_in = false
+            for _, sc in ipairs(scoring_hand) do
+                if sc == cards[i] then
+                    already_in = true
+                    break
+                end
+            end
+            if not already_in then
+                table.insert(scoring_hand, cards[i])
+            end
+        end
+    end
+'''
+match_indent = true
+
+# Space Seal level up hand
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "function Card:calculate_joker(context)"
+position = "after"
+payload = '''
+    if context.main_eval and context.cardarea == G.play then
+        if self.ability.ina_space_seal and not context.blueprint then
+            if pseudorandom('space_seal') < (G.GAME.probabilities.normal or 1) / 7 then
+                card_eval_status_text(self, 'extra', nil, nil, nil, { message = localize('k_level_up_ex'), colour = G.C.PURPLE })
+                level_up_hand(self, context.scoring_name, nil, 1)
+            end
+        end
+    end
+'''
+match_indent = true
+
+

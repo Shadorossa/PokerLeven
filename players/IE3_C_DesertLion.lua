@@ -218,7 +218,7 @@ local Mansur_Jasim = J({
 local Zack_Abdulla = J({
   name = "Zack_Abdulla",
   pos = { x = 2, y = 3 },
-  config = { extra = { global_debuff = 0.8, fw_boost = 1.4 } },
+  config = { extra = { global_debuff = 0.82, fw_boost = 1.42 } },
   loc_vars = function(self, info, center)
     return { vars = { math.floor((1 - center.ability.extra.global_debuff) * 100), math.floor((center.ability.extra.fw_boost - 1) * 100) } }
   end,

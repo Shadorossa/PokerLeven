@@ -145,3 +145,19 @@ Pokerleven.check_short_straight = function(cards)
   return false, sorted_cards
 end
 
+-- Returns the rank string (e.g. '2', 'Jack') that appears at least `threshold` times in the hand, or nil
+Pokerleven.get_rank_with_min_frequency = function(hand, threshold)
+  local rank_counts = {}
+  for _, c in ipairs(hand) do
+    local val = c.base.value
+    rank_counts[val] = (rank_counts[val] or 0) + 1
+  end
+
+  for r, count in pairs(rank_counts) do
+    if count >= threshold then
+      return r
+    end
+  end
+  return nil
+end
+
