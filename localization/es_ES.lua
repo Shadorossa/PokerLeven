@@ -2261,6 +2261,26 @@ return {
                     "{C:inactive}(Progreso: #1#/3 | Estado: #3#){}"
                 }
             },
+            j_ina_Monstro_Ximenes = {
+                name = "Monstro Ximenes",
+                text = {
+                    "{C:fire}Insaciable{}",
+                    "Si superas el objetivo del blind,",
+                    "la ronda {C:attention}NO TERMINA{}",
+                    "Sigues pudiendo usar tus {C:attention}manos restantes{}",
+                    "Perfecto para {C:attention}farmear{} jokers"
+                }
+            },
+            j_ina_Bolboreta_Barboza = {
+                name = "Bolboreta Barboza",
+                text = {
+                    "{C:wind}Transformación{}",
+                    "Copia la habilidad del {C:attention}último joker{}",
+                    "que compraste en la tienda",
+                    "Cada joker comprado = nueva forma",
+                    "{C:inactive}(Copia actual: #1#){}"
+                }
+            },
             j_ina_David_Buckingham = {
                 name = "David Buckingham",
                 text = {

@@ -67,12 +67,12 @@ local Antonio_Bagre = J({
   calculate = function(self, card, ctx) end
 })
 
--- Monstro Ximenes (4)
+-- Monstro Ximenes (4) - "Insaciable" - Sigue jugando después de superar el blind
 local Monstro_Ximenes = J({
   name = "Monstro Ximenes",
   pos = { x = 6, y = 17 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
+  config = { extra = { blind_exceeded = false } },
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
@@ -87,8 +87,44 @@ local Monstro_Ximenes = J({
   pnumber = 4,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    local ex = card.ability.extra
+
+    if ctx.after and not ctx.blueprint then
+      local total_chips = G.GAME.chips or 0
+      local blind_chips = G.GAME.blind.chips or 0
+
+      if blind_chips > 0 and total_chips >= blind_chips and not ex.blind_exceeded then
+        ex.blind_exceeded = true
+        card_eval_status_text(card, 'extra', nil, nil, nil, {
+          message = '🔥 INSACIABLE: Sigue jugando con tus manos restantes',
+          colour = G.C.FIRE
+        })
+      end
+    end
+  end
 })
+
+if not SMODS then SMODS = {} end
+if not SMODS.original_blind_exceeded then
+  SMODS.original_blind_exceeded = function(self)
+    return (G.GAME.chips or 0) >= (G.GAME.blind.chips or 0)
+  end
+
+  local original_update_hand_played = Game.update_hand_played
+  function Game:update_hand_played(dt)
+    original_update_hand_played(self, dt)
+
+    if G.STATE == G.STATES.HAND_PLAYED then
+      local monstro = SMODS.find_card('j_ina_Monstro_Ximenes')[1]
+      if monstro and monstro.ability.extra.blind_exceeded then
+        if (G.GAME.chips or 0) >= (G.GAME.blind.chips or 0) and (G.GAME.hands_left or 0) > 0 then
+          G.STATE = G.STATES.DRAW_TO_HAND
+        end
+      end
+    end
+  end
+end
 
 -- Formiga Clemens (5)
 local Formiga_Clemens = J({
@@ -136,13 +172,14 @@ local Presa_Passos = J({
   calculate = function(self, card, ctx) end
 })
 
--- Bolboreta Barboza (7)
+-- Bolboreta Barboza (7) - "Transformación" - Copia habilidades
 local Bolboreta_Barboza = J({
   name = "Bolboreta Barboza",
   pos = { x = 9, y = 17 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
+  config = { extra = { last_copied = 'Ninguno', copy_active = false } },
+  loc_vars = function(self, info_queue, center)
+    local ex = (center and type(center) == 'table' and center.ability and center.ability.extra) or self.config.extra
+    return { vars = { ex.last_copied } }
   end,
   rarity = 1,
   pools = { ["The Kingdom"] = true },
@@ -156,7 +193,63 @@ local Bolboreta_Barboza = J({
   pnumber = 7,
   pteam = "ina_team_TheKingdom",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    local ex = card.ability.extra
+
+    if ctx.after and not ctx.blueprint then
+      local last_joker = nil
+      if G.jokers and G.jokers.cards then
+        for i = #G.jokers.cards, 1, -1 do
+          if G.jokers.cards[i].ability.name ~= 'j_ina_Bolboreta_Barboza' then
+            last_joker = G.jokers.cards[i]
+            break
+          end
+        end
+      end
+
+      if last_joker then
+        local joker_name = last_joker.ability.name or 'Desconocido'
+        if ex.last_copied ~= joker_name then
+          ex.last_copied = joker_name
+          ex.copy_active = true
+          card_eval_status_text(card, 'extra', nil, nil, nil, {
+            message = '🦋 Transformación: ' .. (last_joker.ability.label or 'Habilidad'),
+            colour = G.C.WIND
+          })
+        end
+      end
+    end
+
+    if ctx.joker_main and ctx.scoring_hand and not ctx.blueprint and ex.copy_active then
+      local last_joker = nil
+      if G.jokers and G.jokers.cards then
+        for i = #G.jokers.cards, 1, -1 do
+          if G.jokers.cards[i].ability.name == ex.last_copied then
+            last_joker = G.jokers.cards[i]
+            break
+          end
+        end
+      end
+
+      if last_joker and last_joker.calculate then
+        local result = last_joker:calculate({
+          cardarea = ctx.cardarea,
+          scoring_hand = ctx.scoring_hand,
+          other_card = ctx.other_card,
+          individual = ctx.individual,
+          end_of_round = ctx.end_of_round,
+          joker_main = true,
+          blueprint = ctx.blueprint,
+          poker_hands = ctx.poker_hands,
+          scoring_name = ctx.scoring_name,
+        })
+
+        if result then
+          return result
+        end
+      end
+    end
+  end
 })
 
 -- Coruja Cerezo (8)
@@ -369,5 +462,8 @@ local Grillo_Santos = J({
 
 return {
   name = "The Kingdom",
-  list = {}
+  list = {
+    Monstro_Ximenes,
+    Bolboreta_Barboza
+  }
 }
