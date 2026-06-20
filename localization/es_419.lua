@@ -1785,6 +1785,21 @@ return {
                     "{C:inactive}(Debe haber espacio){}",
                 },
             },
+            ina_stone_seal = {
+                name = "Sello de Piedra",
+                text = {
+                    "Esta carta {C:attention}siempre{}",
+                    "puntúa cuando se juega"
+                }
+            },
+            ina_space_seal = {
+                name = "Sello Espacial",
+                text = {
+                    "Al puntuar, tiene una probabilidad",
+                    "de {C:green}#1# en #2#{} de aumentar de",
+                    "nivel la mano jugada"
+                }
+            },
             card_emult = {
                 text = {
                     "{C:dark_edition}^#1#{} Mult"
@@ -2345,6 +2360,8 @@ return {
             ina_tech_k_sticker = "Técnica mejorada",
             ina_tech_a_sticker = "Técnica mejorada",
             ina_tech_joker_sticker = "Técnica mejorada",
+            ina_stone_seal = "Sello de Piedra",
+            ina_space_seal = "Sello Espacial",
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",

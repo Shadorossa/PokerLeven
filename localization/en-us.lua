@@ -1314,6 +1314,8 @@ return {
             ina_tech_spirit5_sticker = "Evolución Nvl. Omega",
             ina_tech_cap_plus_sticker = "Cap+",
             ina_tech_cap_plus_max_sticker = "Cap+ max",
+            ina_stone_seal = "Stone Seal",
+            ina_space_seal = "Space Seal",
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",

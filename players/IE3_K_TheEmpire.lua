@@ -1,6 +1,6 @@
 -- Nacho Ortega (1) - "Millón de Manos" - Defensa PvP
 local Nacho_Ortega = J({
-  name = "Nacho Ortega",
+  name = "Nacho_Ortega",
   pos = { x = 4, y = 12 },
   config = { extra = { reduction_per_hand = 0.03 } },
   loc_vars = function(self, info_queue, center)
@@ -137,7 +137,7 @@ local Ramon_Martinez = J({
 
 -- Enrique Caroso (6) - "Maestro del Ritmo" - Sistema de patrón
 local Enrique_Caroso = J({
-  name = "Enrique Caroso",
+  name = "Enrique_Caroso",
   pos = { x = 9, y = 12 },
   config = { extra = { pattern_progress = 0, harmony_rounds = 0, card_limit_boost = 4, required_pattern = { 'Pair', 'Three of a Kind', 'Five of a Kind' } } },
   loc_vars = function(self, info_queue, center)
@@ -438,7 +438,7 @@ local Herman_Samuel = J({
 
 -- Ricardo Agüero (16) - "Goleador Serial" - Racha ofensiva
 local Ricardo_Aguero = J({
-  name = "Ricardo Agüero",
+  name = "Ricardo_Aguero",
   pos = { x = 6, y = 13 },
   config = { extra = { streak = 0, power_per_streak = 0.30, threshold_mult = 2.5 } },
   loc_vars = function(self, info_queue, center)

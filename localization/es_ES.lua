@@ -2251,6 +2251,16 @@ return {
                     "{C:inactive}(Racha actual: #1#){}"
                 }
             },
+            j_ina_Enrique_Caroso = {
+                name = "Enrique Caroso",
+                text = {
+                    "{C:wind}Maestro del Ritmo{}",
+                    "Logra este patrón en {C:attention}3{} manos seguidas:",
+                    "{C:attention}Mano 1{}: Par | {C:attention}Mano 2{}: Trío | {C:attention}Mano 3{}: Poker",
+                    "Si lo logras, activa {C:wind}Armonía{}: +{C:attention}#2#{} slots de cartas × 5 rondas",
+                    "{C:inactive}(Progreso: #1#/3 | Estado: #3#){}"
+                }
+            },
             j_ina_David_Buckingham = {
                 name = "David Buckingham",
                 text = {
@@ -3674,6 +3684,8 @@ return {
             ina_tech_spirit5_sticker = "Evolución Nvl. Omega",
             ina_tech_cap_plus_sticker = "Cap+",
             ina_tech_cap_plus_max_sticker = "Cap+ max",
+            ina_stone_seal = "Sello de Piedra",
+            ina_space_seal = "Sello Espacial",
 
             k_ina_top = "Destacado",
             k_ina_winner = "Ganador",
