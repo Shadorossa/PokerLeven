@@ -186,7 +186,7 @@ local Keith_Ryan = J({
 -- Maximino Cruz (9)
 local Maximino_Cruz = J({
   name = "Maximino_Cruz",
-  pos = { x = 8, y = 0 },
+  pos = { x = 1, y = 19 },
   config = { extra = { xmult_base = 1, xmult_per_wind = 0.5 } },
   loc_vars = function(self, info, center)
     local wind_count = Pokerleven.get_type_count(C.Wind)

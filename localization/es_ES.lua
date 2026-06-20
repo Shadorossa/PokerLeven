@@ -2222,6 +2222,16 @@ return {
                     "{C:inactive}(Defensa:{} {C:attention}#1#%{}{C:inactive}){}" }
             },
 
+            -- IE3_F_KnightsOfQueen
+            j_ina_Edgar_Partinus = {
+                name = "Edgar Partinus",
+                text = {
+                    "{C:wind}Excalibur{}",
+                    "Las cartas necesarias para",
+                    "{C:attention}Escalera{} varían según el ciclo"
+                }
+            },
+
             -- IE3_U_LittleGiants
             j_ina_Maximino_Cruz = {
                 name = "Maximino Cruz",
@@ -2834,6 +2844,26 @@ return {
             Mangual_Letal = {
                 name = "Mangual Letal",
                 text = { "Ectoplasma otorga {C:dark_edition}Letal{}", "a {C:attention}Bash{}, {C:attention}Malice{} y {C:attention}Callous{}" }
+            },
+            Edgar_Nivel1 = {
+                name = "Ciclo 1",
+                text = { "Necesita {C:attention}#1#{} cartas", "{C:red}-20%{} Chips y Mult en Escalera" }
+            },
+            Edgar_Nivel2 = {
+                name = "Ciclo 2",
+                text = { "Necesita {C:attention}#1#{} cartas", "{C:green}+10%{} Chips y Mult en Escalera" }
+            },
+            Edgar_Nivel3 = {
+                name = "Ciclo 3",
+                text = { "Necesita {C:attention}#1#{} cartas", "{C:attention}+50%{} Chips y Mult en Escalera" }
+            },
+            Edgar_Nivel4 = {
+                name = "Ciclo 4",
+                text = { "Necesita {C:attention}#1#{} cartas", "{C:attention}+100%{} Chips y Mult en Escalera" }
+            },
+            Edgar_Nivel5 = {
+                name = "Ciclo 5",
+                text = { "Necesita {C:attention}#1#{} cartas", "{C:mult}+250%{} Chips y Mult en Escalera" }
             },
             Dios_rematador = {
                 name = "Dios rematador",

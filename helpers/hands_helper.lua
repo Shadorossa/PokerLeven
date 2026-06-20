@@ -83,3 +83,65 @@ Pokerleven.flip_highlighted_hand = function(sound)
         }))
     end
 end
+
+-- Checks if a list of Card objects forms a consecutive straight (supports low Aces).
+-- Returns is_consecutive, sorted_cards
+Pokerleven.check_short_straight = function(cards)
+  if #cards <= 1 then return true, cards end
+
+  local sorted_cards = {}
+  for _, c in ipairs(cards) do
+    table.insert(sorted_cards, c)
+  end
+  table.sort(sorted_cards, function(a, b) return a:get_id() < b:get_id() end)
+
+  local is_consecutive = true
+  for i = 2, #sorted_cards do
+    if sorted_cards[i]:get_id() - sorted_cards[i-1]:get_id() ~= 1 then
+      is_consecutive = false
+      break
+    end
+  end
+
+  if is_consecutive then
+    return true, sorted_cards
+  end
+
+  -- Check with low Ace
+  local has_ace = false
+  for _, c in ipairs(sorted_cards) do
+    if c:get_id() == 14 then
+      has_ace = true
+      break
+    end
+  end
+
+  if has_ace then
+    local temp_sorted = {}
+    for _, c in ipairs(sorted_cards) do
+      table.insert(temp_sorted, c)
+    end
+    table.sort(temp_sorted, function(a, b)
+      local id_a = a:get_id() == 14 and 1 or a:get_id()
+      local id_b = b:get_id() == 14 and 1 or b:get_id()
+      return id_a < id_b
+    end)
+
+    is_consecutive = true
+    for i = 2, #temp_sorted do
+      local id_curr = temp_sorted[i]:get_id() == 14 and 1 or temp_sorted[i]:get_id()
+      local id_prev = temp_sorted[i-1]:get_id() == 14 and 1 or temp_sorted[i-1]:get_id()
+      if id_curr - id_prev ~= 1 then
+        is_consecutive = false
+        break
+      end
+    end
+
+    if is_consecutive then
+      return true, temp_sorted
+    end
+  end
+
+  return false, sorted_cards
+end
+

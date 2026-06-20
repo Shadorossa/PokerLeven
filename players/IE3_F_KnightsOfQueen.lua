@@ -1,3 +1,60 @@
+local original_evaluate_poker_hand = evaluate_poker_hand
+
+evaluate_poker_hand = function(cards, hand_type, handname)
+  local result = original_evaluate_poker_hand(cards, hand_type, handname)
+
+  if G.GAME and G.jokers then
+    local edgar = nil
+    for _, joker in ipairs(G.jokers.cards) do
+      if joker.ability.name == 'Edgar_Partinus' then
+        edgar = joker
+        break
+      end
+    end
+
+    if edgar then
+      local ex = edgar.ability.extra
+      local cycle_pos = (ex.straights_count % 8) + 1
+      local cards_needed = cycle_pos
+
+      if #cards == cards_needed and #cards < 5 then
+        local is_consecutive, sorted_cards = Pokerleven.check_short_straight(cards)
+        if is_consecutive then
+          -- Check if it's also a Flush
+          local is_flush = true
+          local suits = {"Spades", "Hearts", "Clubs", "Diamonds"}
+          local common_suit = nil
+          for _, s in ipairs(suits) do
+            local all_have_suit = true
+            for _, c in ipairs(sorted_cards) do
+              if not c:is_suit(s, nil, true) then
+                all_have_suit = false
+                break
+              end
+            end
+            if all_have_suit then
+              common_suit = s
+              break
+            end
+          end
+          is_flush = (common_suit ~= nil)
+
+          if is_flush then
+            result["Straight Flush"] = { sorted_cards }
+            result["Straight"] = { sorted_cards }
+            result.top = result["Straight Flush"]
+          else
+            result["Straight"] = { sorted_cards }
+            result.top = result["Straight"]
+          end
+        end
+      end
+    end
+  end
+
+  return result
+end
+
 -- Freddy McQueen (1)
 local Freddy_McQueen = J({
   name = "Freddy McQueen",
@@ -207,16 +264,29 @@ local Eric_Purpleton = J({
 
 -- Edgar Partinus (10)
 local Edgar_Partinus = J({
-  name = "Edgar Partinus",
-  pos = { x = 11, y = 6 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center)
-    return { vars = {} }
+  name = "Edgar_Partinus",
+  pos = { x = 11, y = 0 },
+  soul_pos = {x = 11, y = 1},
+  config = { extra = { straights_count = 0, straight_cycle = { -0.2, 0.1, 0.5, 1, 2.5, 1, 0.5, 0.1 } } },
+  loc_vars = function(self, info_queue, center)
+    local ex = center.ability.extra
+    local cycle_pos = (ex.straights_count % 8) + 1
+    local modifier = ex.straight_cycle[cycle_pos]
+    local modifier_display = (modifier * 100) .. "%"
+    if modifier >= 0 then modifier_display = "+" .. modifier_display end
+
+    local cards_needed = cycle_pos
+    local nivel_map = { 'Edgar_Nivel1', 'Edgar_Nivel2', 'Edgar_Nivel3', 'Edgar_Nivel4', 'Edgar_Nivel5', 'Edgar_Nivel4', 'Edgar_Nivel3', 'Edgar_Nivel2' }
+    info_queue[#info_queue + 1] = { set = 'Other', key = nivel_map[cycle_pos], vars = { cards_needed } }
+
+    return { vars = {
+      modifier_display
+    } }
   end,
-  rarity = 2,
+  rarity = "ina_top",
   pools = { ["Knights of Queen"] = true },
   cost = 7,
-  atlas = "Jokers03",
+  atlas = "top",
   ptype = C.Forest,
   pposition = C.FW,
   pgender = C.M,
@@ -226,7 +296,45 @@ local Edgar_Partinus = J({
   pnumber = 10,
   pteam = "ina_team_KnightsOfQueen",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  add_to_deck = function(self, card, from_debuff)
+    G.GAME.edgar_partinus_active = card
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    G.GAME.edgar_partinus_active = nil
+  end,
+  calculate = function(self, card, ctx)
+    if ctx.joker_main and ctx.scoring_hand then
+      local ex = card.ability.extra
+      local cycle_pos = (ex.straights_count % 8) + 1
+      local cards_needed = cycle_pos
+      local scoring_cards = #ctx.scoring_hand
+      if scoring_cards == cards_needed or scoring_cards == 5 then
+        local is_straight = false
+
+        if scoring_cards >= 5 then
+          is_straight = ctx.poker_hands and (ctx.poker_hands["Straight"] or ctx.poker_hands["Straight Flush"])
+        else
+          is_straight = Pokerleven.check_short_straight(ctx.scoring_hand)
+        end
+
+        if is_straight then
+          local modifier = ex.straight_cycle[cycle_pos]
+          ex.straights_count = ex.straights_count + 1
+
+          -- Trigger Excalibur message and sound effect
+          card_eval_status_text(card, 'extra', nil, nil, nil, { message = "Excalibur!", colour = G.C.WIND })
+
+          if modifier ~= 0 then
+            return {
+              Xchip_mod = 1 + modifier,
+              Xmult_mod = 1 + modifier,
+              card = card
+            }
+          end
+        end
+      end
+    end
+  end
 })
 
 -- Philip Arwen (11)
@@ -369,5 +477,7 @@ local Sirius_Pounding = J({
 
 return {
   name = "Knights of Queen",
-  list = {}
+  list = {
+    Edgar_Partinus
+  }
 }
