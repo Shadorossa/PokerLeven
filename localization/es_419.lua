@@ -1862,6 +1862,7 @@ return {
                 text = { "Se activa si es el",
                     "joker de más a la {C:attention}Derecha{}" }
             },
+            Epsilon_Timer = { name = "Forma Plus", text = { "Vuelve a su estado normal", "en {C:attention}#1#{} ciega/s." } },
             RolChange = {
                 name = "Cambio de Rol",
                 text = { "{C:attention}#1#{} más a la izquierda",

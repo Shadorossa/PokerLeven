@@ -1265,10 +1265,8 @@ return {
                 name = "Kennedy",
                 text = {
                     "{C:forest}Tiro Limpio{}",
-                    "Otorga {X:mult,C:white} X#1# {} Mult si juegas",
-                    "exactamente {C:attention}1 carta{}.",
-                    "Si la carta es un {C:attention}As{},",
-                    "otorga {X:mult,C:white} X#2# {} Mult en su lugar."
+                    "{X:mult,C:white} X#1# {} Mult si juegas {C:attention}1 carta{}.",
+                    "Si es un {C:attention}As{}, otorga {X:mult,C:white} X#2# {} Mult."
                 }
             },
             j_ina_Beray = {
@@ -1465,7 +1463,7 @@ return {
                     "{C:wind}Ataque Afilado{}",
                     "Al descartar, envía las cartas {C:spectral}al vacío{} y gana {C:mult}+#1#{} Mult.",
                     "Las cartas vuelven la {C:attention}próxima ciega{}, pero el bono persiste.",
-                    "{C:inactive}(Dura {C:attention}#3#{} ciegas | Actual:{} {C:mult}+#2#{}{C:inactive}){}"
+                    "{C:inactive}(Dura {C:attention}#3#{} {C:inactive}ciegas | Actual:{} {C:mult}+#2#{}{C:inactive}){}"
                 }
             },
             j_ina_Krypto = {
@@ -3084,6 +3082,7 @@ return {
             Sworm_Evolution = { name = "Épsilon (P)", text = { "Realiza {C:attention}#1#/#2# rescates{} y", "{C:attention}#3#/#4# descartes{}." } },
             Mercury_Evolution = { name = "Épsilon (P)", text = { "Usa {C:attention}#1#/#2# planetas Mercurio{}." } },
             Metron_Evolution = { name = "Épsilon (P)", text = { "Llega a un exponente", "de {C:attention}^#1#/^#2#{}." } },
+            Epsilon_Timer = { name = "Forma Plus", text = { "Vuelve a su estado normal", "en {C:attention}#1#{} ciega/s." } },
             CalebR_Evolution = { name = "Evolución", text = { "Evoluciona a {C:attention}Joseph King{} y {C:attention}David Samford{} tras {C:attention}#3#{} rondas." } },
             Caleb_IJ_Evolution = { name = "Transformación", text = { "Transforma a {C:attention}King{} y {C:attention}Samford{} en {C:dark_edition}Redux{} si son titulares en el {X:ina_team_inazumajapan,C:white}I. Japón{} durante {C:attention}#3#{} rondas." } },
             Position_Evolution = { name = "Épsilon (P)", text = { "Mueve al jugador a la", "mitad derecha de tus Jokers." } },

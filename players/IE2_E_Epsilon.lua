@@ -34,8 +34,6 @@ local Dvalin = J({
         if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
             if not Pokerleven.is_in_left_half(card) then
-                local zell_plus = get_joker_with_key('j_ina_Zell_Plus')
-                if zell_plus then ina_backend_evolve(zell_plus, 'j_ina_Zell') end
                 ina_backend_evolve(card, 'j_ina_Dvalin_Plus') 
             end
         end
@@ -138,7 +136,11 @@ local Kenville_Plus = J({
     name = "Kenville_Plus",
     pos = { x = 9, y = 4 },
     config = { extra = { timer = 5 } },
-    loc_vars = function(self, info_queue, center) return { vars = { center.ability.extra.timer } } end,
+    loc_vars = function(self, info_queue, center)
+        local ex = center.ability.extra
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Epsilon_Timer', vars = { ex.timer } }
+        return { vars = { ex.timer } }
+    end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
     cost = 7,
@@ -330,7 +332,9 @@ local Kayson_Plus = J({
     pos = { x = 0, y = 5 },
     config = { extra = { reduction = 0.08, timer = 1 } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.reduction * 100, center.ability.extra.timer } }
+        local ex = center.ability.extra
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Epsilon_Timer', vars = { ex.timer } }
+        return { vars = { ex.reduction * 100, ex.timer } }
     end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
@@ -397,9 +401,11 @@ local Tytan_Plus = J({
     pos = { x = 2, y = 5 },
     config = { extra = { chips = 100, x_mult = 0.2, timer = 3 } },
     loc_vars = function(self, info_queue, center)
+        local ex = center.ability.extra
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Epsilon_Timer', vars = { ex.timer } }
         local count = 0
         if G.playing_cards then for _, c in ipairs(G.playing_cards) do if SMODS.has_enhancement(c, 'm_stone') or SMODS.has_enhancement(c, 'm_steel') then count = count + 1 end end end
-        return { vars = { center.ability.extra.chips, center.ability.extra.x_mult, center.ability.extra.timer, count, count * center.ability.extra.chips, 1 + (count * center.ability.extra.x_mult) } }
+        return { vars = { ex.chips, ex.x_mult, ex.timer, count, count * ex.chips, 1 + (count * ex.x_mult) } }
     end,
     rarity = 2,
     pools = { ["Epsilon"] = false },
@@ -507,6 +513,7 @@ local Fedora_Plus = J({
     config = { extra = { mult_per_card = 10, void_count = 0, void_data = {}, rounds_active = 0, timer = 10 } },
     loc_vars = function(self, info_queue, center) 
         local ex = center.ability.extra
+        info_queue[#info_queue + 1] = { set = 'Other', key = 'Epsilon_Timer', vars = { ex.timer } }
         return { vars = { ex.mult_per_card, ex.void_count * ex.mult_per_card, ex.timer } } 
     end,
     rarity = 2,
@@ -908,8 +915,9 @@ local Zell = J({
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
             if Pokerleven.is_in_left_half(card) then
                 local dvalin = get_joker_with_key('j_ina_Dvalin_Plus')
-                if dvalin then ina_backend_evolve(dvalin, 'j_ina_Dvalin') end
-                ina_backend_evolve(card, 'j_ina_Zell_Plus') 
+                if dvalin then
+                    ina_backend_evolve(card, 'j_ina_Zell_Plus') 
+                end
             end
         end
     end
@@ -950,7 +958,10 @@ local Zell_Plus = J({
     update = function(self, card, dt)
         if G.STAGE == G.STAGES.RUN and card.area == G.jokers then
             if not Pokerleven.is_state_changed(card, { G.jokers }) then return end
-            if not Pokerleven.is_in_left_half(card) then ina_backend_evolve(card, 'j_ina_Zell') end
+            local dvalin_plus = get_joker_with_key('j_ina_Dvalin_Plus')
+            if not Pokerleven.is_in_left_half(card) or not dvalin_plus then
+                ina_backend_evolve(card, 'j_ina_Zell')
+            end
         end
     end
 })
