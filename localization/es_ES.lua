@@ -1578,48 +1578,6 @@ return {
                 }
             },
 
-            -- IE2_I_Fauxshore
-            j_ina_Fake = {
-                name = "Faye Kanaye",
-                text = {
-                    "Al comprar un {C:attention}Joker{}, crea una",
-                    "copia {C:dark_edition}Negativa{} del mismo.",
-                    "Las copias se {C:red}destruyen{} al final de la ronda."
-                }
-            },
-            j_ina_Leave = {
-                name = "Louis Leave",
-                text = {
-                    "Tras {C:attention}#1#{} rondas, otorga una",
-                    "edición {C:dark_edition}Negativa{} permanente a un",
-                    "Joker aleatorio y {C:red}se destruye{}."
-                }
-            },
-            j_ina_Darren = {
-                name = "Darren LaChance",
-                text = {
-                    "{C:forest}Mano Infinitas{}",
-                    "{C:green}#1# en #2#{} de aumentar el",
-                    "efecto de los {X:gk,C:white}GK{} un {C:attention}#3#%{}."
-                }
-            },
-            j_ina_Luckyman = {
-                name = "Luckyman",
-                text = {
-                    "Reduce a la {C:attention}mitad{}",
-                    "todos los denominadores",
-                    "de probabilidad."
-                }
-            },
-            j_ina_Poker = {
-                name = "Poker",
-                text = {
-                    "Gana {C:money}-#2# ${} de coste en tienda",
-                    "por cada {C:attention}Poker{} realizado.",
-                    "{C:inactive}(Actual:{} {C:money}-#3# ${}{C:inactive} | Total: {C:attention}#1#{}{C:inactive}){}"
-                }
-            },
-
             -- IE2_G_RoyalRedux
             j_ina_King_Redux = {
                 name = "Joseph King",
@@ -1758,8 +1716,8 @@ return {
                 }
             },
 
-            -- IE2_I_Fauxshore
-            -- Fauxshore
+
+                        -- IE2_I_Fauxshore
             j_ina_Fake = {
                 name = "Drancis Fake",
                 text = {
@@ -1771,10 +1729,33 @@ return {
             j_ina_Leave = {
                 name = "Louis Leave",
                 text = {
-                    "Cada {C:attention}5 ciegas{}, Louis se {C:red}destruye{}",
-                    "para volver a un {C:attention}Joker{} aleatorio",
-                    "{C:dark_edition}Negativo{} durante 10 ciegas.",
-                    "{C:inactive}(Ciegas restantes: #1#){}"
+                    "Tras {C:attention}#1#{} rondas, otorga una",
+                    "edición {C:dark_edition}Negativa{} permanente a un",
+                    "Joker aleatorio y {C:red}se destruye{}."
+                }
+            },
+            j_ina_Darren = {
+                name = "Darren LaChance",
+                text = {
+                    "{C:forest}Mano Infinitas{}",
+                    "{C:green}#1# en #2#{} de aumentar el",
+                    "efecto de los {X:gk,C:white}GK{} un {C:attention}#3#%{}."
+                }
+            },
+            j_ina_Luckyman = {
+                name = "Luckyman",
+                text = {
+                    "Reduce a la {C:attention}mitad{}",
+                    "todos los denominadores",
+                    "de probabilidad."
+                }
+            },
+            j_ina_Poker = {
+                name = "Poker",
+                text = {
+                    "Gana {C:money}-#2# ${} de coste en tienda",
+                    "por cada {C:attention}Poker{} realizado.",
+                    "{C:inactive}(Actual:{} {C:money}-#3# ${}{C:inactive} | Total: {C:attention}#1#{}{C:inactive}){}"
                 }
             },
             j_ina_Fate = {
