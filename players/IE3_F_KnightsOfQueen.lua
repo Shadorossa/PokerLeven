@@ -93,16 +93,16 @@ local Jonny_Gascoigne = J({
 local David_Buckingham = J({
   name = "David_Buckingham",
   pos = { x = 4, y = 6 },
-  config = { extra = { floors = 0, active_fortification = false } },
+  config = { extra = { floors = 0, active_fortification = false, target_floors = 5 } },
   loc_vars = function(self, info_queue, center)
     local ex = (center and type(center) == 'table' and center.ability and center.ability.extra) or self.config.extra
     local status = ""
     if ex.active_fortification then
       status = "¡Fortificación lista!"
     else
-      status = "Pisos: " .. ex.floors .. "/5"
+      status = "Pisos: " .. ex.floors .. "/" .. ex.target_floors
     end
-    return { vars = { status } }
+    return { vars = { status, ex.target_floors } }
   end,
   rarity = 1,
   pools = { ["Knights of Queen"] = true },
@@ -128,11 +128,11 @@ local David_Buckingham = J({
         ex.active_fortification = false
       else
         ex.floors = ex.floors + 1
-        if ex.floors >= 5 then
+        if ex.floors >= ex.target_floors then
           ex.floors, ex.active_fortification = 0, true
           card_eval_status_text(card, 'extra', nil, nil, nil, { message = '¡Palacio Construido!', colour = G.C.MOUNTAIN })
         else
-          card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Piso ' .. ex.floors .. '/5', colour = G.C.MOUNTAIN })
+          card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Piso ' .. ex.floors .. '/' .. ex.target_floors, colour = G.C.MOUNTAIN })
         end
       end
     end

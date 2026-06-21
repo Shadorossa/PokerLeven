@@ -2295,8 +2295,7 @@ return {
                 name = "David Buckingham",
                 text = {
                     "{C:mountain}Palacio Indestructible{}",
-                    "Cada mano jugada construye un {C:attention}piso{}",
-                    "Al llegar a {C:attention}5{} pisos, la próxima mano",
+                    "Cada {C:attention}#2#{} manos jugadas",
                     "multiplica las fichas por {X:chips,C:white}X3{}",
                     "{C:inactive}#1#{}"
                 }
