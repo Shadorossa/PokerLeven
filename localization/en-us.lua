@@ -1166,12 +1166,88 @@ return {
                     "joker de más a la {C:attention}Derecha{}" }
             },
             Evolution = {
-                name = "Evolución",
+                name = "Evolution",
                 text = {
-                    "Este jugador puede {C:attention}evolucionar{}",
-                    "al cumplir su objetivo.",
-                    "{C:inactive,s:0.8}Solo disponible una vez por ronda."
+                    "This player can {{C:attention}evolve{}",
+                    "upon meeting its goal.",
+                    "{{C:inactive,s:0.8}Only available once per round."
                 }
+            },
+            Kenville_Evolution = { name = "Epsilon (P)", text = { "Play a {{C:attention}Straight{} that", "contains a {{C:attention}2, 3 and 4{}." } },
+            Mole_Evolution = { name = "Epsilon (P)", text = { "Transfer {{C:attention}#1#/#2#{} upgrades{}." } },
+            Kayson_Evolution = { name = "Epsilon (P)", text = { "Defeat {{C:attention}#1#/#2#{} Boss Blinds{}." } },
+            Tytan_Evolution = { name = "Epsilon (P)", text = { "Score {{C:attention}#1#/#2#{} cards{} of", "{{C:attention}Stone{} or {{C:attention}Steel{}." } },
+            Fedora_Evolution = { name = "Epsilon (P)", text = { "Send {{C:attention}#1#/#2#{} cards{} to the void." } },
+            Krypto_Evolution = { name = "Epsilon (P)", text = { "Have {{C:attention}#1#/#2#{} Chaotic Cards{}", "in your deck." } },
+            Sworm_Evolution = { name = "Epsilon (P)", text = { "Perform {{C:attention}#1#/#2#{} rescues{} and", "{{C:attention}#3#/#4#{} discards{}." } },
+            Mercury_Evolution = { name = "Epsilon (P)", text = { "Use {{C:attention}#1#/#2#{} Mercury planets{}." } },
+            Metron_Evolution = { name = "Epsilon (P)", text = { "Reach an exponent of", "{{C:attention}^#1#/^#2#{}." } },
+            Epsilon_Timer = { name = "Plus Form", text = { "Returns to normal state", "in {{C:attention}#1#{} blind/s." } },
+            CalebR_Evolution = { name = "Evolution", text = { "Evolves {{C:attention}Joseph King{} and {{C:attention}David Samford{} after {{C:attention}#3#{} rounds." } },
+            Caleb_IJ_Evolution = { name = "Transformation", text = { "Transforms {{C:attention}King{} and {{C:attention}Samford{} into {{C:dark_edition}Redux{} if they are starters in {{X:ina_team_inazumajapan,C:white}I. Japan{} for {{C:attention}#3#{} rounds." } },
+            Position_Evolution = { name = "Epsilon (P)", text = { "Move the player to the", "right half of your Jokers." } },
+            RolChange = {
+                name = "Role Change",
+                text = { "{{C:attention}#1#{} furthest to the left",
+                    "{{C:attention}#2#{} furthest to the right" }
+            },
+            ConsecutiveCards = {
+                name = "Consecutive Cards",
+                text = {
+                    "Activates when playing a card",
+                    "{{C:attention}#1#{} next to the reference card",
+                    "from the previous hand"
+                }
+            },
+            Chaotic = {
+                name = "Chaos",
+                text = { "Combine this player",
+                    "with one from team {{C:attention}#1#{}" }
+            },
+            Fire_Blizzard = {
+                name = "Fire Blizzard",
+                text = { "Combine this player",
+                    "with {{C:attention}#1#{}" }
+            },
+            Combo_Cosmico = {
+                name = "Cosmic Combo",
+                text = { "Gain {{C:mult}Mult.{} and {{C:chips}Chips{} extra",
+                    "per Joker with {{C:red}negative{} value",
+                    "if {{C:attention}Xavier Schiller{} is present." }
+            },
+            ina_spirit_charges = {
+                name = "Spirit Power",
+                text = {
+                    "{{C:inactive}Charges: {{C:attention}#1#/#2#{}",
+                    "{{C:inactive}Evolution: {{C:attention}#3#/#4#{} {{C:inactive}uses{}",
+                }
+            },
+            ina_spirit_charges_max = {
+                name = "Spirit Power",
+                text = {
+                    "{{C:inactive}Charges: {{C:attention}#1#/#2#{}",
+                    "{{C:inactive}Evolution: {{C:attention}Max.{}"
+                }
+            },
+            Edgar_Nivel1 = {
+                name = "Cycle 1",
+                text = { "Needs {{C:attention}#1#{} cards", "{{C:red}}-20%{} Chips and Mult in Straight" }
+            },
+            Edgar_Nivel2 = {
+                name = "Cycle 2",
+                text = { "Needs {{C:attention}#1#{} cards", "{{C:green}}+10%{} Chips and Mult in Straight" }
+            },
+            Edgar_Nivel3 = {
+                name = "Cycle 3",
+                text = { "Needs {{C:attention}#1#{} cards", "{{C:attention}}+50%{} Chips and Mult in Straight" }
+            },
+            Edgar_Nivel4 = {
+                name = "Cycle 4",
+                text = { "Needs {{C:attention}#1#{} cards", "{{C:attention}}+100%{} Chips and Mult in Straight" }
+            },
+            Edgar_Nivel5 = {
+                name = "Cycle 5",
+                text = { "Needs {{C:attention}#1#{} cards", "{{C:mult}}+250%{} Chips and Mult in Straight" }
             },
         },
         Planet = {
