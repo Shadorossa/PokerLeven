@@ -189,8 +189,10 @@ local Maximino_Cruz = J({
   pos = { x = 1, y = 19 },
   config = { extra = { xmult_base = 1, xmult_per_wind = 0.5 } },
   loc_vars = function(self, info, center)
+    local ex = (center and type(center) == 'table' and center.ability and center.ability.extra) or self.config.extra
     local wind_count = Pokerleven.get_type_count(C.Wind)
-    return { vars = { math.floor((center.ability.extra.xmult_base + (wind_count * center.ability.extra.xmult_per_wind)) * 100) / 100 } }
+    local current_xmult = math.floor((ex.xmult_base + (wind_count * ex.xmult_per_wind)) * 100) / 100
+    return { vars = { current_xmult, ex.xmult_per_wind } }
   end,
   rarity = 1,
   pools = { ["Little Giants"] = true },

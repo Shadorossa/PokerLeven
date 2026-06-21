@@ -2195,9 +2195,8 @@ return {
             j_ina_Holly_Summers = {
                 name = "Holly Summers",
                 text = { "{C:fire}Verano{}",
-                    "Gana {C:mult}+#1#{} Mult por cada",
-                    "mano jugada, se reinicia al descartar",
-                    "o destruir cartas",
+                    "Cada mano jugada otorga {C:mult}+#1#{} Mult,",
+                    "se reinicia al descartar o destruir cartas",
                     "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}" }
             },
 
@@ -2217,9 +2216,8 @@ return {
             j_ina_Jamila_Wali = {
                 name = "Jamila Wali",
                 text = { "{C:mountain}Guardián{}",
-                    "Acumula {C:attention}#2#%{} de defensa cada ronda",
-                    "Al perder, usa defensa acumulada para no fallar",
-                    "{C:inactive}(Defensa:{} {C:attention}#1#%{}{C:inactive}){}" }
+                    "Acumula {C:attention}#2#%{} de fichas cada ronda,",
+                    "al perder se usa el {C:attention}#1#%{} acumulado" }
             },
 
             -- IE3_F_KnightsOfQueen
@@ -2304,8 +2302,7 @@ return {
                 name = "Lance Ralton",
                 text = {
                     "{C:wind}Carga de Lanza{}",
-                    "Si juegas {C:attention}3+{} cartas del mismo rango",
-                    "de forma consecutiva durante {C:attention}3{} manos seguidas,",
+                    "Puntuar {C:attention}3+{} del mismo rango 3 veces consecutivas",
                     "reduce el objetivo de la ciega un {C:attention}15%{}",
                     "{C:inactive}(Rango: #1# | Consecutivas: #2#/3){}"
                 }
@@ -2344,8 +2341,8 @@ return {
             j_ina_Maximino_Cruz = {
                 name = "Maximino Cruz",
                 text = { "{C:wind}Remate Espiral{}",
-                    "{X:mult,C:white}X#1#{} por cada comodín de {X:wind,C:white}Aire{}",
-                    "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}" }
+                    "{X:mult,C:white}X#2#{} por cada comodín de {X:wind,C:white}Aire{}",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive}){}" }
             },
 
             -- IE3_Q_Ogre
