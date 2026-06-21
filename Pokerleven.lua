@@ -312,13 +312,13 @@ function Card:calculate_joker(context)
     return res
 end
 
--- Hook global para manejar el aumento de coste de sobres por Butler (Young)
+-- Hook global para manejar modificaciones genéricas de coste de cartas
 local card_set_cost_ref = Card.set_cost
 function Card:set_cost()
     card_set_cost_ref(self)
-    if self.ability and self.ability.set == 'Booster' and G.jokers and G.jokers.cards then
-        if next(SMODS.find_card('j_ina_Butler_Young')) then
-            self.cost = math.floor(self.cost * 1.5)
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            j:calculate_joker({ set_cost = true, card = self })
         end
     end
 end

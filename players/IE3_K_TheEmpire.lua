@@ -440,11 +440,12 @@ local Herman_Samuel = J({
 local Ricardo_Aguero = J({
   name = "Ricardo_Aguero",
   pos = { x = 6, y = 13 },
-  config = { extra = { streak = 0, power_per_streak = 0.30, threshold_mult = 2.5 } },
+  config = { extra = { streak = 0, power_per_streak = 0.30, threshold_mult = 2.5, non_threshold_wins = 0 } },
   loc_vars = function(self, info_queue, center)
     local ex = (center and type(center) == 'table' and center.ability and center.ability.extra) or self.config.extra
     local power_mult = 1 + (ex.streak * ex.power_per_streak)
-    return { vars = { ex.streak, string.format('%.1f', power_mult * 100), ex.threshold_mult * 100 } }
+    table.insert(info_queue, { set = 'Other', key = 'ricardo_streak_reset', vars = { ex.non_threshold_wins or 0 } })
+    return { vars = { ex.streak, string.format('%.2f', power_mult), ex.threshold_mult * 100 } }
   end,
   rarity = 1,
   pools = { ["The Empire"] = true },
@@ -476,7 +477,7 @@ local Ricardo_Aguero = J({
       end
     end
 
-    if ctx.after and not ctx.blueprint then
+    if Pokerleven.is_joker_end_of_round(ctx) and not ctx.blueprint then
       local total_chips = G.GAME.chips or 0
       local blind_chips = G.GAME.blind.chips or 0
 
@@ -484,11 +485,27 @@ local Ricardo_Aguero = J({
         local ratio = total_chips / blind_chips
         if ratio > ex.threshold_mult then
           ex.streak = ex.streak + 1
+          ex.non_threshold_wins = 0
           local new_power = 1 + (ex.streak * ex.power_per_streak)
           card_eval_status_text(card, 'extra', nil, nil, nil, {
             message = '⚽ ¡GOL! Racha +1 → X' .. string.format('%.2f', new_power),
             colour = G.C.MOUNTAIN
           })
+        else
+          ex.non_threshold_wins = (ex.non_threshold_wins or 0) + 1
+          if ex.non_threshold_wins >= 3 then
+            ex.streak = 0
+            ex.non_threshold_wins = 0
+            card_eval_status_text(card, 'extra', nil, nil, nil, {
+              message = '❌ ¡Racha Perdida!',
+              colour = G.C.RED
+            })
+          else
+            card_eval_status_text(card, 'extra', nil, nil, nil, {
+              message = 'Fallo ' .. ex.non_threshold_wins .. '/3',
+              colour = G.C.MOUNTAIN
+            })
+          end
         end
       end
     end

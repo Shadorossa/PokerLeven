@@ -236,8 +236,10 @@ local Cyborg = J({
 local Banker = J({
   name = "Banker",
   pos = { x = 1, y = 14 },
-  config = { extra = {} },
-  loc_vars = function(self, info, center) return { vars = {} } end,
+  config = { extra = { free_chance = 2, double_chance = 4 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { 33, 67 } }
+  end,
   rarity = 1,
   pools = { ["Umbrella"] = true },
   cost = 4,
@@ -250,7 +252,26 @@ local Banker = J({
   pyear = C.YEAR_2,
   pteam = "ina_team_Umbrella",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    if ctx.set_cost and ctx.card and not ctx.card.banker_applied then
+      local target = ctx.card
+      local in_shop = false
+      if G.shop_jokers and target.area == G.shop_jokers then in_shop = true end
+      if G.shop_booster and target.area == G.shop_booster then in_shop = true end
+      if G.shop_vouchers and target.area == G.shop_vouchers then in_shop = true end
+      if G.shop and not target.area then in_shop = true end
+
+      if in_shop then
+        target.banker_applied = true
+        local roll = pseudorandom('banker_cost_' .. (target.unique_val or 0))
+        if roll < 2/6 then
+          target.cost = 0
+        elseif roll < (2+4)/6 then
+          target.cost = target.cost * 2
+        end
+      end
+    end
+  end
 })
 
 -- Tunk (13)
@@ -339,5 +360,7 @@ local Molehill = J({
 
 return {
   name = "Umbrella",
-  list = {  }
+  list = {
+    Banker
+  }
 }

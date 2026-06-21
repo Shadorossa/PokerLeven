@@ -284,3 +284,37 @@ Pokerleven.simulate_rank_difference = function(card, context, target_ranks)
     if b_c > 0 then ret.chips = b_c end; if b_xc > 1 then ret.xchips = b_xc; ret.x_chips = b_xc end
     return next(ret) and ret or nil
 end
+
+--- Evalúa el cálculo de un Joker copiado de forma segura mediante intercambio de center y ability
+---@param card Card Carta que realiza la copia
+---@param copied_key string Clave del joker copiado
+---@param copied_ability table|nil Tabla de ability de la copia (o nil para usar los valores por defecto)
+---@param ctx table Contexto de cálculo
+---@return table|nil result, table mutated_ability
+Pokerleven.evaluate_copied_joker = function(card, copied_key, copied_ability, ctx)
+    if not copied_key or copied_key == 'Ninguno' then return nil, copied_ability end
+    
+    local copied_center = G.P_CENTERS[copied_key]
+    if not copied_center then return nil, copied_ability end
+    
+    local orig_center = card.config.center
+    local orig_ability = card.ability
+    
+    local current_copied_ability = copy_table(copied_ability or copied_center.config or {})
+    
+    -- Swap
+    card.config.center = copied_center
+    card.ability = current_copied_ability
+    
+    -- Calculate
+    local result = card:calculate_joker(ctx)
+    
+    -- Store mutated ability
+    local new_copied_ability = copy_table(card.ability)
+    
+    -- Restore
+    card.config.center = orig_center
+    card.ability = orig_ability
+    
+    return result, new_copied_ability
+end

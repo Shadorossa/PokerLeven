@@ -1,9 +1,9 @@
--- Thorsten Welger (1)
+-- Thorsten Welger (1) - "Malla Letal" - Sacrificio táctico con sello perecedero
 local Thorsten_Welger = J({
-  name = "Thorsten Welger",
+  name = "Thorsten_Welger",
   pos = { x = 5, y = 7 },
   config = { extra = {} },
-  loc_vars = function(self, info, center)
+  loc_vars = function(self, info_queue, center)
     return { vars = {} }
   end,
   rarity = 1,
@@ -18,7 +18,35 @@ local Thorsten_Welger = J({
   pnumber = 1,
   pteam = "ina_team_BrockenBrigade",
   blueprint_compat = true,
-  calculate = function(self, card, ctx) end
+  calculate = function(self, card, ctx)
+    if ctx.setting_blind and not ctx.blueprint then
+      local leftmost_joker = nil
+      if G.jokers and G.jokers.cards and #G.jokers.cards > 0 then
+        for i, j in ipairs(G.jokers.cards) do
+          if j.config.center.key ~= 'j_ina_Thorsten_Welger' then
+            leftmost_joker = j
+            break
+          end
+        end
+      end
+
+      if leftmost_joker then
+        local is_negative = leftmost_joker.edition and leftmost_joker.edition.negative
+        local is_perishable = leftmost_joker.ability and leftmost_joker.ability.perishable
+        
+        if not is_negative and not is_perishable then
+          leftmost_joker:set_edition('e_negative', true)
+          leftmost_joker.ability.perishable = true
+          leftmost_joker.ability.perish_tally = 5
+          card_eval_status_text(card, 'extra', nil, nil, nil, {
+            message = 'Negativo y Perecedero!',
+            colour = G.C.FOREST
+          })
+          play_sound('tarot2', 1.2, 0.5)
+        end
+      end
+    end
+  end
 })
 
 -- Alexander Hausen (2)
@@ -369,5 +397,7 @@ local Emmanuel_Ewerz = J({
 
 return {
   name = "Brocken Brigade",
-  list = {}
+  list = {
+    Thorsten_Welger
+  }
 }

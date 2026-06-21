@@ -2223,22 +2223,39 @@ return {
             },
 
             -- IE3_F_KnightsOfQueen
+            -- IE1_L_Umbrella
+            j_ina_Banker = {
+                name = "Banker",
+                text = {
+                    "{C:wind}Manipulación Financiera{}",
+                    "Un {C:attention}#1#%{} de artículos de la tienda son",
+                    "{C:money}gratis{}, el resto cuestan el {C:red}doble{}"
+                }
+            },
+
+            -- IE3_O_TheKingdom
             j_ina_Nacho_Ortega = {
                 name = "Nacho Ortega",
                 text = {
                     "{C:fire}Millón de Manos{}",
                     "En ciegas {C:attention}PvP{}, cada mano disponible",
                     "reduce el objetivo rival un {C:attention}#1#%{}",
-                    "Excelente para {C:green}defensa pasiva{}"
                 }
             },
-            j_ina_Ortega = {
-                name = "Ortega",
+            j_ina_Monstro_Ximenes = {
+                name = "Monstro Ximenes",
                 text = {
-                    "{C:fire}Millón de Manos{}",
-                    "En ciegas {C:attention}PvP{}, cada mano disponible",
-                    "reduce el objetivo rival un {C:attention}#1#%{}",
-                    "Excelente para {C:green}defensa pasiva{}"
+                    "{C:fire}Insaciable{}",
+                    "Superar la {C:attention}ciega{} no supone terminarla,",
+                    "puedes seguir jugando tus {C:attention}manos restantes{}",
+                }
+            },
+            j_ina_Bolboreta_Barboza = {
+                name = "Bolboreta Barboza",
+                text = {
+                    "{C:wind}Transformación{}",
+                    "Copia la {C:attention}habilidad del último joker{}",
+                    "que compraste en la {C:attention}tienda{}"
                 }
             },
             j_ina_Ricardo_Aguero = {
@@ -2261,26 +2278,19 @@ return {
                     "{C:inactive}(Progreso: #1#/3 | Estado: #3#){}"
                 }
             },
-            j_ina_Monstro_Ximenes = {
-                name = "Monstro Ximenes",
+
+            -- IE3_G_BrockenBrigade
+            j_ina_Thorsten_Welger = {
+                name = "Thorsten Welger",
                 text = {
-                    "{C:fire}Insaciable{}",
-                    "Si superas el objetivo del blind,",
-                    "la ronda {C:attention}NO TERMINA{}",
-                    "Sigues pudiendo usar tus {C:attention}manos restantes{}",
-                    "Perfecto para {C:attention}farmear{} jokers"
+                    "{C:forest}Malla Letal{}",
+                    "Cuando seleccionas una {C:attention}ciega{},",
+                    "el joker más a la {C:attention}izquierda{}",
+                    "se vuelve negativo y pedecedero"
                 }
             },
-            j_ina_Bolboreta_Barboza = {
-                name = "Bolboreta Barboza",
-                text = {
-                    "{C:wind}Transformación{}",
-                    "Copia la habilidad del {C:attention}último joker{}",
-                    "que compraste en la tienda",
-                    "Cada joker comprado = nueva forma",
-                    "{C:inactive}(Copia actual: #1#){}"
-                }
-            },
+
+            -- IE3_F_KnightsOfQueen
             j_ina_David_Buckingham = {
                 name = "David Buckingham",
                 text = {
@@ -2938,6 +2948,15 @@ return {
                     "Al puntuar, tiene una probabilidad",
                     "de {C:green}#1# en #2#{} de aumentar de",
                     "nivel la mano jugada"
+                }
+            },
+            ricardo_streak_reset = {
+                name = "Reset de Racha",
+                text = {
+                    "La racha se perderá por completo",
+                    "si ganas {C:attention}3 ciegas seguidas{}",
+                    "sin superar el objetivo por más de {C:attention}250%{}.",
+                    "{C:inactive}(Progreso: #1#/3){}"
                 }
             },
             modo_cambio = {
@@ -3738,61 +3757,119 @@ return {
             ["ina_magic_wind"] = "Ola Mágica",
         },
         teams = {
-            ["ina_team_Raimon"] = "Raimon",
-            ["ina_team_Occult"] = "Occult",
-            ["ina_team_RoyalAcademy"] = "Royal Academy",
-            ["ina_team_Wild"] = "Wild",
-            ["ina_team_Brain"] = "Brain",
-            ["ina_team_Otaku"] = "Otaku",
-            ["ina_team_Farm"] = "Farm",
-            ["ina_team_InazumaEleven"] = "Inazuma Eleven",
-            ["ina_team_YoungInazuma"] = "Jóvenes Inazuma",
-            ["ina_team_Kirkwood"] = "Kirkwood",
-            ["ina_team_Shuriken"] = "Shuriken",
-            ["ina_team_Zeus"] = "Zeus",
-            ["ina_team_Torneo"] = "Torneo",
-            ["ina_team_TormentaDeGeminis"] = "Tormenta de Géminis",
-            ["ina_team_ServicioSecreto"] = "Servicio Secreto",
-            ["ina_team_Alpino"] = "Alpino",
-            ["ina_team_Epsilon"] = "Épsilon",
-            ["ina_team_RoyalRedux"] = "Royal Academy Redux",
-            ["ina_team_EmperadoresOscuros"] = "Emperadores Oscuros",
-            ["ina_team_DiamondDust"] = "Polvo de Diamantes",
-            ["ina_team_Prominence"] = "Prominence",
-            ["ina_team_Zeus_Ares"] = "Zeus",
-            ["ina_team_ClaustroSagrado"] = "Claustro Sagrado",
-            ["ina_team_OsakaCCC"] = "Osaka CCC",
-            ["ina_team_Fauxshore"] = "Fauxshore",
-            ["ina_team_MaryTimes"] = "Mary Times",
-            ["ina_team_Genesis"] = "Génesis",
-            ["ina_team_EiseiGakuen"] = "Academia Alia",
-            ["ina_team_InakuniRaimon"] = "Inakuni Raimon",
-            ["ina_team_Scout"] = "Ojeadores",
-            ["ina_team_InazumaJapon"] = "Inazuma Japón",
-            ["ina_team_Ogre"] = "Academia Ogro",
-            ["ina_team_BigWaves"] = "Big Waves",
-            ["ina_team_DesertLion"] = "Leones del Desierto",
-            ["ina_team_LittleGiants"] = "Little Giants",
-            ["ina_team_NeoJapan"] = "Neo Japón",
-            ["ina_team_FireDragon"] = "Dragones de Fuego",
-            ["ina_team_KnightsOfQueen"] = "Caballeros de la Reina",
-            ["ina_team_BrockenBrigade"] = "Brocken Brigade",
-            ["ina_team_RoseGryphon"] = "Rose Gryphon",
-            ["ina_team_RedMatadors"] = "Matadores Rojos",
-            ["ina_team_TeamD"] = "Equipo D",
-            ["ina_team_TheEmpire"] = "Los Emperadores",
-            ["ina_team_Unicorn"] = "Unicorn",
-            ["ina_team_Orpheus"] = "Orfeo",
-            ["ina_team_ZoolanTeam"] = "Zoolan Team",
-            ["ina_team_TheKingdom"] = "Os Reis",
-            ["ina_team_LittleGigant"] = "Pequeños Gigantes",
-            ["ina_team_SkyTeam"] = "Sky Team",
-            ["ina_team_DarkTeam"] = "Dark Team",
-            ["ina_team_RaimonGO"] = "Raimon",
-            ["ina_team_EarthEleven"] = "Earth Eleven",
-            ["ina_team_ZanarkOutsiders"] = "Zanark Outsiders",
-            ["ina_team_SeaOfTrees"] = "Mar de Árboles",
-            ["ina_team_SolariaZeus"] = "Instituto Solaria-Zeus",
+            ["ina_team_Raimon"] = "Raimon", -- IE1_A
+            ["ina_team_Occult"] = "Occult", -- IE1_B
+            ["ina_team_RoyalAcademy"] = "Royal Academy", -- IE1_C
+            ["ina_team_Wild"] = "Wild", -- IE1_D
+            ["ina_team_Brain"] = "Brain", -- IE1_E
+            ["ina_team_Otaku"] = "Otaku", -- IE1_F
+            ["ina_team_InazumaEleven"] = "Inazuma Eleven", -- IE1_G
+            ["ina_team_Shuriken"] = "Shuriken", -- IE1_H
+            ["ina_team_Farm"] = "Farm", -- IE1_I
+            ["ina_team_Kirkwood"] = "Kirkwood", -- IE1_J
+            ["ina_team_Zeus"] = "Zeus", -- IE1_K
+            ["ina_team_Umbrella"] = "Umbrella", -- IE1_L
+            ["ina_team_InazumaKids"] = "Inazuma Kids", -- IE1_M
+            ["ina_team_Sallys"] = "Sally's", -- IE1_N
+            ["ina_team_TormentaDeGeminis"] = "Tormenta de Géminis", -- IE2_A
+            ["ina_team_ServicioSecreto"] = "Servicio Secreto", -- IE2_B
+            ["ina_team_Alpino"] = "Alpino", -- IE2_C
+            ["ina_team_ClaustroSagrado"] = "Claustro Sagrado", -- IE2_D
+            ["ina_team_Epsilon"] = "Épsilon", -- IE2_E
+            ["ina_team_RoyalRedux"] = "Royal Academy Redux", -- IE2_G
+            ["ina_team_OsakaCCC"] = "Osaka CCC", -- IE2_H
+            ["ina_team_Fauxshore"] = "Fauxshore", -- IE2_I
+            ["ina_team_MaryTimes"] = "Mary Times", -- IE2_J
+            ["ina_team_Genesis"] = "Génesis", -- IE2_K
+            ["ina_team_EmperadoresOscuros"] = "Emperadores Oscuros", -- IE2_L
+            ["ina_team_DiamondDust"] = "Polvo de Diamantes", -- IE2_M
+            ["ina_team_Prominence"] = "Prominence", -- IE2_N
+            ["ina_team_YoungInazuma"] = "Jóvenes Inazuma", -- IE2_O
+            ["ina_team_SeaOfTrees"] = "Mar de Árboles", -- IE2_P
+            ["ina_team_InazumaJapon"] = "Inazuma Japón", -- IE3_A
+            ["ina_team_BigWaves"] = "Big Waves", -- IE3_B
+            ["ina_team_DesertLion"] = "Leones del Desierto", -- IE3_C
+            ["ina_team_NeoJapan"] = "Neo Japón", -- IE3_D
+            ["ina_team_FireDragon"] = "Dragones de Fuego", -- IE3_E
+            ["ina_team_KnightsOfQueen"] = "Caballeros de la Reina", -- IE3_F
+            ["ina_team_BrockenBrigade"] = "Brocken Brigade", -- IE3_G
+            ["ina_team_RoseGryphon"] = "Rose Gryphon", -- IE3_H
+            ["ina_team_RedMatadors"] = "Matadores Rojos", -- IE3_I
+            ["ina_team_TeamD"] = "Equipo D", -- IE3_J
+            ["ina_team_TheEmpire"] = "Los Emperadores", -- IE3_K
+            ["ina_team_Unicorn"] = "Unicorn", -- IE3_L
+            ["ina_team_Orpheus"] = "Orfeo", -- IE3_M
+            ["ina_team_ZoolanTeam"] = "Zoolan Team", -- IE3_N
+            ["ina_team_TheKingdom"] = "Os Reis", -- IE3_O
+            ["ina_team_LittleGigant"] = "Pequeños Gigantes", -- IE3_P
+            ["ina_team_Ogre"] = "Academia Ogro", -- IE3_Q
+            ["ina_team_SkyTeam"] = "Sky Team", -- IE3_R
+            ["ina_team_DarkTeam"] = "Dark Team", -- IE3_S
+            ["ina_team_CapeCrusaders"] = "Cape Crusaders", -- IE3_T
+            ["ina_team_LittleGiants"] = "Little Giants", -- IE3_U
+            ["ina_team_RaimonGO"] = "Raimon GO", -- IE4_A
+            ["ina_team_OrderOfBlackTemplars"] = "Templarios Negros", -- IE4_B
+            ["ina_team_MirageAcademy"] = "Espejismo", -- IE4_L
+            ["ina_team_Universal"] = "Universal", -- IE4_M
+            ["ina_team_MountOlympus"] = "Monte Olimpo", -- IE4_N
+            ["ina_team_DragonLink"] = "Dragon Link", -- IE4_O
+            ["ina_team_EternalLight"] = "Luz Eterna", -- IE4_P
+            ["ina_team_AncientDark"] = "Oscuridad Ancestral", -- IE4_Q
+            ["ina_team_Arions"] = "Arions", -- IE5_A
+            ["ina_team_ProtocolOmega"] = "Protocolo Omega", -- IE5_B
+            ["ina_team_ProtocolOmega2"] = "Protocolo Omega 2.0", -- IE5_C
+            ["ina_team_FootballBots"] = "Robots de Fútbol", -- IE5_D
+            ["ina_team_WhiteDeer"] = "Ciervo Blanco", -- IE5_E
+            ["ina_team_ProtocolOmega3"] = "Protocolo Omega 3.0", -- IE5_F
+            ["ina_team_TerracottaArmy"] = "Ejército de Terracota", -- IE5_G
+            ["ina_team_ZanarkDomain"] = "Dominio de Zanark", -- IE5_H
+            ["ina_team_PerfectCascade"] = "Cascada Perfecta", -- IE5_I
+            ["ina_team_Zan"] = "Zan", -- IE5_J
+            ["ina_team_Gir"] = "Gir", -- IE5_K
+            ["ina_team_Gar"] = "Gar", -- IE5_L
+            ["ina_team_ChronoStorm"] = "Chrono Storm", -- IE5_M
+            ["ina_team_Ragnah"] = "Ragnah", -- IE5_N
+            ["ina_team_Nosfanatica"] = "Nosfanática", -- IE5_O
+            ["ina_team_AullidoLunar"] = "Aullido Lunar", -- IE5_P
+            ["ina_team_EarthEleven"] = "Earth Eleven", -- IE6 (or similar)
+            ["ina_team_InazumaJaponGalaxy"] = "Inazuma Japón (Galaxy)", -- IE6_A
+            ["ina_team_BarcelonaOrb"] = "Barcelona Orb", -- IE7_A
+            ["ina_team_InakuniRaimon"] = "Inakuni Raimon", -- IE7_B
+            ["ina_team_Bastion"] = "Bastión", -- IE7_C
+            ["ina_team_KirkwoodAres"] = "Kirkwood (Ares)", -- IE7_D
+            ["ina_team_BrainAres"] = "Brain (Ares)", -- IE7_E
+            ["ina_team_RoyalAcademyAres"] = "Royal Academy (Ares)", -- IE7_F
+            ["ina_team_Seishou"] = "Seishou", -- IE7_G
+            ["ina_team_Zeus_Ares"] = "Zeus (Ares)", -- IE7_H
+            ["ina_team_AlpinoAres"] = "Alpino (Ares)", -- IE7_I
+            ["ina_team_EiseiGakuen"] = "Academia Alius", -- IE7_J
+            ["ina_team_Ribera"] = "Ribera", -- IE7_K
+            ["ina_team_LunarPrime"] = "Lunar Prime", -- IE7_L
+            ["ina_team_InazumaJapanOrion"] = "Inazuma Japón (Orion)", -- IE8_A
+            ["ina_team_RedBison"] = "Red Bison", -- IE8_B
+            ["ina_team_ShiningSatans"] = "Shining Satans", -- IE8_C
+            ["ina_team_EternalDancers"] = "Eternal Dancers", -- IE8_D
+            ["ina_team_AvengingAcrobats"] = "Acróbatas Vengadores", -- IE8_F
+            ["ina_team_MutekiNoGiant"] = "Muteki no Giant", -- IE8_G
+            ["ina_team_NavyInvaders"] = "Navy Invaders", -- IE8_H
+            ["ina_team_OleDeSamba"] = "Ole de Samba", -- IE8_J
+            ["ina_team_GuardiansOfQueen"] = "Guardianes de la Reina", -- IE8_K
+            ["ina_team_PerfectSpark"] = "Perfect Spark", -- IE8_L
+            ["ina_team_ShadowOfOrion"] = "Sombra de Orion", -- IE8_M
+            ["ina_team_Nagumohara"] = "Nagumohara", -- IE9_A
+            ["ina_team_WestManor"] = "West Manor", -- IE9_C
+            ["ina_team_Orchid"] = "Orchid", -- IE9_D
+            ["ina_team_NorthBright"] = "North Bright", -- IE9_E
+            ["ina_team_EastWind"] = "East Wind", -- IE9_G
+            ["ina_team_StormRidge"] = "Storm Ridge", -- IE9_I
+            ["ina_team_RoyalAcademyVR"] = "Royal Academy (VR)", -- IE9_M
+            ["ina_team_RaimonVictoryRoad"] = "Raimon (Victory Road)", -- IE9_O
+            ["ina_team_SolariaZeus"] = "Instituto Solaria-Zeus", -- IE9_P
+            ["ina_team_ZanarkOutsiders"] = "Zanark Outsiders", -- IE9_Q
+            ["ina_team_Vestiges"] = "Vestigios", -- IE9_X
+            ["ina_team_Scout"] = "Ojeadores", -- IE9_Y
+            ["ina_team_Winners"] = "Ganadores", -- IE9_Z
+            ["ina_team_Torneo"] = "Torneo", -- Other
         },
         quips = {},
         ranks = {},

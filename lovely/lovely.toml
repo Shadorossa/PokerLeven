@@ -748,4 +748,71 @@ payload = '''
 '''
 match_indent = true
 
+# Monstro Ximenes - Sigue jugando después de superar el blind
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if G.GAME.chips - G.GAME.blind.chips >= 0 or G.GAME.current_round.hands_left < 1 then"
+position = "at"
+payload = '''
+if not to_big then
+    function to_big(x) return x end
+end
+local monstro_active = false
+if G.jokers and G.jokers.cards then
+    for _, j in ipairs(G.jokers.cards) do
+        if j.config.center.key == 'j_ina_Monstro_Ximenes' and not j.debuff then
+            monstro_active = true
+            break
+        end
+    end
+end
+if (to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) and not monstro_active) or G.GAME.current_round.hands_left < 1 then
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if Big:new(G.GAME.chips) >= Big:new(G.GAME.blind.chips) or G.GAME.current_round.hands_left < 1 then"
+position = "at"
+payload = '''
+if not to_big then
+    function to_big(x) return x end
+end
+local monstro_active = false
+if G.jokers and G.jokers.cards then
+    for _, j in ipairs(G.jokers.cards) do
+        if j.config.center.key == 'j_ina_Monstro_Ximenes' and not j.debuff then
+            monstro_active = true
+            break
+        end
+    end
+end
+if (to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) and not monstro_active) or G.GAME.current_round.hands_left < 1 then
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) or G.GAME.current_round.hands_left <= 0 then"
+position = "at"
+payload = '''
+if not to_big then
+    function to_big(x) return x end
+end
+local monstro_active = false
+if G.jokers and G.jokers.cards then
+    for _, j in ipairs(G.jokers.cards) do
+        if j.config.center.key == 'j_ina_Monstro_Ximenes' and not j.debuff then
+            monstro_active = true
+            break
+        end
+    end
+end
+if (to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) and not monstro_active) or G.GAME.current_round.hands_left <= 0 then
+'''
+match_indent = true
+
 

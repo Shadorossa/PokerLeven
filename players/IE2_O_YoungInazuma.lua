@@ -159,6 +159,10 @@ local Butler = J({
         }
       end
     end
+
+    if context.set_cost and context.card and context.card.ability and context.card.ability.set == 'Booster' then
+      context.card.cost = math.floor(context.card.cost * card.ability.extra.cost_mult)
+    end
   end
 })
 
