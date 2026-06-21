@@ -1178,9 +1178,8 @@ return {
                 name = "Rihm",
                 text = {
                     "{C:forest}Fuerza Estelar{}",
-                    "Su potencia fluctúa con el cosmos.",
-                    "Al final de cada ronda, cambia su",
-                    "Mult. entre {X:mult,C:white} X0.1 {} y {X:mult,C:white} X4.0 {}.",
+                    "Al final de cada ronda, varía su mult",
+                    "entre {X:mult,C:white} X0.1 {} y {X:mult,C:white} X4.0 {}.",
                     "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive}){}"
                 }
             },
@@ -1188,9 +1187,9 @@ return {
                 name = "Jordan Greenway",
                 text = {
                     "{C:forest}Astro Remate{}",
-                    "Gana {X:mult,C:white} X#1# {} permanente por cada",
-                    "{C:planet}Planeta{} usado de manos de {C:attention}4 o menos{}",
-                    "cartas (Pareja, Trío, Poker, etc).",
+                    "Gana {X:mult,C:white} X#1# {} permanente por",
+                    "cada {C:planet}Planeta{} usado de manos",
+                    "de {C:attention}4 o menos{} cartas",
                     "{C:inactive}(Actual:{} {X:mult,C:white}X#2#{}{C:inactive}){}"
                 }
             },
@@ -1370,8 +1369,7 @@ return {
                 name = "Dvalin",
                 text = {
                     "{C:fire}Destrozataladros{}",
-                    "Otorga {C:chips}+#1#{} fichas y crea",
-                    "{C:attention}#2#{} {X:mountain,C:white}Barrera{} al puntuar."
+                    "Crea {C:attention}+#1#{} {X:mountain,C:white}Barrera{} al puntuar."
                 }
             },
             j_ina_Dvalin_Plus = {
@@ -1909,7 +1907,7 @@ return {
                 text = {
                     "{C:wind}Velo de Escarcha{}",
                     "Congela la sección de {C:attention}Cupones{}.",
-                    "Al avanzar de Ante, los cupones no",
+                    "Al avanzar de apuesta, los cupones no",
                     "comprados se {C:attention}mantienen{}."
                 }
             },
@@ -2034,7 +2032,7 @@ return {
                 text = {"{C:forest}Zig zag chispeante{}",
                     "Cada {C:attention}doble pareja{} jugada obtiene {C:chips}+#1# fichas{},",
                     "cada 3 usos sube de nivel la mano",
-                    "{C:inactive}(Fichas actuales: {C:chips}+#1#{}{C:inactive}) | {C:inactive}(Doble parejas usadas: #2#/#3#){}"
+                    "{C:inactive}(Fichas: {C:chips}+#1#{}{C:inactive}) | {C:inactive}(Doble parejas: #2#/#3#){}"
                 }
             },
             j_ina_Sweet_Young = {

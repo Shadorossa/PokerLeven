@@ -420,12 +420,8 @@ return {
             j_ina_Dvalin = {
                 name = "Dvalin",
                 text = {
-                    "{C:fire}Drill Smasher / Gungnir{}",
-                    "If {X:gk,C:white}GK{}: Gives {C:chips}+#1#{} Chips and",
-                    "creates {C:attention}#2#{} {X:mountain,C:white}Barrier{} when scoring.",
-                    "If {X:fw,C:white}FW{}: Gives {X:mult,C:white}X#3#{} per",
-                    "{X:mountain,C:white}Barrier{} in play (Spends {C:attention}#4#{}).",
-                    "{C:inactive}(Current Pos: {C:attention}#6#{C:inactive} - {X:mult,C:white}X#5#{C:inactive}){}"
+                    "{C:fire}Drill Smasher{}",
+                    "Creates {C:attention}+#1#{} {X:mountain,C:white}Barrier{} when scoring."
                 }
             },
             j_ina_Dvalin_Plus = {

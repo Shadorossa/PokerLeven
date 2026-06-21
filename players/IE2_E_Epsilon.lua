@@ -1,14 +1,14 @@
-﻿-- Dvalin
+-- Dvalin
 local Dvalin = J({
     name = "Dvalin",
     pos = { x = 3, y = 0 },
     soul_pos = { x = 3, y = 1 },
-    config = { extra = { pposition = "GK", pos_left = "GK", pos_right = "FW", chip_mod = 150, barriers_added = 1 } },
+    config = { extra = { pposition = "GK", pos_left = "GK", pos_right = "FW", barriers_added = 1 } },
     loc_vars = function(self, info_queue, center)
         local ex = center.ability.extra
         info_queue[#info_queue + 1] = { set = "Other", key = "RolChange", vars = { ex.pos_left, ex.pos_right } }
         info_queue[#info_queue + 1] = { set = "Other", key = "Position_Evolution" }
-        return { vars = { ex.chip_mod, ex.barriers_added } }
+        return { vars = { ex.barriers_added } }
     end,
     rarity = "ina_top",
     pools = { ["Epsilon"] = true },
@@ -27,8 +27,7 @@ local Dvalin = J({
     calculate = function(self, card, ctx)
         local ex = card.ability.extra
         if Pokerleven.is_joker_turn(ctx) then
-            Pokerleven.ease_barriers(ex.barriers_added)
-            return { message = localize { type = 'variable', key = 'a_chips', vars = { ex.chip_mod } }, chip_mod = ex.chip_mod, colour = G.C.CHIPS }
+            return Pokerleven.ease_barriers(ex.barriers_added)
         end
     end,
     update = function(self, card, dt)

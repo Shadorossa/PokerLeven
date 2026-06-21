@@ -1145,8 +1145,7 @@ return {
                 name = "Dvalin",
                 text = {
                     "{C:fire}Destrozataladros{}",
-                    "Otorga {C:chips}+#1#{} fichas y crea",
-                    "{C:attention}#2#{} {X:mountain,C:white}Barrera{} al anotar."
+                    "Crea {C:attention}+#1#{} {X:mountain,C:white}Barrera{} al anotar."
                 }
             },
             j_ina_Dvalin_Plus = {
