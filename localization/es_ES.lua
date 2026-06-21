@@ -1393,8 +1393,7 @@ return {
                     "{C:wind}Remolino Cortante{}",
                     "Tus cartas {C:attention}2, 3 o 4{} puntúan como",
                     "{C:attention}As o Rey{} y simulan una",
-                    "{C:dark_edition}Edición{} aleatoria al puntuar.",
-                    "{C:inactive}(Dura {C:attention}#1#{} ciegas)"
+                    "{C:dark_edition}Edición{} aleatoria al puntuar."
                 }
             },
             j_ina_Mole = {
@@ -1427,8 +1426,7 @@ return {
                 text = {
                     "{C:wind}Niebla Venenosa{}",
                     "Reduce el tamaño de la {C:attention}siguiente ciega{} un {C:red}#1#%{}",
-                    "con {C:attention}cada mano{} jugada.",
-                    "{C:inactive}(Vuelve a su forma base tras {C:attention}#2#{} ronda/s){}"
+                    "con {C:attention}cada mano{} jugada."
                 }
             },
             j_ina_Tytan = {
@@ -1445,7 +1443,7 @@ return {
                     "{C:mountain}Terremoto{}",
                     "Su medidor de {C:chips}Fichas{} y {X:mult,C:white} XMult {}",
                     "aumenta por cada carta de {C:attention}Piedra{} o {C:attention}Acero{} en el mazo.",
-                    "{C:inactive}(Actual: {C:chips}+#5#{}{C:inactive} Fichas y {X:mult,C:white}X#6#{}{C:inactive} Mult | Dura {C:attention}#3#{} ciegas){}"
+                    "{C:inactive}(Actual: {C:chips}+#5#{}{C:inactive} Fichas y {X:mult,C:white}X#6#{}{C:inactive} Mult"
                 }
             },
             j_ina_Fedora = {
@@ -1463,7 +1461,7 @@ return {
                     "{C:wind}Ataque Afilado{}",
                     "Al descartar, envía las cartas {C:spectral}al vacío{} y gana {C:mult}+#1#{} Mult.",
                     "Las cartas vuelven la {C:attention}próxima ciega{}, pero el bono persiste.",
-                    "{C:inactive}(Dura {C:attention}#3#{} {C:inactive}ciegas | Actual:{} {C:mult}+#2#{}{C:inactive}){}"
+                    "Actual:{} {C:mult}+#2#{}{C:inactive}){}"
                 }
             },
             j_ina_Krypto = {
@@ -2459,7 +2457,7 @@ return {
                     "{C:wind}Flecha de Hielo{}",
                     "Si juegas exactamente {C:attention}3{} cartas, da",
                     "{C:mult}+#1#{} Mult o {C:chips}+#2#{} Fichas al comodín",
-                    "derecho (según la stat que use)."
+                    "derecho según su {C:attention}modificador{}"
                 }
             },
             j_ina_Adriano_Donati = {
