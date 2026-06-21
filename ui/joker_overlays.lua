@@ -58,6 +58,13 @@ local get_card_keys_from_team = function(team)
   for _, card in pairs(G.P_CENTERS) do
     if card.pteam == team then table.insert(team_keys, card.key) end
   end
+  table.sort(team_keys, function(a, b)
+    local card_a = G.P_CENTERS[a]
+    local card_b = G.P_CENTERS[b]
+    local dorsal_a = card_a and card_a.pdorsal or 999
+    local dorsal_b = card_b and card_b.pdorsal or 999
+    return dorsal_a < dorsal_b
+  end)
   return team_keys
 end
 
