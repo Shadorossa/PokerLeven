@@ -444,15 +444,10 @@ local Jude_IJ = J({
 local Samford_IJ = J({
   name = "Samford_IJ",
   pos = { x = 12, y = 0 },
-  config = { extra = { Xmult_mod = 7, retriggers_ep3 = 2, needed_ij = 2 } },
+  config = { extra = { Xmult_mod = 7.5 } },
   loc_vars = function(self, info_queue, center)
     local ex = center.ability.extra
-    local ij_count = #find_player_team("ina_team_InazumaJapon") - 1
-
-    if ij_count >= ex.needed_ij then info_queue[#info_queue+1] = {set = 'Other', key = 'k_ina_ep3'}
-    else info_queue[#info_queue+1] = {set = 'Other', key = 'k_ina_ep2'} end
-
-    return { vars = { ex.Xmult_mod, ex.retriggers_ep3, ij_count, ex.needed_ij } }
+    return { vars = { ex.Xmult_mod } }
   end,
   rarity = 2,
   pools = { ["Inazuma JapÃ³n"] = true },
@@ -472,18 +467,8 @@ local Samford_IJ = J({
     local ex = card.ability.extra
     local has_trio = #find_player_position("FW") >= 2 and #find_player_position("MF") == 1
 
-    if has_trio and context.joker_main and context.scoring_hand then
-      local all_spades = true
-      for _, c in ipairs(context.scoring_hand) do
-        if not c:is_suit('Spades') then
-          all_spades = false
-          break
-        end
-      end
-
-      if all_spades then
-        return { message = "¡Color Picas x7!", colour = G.C.XMULT, Xmult_mod = ex.Xmult_mod }
-      end
+    if has_trio and context.joker_main then
+      return { message = localize { type = 'variable', key = 'a_xmult', vars = { ex.Xmult_mod } }, Xmult_mod = ex.Xmult_mod, colour = G.C.RED }
     end
   end,
 })
