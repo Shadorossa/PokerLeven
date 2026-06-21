@@ -668,14 +668,130 @@ return {
             },
             j_ina_Samford = {
                 name = "David Samford",
-                text = { "{C:forest}Pingüino Emperador N.º 2{}", "{X:mult,C:white}X#1#{} multi si hay",
-                    "{C:attention}1{} {X:mf,C:white}MF{} y {C:attention}2{} {X:fw,C:white}FW{}" }
+                text = { "{C:forest}Penguin Emperor No. 2{}", "{X:mult,C:white}X#1#{} Mult if spade",
+                    "color with {C:attention}1{} {X:mf,C:white}MF{} and {C:attention}2{} {X:fw,C:white}FW{}" }
             },
             j_ina_Swing = {
                 name = "Swing",
-                text = { "{C:wind}Regate Multiple{}",
-                    "Al jugar {C:attention}Trío{} gana {C:chips}+#1#{} fichas",
-                    "por cada {C:attention}Joker{} de la {X:ina_team_royalacademy,C:white}Acad. Royal{}", }
+                text = { "{C:wind}Multiple Tap{}",
+                    "Scoring Three of a Kind gains {C:chips}+#1#{} chips",
+                    "per {C:attention}Joker{} from {X:ina_team_royalacademy,C:white}Royal Academy{}", }
+            },
+
+            -- IE1_L_Umbrella
+            j_ina_Banker = {
+                name = "Banker",
+                text = {
+                    "{C:wind}Financial Manipulation{}",
+                    "A {C:attention}#1#%{} of shop items are",
+                    "{C:money}free{}, the rest cost {C:red}double{}"
+                }
+            },
+
+            -- IE3_F_KnightsOfQueen
+            j_ina_David_Buckingham = {
+                name = "David Buckingham",
+                text = {
+                    "{C:mountain}Indestructible Palace{}",
+                    "Every {{C:attention}#2#{} hands played",
+                    "multiplies chips by {{X:chips,C:white}X3{}",
+                    "{{C:inactive}#1#{}"
+                }
+            },
+            j_ina_Lance_Ralton = {
+                name = "Lance Ralton",
+                text = {
+                    "{C:wind}Lance Charge{}",
+                    "Scoring {{C:attention}3+{} of the same rank 3 times consecutively",
+                    "reduces the blind's goal by {{C:attention}15%{}",
+                    "{{C:inactive}(Rank: #1# | Consecutive: #2#/3){}"
+                }
+            },
+            j_ina_Gary_Mane = {
+                name = "Gary Mane",
+                text = {
+                    "{C:mountain}Mountain Pride{}",
+                    "Gain {{X:chips,C:white}X#1#{} chips permanently",
+                    "per hand played of the {{C:attention}same type{}",
+                    "consecutively. If you break the chain,",
+                    "lose {{C:red}half{} of the accumulated multiplier.",
+                    "{{C:inactive}(Current: {{X:chips,C:white}X#2#{C:inactive} | Last: #3#){}"
+                }
+            },
+            j_ina_Edgar_Partinus = {
+                name = "Edgar Partinus",
+                text = {
+                    "{C:wind}Excalibur{}",
+                    "The cards needed for",
+                    "{{C:attention}Straight{} vary based on the cycle"
+                }
+            },
+            j_ina_Mikey_Richards = {
+                name = "Mikey Richards",
+                text = {
+                    "{C:forest}Forest Cycle{}",
+                    "Every {{C:attention}#1#{} hands scored, add",
+                    "{{C:attention}#2#{} cards from your discard pile",
+                    "randomly back to your hand.",
+                    "{{C:inactive}(Progress: #3#/#1#){}"
+                }
+            },
+
+            -- IE3_G_BrockenBrigade
+            j_ina_Thorsten_Welger = {
+                name = "Thorsten Welger",
+                text = {
+                    "{C:forest}Lethal Mesh{}",
+                    "When you select a {{C:attention}blind{},",
+                    "the leftmost {{C:attention}joker{}",
+                    "becomes {{C:dark_edition}negative{} and perishable"
+                }
+            },
+
+            -- IE3_O_TheKingdom
+            j_ina_Nacho_Ortega = {
+                name = "Nacho Ortega",
+                text = {
+                    "{C:fire}Million Hands{}",
+                    "In {C:attention}PvP{} blinds, each available hand",
+                    "reduces rival's goal by {C:attention}#1#%{}",
+                }
+            },
+            j_ina_Monstro_Ximenes = {
+                name = "Monstro Ximenes",
+                text = {
+                    "{C:fire}Insatiable{}",
+                    "Exceeding the {C:attention}blind{} doesn't end it,",
+                    "you can keep playing your {C:attention}remaining hands{}",
+                }
+            },
+            j_ina_Bolboreta_Barboza = {
+                name = "Bolboreta Barboza",
+                text = {
+                    "{C:wind}Transformation{}",
+                    "Copies the {C:attention}ability of last joker{}",
+                    "you bought from the {{C:attention}shop{}"
+                }
+            },
+            j_ina_Ricardo_Aguero = {
+                name = "Ricardo Agüero",
+                text = {
+                    "{C:mountain}Serial Goal Scorer{}",
+                    "If you exceed the blind by more than {{C:attention}#3#%{}",
+                    "gain {{C:attention}+1{} streak",
+                    "Each streak adds {{C:attention}#2#%{} power (chips and mult)",
+                    "{{C:inactive}(Current streak: #1#){}"
+                }
+            },
+            j_ina_Enrique_Caroso = {
+                name = "Enrique Caroso",
+                text = {
+                    "{C:wind}Master of Rhythm{}",
+                    "Achieve this pattern in {{C:attention}3{} consecutive hands:",
+                    "{{C:attention}Hand 1{}: Pair | {{C:attention}Hand 2{}: Three of a Kind | {{C:attention}Hand 3{}: Four of a Kind",
+                    "If successful, activate {{C:wind}Harmony{}: +{{C:attention}#2#{} card slots × 5 rounds",
+                    "{{C:inactive}(Progress: #1#/3 | Status: #3#){}"
+                }
             },
 
             -- IE1_D_wild
@@ -922,6 +1038,45 @@ return {
                     "El valor de los jokers puede",
                     "descender a {C:red}negativo{}.",
                     "Venderlos te {C:red}costará dinero{}."
+                }
+            },
+            ina_stone_seal = {
+                name = "Stone Seal",
+                text = {
+                    "This card {C:attention}always{}",
+                    "scores when played"
+                }
+            },
+            ina_space_seal = {
+                name = "Space Seal",
+                text = {
+                    "When scoring, has a {C:green}#1# in #2#{} chance",
+                    "to level up the",
+                    "hand played"
+                }
+            },
+            ricardo_streak_reset = {
+                name = "Streak Reset",
+                text = {
+                    "The streak will be lost completely",
+                    "if you win {{C:attention}3 consecutive blinds{}",
+                    "without exceeding the goal by more than {{C:attention}250%{}.",
+                    "{{C:inactive}(Progress: #1#/3){}"
+                }
+            },
+            modo_cambio = {
+                name = "Change Mode",
+                text = {
+                    "If placed to the {{C:attention}far right{}",
+                    "when entering a blind, transforms",
+                    "into {{C:attention}Byron{} for {{C:attention}4 blinds{}."
+                }
+            },
+            fate_tooltip = {
+                name = "Fate",
+                text = {
+                    "{{C:attention}#1#{} blinds remaining",
+                    "to complete {{C:attention}the deal{}"
                 }
             },
             ina_training_seal = {
@@ -1261,6 +1416,16 @@ return {
             ina_caos = "Caos",
             ina_normal = "Normal",
             ina_destructores_protect = "¡Protección!",
+
+            -- Knights of Queen
+            k_palace = "Palace!",
+            k_palace_built = "Palace Built!",
+            k_floor = "Floor",
+            k_lance_charge = "Lance Charge!",
+            k_lance = "Lance",
+            k_chain_broken = "Chain Broken!",
+            k_forest_cycle = "Forest Cycle!",
+            k_excalibur = "Excalibur!",
 
             -- Rarities
             k_ina_top = "Destacado",
