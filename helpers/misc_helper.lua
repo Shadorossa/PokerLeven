@@ -599,6 +599,20 @@ end
 -- Coral Protection Hook
 local start_dissolve_ref = Card.start_dissolve
 function Card:start_dissolve(dissolve_colours, silent, shelf_life, drumroll)
+    local athena_active = false
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.key == 'j_ina_Athena' and not j.debuff and j.ability.extra and j.ability.extra.time_frozen then
+                athena_active = true
+                break
+            end
+        end
+    end
+    if athena_active then
+        self:juice_up()
+        return
+    end
+
     local coral = get_joker_with_key('j_ina_Coral')
     if coral and not coral.debuff and (self.edition or self.seal) then
         self:juice_up()
@@ -655,3 +669,37 @@ function create_card(type, area, skip_mat, edit, apply, seed, proto, genes)
     local card = c_card_ref(type, area, skip_mat, edit, apply, seed, proto, genes)
     return card
 end
+
+-- Athena: Hook ease_chips to prevent scoreboard increase during time freeze
+local original_ease_chips = ease_chips
+function ease_chips(mod)
+    local athena_active = false
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.key == 'j_ina_Athena' and not j.debuff and j.ability.extra and j.ability.extra.time_frozen then
+                athena_active = true
+                break
+            end
+        end
+    end
+    if athena_active then
+        return
+    end
+    original_ease_chips(mod)
+end
+
+-- Athena: Hook Game.update to reset time freeze once the hand scoring resolves and selecting resumes
+local original_game_update = Game.update
+function Game.update(self, dt)
+    original_game_update(self, dt)
+    if G.STATE == G.STATES.SELECTING_HAND then
+        if G.jokers and G.jokers.cards then
+            for _, j in ipairs(G.jokers.cards) do
+                if j.config.center.key == 'j_ina_Athena' and j.ability.extra and j.ability.extra.time_frozen then
+                    j.ability.extra.time_frozen = false
+                end
+            end
+        end
+    end
+end
+

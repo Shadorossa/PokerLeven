@@ -1072,6 +1072,12 @@ return {
                     "{C:attention}Cosechador:{} Gana {C:chips}+#1#{} fichas",
                     "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}" }
             },
+            j_ina_Athena = {
+                name = "Athena",
+                text = { "{C:forest}Hora Celestial{}",
+                    "{C:attention}Una vez por ronda{}, si está en la {C:attention}derecha{}:",
+                    "Juega una mano sin consumir manos jugadas y sin perder las cartas." }
+            },
             j_ina_Hermes = {
                 name = "Hermes",
                 text = { "{C:forest}Oro divino",

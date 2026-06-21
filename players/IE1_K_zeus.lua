@@ -1,4 +1,4 @@
-﻿-- Poseidon
+-- Poseidon
 local Poseidon = J({
   name = "Poseidon",
   pos = { x = 1, y = 12 },
@@ -281,6 +281,11 @@ local Hermes = J({
 local Athena = J({
   name = "Athena",
   pos = { x = 8, y = 12 },
+  config = { extra = { freeze_active = true, time_frozen = false, used_this_round = false, preview_cards = {} } },
+  loc_vars = function(self, info_queue, center)
+    local status = center.ability.extra.used_this_round and "Usado" or "Listo"
+    return { vars = { status } }
+  end,
   rarity = 1,
   pools = { ["ina_team_Zeus"] = true },
   cost = 5,
@@ -292,7 +297,79 @@ local Athena = J({
   pyear = C.YEAR_1,
   pdorsal = 8,
   pteam = "ina_team_Zeus",
-  calculate = function(self, card, context) end
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    -- Reset at the start of each blind
+    if context.setting_blind and not context.blueprint then
+      card.ability.extra.used_this_round = false
+      card.ability.extra.time_frozen = false
+      card.ability.extra.preview_cards = {}
+
+      if card:is_rightmost_joker() then
+        card_eval_status_text(card, 'extra', nil, nil, nil, {
+          message = '⏰ Tiempo Congelado',
+          colour = G.C.DARK_EDITION
+        })
+      end
+    end
+
+    -- Before hand is played: if rightmost and freeze available, save state
+    if context.before and context.cardarea == G.jokers
+        and not context.blueprint
+        and card:is_rightmost_joker()
+        and not card.ability.extra.used_this_round then
+
+      card.ability.extra.time_frozen = true
+      card.ability.extra.used_this_round = true
+      card.ability.extra.preview_cards = {}
+      card.ability.extra.saved_chips = G.GAME.chips
+
+      -- Save cards about to be played
+      if context.full_hand then
+        for _, c in ipairs(context.full_hand) do
+          table.insert(card.ability.extra.preview_cards, c)
+        end
+      end
+    end
+
+    -- After hand completes: if time was frozen, show preview then rewind
+    if context.after and not context.blueprint
+        and card.ability.extra.time_frozen
+        and card:is_rightmost_joker() then
+
+      -- Revert chips
+      if card.ability.extra.saved_chips then
+        G.GAME.chips = card.ability.extra.saved_chips
+      end
+      -- Restore hand count
+      ease_hands_played(1)
+
+      -- Return cards to hand
+      if G.hand and card.ability.extra.preview_cards then
+        for i, c in ipairs(card.ability.extra.preview_cards) do
+          if c.area == G.play then
+            G.play:remove_card(c)
+            draw_card(nil, G.hand, i*100/#card.ability.extra.preview_cards, 'up', true, c)
+            c.facing = 'front'
+            c.states.visible = true
+            c.states.drag.can = true
+            c.states.collide.can = true
+            c.states.hover.can = true
+            c.states.click.can = true
+          end
+        end
+      end
+
+      card_eval_status_text(card, 'extra', nil, nil, nil, {
+        message = '👁️ Vistazo del Destino',
+        colour = G.C.DARK_EDITION
+      })
+      card_eval_status_text(card, 'extra', nil, nil, nil, {
+        message = '⏪ Retroceso Temporal',
+        colour = G.C.DARK_EDITION
+      })
+    end
+  end,
 })
 
 -- Demeter
@@ -464,7 +541,7 @@ return {
   name = "Zeus",
   list = {
     Poseidon, Apollo, Hephestus, Artemis,
-    Hermes, Demeter, Aphrodite
+    Hermes, Athena, Demeter, Aphrodite
   }
 }
 

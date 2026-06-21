@@ -992,9 +992,17 @@ return {
             },
             j_ina_Artemis = {
                 name = "Artemis",
-                text = { "{C:wind}Flecha Divina{}",
-                    "{C:chips}+#1#{} fichas por cada {C:attention}As{}",
-                    "en tu mazo completo" }
+                text = { "{C:wind}Divine Arrow{}",
+                    "Scoring a face card {{C:attention}Seeds{} it.",
+                    "{{C:attention}Harvester:{} Gain {{C:chips}+#1#{} chips",
+                    "{{C:inactive}(Current:{{} {{C:chips}+#2#{{C:inactive}){}" }
+            },
+            j_ina_Athena = {
+                name = "Athena",
+                text = { "{C:forest}Heaven's Time{}",
+                    "{C:attention}Once per round{}, if positioned to the {C:attention}right{}:",
+                    "Play a hand to see the points it would give",
+                    "without consuming hands and without losing the cards." }
             },
             j_ina_Apollo = {
                 name = "Apollo",
