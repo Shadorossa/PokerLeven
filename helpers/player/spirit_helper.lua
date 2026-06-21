@@ -38,7 +38,7 @@ end
 Pokerleven.manage_spirit_charges = function(card, ctx)
     if not Pokerleven.is_spirit_active(card) then return end
     local ex = card.ability.extra
-    
+
     if ctx.setting_blind and not ctx.blueprint then
         card.ability.spirit_used_this_round = false
     end
@@ -60,7 +60,7 @@ Pokerleven.manage_spirit_charges = function(card, ctx)
         end
         local max_ch = get_max_charges(ex) or 1
         if G.GAME.blind:get_type() == 'Boss' then diff = diff + Pokerleven.modify_charges(card, math.max(1, math.floor(max_ch * 0.15))) end
-        
+
         if diff > 0 then return {message = "+" .. diff .. " Carga" .. (diff > 1 and "s" or ""), colour = G.C.PURPLE}
         elseif diff < 0 then return {message = diff .. " Carga", colour = G.C.RED} end
     end

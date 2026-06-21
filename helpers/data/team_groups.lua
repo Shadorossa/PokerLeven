@@ -78,7 +78,7 @@ Pokerleven.refresh_concept_boosts = function(target_concept, multiplier, boost_i
     end
 
     if boost_active then
-        local odds_mod = multiplier > 1 and 0.75 or 1.25 
+        local odds_mod = multiplier > 1 and 0.75 or 1.25
         for _, v in ipairs(G.jokers.cards) do
             if v.ability and v.ability.extra and Pokerleven.is_concept(v, target_concept) and v.ability.gives_boost ~= boost_id then
                 v.ability[tag .. "_originals"] = {}

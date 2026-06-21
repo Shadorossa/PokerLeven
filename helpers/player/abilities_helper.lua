@@ -105,12 +105,12 @@ Pokerleven.rescue_cards = function(cards_to_rescue)
         if not v.shattered and not v.destroyed then v.destroyed, v.shattered = true, true; s[#s+1] = v end
     end
     if #s > 0 then
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function() 
-            for i, v in ipairs(s) do 
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
+            for i, v in ipairs(s) do
                 v.destroyed, v.shattered = nil, nil
-                if v.area == G.play then draw_card(G.play, G.deck, i*100/#s, 'up', false, v) end 
-            end 
-            return true 
+                if v.area == G.play then draw_card(G.play, G.deck, i*100/#s, 'up', false, v) end
+            end
+            return true
         end}))
         return true
     end
@@ -195,11 +195,11 @@ Pokerleven.apply_stat_multiplier = function(card, id, multiplier)
     if not card or not card.ability or type(card.ability.extra) ~= "table" then return end
     card.ability.ina_stat_mults = card.ability.ina_stat_mults or {}
     if card.ability.ina_stat_mults[id] == multiplier then return end
-    
+
     if card.ability.ina_stat_mults[id] then
         Pokerleven.remove_stat_multiplier(card, id)
     end
-    
+
     card.ability.ina_stat_mults[id] = multiplier
     for k, _ in pairs(technique_values) do
         if card.ability.extra[k] ~= nil and type(card.ability.extra[k]) == "number" then
@@ -214,10 +214,10 @@ end
 Pokerleven.remove_stat_multiplier = function(card, id)
     if not card or not card.ability or type(card.ability.extra) ~= "table" then return end
     if not card.ability.ina_stat_mults or not card.ability.ina_stat_mults[id] then return end
-    
+
     local multiplier = card.ability.ina_stat_mults[id]
     card.ability.ina_stat_mults[id] = nil
-    
+
     for k, _ in pairs(technique_values) do
         if card.ability.extra[k] ~= nil and type(card.ability.extra[k]) == "number" then
             local val = card.ability.extra[k] / multiplier
@@ -293,28 +293,28 @@ end
 ---@return table|nil result, table mutated_ability
 Pokerleven.evaluate_copied_joker = function(card, copied_key, copied_ability, ctx)
     if not copied_key or copied_key == 'Ninguno' then return nil, copied_ability end
-    
+
     local copied_center = G.P_CENTERS[copied_key]
     if not copied_center then return nil, copied_ability end
-    
+
     local orig_center = card.config.center
     local orig_ability = card.ability
-    
+
     local current_copied_ability = copy_table(copied_ability or copied_center.config or {})
-    
+
     -- Swap
     card.config.center = copied_center
     card.ability = current_copied_ability
-    
+
     -- Calculate
     local result = card:calculate_joker(ctx)
-    
+
     -- Store mutated ability
     local new_copied_ability = copy_table(card.ability)
-    
+
     -- Restore
     card.config.center = orig_center
     card.ability = orig_ability
-    
+
     return result, new_copied_ability
 end

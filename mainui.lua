@@ -10,6 +10,7 @@ local input_handlers = dofile(ui_path .. "input_handlers.lua")
 local config_tab     = dofile(ui_path .. "config_tab.lua")
 local credits_tab    = dofile(ui_path .. "credits_tab.lua")
 local gacha          = dofile(ui_path .. "gacha.lua")
+local formation      = dofile(ui_path .. "formation.lua")
 
 -- Wire inter-module dependencies
 joker_overlays.setup(card_creation, card_areas, tabs)
@@ -25,6 +26,7 @@ Pokerleven.ui.create_tab_from_card_area           = tabs.create_tab_from_card_ar
 Pokerleven.ui.create_tabs_menu                    = tabs.create_tabs_menu
 Pokerleven.ui.create_overlay_for_joker_properties = joker_overlays.create_overlay_for_joker_properties
 Pokerleven.ui.create_UIBox_gacha                  = gacha.create_UIBox_gacha
+Pokerleven.ui.create_UIBox_formation              = formation.create_UIBox_formation
 
 -- Register SMODS hooks
 SMODS.current_mod.config_tab  = config_tab.create_config_tab
@@ -32,3 +34,4 @@ SMODS.current_mod.extra_tabs  = credits_tab.create_extra_tabs
 
 -- Setup G.FUNCS that need deferred init
 gacha.setup()
+formation.setup()

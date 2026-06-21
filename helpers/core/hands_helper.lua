@@ -160,4 +160,3 @@ Pokerleven.get_rank_with_min_frequency = function(hand, threshold)
   end
   return nil
 end
-

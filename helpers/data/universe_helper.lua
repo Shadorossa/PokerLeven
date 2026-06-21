@@ -10,7 +10,7 @@ Pokerleven.Universe = {
             is_corrupt = true
         }
     },
-    
+
     update_eris_state = function()
         local act = false
         for _, area in ipairs({G.jokers, Pokerleven.ina_spirits_area}) do
@@ -30,11 +30,11 @@ Pokerleven.Universe = {
         for r_name, data in pairs(Pokerleven.Universe.realities) do if data.teams[t_name] then return r_name end end
         return "Base"
     end,
-    
+
     is_joker_allowed = function(center)
         if not center.pteam then return true end
         local u = Pokerleven.Universe
-        
+
         if u.eris_active and not u.realities.Corrupta.teams[center.pteam] then
             for _, f in ipairs(family) do
                 local has_c, is_in = false, false

@@ -821,4 +821,37 @@ if ((to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) and not monstro_active) 
 '''
 match_indent = true
 
+# Chemistry Formation Boost
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "mult = mod_mult(mult)"
+position = "before"
+payload = '''
+    if Pokerleven and Pokerleven.calculate_chemistry_boost then
+        local chem_mult = Pokerleven.calculate_chemistry_boost()
+        if chem_mult > 1 then
+            mult = mult * chem_mult
+            update_hand_text({delay = 0}, {mult = mult})
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+                func = function()
+                    attention_text({
+                        text = 'Química: X' .. string.format("%.2f", chem_mult),
+                        scale = 0.8,
+                        hold = 1,
+                        cover = G.HUD:get_UIE_by_ID('mult_display'),
+                        cover_colour = G.C.RED,
+                        align = 'cm'
+                    })
+                    return true
+                end
+            }))
+        end
+    end
+'''
+match_indent = true
+
+
 

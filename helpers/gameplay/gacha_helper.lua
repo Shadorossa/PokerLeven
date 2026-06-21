@@ -39,7 +39,7 @@ Pokerleven.gacha_base_rates = {
 
 Pokerleven.get_gacha_rates = function(coin_id)
     local rates = Pokerleven.gacha_base_rates[coin_id or 'blue']
-    
+
     -- 1. Identify selected teams
     local active_teams = {}
     for k, v in pairs(Pokerleven.gacha_selected_teams) do
@@ -52,7 +52,7 @@ Pokerleven.get_gacha_rates = function(coin_id)
     local cards_by_rarity = { [1] = 0, [2] = 0, [3] = 0, ["ina_top"] = 0, [4] = 0 }
     local total_cards = 0
     local pool_by_rarity = { [1] = {}, [2] = {}, [3] = {}, ["ina_top"] = {}, [4] = {} }
-    
+
     for _, v in pairs(G.P_CENTERS) do
         if v.pteam and active_teams[v.pteam] then
             -- Allow if it's NOT auxiliary OR if it's an unlocked auxiliary (like IJ with voucher)
@@ -75,11 +75,11 @@ Pokerleven.get_gacha_rates = function(coin_id)
         { val = 2, name = "Uncommon" },
         { val = 1, name = "Common" }
     }
-    
+
     local final_rates = {}
     local total_weight = 0
     local adjusted_weights = {}
-    
+
     for _, cfg in ipairs(rarity_config) do
         local count = cards_by_rarity[cfg.val] or 0
         -- Rate is diluted by the ratio of this rarity vs total cards
@@ -95,7 +95,7 @@ Pokerleven.get_gacha_rates = function(coin_id)
     else
         for r_val, _ in pairs(cards_by_rarity) do final_rates[r_val] = 0 end
     end
-    
+
     return final_rates, pool_by_rarity
 end
 
@@ -112,7 +112,7 @@ end
 -- Update Gacha Tooltips and labels manually to avoid menu refresh
 local function update_gacha_ui_silent(e)
     if not e or not e.UIBox then return end
-    
+
     -- 1. Update the "Selected Teams" counter label
     local count_node = e.UIBox:get_UIE_by_ID('gacha_selected_count_text')
     if count_node and count_node.config.object then
@@ -126,10 +126,10 @@ local function update_gacha_ui_silent(e)
         if node then
             local dyn_rates = Pokerleven.get_gacha_rates(id)
             node.config.on_demand_tooltip.text = {
-                "Común: " .. (math.floor(dyn_rates[1]*100)/100) .. "%", 
-                "Inusual: " .. (math.floor(dyn_rates[2]*100)/100) .. "%", 
-                "Raro: " .. (math.floor(dyn_rates[3]*100)/100) .. "%", 
-                "Destacado: " .. (math.floor(dyn_rates["ina_top"]*100)/100) .. "%", 
+                "Común: " .. (math.floor(dyn_rates[1]*100)/100) .. "%",
+                "Inusual: " .. (math.floor(dyn_rates[2]*100)/100) .. "%",
+                "Raro: " .. (math.floor(dyn_rates[3]*100)/100) .. "%",
+                "Destacado: " .. (math.floor(dyn_rates["ina_top"]*100)/100) .. "%",
                 "Legendario: " .. (math.floor(dyn_rates[4]*100)/100) .. "%"
             }
         end
@@ -188,7 +188,7 @@ G.FUNCS.ina_gacha_roll = function(e)
   local coin_id = Pokerleven.gacha_selected_coin
   if not coin_id then return end
   G.GAME.ina_gacha_coins = G.GAME.ina_gacha_coins or {blue = 0, red = 0, silver = 0, purple = 0, gold = 0}
-  
+
   if Pokerleven.gacha_selected_count < 2 then
       play_sound('cancel', 0.5, 0.3)
       return
@@ -221,7 +221,7 @@ G.FUNCS.ina_gacha_roll = function(e)
   local roll = pseudorandom("gacha_rarity_" .. coin_id .. G.GAME.round_resets.ante) * total_weight
   local rarity_rolled = 1
   local cumulative = 0
-  
+
   local rarity_config = {
       { val = 4 },
       { val = "ina_top" },

@@ -29,10 +29,10 @@ Pokerleven.play_1v1_turn = function(blind, ctx, team_config)
         for _, v in ipairs(ai_hands) do tw = tw + v.weight end
         local roll, s_hand = pseudorandom(pseudoseed("ai_hand")) * tw, "Pair"
         for _, v in ipairs(ai_hands) do if roll <= v.weight then s_hand = v.hand; break end; roll = roll - v.weight end
-        
+
         local h_chips, h_mult = G.GAME.hands[s_hand].chips or 10, G.GAME.hands[s_hand].mult or 2
         local c_chips = math.floor(pseudorandom(pseudoseed("ai_cards")) * 30) + 15
-        
+
         local ai_chips, ai_mult, ai_xmult, techs = 0, 0, 1, {}
         if blind.ai_jokers and #blind.ai_jokers > 0 then
             for _, v in ipairs(blind.ai_jokers) do
@@ -44,7 +44,7 @@ Pokerleven.play_1v1_turn = function(blind, ctx, team_config)
 
         local score = math.floor((h_chips + c_chips + ai_chips) * (h_mult + ai_mult) * ai_xmult)
         blind.ai_score = (blind.ai_score or 0) + score
-        
+
         local tech = pseudorandom_element(techs, pseudoseed("ai_tech"))
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.0, func = function()
             play_sound('gong', 0.9, 1.2)
@@ -52,7 +52,7 @@ Pokerleven.play_1v1_turn = function(blind, ctx, team_config)
             attention_text({text = "Rival:\n" .. localize(s_hand, 'poker_hands'), scale = 0.4, hold = 1.8, cover = box, cover_colour = G.C.ORANGE, align = 'cm', maxw = 2.8})
             return true
         end}))
-        
+
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.6, func = function()
             play_sound('gong', 1.1, 1.3)
             local box = G.HUD_blind and G.HUD_blind:get_UIE_by_ID('HUD_blind_count') and G.HUD_blind:get_UIE_by_ID('HUD_blind_count').parent.parent or G.HUD_blind
@@ -79,12 +79,12 @@ Pokerleven.start_penalty_shootout = function(blind, on_complete)
         on_complete = on_complete,
         gk_offset_x = 0
     }
-    
+
     local blind_sprite = AnimatedSprite(0, 0, 2, 2, blind.children.animatedSprite.atlas, blind.children.animatedSprite.sprite_pos)
     blind_sprite:define_draw_steps({{shader = 'dissolve', shadow_height = 0.05}, {shader = 'dissolve'}})
     blind_sprite.states.drag.can = false; blind_sprite.states.hover.can = false
     Pokerleven.penalty_shootout.goalkeeper = blind_sprite
-    
+
     G.SETTINGS.paused = true
     G.FUNCS.overlay_menu({
         definition = Pokerleven.create_penalty_ui(),
@@ -137,7 +137,7 @@ G.FUNCS.penalty_shoot = function(e)
     local dir = e.config.ref_table.dir
     local dirs = {'left', 'center', 'right'}
     local gk_dir = dirs[math.random(1, 3)]
-    
+
     local b_l = G.OVERLAY_MENU:get_UIE_by_ID('pen_left')
     local b_c = G.OVERLAY_MENU:get_UIE_by_ID('pen_center')
     local b_r = G.OVERLAY_MENU:get_UIE_by_ID('pen_right')
@@ -146,10 +146,10 @@ G.FUNCS.penalty_shoot = function(e)
     if b_r then b_r.config.button = nil; b_r.config.colour = G.C.UI.BACKGROUND_INACTIVE end
 
     local gk_node = G.OVERLAY_MENU:get_UIE_by_ID('gk_sprite')
-    
+
     local offset_x = (gk_dir == 'left' and -2.85) or (gk_dir == 'right' and 2.85) or 0
     G.E_MANAGER:add_event(Event({trigger = 'ease', ref_table = Pokerleven.penalty_shootout, ref_value = 'gk_offset_x', ease_to = offset_x, delay = 0.3, func = (function(t) return t end)}))
-    
+
     G.E_MANAGER:add_event(Event({
         trigger = 'after', delay = 0.4, func = function()
             local scored = (dir ~= gk_dir)
@@ -166,7 +166,7 @@ G.FUNCS.penalty_shoot = function(e)
             return true
         end
     }))
-    
+
     G.E_MANAGER:add_event(Event({
         trigger = 'after', delay = 1.2, func = function()
             if Pokerleven.penalty_shootout.attempts >= Pokerleven.penalty_shootout.max_attempts then

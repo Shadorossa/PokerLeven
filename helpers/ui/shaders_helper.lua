@@ -26,14 +26,14 @@ SMODS.DrawStep({
             local sticker = G.shared_stickers[sticker_key]
             if sticker and card.VT and sticker.VT then
                 local old_x, old_y, old_r, old_scale = sticker.VT.x, sticker.VT.y, sticker.VT.r, sticker.VT.scale
-                
+
                 sticker.VT.x = card.VT.x + card.VT.w/2 - sticker.VT.w/2
                 sticker.VT.y = card.VT.y + card.VT.h/2 - sticker.VT.h/2
                 sticker.VT.r = card.VT.r
                 sticker.VT.scale = card.VT.scale * (card.T.w / G.CARD_W)
-                
+
                 sticker:draw_shader('dissolve', nil, nil, true)
-                
+
                 sticker.VT.x = old_x
                 sticker.VT.y = old_y
                 sticker.VT.r = old_r

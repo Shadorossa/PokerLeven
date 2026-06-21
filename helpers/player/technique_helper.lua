@@ -148,7 +148,7 @@ function set_sticker(card)
     end
     if card.ability.ina_tech_cap_plus_sticker then card.ability.ina_tech_cap_plus_sticker = false end
     if card.ability.ina_tech_cap_plus_max_sticker then card.ability.ina_tech_cap_plus_max_sticker = false end
-    
+
     local is_small = Pokerleven and (Pokerleven.is_spirit(card) or Pokerleven.is_manager(card))
     local ex = card.ability.extra
 
@@ -204,12 +204,12 @@ increment_technique = function(card)
     if card.ability.extra and type(card.ability.extra) == "table" then
         local old_level = card.ability.extra.tech_level or 1
         local new_level = old_level + 1
-        
+
         -- Salto directo al CAP+ para no_training (Nivel 1 -> 7)
         if card.ability.extra.no_training and old_level == 1 then
             new_level = 7
         end
-        
+
         card.ability.extra.tech_level = new_level
 
         -- Aplicar flags de CAP y efectos (Niveles 7 y 8 exclusivos para veteranos)
@@ -256,13 +256,13 @@ modify_values = function(card)
     for name, addition in pairs(technique_values) do
         local center = G.P_CENTERS[card.config.center.key] or card.config.center
         local base_val = center.config.extra and center.config.extra[name] or 1
-        
+
         if type(ex[name]) == "number" then
             -- Fórmula final: Base + (Base * (Lvl-1) * Incremento * Mult_CAP)
             -- El Mult_CAP solo afecta al incremento, no a la base.
             local bonus = base_val * (tech_level - 1) * addition * mult
             ex[name] = base_val + bonus
-            
+
             if roundable_fields[name] then
                 ex[name] = math.floor(ex[name] + 0.5)
             end
