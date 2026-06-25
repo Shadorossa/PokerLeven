@@ -485,11 +485,19 @@ return {
         },
         j_ina_Ganymede = {
             name = "Ganymede",
-            text = { "{C:mountain}Gravitación{}", 
+            text = { "{C:mountain}Gravitación{}",
                 "Si tienes otro Joker de {C:mountain}Montaña{},",
-                "previene la muerte una vez (se destruye)"
+                "previene la muerte una vez ({C:red}se destruye{})"
             },
             unlock = { "Gana una ronda con {C:attention}0 cartas{} en tu mano" }
+        },
+        j_ina_Ganymede_1 = {
+            name = "Ganymede",
+            text = { "{C:mountain}Gravitación{}",
+                "Si tienes otro Joker de {C:mountain}Montaña{},",
+                "previene la muerte una vez ({C:red}se destruye{}).",
+                "Da {C:money}$#1#{}{} al morir"
+            },
         },
         j_ina_Coral = {
             name = "Coral",
@@ -812,7 +820,7 @@ return {
             },
         },
 
-        j_ina_1er = {
+        j_ina_Ace_Server = {
             name = "Ace Server",
             text = { {
                 "{C:fire}Puño vengativo{}",

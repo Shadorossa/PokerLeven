@@ -52,10 +52,10 @@ local Galileo = J({
 local Coral = J({
   name = "Coral",
   pos = { x = 2, y = 0 },
-  config = { extra = { mult_mod = 10 } },
+  config = { extra = { half_scaling = 10 } },
   loc_vars = function(self, info_queue, center)
     local df_count = G.jokers and #find_player_position("DF") or 0
-    local mult = center.ability.extra.mult_mod
+    local mult = center.ability.extra.half_scaling or 10
     if df_count >= 2 then mult = mult * 2 end
     return { vars = { mult } }
   end,
@@ -77,7 +77,7 @@ local Coral = J({
   calculate = function(self, card, context)
     if context.joker_main and context.scoring_hand then
       if #context.full_hand <= 3 then
-        local mult_gain = card.ability.extra.mult_mod
+        local mult_gain = card.ability.extra.half_scaling or 10
         local df_count = #find_player_position("DF")
         if df_count >= 2 then
           mult_gain = mult_gain * 2
@@ -96,9 +96,9 @@ local Coral = J({
 local Gigs = J({
   name = "Gigs",
   pos = { x = 3, y = 0 },
-  config = { extra = { evolving_retriggers_low = 1 } },
+  config = { extra = { evolving_retriggers = 1 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.evolving_retriggers_low } }
+    return { vars = { center.ability.extra.evolving_retriggers } }
   end,
   rarity = 1, -- Common
   pools = { ["Geminis"] = true },
@@ -118,7 +118,7 @@ local Gigs = J({
         if fire_count >= 2 then
           return {
             message = localize('k_again_ex'),
-            repetitions = card.ability.extra.evolving_retriggers_low,
+            repetitions = card.ability.extra.evolving_retriggers,
             card = card
           }
         end
@@ -131,9 +131,12 @@ local Gigs = J({
 local Ganymede = J({
   name = "Ganymede",
   pos = { x = 4, y = 0 },
-  config = { extra = {} },
+  config = { extra = { mult_mod_low = 20 } },
   loc_vars = function(self, info_queue, center)
-    return {}
+    local tech = center.ability.extra.tech_level or 0
+    local key = tech >= 1 and 'j_ina_Ganymede_1' or 'j_ina_Ganymede'
+    local money_val = tech >= 1 and center.ability.extra.mult_mod_low or 0
+    return { key = key, vars = { money_val } }
   end,
   rarity = 1, -- Common
   pools = { ["Geminis"] = true },
@@ -154,6 +157,8 @@ local Ganymede = J({
     if context.game_over and not G.GAME.perish_prevented and not G.GAME.game_over_check then
       local mountain_count = #find_player_type("Mountain")
       if mountain_count >= 2 then
+        local tech = card.ability.extra.tech_level or 0
+
         G.GAME.game_over_check = true
         G.E_MANAGER:add_event(Event({
           func = function()
@@ -164,6 +169,12 @@ local Ganymede = J({
             return true
           end
         }))
+
+        local money_gain = tech >= 1 and card.ability.extra.mult_mod_low or 0
+        if money_gain > 0 then
+          ease_dollars(money_gain)
+        end
+
         return {
           message = localize('k_saved'),
           saved = true,

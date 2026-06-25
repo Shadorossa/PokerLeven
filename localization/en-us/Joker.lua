@@ -976,9 +976,17 @@ return {
 				name = "Ganymede",
 				text = { "{C:mountain}Gravitation{}",
 					"If you have another {C:mountain}Mountain{} Joker,",
-					"prevents death once (destroys self)"
+					"prevents death once ({C:red}destroys self{})"
 				},
 				unlock = { "Win a round with {C:attention}0 cards{} in your hand" }
+			},
+			j_ina_Ganymede_1 = {
+				name = "Ganymede",
+				text = { "{C:mountain}Gravitation{}",
+					"If you have another {C:mountain}Mountain{} Joker,",
+					"prevents death once ({C:red}destroys self{}).",
+					"Gives {C:money}$#1#{}{} on death"
+				},
 			},
 			j_ina_Coral = {
 				name = "Coral",

@@ -403,6 +403,113 @@ return {
                 "{C:inactive}(Actual:{} {X:chips,C:white}X#2#{}{C:inactive}){}" }
         },
 
+        -- Tormenta de Géminis
+        j_ina_Janus = {
+            name = "Janus",
+            text = { "{C:forest}Astro Remate{}", 
+                "Empieza con {X:mult,C:white}X1{} Multi",
+                "Gana {X:mult,C:white}X#2#{} Multi por cada",
+                "{C:planet}Planeta{} usado esta partida",
+                "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}{C:inactive}){}" 
+            },
+            unlock = { "Usa {C:attention}25 cartas de Planeta{}", "{C:inactive}(#1#/#2#){}" }
+        },
+        j_ina_Galileo = {
+            name = "Galileo",
+            text = { "{C:forest}Agujero Negro{}", 
+                "Gana {C:mult}+#1#{} Multi por cada",
+                "carta {C:attention}destruida{}",
+                "{C:inactive}(Actual:{} {C:mult}+#2#{}{C:inactive}){}" 
+            },
+            unlock = { "Destruye {C:attention}100 cartas{} en total", "{C:inactive}(#1#/#2#){}" }
+        },
+        j_ina_Pandora = {
+            name = "Pandora",
+            text = { "{C:wind}Disparo Fantasma{}", 
+                "Al destruir una carta jugada, {C:green}#3# en #2#{} de",
+                "crear un {C:planet}Planeta{}. La probabilidad",
+                "aumenta por cada Joker de {C:wind}Viento{}.",
+                "Si es {C:attention}100% o más{}, crea un {C:dark_edition}Planeta Negativo{}"
+            },
+            unlock = { "Usa {C:attention}5 cartas de Planeta{} en una sola ronda" }
+        },
+        j_ina_Diam = {
+            name = "Diam",
+            text = { "{C:forest}Remate de Fotones{}", 
+                "Al puntuar, destruye {C:attention}1 carta{} de tu mano",
+                "por cada Joker del {C:attention}Tormenta de Géminis{}.",
+                "Gana {C:chips}+#1#{} Fichas por carta destruida {C:attention}esta mano{}."
+            },
+            unlock = { "Destruye {C:attention}5 o más cartas{}", "en una sola mano" }
+        },
+        j_ina_Rihm = {
+            name = "Rihm",
+            text = { "{C:forest}Remate de Seguridad{}", 
+                "{C:green}#1# en #2#{} de destruir las cartas",
+                "puntuadas de la {C:attention}Mano Ganadora{}"
+            },
+            unlock = { "Gana una ronda con sólo {C:attention}1 mano{} jugada" }
+        },
+        j_ina_Grengo = {
+            name = "Grengo",
+            text = { "{C:mountain}Explosión Universal{}", 
+                "Gana {C:chips}+#1#{} Fichas por cada carta",
+                "que falte en tu mazo (menos de 52)",
+                "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}"
+            },
+            unlock = { "Gana una partida con {C:attention}20 cartas o menos{}", "en tu mazo" }
+        },
+        j_ina_Io = {
+            name = "Io",
+            text = { "{C:fire}Orbe de Fuego{}", 
+                "Gana {C:chips}+#1#{} Fichas por cada",
+                "Joker de {C:fire}Fuego{} que tengas",
+                "{C:inactive}(Actual:{} {C:chips}+#2#{}{C:inactive}){}"
+            },
+            unlock = { "Ten {C:attention}3 Comodines de Fuego{} simultáneamente" }
+        },
+        j_ina_Charon = {
+            name = "Charon",
+            text = { "{C:fire}Fotón Flash{}", 
+                "Al jugar {C:attention}Color{}, destruye la carta",
+                "más a la derecha de la mano y otorga {C:mult}+#1#{} Multi"
+            },
+            unlock = { "Juega un {C:attention}Color{} con", "3 o más {C:hearts}Corazones{}" }
+        },
+        j_ina_Gigs = {
+            name = "Gigs",
+            text = { "{C:fire}Robo Ígneo{}", 
+                "Si tienes otro Joker de {C:fire}Fuego{},",
+                "reactiva la primera carta jugada {C:attention}#1#{} vez/veces"
+            },
+            unlock = { "Juega {C:attention}1000 cartas{} en total", "{C:inactive}(#1#/#2#){}" }
+        },
+        j_ina_Ganymede = {
+            name = "Ganymede",
+            text = { "{C:mountain}Gravitación{}",
+                "Si tienes otro Joker de {C:mountain}Montaña{},",
+                "previene la muerte una vez ({C:red}se destruye{})"
+            },
+            unlock = { "Gana una ronda con {C:attention}0 cartas{} en tu mano" }
+        },
+        j_ina_Ganymede_1 = {
+            name = "Ganymede",
+            text = { "{C:mountain}Gravitación{}",
+                "Si tienes otro Joker de {C:mountain}Montaña{},",
+                "previene la muerte una vez ({C:red}se destruye{}).",
+                "Da {C:money}$#1#{}{} al morir"
+            },
+        },
+        j_ina_Coral = {
+            name = "Coral",
+            text = { "{C:wind}Defensa Coral{}", 
+                "{C:mult}+#1#{} Multi si la mano jugada tiene",
+                "{C:attention}3 cartas o menos{}.",
+                "Se duplica si tienes otro Joker {X:df,C:white}DF{}"
+            },
+            unlock = { "Gana una ronda jugando sólo manos", "de {C:attention}3 cartas o menos{}" }
+        },
+
         j_ina_Island = {
             name = "Island",
             text = { "{C:forest}Zig zag chispeante{}",
@@ -878,6 +985,6 @@ return {
             text = {
                 "{C:dark_edition,E:1}Por favor espere un poco más{}"
             }
-        }
+        },
     },
 }

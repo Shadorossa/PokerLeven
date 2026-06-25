@@ -40,6 +40,7 @@ technique_values = {
     odds4 = -0.1499,
     odds2 = -0.1,
     mult_per_level = 1,
+    half_scaling = .5,
 }
 
 local roundable_fields = {
