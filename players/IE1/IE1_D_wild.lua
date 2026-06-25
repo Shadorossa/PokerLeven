@@ -1,5 +1,5 @@
 -- Chicken
-local Chicken = {
+local Chicken = J({
     name = "Chicken",
     pos = { x = 11, y = 3 },
     config = { extra = { money = 4, odds = 2, triggered = false } },
@@ -10,8 +10,8 @@ local Chicken = {
     pools = { ["Wild"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "MF", -- Midfielder
+    ptype = C.Fire,
+    pposition = C.MF, -- Midfielder
     pteam = "Wild",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -27,10 +27,10 @@ local Chicken = {
             end
         end
     end,
-}
+})
 
 -- Boar
-local Boar = {
+local Boar = J({
     name = "Boar",
     pos = { x = 10, y = 3 },
     config = { extra = { triggered = false, cards_removed = 0 } },
@@ -41,8 +41,8 @@ local Boar = {
     pools = { ["Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "GK", -- Goalkeeper
+    ptype = C.Fire,
+    pposition = C.GK, -- Goalkeeper
     pteam = "Wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -71,7 +71,7 @@ local Boar = {
     ina_credits = {
         idea = { "YellowAlberto" }
     }
-}
+})
 
 -- Chamaleon
 local Chamaleon = J({
@@ -85,8 +85,8 @@ local Chamaleon = J({
     pools = { ["Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
+    ptype = C.Wind,
+    pposition = C.MF, -- Midfielder
     pteam = "Wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -149,7 +149,7 @@ local Chamaleon = J({
 })
 
 -- Eagle
-local Eagle = {
+local Eagle = J({
     name = "Eagle",
     pos = { x = 3, y = 4 },
     config = { extra = { current_mult = 0, mult_mod_low = 1, triggered = false } },
@@ -160,8 +160,8 @@ local Eagle = {
     pools = { ["Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
+    ptype = C.Wind,
+    pposition = C.MF, -- Midfielder
     pteam = "Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -194,10 +194,10 @@ local Eagle = {
             "Shadorossa",
         }
     },
-}
+})
 
 -- Monkey
-local Monkey = {
+local Monkey = J({
     name = "Monkey",
     pos = { x = 4, y = 4 },
     config = { extra = { wild_count = 0, triggered = false } },
@@ -209,8 +209,8 @@ local Monkey = {
     pools = { ["Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
+    ptype = C.Wind,
+    pposition = C.MF, -- Midfielder
     pteam = "Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -241,10 +241,10 @@ local Monkey = {
             "Shadorossa",
         }
     },
-}
+})
 
 -- Gorilla
-local Gorilla = {
+local Gorilla = J({
     name = "Gorilla",
     pos = { x = 5, y = 4 },
     config = { extra = {} },
@@ -255,8 +255,8 @@ local Gorilla = {
     pools = { ["Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "FW", -- Forward
+    ptype = C.Mountain,
+    pposition = C.FW, -- Forward
     pteam = "Wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -272,10 +272,10 @@ local Gorilla = {
             }))
         end
     end
-}
+})
 
 -- Cheetah
-local Cheetah = {
+local Cheetah = J({
     name = "Cheetah",
     pos = { x = 7, y = 4 },
     config = { extra = { current_element = "Wind", possible_elements = { "Wind", "Fire", "Forest", "Mountain" }, triggered = false } },
@@ -327,7 +327,7 @@ local Cheetah = {
             "Shadorossa",
         }
     },
-}
+})
 
 return {
     name = "Wild",

@@ -1,5 +1,5 @@
 -- Poseidon
-local Poseidon = {
+local Poseidon = J({
   name = "Poseidon",
   pos = { x = 5, y = 12 },
   config = { extra = { min_face = 3, barriers_added = 1, chips_mod = 40, barriers = 1 } },
@@ -17,8 +17,8 @@ local Poseidon = {
   pools = { ["Zeus"] = true },
   cost = 8,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "GK",
+  ptype = C.Mountain,
+  pposition = C.GK,
   techtype = C.UPGRADES.Number,
   pteam = "Zeus",
   blueprint_compat = true,
@@ -41,7 +41,7 @@ local Poseidon = {
       return Pokerleven.ease_barriers(barriers)
     end
   end
-}
+})
 
 -- Hephestus
 local Hephestus = J({
@@ -54,8 +54,8 @@ local Hephestus = J({
   pools = { ["Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "DF",
+  ptype = C.Fire,
+  pposition = C.DF,
   techtype = C.UPGRADES.Number,
   pteam = "Zeus",
   blueprint_compat = true,
@@ -91,7 +91,7 @@ local Hephestus = J({
 })
 
 -- Apollo
-local Apollo = {
+local Apollo = J({
   name = "Apollo",
   pos = { x = 6, y = 12 },
   config = { extra = { chips_mod = 14, alt_chips_mod = 4, mult_mod_low = 3, current_chips = 0, current_mult = 0, triggered = false } },
@@ -102,8 +102,8 @@ local Apollo = {
   pools = { ["Zeus"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Forest,
+  pposition = C.DF,
   techtype = C.UPGRADES.Plus,
   pteam = "Zeus",
   blueprint_compat = true,
@@ -138,7 +138,7 @@ local Apollo = {
   ina_credits = {
     idea = { "Shadorossa" },
   }
-}
+})
 
 -- Artemis
 local Artemis = J({
@@ -193,7 +193,7 @@ local Artemis = J({
 })
 
 -- Hermes
-local Hermes = {
+local Hermes = J({
   name = "Hermes",
   pos = { x = 11, y = 12 },
   config = { extra = {} },
@@ -204,8 +204,8 @@ local Hermes = {
   pools = { ["Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "MF", -- Midfielder
+  ptype = C.Forest,
+  pposition = C.MF, -- Midfielder
   pteam = "Zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -225,10 +225,10 @@ local Hermes = {
   ina_credits = {
     idea = { "LegendaryAd" },
   }
-}
+})
 
 -- Demeter
-local Demeter = {
+local Demeter = J({
   name = "Demeter",
   pos = { x = 0, y = 13 },
   config = { extra = { mult_mod_low = 4, chip_mod = 10 } },
@@ -271,7 +271,7 @@ local Demeter = {
   ina_credits = {
     idea = { "Shadorossa" },
   }
-}
+})
 
 -- Aphrodite
 ---@param card Card
@@ -337,8 +337,8 @@ local Aphrodite = J({
   rarity = 4, -- Legendary
   cost = 15,
   atlas = "legendary01",
-  ptype = "Forest",
-  pposition = "MF", -- Midfielder
+  ptype = C.Forest,
+  pposition = C.MF, -- Midfielder
   techtype = C.UPGRADES.Plus,
   pteam = "Zeus",
   blueprint_compat = true,

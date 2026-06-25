@@ -1,5 +1,5 @@
 -- Talisman
-local Talisman = {
+local Talisman = J({
   name = "Talisman",
   pos = { x = 11, y = 1 },
   config = { extra = { evolving_retriggers = 1, triggered = false } },
@@ -10,8 +10,8 @@ local Talisman = {
   pools = { ["Occult"] = true },
   cost = 8,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "FW",
+  ptype = C.Forest,
+  pposition = C.FW,
   pteam = "Occult",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -34,10 +34,10 @@ local Talisman = {
       end
     end
   end,
-}
+})
 
 -- Wolfy
-local Wolfy = {
+local Wolfy = J({
   name = "Wolfy",
   pos = { x = 12, y = 1 },
   config = { extra = { xmult_mod = 0.4, triggered = false } },
@@ -48,8 +48,8 @@ local Wolfy = {
   pools = { ["Occult"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "FW",
+  ptype = C.Fire,
+  pposition = C.FW,
   techtype = C.UPGRADES.Number,
   pteam = "Occult",
   blueprint_compat = true,
@@ -66,10 +66,10 @@ local Wolfy = {
       }
     end
   end,
-}
+})
 
 -- Blood
-local Blood = {
+local Blood = J({
   name = "Blood",
   pos = { x = 0, y = 2 },
   config = { extra = { drain = 1, chips_mod = 10, triggered = false } },
@@ -80,8 +80,8 @@ local Blood = {
   pools = { ["Occult"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "MF",
+  ptype = C.Mountain,
+  pposition = C.MF,
   pteam = "Occult",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -103,10 +103,10 @@ local Blood = {
       end
     end
   end,
-}
+})
 
 -- Grave
-local Grave = {
+local Grave = J({
   name = "Grave",
   pos = { x = 10, y = 1 },
   config = { extra = { odds = 5, triggered = false } },
@@ -117,8 +117,8 @@ local Grave = {
   pools = { ["Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "MF",
+  ptype = C.Fire,
+  pposition = C.MF,
   pteam = "Occult",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -154,10 +154,10 @@ local Grave = {
       end
     end
   end
-}
+})
 
 -- Mask
-local Mask = {
+local Mask = J({
   name = "Mask",
   pos = { x = 3, y = 1 },
   config = { extra = { sell_value = 6 } },
@@ -168,8 +168,8 @@ local Mask = {
   pools = { ["Occult"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Wind",
-  pposition = "GK",
+  ptype = C.Wind,
+  pposition = C.GK,
   pteam = "Occult",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -209,10 +209,10 @@ local Mask = {
       end
     end
   end,
-}
+})
 
 -- Styx
-local Styx = {
+local Styx = J({
   name = "Styx",
   pos = { x = 4, y = 1 },
   config = { extra = { chips_mod = 9, triggered = false } },
@@ -227,8 +227,8 @@ local Styx = {
   pools = { ["Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Forest,
+  pposition = C.DF,
   pteam = "Occult",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -246,10 +246,10 @@ local Styx = {
       end
     end
   end,
-}
+})
 
 -- Franky
-local Franky = {
+local Franky = J({
   name = "Franky",
   pos = { x = 6, y = 1 },
   config = { extra = { mult_mod = 16, triggered = false } },
@@ -260,8 +260,8 @@ local Franky = {
   pools = { ["Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "DF",
+  ptype = C.Mountain,
+  pposition = C.DF,
   techtype = C.UPGRADES.Number,
   pteam = "Occult",
   blueprint_compat = true,
@@ -277,10 +277,10 @@ local Franky = {
       end
     end
   end,
-}
+})
 
 -- Mummy
-local Mummy = {
+local Mummy = J({
   name = "Mummy",
   pos = { x = 9, y = 1 },
   config = { extra = { mult_mod = 4, chip_mod = 4, suit = "Clubs", triggered = false } },
@@ -294,8 +294,8 @@ local Mummy = {
   pools = { ["Occult"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "MF",
+  ptype = C.Forest,
+  pposition = C.MF,
   pteam = "Occult",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -313,7 +313,7 @@ local Mummy = {
       end
     end
   end,
-}
+})
 
 return {
   name = "Occult",

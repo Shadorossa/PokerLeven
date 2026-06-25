@@ -15,8 +15,8 @@ local Feldt = J({
     pools = { ["Brain"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "GK", -- Goalkeeper
+    ptype = C.Forest,
+    pposition = C.GK, -- Goalkeeper
     pteam = "Brain",
     techtype = C.UPGRADES.Number,
     numberTechType = C.UPGRADES.NumberType.Z,
@@ -46,7 +46,7 @@ local Feldt = J({
 })
 
 -- Marvel
-local Marvel = {
+local Marvel = J({
     name = "Marvel",
     pos = { x = 3, y = 5 },
     config = { extra = { mult_mod = 10, triggered = false } },
@@ -57,8 +57,8 @@ local Marvel = {
     pools = { ["Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "DF", -- Defense
+    ptype = C.Mountain,
+    pposition = C.DF, -- Defense
     pteam = "Brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -85,10 +85,10 @@ local Marvel = {
             end
         end
     end
-}
+})
 
 -- Tell
-local Tell = {
+local Tell = J({
     name = "Tell",
     pos = { x = 6, y = 5 },
     config = { extra = { Xchips_mod = 3.1416 } },
@@ -99,8 +99,8 @@ local Tell = {
     pools = { ["Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF", -- Midfielder
+    ptype = C.Forest,
+    pposition = C.MF, -- Midfielder
     pteam = "Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -122,10 +122,10 @@ local Tell = {
             end
         end
     end,
-}
+})
 
 -- Seller
-local Seller = {
+local Seller = J({
     name = "Seller",
     pos = { x = 8, y = 5 },
     config = { extra = { sell_potential = 0, sell_mod = 1, triggered = false } },
@@ -136,8 +136,8 @@ local Seller = {
     pools = { ["Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW", -- Forward
+    ptype = C.Wind,
+    pposition = C.FW, -- Forward
     pteam = "Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -171,10 +171,10 @@ local Seller = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
 -- Kind
-local Kind = {
+local Kind = J({
     name = "Kind",
     pos = { x = 9, y = 5 },
     config = { extra = { triggered = false } },
@@ -185,8 +185,8 @@ local Kind = {
     pools = { ["Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF", -- Midfielder
+    ptype = C.Forest,
+    pposition = C.MF, -- Midfielder
     pteam = "Brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -223,10 +223,10 @@ local Kind = {
             end
         end
     end
-}
+})
 
 -- Turner
-local Turner = {
+local Turner = J({
     name = "Turner",
     pos = { x = 10, y = 5 },
     config = { extra = {} },
@@ -237,8 +237,8 @@ local Turner = {
     pools = { ["Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW", -- Forward
+    ptype = C.Fire,
+    pposition = C.FW, -- Forward
     pteam = "Brain",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -269,10 +269,10 @@ local Turner = {
             }
         end
     end
-}
+})
 
 -- Under
-local Under = {
+local Under = J({
     name = "Under",
     pos = { x = 11, y = 5 },
     config = { extra = { chips_mod = 120, triggered = false } },
@@ -285,8 +285,8 @@ local Under = {
     pools = { ["Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "GK", -- Goalkeeper
+    ptype = C.Forest,
+    pposition = C.GK, -- Goalkeeper
     pteam = "Brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -303,7 +303,7 @@ local Under = {
             }
         end
     end
-}
+})
 
 return {
     name = "Brain",

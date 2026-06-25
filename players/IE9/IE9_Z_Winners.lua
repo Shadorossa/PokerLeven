@@ -1,7 +1,7 @@
 -- Versión 1
 
 -- Turiño
-local Turi = {
+local Turi = J({
     name = "Turi",
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
@@ -38,7 +38,7 @@ local Turi = {
             end
         end
     end,
-}
+})
 
 if Pokerleven and Pokerleven.config and Pokerleven.config.winners_jokers == true then
     return {

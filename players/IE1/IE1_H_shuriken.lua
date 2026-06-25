@@ -5,7 +5,7 @@ local hood = J({
         extra = {
             xmult_mod = 0.6,
             triggered = false,
-            pposition = "GK"
+            pposition = C.GK
         }
     },
     loc_vars = function(self, info_queue, center)
@@ -16,7 +16,7 @@ local hood = J({
     pools = { ["Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
+    ptype = C.Forest,
     pteam = "Shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -44,8 +44,8 @@ local hillfort = J({
     pools = { ["Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "DF",
+    ptype = C.Wind,
+    pposition = C.DF,
     pteam = "Shuriken",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -78,8 +78,8 @@ local code = J({
     pools = { ["Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "MF",
+    ptype = C.Mountain,
+    pposition = C.MF,
     pteam = "Shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -108,8 +108,8 @@ local star = J({
     pools = { ["Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
+    ptype = C.Wind,
+    pposition = C.MF,
     pteam = "Shuriken",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -140,8 +140,8 @@ local cleats = J({
     pools = { ["Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
+    ptype = C.Wind,
+    pposition = C.MF,
     pteam = "Shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -172,8 +172,8 @@ local hattori = J({
     pools = { ["Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF",
+    ptype = C.Forest,
+    pposition = C.MF,
     pteam = "Shuriken",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -242,8 +242,8 @@ local cloack = J({
     atlas = "Jokers01",
     rarity = 3,
     cost = 8,
-    ptype = "Fire",
-    pposition = "FW",
+    ptype = C.Fire,
+    pposition = C.FW,
     pteam = "Shuriken",
     pools = { ["Shuriken"] = true },
     blueprint_compat = true,

@@ -1,5 +1,5 @@
 -- King
-local King = {
+local King = J({
   name = "King",
   pos = { x = 6, y = 2 },
   config = { extra = { triggered = false } },
@@ -10,8 +10,8 @@ local King = {
   pools = { ["Royal Academy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "GK",
+  ptype = C.Fire,
+  pposition = C.GK,
   pteam = "Royal Academy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -66,7 +66,7 @@ local King = {
     end
   end
 
-}
+})
 
 -- Bloom
 local Bloom = J({
@@ -84,8 +84,8 @@ local Bloom = J({
   pools = { ["Royal Academy"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "MF",
+  ptype = C.Fire,
+  pposition = C.MF,
   pteam = "Royal Academy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -104,7 +104,7 @@ local Bloom = J({
 })
 
 -- Drent
-local Drent = {
+local Drent = J({
   name = "Drent",
   pos = { x = 7, y = 2 },
   config = { extra = { odds = 5, triggered = false } },
@@ -120,8 +120,8 @@ local Drent = {
   pools = { ["Royal Academy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "DF",
+  ptype = C.Mountain,
+  pposition = C.DF,
   pteam = "Royal Academy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -160,10 +160,10 @@ local Drent = {
       end
     end
   end
-}
+})
 
 -- Jude
-local Jude = {
+local Jude = J({
   name = "Jude",
   pos = { x = 0, y = 0 },
   soul_pos = { x = 0, y = 1 },
@@ -178,9 +178,9 @@ local Jude = {
   pools = { ["Royal Academy"] = true },
   cost = 8,
   atlas = "top",
-  ptype = "Wind",
+  ptype = C.Wind,
   stage = "base",
-  pposition = "MF",
+  pposition = C.MF,
   pteam = "Royal Academy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -218,7 +218,7 @@ local Jude = {
       }
     end
   end,
-}
+})
 
 -- Martin
 local Martin = J({
@@ -235,8 +235,8 @@ local Martin = J({
   pools = { ["Royal Academy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Forest,
+  pposition = C.DF,
   pteam = "Royal Academy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -308,7 +308,7 @@ local Martin = J({
 })
 
 -- Master
-local Master = {
+local Master = J({
   name = "Master",
   pos = { x = 9, y = 2 },
   config = { extra = { mult_mod = 7, triggered = false } },
@@ -319,8 +319,8 @@ local Master = {
   pools = { ["Royal Academy"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Wind",
-  pposition = "MF",
+  ptype = C.Wind,
+  pposition = C.MF,
   pteam = "Royal Academy",
   techtype = C.UPGRADES.Plus,
   blueprint_compat = true,
@@ -343,10 +343,10 @@ local Master = {
       end
     end
   end,
-}
+})
 
 -- Samford
-local Samford = {
+local Samford = J({
   name = "Samford",
   pos = { x = 4, y = 3 },
   config = { extra = { xmult_mod = 3, triggered = false } },
@@ -357,8 +357,8 @@ local Samford = {
   pools = { ["Royal Academy"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "FW",
+  ptype = C.Forest,
+  pposition = C.FW,
   pteam = "Royal Academy",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
@@ -374,10 +374,10 @@ local Samford = {
       end
     end
   end,
-}
+})
 
 -- Swing
-local Swing = {
+local Swing = J({
   name = "Swing",
   pos = { x = 0, y = 3 },
   config = { extra = { chips_mod = 60, triggered = false } },
@@ -388,8 +388,8 @@ local Swing = {
   pools = { ["Royal Academy"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Wind",
-  pposition = "MF",
+  ptype = C.Wind,
+  pposition = C.MF,
   pteam = "Royal Academy",
   blueprint_compat = true,
   techtype = C.UPGRADES.Number,
@@ -404,7 +404,7 @@ local Swing = {
       }
     end
   end,
-}
+})
 
 return {
   name = "Royal Academy",

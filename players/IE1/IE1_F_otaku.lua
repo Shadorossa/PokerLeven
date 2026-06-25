@@ -1,5 +1,5 @@
 -- Otaku
-local Idol = {
+local Idol = J({
     name = "Idol",
     pos = { x = 3, y = 6 },
     config = { extra = { odds2 = 2, retrigger_count = 1, triggered = false } },
@@ -10,8 +10,8 @@ local Idol = {
     pools = { ["Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "GK",
+    ptype = C.Mountain,
+    pposition = C.GK,
     pteam = "Otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -31,9 +31,9 @@ local Idol = {
     ina_credits = {
         idea = { 'LegendaryAd' }
     }
-}
+})
 
-local Hero = {
+local Hero = J({
     name = "Hero",
     pos = { x = 6, y = 6 },
     config = { extra = { triggered = false } },
@@ -44,8 +44,8 @@ local Hero = {
     pools = { ["Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "DF",
+    ptype = C.Fire,
+    pposition = C.DF,
     pteam = "Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -64,10 +64,10 @@ local Hero = {
     ina_credits = {
         idea = { "LegendaryAd" }
     }
-}
+})
 
 -- Custom
-local Custom = {
+local Custom = J({
     name = "Custom",
     pos = { x = 9, y = 6 },
     config = { extra = {} },
@@ -78,16 +78,16 @@ local Custom = {
     pools = { ["Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW",
+    ptype = C.Wind,
+    pposition = C.FW,
     pteam = "Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Robot
-local Robot = {
+local Robot = J({
     name = "Robot",
     pos = { x = 10, y = 6 },
     config = { extra = { retrigger_count = 1, triggered = false } },
@@ -98,8 +98,8 @@ local Robot = {
     pools = { ["Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
+    ptype = C.Wind,
+    pposition = C.MF,
     pteam = "Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -119,9 +119,9 @@ local Robot = {
             end
         end
     end
-}
+})
 
-local Gamer = {
+local Gamer = J({
     name = "Gamer",
     pos = { x = 11, y = 6 },
     config = { extra = { triggered = false } },
@@ -137,8 +137,8 @@ local Gamer = {
     pools = { ["Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW",
+    ptype = C.Fire,
+    pposition = C.FW,
     pteam = "Otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
@@ -158,9 +158,9 @@ local Gamer = {
             }
         end
     end
-}
+})
 
-local Artist = {
+local Artist = J({
     name = "Artist",
     pos = { x = 12, y = 6 },
     config = { extra = {} },
@@ -171,8 +171,8 @@ local Artist = {
     pools = { ["Otaku"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW",
+    ptype = C.Wind,
+    pposition = C.FW,
     pteam = "Otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -201,9 +201,9 @@ local Artist = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
-local Arcade = {
+local Arcade = J({
     name = "Arcade",
     pos = { x = 0, y = 7 },
     config = { extra = { new_lucky = 5, minus_dollars = -2, triggered = false } },
@@ -214,8 +214,8 @@ local Arcade = {
     pools = { ["Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "FW",
+    ptype = C.Forest,
+    pposition = C.FW,
     pteam = "Otaku",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
@@ -238,7 +238,7 @@ local Arcade = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
 -- Vox
 local Vox = J({

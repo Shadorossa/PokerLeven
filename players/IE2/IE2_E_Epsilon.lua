@@ -1,5 +1,5 @@
 -- Dvalin
-local Dvalin = {
+local Dvalin = J({
   name = "Dvalin",
   pos = { x = 4, y = 0 },
   soul_pos = { x = 4, y = 1 },
@@ -18,10 +18,10 @@ local Dvalin = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Kenville
-local Kenville = {
+local Kenville = J({
   name = "Kenville",
   pos = { x = 1, y = 5 },
   config = { extra = {} },
@@ -38,10 +38,10 @@ local Kenville = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Mole
-local Mole = {
+local Mole = J({
   name = "Mole",
   pos = { x = 2, y = 5 },
   config = { extra = {} },
@@ -58,10 +58,10 @@ local Mole = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Kayson
-local Kayson = {
+local Kayson = J({
   name = "Kayson",
   pos = { x = 3, y = 5 },
   config = { extra = {} },
@@ -78,10 +78,10 @@ local Kayson = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Tytan
-local Tytan = {
+local Tytan = J({
   name = "Tytan",
   pos = { x = 4, y = 5 },
   config = { extra = {} },
@@ -98,10 +98,10 @@ local Tytan = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Fedora
-local Fedora = {
+local Fedora = J({
   name = "Fedora",
   pos = { x = 5, y = 5 },
   config = { extra = {} },
@@ -118,10 +118,10 @@ local Fedora = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Krypto
-local Krypto = {
+local Krypto = J({
   name = "Krypto",
   pos = { x = 6, y = 5 },
   config = { extra = {} },
@@ -138,10 +138,10 @@ local Krypto = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Sworm
-local Sworm = {
+local Sworm = J({
   name = "Sworm",
   pos = { x = 7, y = 5 },
   config = { extra = {} },
@@ -158,10 +158,10 @@ local Sworm = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Mercury
-local Mercury = {
+local Mercury = J({
   name = "Mercury",
   pos = { x = 8, y = 5 },
   config = { extra = {} },
@@ -178,10 +178,10 @@ local Mercury = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Metron
-local Metron = {
+local Metron = J({
   name = "Metron",
   pos = { x = 9, y = 5 },
   config = { extra = {} },
@@ -198,10 +198,10 @@ local Metron = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Zell
-local Zell = {
+local Zell = J({
   name = "Zell",
   pos = { x = 10, y = 5 },
   config = { extra = {} },
@@ -218,7 +218,7 @@ local Zell = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 return {
   name = "Epsilon",

@@ -14,8 +14,8 @@ local Kevin = J({
   pools = { ["Raimon"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "FW",
+  ptype = C.Forest,
+  pposition = C.FW,
   pteam = "Raimon",
   techtype = C.UPGRADES.Plus,
   calculate = function(self, card, context)
@@ -54,8 +54,8 @@ local Mark = J({
   rarity = 4,
   cost = 15,
   atlas = "legendary01",
-  ptype = "Mountain",
-  pposition = "GK",
+  ptype = C.Mountain,
+  pposition = C.GK,
   techtype = C.UPGRADES.Plus,
   pteam = "Raimon",
   discovered = true,
@@ -115,7 +115,7 @@ local Nathan = J({
 })
 
 -- Jack
-local Jack = {
+local Jack = J({
   name = "Jack",
   pos = { x = 2, y = 0 },
   config = { extra = { chips_mod = 10, triggered = false } },
@@ -148,7 +148,7 @@ local Jack = {
       }
     end
   end,
-}
+})
 
 -- Axel Blaze
 local Axel = J({
@@ -183,7 +183,7 @@ local Axel = J({
 })
 
 -- Shadow
-local Shadow = {
+local Shadow = J({
   name = "Shadow",
   pos = { x = 2, y = 1 },
   config = { extra = { clone = false } },
@@ -219,10 +219,10 @@ local Shadow = {
       G.jokers:emplace(_card)
     end
   end,
-}
+})
 
 -- Willy
-local Willy = {
+local Willy = J({
   name = "Willy",
   pos = { x = 12, y = 0 },
   config = { extra = { odds = 30 } },
@@ -247,10 +247,10 @@ local Willy = {
       }
     end
   end,
-}
+})
 
 -- Max
-local Max = {
+local Max = J({
   name = "Max",
   pos = { x = 9, y = 0 },
   config = { extra = { chip_mod = 20, triggered = false } },
@@ -280,10 +280,10 @@ local Max = {
       end
     end
   end,
-}
+})
 
 -- Peabody
-local Peabody = {
+local Peabody = J({
   name = "Peabody",
   pos = { x = 8, y = 0 },
   config = { extra = { current_mult = 0, mult_mod_low = 1, triggered = false } },
@@ -322,7 +322,7 @@ local Peabody = {
       end
     end
   end
-}
+})
 
 -- Jude
 local Jude_Raimon = J({
